@@ -4,7 +4,7 @@
 @import '../../../scss/utils/mixins';
 
 .aboutHero {
-//   border: 1px solid red;
+  //   border: 1px solid red;
   @include flex_column;
   gap: fn.rem(32);
   margin-top: fn.rem(100);

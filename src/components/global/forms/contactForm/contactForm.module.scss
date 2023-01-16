@@ -6,7 +6,7 @@
 .form {
   //   border: 1px solid red;
   max-width: fn.rem(480);
-//   height: fn.rem(553);
+  //   height: fn.rem(553);
   @include flex_column;
   gap: fn.rem(24);
   padding: fn.rem(24);
