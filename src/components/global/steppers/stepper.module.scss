@@ -1,0 +1,78 @@
+@use '../../../scss/global/colors' as colors;
+@use '../../../scss/utils/functions' as fn;
+@import '../../../scss/utils/breakpoints';
+@import '../../../scss/utils/mixins';
+
+.stepper {
+  .step {
+    // padding: fn.rem(10);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-block: fn.rem(32);
+  }
+
+  .vStepper {
+    position: relative;
+  }
+
+  /* regular step */
+  .step .circle {
+    background-color: colors.$light;
+    border: fn.rem(12) solid;
+    border-radius: 100%;
+    width: fn.rem(40); /* +6 for border */
+    height: fn.rem(40);
+  }
+
+  .step .line {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 100%;
+  }
+
+  .step.completed .circle {
+    visibility: visible;
+    background-color: colors.$light;
+    border-color: colors.$deep-blue;
+
+    &:nth-child(2) {
+      border-color: colors.$gold;
+    }
+  }
+
+  .step.completed .line {
+    border-left: fn.rem(3) solid colors.$gold;
+  }
+
+  .step:last-child .line {
+    border-left: fn.rem(3) solid colors.$light;
+    z-index: -1; /* behind the circle to completely hide */
+  }
+
+  .content {
+    width: 100%;
+    margin-left: fn.rem(40);
+    .title {
+      font-weight: 800;
+    }
+  }
+
+  .contentFlex {
+    @include flex_column;
+    @include breakpoint-up('lg') {
+      @include flex;
+    }
+    // .title,
+    // .text {
+    //   flex: 1;
+    // }
+    .title {
+      flex: 1;
+    }
+    .text {
+      flex: 2;
+    }
+  }
+}

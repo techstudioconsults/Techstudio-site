@@ -1,0 +1,44 @@
+@use '../../../scss/global/colors' as colors;
+@use '../../../scss/utils/functions' as fn;
+@import '../../../scss/utils/breakpoints';
+@import '../../../scss/utils/mixins';
+
+.introHeader {
+  .introHeaderWapper {
+    @include flex_column;
+    gap: fn.rem(57);
+
+    .text {
+      .title {
+        font-weight: 800;
+        color: colors.$deep-blue;
+        margin-bottom: fn.rem(19);
+      }
+    }
+
+    .btnGroup {
+      @include flex;
+      @include flex_align;
+      flex-wrap: wrap;
+      gap: fn.rem(25);
+
+      .courseBtn {
+        padding-block: fn.rem(12);
+        padding-inline: fn.rem(27);
+        border-radius: fn.rem(6);
+        font-size: fn.rem(14);
+        transition: all 0.5s ease;
+
+        &:hover {
+          background-color: colors.$deep-blue;
+          color: colors.$light;
+        }
+        &:focus,
+        &:active {
+          background-color: colors.$deep-blue;
+          color: colors.$light;
+        }
+      }
+    }
+  }
+}

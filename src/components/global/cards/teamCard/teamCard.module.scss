@@ -1,0 +1,26 @@
+@use '../../../../scss/global/colors' as colors;
+@use '../../../../scss/utils/functions' as fn;
+@import '../../../../scss/utils/breakpoints';
+@import '../../../../scss/utils/mixins';
+
+.teamCard {
+  .teamCardImgContainer {
+    height: fn.rem(250);
+    border-radius: fn.rem(8);
+    overflow: hidden;
+  }
+
+  .teamCardText {
+    text-align: center;
+    .name {
+      margin-bottom: 0;
+      margin-top: fn.rem(16);
+      font-size: fn.rem(20);
+      font-weight: 700;
+    }
+
+    .job {
+      color: colors.$gray;
+    }
+  }
+}

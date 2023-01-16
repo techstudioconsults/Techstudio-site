@@ -1,0 +1,38 @@
+@use '../../../../scss/global/colors' as colors;
+@use '../../../../scss/utils/functions' as fn;
+@import '../../../../scss/utils/breakpoints';
+@import '../../../../scss/utils/mixins';
+
+.form {
+  //   border: 1px solid red;
+  max-width: fn.rem(480);
+//   height: fn.rem(553);
+  @include flex_column;
+  gap: fn.rem(24);
+  padding: fn.rem(24);
+  @include breakpoint-up('lg') {
+    padding: fn.rem(48);
+  }
+
+  .select {
+    option {
+      font-size: fn.rem(14);
+    }
+  }
+
+  .textArea {
+    textarea {
+      height: fn.rem(100);
+    }
+  }
+
+  .btnContainer {
+    button {
+      width: 100%;
+      background-color: colors.$blue;
+      color: colors.$light;
+      border-radius: fn.rem(8);
+      font-size: fn.rem(14);
+    }
+  }
+}

@@ -1,0 +1,47 @@
+@use '../../../scss/global/colors' as colors;
+@use '../../../scss/utils/functions' as fn;
+@import '../../../scss/utils/breakpoints';
+@import '../../../scss/utils/mixins';
+
+.sectionTwo {
+  margin-block: fn.rem(64);
+  @include breakpoint-up('xl') {
+    background: url(../../../assets//images//home-sec1.webp) no-repeat left
+      bottom;
+  }
+
+  .title {
+    text-align: center;
+    font-weight: 800;
+    @include breakpoint-up('xl') {
+      text-align: initial;
+    }
+  }
+
+  .body {
+    @include flex;
+    @include flex_justify;
+    // backdrop-filter: blur(fn.rem(20));
+
+    .sectionTwoImg {
+      display: none;
+      @include breakpoint-up('xl') {
+        width: 40%;
+        display: block;
+        visibility: hidden;
+      }
+    }
+
+    .cardGroup {
+      display: grid;
+      grid-gap: fn.rem(32);
+      @include breakpoint-up('lg') {
+        width: 60%;
+        grid-template-columns: repeat(2, 1fr);
+        :nth-child(3) {
+          grid-column: span 2 / auto;
+        }
+      }
+    }
+  }
+}

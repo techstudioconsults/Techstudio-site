@@ -1,0 +1,30 @@
+@use '../../../scss/global/colors' as colors;
+@use '../../../scss/utils/functions' as fn;
+@import '../../../scss/utils/breakpoints';
+@import '../../../scss/utils/mixins';
+
+.aboutSectionThree {
+  .header {
+    text-align: center;
+
+    .title {
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .subTitle {
+      text-align-last: center;
+      max-width: fn.rem(500);
+      margin: auto;
+    }
+  }
+  .cardGroup {
+    display: grid;
+    grid-gap: fn.rem(50);
+    margin-block: fn.rem(60);
+    grid-template-columns: repeat(1, 1fr);
+    @include breakpoint-up('lg') {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

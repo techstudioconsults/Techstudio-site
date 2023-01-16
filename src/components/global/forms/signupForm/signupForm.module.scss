@@ -1,0 +1,69 @@
+@use '../../../../scss/global/colors' as colors;
+@use '../../../../scss/utils/functions' as fn;
+@import '../../../../scss/utils/breakpoints';
+@import '../../../../scss/utils/mixins';
+
+.form {
+  @include flex_column;
+  gap: fn.rem(24);
+
+  input {
+    border: 1px solid lightgray;
+    border-radius: fn.rem(2);
+
+    &::placeholder {
+      color: lightgray;
+    }
+  }
+
+  label {
+    color: colors.$dark-gray;
+    font-weight: 600;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: fn.rem(28);
+
+    @include breakpoint-up('lg') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .secondRow {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: fn.rem(28);
+  }
+
+  .forgotpassword {
+    color: colors.$blue;
+    font-size: fn.rem(14);
+    font-weight: 700;
+  }
+
+  .btnContainer {
+    button {
+      width: 100%;
+      background-color: colors.$blue;
+      color: colors.$light;
+      border-radius: fn.rem(4);
+      font-size: fn.rem(14);
+    }
+  }
+
+  .caption {
+    .footerLink {
+      font-size: fn.rem(14);
+      font-weight: 600;
+      text-align: center;
+      .signupLink {
+        @include breakpoint-up('lg') {
+          display: inline;
+        }
+        color: colors.$blue;
+      }
+    }
+  }
+}

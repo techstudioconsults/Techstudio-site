@@ -1,0 +1,45 @@
+@use '../../../../../scss/global/colors' as colors;
+@use '../../../../../scss/utils/functions' as fn;
+@import '../../../../../scss/utils/breakpoints';
+@import '../../../../../scss/utils/mixins';
+
+.singleBlogCard {
+  max-width: fn.rem(372);
+  .imgContainer {
+    max-width: fn.rem(372);
+    height: fn.rem(240);
+  }
+
+  .singleBlogText {
+    margin-block: fn.rem(10);
+
+    .caption {
+      color: colors.$gray;
+      font-weight: 500;
+    }
+
+    .title {
+      margin-block: fn.rem(12);
+      font-size: fn.rem(18);
+      font-weight: 700;
+      color: colors.$deep-blue;
+    }
+
+    .desc {
+      font-size: fn.rem(14);
+    }
+
+    .blogCardBtn {
+      margin-top: fn.rem(16);
+
+      .readMoreBtn {
+        width: fn.rem(156);
+        height: fn.rem(40);
+        border: 2px solid colors.$border-blue;
+        background-color: transparent;
+        color: colors.$border-blue;
+        font-weight: 600;
+      }
+    }
+  }
+}

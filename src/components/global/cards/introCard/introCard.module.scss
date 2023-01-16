@@ -1,0 +1,70 @@
+@use '../../../../scss/global/colors' as colors;
+@use '../../../../scss/utils/functions' as fn;
+@import '../../../../scss/utils/breakpoints';
+@import '../../../../scss/utils/mixins';
+
+.introCard {
+  max-width: fn.rem(1021);
+  background-color: colors.$base-bg;
+  padding: fn.rem(16);
+  border-radius: fn.rem(8);
+  gap: fn.rem(50);
+
+  @include flex_column;
+  @include breakpoint-up('lg') {
+    @include flex;
+    @include flex_align;
+    padding: fn.rem(35);
+  }
+
+  .imgContainer {
+    min-width: fn.rem(290);
+    img {
+      object-fit: contain;
+    }
+  }
+
+  .introCardText {
+    .title {
+      margin-bottom: fn.rem(19);
+      font-weight: 700;
+    }
+    .desc {
+      font-size: fn.rem(14);
+    }
+    .timeDate {
+      @include flex;
+      @include flex_align;
+      font-size: fn.rem(14);
+      gap: fn.rem(32);
+      margin-block: fn.rem(35);
+      font-weight: 700;
+
+      .icon {
+        margin-inline-end: fn.rem(8);
+        img {
+          //   border: 1px solid red;
+          width: fn.rem(20);
+          height: fn.rem(20);
+        }
+      }
+    }
+    .priceButton {
+      @include flex;
+      @include flex_align;
+      justify-content: space-between;
+      gap: fn.rem(32);
+
+      .price {
+        font-weight: 700;
+      }
+
+      .enrollBtn {
+        width: fn.rem(160);
+        background-color: colors.$blue;
+        color: colors.$light;
+        border-radius: fn.rem(8);
+      }
+    }
+  }
+}

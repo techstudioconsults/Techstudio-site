@@ -1,0 +1,10 @@
+// Export all Pages
+export { default as HomePage } from './Home'
+export { default as AboutUs } from './AboutUs'
+export { default as ContactUs } from './ContactUs'
+export { default as Blog } from './Blog'
+export { default as SingleBlogPage } from './Blog/SingleBlogPage'
+export { default as Development } from './Development'
+export { default as Intro } from './Intro'
+export { default as Signup } from './Auth/Signup'
+export { default as SignIn } from './Auth/SignIn'

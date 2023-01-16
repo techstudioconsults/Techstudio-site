@@ -1,0 +1,47 @@
+@use '../../../scss/global/colors' as colors;
+@use '../../../scss/utils/functions' as fn;
+@import '../../../scss/utils/breakpoints';
+@import '../../../scss/utils/mixins';
+
+.sectionFour {
+  .sectionFourWrapper {
+    @include breakpoint-up('lg') {
+      @include flex;
+      @include flex_align;
+    }
+    .sectionFourImg {
+      flex: 1;
+      display: none;
+      @include breakpoint-up('lg') {
+        display: block;
+      }
+    }
+
+    .sectionFourTextGroup {
+      flex: 1;
+      .sectionFourText {
+        margin-bottom: fn.rem(32);
+        @include breakpoint-up('lg') {
+          margin-right: fn.rem(100);
+        }
+        .caption {
+          color: colors.$blue;
+          font-weight: 600;
+          font-size: fn.rem(14);
+        }
+        .title {
+          font-weight: 800;
+          margin: fn.rem(16) 0 fn.rem(24);
+        }
+
+        .subTitle {
+          margin-bottom: fn.rem(52);
+        }
+      }
+    }
+
+    .btnContainer {
+      @include flex;
+    }
+  }
+}

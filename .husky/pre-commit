@@ -1,0 +1,8 @@
+#!/bin/sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# npm test
+yarn test:noWatch
+yarn format
+yarn format:check
+yarn lint

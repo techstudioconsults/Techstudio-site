@@ -1,0 +1,72 @@
+@use '../../../scss/global/colors' as colors;
+@use '../../../scss/utils/functions' as fn;
+@import '../../../scss/utils/breakpoints';
+
+.btn {
+  cursor: pointer;
+  padding-block: fn.rem(11);
+  padding-inline: fn.rem(24);
+  border-radius: fn.rem(8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 300ms ease-in;
+  height: fn.rem(48);
+}
+
+.solidBtn {
+  background-color: colors.$blue;
+  color: colors.$light;
+  border: 1px solid colors.$blue;
+  transition: all 300ms ease-in;
+
+  &:hover {
+    background-color: colors.$base-bg;
+    color: colors.$blue;
+  }
+}
+
+.lightBtn {
+  background-color: transparent;
+  color: colors.$light;
+  border: 1px solid colors.$light;
+  transition: all 300ms ease-in;
+
+  &:hover {
+    background-color: colors.$blue;
+    color: colors.$base-bg;
+  }
+}
+
+.navBtn {
+  font-size: fn.rem(14);
+  line-height: 160%;
+  padding-block: fn.rem(10);
+  transition: all 300ms ease-in;
+
+  &.solidBtn {
+    padding-inline: fn.rem(25.5);
+  }
+
+  &.lightBtn {
+    padding-inline: fn.rem(28.5);
+  }
+
+  &.transparentBtn {
+    background: transparent;
+  }
+}
+
+.fullWidth {
+  // SCREENS 765px and LOWER
+  @include breakpoint-down(sm) {
+    width: 100%;
+  }
+}
+
+.hoverState {
+  background-color: colors.$base-bg;
+  color: colors.$blue;
+  border: 1px solid colors.$base-bg;
+  transition: all 300ms ease-in;
+}

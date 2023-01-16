@@ -1,0 +1,18 @@
+@use '../../../scss/global/colors' as colors;
+@use '../../../scss/utils/functions' as fn;
+@import '../../../scss/utils/breakpoints';
+@import '../../../scss/utils/mixins';
+
+.aboutSectionThreeCard {
+  text-align: center;
+  @include breakpoint-up('lg') {
+    text-align: initial;
+  }
+  .iconWrapper {
+    margin-block-end: fn.rem(16);
+
+    .title {
+      font-weight: 800;
+    }
+  }
+}

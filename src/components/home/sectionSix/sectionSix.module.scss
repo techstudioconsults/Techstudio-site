@@ -1,0 +1,16 @@
+@use '../../../scss/global/colors' as colors;
+@use '../../../scss/utils/functions' as fn;
+@import '../../../scss/utils/breakpoints';
+@import '../../../scss/utils/mixins';
+
+.sectionSix {
+  background-color: colors.$deep-blue;
+  margin: fn.rem(116) 0 fn.rem(144);
+  @include breakpoint-up('xl') {
+    background-color: transparent;
+  }
+
+  .btnContainer {
+    @include flex;
+  }
+}

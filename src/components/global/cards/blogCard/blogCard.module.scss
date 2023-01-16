@@ -1,0 +1,46 @@
+@use '../../../../scss/global/colors' as colors;
+@use '../../../../scss/utils/functions' as fn;
+@import '../../../../scss/utils/breakpoints';
+@import '../../../../scss/utils/mixins';
+
+.blogCard {
+  @include flex_column;
+  gap: fn.rem(30);
+  @include breakpoint-up('lg') {
+    @include flex;
+    @include flex_align;
+    gap: fn.rem(130);
+  }
+
+  .imgContainer {
+    min-width: fn.rem(335);
+    height: fn.rem(280);
+    border-radius: fn.rem(8);
+    overflow: hidden;
+  }
+
+  .blogText {
+    @include breakpoint-up('lg') {
+      padding-inline-end: fn.rem(130);
+    }
+
+    .title {
+      font-size: fn.rem(28);
+      margin: fn.rem(8) 0 fn.rem(28);
+    }
+
+    .desc {
+      span {
+        color: colors.$blue;
+        font-weight: 600;
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+
+.isCarousel {
+  @include breakpoint-up('lg') {
+    flex-direction: row-reverse;
+  }
+}

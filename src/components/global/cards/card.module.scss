@@ -1,0 +1,32 @@
+@use '../../../scss/global/colors' as colors;
+@use '../../../scss/utils/functions' as fn;
+@import '../../../scss/utils/breakpoints';
+@import '../../../scss/utils/mixins';
+
+.sectionTwoCard {
+  //   border: 1px solid red;
+  @include flex_column;
+  @include flex_align;
+  text-align: center;
+  max-width: fn.rem(600);
+  margin: 0 auto;
+
+  @include breakpoint-up('lg') {
+    align-items: flex-start;
+    text-align: initial;
+  }
+
+  .cardText {
+    padding-inline: fn.rem(32);
+    @include breakpoint-up('lg') {
+      padding-inline: 0;
+    }
+    h3 {
+      font-size: fn.rem(18);
+      margin-block: fn.rem(16);
+    }
+    p {
+      font-size: fn.rem(14);
+    }
+  }
+}

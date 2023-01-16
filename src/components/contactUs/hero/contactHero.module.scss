@@ -1,0 +1,16 @@
+@use '../../../scss/global/colors' as colors;
+@use '../../../scss/utils/functions' as fn;
+@import '../../../scss/utils/breakpoints';
+@import '../../../scss/utils/mixins';
+
+.contactHero {
+  color: colors.$light;
+  background: url(../../../assets/images/blogHeroBg.webp) no-repeat center;
+  background-size: cover;
+//   height: fn.rem(316);
+
+  .heroWrapper {
+    text-align: center;
+    padding-block: fn.rem(150);
+  }
+}

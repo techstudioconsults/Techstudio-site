@@ -1,0 +1,16 @@
+@use '../../scss/global/colors' as colors;
+@use '../../scss/utils/functions' as fn;
+@import '../../scss/utils/breakpoints';
+@import '../../scss/utils/mixins';
+
+.xContainer {
+  width: 100%;
+  padding-inline: fn.rem(12);
+
+  // SCREENS 1400px and LARGER
+  @media only screen and (min-width: 1240px) {
+    width: 100%;
+    max-width: fn.rem(1248);
+    margin: auto;
+  }
+}
