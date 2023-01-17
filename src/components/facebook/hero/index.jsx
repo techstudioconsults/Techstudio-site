@@ -1,24 +1,16 @@
 import React from 'react'
-import { Container } from '../../../layout'
 import Button from '../../global/Button'
 
 import style from './hero.module.scss'
-import frontendImg from '../../../assets/images/frontend.webp'
 
-const index = () => {
+const index = ({ content }) => {
   return (
     <header className={style.hero}>
-      {/* <Container paddingBlock={0}> */}
       <section className={`${style.heroWrapper} container`}>
         <div className={style.heroText}>
-          <h1>Frontend Web Development Live Class</h1>
-          <p>
-            Let’s help you become a professional frontend web developer. You’ll
-            learn all you need to know to become a Frontend Developer and build
-            interesting portfolios while learning the fundmentals of HTML, CSS,
-            JavaScript and React.
-          </p>
-          <div>
+          <h1>{content.title}</h1>
+          <p>{content.subTitle}</p>
+          <div className={style.btn}>
             <Button
               linkText='Enroll Now'
               linkHref='/'
@@ -29,10 +21,9 @@ const index = () => {
           </div>
         </div>
         <div className={style.heroImg}>
-          <img src={frontendImg} alt='hero-img' />
+          <img src={content.img} alt='hero-img' />
         </div>
       </section>
-      {/* </Container> */}
     </header>
   )
 }
