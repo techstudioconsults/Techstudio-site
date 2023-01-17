@@ -5,11 +5,12 @@ import ReactDOM from 'react-dom/client'
 // STYLES
 import './index.scss'
 // COMPONENTS
-import App from './App'
+// import App from './App'
 import 'bootstrap/dist/js/bootstrap.bundle.min'
 import { AppProvider } from './contexts/AppProvider'
 import ScrollToTop from './components/global/scroll-to-top/ScrollToTop'
 import { BrowserRouter } from 'react-router-dom'
+import AppSocial from './AppSocial'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
@@ -17,7 +18,8 @@ root.render(
     <BrowserRouter>
       <AppProvider>
         <ScrollToTop />
-        <App />
+        {/* <App /> */}
+        <AppSocial />
       </AppProvider>
     </BrowserRouter>
   </React.StrictMode>

@@ -51,3 +51,6 @@ export { default as CourseSectionFour } from './course/sectionFour/CourseSection
 // intro
 export { default as IntroHeader } from './intro/introHeader/IntroHeader'
 export { default as IntroBody } from './intro/introBody/IntroBody'
+
+//Facebook Live
+export { default as FacebookHero } from './facebook/hero'

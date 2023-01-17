@@ -1,0 +1,67 @@
+@use '../../../scss/global/colors' as colors;
+@use '../../../scss/utils/functions' as fn;
+@import '../../../scss/utils/breakpoints';
+@import '../../../scss/utils/mixins';
+
+.hero {
+  @include flex_justify;
+  color: colors.$light;
+  align-items: flex-start;
+  background: url('../../../assets/images/facebookHero.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+
+  @include breakpoint-up('md') {
+    padding-top: fn.rem(84);
+    min-height: unset;
+    height: fn.rem(631);
+  }
+
+  .heroWrapper {
+    @include flex_column;
+    @include flex_centered;
+
+    justify-content: center;
+    align-items: center;
+    gap: fn.rem(30);
+
+    @include breakpoint-up('md') {
+      @include flex;
+      @include flex_align;
+
+      padding: 0;
+      gap: unset;
+      justify-content: space-between;
+    }
+
+    .heroText {
+      flex: 1;
+      p {
+        margin-bottom: fn.rem(10);
+      }
+
+      @include breakpoint-up('md') {
+        max-width: fn.rem(530);
+      }
+    }
+
+    .heroImg {
+      flex: 1;
+      width: 90%;
+      height: fn.rem(341);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      @include breakpoint-up('md') {
+        padding: 0;
+        max-width: fn.rem(530);
+        height: fn.rem(341);
+      }
+    }
+  }
+}
