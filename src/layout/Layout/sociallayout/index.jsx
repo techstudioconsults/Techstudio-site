@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types'
 
 //components
 import SocialNav from '../../SocialNav'
-import Footer from '../../Footer'
+import SocialFooter from '../../SocialFooter'
 
 //styles
 import styles from './socialLayout.module.scss'
@@ -14,7 +14,7 @@ const SocialLayout = ({ children }) => {
     <main className={styles.main}>
       <SocialNav />
       {children}
-      <Footer />
+      <SocialFooter />
     </main>
   )
 }
