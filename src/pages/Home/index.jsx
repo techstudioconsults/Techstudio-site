@@ -7,7 +7,7 @@ import {
   SectionThree,
   SectionTwo,
 } from '../../components'
-import { ExternalLayout } from '../../layout'
+import { ExternalLayout, Navbar } from '../../layout'
 import { HOME_CONTENT } from './content'
 
 const Home = () => {
@@ -21,6 +21,7 @@ const Home = () => {
   } = HOME_CONTENT
   return (
     <ExternalLayout>
+      <Navbar bg={`transparent`} keepColor />
       <Hero content={hero} />
       <SectionTwo content={sectionTwo} />
       <SectionThree content={sectionThree} />

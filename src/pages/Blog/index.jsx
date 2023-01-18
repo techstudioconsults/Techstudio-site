@@ -5,7 +5,7 @@ import {
   BlogSectionTwo,
   SectionThree,
 } from '../../components'
-import { ExternalLayout } from '../../layout'
+import { ExternalLayout, Navbar } from '../../layout'
 
 import { HOME_CONTENT } from '../Home/content'
 import { BLOG_CONTENT } from './content'
@@ -15,6 +15,7 @@ const Home = () => {
   const { hero, sectionThree_blog } = BLOG_CONTENT
   return (
     <ExternalLayout>
+      <Navbar bg={`transparent`} keepColor />
       <BlogHero content={hero} />
       <BlogSectionTwo />
       <BlogSectionThree content={sectionThree_blog} />

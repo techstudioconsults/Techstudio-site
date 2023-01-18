@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import styles from './Button.module.scss'
 
 const Button = ({
+  textColor,
   linkHref,
   solidBtn,
   textBtn,
@@ -26,7 +27,11 @@ const Button = ({
       ${full ? styles.fullWidth : ''} ${
         transparentBtn ? styles.transparentBtn : ''
       } ${btnRef ? styles.hoverState : ''}`}
-      style={{ minWidth: `${width}rem`, paddingInline: `${paddingInline}rem` }}
+      style={{
+        minWidth: `${width}rem`,
+        paddingInline: `${paddingInline}rem`,
+        color: textColor,
+      }}
     >
       {linkText}
     </Link>
@@ -44,6 +49,7 @@ Button.propTypes = {
   linkText: PropTypes.string.isRequired,
   textBtn: PropTypes.bool,
   btnRef: PropTypes.bool,
+  textColor: PropTypes.string,
 }
 
 export default Button
