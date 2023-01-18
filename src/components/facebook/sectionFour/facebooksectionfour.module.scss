@@ -7,8 +7,6 @@
   background-color: colors.$deep-blue;
   margin: fn.rem(116) 0 fn.rem(144);
 
-  border: 1px solid red;
-
   @include breakpoint-up('xl') {
     background-color: transparent;
   }

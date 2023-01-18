@@ -12,7 +12,7 @@ export const FACEBOOK_CONTENT = {
   heroSection: {
     title: 'Frontend Web Development Live Class',
     subTitle:
-      'Let’s help you become a professional frontend web developer. You’ll learn all you need to know to become a Frontend Developer and build interesting portfolios while learning the fundmentals of HTML, CSS, JavaScript and React.',
+      'You’ll learn all you need to know to become a Frontend Developer and build interesting projects while learning the fundamentals of Web Development.',
     img: facebookImg,
   },
   sectionTwo: {
