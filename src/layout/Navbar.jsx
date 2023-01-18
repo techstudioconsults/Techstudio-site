@@ -71,9 +71,10 @@ const Navbar = ({ bg, keepColor, setTextColorBlack }) => {
         >
           <div className='navbar-nav align-items-center text-center gap-8 fs-sm'>
             <Link
-              className={['nav-link', color ? `text-black` : `text-white`].join(
-                ' '
-              )}
+              className={[
+                'nav-link fw-semibold',
+                color ? `text-black` : `text-white`,
+              ].join(' ')}
               aria-current='page'
               to='/about-us'
             >
@@ -82,19 +83,19 @@ const Navbar = ({ bg, keepColor, setTextColorBlack }) => {
             <div className='dropdown'>
               <div
                 className={[
-                  'dropdown-toggle btn fs-sm  border-0',
+                  'dropdown-toggle btn fs-sm fw-semibold border-0',
                   color ? `text-black` : `text-white`,
                 ].join(' ')}
                 data-bs-toggle='dropdown'
                 aria-expanded='false'
               >
                 Courses
-                <FaChevronDown className='ms-2 fs-sm' />
+                <FaChevronDown className='ms-2 fs-sm fw-semibold' />
               </div>
-              <ul className='dropdown-menu mt-5'>
+              <ul className='dropdown-menu mt-8'>
                 <li className='my-2'>
                   <Link
-                    className='dropdown-item fs-sm py-2'
+                    className='dropdown-item fs-sm fw-semibold py-2'
                     to='/course/frontend'
                   >
                     Frontend
@@ -102,7 +103,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack }) => {
                 </li>
                 <li className='my-2'>
                   <Link
-                    className='dropdown-item fs-sm py-2'
+                    className='dropdown-item fs-sm fw-semibold py-2'
                     to='/course/data-science'
                   >
                     Data Science
@@ -110,7 +111,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack }) => {
                 </li>
                 <li className='my-2'>
                   <Link
-                    className='dropdown-item fs-sm py-2'
+                    className='dropdown-item fs-sm fw-semibold py-2'
                     to='/course/fullstack'
                   >
                     Fullstack
@@ -118,31 +119,36 @@ const Navbar = ({ bg, keepColor, setTextColorBlack }) => {
                 </li>
                 <li className='my-2'>
                   <Link
-                    className='dropdown-item fs-sm py-2'
+                    className='dropdown-item fs-sm fw-semibold py-2'
                     to='/course/mobile'
                   >
                     Mobile Development
                   </Link>
                 </li>
                 <li className='my-2'>
-                  <Link className='dropdown-item' to='/course/uiux'>
+                  <Link
+                    className='dropdown-item fs-sm fw-semibold py-2'
+                    to='/course/uiux'
+                  >
                     UI/UX
                   </Link>
                 </li>
               </ul>
             </div>
             <Link
-              className={['nav-link', color ? `text-black` : `text-white`].join(
-                ' '
-              )}
+              className={[
+                'nav-link fw-semibold',
+                color ? `text-black` : `text-white`,
+              ].join(' ')}
               to='/employers'
             >
               Employers
             </Link>
             <Link
-              className={['nav-link', color ? `text-black` : `text-white`].join(
-                ' '
-              )}
+              className={[
+                'nav-link fw-semibold',
+                color ? `text-black` : `text-white`,
+              ].join(' ')}
               to='/contact'
             >
               Contact Us

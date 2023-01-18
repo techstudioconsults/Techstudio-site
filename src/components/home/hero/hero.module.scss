@@ -30,6 +30,12 @@
     .heroText {
       flex: 1;
 
+      .title {
+        @include breakpoint-up('2xl') {
+          font-size: fn.rem(48);
+        }
+      }
+
       .btnGroup {
         @include flex_column;
         @include flex_align;

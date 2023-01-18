@@ -15,7 +15,7 @@ const index = () => {
               Techstudio Wins 2021 Africa Innovation Challenge
             </h2>
             <div className={style.subText}>
-              <p>blog</p>
+              <p>BLOG</p>
               <p>3MIN READ</p>
             </div>
           </div>

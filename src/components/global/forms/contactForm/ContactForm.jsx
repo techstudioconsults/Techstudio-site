@@ -5,7 +5,7 @@ const ContactForm = () => {
   return (
     <form className={[style.form, `cc-shadow`].join(' ')}>
       <div>
-        <label htmlFor='fullName' className='form-label'>
+        <label htmlFor='fullName' className='form-label fw-semibold'>
           Full Name
         </label>
         <input
@@ -17,7 +17,7 @@ const ContactForm = () => {
         />
       </div>
       <div>
-        <label htmlFor='email' className='form-label'>
+        <label htmlFor='email' className='form-label fw-semibold'>
           Email Address
         </label>
         <input
@@ -29,7 +29,7 @@ const ContactForm = () => {
         />
       </div>
       <div>
-        <label htmlFor='subject' className='form-label'>
+        <label htmlFor='subject' className='form-label fw-semibold'>
           Subject
         </label>
         <select
@@ -40,7 +40,10 @@ const ContactForm = () => {
         </select>
       </div>
       <div className={style.textArea}>
-        <label htmlFor='exampleFormControlTextarea1' className='form-label'>
+        <label
+          htmlFor='exampleFormControlTextarea1'
+          className='form-label fw-semibold'
+        >
           Message or Questions
         </label>
         <textarea
