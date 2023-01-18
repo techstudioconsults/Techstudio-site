@@ -5,7 +5,6 @@
 
 .stepper {
   .step {
-    // padding: fn.rem(10);
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -18,11 +17,25 @@
 
   /* regular step */
   .step .circle {
-    background-color: colors.$light;
-    border: fn.rem(12) solid;
+    background-color: colors.$light-blue-border;
     border-radius: 100%;
-    width: fn.rem(40); /* +6 for border */
-    height: fn.rem(40);
+    width: fn.rem(38); /* +6 for border */
+    height: fn.rem(38);
+  }
+
+  .circle {
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: colors.$blue;
+      width: fn.rem(26);
+      height: fn.rem(26);
+      border-radius: 100%;
+    }
   }
 
   .step .line {
@@ -30,25 +43,28 @@
     left: 50%;
     transform: translate(-50%, 0);
     height: 100%;
-  }
-
-  .step.completed .circle {
-    visibility: visible;
-    background-color: colors.$light;
-    border-color: colors.$deep-blue;
-
-    &:nth-child(2) {
-      border-color: colors.$gold;
-    }
-  }
-
-  .step.completed .line {
-    border-left: fn.rem(3) solid colors.$gold;
+    border-left: fn.rem(1) solid colors.$gold;
   }
 
   .step:last-child .line {
-    border-left: fn.rem(3) solid colors.$light;
+    border-left: fn.rem(1) solid colors.$light;
     z-index: -1; /* behind the circle to completely hide */
+  }
+
+  .step.completed .circle {
+    position: relative;
+    background-color: colors.$gold-border;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: colors.$gold;
+      width: fn.rem(26);
+      height: fn.rem(26);
+      border-radius: 100%;
+    }
   }
 
   .content {

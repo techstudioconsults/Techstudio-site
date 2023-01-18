@@ -9,10 +9,12 @@
 
   input {
     border: 1px solid lightgray;
-    border-radius: fn.rem(2);
+    border-radius: fn.rem(4);
+    font-size: fn.rem(14);
 
     &::placeholder {
       color: lightgray;
+      font-size: fn.rem(14);
     }
   }
 
@@ -35,12 +37,30 @@
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: fn.rem(28);
+
+    .password {
+      input {
+        border-right: none;
+      }
+      .showPassword {
+        border-left: none !important;
+        background-color: transparent !important;
+      }
+    }
+
+    .checkboxLabel {
+      font-size: fn.rem(12);
+      // vertical-align: baseline;
+      @include breakpoint-up('sm') {
+        font-size: fn.rem(14);
+      }
+    }
   }
 
   .forgotpassword {
     color: colors.$blue;
-    font-size: fn.rem(14);
-    font-weight: 700;
+    font-size: fn.rem(12);
+    font-weight: 600;
   }
 
   .btnContainer {
@@ -55,7 +75,7 @@
 
   .caption {
     .footerLink {
-      font-size: fn.rem(14);
+      font-size: fn.rem(12);
       font-weight: 600;
       text-align: center;
       .signupLink {

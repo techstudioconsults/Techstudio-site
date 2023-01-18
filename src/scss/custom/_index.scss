@@ -3,6 +3,7 @@
 
 // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
 @use '../../scss/utils/functions' as fn;
+@use '../../scss/global/colors' as colors;
 @import '../../../node_modules/bootstrap/scss/functions';
 
 // 2. Include any default variable overrides here
@@ -139,4 +140,26 @@ $font-sizes: (
 
 .cc-shadow {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+}
+
+.cc-hover {
+  transition: 0.3s ease;
+  &:hover {
+    box-shadow: 0px 0px 0px 4px #0266f450;
+    color: colors.$light;
+  }
+}
+
+.cc-link-hover {
+  transition: 0.3s ease;
+  &:hover {
+    color: colors.$light-red !important;
+  }
+}
+
+.cc-grow {
+  transition: 0.3s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
 }

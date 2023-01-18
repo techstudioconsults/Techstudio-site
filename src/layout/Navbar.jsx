@@ -14,18 +14,22 @@ const Navbar = () => {
   useEffect(() => {
     // document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
-      let { clientHeight } = navEl.current
-      if (window.scrollY >= clientHeight) {
-        navEl.current.style.backgroundColor = `#1f2666`
-      } else if (window.scrollY == 0) {
-        navEl.current.style.backgroundColor = `transparent`
+      if (navEl) {
+        let { clientHeight } = navEl.current
+        if (window.scrollY >= clientHeight) {
+          navEl.current.style.backgroundColor = `#1f2666`
+          navEl.current.style.boxShadow = `rgba(0, 0, 0, 0.2) 0px 18px 50px 5px`
+        } else if (window.scrollY == 0) {
+          navEl.current.style.backgroundColor = `transparent`
+          navEl.current.style.boxShadow = null
+        }
       }
     })
     // })
   }, [])
 
   return (
-    <nav ref={navEl} className='navbar navbar-expand-lg  fixed-top'>
+    <nav ref={navEl} className='navbar navbar-expand-lg fixed-top'>
       <div className='container py-3'>
         <Link className='navbar-brand' to='/'>
           <div className='d-flex align-items-center gap-2'>
@@ -113,12 +117,7 @@ const Navbar = () => {
           </div>
           <div className='d-flex gap-3 justify-content-center my-10 my-lg-0'>
             <Button linkHref='/signin' linkText='Sign In' solidBtn navBtn />
-            <Button
-              linkHref='/signup'
-              linkText='Sign Up'
-              solidBtn={false}
-              navBtn
-            />
+            <Button linkHref='/signup' linkText='Sign Up' textBtn />
           </div>
         </div>
       </div>

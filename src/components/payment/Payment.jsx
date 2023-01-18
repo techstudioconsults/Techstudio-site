@@ -3,6 +3,7 @@ import { Authlayout } from '../../layout'
 import paymentImg from '../../assets/images/payment.webp'
 import style from './payment.module.scss'
 import { Link } from 'react-router-dom'
+import Button from '../global/Button'
 
 const Payment = () => {
   return (
@@ -28,7 +29,6 @@ const Payment = () => {
               type='radio'
               name='transfer'
               id='Bank'
-              checked
             />
             <label className='form-check-label' htmlFor='Bank'>
               Bank Transfer
@@ -58,7 +58,12 @@ const Payment = () => {
           </div>
         </div>
         <div className={style.btnContainer}>
-          <button className={style.btn}>Proceed to pay</button>
+          <Button
+            linkHref='/payment/accounts'
+            linkText='Proceed to pay'
+            solidBtn
+            navBtn
+          />
         </div>
         <footer className={style.caption}>
           <p className={style.footerLink}>

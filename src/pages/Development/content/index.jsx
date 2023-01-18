@@ -43,38 +43,47 @@ export const DEVELOPMENT_CONTENT = {
       },
       list: [
         {
+          id: 1,
           title: `Fundamentals`,
           desc: `The first phase of this bootcamp is to help you appreciate the fundamentals of web development, understanding structure, design and getting comfortable coding in HTML, CSS and Sass.`,
         },
         {
+          id: 2,
           title: `Using Boostrap`,
           desc: `You’ll learn speedup your development and layout mobile-ready webpages using the most popular CSS Framework - Boostrap 4. You’ll understand how to automatically create responsive websites that render perfectly on all display platforms.`,
         },
         {
+          id: 3,
           title: `JavaScript Basics`,
           desc: `After mastering the fundamentals, the focus shifts towards frontend programming where you learn the basics of JavaScript. In this section, you’ll be introduced to data structures, data types, control structures and conditionals.`,
         },
         {
+          id: 4,
           title: `JavaScript and the DOM`,
           desc: `After taking care of the fundamentals, you’ll learn to interact with the Document Object Model (DOM), listen to user interactions and add change the contents of a webpage.`,
         },
         {
+          id: 5,
           title: `Object-Oriented JavaScript`,
           desc: `You’ll learn to build real-life applications using object-oriented JavaScript techniques. You’ll also learn the major improvements of JavaScript in the form of ES6.`,
         },
         {
+          id: 6,
           title: `React Library`,
           desc: `You’ll be introduced to the most popular JavaScript library - the REACT library. You’ll learn to build a React application from scratch, utilizing the react components to manage the user interface.`,
         },
         {
+          id: 7,
           title: `Developer Tools & Testing`,
           desc: `You’ll be introduced to the Chrome Developers’ Tool and how to use it to debug and maintain your application. Learn to use testing to help build app features.`,
         },
         {
+          id: 8,
           title: `Version Control`,
           desc: `You’ll learn to use the Git version control system, collaborate with other team members and push your projects to GitHub using Git`,
         },
         {
+          id: 9,
           title: `Production Deployment`,
           desc: `You’ll be taught how to deploy your production ready project to a public web server to be accessed by everyone in the online community.`,
         },
@@ -114,26 +123,32 @@ export const DEVELOPMENT_CONTENT = {
       },
       list: [
         {
+          id: 1,
           title: `Fundamentals`,
           desc: `You’ll participate in a wide-range of design projects where you’ll gain hands-on experience with the fundamentals of design methodology. You’ll identify the problems, develop solutions, and create prototypes and wireframes using standard design tools including Figma and Balsamiq.`,
         },
         {
+          id: 2,
           title: `Research And Strategy`,
           desc: `You’ll learn to plan research to understand users’ needs, behaviour, and motivation. You’ll learn to communicate complicated interactions visually maps, featuring ideal personas that represent real users, after which you’ll be able to translate your findings into product design using wireframing and prototyping.`,
         },
         {
+          id: 3,
           title: `Responsive Design Basics`,
           desc: `You’ll be able to apply standard design principles to develop both low and high fidelity websites and applications. In the design process, you’ll learn to make use of grids and breakpoints to make sure your projects are responsive across different screen sizes, ensuring a perfect user experience.`,
         },
         {
+          id: 4,
           title: `User Interface Design`,
           desc: `With your knowledge of usability design learnt earlier, you’ll be taught how to master the intricacies of colour, typography, and images. You’ll learn to use Figma and Adobe Illustrator to craft out professional interfaces. You’ll also be taught different methods for designing and maintaining UI pattern libraries.`,
         },
         {
+          id: 5,
           title: `Product Design`,
           desc: `You’ll learn to create realistic visualizations of your project using high fidelity design mockups, and push them into a visually appealing and functional portfolio. Finally, you’ll be taught the latest industry trends and tools to help you push your skills in the UX Design job market.`,
         },
         {
+          id: 6,
           title: `Final Project`,
           desc: `In order to complete your Product Design certificate, you’ll design and develop a web and mobile application, from concept to a clickable prototype. This gives you a hands-on experience, you apply essential tactics - like wireframing and user research - you’ve learnt to produce a working prototype.`,
         },
@@ -173,18 +188,22 @@ export const DEVELOPMENT_CONTENT = {
       },
       list: [
         {
+          id: 1,
           title: `Fundamentals`,
           desc: `The first phase of this bootcamp is to help you appreciate the fundamentals of software development, understanding programming fundamentals to launching full-stack web apps.`,
         },
         {
+          id: 2,
           title: `JavaScript`,
           desc: `You’ll be taught to build smart, data-driven web applications using JavaScript and it’s backend counterpart - PHP`,
         },
         {
+          id: 3,
           title: `MySQL`,
           desc: `Work with the famous web-based SQL database MySQL to integrate data into your project; connect with other third-party applications using API calls.`,
         },
         {
+          id: 4,
           title: `Work with a team`,
           desc: `And finally, you’ll learn the fundamentals of working as a team; collaborate with other group members of the class to build, change, maintain, and secure an application. Track your team development process using Version Control Systems.`,
         },
@@ -224,26 +243,32 @@ export const DEVELOPMENT_CONTENT = {
       },
       list: [
         {
+          id: 1,
           title: `Python Programming`,
           desc: `You learn to write programs in one of the most popular programming language for data science and analysis - Python. You’ll be taught the fundamental components of programming - data structures, functions, conditionals and loops, error handling, Object-Oriented programming, and how to import and use different packages.`,
         },
         {
+          id: 2,
           title: `Web Scraping`,
           desc: `You’ll learn to scrap websites, using bots to mine data, in order to manipulate and analyze them. You’ll learn to use the browser automation tool - Selenium to craw into sites, pull data from web forums and social media for analysis.`,
         },
         {
+          id: 3,
           title: `SQL With Python`,
           desc: `You’ll learn the fundamentals of SQL - most programming popular language used to query relational databases. Understand SQL and its Syntax, learn to use SQL statements and perform the CRUD operations on Postgres database. You’ll connect the Postgres database to Python with performing the CRUD operation on it using Python.`,
         },
         {
+          id: 4,
           title: `Data Analysis And Visualization`,
           desc: `You make use of Python most popular data analysis library - Pandas to analyse, organise, clean, sort, filter, and aggregate data. You’ll learn to perform Exploratory Data Analysis(EDA) with Pandas. You’ll setup data visualization using Matplotlib.`,
         },
         {
+          id: 5,
           title: `Introduction To Machine Learning`,
           desc: `Understand the basics of Machine Learning and Machine Learning Algorithms, learn to create supervised and unsupervised models and how to Preprocess for accurate analysis.`,
         },
         {
+          id: 6,
           title: `Final Project`,
           desc: `In order to complete your Data Science Immersive with Python certification, you’ll create a real-world project that’ll give you hands-on experience, and more importantly start your career as a data scientist/analyst.`,
         },
@@ -283,26 +308,32 @@ export const DEVELOPMENT_CONTENT = {
       },
       list: [
         {
+          id: 1,
           title: `Fundamentals`,
           desc: `The first weeks of this bootcamp is to help you appreciate the fundamentals of mobile app development using Dart and Flutter. You’ll be comfortable writing pure Dart codes. You’ll also be introduced to Object Oriented Programming (OOP) in Dart to encapsulate both data and functionality. You’ll create, access, and modify objects to have a strong foundation for OOP.`,
         },
         {
+          id: 2,
           title: `Version Control`,
           desc: `You’ll learn to use the Git version control system, collaborate with other team members and push your projects to GitHub using Git`,
         },
         {
+          id: 3,
           title: `Introduction to Flutter`,
           desc: `After mastering the fundamentals of Dart, the focus shifts towards Flutter. You’ll learn about widgets and its importance to creating hybrid mobile applications. You’ll learn when different types of widgets and when to use them. You’ll be introduced to design concepts and common design patterns across different mobile devices.`,
         },
         {
+          id: 4,
           title: `Routing and Navigation`,
           desc: `You’ll learn what routing is and why it’s one of the core concepts of mobile application development. You’ll learn how to navigate from one page to the other, how to use named routes and using push and pop methods.`,
         },
         {
+          id: 5,
           title: `FireBase Integration`,
           desc: `Modern mobile applications need querying real-time data for interactivity. You’ll spend considerable time learning Flutter integration with FireBase. You’ll be exposed to querying the database to perform the CRUD functions - Create, Read, Update and Delete resources.`,
         },
         {
+          id: 6,
           title: `Production Deployment`,
           desc: `You’ll be taught how to deploy your production ready mobile app to the Android and iOS app stores to be accessed by everyone in the mobile community.`,
         },

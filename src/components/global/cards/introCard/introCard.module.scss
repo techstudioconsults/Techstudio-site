@@ -7,20 +7,30 @@
   max-width: fn.rem(1021);
   background-color: colors.$base-bg;
   padding: fn.rem(16);
+  border: 1px solid #c4cdd5;
   border-radius: fn.rem(8);
   gap: fn.rem(50);
 
   @include flex_column;
-  @include breakpoint-up('lg') {
+  @include breakpoint-up('md') {
     @include flex;
     @include flex_align;
     padding: fn.rem(35);
   }
 
   .imgContainer {
-    min-width: fn.rem(290);
-    img {
-      object-fit: contain;
+    @include breakpoint-up('sm') {
+      max-width: fn.rem(290);
+      margin: 0 auto;
+      img {
+        object-fit: contain;
+      }
+    }
+    @include breakpoint-up('md') {
+      min-width: fn.rem(290);
+      img {
+        object-fit: contain;
+      }
     }
   }
 
@@ -31,14 +41,24 @@
     }
     .desc {
       font-size: fn.rem(14);
+      color: colors.$dark-gray;
     }
     .timeDate {
-      @include flex;
-      @include flex_align;
+      @include flex_column;
       font-size: fn.rem(14);
       gap: fn.rem(32);
       margin-block: fn.rem(35);
       font-weight: 700;
+      @include breakpoint-up('sm') {
+        @include flex;
+        @include flex_align;
+      }
+
+      .time,
+      .date {
+        @include flex;
+        @include flex_align;
+      }
 
       .icon {
         margin-inline-end: fn.rem(8);
@@ -50,13 +70,18 @@
       }
     }
     .priceButton {
-      @include flex;
-      @include flex_align;
+      @include flex_column;
       justify-content: space-between;
       gap: fn.rem(32);
 
+      @include breakpoint-up('sm') {
+        @include flex;
+        @include flex_align;
+      }
+
       .price {
         font-weight: 700;
+        margin-bottom: 0;
       }
 
       .enrollBtn {

@@ -28,27 +28,39 @@ const Footer = () => {
               </div>
               <ul className='nav flex-column fs-sm mt-5 gap-2 align-items-start'>
                 <li className='nav-item mb-2'>
-                  <Link className='text-white' to='/course/frontend'>
+                  <Link
+                    className='text-white cc-link-hover'
+                    to='/course/frontend'
+                  >
                     Front End Development
                   </Link>
                 </li>
                 <li className='nav-item mb-2'>
-                  <Link className='text-white' to='/course/mobile'>
+                  <Link
+                    className='text-white cc-link-hover '
+                    to='/course/mobile'
+                  >
                     Android Development
                   </Link>
                 </li>
                 <li className='nav-item mb-2'>
-                  <Link className='text-white' to='/course/uiux'>
+                  <Link className='text-white cc-link-hover ' to='/course/uiux'>
                     UI/UX Design
                   </Link>
                 </li>
                 <li className='nav-item mb-2'>
-                  <Link className='text-white' to='/course/fullstack'>
+                  <Link
+                    className='text-white cc-link-hover'
+                    to='/course/fullstack'
+                  >
                     Full Stack development
                   </Link>
                 </li>
                 <li className='nav-item mb-2'>
-                  <Link className='text-white' to='/course/data-science'>
+                  <Link
+                    className='text-white cc-link-hover'
+                    to='/course/data-science'
+                  >
                     Data Science
                   </Link>
                 </li>
@@ -58,21 +70,27 @@ const Footer = () => {
             <div className='col-12 col-lg-2 my-12 my-lg-0'>
               <div>
                 <h5 className='fs-md fw-bolder py-2_5'>
-                  <Link className='text-white d-block' to='/about-us'>
+                  <Link
+                    className='text-white d-block cc-link-hover'
+                    to='/about-us'
+                  >
                     About Us
                   </Link>
                 </h5>
               </div>
               <div>
                 <h5 className='fs-md fw-bolder py-2_5'>
-                  <Link className='text-white d-block' to='/blog'>
+                  <Link className='text-white d-block cc-link-hover' to='/blog'>
                     Blog
                   </Link>
                 </h5>
               </div>
               <div>
                 <h5 className='fs-md fw-bolder py-2_5'>
-                  <Link className='text-white d-block' to='/contact'>
+                  <Link
+                    className='text-white d-block cc-link-hover'
+                    to='/contact'
+                  >
                     Contact
                   </Link>
                 </h5>
@@ -110,17 +128,17 @@ const Footer = () => {
             <p>&copy; {new Date().getFullYear()} TechStudio Academy</p>
             <ul className='list-unstyled d-flex gap-5'>
               <li className='ms-3'>
-                <Link className='text-white'>
+                <Link className='text-white cc-link-hover'>
                   <FaTwitter className='fs-xl' />
                 </Link>
               </li>
               <li className='ms-3'>
-                <Link className='text-white'>
+                <Link className='text-white cc-link-hover '>
                   <FaFacebookF className='fs-xl' />
                 </Link>
               </li>
               <li className='ms-3'>
-                <Link className='text-white'>
+                <Link className='text-white cc-link-hover '>
                   <FaLinkedinIn className='fs-xl' />
                 </Link>
               </li>

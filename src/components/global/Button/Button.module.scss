@@ -33,8 +33,21 @@
   transition: all 300ms ease-in;
 
   &:hover {
-    background-color: colors.$blue;
+    background-color: colors.$light-blue;
     color: colors.$base-bg;
+  }
+}
+
+.textBtn {
+  border: fn.rem(1) solid transparent;
+  font-size: fn.rem(14);
+  background-color: transparent;
+  color: colors.$light;
+  transition: all 300ms ease-in;
+
+  &:hover {
+    border: fn.rem(1) solid colors.$light;
+    background-color: transparent;
   }
 }
 

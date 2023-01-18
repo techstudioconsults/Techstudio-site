@@ -8,11 +8,21 @@
     @include flex_column;
     gap: fn.rem(57);
 
+    .imgContainer {
+      width: fit-content;
+      justify-content: flex-start;
+    }
+
     .text {
       .title {
         font-weight: 800;
         color: colors.$deep-blue;
         margin-bottom: fn.rem(19);
+      }
+
+      .subTitle {
+        font-size: fn.rem(14);
+        color: colors.$dark-gray;
       }
     }
 
@@ -38,6 +48,11 @@
           background-color: colors.$deep-blue;
           color: colors.$light;
         }
+      }
+
+      .active {
+        background-color: colors.$deep-blue;
+        color: colors.$light;
       }
     }
   }
