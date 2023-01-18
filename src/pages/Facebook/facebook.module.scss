@@ -1,0 +1,7 @@
+@use '../../scss/global/colors' as colors;
+@use '../../scss/utils//functions' as fn;
+
+.sectionFour {
+  padding: fn.rem(57) 0;
+  background-color: colors.$light-blue-II;
+}

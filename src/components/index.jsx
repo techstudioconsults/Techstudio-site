@@ -54,3 +54,5 @@ export { default as IntroBody } from './intro/introBody/IntroBody'
 
 //Facebook Live
 export { default as FacebookHero } from './facebook/hero'
+export { default as FacebookSectionSeven } from './facebook/sectionSeven/FacebookSectionSeven'
+export { default as FacebookSectionFour } from './facebook/sectionFour/FacebookSectionFour'

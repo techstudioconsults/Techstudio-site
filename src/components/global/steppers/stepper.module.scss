@@ -11,11 +11,11 @@
     justify-content: flex-start;
     margin-block: fn.rem(32);
   }
-
+  
   .vStepper {
     position: relative;
   }
-
+  
   /* regular step */
   .step .circle {
     background-color: colors.$light;
@@ -24,7 +24,7 @@
     width: fn.rem(40); /* +6 for border */
     height: fn.rem(40);
   }
-
+  
   .step .line {
     position: absolute;
     left: 50%;

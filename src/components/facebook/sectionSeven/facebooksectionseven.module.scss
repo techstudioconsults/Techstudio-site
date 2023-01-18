@@ -1,0 +1,56 @@
+@use '../../../scss/global/colors' as colors;
+@use '../../../scss/utils/functions' as fn;
+@import '../../../scss/utils/breakpoints';
+@import '../../../scss/utils/mixins';
+
+.section {
+  @include flex_column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+
+  p {
+    max-width: fn.rem(556);
+    margin-bottom: fn.rem(20);
+  }
+}
+
+.sectionImgs {
+  @include flex_column;
+
+  gap: fn.rem(50);
+  position: relative;
+
+  .sectionImgs_dots {
+    display: none;
+
+    @include breakpoint-up('md') {
+      display: block;
+      position: absolute;
+      bottom: -58px;
+      left: -80px;
+      z-index: -1;
+    }
+  }
+
+  @include breakpoint-up('md') {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 147px;
+  }
+
+  .sectionImgs_main {
+    max-width: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    @include breakpoint-up('md') {
+      max-width: 538px;
+    }
+  }
+}

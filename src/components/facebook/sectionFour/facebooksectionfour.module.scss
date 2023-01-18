@@ -1,0 +1,49 @@
+@use '../../../scss/global/colors' as colors;
+@use '../../../scss/utils/functions' as fn;
+@import '../../../scss/utils/breakpoints';
+@import '../../../scss/utils/mixins';
+
+.sectionSix {
+  background-color: colors.$deep-blue;
+  margin: fn.rem(116) 0 fn.rem(144);
+
+  border: 1px solid red;
+
+  @include breakpoint-up('xl') {
+    background-color: transparent;
+  }
+
+  .btnContainer {
+    @include flex;
+    margin-top: fn.rem(36);
+  }
+
+  .content {
+    @include flex_align;
+    min-width: fn.rem(400);
+    justify-content: space-between;
+  }
+
+  .contentTitle {
+    @include flex_align;
+    gap: fn.rem(4);
+    justify-content: center;
+    align-items: center;
+
+    font-size: 16px;
+    font-weight: 400;
+
+    &>div {
+      @include flex_align;
+      width: fn.rem(8);
+      height: fn.rem(12);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}
+
