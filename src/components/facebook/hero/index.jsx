@@ -16,7 +16,7 @@ const index = ({ content }) => {
               linkHref='/'
               solidBtn
               width={`7.5`}
-              paddingInline={2}
+              paddingInline={0}
             />
           </div>
         </div>

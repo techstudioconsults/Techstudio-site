@@ -7,8 +7,10 @@
   .title {
     text-align: center;
     color: colors.$deep-blue;
-    font-weight: 800;
+    font-weight: 600;
+    font-size: fn.rem(33);
     margin-bottom: fn.rem(68);
+    text-transform: capitalize;
   }
   .courseCardGroup {
     display: grid;

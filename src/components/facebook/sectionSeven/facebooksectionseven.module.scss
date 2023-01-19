@@ -10,7 +10,15 @@
   text-align: center;
   width: 100%;
 
+  h5 {
+    font-weight: 600;
+    font-size: fn.rem(33);
+    color: #000000;
+  }
+
   p {
+    font-weight: 400;
+    font-size: fn.rem(16);
     max-width: fn.rem(556);
     margin-bottom: fn.rem(20);
   }
@@ -28,8 +36,10 @@
     @include breakpoint-up('md') {
       display: block;
       position: absolute;
-      bottom: -58px;
-      left: -80px;
+      width: fn.rem(116);
+      height: fn.rem(118);
+      bottom: fn.rem(-40);
+      left: fn.rem(-80);
       z-index: -1;
     }
   }

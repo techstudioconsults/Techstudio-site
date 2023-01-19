@@ -7,14 +7,14 @@
   @include flex_justify;
   color: colors.$light;
   align-items: flex-start;
-  background: url('../../../assets/images/facebookHero.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 100vh;
+  background: colors.$deep-blue;
+  padding: fn.rem(50) 0;
 
   @include breakpoint-up('md') {
+    background: url('../../../assets/images/facebookHero.png');
+    background-repeat: no-repeat;
+    background-size: cover;
     padding-top: fn.rem(84);
-    min-height: unset;
     height: fn.rem(631);
     padding-left: fn.rem(10);
     padding-right: fn.rem(10);
@@ -46,9 +46,13 @@
       @include breakpoint-up('md') {
         max-width: fn.rem(530);
 
+        p {
+          margin-bottom: fn.rem(30);
+        }
+
         .btn {
-            width: fn.rem(120);
-            font-size: fn.rem(10)
+          width: fn.rem(120);
+          font-size: fn.rem(14);
         }
       }
     }

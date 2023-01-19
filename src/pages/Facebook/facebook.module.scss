@@ -4,4 +4,8 @@
 .sectionFour {
   padding: fn.rem(57) 0;
   background-color: colors.$light-blue-II;
+
+  .courseSectionFour {
+    border: 1px solid  !important;
+  }
 }
