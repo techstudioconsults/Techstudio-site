@@ -14,9 +14,9 @@ const Navbar = ({ bg, keepColor, setTextColorBlack }) => {
   const navEl = useRef()
 
   useEffect(() => {
+    let { clientHeight } = navEl.current
     window.addEventListener('scroll', () => {
       if (navEl) {
-        let { clientHeight } = navEl.current
         if (window.scrollY >= clientHeight) {
           navEl.current.style.backgroundColor = `#1f2666`
           navEl.current.style.boxShadow = `rgba(0, 0, 0, 0.2) 0px 18px 50px 5px`

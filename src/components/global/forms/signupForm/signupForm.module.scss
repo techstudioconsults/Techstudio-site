@@ -11,11 +11,23 @@
     border: 1px solid lightgray;
     border-radius: fn.rem(4);
     font-size: fn.rem(14);
+    color: #000000 !important;
 
     &::placeholder {
       color: lightgray;
       font-size: fn.rem(14);
     }
+  }
+
+  select {
+    color: colors.$deep-blue !important;
+    font-size: fn.rem(14) !important;
+    border-radius: fn.rem(4);
+    color: lightgray;
+  }
+
+  input[type='checkbox'] {
+    margin-top: 0;
   }
 
   label {

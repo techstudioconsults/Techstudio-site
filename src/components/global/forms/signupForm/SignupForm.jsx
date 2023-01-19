@@ -54,9 +54,7 @@ const ContactForm = () => {
             id='subject'
             className={[`form-select`, style.select].join(' ')}
           >
-            <optgroup>
-              <option>Weekday Classes</option>
-            </optgroup>
+            <option>Weekday Classes</option>
           </select>
         </div>
       </div>
@@ -67,7 +65,7 @@ const ContactForm = () => {
             Email Address
           </label>
           <input
-            type='number'
+            type='email'
             id='email'
             className='form-control'
             aria-describedby='emailHelpBlock'
