@@ -7,10 +7,10 @@
   color: colors.$light;
   @include flex;
   @include flex_centered;
-  background: url('../../../assets/images/heroBg.webp') no-repeat right;
   background-size: cover;
   background-color: colors.$deep-blue;
   @include breakpoint-up('lg') {
+    background: url('../../../assets/images/heroBg.webp') no-repeat right;
     height: fn.rem(749);
   }
   .heroWrapper {

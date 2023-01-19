@@ -66,7 +66,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack }) => {
         />
 
         <div
-          className='collapse navbar-collapse d-lg-flex justify-content-between ms-lg-10 ms-xl-24'
+          className='collapse bg-blue navbar-collapse d-lg-flex justify-content-between ms-lg-10 ms-xl-24'
           id='navbarNavAltMarkup'
         >
           <div className='navbar-nav align-items-center text-center gap-8 fs-sm'>
