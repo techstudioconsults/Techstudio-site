@@ -8,8 +8,9 @@ import { useEffect } from 'react'
 import { Button } from '../components'
 import { useRef } from 'react'
 import { useState } from 'react'
+import style from './layout.module.scss'
 
-const Navbar = ({ bg, keepColor, setTextColorBlack }) => {
+const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
   const [color, setColor] = useState(setTextColorBlack)
   const navEl = useRef()
 
@@ -66,7 +67,10 @@ const Navbar = ({ bg, keepColor, setTextColorBlack }) => {
         />
 
         <div
-          className='collapse bg-blue navbar-collapse d-lg-flex justify-content-between ms-lg-10 ms-xl-24'
+          className={[
+            'collapse navbar-collapse d-lg-flex justify-content-between ms-lg-10 ms-xl-24',
+            style.navbarDropdown,
+          ].join(' ')}
           id='navbarNavAltMarkup'
         >
           <div className='navbar-nav align-items-center text-center gap-8 fs-sm'>
@@ -154,7 +158,12 @@ const Navbar = ({ bg, keepColor, setTextColorBlack }) => {
               Contact Us
             </Link>
           </div>
-          <div className='d-flex gap-3 justify-content-center my-10 my-lg-0'>
+          <div
+            className={[
+              'd-flex gap-3 justify-content-center my-10 my-lg-0',
+              isEmployersRoute ? `d-none visibility-hidden` : null,
+            ].join(' ')}
+          >
             <Button linkHref='/signin' linkText='Sign In' solidBtn navBtn />
             <Button
               linkHref='/signup'
@@ -172,6 +181,7 @@ Navbar.propTypes = {
   bg: PropTypes.string,
   setTextColorBlack: PropTypes.bool,
   keepColor: PropTypes.bool,
+  isEmployersRoute: PropTypes.bool,
 }
 
 export default Navbar

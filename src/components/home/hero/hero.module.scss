@@ -11,6 +11,7 @@
   background-color: colors.$deep-blue;
   @include breakpoint-up('lg') {
     background: url('../../../assets/images/heroBg.webp') no-repeat right;
+    background-color: colors.$deep-blue;
     height: fn.rem(749);
   }
   .heroWrapper {

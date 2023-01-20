@@ -17,6 +17,7 @@ export { default as SignupForm } from './global/forms/signupForm/SignupForm'
 export { default as LoginForm } from './global/forms/loginForm/LoginForm'
 export { default as Payment } from './payment/Payment'
 export { default as Accounts } from './payment/Accounts'
+export { default as EmployerForm } from './global/forms/employerForm/EmployerForm'
 
 // HOME
 export { default as Hero } from './home/hero'
@@ -51,3 +52,6 @@ export { default as CourseSectionFour } from './course/sectionFour/CourseSection
 // intro
 export { default as IntroHeader } from './intro/introHeader/IntroHeader'
 export { default as IntroBody } from './intro/introBody/IntroBody'
+
+// EMPLOYERS
+export { default as EmployersHero } from './employers/hero'

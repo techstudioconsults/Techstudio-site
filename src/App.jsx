@@ -10,6 +10,7 @@ import {
   Blog,
   ContactUs,
   Development,
+  Employers,
   HomePage,
   Intro,
   SignIn,
@@ -35,6 +36,7 @@ const App = () => {
         <Route path='/signup' element={<Signup />} />
         <Route path='/signin' element={<SignIn />} />
         <Route path='/payment' element={<Payment />} />
+        <Route path='/employers' element={<Employers />} />
         <Route path='/payment/accounts' element={<Accounts />} />
         <Route path='/about-us' element={<AboutUs />} />
         <Route path='/blog' element={<Blog />} />
