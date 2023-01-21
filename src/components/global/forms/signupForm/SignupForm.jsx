@@ -72,7 +72,7 @@ const ContactForm = () => {
             placeholder='example@example.com'
           />
         </div>
-        <div>
+        {/* <div>
           <label htmlFor='password' className='form-label'>
             Password
           </label>
@@ -91,8 +91,8 @@ const ContactForm = () => {
               <FaEye />
             </span>
           </div>
-        </div>
-        <div>
+        </div> */}
+        {/* <div>
           <label htmlFor='password' className='form-label'>
             confirm Password
           </label>
@@ -111,7 +111,7 @@ const ContactForm = () => {
               <FaEye />
             </span>
           </div>
-        </div>
+        </div> */}
         <div className='form-check d-flex align-items-center gap-2'>
           <input
             className='form-check-input'
@@ -128,7 +128,7 @@ const ContactForm = () => {
         </div>
       </div>
       <div className={style.btnContainer}>
-        <button type='submit'>Send Message</button>
+        <button type='submit'>Register</button>
       </div>
       <footer className={style.caption}>
         <p className={style.footerLink}>

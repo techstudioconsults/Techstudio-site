@@ -3,6 +3,19 @@
 @import '../scss/utils/breakpoints';
 @import '../scss/utils/mixins';
 
+.navImgContainer {
+  width: fn.rem(24);
+  height: fn.rem(24);
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  @include breakpoint-up('lg') {
+    width: fn.rem(40);
+    height: fn.rem(40);
+  }
+}
+
 .navbarDropdown {
   background-color: colors.$deep-blue;
   @include breakpoint-up('lg') {

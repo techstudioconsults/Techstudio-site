@@ -15,10 +15,10 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
   const navEl = useRef()
 
   useEffect(() => {
-    let { clientHeight } = navEl.current
+    // let { clientHeight } = navEl.current
     window.addEventListener('scroll', () => {
       if (navEl) {
-        if (window.scrollY >= clientHeight) {
+        if (window.scrollY >= 10) {
           navEl.current.style.backgroundColor = `#1f2666`
           navEl.current.style.boxShadow = `rgba(0, 0, 0, 0.2) 0px 18px 50px 5px`
           keepColor ? setColor(false) : setColor(false)
@@ -34,7 +34,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
   return (
     <nav
       ref={navEl}
-      className={['navbar navbar-expand-lg fixed-top'].join(' ')}
+      className={['navbar navbar-expand-lg fixed-top py-0 py-lg-2'].join(' ')}
       style={{
         backgroundColor: bg,
       }}
@@ -42,10 +42,12 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
       <div className='container py-3'>
         <Link className='navbar-brand' to='/'>
           <div className='d-flex align-items-center gap-2'>
-            <img className='logo' src={techimage} alt='logo' />
+            <div className={style.navImgContainer}>
+              <img className='logo' src={techimage} alt='logo' />
+            </div>
             <span
               className={[
-                'fs-md fw-bold',
+                'fs-md fw-bold d-none d-md-inline',
                 color ? `text-black` : `text-white`,
               ].join(' ')}
             >
@@ -61,7 +63,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
           aria-expanded='false'
           aria-label='Toggle navigation'
           className={[
-            'navbar-toggler fs-6xl border-0',
+            'navbar-toggler fs-3xl border-0 p-0',
             color ? `text-blue` : `text-white`,
           ].join(' ')}
         />

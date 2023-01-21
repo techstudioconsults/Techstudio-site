@@ -30,7 +30,8 @@
     }
 
     .desc {
-      span {
+      .singleBlogLink {
+        display: inline;
         color: colors.$blue;
         font-weight: 600;
         text-transform: capitalize;

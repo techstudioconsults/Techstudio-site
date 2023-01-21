@@ -2,6 +2,7 @@ import React from 'react'
 import style from './blogCard.module.scss'
 import blogImg from '../../../../assets/images/blog-img1.webp'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 const BlogCard = ({ isCarouselView }) => {
   return (
@@ -22,7 +23,10 @@ const BlogCard = ({ isCarouselView }) => {
         <p className={style.desc}>
           Request for unavailable documents across sectors and countries. Our
           team is committed to fast turn-around.Request for unavailable
-          documents across sectors and countries. <span>read all</span>
+          documents across sectors and countries.
+          <Link className={style.singleBlogLink} to='/blog/1'>
+            read all
+          </Link>
         </p>
       </div>
     </div>

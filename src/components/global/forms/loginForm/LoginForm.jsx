@@ -40,7 +40,21 @@ const ContactForm = () => {
             </span>
           </div>
         </div>
-        <div>
+        <div className='d-flex justify-content-between align-items-center'>
+          <div className='form-check d-flex align-items-center gap-2'>
+            <input
+              className='form-check-input'
+              type='checkbox'
+              value=''
+              id='newsletter'
+            />
+            <label
+              className={['form-check-label', style.checkboxLabel].join(' ')}
+              htmlFor='newsletter'
+            >
+              Remember me
+            </label>
+          </div>
           <p className={style.forgotpassword}>Forgot Password?</p>
         </div>
       </div>
