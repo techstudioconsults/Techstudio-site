@@ -89,7 +89,6 @@ const ContactForm = () => {
               id='passwordHelpBlock'
             >
               <FaEye />
-              {/* <FaEyeSlash /> */}
             </span>
           </div>
         </div>
@@ -110,7 +109,6 @@ const ContactForm = () => {
               id='passwordHelpBlock'
             >
               <FaEye />
-              {/* <FaEyeSlash /> */}
             </span>
           </div>
         </div>

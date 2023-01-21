@@ -18,6 +18,8 @@ export { default as LoginForm } from './global/forms/loginForm/LoginForm'
 export { default as Payment } from './payment/Payment'
 export { default as Accounts } from './payment/Accounts'
 export { default as EmployerForm } from './global/forms/employerForm/EmployerForm'
+export { default as HowItWorksCard } from './global/cards/employersCard/HowItWorksCard'
+export { default as RoleCard } from './global/cards/employersCard/RoleCard'
 
 // HOME
 export { default as Hero } from './home/hero'
@@ -55,3 +57,4 @@ export { default as IntroBody } from './intro/introBody/IntroBody'
 
 // EMPLOYERS
 export { default as EmployersHero } from './employers/hero'
+export { default as EmployersSectionTwo } from './employers/sectionTwo'

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Container } from '../../../layout'
 import EmployerForm from '../../global/forms/employerForm/EmployerForm'
 
@@ -21,6 +22,10 @@ const index = ({ content }) => {
       </Container>
     </header>
   )
+}
+
+index.propTypes = {
+  content: PropTypes.object.isRequired,
 }
 
 export default index

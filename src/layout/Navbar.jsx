@@ -164,10 +164,10 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
               isEmployersRoute ? `d-none visibility-hidden` : null,
             ].join(' ')}
           >
-            <Button linkHref='/signin' linkText='Sign In' solidBtn navBtn />
+            <Button linkHref='/signin' linkText='Log in' solidBtn navBtn />
             <Button
               linkHref='/signup'
-              linkText='Sign Up'
+              linkText='Register'
               textBtn
               textColor={color ? `#000000` : `#ffffff`}
             />

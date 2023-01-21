@@ -10,7 +10,8 @@ export const EMPLOPYERS_CONTENT = {
 
   sectionTwo: {
     header: {
-      title: [`Why choose Techstudio?`],
+      title: `How Techstudio works`,
+      subTitle: `for employers`,
     },
     cards: [
       {
@@ -32,56 +33,43 @@ export const EMPLOPYERS_CONTENT = {
   },
 
   sectionThree: {
-    body: {
-      message: `I have been trying to figure out a way to kickstart my career in tech to no avail. I tried self tutorial, still nothing. When I tried techstudio 10 weeks training, my story changed for better`,
-
-      profile: {
-        image: img4,
-        name: `Sherif Sorunke`,
-        job: `Product Designer, Smartace`,
-      },
-    },
-  },
-
-  sectionFour: {
     header: {
-      caption: `TAKE A COURSE`,
-      title: [`Learn a skill to elevate your earning potential`],
-      subTitle: `Our Graduate Accelerator program is designed to connect the most ambitious university graduates with long-term employment and help you launch your career.`,
+      title: `Hire to fill the most in-demand roles`,
     },
-  },
 
-  sectionFive: {
-    lists: [
+    cards: [
       {
-        id: 1,
-        title: `Apply`,
-        desc: `Apply for any of our learning tracks. Techstudio offers diverse range of learning courses designed to give you the skills needed to grow professionally.`,
+        image: img2,
+        title: `Software Engineers`,
+        description: `Learn the user experience, client management, technical, and practical skills you need to launch a career as a user experience (UX) or user interface (UI) designer.`,
       },
       {
-        id: 2,
-        title: `Get Admitted`,
-        desc: `Receive an admission offer and reserve your spot in the program. You will complete the required KYC procedures`,
+        image: img3,
+        title: `Front-end Developers`,
+        description: `Learn the user experience, client management, technical, and practical skills you need to launch a career as a user experience (UX) or user interface (UI) designer.`,
       },
       {
-        id: 3,
-        title: `Start classes`,
-        desc: `Attend your first class, partake in group projects, and 1:1 sessions. Our team will keep an eye on your growth even even after the training`,
+        image: img4,
+        title: `UI/UX Designers`,
+        description: `Learn the user experience, client management, technical, and practical skills you need to launch a career as a user experience (UX) or user interface (UI) designer.`,
+      },
+      {
+        image: img4,
+        title: `Back-end Developers`,
+        description: `Learn the user experience, client management, technical, and practical skills you need to launch a career as a user experience (UX) or user interface (UI) designer.`,
+      },
+      {
+        image: img4,
+        title: `Graphics Designers`,
+        description: `Learn the user experience, client management, technical, and practical skills you need to launch a career as a user experience (UX) or user interface (UI) designer.`,
       },
     ],
   },
 
-  sectionSix: {
+  sectionFour: {
     header: {
-      caption: `Try TechStudio`,
-      title: `Get started with Techstudio`,
-    },
-  },
-
-  subscribe: {
-    header: {
-      title: [`Subscribe To  `, ` Our Newsletter`],
-      subTitle: `Subscribe to our monthly newsletter and be among the first to be notified on an update of the App`,
+      title: `Let's help you hire`,
+      description: `Let our team of recruitment experts find the right talents fit for you. Based on your requirements, we will shorlist talents with matching skills and help you schedule interviews with them. We will assist you every step of the way.`,
     },
   },
 }
