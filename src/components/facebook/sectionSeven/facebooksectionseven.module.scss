@@ -14,13 +14,15 @@
     font-weight: 600;
     font-size: fn.rem(33);
     color: #000000;
+    margin-bottom: fn.rem(7);
   }
 
   p {
     font-weight: 400;
     font-size: fn.rem(16);
+    line-height: fn.rem(27);
     max-width: fn.rem(556);
-    margin-bottom: fn.rem(20);
+    margin-bottom: fn.rem(48);
   }
 }
 

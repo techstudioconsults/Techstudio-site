@@ -1,7 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import style from './stepper.module.scss'
 const ShortStepper = ({ lists, isCourses }) => {
+  const [isMobile, setIsMobile] = useState(false)
+
+  const handleResize = () => {
+    if (window.innerWidth < 768) {
+      setIsMobile(true)
+    } else {
+      setIsMobile(false)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+  })
   const listsDisplay = lists.map((list) => {
     return (
       <div key={list.id} className={[style.step, style.completed].join(' ')}>
@@ -15,7 +28,17 @@ const ShortStepper = ({ lists, isCourses }) => {
             ' '
           )}
         >
-          <h4 className={style.title}>{list.title}</h4>
+          <h4 className={style.title}>
+            {!isMobile && list.title.split(' ').length > 2 ? (
+              <>
+                INTRO TO WEB
+                <br />
+                DEVELOPMENT
+              </>
+            ) : (
+              list.title
+            )}
+          </h4>
           <p className={style.text}>{list.desc}</p>
         </div>
       </div>
