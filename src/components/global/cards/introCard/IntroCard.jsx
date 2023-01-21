@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import style from './introCard.module.scss'
 import clock from '../../../../assets/icons/clock.png'
 import calendar from '../../../../assets/icons/calendar.png'
+import Button from '../../Button'
 
 const IntroCard = ({ course }) => {
   return (
@@ -30,7 +31,13 @@ const IntroCard = ({ course }) => {
         </div>
         <div className={style.priceButton}>
           <h5 className={style.price}>{course.price}</h5>
-          <button className={style.enrollBtn}>Enroll</button>
+          <Button
+            width={`10`}
+            linkText='Enroll'
+            linkHref='/payment'
+            solidBtn
+            navBtn
+          />
         </div>
       </div>
     </div>

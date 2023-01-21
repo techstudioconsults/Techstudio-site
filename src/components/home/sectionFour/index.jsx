@@ -26,7 +26,7 @@ const index = ({ content }) => {
             </div>
             <div className={style.btnContainer}>
               <Button
-                linkHref='/'
+                linkHref='/about-us'
                 linkText='KNOW US MORE'
                 solidBtn
                 navBtn

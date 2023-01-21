@@ -7,8 +7,8 @@ import { Container } from '../../../layout'
 const index = ({ content }) => {
   const { header, cards } = content
 
-  const cardsDisplay = cards.map((card) => {
-    return <TeamCard key={card.id} content={card} />
+  const cardsDisplay = cards.map((card, index) => {
+    return <TeamCard key={index} content={card} />
   })
 
   return (

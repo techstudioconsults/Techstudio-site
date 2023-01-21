@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ExternalLayout } from '../../layout'
+import { ExternalLayout, Navbar } from '../../layout'
 import {
   CourseHero,
   CourseSectionFour,
@@ -14,6 +14,7 @@ const index = ({ content }) => {
   const { hero, sectionTwo, sectionFour } = content
   return (
     <ExternalLayout>
+      <Navbar bg={`transparent`} setTextColorBlack />
       <CourseHero content={hero} />
       <CourseSectionTwo content={sectionTwo} />
       <SectionSix content={sectionSix} />

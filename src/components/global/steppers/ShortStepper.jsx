@@ -17,7 +17,13 @@ const ShortStepper = ({ lists, isCourses }) => {
   })
   const listsDisplay = lists.map((list) => {
     return (
-      <div key={list.id} className={[style.step, style.completed].join(' ')}>
+      <div
+        key={list.id}
+        className={[
+          style.step,
+          list.id % 2 === 0 ? style.completed : null,
+        ].join(' ')}
+      >
         <div className={style.vStepper}>
           <div className={style.circle}></div>
           <div className={style.line}></div>

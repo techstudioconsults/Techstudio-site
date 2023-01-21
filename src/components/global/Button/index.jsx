@@ -6,8 +6,10 @@ import PropTypes from 'prop-types'
 import styles from './Button.module.scss'
 
 const Button = ({
+  textColor,
   linkHref,
   solidBtn,
+  textBtn,
   navBtn,
   linkText,
   full,
@@ -21,11 +23,15 @@ const Button = ({
       to={linkHref}
       className={`${styles.btn} ${
         solidBtn ? styles.solidBtn : styles.lightBtn
-      } ${navBtn ? styles.navBtn : ''}
+      } ${navBtn ? styles.navBtn : ''} ${textBtn ? styles.textBtn : null}
       ${full ? styles.fullWidth : ''} ${
         transparentBtn ? styles.transparentBtn : ''
       } ${btnRef ? styles.hoverState : ''}`}
-      style={{ minWidth: `${width}rem`, paddingInline: `${paddingInline}rem` }}
+      style={{
+        minWidth: `${width}rem`,
+        paddingInline: `${paddingInline}rem`,
+        color: textColor,
+      }}
     >
       {linkText}
     </Link>
@@ -41,7 +47,9 @@ Button.propTypes = {
   solidBtn: PropTypes.bool,
   width: PropTypes.string,
   linkText: PropTypes.string.isRequired,
+  textBtn: PropTypes.bool,
   btnRef: PropTypes.bool,
+  textColor: PropTypes.string,
 }
 
 export default Button

@@ -33,6 +33,8 @@
   }
 
   .children {
+    padding-inline: fn.rem(16);
+    position: relative;
     overflow: auto;
   }
 

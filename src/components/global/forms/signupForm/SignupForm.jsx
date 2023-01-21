@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaEye } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import style from './signupForm.module.scss'
 
@@ -53,9 +54,7 @@ const ContactForm = () => {
             id='subject'
             className={[`form-select`, style.select].join(' ')}
           >
-            <optgroup>
-              <option>Weekday Classes</option>
-            </optgroup>
+            <option>Weekday Classes</option>
           </select>
         </div>
       </div>
@@ -66,33 +65,66 @@ const ContactForm = () => {
             Email Address
           </label>
           <input
-            type='number'
+            type='email'
             id='email'
             className='form-control'
             aria-describedby='emailHelpBlock'
             placeholder='example@example.com'
           />
         </div>
-        <div className={style.paswword}>
+        <div>
           <label htmlFor='password' className='form-label'>
             Password
           </label>
-          <input
-            type='password'
-            id='password'
-            className='form-control'
-            aria-describedby='emailHelpBlock'
-            placeholder='Password'
-          />
+          <div className={[style.password, 'input-group mb-3'].join(' ')}>
+            <input
+              type='password'
+              id='password'
+              className='form-control'
+              aria-describedby='passwordHelpBlock'
+              placeholder='Password'
+            />
+            <span
+              className={['input-group-text', style.showPassword].join(' ')}
+              id='passwordHelpBlock'
+            >
+              <FaEye />
+              {/* <FaEyeSlash /> */}
+            </span>
+          </div>
         </div>
-        <div className='form-check'>
+        <div>
+          <label htmlFor='password' className='form-label'>
+            confirm Password
+          </label>
+          <div className={[style.password, 'input-group mb-3'].join(' ')}>
+            <input
+              type='password'
+              id='confirm-password'
+              className='form-control'
+              aria-describedby='passwordHelpBlock'
+              placeholder='confirm password'
+            />
+            <span
+              className={['input-group-text', style.showPassword].join(' ')}
+              id='passwordHelpBlock'
+            >
+              <FaEye />
+              {/* <FaEyeSlash /> */}
+            </span>
+          </div>
+        </div>
+        <div className='form-check d-flex align-items-center gap-2'>
           <input
             className='form-check-input'
             type='checkbox'
             value=''
             id='newsletter'
           />
-          <label className='form-check-label' htmlFor='newsletter'>
+          <label
+            className={['form-check-label', style.checkboxLabel].join(' ')}
+            htmlFor='newsletter'
+          >
             Send me alerts and Weekly Newsletters
           </label>
         </div>

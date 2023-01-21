@@ -30,8 +30,8 @@ const App = () => {
   return (
     <Suspense fallback={<Loading text='LOADING...' />}>
       <Routes>
-        <Route index element={<HomePage />} />{' '}
-        <Route path='/welcome' element={<Intro />} />
+        <Route index element={<HomePage />} />
+        <Route path='/tracks' element={<Intro />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/signin' element={<SignIn />} />
         <Route path='/payment' element={<Payment />} />

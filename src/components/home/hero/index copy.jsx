@@ -18,13 +18,13 @@ const index = ({ content }) => {
               <Button
                 width={`11`}
                 solidBtn
-                linkHref='/tracks'
+                linkHref='/'
                 linkText='Take a course'
               />
               <Button
                 width={`11`}
                 solidBtn={false}
-                linkHref='/signin'
+                linkHref='/'
                 linkText='Log in'
               />
             </div>

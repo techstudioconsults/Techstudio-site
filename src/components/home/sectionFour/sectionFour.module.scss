@@ -24,6 +24,9 @@
         @include breakpoint-up('lg') {
           margin-right: fn.rem(100);
         }
+        @include breakpoint-up('2xl') {
+          margin-right: fn.rem(0);
+        }
         .caption {
           color: colors.$blue;
           font-weight: 600;

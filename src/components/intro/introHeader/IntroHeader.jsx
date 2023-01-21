@@ -4,9 +4,10 @@ import logo from '../../../assets/icons/logo.png'
 import style from './introHeader.module.scss'
 import { useContext } from 'react'
 import AppContext from '../../../contexts/AppProvider'
+import { Link } from 'react-router-dom'
 
 const IntroHeader = () => {
-  const { getCourseDetails } = useContext(AppContext)
+  const { index, getCourseDetails } = useContext(AppContext)
 
   const handleClick = (e) => {
     let name = e.target.name
@@ -17,9 +18,9 @@ const IntroHeader = () => {
     <div className={style.introHeader}>
       <Container>
         <section className={style.introHeaderWapper}>
-          <div className={style.imgContainer}>
+          <Link to={`/`} className={style.imgContainer}>
             <img src={logo} alt='logo' />
-          </div>
+          </Link>
           <div className={style.text}>
             <h2 className={style.title}>Our Learning Tracks</h2>
             <p className={style.subTitle}>
@@ -27,19 +28,54 @@ const IntroHeader = () => {
             </p>
           </div>
           <div className={style.btnGroup}>
-            <button onClick={handleClick} name={0} className={style.courseBtn}>
+            <button
+              onClick={handleClick}
+              name={0}
+              className={[
+                style.courseBtn,
+                index === 0 ? style.active : null,
+              ].join(' ')}
+            >
               UI/UX Design
             </button>
-            <button onClick={handleClick} name={1} className={style.courseBtn}>
+            <button
+              onClick={handleClick}
+              name={1}
+              className={[
+                style.courseBtn,
+                index === 1 ? style.active : null,
+              ].join(' ')}
+            >
               Data Science
             </button>
-            <button onClick={handleClick} name={2} className={style.courseBtn}>
+            <button
+              onClick={handleClick}
+              name={2}
+              className={[
+                style.courseBtn,
+                index === 2 ? style.active : null,
+              ].join(' ')}
+            >
               Mobile Development
             </button>
-            <button onClick={handleClick} name={3} className={style.courseBtn}>
+            <button
+              onClick={handleClick}
+              name={3}
+              className={[
+                style.courseBtn,
+                index === 3 ? style.active : null,
+              ].join(' ')}
+            >
               Fullstack
             </button>
-            <button onClick={handleClick} name={4} className={style.courseBtn}>
+            <button
+              onClick={handleClick}
+              name={4}
+              className={[
+                style.courseBtn,
+                index === 4 ? style.active : null,
+              ].join(' ')}
+            >
               Front End Development
             </button>
           </div>

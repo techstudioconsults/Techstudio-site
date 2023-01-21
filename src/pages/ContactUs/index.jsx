@@ -1,6 +1,6 @@
 import React from 'react'
 import { ContactHero, ContactSectionTwo } from '../../components'
-import { ExternalLayout } from '../../layout'
+import { ExternalLayout, Navbar } from '../../layout'
 import { CONTACT_CONTENT } from './content'
 
 const index = () => {
@@ -8,6 +8,7 @@ const index = () => {
 
   return (
     <ExternalLayout>
+      <Navbar bg={`transparent`} keepColor />
       <ContactHero content={hero} />
       <ContactSectionTwo content={location} />
     </ExternalLayout>

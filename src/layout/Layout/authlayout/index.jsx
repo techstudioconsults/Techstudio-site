@@ -4,6 +4,7 @@ import authImg from '../../../assets/images/authImg.webp'
 import logo from '../../../assets/icons/logo.png'
 import { PropTypes } from 'prop-types'
 import { Link } from 'react-router-dom'
+import MinimalFooter from '../../MinimalFooter'
 
 const index = ({ children }) => {
   return (
@@ -14,7 +15,12 @@ const index = ({ children }) => {
       <div className={style.imgContainer}>
         <img src={authImg} alt='auth-img' className='cc-img-fluid' />
       </div>
-      <div className={style.children}>{children}</div>
+      <div className={style.children}>
+        {children}
+        <div className={['px-14', style.minimalFooter].join(' ')}>
+          <MinimalFooter />
+        </div>
+      </div>
     </section>
   )
 }

@@ -1,12 +1,13 @@
 import React from 'react'
 import { Header, SectionSix, SingleBlogSectionThree } from '../../../components'
-import { Container, ExternalLayout } from '../../../layout'
+import { Container, ExternalLayout, Navbar } from '../../../layout'
 import { HOME_CONTENT } from '../../Home/content'
 
 const index = () => {
   const { sectionSix } = HOME_CONTENT
   return (
     <ExternalLayout>
+      <Navbar bg={`transparent`} keepColor />
       <Header />
       <Container>
         <article className='' style={{ maxWidth: `939px`, margin: `auto` }}>

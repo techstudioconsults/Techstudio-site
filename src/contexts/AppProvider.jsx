@@ -7,7 +7,7 @@ export const AppProvider = ({ children }) => {
   const [index, setIndex] = useState(0)
 
   const getCourseDetails = (name) => {
-    setIndex(name)
+    setIndex(parseInt(name))
   }
   return (
     <AppContext.Provider value={{ index, getCourseDetails }}>
@@ -17,6 +17,7 @@ export const AppProvider = ({ children }) => {
 }
 
 AppProvider.propTypes = {
+  index: PropTypes.number,
   children: PropTypes.node.isRequired,
 }
 
