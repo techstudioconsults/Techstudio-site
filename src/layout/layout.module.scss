@@ -16,6 +16,13 @@
   }
 }
 
+.logoText {
+  font-size: fn.rem(12);
+  @include breakpoint-up('lg') {
+    font-size: fn.rem(14);
+  }
+}
+
 .navbarDropdown {
   background-color: colors.$deep-blue;
   @include breakpoint-up('lg') {

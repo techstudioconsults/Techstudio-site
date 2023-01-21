@@ -47,7 +47,8 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
             </div>
             <span
               className={[
-                'fs-md fw-bold d-none d-md-inline',
+                'fw-bold',
+                style.logoText,
                 color ? `text-black` : `text-white`,
               ].join(' ')}
             >

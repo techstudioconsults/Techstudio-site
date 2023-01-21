@@ -124,7 +124,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className='d-flex flex-column align-items-center  flex-lg-row justify-content-between py-4 my-4 border-top'>
+          <div className='d-flex flex-column align-items-center  flex-lg-row justify-content-between py-4 my-4 border-top gap-5'>
             <p>&copy; {new Date().getFullYear()} TechStudio Academy</p>
             <ul className='list-unstyled d-flex gap-5'>
               <li className='ms-3'>
