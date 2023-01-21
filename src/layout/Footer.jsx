@@ -126,18 +126,18 @@ const Footer = () => {
 
           <div className='d-flex flex-column align-items-center  flex-lg-row justify-content-between py-4 my-4 border-top gap-5'>
             <p>&copy; {new Date().getFullYear()} TechStudio Academy</p>
-            <ul className='list-unstyled d-flex gap-5'>
-              <li className='ms-3'>
+            <ul className='list-unstyled d-flex gap-10'>
+              <li className=''>
                 <Link className='text-white cc-link-hover'>
                   <FaTwitter className='fs-xl' />
                 </Link>
               </li>
-              <li className='ms-3'>
+              <li className=''>
                 <Link className='text-white cc-link-hover '>
                   <FaFacebookF className='fs-xl' />
                 </Link>
               </li>
-              <li className='ms-3'>
+              <li className=''>
                 <Link className='text-white cc-link-hover '>
                   <FaLinkedinIn className='fs-xl' />
                 </Link>
