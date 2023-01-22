@@ -15,18 +15,36 @@
     background-color: transparent;
   }
 
+  .caption {
+    font-weight: 400;
+    font-size: fn.rem(17);
+    margin-bottom: fn.rem(23);
+  }
+
+  .header {
+    font-weight: 600;
+    font-size: fn.rem(33);
+    margin-bottom: fn.rem(24)
+  }
+
   .btnContainer {
     @include flex;
     margin-top: fn.rem(36);
   }
 
-  .content {
-    @include flex_align;
-    justify-content: space-between;
-    min-width: 100%;
-    
-    @include breakpoint-up('md') {
-      min-width: fn.rem(400);
+  .contentContainer {
+    flex: 1;
+    width: 100%;
+    // border: 1px solid red;
+    .content {
+      @include flex_align;
+      justify-content: space-between;
+      min-width: 100%;
+      // border: 1px solid red;
+      
+      @include breakpoint-up('md') {
+        min-width: fn.rem(400);
+      }
     }
   }
 
@@ -53,3 +71,6 @@
   }
 }
 
+.okay {
+  border: 1px solid red;
+}

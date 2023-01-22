@@ -2,11 +2,12 @@ import facebookImg from '../../../assets/images/facebook.png'
 import numberOne from '../../../assets/images/numberOne.webp'
 import numberTwo from '../../../assets/images/numberTwo.webp'
 import numberThree from '../../../assets/images/numberThree.webp'
-import img6 from '../../../assets/images/about-img6.webp'
+import img6 from '../../../assets/images/img6.svg'
 import sample1 from '../../../assets/images/sample (2).png'
 import sample2 from '../../../assets/images/sample (1).png'
 import location from '../../../assets/icons/location.png'
 import duration from '../../../assets/icons/Duration.png'
+import startdate from '../../../assets/icons/start-date.svg'
 
 export const FACEBOOK_CONTENT = {
   heroSection: {
@@ -45,27 +46,27 @@ export const FACEBOOK_CONTENT = {
         desc: `Lörem ipsum ong vörtad. Prevöns välogt hyjöre köttklister i råning. Fade ultralöre, och ner, mure. Lörem ipsum ong vörtad. Prevöns välogt hyjöre köttklister i råning.`,
       },
       {
-        id: 2,
+        id: 3,
         title: `HTML`,
         desc: `Lörem ipsum ong vörtad. Prevöns välogt hyjöre köttklister i råning. Fade ultralöre, och ner, mure. Lörem ipsum ong vörtad. Prevöns välogt hyjöre köttklister i råning. Fade ultralöre, och ner, mure. Lörem ipsum ong vörtad. Prevöns välogt hyjöre köttklister i råning. Fade ultralöre, och ner, mure. Lörem ipsum ong vörtad. Prevöns välogt hyjöre köttklister i råning. Fade ultralöre, och ner, mure:`,
       },
       {
-        id: 3,
+        id: 4,
         title: `CSS`,
         desc: `Lörem ipsum ong vörtad. Prevöns välogt hyjöre köttklister i råning. Fade ultralöre, och ner, mure. Lörem ipsum ong vörtad. Prevöns välogt hyjöre köttklister i råning. Fade ultralöre, och ner, mure. Lörem ipsum ong vörtad. Prevöns välogt hyjöre köttklister i råning. Fade ultralöre, och ner, mure. Lörem ipsum ong vörtad. Prevöns välogt hyjöre köttklister i råning. Fade ultralöre, och ner, mure:`,
       },
       {
-        id: 4,
+        id: 5,
         title: `BOOTSTRAP`,
         desc: `Lörem ipsum ong vörtad. Prevöns välogt hyjöre köttklister i råning. Fade ultralöre, och ner, mure. Lörem ipsum ong vörtad. Prevöns välogt hyjöre köttklister i råning. Fade ultralöre, och ner, mure. Lörem ipsum ong vörtad. Prevöns välogt hyjöre köttklister i råning. Fade ultralöre, och ner, mure. Lörem ipsum ong vörtad. Prevöns välogt hyjöre köttklister i råning. Fade ultralöre, och ner, mure. Fade ultralöre, och ner, mure. Lörem ipsum ong vörtad. Prevöns välogt hyjöre köttklister i råning. Fade ultralöre, och ner, mure:`,
       },
       {
-        id: 5,
+        id: 6,
         title: `GIT`,
         desc: `Lörem ipsum ong vörtad. Prevöns välogt hyjöre köttklister i råning. Fade ultralöre, och ner, mure. Lörem ipsum ong vörtad. Prevöns välogt hyjöre köttklister i råning. Fade ultralöre, och ner, mure. Lörem ipsum ong vörtad. Prevöns välogt hyjöre köttklister i råning. Fade ultralöre, och ner, mure. Lörem ipsum ong vörtad. Prevöns välogt hyjöre köttklister i råning. Fade ultralöre, och ner, mure. Fade ultralöre, och ner, mure. Lörem ipsum ong vörtad. Prevöns välogt hyjöre köttklister i råning. Fade ultralöre, och ner, mure:`,
       },
       {
-        id: 6,
+        id: 7,
         title: `GITHUB`,
         desc: `Lörem ipsum ong vörtad. Prevöns välogt hyjöre köttklister i råning. Fade ultralöre, och ner, mure. Lörem ipsum ong vörtad. Prevöns välogt hyjöre köttklister i råning. Fade ultralöre, och ner, mure. Lörem ipsum ong vörtad. Prevöns välogt hyjöre köttklister i råning. Fade ultralöre, och ner, mure. Lörem ipsum ong vörtad. Prevöns välogt hyjöre köttklister i råning. Fade ultralöre, och ner, mure:`,
       },
@@ -83,7 +84,7 @@ export const FACEBOOK_CONTENT = {
         content: 'Zoom (Online)',
       },
       {
-        icon: duration,
+        icon: startdate,
         title: 'Start Date',
         content: '28 / 01 / 2023',
       },

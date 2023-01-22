@@ -10,4 +10,12 @@
     color: colors.$deep-blue;
     font-weight: 800;
   }
+
+  .socialTitle {
+    text-align: center;
+    margin-bottom: fn.rem(80);
+    color: colors.$deep-blue;
+    font-weight: 600;
+    font-size: fn.rem(33);
+  }
 }

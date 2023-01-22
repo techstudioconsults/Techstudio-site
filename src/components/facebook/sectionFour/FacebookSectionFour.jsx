@@ -10,11 +10,11 @@ const FacebookSectionFour = ({ content }) => {
   return (
     <section className={style.sectionSix}>
       <Container>
-        <BannerII className={style.BannerII}>
+        <BannerII isSocial className={style.BannerII}>
           <div className='ms-3 ms-lg-40 text-white py-20 py-xl-0'>
-            <span>{content.header.caption}</span>
-            <h3 className='mt-7 fw-bold'>{content.header.title}</h3>
-            <div>
+            <span className={style.caption}>{content.header.caption}</span>
+            <h3 className={style.header}>{content.header.title}</h3>
+            <div className={style.contentContainer}>
               {content.schedule.map((item, index) => (
                 <div key={index} className={style.content}>
                   <div className={style.contentTitle}>

@@ -4,14 +4,17 @@ import style from './courseSectionFour.module.scss'
 import ShortStepper from '../../global/steppers/ShortStepper'
 import { Container } from '../../../layout'
 
-const CourseSectionFour = ({ content }) => {
+//added isSocial prop to give facebookLive specific stylings
+const CourseSectionFour = ({ content, isSocial }) => {
   const { header, list } = content
   return (
     <Container paddingBlock={0}>
       <div className={style.courseSectionFour}>
-        <h2 className={style.title}>{header.title}</h2>
+        <h2 className={isSocial ? style.socialTitle : style.title}>
+          {header.title}
+        </h2>
         <div className={style.stepperList}>
-          <ShortStepper isCourses lists={list} />
+          <ShortStepper isSocial isCourses lists={list} />
         </div>
       </div>
     </Container>
@@ -20,6 +23,7 @@ const CourseSectionFour = ({ content }) => {
 
 CourseSectionFour.propTypes = {
   content: PropTypes.object.isRequired,
+  isSocial: PropTypes.bool,
 }
 
 export default CourseSectionFour

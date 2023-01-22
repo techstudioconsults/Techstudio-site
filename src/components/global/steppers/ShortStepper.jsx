@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import style from './stepper.module.scss'
-const ShortStepper = ({ lists, isCourses }) => {
+const ShortStepper = ({ lists, isCourses, isSocial }) => {
   const [isMobile, setIsMobile] = useState(false)
 
   const handleResize = () => {
@@ -34,7 +34,8 @@ const ShortStepper = ({ lists, isCourses }) => {
             ' '
           )}
         >
-          <h4 className={style.title}>
+          <h4 className={isSocial ? style.socialTitle : style.title}>
+            {/* IF length of string is greater than 2, it will display intro to web */}
             {!isMobile && list.title.split(' ').length > 2 ? (
               <>
                 INTRO TO WEB
@@ -56,6 +57,7 @@ const ShortStepper = ({ lists, isCourses }) => {
 ShortStepper.propTypes = {
   lists: PropTypes.array,
   isCourses: PropTypes.bool,
+  isSocial: PropTypes.bool,
 }
 
 export default ShortStepper

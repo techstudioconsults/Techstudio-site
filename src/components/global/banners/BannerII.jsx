@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const BannerII = ({ children }) => {
+const BannerII = ({ children, isSocial }) => {
   const style = {
-    height: `20.938rem`,
+    //IsSocial detwrmines the height for facebook landing page
+    height: isSocial ? `26.375rem` : `20.938rem`,
   }
 
   return (
@@ -38,6 +39,7 @@ BannerII.propTypes = {
     PropTypes.node,
     PropTypes.arrayOf(PropTypes.node),
   ]).isRequired,
+  isSocial: PropTypes.bool, //props not required
 }
 
 export default BannerII

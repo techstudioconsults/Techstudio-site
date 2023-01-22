@@ -73,6 +73,11 @@
     .title {
       font-weight: 800;
     }
+
+    .socialTitle {
+      color: colors.$deep-blue;
+      font-weight: 700
+    }
   }
 
   .contentFlex {
@@ -84,9 +89,10 @@
     // .text {
     //   flex: 1;
     // }
-    .title {
+    .title, .socialTitle {
       flex: 1;
     }
+ 
     .text {
       flex: 2;
     }
