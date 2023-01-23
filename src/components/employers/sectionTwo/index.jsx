@@ -6,18 +6,17 @@ import HowItWorksCard from '../../global/cards/employersCard/HowItWorksCard'
 
 const index = ({ content }) => {
   const cardDisplay = content.cards.map((card, index) => {
-    return <HowItWorksCard key={index} />
+    return <HowItWorksCard key={index} card={card} />
   })
 
   return (
     <section className={style.employerSectionTwo}>
-      <Container>
+      <Container paddingBlock={0}>
+        <div className={style.headerText}>
+          <h2 className={style.title}>{content.header.title}</h2>
+          <p className={style.subTitle}>{content.header.subTitle}</p>
+        </div>
         <div className={style.sectionTwoWrapper}>
-          <header className={style.headerText}>
-            <h2 className={style.title}>{content.title}</h2>
-            <p className={style.subTitle}>{content.subTitle}</p>
-          </header>
-
           <div className={style.cardGroup}>{cardDisplay}</div>
         </div>
       </Container>

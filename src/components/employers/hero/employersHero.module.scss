@@ -5,6 +5,8 @@
 
 // HERO COMPONENT
 .employerHero {
+  // border: 1px solid red;
+  height: 50%;
   margin-block: fn.rem(100);
   @include breakpoint-up('lg') {
     background: url(../../../assets/images/bgEmployer.webp) no-repeat right;
@@ -12,6 +14,7 @@
     padding-block: fn.rem(100);
   }
   .heroWrapper {
+    text-align: center;
     @include flex_column;
     @include breakpoint-up('lg') {
       @include flex;
@@ -68,7 +71,7 @@
     }
 
     .heroImgContainer {
-      display: none;
+      // display: none;
       @include breakpoint-up('lg') {
         position: relative;
         flex: 1;

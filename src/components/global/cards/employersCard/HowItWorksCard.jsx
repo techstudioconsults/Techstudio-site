@@ -1,17 +1,23 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import style from './employersSectionTwo.module.scss'
 
-const HowItWorksCard = () => {
+const HowItWorksCard = ({ card }) => {
   return (
-    <div className=''>
+    <div className={style.howItWorksCard}>
       <div className=''>
-        <img src='' alt='img' />
+        <img src={card.image} alt='img' />
       </div>
-      <div className=''>
-        <h4 className=''>lorem</h4>
-        <p className=''>Lorem ipsum dolor sit amet.</p>
+      <div className={style.text}>
+        <h5 className={style.title}>{card.title}</h5>
+        <p className={style.description}>{card.description}</p>
       </div>
     </div>
   )
+}
+
+HowItWorksCard.propTypes = {
+  card: PropTypes.object,
 }
 
 export default HowItWorksCard

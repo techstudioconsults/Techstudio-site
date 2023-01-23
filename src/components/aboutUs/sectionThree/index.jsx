@@ -4,7 +4,7 @@ import style from './sectionThree.module.scss'
 import AboutSectionThreeCard from '../../global/cards/AboutSectionThreeCard'
 import { Container } from '../../../layout'
 
-const index = ({ content }) => {
+const index = ({ content, textAlignLeft }) => {
   const { header, cards } = content
   const cardsDisplay = cards.map((card) => {
     return <AboutSectionThreeCard key={card.title} content={card} />
@@ -12,7 +12,12 @@ const index = ({ content }) => {
   return (
     <Container>
       <section className={style.aboutSectionThree}>
-        <div className={style.header}>
+        <div
+          className={[
+            style.header,
+            textAlignLeft ? `text-start` : `text-center`,
+          ].join(' ')}
+        >
           <h2 className={style.title}>{header.title}</h2>
           <p className={style.subTitle}>{header.subTitle}</p>
         </div>
@@ -24,6 +29,7 @@ const index = ({ content }) => {
 
 index.propTypes = {
   content: PropTypes.object.isRequired,
+  textAlignLeft: PropTypes.bool,
 }
 
 export default index

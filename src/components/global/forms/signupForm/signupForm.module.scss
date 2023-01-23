@@ -105,7 +105,9 @@
   background-color: colors.$base-bg;
   border-radius: fn.rem(8);
   box-shadow: 0 fn.rem(5) fn.rem(30) colors.$border-grey;
-  width: fn.rem(432);
+  @include breakpoint-up('lg') {
+    width: fn.rem(432);
+  }
   height: fit-content;
   padding-inline: fn.rem(29);
   padding-block: fn.rem(43);
@@ -124,8 +126,12 @@
   &::after {
     position: absolute;
     content: url(../../../../assets/images/repeatGrid.webp);
-    bottom: fn.rem(-70);
-    right: fn.rem(-50);
+    bottom: fn.rem(20);
+    right: fn.rem(10);
+    @include breakpoint-up('lg') {
+      bottom: fn.rem(-70);
+      right: fn.rem(-50);
+    }
     z-index: -1;
   }
 }

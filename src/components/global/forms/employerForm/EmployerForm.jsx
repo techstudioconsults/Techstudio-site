@@ -1,10 +1,41 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import style from '../signupForm/signupForm.module.scss'
 
-const EmployerForm = () => {
+const EmployerForm = ({ showTopInputs }) => {
   return (
     <form className={[style.form, style.employerForm].join(' ')}>
-      <div className={[style.password, 'input-group mb-3'].join(' ')}>
+      <div
+        className={[
+          style.name,
+          'input-group mb-3',
+          showTopInputs ? `d-flex` : `d-none`,
+        ].join(' ')}
+      >
+        <input
+          type='text'
+          id='name'
+          className='form-control'
+          aria-describedby='roleHelpBlock'
+          placeholder='Your name'
+        />
+      </div>
+      <div
+        className={[
+          style.companyName,
+          'input-group mb-3',
+          showTopInputs ? `d-flex` : `d-none`,
+        ].join(' ')}
+      >
+        <input
+          type='text'
+          id='company-name'
+          className='form-control'
+          aria-describedby='roleHelpBlock'
+          placeholder='Company Name'
+        />
+      </div>
+      <div className={[style.role, 'input-group mb-3'].join(' ')}>
         <input
           type='text'
           id='role'
@@ -19,7 +50,7 @@ const EmployerForm = () => {
           id='email'
           className='form-control'
           aria-describedby='emailHelpBlock'
-          placeholder='Email'
+          placeholder='Company Email'
         />
       </div>
 
@@ -28,6 +59,10 @@ const EmployerForm = () => {
       </div>
     </form>
   )
+}
+
+EmployerForm.propTypes = {
+  showTopInputs: PropTypes.bool,
 }
 
 export default EmployerForm

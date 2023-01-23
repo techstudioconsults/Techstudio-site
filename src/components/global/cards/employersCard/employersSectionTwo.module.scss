@@ -1,0 +1,29 @@
+@use '../../../../scss/global/colors' as colors;
+@use '../../../../scss/utils/functions' as fn;
+@import '../../../../scss/utils/breakpoints';
+@import '../../../../scss/utils/mixins';
+
+.howItWorksCard {
+  //   border: 1px solid red;
+  width: fn.rem(338);
+  margin: 0 auto;
+  box-shadow: 0px 5px 15px #0000000d;
+  background-color: colors.$base-bg;
+  padding: fn.rem(34);
+  border-radius: fn.rem(4);
+
+  @include breakpoint-up('lg') {
+    margin: initial;
+  }
+
+  .text {
+    .title {
+      font-weight: 700;
+    }
+    .description {
+      font-size: fn.rem(14);
+      line-height: fn.rem(19);
+      color: colors.$gray;
+    }
+  }
+}

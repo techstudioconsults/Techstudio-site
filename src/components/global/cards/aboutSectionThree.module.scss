@@ -10,9 +10,11 @@
   }
   .iconWrapper {
     margin-block-end: fn.rem(16);
-
-    .title {
-      font-weight: 800;
-    }
+  }
+  .title {
+    font-weight: 700;
+  }
+  .desc {
+    font-size: fn.rem(14);
   }
 }

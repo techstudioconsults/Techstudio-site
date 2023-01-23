@@ -58,3 +58,4 @@ export { default as IntroBody } from './intro/introBody/IntroBody'
 // EMPLOYERS
 export { default as EmployersHero } from './employers/hero'
 export { default as EmployersSectionTwo } from './employers/sectionTwo'
+export { default as EmployersSectionFour } from './employers/sectionFour'

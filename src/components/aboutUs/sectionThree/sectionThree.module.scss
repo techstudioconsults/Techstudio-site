@@ -4,12 +4,17 @@
 @import '../../../scss/utils/mixins';
 
 .aboutSectionThree {
+  padding: fn.rem(66) 0 fn.rem(182);
   .header {
     text-align: center;
-
+    margin-block-end: fn.rem(55);
     .title {
-      font-weight: 800;
+      width: fit-content;
+      font-weight: 700;
       margin: 0;
+      @include breakpoint-up('xl') {
+        font-size: fn.rem(32);
+      }
     }
 
     .subTitle {

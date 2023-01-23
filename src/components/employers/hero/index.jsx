@@ -14,7 +14,6 @@ const index = ({ content }) => {
             <h1 className={style.heroHeaderText}>{content.title}</h1>
             <p className={style.description}>{content.description}</p>
           </div>
-
           <div className={style.heroImgContainer}>
             <EmployerForm />
           </div>

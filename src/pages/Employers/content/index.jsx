@@ -1,6 +1,11 @@
-import img2 from '../../../assets/images/home-img2.webp'
-import img3 from '../../../assets/images/home-img3.webp'
-import img4 from '../../../assets/images/home-img4.webp'
+import img2 from '../../../assets/images/working.webp'
+import img3 from '../../../assets/images/Businessman.webp'
+import img4 from '../../../assets/images/intro-img4.webp'
+import icon1 from '../../../assets/icons/noun_coding_3152169.webp'
+import icon2 from '../../../assets/icons/noun_data_science.webp'
+import icon3 from '../../../assets/icons/noun_Designer_1469595.webp'
+import icon4 from '../../../assets/icons/calc.webp'
+import icon5 from '../../../assets/icons/noun_Ui.webp'
 
 export const EMPLOPYERS_CONTENT = {
   hero: {
@@ -16,18 +21,18 @@ export const EMPLOPYERS_CONTENT = {
     cards: [
       {
         image: img2,
-        title: `Always welcoming`,
-        description: `Our platform allows easy onboarding to any of our programs you wish to be part of.`,
+        title: `Post a job`,
+        description: `Create an account and a befitting profile to attract job offers with ease. Your profile shows employers what makes you the right fit.`,
       },
       {
         image: img3,
-        title: `Online and Offline Classes`,
-        description: `Our platform provides a comfortable and seamless Online and offline class experience`,
+        title: `Review & shortlist`,
+        description: `Create a position on Hired and specify the skills and experience you’re looking for.`,
       },
       {
         image: img4,
-        title: `There when you need us`,
-        description: `Our dedicated team of tech experts research and, compile knowledge across sectors in tech to give you the best resources needed.`,
+        title: `Interview & hire`,
+        description: `Create an account and a befitting profile to attract job offers with ease. Your profile shows employers what makes you the right fit.`,
       },
     ],
   },
@@ -39,29 +44,29 @@ export const EMPLOPYERS_CONTENT = {
 
     cards: [
       {
-        image: img2,
+        icon: icon1,
         title: `Software Engineers`,
-        description: `Learn the user experience, client management, technical, and practical skills you need to launch a career as a user experience (UX) or user interface (UI) designer.`,
+        desc: `Learn the user experience, client management, technical, and practical skills you need to launch a career as a user experience (UX) or user interface (UI) designer.`,
       },
       {
-        image: img3,
+        icon: icon2,
         title: `Front-end Developers`,
-        description: `Learn the user experience, client management, technical, and practical skills you need to launch a career as a user experience (UX) or user interface (UI) designer.`,
+        desc: `Learn the user experience, client management, technical, and practical skills you need to launch a career as a user experience (UX) or user interface (UI) designer.`,
       },
       {
-        image: img4,
+        icon: icon3,
         title: `UI/UX Designers`,
-        description: `Learn the user experience, client management, technical, and practical skills you need to launch a career as a user experience (UX) or user interface (UI) designer.`,
+        desc: `Learn the user experience, client management, technical, and practical skills you need to launch a career as a user experience (UX) or user interface (UI) designer.`,
       },
       {
-        image: img4,
+        icon: icon4,
         title: `Back-end Developers`,
-        description: `Learn the user experience, client management, technical, and practical skills you need to launch a career as a user experience (UX) or user interface (UI) designer.`,
+        desc: `Learn the user experience, client management, technical, and practical skills you need to launch a career as a user experience (UX) or user interface (UI) designer.`,
       },
       {
-        image: img4,
+        icon: icon5,
         title: `Graphics Designers`,
-        description: `Learn the user experience, client management, technical, and practical skills you need to launch a career as a user experience (UX) or user interface (UI) designer.`,
+        desc: `Learn the user experience, client management, technical, and practical skills you need to launch a career as a user experience (UX) or user interface (UI) designer.`,
       },
     ],
   },
