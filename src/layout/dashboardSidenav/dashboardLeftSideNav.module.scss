@@ -1,0 +1,47 @@
+@use '../../scss/global/colors' as colors;
+@use '../../scss/utils/functions' as fn;
+@import '../../scss/utils/breakpoints';
+@import '../../scss/utils/mixins';
+
+.dashboardSideNav {
+  @include flex_column;
+  align-items: center;
+  height: 100vh;
+  background-color: colors.$deep-blue;
+  color: colors.$light;
+  text-decoration: none;
+  list-style-type: none;
+  text-align: center;
+  padding: fn.rem(32) fn.rem(16);
+
+  .logoDiv {
+    .imgLogoContainer {
+      width: fn.rem(28);
+      height: fn.rem(28);
+    }
+  }
+
+  .navGroup {
+    @include flex_column;
+    margin-top: fn.rem(60);
+    gap: fn.rem(38);
+
+    .link {
+      .list {
+        .title {
+          font-size: fn.rem(12);
+          color: colors.$gray;
+        }
+      }
+    }
+
+    .link.active {
+      .list {
+        .title {
+          font-size: fn.rem(12);
+          color: colors.$light;
+        }
+      }
+    }
+  }
+}

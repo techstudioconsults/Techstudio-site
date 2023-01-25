@@ -1,0 +1,32 @@
+@use '../../../scss/global/colors' as colors;
+@use '../../../scss/utils/functions' as fn;
+@import '../../../scss/utils/breakpoints';
+@import '../../../scss/utils/mixins';
+
+.dashboardLayout {
+  position: relative;
+  //   border: 1px solid red;
+  width: 100%;
+  margin: 0;
+
+  .left {
+    padding: 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 6%;
+  }
+  .body {
+    background-color: colors.$grey-bg;
+    width: 69%;
+    padding: fn.rem(32);
+  }
+  .right {
+    width: 25%;
+    background-color: grey;
+    padding-inline-start: 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+}

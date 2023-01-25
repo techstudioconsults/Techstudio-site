@@ -1,0 +1,16 @@
+@use '../../../../scss/global/colors' as colors;
+@use '../../../../scss/utils/functions' as fn;
+@import '../../../../scss/utils/breakpoints';
+@import '../../../../scss/utils/mixins';
+
+.cardGroup {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: fn.rem(12);
+}
+
+.sectionThree {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: fn.rem(12);
+}

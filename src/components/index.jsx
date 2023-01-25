@@ -20,6 +20,7 @@ export { default as Accounts } from './payment/Accounts'
 export { default as EmployerForm } from './global/forms/employerForm/EmployerForm'
 export { default as HowItWorksCard } from './global/cards/employersCard/HowItWorksCard'
 export { default as RoleCard } from './global/cards/employersCard/RoleCard'
+export { default as DashboardBanner } from './global/banners/dashboardbanner/DashboardBanner'
 
 // HOME
 export { default as Hero } from './home/hero'
@@ -59,3 +60,7 @@ export { default as IntroBody } from './intro/introBody/IntroBody'
 export { default as EmployersHero } from './employers/hero'
 export { default as EmployersSectionTwo } from './employers/sectionTwo'
 export { default as EmployersSectionFour } from './employers/sectionFour'
+
+// DASHBOARD
+export { default as DashboardNavbar } from './dashboard/dashboardNavbar/DashboardNavbar'
+export { default as DashboardMiniCard } from './dashboard/dashboardMiniCard/DashboardMiniCard'

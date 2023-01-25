@@ -7,6 +7,7 @@ import { Route, Routes } from 'react-router-dom'
 import { Accounts, Loading, Payment } from './components'
 import {
   AboutUs,
+  AdminDashboard,
   Blog,
   ContactUs,
   Development,
@@ -16,6 +17,7 @@ import {
   SignIn,
   Signup,
   SingleBlogPage,
+  StudentDashboard,
 } from './pages'
 import { DEVELOPMENT_CONTENT } from './pages/Development/content'
 
@@ -32,8 +34,8 @@ const App = () => {
     <Suspense fallback={<Loading text='LOADING...' />}>
       <Routes>
         <Route index element={<HomePage />} />
-        <Route path='/tracks' element={<Intro />} />
         <Route path='/signup' element={<Signup />} />
+        <Route path='/tracks' element={<Intro />} />
         <Route path='/signin' element={<SignIn />} />
         <Route path='/payment' element={<Payment />} />
         <Route path='/employers' element={<Employers />} />
@@ -62,6 +64,11 @@ const App = () => {
           path='/course/mobile'
           element={<Development content={mobileDevelopment} />}
         />
+      </Routes>
+      {/* dashboard routes */}
+      <Routes>
+        <Route path='/admin' element={<AdminDashboard />} />
+        <Route path='/student' element={<StudentDashboard />} />
       </Routes>
     </Suspense>
   )
