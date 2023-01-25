@@ -10,7 +10,7 @@ This project can be previewed Live [Click Here To View](https://tsacademy.vercel
 ### Examples includes
 
 JavaScript
-
+[
   'build': 'For Build related commits',
   'chore': 'For smaller less meaninful additions or subtractions',
   'ci': 'For Continious Integration related Commits(DevOps)',
@@ -30,9 +30,11 @@ JavaScript
 This is a sample of a good and bad commit messages
 
 JavaScript
-"foo: some message" # fails
-"fix: some message" # passes
-"feat(scope): some message" # passes
+> "foo: some message" # fails
+>
+> "fix: some message" # passes
+>
+> "feat(scope): some message" # passes
 
 
 ## Available Scripts
