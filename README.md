@@ -11,17 +11,27 @@ This project can be previewed Live [Click Here To View](https://tsacademy.vercel
 
 JavaScript
 [
-  'build': 'For Build related commits',
-  'chore': 'For smaller less meaninful additions or subtractions',
-  'ci': 'For Continious Integration related Commits(DevOps)',
-  'docs': 'For commiting changes related to Documentaion',
-  'feat': 'For commiting changes related a particular feature',
-  'fix': 'For commits related to bug fixes',
-  'perf': 'For commits related to performance enhancement',
-  'refactor': 'For commits related to refactoring codes',
-  'revert': 'For commits related to reverting changes/commits',
-  'style': 'For commits related to adding styles',
-  'test': 'For commits related to test additions',
+  > 'build': 'For Build related commits',
+  >
+  > 'chore': 'For smaller less meaninful additions or subtractions',
+  >
+  > 'ci': 'For Continious Integration related Commits(DevOps)',
+  >
+  >'docs': 'For commiting changes related to Documentaion',
+  >
+  >'feat': 'For commiting changes related a particular feature',
+  >
+  > 'fix': 'For commits related to bug fixes',
+  >
+  > 'perf': 'For commits related to performance enhancement',
+  >
+  > 'refactor': 'For commits related to refactoring codes',
+  >
+  > 'revert': 'For commits related to reverting changes/commits',
+  >
+  > 'style': 'For commits related to adding styles',
+  >
+  >'test': 'For commits related to test additions',
 ]
 
 
