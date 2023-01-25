@@ -7,10 +7,24 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: fn.rem(12);
+  margin: fn.rem(24) 0;
 }
 
 .sectionThree {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: fn.rem(12);
+
+  .resource,
+  .feedback_stats {
+    background-color: colors.$base-bg;
+    padding: fn.rem(20);
+  }
+
+  .resource {
+    .title {
+      font-weight: 600;
+      font-size: fn.rem(18);
+    }
+  }
 }

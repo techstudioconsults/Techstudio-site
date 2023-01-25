@@ -64,3 +64,6 @@ export { default as EmployersSectionFour } from './employers/sectionFour'
 // DASHBOARD
 export { default as DashboardNavbar } from './dashboard/dashboardNavbar/DashboardNavbar'
 export { default as DashboardMiniCard } from './dashboard/dashboardMiniCard/DashboardMiniCard'
+export { default as DashboardResource } from './dashboard/resources/DashboardResource'
+// export { default as DashboardResource } from './dashboard/dashboardStatFeedback/feedbacks'
+// export { default as DashboardResource } from './dashboard/dashboardStatFeedback/stats'
