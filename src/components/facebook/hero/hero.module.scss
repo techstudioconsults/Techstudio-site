@@ -8,7 +8,7 @@
   color: colors.$light;
   align-items: flex-start;
   background: colors.$deep-blue;
-  padding: fn.rem(50) 0;
+  padding: fn.rem(120) 0;
 
   @include breakpoint-up('md') {
     background: url('../../../assets/images/facebookHero.png');

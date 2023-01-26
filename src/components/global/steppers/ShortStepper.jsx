@@ -5,7 +5,7 @@ const ShortStepper = ({ lists, isCourses, isSocial }) => {
   const [isMobile, setIsMobile] = useState(false)
 
   const handleResize = () => {
-    if (window.innerWidth < 768) {
+    if (window.innerWidth < 998) {
       setIsMobile(true)
     } else {
       setIsMobile(false)
