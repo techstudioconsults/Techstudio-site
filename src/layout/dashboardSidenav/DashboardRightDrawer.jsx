@@ -1,10 +1,13 @@
 import React from 'react'
+
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import { MdOutlineComputer } from 'react-icons/md'
+import { AvatarStack } from '../../components'
+import { DASHBOARD_CONTENT } from '../Layout/dashboardLayout/content'
 import style from './dashboardDrawer.module.scss'
-// import avatar from '../../assets/images/about-img2.webp'
 
 function dashboardRightDrawer() {
+  const { imageList } = DASHBOARD_CONTENT
   return (
     <section className={style.drawer}>
       <div className={style.avatarWrapper}>
@@ -43,6 +46,9 @@ function dashboardRightDrawer() {
               <p className='fs-sm'>Lecture Type</p>
             </div>
           </div>
+        </div>
+        <div>
+          <AvatarStack imageList={imageList} />
         </div>
       </div>
     </section>

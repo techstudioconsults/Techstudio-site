@@ -21,6 +21,7 @@ export { default as EmployerForm } from './global/forms/employerForm/EmployerFor
 export { default as HowItWorksCard } from './global/cards/employersCard/HowItWorksCard'
 export { default as RoleCard } from './global/cards/employersCard/RoleCard'
 export { default as DashboardBanner } from './global/banners/dashboardbanner/DashboardBanner'
+export { default as AvatarStack } from './global/avatarStacks/AvatarStack'
 
 // HOME
 export { default as Hero } from './home/hero'
