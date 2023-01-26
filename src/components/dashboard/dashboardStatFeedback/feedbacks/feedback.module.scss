@@ -1,0 +1,64 @@
+@use '../../../../scss/global/colors' as colors;
+@use '../../../../scss/utils/functions' as fn;
+@import '../../../../scss/utils/breakpoints';
+@import '../../../../scss/utils/mixins';
+
+.feedbackCard {
+  //   height: fn.rem(168);
+  background-color: colors.$base-bg;
+  border-radius: fn.rem(4);
+  padding: fn.rem(20);
+
+  .header {
+    @include flex;
+    justify-content: space-between;
+
+    h5 {
+      font-size: fn.rem(18);
+      font-weight: 600;
+    }
+    a {
+      font-size: fn.rem(14);
+      text-decoration: underline;
+    }
+  }
+
+  .body {
+    @include flex;
+    margin-block: fn.rem(18);
+    gap: fn.rem(15);
+    .imgWrapper {
+      //   flex: 1;
+      width: fn.rem(55);
+      height: fn.rem(55);
+      border-radius: 100%;
+      overflow: hidden;
+    //   border: 3px double colors.$text-dark;
+    }
+
+    .message {
+      flex: 1;
+      p {
+        font-size: fn.rem(14);
+        font-weight: 600;
+      }
+    }
+  }
+
+  .footer {
+    @include flex;
+    @include flex_align;
+    gap: fn.rem(34);
+
+    .name {
+      font-size: fn.rem(14);
+      color: colors.$blue;
+      font-weight: 700;
+    }
+    .date {
+      font-size: fn.rem(14);
+      color: colors.$gray;
+      font-weight: 600;
+    }
+  }
+}

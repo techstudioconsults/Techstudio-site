@@ -15,16 +15,19 @@
   grid-template-columns: repeat(2, 1fr);
   gap: fn.rem(12);
 
-  .resource,
-  .feedback_stats {
+  .resource {
+    border-radius: fn.rem(4);
     background-color: colors.$base-bg;
     padding: fn.rem(20);
-  }
-
-  .resource {
     .title {
       font-weight: 600;
       font-size: fn.rem(18);
     }
+  }
+
+  .feedback_stats {
+    @include flex_column;
+    justify-content: flex-end;
+    gap: fn.rem(12);
   }
 }

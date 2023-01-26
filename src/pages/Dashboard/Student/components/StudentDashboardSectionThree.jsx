@@ -1,5 +1,9 @@
 import React from 'react'
-import { DashboardResource } from '../../../../components'
+import {
+  DashboardResource,
+  FeedbackCard,
+  GraphCard,
+} from '../../../../components'
 import style from './studentdashboardSections.module.scss'
 
 const StudentDashboardSectionThree = () => {
@@ -9,7 +13,10 @@ const StudentDashboardSectionThree = () => {
         <h5 className={style.title}>Resources</h5>
         <DashboardResource />
       </div>
-      <div className={style.feedback_stats}></div>
+      <div className={style.feedback_stats}>
+        <GraphCard />
+        <FeedbackCard />
+      </div>
     </section>
   )
 }
