@@ -17,9 +17,11 @@ const Button = ({
   transparentBtn,
   paddingInline,
   btnRef,
+  onClick,
 }) => {
   return (
     <Link
+      onClick={onClick}
       to={linkHref}
       className={`${styles.btn} ${
         solidBtn ? styles.solidBtn : styles.lightBtn
@@ -50,6 +52,7 @@ Button.propTypes = {
   textBtn: PropTypes.bool,
   btnRef: PropTypes.bool,
   textColor: PropTypes.string,
+  onClick: PropTypes.node,
 }
 
 export default Button

@@ -1,0 +1,119 @@
+@use '../../../scss/global/colors' as colors;
+@use '../../../scss/utils/functions' as fn;
+@import '../../../scss/utils/breakpoints';
+@import '../../../scss/utils/mixins';
+
+.container {
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 99;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  padding: 0 fn.rem(10);
+
+  @include breakpoint-up('sm') {
+    padding: 0;
+  }
+
+  @include breakpoint-up('md') {
+    padding: fn.rem(200) 0 fn.rem(30);
+  }
+
+  .signup {
+    background: #ffffff;
+    padding: fn.rem(47.33) fn.rem(37.13) fn.rem(48);
+    box-shadow: 0 5px 15px #00000033;
+    position: relative;
+
+    .close {
+      position: absolute;
+      top: 2%;
+      right: 5%;
+      cursor: pointer;
+      height: fn.rem(24);
+      width: fn.rem(24);
+    }
+  }
+}
+
+.form {
+  @include flex_column;
+  gap: fn.rem(24);
+  margin-top: fn.rem(48);
+
+  input {
+    border: 1px solid lightgray;
+    border-radius: fn.rem(4);
+    font-size: fn.rem(14);
+    color: #000000 !important;
+
+    &::placeholder {
+      color: lightgray;
+      font-size: fn.rem(14);
+    }
+  }
+
+  label {
+    color: colors.$dark-gray;
+    font-weight: 600;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: fn.rem(28);
+
+    @include breakpoint-up('lg') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .secondRow {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: fn.rem(28);
+
+    .password {
+      input {
+        border-right: none;
+      }
+      .showPassword {
+        border-left: none !important;
+        background-color: transparent !important;
+      }
+    }
+  }
+
+  .btnContainer {
+    width: 100%;
+    @include flex_justify;
+    button {
+      width: 100%;
+      background-color: colors.$blue;
+      color: colors.$light;
+      border-radius: fn.rem(4);
+      font-size: fn.rem(14);
+
+      @include breakpoint-up('md') {
+        width: 70%;
+      }
+    }
+  }
+}

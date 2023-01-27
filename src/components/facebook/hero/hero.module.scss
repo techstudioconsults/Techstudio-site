@@ -10,6 +10,7 @@
   background: colors.$deep-blue;
   padding: fn.rem(120) 0;
 
+
   @include breakpoint-up('md') {
     background: url('../../../assets/images/facebookHero.png');
     background-repeat: no-repeat;
@@ -22,7 +23,7 @@
   }
 
   @include breakpoint-up('md') {
-    padding: fn.rem(84) fn.rem(10) fn.rem(50);
+    padding: fn.rem(120) fn.rem(10) fn.rem(50);
   }
 
   @include breakpoint-up('xxl') {
