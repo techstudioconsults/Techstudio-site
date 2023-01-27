@@ -52,7 +52,7 @@ Button.propTypes = {
   textBtn: PropTypes.bool,
   btnRef: PropTypes.bool,
   textColor: PropTypes.string,
-  onClick: PropTypes.node,
+  onClick: PropTypes.func,
 }
 
 export default Button

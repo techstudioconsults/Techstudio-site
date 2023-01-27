@@ -1,9 +1,12 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Button from '../../global/Button'
+import useAppProvider from '../../../hooks/useAppProvider'
 
 import style from './hero.module.scss'
 
-const index = ({ content }) => {
+const FacebookHero = ({ content }) => {
+  const { handleRegisterModal } = useAppProvider()
   return (
     <header className={style.hero}>
       <section className={`${style.heroWrapper} container`}>
@@ -17,6 +20,7 @@ const index = ({ content }) => {
               solidBtn
               width={`7.5`}
               paddingInline={0}
+              onClick={handleRegisterModal}
             />
           </div>
         </div>
@@ -27,5 +31,8 @@ const index = ({ content }) => {
     </header>
   )
 }
+FacebookHero.propTypes = {
+  content: PropTypes.object.isRequired,
+}
 
-export default index
+export default FacebookHero

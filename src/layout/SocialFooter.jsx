@@ -3,8 +3,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import techimage from '../assets/icons/logo.png'
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from 'react-icons/fa'
+import useAppProvider from '../hooks/useAppProvider'
 
 const SocialFooter = () => {
+  const { handleRegisterModal } = useAppProvider()
   return (
     <div className='bg-blue z-index-999'>
       <div className='container'>
@@ -28,18 +30,12 @@ const SocialFooter = () => {
               </div>
               <ul className='nav flex-column fs-sm mt-5 gap-2 align-items-start'>
                 <li className='nav-item mb-2'>
-                  <Link className='text-white' to='/'>
+                  <Link
+                    onClick={handleRegisterModal}
+                    className='text-white'
+                    to='/'
+                  >
                     Register
-                  </Link>
-                </li>
-                <li className='nav-item mb-2'>
-                  <Link className='text-white' to='/'>
-                    Contact Us
-                  </Link>
-                </li>
-                <li className='nav-item mb-2'>
-                  <Link className='text-white' to='/'>
-                    Go to Main Website
                   </Link>
                 </li>
               </ul>

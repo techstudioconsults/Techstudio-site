@@ -45,9 +45,6 @@ const SocialNav = () => {
               solidBtn
               navBtn
             />
-            <Link className='nav-link text-white' to='/'>
-              Contact
-            </Link>
           </div>
         </div>
       </div>
