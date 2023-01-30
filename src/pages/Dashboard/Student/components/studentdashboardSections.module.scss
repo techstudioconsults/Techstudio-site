@@ -8,6 +8,7 @@
   grid-template-columns: repeat(4, 1fr);
   gap: fn.rem(12);
   margin: fn.rem(24) 0;
+  overflow-x: auto;
 }
 
 .sectionThree {

@@ -6,6 +6,7 @@
 
 .dashboardCard {
   width: 100%;
+  min-width: fn.rem(218.64);
   padding: fn.rem(20);
   @include flex;
   gap: fn.rem(20);
