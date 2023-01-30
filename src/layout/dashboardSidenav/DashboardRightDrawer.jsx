@@ -2,7 +2,7 @@ import React from 'react'
 
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import { MdOutlineComputer } from 'react-icons/md'
-import { AvatarStack } from '../../components'
+import { AvatarStack, CalendarApp } from '../../components'
 import { DASHBOARD_CONTENT } from '../Layout/dashboardLayout/content'
 import style from './dashboardDrawer.module.scss'
 
@@ -17,7 +17,9 @@ function dashboardRightDrawer() {
           className='cc-img-fluid'
         />
       </div>
-      <div>{`calendar`}</div>
+      <div>
+        <CalendarApp />
+      </div>
       <div className={style.classSummary}>
         <div className={style.header}>
           <span className='fs-xs'>Today, 28th March, 2021</span>

@@ -19,6 +19,18 @@
         color: colors.$text-dark;
         font-size: fn.rem(14);
         font-weight: 600;
+
+        &:active {
+          background-color: colors.$light;
+          font-size: fn.rem(14);
+          border-radius: fn.rem(4);
+        }
+
+        &:focus {
+          background-color: colors.$light;
+          font-size: fn.rem(14);
+          border-radius: fn.rem(4);
+        }
         // width: fn.rem(117);
       }
 

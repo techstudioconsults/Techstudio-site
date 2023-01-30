@@ -16,7 +16,7 @@ const DashboardResource = () => {
       <ul className={['nav', style.tabList].join(' ')}>
         <li className={['nav-item', style.link].join(' ')}>
           <a
-            className={['nav-link', style.a, style.active].join(' ')}
+            className={['nav-link', style.a].join(' ')}
             id='home-tab'
             data-bs-toggle='tab'
             data-bs-target='#PDF'
@@ -51,7 +51,7 @@ const DashboardResource = () => {
 
       <div className='tab-content' id='tabContent'>
         <div
-          className='tab-pane fade active'
+          className='tab-pane fade'
           id='PDF'
           role='tabpanel'
           aria-labelledby='home-tab'

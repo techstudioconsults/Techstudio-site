@@ -1,19 +1,27 @@
 import React from 'react'
 import { DashboardBanner, DashboardNavbar } from '../../../components'
-import { DashboardLayout } from '../../../layout'
+import { DashboardLayout, DashboardRightDrawer } from '../../../layout'
 import { DASHBOARD_CONTENT } from '../../../layout/Layout/dashboardLayout/content'
 import StudentDashboardSectionThree from './components/StudentDashboardSectionThree'
 import StudentDashboardSectionTwo from './components/StudentDashboardSectionTwo'
+import style from './studentDashboard.module.scss'
 
 const index = () => {
   const { studentBoard } = DASHBOARD_CONTENT
 
   return (
     <DashboardLayout>
-      <DashboardNavbar />
-      <DashboardBanner content={studentBoard.banner} />
-      <StudentDashboardSectionTwo content={studentBoard.taskSummary} />
-      <StudentDashboardSectionThree />
+      <section className={style.studentDashboard}>
+        <div className={style.dashboardDisplay}>
+          <DashboardNavbar />
+          <DashboardBanner content={studentBoard.banner} />
+          <StudentDashboardSectionTwo content={studentBoard.taskSummary} />
+          <StudentDashboardSectionThree />
+        </div>
+        <div className={style.calendarDetails}>
+          <DashboardRightDrawer />
+        </div>
+      </section>
     </DashboardLayout>
   )
 }

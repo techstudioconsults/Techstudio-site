@@ -22,6 +22,7 @@ export { default as HowItWorksCard } from './global/cards/employersCard/HowItWor
 export { default as RoleCard } from './global/cards/employersCard/RoleCard'
 export { default as DashboardBanner } from './global/banners/dashboardbanner/DashboardBanner'
 export { default as AvatarStack } from './global/avatarStacks/AvatarStack'
+export { default as CalendarApp } from './global/calendar/CalendarApp'
 
 // HOME
 export { default as Hero } from './home/hero'
