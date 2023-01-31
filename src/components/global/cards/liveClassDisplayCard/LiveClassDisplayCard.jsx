@@ -42,7 +42,7 @@ const LiveClassDisplayCard = () => {
         aria-labelledby='exampleModalLabel'
         aria-hidden='true'
       >
-        <div className='modal-dialog'>
+        <div className='modal-dialog modal-fullscreen-md-down'>
           <div className='modal-content'>
             <div className='modal-header'>
               <h4 className='modal-title fs-5' id='exampleModalLabel'>
