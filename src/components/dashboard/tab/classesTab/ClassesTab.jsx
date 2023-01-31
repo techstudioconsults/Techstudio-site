@@ -1,15 +1,12 @@
 import React from 'react'
-import { DASHBOARD_CONTENT } from '../../../layout/Layout/dashboardLayout/content'
-import style from './dashboardresource.module.scss'
-import ResourceListDisplay from './ResourceListDisplay'
+import { DASHBOARD_CONTENT } from '../../../../layout/Layout/dashboardLayout/content'
+import LiveClassDisplayCard from '../../../global/cards/liveClassDisplayCard/LiveClassDisplayCard'
+import style from './classesTab.module.scss'
 
-const DashboardResource = () => {
+const ClassesTab = () => {
   const { studentBoard } = DASHBOARD_CONTENT
-  const fileDisplay = studentBoard.resources.PDF.map((file) => {
-    return <ResourceListDisplay key={file.id} file={file} />
-  })
-  const videoDisplay = studentBoard.resources.PDF.map((file) => {
-    return <ResourceListDisplay key={file.id} file={file} isVideo />
+  const fileDisplay = studentBoard.resources.PDF.map((file, index) => {
+    return <LiveClassDisplayCard key={index} />
   })
   return (
     <section className={style.tab}>
@@ -22,7 +19,7 @@ const DashboardResource = () => {
             data-bs-target='#PDF'
             href='#r'
           >
-            PDF
+            LIVE
           </a>
         </li>
         <li className={['nav-item', style.link].join(' ')}>
@@ -33,18 +30,7 @@ const DashboardResource = () => {
             data-bs-target='#video'
             href='#r'
           >
-            VIDEO
-          </a>
-        </li>
-        <li className={['nav-item', style.link].join(' ')}>
-          <a
-            className={['nav-link', style.a].join(' ')}
-            id='album-tab'
-            data-bs-toggle='tab'
-            data-bs-target='#audio'
-            href='#r'
-          >
-            AUDIO
+            RECORDED
           </a>
         </li>
       </ul>
@@ -64,19 +50,18 @@ const DashboardResource = () => {
           role='tabpanel'
           aria-labelledby='about-tab'
         >
-          <div className={style.listWrapper}>{videoDisplay}</div>
-        </div>
-        <div
-          className='tab-pane fade show'
-          id='audio'
-          role='tabpanel'
-          aria-labelledby='album-tab'
-        >
-          <div className={style.listWrapper}>{fileDisplay}</div>
+          <div className={style.listWrapper}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque,
+            libero est, autem quaerat culpa non sequi fugiat esse id recusandae
+            quidem harum error eveniet minima voluptas numquam nemo minus cumque
+            soluta, dignissimos ducimus cum accusantium nisi. Molestias
+            explicabo, maiores sapiente repellat quo enim accusamus labore
+            maxime nesciunt numquam exercitationem odio?
+          </div>
         </div>
       </div>
     </section>
   )
 }
 
-export default DashboardResource
+export default ClassesTab

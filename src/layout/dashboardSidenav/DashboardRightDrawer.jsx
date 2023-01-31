@@ -2,7 +2,7 @@ import React from 'react'
 
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import { MdOutlineComputer } from 'react-icons/md'
-import { AvatarStack, CalendarApp } from '../../components'
+import { Avatar, AvatarStack, CalendarApp } from '../../components'
 import { DASHBOARD_CONTENT } from '../Layout/dashboardLayout/content'
 import style from './dashboardDrawer.module.scss'
 
@@ -10,13 +10,7 @@ function dashboardRightDrawer() {
   const { imageList } = DASHBOARD_CONTENT
   return (
     <section className={style.drawer}>
-      <div className={style.avatarWrapper}>
-        <img
-          src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1643440809/clapmi/avatar_3_lnfwyk.png`}
-          alt='img'
-          className='cc-img-fluid'
-        />
-      </div>
+      <Avatar />
       <div>
         <CalendarApp />
       </div>

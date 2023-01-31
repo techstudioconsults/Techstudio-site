@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 
 // COMPONENTS
 import { Accounts, Loading, Payment } from './components'
+import { DashboardLayout } from './layout'
 import {
   AboutUs,
   AdminDashboard,
@@ -17,6 +18,7 @@ import {
   SignIn,
   Signup,
   SingleBlogPage,
+  StudentCalssesView,
   StudentDashboard,
 } from './pages'
 import { DEVELOPMENT_CONTENT } from './pages/Development/content'
@@ -68,7 +70,10 @@ const App = () => {
       {/* dashboard routes */}
       <Routes>
         <Route path='/admin' element={<AdminDashboard />} />
-        <Route path='/student' element={<StudentDashboard />} />
+        <Route path='/student' element={<DashboardLayout />}>
+          <Route path='dashboard' element={<StudentDashboard />} />
+          <Route path='classes' element={<StudentCalssesView />} />
+        </Route>
       </Routes>
     </Suspense>
   )

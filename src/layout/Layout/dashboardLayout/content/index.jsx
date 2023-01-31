@@ -13,16 +13,19 @@ export const DASHBOARD_CONTENT = {
       id: 1,
       img: img1,
       title: `Dashboard`,
+      link: `/student/dashboard`,
     },
     {
       id: 2,
       img: img2,
       title: `Classes`,
+      link: `/student/classes`,
     },
     {
       id: 3,
       img: img3,
       title: `Messages`,
+      link: `/student/messages`,
     },
   ],
 

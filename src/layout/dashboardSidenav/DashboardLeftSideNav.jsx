@@ -10,7 +10,11 @@ const DashboardSideNav = () => {
 
   const navDisplay = leftStudentNav.map((nav) => {
     return (
-      <Link key={nav.id} className={[style.link, style.active].join(' ')}>
+      <Link
+        to={nav.link}
+        key={nav.id}
+        className={[style.link, style.active].join(' ')}
+      >
         <li className={style.list}>
           <div className={style.imgContainer}>
             <img src={nav.img} alt='img' />

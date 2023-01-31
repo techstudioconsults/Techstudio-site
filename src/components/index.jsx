@@ -24,6 +24,7 @@ export { default as DashboardBanner } from './global/banners/dashboardbanner/Das
 export { default as AvatarStack } from './global/avatarStacks/AvatarStack'
 export { default as CalendarApp } from './global/calendar/CalendarApp'
 export { default as CalendarOffCanvas } from './global/offCanvas/CalendarOffCanvas'
+export { default as Avatar } from './global/avatar/Avatar'
 
 // HOME
 export { default as Hero } from './home/hero'
@@ -70,3 +71,4 @@ export { default as DashboardMiniCard } from './dashboard/dashboardMiniCard/Dash
 export { default as DashboardResource } from './dashboard/resources/DashboardResource'
 export { default as FeedbackCard } from './dashboard/dashboardStatFeedback/feedbacks/FeedbackCard'
 export { default as GraphCard } from './dashboard/dashboardStatFeedback/stats/GraphCard'
+export { default as ClassesTab } from './dashboard/tab/classesTab/ClassesTab'

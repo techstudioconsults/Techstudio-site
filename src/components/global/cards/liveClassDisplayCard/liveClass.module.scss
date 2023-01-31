@@ -1,0 +1,61 @@
+@use '../../../../scss/global/colors' as colors;
+@use '../../../../scss/utils/functions' as fn;
+@import '../../../../scss/utils/breakpoints';
+@import '../../../../scss/utils/mixins';
+
+.liveCard {
+  @include flex;
+  @include flex_align;
+  justify-content: space-between;
+  border: 1px solid colors.$border-grey;
+  gap: fn.rem(20);
+  //   border-left: fn.rem(10) solid colors.$light;
+  padding: fn.rem(18) fn.rem(22);
+
+  &:hover {
+    border: 1px solid colors.$deep-blue;
+    border-left: fn.rem(10) solid colors.$deep-blue;
+  }
+
+  .content {
+    .title {
+      font-size: fn.rem(14);
+      font-weight: 700;
+      margin-bottom: fn.rem(16);
+    }
+
+    .detail {
+      @include flex;
+      @include flex_align;
+      justify-content: space-between;
+
+      font-size: fn.rem(12);
+      .name {
+        color: colors.$gray;
+      }
+
+      .time {
+        @include flex;
+        @include flex_align;
+        .icon {
+          margin-inline-end: fn.rem(8);
+          img {
+            //   border: 1px solid red;
+            width: fn.rem(20);
+            height: fn.rem(20);
+          }
+        }
+      }
+    }
+  }
+
+  .buttonDiv {
+    .btn {
+      width: fn.rem(144);
+      background-color: colors.$blue;
+      color: colors.$light;
+      border-radius: fn.rem(4);
+      font-size: fn.rem(14);
+    }
+  }
+}
