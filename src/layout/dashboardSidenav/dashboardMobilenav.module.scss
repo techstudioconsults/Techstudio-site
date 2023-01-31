@@ -1,0 +1,57 @@
+@use '../../scss/global/colors' as colors;
+@use '../../scss/utils/functions' as fn;
+@import '../../scss/utils/breakpoints';
+@import '../../scss/utils/mixins';
+
+.mobileNav {
+  background-color: colors.$deep-blue;
+  //   border: 1px solid red;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-decoration: none;
+  list-style-type: none;
+  text-align: center;
+  @include flex;
+  @include flex_centered;
+  @include breakpoint-up('xl') {
+    display: none;
+  }
+
+  .logoDiv {
+    position: absolute;
+    top: 50%;
+    left: 4%;
+    transform: translate(-50%, -50%);
+    .imgLogoContainer {
+      width: fn.rem(28);
+      height: fn.rem(28);
+    }
+  }
+
+  .navGroup {
+    @include flex;
+    gap: fn.rem(70);
+    padding: fn.rem(10) 0 fn.rem(5);
+
+    .link {
+      .list {
+        .title {
+          font-size: fn.rem(12);
+          color: colors.$gray;
+          vertical-align: bottom;
+        }
+      }
+    }
+
+    .link.active {
+      .list {
+        .title {
+          font-size: fn.rem(12);
+          color: colors.$light;
+          vertical-align: bottom;
+        }
+      }
+    }
+  }
+}

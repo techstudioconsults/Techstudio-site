@@ -9,8 +9,16 @@
     gap: fn.rem(57);
 
     .imgContainer {
-      width: fit-content;
+      border: 1px solid red;
+      width: fn.rem(40);
+      height: fn.rem(40);
       justify-content: flex-start;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
     }
 
     .text {

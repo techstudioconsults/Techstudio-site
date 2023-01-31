@@ -25,6 +25,10 @@ $theme-colors: (
   'dark': $dark,
 );
 
+$grid-columns: 12 !default;
+$grid-gutter-width: 1.5rem !default;
+$grid-row-columns: 6 !default;
+
 // Create your own map
 $custom-colors: (
   'blue': #1f2666,
@@ -166,4 +170,20 @@ $font-sizes: (
 
 img {
   vertical-align: inherit;
+}
+
+.hide_scrollbar {
+  &::-webkit-scrollbar {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    display: none !important;
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none !important;
+    /* IE and Edge */
+    scrollbar-width: none !important;
+    /* Firefox */
+  }
+}
+
+.row > * {
+  padding: 0 !important;
 }

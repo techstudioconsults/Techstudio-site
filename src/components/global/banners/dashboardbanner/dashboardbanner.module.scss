@@ -1,0 +1,44 @@
+@use '../../../../scss/global/colors' as colors;
+@use '../../../../scss/utils/functions' as fn;
+@import '../../../../scss/utils/breakpoints';
+@import '../../../../scss/utils/mixins';
+
+.banner {
+  position: relative;
+  background-color: colors.$light-blue-II;
+  border-radius: fn.rem(4);
+  @include flex_column;
+  padding: fn.rem(20);
+  margin: fn.rem(120) 0 fn.rem(24);
+  @include breakpoint-up('lg') {
+    margin: fn.rem(53) 0 fn.rem(24);
+    height: fn.rem(180);
+    @include flex;
+    @include flex_align;
+  }
+  .text {
+    color: colors.$deep-blue;
+    @include breakpoint-up('md') {
+      width: 50%;
+    }
+    .title {
+      font-weight: 800;
+    }
+    .desc {
+      font-size: fn.rem(14);
+      font-weight: 500;
+    }
+  }
+
+  .bannerImg {
+    position: absolute;
+    right: fn.rem(34);
+    bottom: fn.rem(-5);
+    display: none;
+    @include breakpoint-up('md') {
+      display: block;
+    }
+    // transform: scale(0.7);
+    // transform-origin: 0;
+  }
+}

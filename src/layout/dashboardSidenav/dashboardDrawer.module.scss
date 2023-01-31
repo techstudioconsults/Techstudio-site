@@ -1,0 +1,42 @@
+@use '../../scss/global/colors' as colors;
+@use '../../scss/utils/functions' as fn;
+@import '../../scss/utils/breakpoints';
+@import '../../scss/utils/mixins';
+
+.drawer {
+  background-color: colors.$base-bg;
+  height: 100vh;
+  width: 100%;
+  padding: fn.rem(32);
+  @include flex-column;
+  justify-content: space-between;
+
+  .avatarWrapper {
+    background-color: #e000171a;
+    // border: 1px solid red;
+    width: fn.rem(43);
+    height: fn.rem(43);
+    margin: 0 0 0 auto;
+    border-radius: 100%;
+    overflow: hidden;
+  }
+
+  .header {
+    span {
+      color: colors.$blue;
+      font-weight: 600;
+    }
+    h5 {
+      margin: fn.rem(11) 0 fn.rem(13);
+    }
+
+    p {
+      color: colors.$text-dark;
+      line-height: fn.rem(22);
+    }
+  }
+
+  .classTimeType {
+    margin: fn.rem(28) 0 fn.rem(30);
+  }
+}
