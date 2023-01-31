@@ -23,6 +23,7 @@ export { default as RoleCard } from './global/cards/employersCard/RoleCard'
 export { default as DashboardBanner } from './global/banners/dashboardbanner/DashboardBanner'
 export { default as AvatarStack } from './global/avatarStacks/AvatarStack'
 export { default as CalendarApp } from './global/calendar/CalendarApp'
+export { default as CalendarOffCanvas } from './global/offCanvas/CalendarOffCanvas'
 
 // HOME
 export { default as Hero } from './home/hero'

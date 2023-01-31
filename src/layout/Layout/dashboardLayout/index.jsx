@@ -1,7 +1,7 @@
 // REACT DEFAULTS
 import PropTypes from 'prop-types'
 // COMPONENTS
-import { DashboardLeftSideNav } from '../..'
+import { DashboardLeftSideNav, DashboardMobileNav } from '../..'
 // STYLES
 import style from './dashboardLayout.module.scss'
 
@@ -11,6 +11,7 @@ const DashboardLayout = ({ children }) => {
       <div className={[style.left, `col-1`].join(' ')}>
         <DashboardLeftSideNav />
       </div>
+      <DashboardMobileNav />
       <div className={[style.body, `col-11`].join(' ')}>{children}</div>
     </main>
   )

@@ -7,3 +7,4 @@ export { default as DashboardRightDrawer } from './dashboardSidenav/DashboardRig
 export { default as ExternalLayout } from './Layout'
 export { default as Authlayout } from './Layout/authlayout'
 export { default as DashboardLayout } from './Layout/dashboardLayout'
+export { default as DashboardMobileNav } from './dashboardSidenav/DashboardMobileNav'

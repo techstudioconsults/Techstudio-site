@@ -13,8 +13,10 @@
 
 .sectionThree {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: fn.rem(12);
+  @include breakpoint-up('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   .resource {
     border-radius: fn.rem(4);

@@ -8,8 +8,14 @@
   @include flex;
 
   .dashboardDisplay {
-    padding: fn.rem(32);
-    width: 72%;
+    padding: fn.rem(20) fn.rem(10);
+    width: 100%;
+    @include breakpoint-up('md') {
+      padding: fn.rem(32);
+    }
+    @include breakpoint-up('xl') {
+      width: 72%;
+    }
   }
 
   .calendarDetails {
@@ -19,5 +25,10 @@
     position: sticky;
     top: 0;
     height: 100vh;
+    display: none;
+
+    @include breakpoint-up('xl') {
+      display: flex;
+    }
   }
 }
