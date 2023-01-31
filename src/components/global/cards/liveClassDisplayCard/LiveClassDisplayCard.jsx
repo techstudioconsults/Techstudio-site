@@ -55,7 +55,7 @@ const LiveClassDisplayCard = () => {
                 aria-label='Close'
               ></button>
             </div>
-            <div className={['modal-body', style.body].join(' ')}>
+            <div className={['modal-body', style.Modalbody].join(' ')}>
               <h6 className={[style.title, `text-black`].join(' ')}>
                 Fundamentals of Design
               </h6>
