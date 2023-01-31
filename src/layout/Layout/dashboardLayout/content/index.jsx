@@ -120,5 +120,26 @@ export const DASHBOARD_CONTENT = {
         { id: 13, title: `Portfolio.docx` },
       ],
     },
+
+    notification: [
+      {
+        id: 1,
+        type: `video`,
+        message: `New video has been uploaded`,
+        metaDetails: `By Sorunke Sherif`,
+      },
+      {
+        id: 2,
+        type: `message`,
+        message: `Your tutor sent you a message`,
+        metaDetails: `2:00 pm`,
+      },
+      {
+        id: 3,
+        type: `file`,
+        message: `New Resources has been uploaded`,
+        metaDetails: `By Sorunke Sherif`,
+      },
+    ],
   },
 }

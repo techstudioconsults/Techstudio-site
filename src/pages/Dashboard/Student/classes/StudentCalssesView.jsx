@@ -1,5 +1,6 @@
 import React from 'react'
-import { Avatar, ClassesTab } from '../../../../components'
+import { Avatar, CalendarOffCanvas, ClassesTab } from '../../../../components'
+import ClassNotificationView from '../components/classNotificationView/ClassNotificationView'
 import style from './studentClasses.module.scss'
 
 const StudentCalssesView = () => {
@@ -9,13 +10,14 @@ const StudentCalssesView = () => {
         <div className={style.header}>
           <h4 className={[style.title, `mb-0`].join(' ')}>Classes</h4>
           <Avatar />
+          <CalendarOffCanvas>
+            <ClassNotificationView mobile />
+          </CalendarOffCanvas>
         </div>
         <ClassesTab />
       </div>
       <div className={style.notification}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat labore
-        dignissimos voluptatibus magnam rem velit quae repudiandae sequi ullam
-        quibusdam!
+        <ClassNotificationView />
       </div>
     </section>
   )

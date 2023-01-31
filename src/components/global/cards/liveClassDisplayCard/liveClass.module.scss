@@ -4,13 +4,19 @@
 @import '../../../../scss/utils/mixins';
 
 .liveCard {
-  @include flex;
+  @include flex_column;
   @include flex_align;
   justify-content: space-between;
   border: 1px solid colors.$border-grey;
   gap: fn.rem(20);
   //   border-left: fn.rem(10) solid colors.$light;
   padding: fn.rem(18) fn.rem(22);
+  transition: all 0.3s ease;
+
+  @include breakpoint-up('lg') {
+    @include flex;
+    @include flex_align;
+  }
 
   &:hover {
     border: 1px solid colors.$deep-blue;
@@ -31,12 +37,14 @@
 
       font-size: fn.rem(12);
       .name {
+        flex: 1;
         color: colors.$gray;
       }
 
       .time {
         @include flex;
         @include flex_align;
+        // flex: 1;
         .icon {
           margin-inline-end: fn.rem(8);
           img {
@@ -56,6 +64,40 @@
       color: colors.$light;
       border-radius: fn.rem(4);
       font-size: fn.rem(14);
+    }
+  }
+}
+
+.body {
+  .attachment {
+    margin-block: fn.rem(16);
+    .attachmentForm {
+      padding-inline-start: fn.rem(12);
+      @include flex;
+      @include flex_align;
+      justify-content: space-between;
+      background-color: colors.$light-blue-II;
+      border: 1px dashed colors.$blue;
+      border-radius: fn.rem(4);
+      .iconText {
+        @include flex;
+        @include flex_align;
+        gap: fn.rem(5);
+        p {
+          font-size: fn.rem(12);
+          color: colors.$gray;
+          @include breakpoint-up('lg') {
+            font-size: fn.rem(14);
+          }
+        }
+      }
+
+      button[type='submit'] {
+        width: fit-content;
+        padding-inline: fn.rem(32);
+        background-color: colors.$blue;
+        color: colors.$light;
+      }
     }
   }
 }
