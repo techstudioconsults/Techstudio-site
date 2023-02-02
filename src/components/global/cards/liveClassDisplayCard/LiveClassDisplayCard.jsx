@@ -3,20 +3,21 @@ import clock from '../../../../assets/icons/clock.png'
 import style from './liveClass.module.scss'
 import { CgAttachment } from 'react-icons/cg'
 import { Avatar } from '../../../../components'
+import { Link } from 'react-router-dom'
 
 const LiveClassDisplayCard = () => {
   return (
     <section>
-      <div
-        type='button'
-        data-bs-toggle='modal'
-        data-bs-target='#exampleModal'
-        className={[style.liveCard].join(' ')}
-      >
+      <div className={[style.liveCard].join(' ')}>
         <div className={style.avatar}>
           <Avatar />
         </div>
-        <div className={style.content}>
+        <div
+          type='button'
+          data-bs-toggle='modal'
+          data-bs-target='#exampleModal'
+          className={style.content}
+        >
           <h5 className={style.title}>
             Becoming a UX Designer from Scratch: Things to look out for
           </h5>
@@ -31,7 +32,9 @@ const LiveClassDisplayCard = () => {
           </div>
         </div>
         <div className={style.buttonDiv}>
-          <button className={style.btn}>Start Class</button>
+          <Link to={`/student/classes/single-class`}>
+            <button className={style.btn}>Start Class</button>
+          </Link>
         </div>
       </div>
 

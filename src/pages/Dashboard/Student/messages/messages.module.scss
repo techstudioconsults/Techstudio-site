@@ -1,0 +1,99 @@
+@use '../../../../scss/global/colors' as colors;
+@use '../../../../scss/utils/functions' as fn;
+@import '../../../../scss/utils/breakpoints';
+@import '../../../../scss/utils/mixins';
+
+.messageView {
+  // border: 1px solid red;
+  @include flex;
+
+  .messasges {
+    padding: fn.rem(20) fn.rem(10);
+    width: 28%;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: none;
+    border-right: 1px solid colors.$light-grey;
+    overflow: auto;
+
+    @include breakpoint-up('md') {
+      padding: fn.rem(32) 0;
+    }
+
+    @include breakpoint-up('xl') {
+      @include flex_column;
+      gap: fn.rem(32);
+    }
+
+    .header {
+      @include flex;
+      @include flex_align;
+      gap: fn.rem(32);
+      padding-inline: fn.rem(20);
+      .title {
+        margin: 0;
+        font-weight: 700;
+      }
+      .number {
+        font-size: fn.rem(14);
+        width: fn.rem(34);
+        height: fn.rem(34);
+        @include flex;
+        @include flex_centered;
+        border-radius: 100%;
+        background-color: colors.$light-blue-II;
+        color: colors.$blue;
+      }
+    }
+
+    .searchInput {
+      width: fn.rem(306);
+      margin-left: fn.rem(20);
+      input {
+        width: 100%;
+        border-radius: fn.rem(4);
+        border: 1px solid colors.$light-grey;
+        padding: fn.rem(16);
+        background-color: transparent;
+      }
+    }
+
+    .messagesWrapper {
+      @include flex_column;
+      height: 100%;
+      gap: fn.rem(16);
+    }
+  }
+
+  .messageDetails {
+    padding: fn.rem(20) fn.rem(10);
+    width: 100%;
+    @include breakpoint-up('md') {
+      padding: fn.rem(32) 0;
+    }
+    @include breakpoint-up('xl') {
+      width: 72%;
+    }
+
+    .header {
+      @include flex;
+      @include flex_align;
+      padding-inline: fn.rem(32);
+    }
+  }
+}
+
+.mute {
+  color: colors.$mute;
+}
+
+.article {
+  padding-inline: fn.rem(32);
+  border-top: 1px solid colors.$light-grey;
+}
+.singleMessage {
+  margin: fn.rem(32) 0;
+  padding-top: fn.rem(16);
+  border-top: 1px solid colors.$light-grey;
+}

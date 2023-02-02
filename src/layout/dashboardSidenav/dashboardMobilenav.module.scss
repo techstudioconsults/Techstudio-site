@@ -12,6 +12,7 @@
   text-decoration: none;
   list-style-type: none;
   text-align: center;
+  z-index: 999;
   @include flex;
   @include flex_centered;
   @include breakpoint-up('xl') {

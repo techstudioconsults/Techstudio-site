@@ -24,7 +24,8 @@
     background-color: colors.$grey-bg;
     width: 100%;
     @include breakpoint-up('xl') {
-      width: 94%;
+      width: 93.4%;
+      margin-left: auto;
     }
     // padding: fn.rem(32);
   }

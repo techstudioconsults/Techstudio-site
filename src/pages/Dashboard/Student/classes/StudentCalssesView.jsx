@@ -17,7 +17,7 @@ const StudentCalssesView = () => {
         <ClassesTab />
       </div>
       <div className={style.notification}>
-        <ClassNotificationView />
+        <ClassNotificationView mobile={false} />
       </div>
     </section>
   )

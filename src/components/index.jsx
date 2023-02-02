@@ -25,6 +25,8 @@ export { default as AvatarStack } from './global/avatarStacks/AvatarStack'
 export { default as CalendarApp } from './global/calendar/CalendarApp'
 export { default as CalendarOffCanvas } from './global/offCanvas/CalendarOffCanvas'
 export { default as Avatar } from './global/avatar/Avatar'
+export { default as RelatedVideoCard } from './global/cards/relatedVideoCard/RelatedVideoCard'
+export { default as MessageCard } from './global/cards/messageCard/MessageCard'
 
 // HOME
 export { default as Hero } from './home/hero'

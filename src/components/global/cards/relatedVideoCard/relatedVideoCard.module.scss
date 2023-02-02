@@ -1,0 +1,33 @@
+@use '../../../../scss/global/colors' as colors;
+@use '../../../../scss/utils/functions' as fn;
+@import '../../../../scss/utils/breakpoints';
+@import '../../../../scss/utils/mixins';
+
+.videoCard {
+  @include flex;
+  gap: fn.rem(16);
+
+  .videoFeed {
+    height: 100%;
+  }
+
+  .details {
+    .title {
+      font-weight: 600;
+      color: colors.$deep-blue;
+    }
+
+    .name {
+      margin: fn.rem(4) 0 fn.rem(18);
+      font-size: fn.rem(12);
+    }
+
+    .time {
+      @include flex;
+      gap: fn.rem(10);
+      font-size: fn.rem(12);
+      align-items: flex-end;
+      font-weight: 600;
+    }
+  }
+}

@@ -15,9 +15,11 @@ import {
   Employers,
   HomePage,
   Intro,
+  Messages,
   SignIn,
   Signup,
   SingleBlogPage,
+  SingleCourseView,
   StudentCalssesView,
   StudentDashboard,
 } from './pages'
@@ -35,7 +37,7 @@ const App = () => {
   return (
     <Suspense fallback={<Loading text='LOADING...' />}>
       <Routes>
-        <Route index element={<HomePage />} />
+        <Route index path='/' element={<HomePage />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/tracks' element={<Intro />} />
         <Route path='/signin' element={<SignIn />} />
@@ -66,15 +68,15 @@ const App = () => {
           path='/course/mobile'
           element={<Development content={mobileDevelopment} />}
         />
-      </Routes>
-      {/* dashboard routes */}
-      <Routes>
         <Route path='/admin' element={<AdminDashboard />} />
         <Route path='/student' element={<DashboardLayout />}>
           <Route path='dashboard' element={<StudentDashboard />} />
           <Route path='classes' element={<StudentCalssesView />} />
+          <Route path='classes/single-class' element={<SingleCourseView />} />
+          <Route path='messages' element={<Messages />} />
         </Route>
       </Routes>
+      {/* dashboard routes */}
     </Suspense>
   )
 }
