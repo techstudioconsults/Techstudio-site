@@ -2,8 +2,9 @@ import React from 'react'
 import { DASHBOARD_CONTENT } from '../../../layout/Layout/dashboardLayout/content'
 import style from './dashboardresource.module.scss'
 import ResourceListDisplay from './ResourceListDisplay'
+import PropTypes from 'prop-types'
 
-const DashboardResource = () => {
+const DashboardResource = ({ isTDB }) => {
   const { studentBoard } = DASHBOARD_CONTENT
   const fileDisplay = studentBoard.resources.PDF.map((file) => {
     return <ResourceListDisplay key={file.id} file={file} />
@@ -77,6 +78,10 @@ const DashboardResource = () => {
       </div>
     </section>
   )
+}
+
+DashboardResource.propTypes = {
+  isTDB: PropTypes.bool,
 }
 
 export default DashboardResource

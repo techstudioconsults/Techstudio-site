@@ -14,6 +14,7 @@ const Button = ({
   linkText,
   full,
   width,
+  height,
   transparentBtn,
   paddingInline,
   btnRef,
@@ -28,6 +29,7 @@ const Button = ({
         transparentBtn ? styles.transparentBtn : ''
       } ${btnRef ? styles.hoverState : ''}`}
       style={{
+        height: `${height}px`,
         minWidth: `${width}rem`,
         paddingInline: `${paddingInline}rem`,
         color: textColor,
@@ -50,6 +52,7 @@ Button.propTypes = {
   textBtn: PropTypes.bool,
   btnRef: PropTypes.bool,
   textColor: PropTypes.string,
+  height: PropTypes.string,
 }
 
 export default Button

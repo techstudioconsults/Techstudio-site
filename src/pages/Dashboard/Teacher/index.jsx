@@ -7,18 +7,18 @@ import StudentDashboardSectionTwo from './components/StudentDashboardSectionTwo'
 import style from './studentDashboard.module.scss'
 
 const index = () => {
-  const { studentBoard } = DASHBOARD_CONTENT
+  const { teacherDashboard } = DASHBOARD_CONTENT
 
   return (
     <section className={style.studentDashboard}>
       <div className={style.dashboardDisplay}>
-        <DashboardNavbar isTDB={false} />
-        <DashboardBanner content={studentBoard.banner} />
-        <StudentDashboardSectionTwo content={studentBoard.taskSummary} />
-        <StudentDashboardSectionThree />
+        <DashboardNavbar isTDB />
+        <DashboardBanner content={teacherDashboard.banner} />
+        <StudentDashboardSectionTwo content={teacherDashboard.taskSummary} />
+        <StudentDashboardSectionThree isTDB />
       </div>
       <div className={style.calendarDetails}>
-        <DashboardRightDrawer />
+        <DashboardRightDrawer isTDB />
       </div>
     </section>
   )

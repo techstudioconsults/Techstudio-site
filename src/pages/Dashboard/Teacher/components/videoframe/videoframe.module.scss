@@ -1,0 +1,50 @@
+@use '../../../../../scss/global/colors' as colors;
+@use '../../../../../scss/utils/functions' as fn;
+@import '../../../../../scss/utils/breakpoints';
+@import '../../../../../scss/utils/mixins';
+
+.videoFrame {
+  @include flex_column;
+  gap: fn.rem(35);
+  @include breakpoint-up('lg') {
+    @include flex;
+  }
+
+  .currentVideo {
+    flex: 2;
+    height: fn.rem(465);
+    position: relative;
+
+    // &::after {
+    //   content: 'HELP';
+    //   display: flex;
+    //   align-items: center;
+    //   justify-content: center;
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   width: 100%;
+    //   height: 100%;
+    // //   background-color: colors.$blue;
+    //   //   background-color: #00000090;
+    //   z-index: 999;
+    // }
+
+    .videoFeed {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .relatedVideo {
+    flex: 1;
+    height: fn.rem(465);
+    overflow: hidden;
+    .scroller {
+      @include flex_column;
+      overflow: auto;
+      height: fn.rem(465);
+      gap: fn.rem(30);
+    }
+  }
+}

@@ -22,6 +22,7 @@ import {
   SingleCourseView,
   StudentCalssesView,
   StudentDashboard,
+  TeacherDashboard,
 } from './pages'
 import { DEVELOPMENT_CONTENT } from './pages/Development/content'
 
@@ -71,6 +72,12 @@ const App = () => {
         <Route path='/admin' element={<AdminDashboard />} />
         <Route path='/student' element={<DashboardLayout />}>
           <Route path='dashboard' element={<StudentDashboard />} />
+          <Route path='classes' element={<StudentCalssesView />} />
+          <Route path='classes/single-class' element={<SingleCourseView />} />
+          <Route path='messages' element={<Messages />} />
+        </Route>
+        <Route path='/teacher' element={<DashboardLayout isTDB />}>
+          <Route path='dashboard' element={<TeacherDashboard />} />
           <Route path='classes' element={<StudentCalssesView />} />
           <Route path='classes/single-class' element={<SingleCourseView />} />
           <Route path='messages' element={<Messages />} />

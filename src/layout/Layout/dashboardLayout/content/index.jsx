@@ -1,7 +1,7 @@
 import img1 from '../../../../assets/icons/menu-white.png'
 import img2 from '../../../../assets/icons/cap-grey.png'
 import img3 from '../../../../assets/icons/message-gray.png'
-import img4 from '../../../../assets/images/db-banner.-img.webp'
+import img4 from '../../../../assets/images/teacher.webp'
 import img5 from '../../../../assets/icons/Icon-awesome-folder.png'
 import img6 from '../../../../assets/icons/Icon-awesome-tasks.png'
 import img7 from '../../../../assets/icons/Icon-awesome-folder-plus.png'
@@ -26,6 +26,32 @@ export const DASHBOARD_CONTENT = {
       img: img3,
       title: `Messages`,
       link: `/student/messages`,
+    },
+  ],
+  leftTeacherNav: [
+    {
+      id: 1,
+      img: img1,
+      title: `Dashboard`,
+      link: `/teacher/dashboard`,
+    },
+    {
+      id: 2,
+      img: img2,
+      title: `Classes`,
+      link: `/teacher/classes`,
+    },
+    {
+      id: 3,
+      img: img3,
+      title: `Messages`,
+      link: `/teacher/messages`,
+    },
+    {
+      id: 4,
+      img: img3,
+      title: `Tasks`,
+      link: `/teacher/messages`,
     },
   ],
 
@@ -76,6 +102,109 @@ export const DASHBOARD_CONTENT = {
             accent: `#D9EDFF`,
           },
           title: `Pending Tasks`,
+          total: 12,
+        },
+        {
+          id: 4,
+          img: {
+            src: img8,
+            accent: `#E000171A`,
+          },
+          title: `Weeks Remaining`,
+          total: 7,
+        },
+      ],
+    },
+
+    resources: {
+      PDF: [
+        { id: 1, title: `Design and Insights.pdf` },
+        { id: 2, title: `Design Methodology.xslx` },
+        { id: 4, title: `Application for Leave.ppt` },
+        { id: 5, title: `Working with colours.docx` },
+        { id: 6, title: `Tools and tips.docx` },
+        { id: 7, title: `Presenting your design.docx` },
+        { id: 8, title: `Portfolio.docx` },
+        { id: 9, title: `Portfolio.docx` },
+        { id: 10, title: `Portfolio.docx` },
+        { id: 11, title: `Portfolio.docx` },
+        { id: 12, title: `Portfolio.docx` },
+        { id: 13, title: `Portfolio.docx` },
+      ],
+      video: [
+        { id: 1, title: `Design and Insights.pdf` },
+        { id: 2, title: `Design Methodology.xslx` },
+        { id: 4, title: `Application for Leave.ppt` },
+        { id: 5, title: `Working with colours.docx` },
+        { id: 6, title: `Tools and tips.docx` },
+        { id: 7, title: `Presenting your design.docx` },
+        { id: 8, title: `Portfolio.docx` },
+        { id: 9, title: `Portfolio.docx` },
+        { id: 10, title: `Portfolio.docx` },
+        { id: 11, title: `Portfolio.docx` },
+        { id: 12, title: `Portfolio.docx` },
+        { id: 13, title: `Portfolio.docx` },
+      ],
+    },
+
+    notification: [
+      {
+        id: 1,
+        type: `video`,
+        message: `New video has been uploaded`,
+        metaDetails: `By Sorunke Sherif`,
+      },
+      {
+        id: 2,
+        type: `message`,
+        message: `Your tutor sent you a message`,
+        metaDetails: `2:00 pm`,
+      },
+      {
+        id: 3,
+        type: `file`,
+        message: `New Resources has been uploaded`,
+        metaDetails: `By Sorunke Sherif`,
+      },
+    ],
+  },
+
+  teacherDashboard: {
+    banner: {
+      header: {
+        img: img4,
+        title: `Hello Rafiu!`,
+        desc: `Welcome to your techstudio dashboard. Time to pass knowledge down to Your students.`,
+      },
+    },
+
+    taskSummary: {
+      cards: [
+        {
+          id: 1,
+          img: {
+            src: img5,
+            accent: `#ECEAFE`,
+          },
+          title: `Enrolled Students`,
+          total: 24,
+        },
+        {
+          id: 2,
+          img: {
+            src: img7,
+            accent: `#EBF0E6`,
+          },
+          title: `Tasks assigned`,
+          total: 12,
+        },
+        {
+          id: 3,
+          img: {
+            src: img6,
+            accent: `#D9EDFF`,
+          },
+          title: `Tasks Submitted`,
           total: 12,
         },
         {

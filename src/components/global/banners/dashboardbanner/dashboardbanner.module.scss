@@ -9,7 +9,10 @@
   border-radius: fn.rem(4);
   @include flex_column;
   padding: fn.rem(20);
-  margin: fn.rem(120) 0 fn.rem(24);
+  margin: fn.rem(32) 0 fn.rem(24);
+  @include breakpoint-up('md') {
+    margin: fn.rem(120) 0 fn.rem(24);
+  }
   @include breakpoint-up('lg') {
     margin: fn.rem(53) 0 fn.rem(24);
     height: fn.rem(180);
