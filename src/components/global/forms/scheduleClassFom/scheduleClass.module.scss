@@ -1,0 +1,62 @@
+@use '../../../../scss/global/colors' as colors;
+@use '../../../../scss/utils/functions' as fn;
+@import '../../../../scss/utils/breakpoints';
+@import '../../../../scss/utils/mixins';
+
+.scheduleForm {
+  .inputs,
+  .attachment {
+    @include flex_column;
+    gap: fn.rem(4);
+    margin-block: fn.rem(8);
+
+    label {
+      width: 30%;
+    }
+
+    .input,
+    .attachmentForm {
+      width: 100%;
+      font-weight: 600;
+    }
+
+    input[type='text'] {
+      width: 100%;
+      border: 1px solid colors.$light-grey;
+      border-radius: fn.rem(4);
+      background-color: transparent;
+    }
+  }
+  .attachment {
+    margin-block: fn.rem(16);
+    .attachmentForm {
+      @include flex;
+      @include flex_align;
+      //   justify-content: flex-end;
+      background-color: colors.$light-blue-II;
+      border: 1px dashed colors.$blue;
+      border-radius: fn.rem(4);
+      .iconText {
+        @include flex;
+        @include flex_align;
+        width: 100%;
+        padding-inline: fn.rem(16);
+        gap: fn.rem(5);
+        p {
+          font-size: fn.rem(12);
+          color: colors.$gray;
+          @include breakpoint-up('lg') {
+            font-size: fn.rem(12);
+          }
+        }
+      }
+
+      button[type='submit'] {
+        width: fit-content;
+        padding-inline: fn.rem(32);
+        background-color: colors.$blue;
+        color: colors.$light;
+      }
+    }
+  }
+}

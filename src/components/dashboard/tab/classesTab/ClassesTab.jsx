@@ -1,39 +1,50 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { DASHBOARD_CONTENT } from '../../../../layout/Layout/dashboardLayout/content'
 import LiveClassDisplayCard from '../../../global/cards/liveClassDisplayCard/LiveClassDisplayCard'
 import style from './classesTab.module.scss'
+import { AiOutlinePlusCircle } from 'react-icons/ai'
+import StartAClass from '../../../global/modals/StartAClass'
+import ScheduleClassForm from '../../../global/forms/scheduleClassFom/ScheduleClassForm'
 
-const ClassesTab = () => {
+const ClassesTab = ({ isTDB }) => {
   const { studentBoard } = DASHBOARD_CONTENT
   const fileDisplay = studentBoard.resources.PDF.map((file, index) => {
-    return <LiveClassDisplayCard key={index} />
+    return <LiveClassDisplayCard isTDB key={index} />
   })
   return (
     <section className={style.tab}>
-      <ul className={['nav', style.tabList].join(' ')}>
-        <li className={['nav-item', style.link].join(' ')}>
-          <a
-            className={['nav-link', style.a].join(' ')}
-            id='home-tab'
-            data-bs-toggle='tab'
-            data-bs-target='#PDF'
-            href='#r'
-          >
-            LIVE
-          </a>
-        </li>
-        <li className={['nav-item', style.link].join(' ')}>
-          <a
-            className={['nav-link', style.a].join(' ')}
-            id='about-tab'
-            data-bs-toggle='tab'
-            data-bs-target='#video'
-            href='#r'
-          >
-            RECORDED
-          </a>
-        </li>
-      </ul>
+      <div className='d-flex align-items-center justify-content-between'>
+        <ul className={['nav', style.tabList].join(' ')}>
+          <li className={['nav-item', style.link].join(' ')}>
+            <a
+              className={['nav-link', style.a].join(' ')}
+              id='home-tab'
+              data-bs-toggle='tab'
+              data-bs-target='#PDF'
+              href='#r'
+            >
+              LIVE
+            </a>
+          </li>
+          <li className={['nav-item', style.link].join(' ')}>
+            <a
+              className={['nav-link', style.a].join(' ')}
+              id='about-tab'
+              data-bs-toggle='tab'
+              data-bs-target='#video'
+              href='#r'
+            >
+              RECORDED
+            </a>
+          </li>
+        </ul>
+        <div className={isTDB ? `d-block` : `d-none`}>
+          <StartAClass>
+            <ScheduleClassForm />
+          </StartAClass>
+        </div>
+      </div>
 
       <div className='tab-content' id='tabContent'>
         <div
@@ -62,6 +73,10 @@ const ClassesTab = () => {
       </div>
     </section>
   )
+}
+
+ClassesTab.propTypes = {
+  isTDB: PropTypes.bool,
 }
 
 export default ClassesTab

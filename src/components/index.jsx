@@ -27,6 +27,8 @@ export { default as CalendarOffCanvas } from './global/offCanvas/CalendarOffCanv
 export { default as Avatar } from './global/avatar/Avatar'
 export { default as RelatedVideoCard } from './global/cards/relatedVideoCard/RelatedVideoCard'
 export { default as MessageCard } from './global/cards/messageCard/MessageCard'
+export { default as ScheduleClassForm } from './global/forms/scheduleClassFom/ScheduleClassForm'
+export { default as StartAClass } from './global/modals/StartAClass'
 
 // HOME
 export { default as Hero } from './home/hero'

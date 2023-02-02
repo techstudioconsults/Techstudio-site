@@ -11,10 +11,10 @@
     padding: fn.rem(20) fn.rem(10);
     width: 100%;
     @include breakpoint-up('md') {
-      padding: fn.rem(32);
+      padding: fn.rem(32) fn.rem(100);
     }
     @include breakpoint-up('xl') {
-      width: 72%;
+      width: 65%;
     }
 
     .header {
@@ -24,7 +24,7 @@
   }
 
   .notification {
-    width: 28%;
+    width: 35%;
     // background-color: grey;
     padding: 0;
     position: sticky;

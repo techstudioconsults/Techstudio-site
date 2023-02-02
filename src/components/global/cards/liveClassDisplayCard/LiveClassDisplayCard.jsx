@@ -1,11 +1,12 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import clock from '../../../../assets/icons/clock.png'
 import style from './liveClass.module.scss'
 import { CgAttachment } from 'react-icons/cg'
 import { Avatar } from '../../../../components'
 import { Link } from 'react-router-dom'
 
-const LiveClassDisplayCard = () => {
+const LiveClassDisplayCard = ({ isTDB }) => {
   return (
     <section>
       <div className={[style.liveCard].join(' ')}>
@@ -31,7 +32,9 @@ const LiveClassDisplayCard = () => {
             </span>
           </div>
         </div>
-        <div className={style.buttonDiv}>
+        <div
+          className={[style.buttonDiv, isTDB ? `d-none` : `d-block`].join(' ')}
+        >
           <Link to={`/student/classes/single-class`}>
             <button className={style.btn}>Start Class</button>
           </Link>
@@ -93,6 +96,10 @@ const LiveClassDisplayCard = () => {
       </div>
     </section>
   )
+}
+
+LiveClassDisplayCard.propTypes = {
+  isTDB: PropTypes.bool,
 }
 
 export default LiveClassDisplayCard

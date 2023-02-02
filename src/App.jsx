@@ -24,6 +24,7 @@ import {
   StudentDashboard,
   TeacherDashboard,
 } from './pages'
+import TeacherClassView from './pages/Dashboard/Teacher/classes/TeacherClassView'
 import { DEVELOPMENT_CONTENT } from './pages/Development/content'
 
 const App = () => {
@@ -78,7 +79,7 @@ const App = () => {
         </Route>
         <Route path='/teacher' element={<DashboardLayout isTDB />}>
           <Route path='dashboard' element={<TeacherDashboard />} />
-          <Route path='classes' element={<StudentCalssesView />} />
+          <Route path='classes' element={<TeacherClassView />} />
           <Route path='classes/single-class' element={<SingleCourseView />} />
           <Route path='messages' element={<Messages />} />
         </Route>
