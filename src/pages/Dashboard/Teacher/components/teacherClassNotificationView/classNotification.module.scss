@@ -6,16 +6,21 @@
 .notification {
   border-radius: fn.rem(8);
   //   margin: fn.rem(16);
-  padding: fn.rem(48);
+  // padding: fn.rem(48);
   width: 100%;
   background-color: colors.$deep-blue;
   color: colors.$light;
+  height: 96%;
 
   .classSummary {
+    height: 100%;
+    @include flex_column;
+    justify-content: space-between;
     .header {
       position: relative;
       background-color: colors.$light-blue-II;
       padding: fn.rem(40) fn.rem(20) fn.rem(20) fn.rem(43);
+      border: 2px solid colors.$light;
       border-radius: fn.rem(20);
       border-bottom-left-radius: 0;
 
@@ -32,13 +37,30 @@
       .text {
         color: colors.$deep-blue;
       }
+
+      .title {
+        font-size: fn.rem(12);
+        @include breakpoint-up('md') {
+          font-size: fn.rem(16);
+        }
+      }
+      .text {
+        font-size: fn.rem(10);
+        @include breakpoint-up('md') {
+          font-size: fn.rem(12);
+        }
+      }
     }
 
     .Participants {
-      @include flex;
-      @include flex_align;
+      @include flex_column;
       gap: fn.rem(16);
       margin-block: fn.rem(30);
+      @include breakpoint-up('md') {
+        @include flex;
+        @include flex_align;
+        font-size: fn.rem(12);
+      }
     }
 
     .classTimeType {

@@ -1,18 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { MdClose, MdMenu } from 'react-icons/md'
+import { MdClose } from 'react-icons/md'
 
-const CalendarOffCanvas = ({ children }) => {
+const offCanvas = ({ children, text }) => {
   return (
     <div>
-      <MdMenu
-        size={`2.3rem`}
-        className='p-2 d-xl-none'
-        type='button'
+      <p
+        className='fs-sm'
         data-bs-toggle='offcanvas'
         data-bs-target='#offcanvasRight'
         aria-controls='offcanvasRight'
-      />
+      >
+        {text}
+      </p>
 
       <div
         className='offcanvas offcanvas-end'
@@ -36,12 +36,13 @@ const CalendarOffCanvas = ({ children }) => {
   )
 }
 
-CalendarOffCanvas.propTypes = {
+offCanvas.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.node,
     PropTypes.arrayOf(PropTypes.node),
   ]).isRequired,
+  text: PropTypes.string.isRequired,
 }
 
-export default CalendarOffCanvas
+export default offCanvas

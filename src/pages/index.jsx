@@ -15,3 +15,5 @@ export { default as StudentCalssesView } from './Dashboard/Student/classes/Stude
 export { default as SingleCourseView } from './Dashboard/Student/classes/singleCourseView/SingleCourseView'
 export { default as Messages } from './Dashboard/Student/messages/Messages'
 export { default as TeacherDashboard } from './Dashboard/Teacher'
+export { default as TeacherClassView } from './Dashboard/Teacher/classes/TeacherClassView'
+export { default as Tasks } from './Dashboard/Teacher/tasks/Tasks'

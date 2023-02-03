@@ -22,9 +22,10 @@ import {
   SingleCourseView,
   StudentCalssesView,
   StudentDashboard,
+  Tasks,
+  TeacherClassView,
   TeacherDashboard,
 } from './pages'
-import TeacherClassView from './pages/Dashboard/Teacher/classes/TeacherClassView'
 import { DEVELOPMENT_CONTENT } from './pages/Development/content'
 
 const App = () => {
@@ -82,6 +83,7 @@ const App = () => {
           <Route path='classes' element={<TeacherClassView />} />
           <Route path='classes/single-class' element={<SingleCourseView />} />
           <Route path='messages' element={<Messages />} />
+          <Route path='tasks' element={<Tasks />} />
         </Route>
       </Routes>
       {/* dashboard routes */}

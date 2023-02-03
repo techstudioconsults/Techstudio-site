@@ -17,7 +17,14 @@ const DashboardLayout = ({ isTDB }) => {
           <DashboardLeftSideNav />
         </div>
       </div>
-      <DashboardMobileNav />
+      <div className='d-xl-none'>
+        <div className={[isTDB ? `visible` : `d-none`].join(' ')}>
+          <DashboardMobileNav isTDB />
+        </div>
+        <div className={[isTDB ? `d-none` : `visible`].join(' ')}>
+          <DashboardMobileNav />
+        </div>
+      </div>
       <div className={[style.body, `col-11`].join(' ')}>
         <Outlet />
       </div>

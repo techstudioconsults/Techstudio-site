@@ -32,7 +32,7 @@
 
   .navGroup {
     @include flex;
-    gap: fn.rem(70);
+    gap: fn.rem(50);
     padding: fn.rem(10) 0 fn.rem(5);
 
     .link {

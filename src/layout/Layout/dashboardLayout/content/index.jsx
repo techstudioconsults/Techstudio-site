@@ -1,7 +1,9 @@
-import img1 from '../../../../assets/icons/menu-white.png'
-import img2 from '../../../../assets/icons/cap-grey.png'
-import img3 from '../../../../assets/icons/message-gray.png'
-import img4 from '../../../../assets/images/teacher.webp'
+import img1Grey from '../../../../assets/icons/menu-grey.png'
+import img2Grey from '../../../../assets/icons/cap-grey.png'
+import img3Grey from '../../../../assets/icons/message-gray.png'
+import teacherImg4 from '../../../../assets/images/teacher.webp'
+import studentImg4 from '../../../../assets/images/db-banner.-img.webp'
+import checklistGrey from '../../../../assets/icons/checklist-grey.png'
 import img5 from '../../../../assets/icons/Icon-awesome-folder.png'
 import img6 from '../../../../assets/icons/Icon-awesome-tasks.png'
 import img7 from '../../../../assets/icons/Icon-awesome-folder-plus.png'
@@ -11,19 +13,19 @@ export const DASHBOARD_CONTENT = {
   leftStudentNav: [
     {
       id: 1,
-      img: img1,
+      img: img1Grey,
       title: `Dashboard`,
       link: `/student/dashboard`,
     },
     {
       id: 2,
-      img: img2,
+      img: img2Grey,
       title: `Classes`,
       link: `/student/classes`,
     },
     {
       id: 3,
-      img: img3,
+      img: img3Grey,
       title: `Messages`,
       link: `/student/messages`,
     },
@@ -31,27 +33,27 @@ export const DASHBOARD_CONTENT = {
   leftTeacherNav: [
     {
       id: 1,
-      img: img1,
+      img: img1Grey,
       title: `Dashboard`,
       link: `/teacher/dashboard`,
     },
     {
       id: 2,
-      img: img2,
+      img: img2Grey,
       title: `Classes`,
       link: `/teacher/classes`,
     },
     {
       id: 3,
-      img: img3,
+      img: img3Grey,
       title: `Messages`,
       link: `/teacher/messages`,
     },
     {
       id: 4,
-      img: img3,
+      img: checklistGrey,
       title: `Tasks`,
-      link: `/teacher/messages`,
+      link: `/teacher/tasks`,
     },
   ],
 
@@ -69,7 +71,7 @@ export const DASHBOARD_CONTENT = {
   studentBoard: {
     banner: {
       header: {
-        img: img4,
+        img: studentImg4,
         title: `Hello Tomiwa!`,
         desc: `You can be the best you can on this platform. Learn anytime and boost your skills`,
       },
@@ -172,7 +174,7 @@ export const DASHBOARD_CONTENT = {
   teacherDashboard: {
     banner: {
       header: {
-        img: img4,
+        img: teacherImg4,
         title: `Hello Rafiu!`,
         desc: `Welcome to your techstudio dashboard. Time to pass knowledge down to Your students.`,
       },

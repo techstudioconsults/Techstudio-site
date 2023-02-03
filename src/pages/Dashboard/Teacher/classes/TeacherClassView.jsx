@@ -14,7 +14,7 @@ const TeacherClassView = () => {
             <TeacherClassNotificationView mobile />
           </CalendarOffCanvas>
         </div>
-        <div>
+        <div className='my-3'>
           <p>Set new time and date for the scheduled class.</p>
           <ClassesTab isTDB />
         </div>

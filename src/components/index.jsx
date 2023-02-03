@@ -29,6 +29,7 @@ export { default as RelatedVideoCard } from './global/cards/relatedVideoCard/Rel
 export { default as MessageCard } from './global/cards/messageCard/MessageCard'
 export { default as ScheduleClassForm } from './global/forms/scheduleClassFom/ScheduleClassForm'
 export { default as StartAClass } from './global/modals/StartAClass'
+export { default as OffCanvas } from './global/offCanvas/OffCanvas'
 
 // HOME
 export { default as Hero } from './home/hero'

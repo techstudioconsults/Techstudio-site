@@ -3,18 +3,23 @@ import PropTypes from 'prop-types'
 import { DASHBOARD_CONTENT } from '../../../../layout/Layout/dashboardLayout/content'
 import LiveClassDisplayCard from '../../../global/cards/liveClassDisplayCard/LiveClassDisplayCard'
 import style from './classesTab.module.scss'
-import { AiOutlinePlusCircle } from 'react-icons/ai'
 import StartAClass from '../../../global/modals/StartAClass'
 import ScheduleClassForm from '../../../global/forms/scheduleClassFom/ScheduleClassForm'
 
 const ClassesTab = ({ isTDB }) => {
   const { studentBoard } = DASHBOARD_CONTENT
-  const fileDisplay = studentBoard.resources.PDF.map((file, index) => {
-    return <LiveClassDisplayCard isTDB key={index} />
-  })
+
+  const fileDisplay = isTDB
+    ? studentBoard.resources.PDF.map((file, index) => {
+        return <LiveClassDisplayCard isTDB key={index} />
+      })
+    : studentBoard.resources.PDF.map((file, index) => {
+        return <LiveClassDisplayCard key={index} />
+      })
+
   return (
     <section className={style.tab}>
-      <div className='d-flex align-items-center justify-content-between'>
+      <div className='d-flex flex-column flex-md-row align-items-center justify-content-between gap-3'>
         <ul className={['nav', style.tabList].join(' ')}>
           <li className={['nav-item', style.link].join(' ')}>
             <a
@@ -40,7 +45,7 @@ const ClassesTab = ({ isTDB }) => {
           </li>
         </ul>
         <div className={isTDB ? `d-block` : `d-none`}>
-          <StartAClass>
+          <StartAClass title={`Add a class`}>
             <ScheduleClassForm />
           </StartAClass>
         </div>

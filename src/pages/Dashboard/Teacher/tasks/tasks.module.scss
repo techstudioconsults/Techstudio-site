@@ -1,0 +1,24 @@
+@use '../../../../scss/global/colors' as colors;
+@use '../../../../scss/utils/functions' as fn;
+@import '../../../../scss/utils/breakpoints';
+@import '../../../../scss/utils/mixins';
+
+.tasks {
+  padding: fn.rem(32) fn.rem(16);
+  .header {
+    @include flex;
+    @include flex_align;
+    margin-bottom: fn.rem(32);
+    .title {
+      font-weight: bold;
+    }
+  }
+  @include breakpoint-up('lg') {
+    padding: fn.rem(32);
+  }
+  .search {
+    width: 100%;
+    max-width: fn.rem(400);
+    margin-bottom: fn.rem(20);
+  }
+}

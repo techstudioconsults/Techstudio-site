@@ -25,13 +25,13 @@ const ScheduleClassForm = () => {
       </div>
       <div className={style.attachment}>
         <label htmlFor='resource'>Resources</label>
-        <form className={style.attachmentForm}>
+        <div className={style.attachmentForm}>
           <div className={style.iconText}>
             <CgAttachment />
             <p>Browse files or drag and drop here</p>
           </div>
           <button type='submit'>Add</button>
-        </form>
+        </div>
       </div>
       <div
         className={[

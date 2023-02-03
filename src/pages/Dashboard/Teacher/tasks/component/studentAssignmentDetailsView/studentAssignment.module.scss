@@ -1,0 +1,20 @@
+@use '../../../../../../scss/global/colors' as colors;
+@use '../../../../../../scss/utils/functions' as fn;
+@import '../../../../../../scss/utils/breakpoints';
+@import '../../../../../../scss/utils/mixins';
+
+.Modalbody {
+  .search {
+    width: 100%;
+    max-width: fn.rem(400);
+    margin-bottom: fn.rem(20);
+
+    input {
+      border-color: colors.$light-grey;
+      font-size: fn.rem(14);
+      &::placeholder {
+        color: colors.$gray;
+      }
+    }
+  }
+}

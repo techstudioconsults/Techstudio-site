@@ -77,7 +77,13 @@ const Messages = () => {
               without cause or advance notice.
             </p>
             <div className='d-flex'>
-              <Button solidBtn navBtn width={9} linkText='Reply' />
+              <Button
+                solidBtn
+                navBtn
+                width={`9`}
+                linkText='Reply'
+                linkHref='#'
+              />
             </div>
           </div>
           <div className=''>
