@@ -1,0 +1,61 @@
+@use '../../../../scss/global/colors' as colors;
+@use '../../../../scss/utils/functions' as fn;
+@import '../../../../scss/utils/breakpoints';
+@import '../../../../scss/utils/mixins';
+
+.tab {
+  // margin-top: fn.rem(41);
+  .tabList {
+    width: 100%;
+    max-width: fn.rem(300);
+    margin: auto;
+    @include breakpoint-up('lg') {
+      margin: initial;
+    }
+    background-color: colors.$light-grey;
+    border-radius: fn.rem(4);
+    padding: fn.rem(5);
+    @include flex;
+    // justify-content: space-between;
+    gap: fn.rem(10);
+
+    .link {
+      flex: 1;
+
+      .a {
+        text-align: center;
+        color: colors.$text-dark;
+        font-size: fn.rem(14);
+        font-weight: 600;
+
+        &:active {
+          background-color: colors.$light;
+          font-size: fn.rem(14);
+          border-radius: fn.rem(4);
+        }
+
+        &:focus {
+          background-color: colors.$light;
+          font-size: fn.rem(14);
+          border-radius: fn.rem(4);
+        }
+        // width: fn.rem(117);
+      }
+
+      .a.active {
+        background-color: colors.$light;
+        font-size: fn.rem(14);
+        border-radius: fn.rem(4);
+      }
+    }
+  }
+
+  .listWrapper {
+    @include flex_column;
+    gap: fn.rem(20);
+    // border: 1px solid red;
+    padding: fn.rem(16) 0;
+    // height: fn.rem(400);
+    overflow-y: auto;
+  }
+}

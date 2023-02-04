@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { MdMenu } from 'react-icons/md'
+import { MdClose, MdMenu } from 'react-icons/md'
 
 const CalendarOffCanvas = ({ children }) => {
   return (
@@ -20,13 +20,15 @@ const CalendarOffCanvas = ({ children }) => {
         id='offcanvasRight'
         aria-labelledby='offcanvasRightLabel'
       >
-        <div className='offcanvas-header'>
-          <button
-            type='button'
-            className='btn-close ms-auto me-8 mt-1'
-            data-bs-dismiss='offcanvas'
-            aria-label='Close'
-          ></button>
+        <div className='p-3'>
+          <div className='d-flex align-items-center justify-content-end'>
+            <MdClose
+              color='black'
+              className='fw-bolder fs-2xl'
+              data-bs-dismiss='offcanvas'
+              aria-label='Close'
+            />
+          </div>
         </div>
         <div className='offcanvas-body'>{children}</div>
       </div>

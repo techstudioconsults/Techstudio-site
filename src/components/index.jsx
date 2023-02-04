@@ -24,6 +24,13 @@ export { default as DashboardBanner } from './global/banners/dashboardbanner/Das
 export { default as AvatarStack } from './global/avatarStacks/AvatarStack'
 export { default as CalendarApp } from './global/calendar/CalendarApp'
 export { default as CalendarOffCanvas } from './global/offCanvas/CalendarOffCanvas'
+export { default as Avatar } from './global/avatar/Avatar'
+export { default as RelatedVideoCard } from './global/cards/relatedVideoCard/RelatedVideoCard'
+export { default as MessageCard } from './global/cards/messageCard/MessageCard'
+export { default as ScheduleClassForm } from './global/forms/scheduleClassFom/ScheduleClassForm'
+export { default as StartAClass } from './global/modals/StartAClass'
+export { default as OffCanvas } from './global/offCanvas/OffCanvas'
+export { default as ClassDetails } from './global/cards/classDetails/ClassDetails'
 
 // HOME
 export { default as Hero } from './home/hero'
@@ -70,3 +77,4 @@ export { default as DashboardMiniCard } from './dashboard/dashboardMiniCard/Dash
 export { default as DashboardResource } from './dashboard/resources/DashboardResource'
 export { default as FeedbackCard } from './dashboard/dashboardStatFeedback/feedbacks/FeedbackCard'
 export { default as GraphCard } from './dashboard/dashboardStatFeedback/stats/GraphCard'
+export { default as ClassesTab } from './dashboard/tab/classesTab/ClassesTab'

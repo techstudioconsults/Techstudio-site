@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 
 // COMPONENTS
 import { Accounts, Loading, Payment } from './components'
+import { DashboardLayout } from './layout'
 import {
   AboutUs,
   AdminDashboard,
@@ -14,11 +15,18 @@ import {
   Employers,
   HomePage,
   Intro,
+  Messages,
   SignIn,
   Signup,
   SingleBlogPage,
+  SingleCourseView,
+  StudentCalssesView,
   StudentDashboard,
+  Tasks,
+  TeacherClassView,
+  TeacherDashboard,
 } from './pages'
+import AdminClassView from './pages/Dashboard/Admin/classes/AdminClassView'
 import { DEVELOPMENT_CONTENT } from './pages/Development/content'
 
 const App = () => {
@@ -33,7 +41,7 @@ const App = () => {
   return (
     <Suspense fallback={<Loading text='LOADING...' />}>
       <Routes>
-        <Route index element={<HomePage />} />
+        <Route index path='/' element={<HomePage />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/tracks' element={<Intro />} />
         <Route path='/signin' element={<SignIn />} />
@@ -64,12 +72,26 @@ const App = () => {
           path='/course/mobile'
           element={<Development content={mobileDevelopment} />}
         />
+        <Route path='/admin' element={<DashboardLayout isADB />}>
+          <Route path='dashboard' element={<AdminDashboard />} />
+          <Route path='classes' element={<AdminClassView />} />
+          <Route path='messages' element={<Messages />} />
+        </Route>
+        <Route path='/student' element={<DashboardLayout />}>
+          <Route path='dashboard' element={<StudentDashboard />} />
+          <Route path='classes' element={<StudentCalssesView />} />
+          <Route path='classes/single-class' element={<SingleCourseView />} />
+          <Route path='messages' element={<Messages />} />
+        </Route>
+        <Route path='/teacher' element={<DashboardLayout isTDB />}>
+          <Route path='dashboard' element={<TeacherDashboard />} />
+          <Route path='classes' element={<TeacherClassView />} />
+          <Route path='classes/single-class' element={<SingleCourseView />} />
+          <Route path='messages' element={<Messages />} />
+          <Route path='tasks' element={<Tasks />} />
+        </Route>
       </Routes>
       {/* dashboard routes */}
-      <Routes>
-        <Route path='/admin' element={<AdminDashboard />} />
-        <Route path='/student' element={<StudentDashboard />} />
-      </Routes>
     </Suspense>
   )
 }

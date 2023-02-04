@@ -1,22 +1,16 @@
 import React from 'react'
-
+import PropTypes from 'prop-types'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import { MdOutlineComputer } from 'react-icons/md'
-import { AvatarStack, CalendarApp } from '../../components'
+import { Avatar, AvatarStack, CalendarApp } from '../../components'
 import { DASHBOARD_CONTENT } from '../Layout/dashboardLayout/content'
 import style from './dashboardDrawer.module.scss'
 
-function dashboardRightDrawer() {
+function dashboardRightDrawer({ isTDB }) {
   const { imageList } = DASHBOARD_CONTENT
   return (
     <section className={style.drawer}>
-      <div className={style.avatarWrapper}>
-        <img
-          src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1643440809/clapmi/avatar_3_lnfwyk.png`}
-          alt='img'
-          className='cc-img-fluid'
-        />
-      </div>
+      <Avatar />
       <div>
         <CalendarApp />
       </div>
@@ -52,9 +46,26 @@ function dashboardRightDrawer() {
         <div>
           <AvatarStack imageList={imageList} />
         </div>
+        <div
+          className={[
+            `gap-3 my-5 align-items-center `,
+            isTDB ? `d-flex` : `d-none`,
+          ].join(' ')}
+        >
+          <button className='fs-sm bg-primary text-white rounded rounded-lg px-3 w-50'>
+            Start Class
+          </button>
+          <button className='fs-sm fw-semibold bg-white text-primary rounded rounded-lg px-3 w-50 border border-primary'>
+            Reschedule
+          </button>
+        </div>
       </div>
     </section>
   )
+}
+
+dashboardRightDrawer.propTypes = {
+  isTDB: PropTypes.bool,
 }
 
 export default dashboardRightDrawer

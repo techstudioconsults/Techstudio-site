@@ -1,0 +1,14 @@
+@use '../../../scss/global/colors' as colors;
+@use '../../../scss/utils/functions' as fn;
+@import '../../../scss/utils/breakpoints';
+@import '../../../scss/utils/mixins';
+
+.avatarWrapper {
+  background-color: #e000171a;
+  // border: 1px solid red;
+  width: fn.rem(43);
+  height: fn.rem(43);
+  margin: 0 0 0 auto;
+  border-radius: 100%;
+  overflow: hidden;
+}

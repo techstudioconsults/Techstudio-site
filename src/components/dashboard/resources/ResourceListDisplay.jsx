@@ -14,7 +14,8 @@ const ResourceListDisplay = ({ file, isVideo, isAudio, isTextFile }) => {
         <p className='fs-sm'>{file.title}</p>
       </div>
       <div className='d-flex align-items-center gap-5'>
-        <div>
+        <div className='d-flex align-items-center gap-3'>
+          <p className='fs-xs text-primary'>View</p>
           <MdOutlineFileDownload size={20} />
         </div>
         <div className={[isVideo ? `d-block` : `d-none`]}>

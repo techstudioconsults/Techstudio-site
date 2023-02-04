@@ -1,0 +1,36 @@
+@use '../../../../scss/global/colors' as colors;
+@use '../../../../scss/utils/functions' as fn;
+@import '../../../../scss/utils/breakpoints';
+@import '../../../../scss/utils/mixins';
+
+.cardGroup {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: fn.rem(12);
+  margin: fn.rem(24) 0;
+  overflow-x: auto;
+}
+
+.sectionThree {
+  display: grid;
+  gap: fn.rem(12);
+  @include breakpoint-up('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .resource {
+    border-radius: fn.rem(4);
+    background-color: colors.$base-bg;
+    padding: fn.rem(20);
+    .title {
+      font-weight: 600;
+      font-size: fn.rem(18);
+    }
+  }
+
+  .feedback_stats {
+    @include flex_column;
+    justify-content: flex-end;
+    gap: fn.rem(12);
+  }
+}

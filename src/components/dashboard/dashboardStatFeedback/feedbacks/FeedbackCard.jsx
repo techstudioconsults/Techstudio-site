@@ -1,13 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import style from './feedback.module.scss'
 import img from '../../../../assets/icons/avatar.png'
 
-const FeedbackCard = () => {
+const FeedbackCard = ({ title, message }) => {
   return (
     <section className={style.feedbackCard}>
       <header className={style.header}>
-        <h5>Tutor’s Feedbacks</h5>
+        <h5>{title}</h5>
         <Link>View All</Link>
       </header>
       <div className={style.body}>
@@ -15,10 +16,7 @@ const FeedbackCard = () => {
           <img src={img} alt='img' className='cc-img-fluid' />
         </div>
         <div className={style.message}>
-          <p>
-            I am so glad to hear plenty of answers from you during class. Keep
-            doing great!
-          </p>
+          <p>{message}</p>
         </div>
       </div>
       <div className={style.footer}>
@@ -27,6 +25,11 @@ const FeedbackCard = () => {
       </div>
     </section>
   )
+}
+
+FeedbackCard.propTypes = {
+  title: PropTypes.string,
+  message: PropTypes.string,
 }
 
 export default FeedbackCard

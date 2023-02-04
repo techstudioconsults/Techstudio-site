@@ -1,9 +1,11 @@
 import React from 'react'
 import { DashboardRightDrawer } from '../../../layout'
+import Button from '../../global/Button'
 import CalendarOffCanvas from '../../global/offCanvas/CalendarOffCanvas'
 import style from './dashboardnavbar.module.scss'
+import PropTypes from 'prop-types'
 
-const DashboardNavbar = () => {
+const DashboardNavbar = ({ isTDB }) => {
   return (
     <nav
       className={[
@@ -15,11 +17,26 @@ const DashboardNavbar = () => {
       <div className={style.input}>
         <input type='text' placeholder='Search for task and more' />
       </div>
-      <CalendarOffCanvas>
-        <DashboardRightDrawer />
-      </CalendarOffCanvas>
+      <div className={[isTDB ? `d-block` : `d-none`].join(' ')}>
+        <Button
+          linkHref={`/`}
+          linkText='Create Class'
+          solidBtn
+          navBtn
+          height={`36`}
+        />
+      </div>
+      <div>
+        <CalendarOffCanvas>
+          <DashboardRightDrawer />
+        </CalendarOffCanvas>
+      </div>
     </nav>
   )
+}
+
+DashboardNavbar.propTypes = {
+  isTDB: PropTypes.bool,
 }
 
 export default DashboardNavbar

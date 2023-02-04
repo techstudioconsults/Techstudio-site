@@ -1,25 +1,74 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/icons/logo.png'
 import style from './dashboardLeftSideNav.module.scss'
 import { DASHBOARD_CONTENT } from '../Layout/dashboardLayout/content'
+// import AppContext from '../../contexts/AppProvider'
 
-const DashboardSideNav = () => {
-  const { leftStudentNav } = DASHBOARD_CONTENT
+const DashboardSideNav = ({ isTDB, isADB }) => {
+  const { leftStudentNav, leftTeacherNav, leftAdminNav } = DASHBOARD_CONTENT
+  // const { route, getdashboardNavRoute } = useContext(AppContext)
 
-  const navDisplay = leftStudentNav.map((nav) => {
-    return (
-      <Link key={nav.id} className={[style.link, style.active].join(' ')}>
-        <li className={style.list}>
-          <div className={style.imgContainer}>
-            <img src={nav.img} alt='img' />
-          </div>
-          <p className={style.title}>{nav.title}</p>
-        </li>
-      </Link>
-    )
-  })
+  // const handleActiveRoute = (e) => {
+  //   getdashboardNavRoute(e.currentTarget.id)
+  // }
+
+  const navDisplay = isTDB
+    ? leftTeacherNav.map((nav) => {
+        return (
+          <Link
+            // onClick={handleActiveRoute}
+            id={nav.title}
+            to={nav.link}
+            key={nav.id}
+            className={[style.link].join(' ')}
+          >
+            <li className={style.list}>
+              <div className={style.imgContainer}>
+                <img src={nav.img} alt='img' />
+              </div>
+              <p className={[style.title].join(' ')}>{nav.title}</p>
+            </li>
+          </Link>
+        )
+      })
+    : isADB
+    ? leftAdminNav.map((nav) => {
+        return (
+          <Link
+            // onClick={handleActiveRoute}
+            id={nav.title}
+            to={nav.link}
+            key={nav.id}
+            className={[style.link].join(' ')}
+          >
+            <li className={style.list}>
+              <div className={style.imgContainer}>
+                <img src={nav.img} alt='img' />
+              </div>
+              <p className={[style.title].join(' ')}>{nav.title}</p>
+            </li>
+          </Link>
+        )
+      })
+    : leftStudentNav.map((nav) => {
+        return (
+          <Link
+            to={nav.link}
+            key={nav.id}
+            className={[style.link, style.active].join(' ')}
+          >
+            <li className={style.list}>
+              <div className={style.imgContainer}>
+                <img src={nav.img} alt='img' />
+              </div>
+              <p className={style.title}>{nav.title}</p>
+            </li>
+          </Link>
+        )
+      })
+
   return (
     <div className={style.dashboardSideNav}>
       <div className={style.logoDiv}>
@@ -31,6 +80,11 @@ const DashboardSideNav = () => {
       <div className={style.navGroup}>{navDisplay}</div>
     </div>
   )
+}
+
+DashboardSideNav.propTypes = {
+  isTDB: PropTypes.bool,
+  isADB: PropTypes.bool,
 }
 
 export default DashboardSideNav

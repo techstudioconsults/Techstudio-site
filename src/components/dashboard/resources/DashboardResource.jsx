@@ -1,21 +1,32 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { DASHBOARD_CONTENT } from '../../../layout/Layout/dashboardLayout/content'
 import style from './dashboardresource.module.scss'
 import ResourceListDisplay from './ResourceListDisplay'
+import PropTypes from 'prop-types'
+import AppContext from '../../../contexts/AppProvider'
 
-const DashboardResource = () => {
+const DashboardResource = ({ isTDB }) => {
   const { studentBoard } = DASHBOARD_CONTENT
+  const { index, getCourseDetails } = useContext(AppContext)
+
   const fileDisplay = studentBoard.resources.PDF.map((file) => {
     return <ResourceListDisplay key={file.id} file={file} />
   })
   const videoDisplay = studentBoard.resources.PDF.map((file) => {
     return <ResourceListDisplay key={file.id} file={file} isVideo />
   })
+
+  const handleClick = (e) => {
+    let name = e.target.name
+    getCourseDetails(name)
+  }
+
   return (
     <section className={style.tab}>
       <ul className={['nav', style.tabList].join(' ')}>
-        <li className={['nav-item', style.link].join(' ')}>
+        <li className={['nav-item active', style.link].join(' ')}>
           <a
+            onClick={handleClick}
             className={['nav-link', style.a].join(' ')}
             id='home-tab'
             data-bs-toggle='tab'
@@ -27,6 +38,7 @@ const DashboardResource = () => {
         </li>
         <li className={['nav-item', style.link].join(' ')}>
           <a
+            onClick={handleClick}
             className={['nav-link', style.a].join(' ')}
             id='about-tab'
             data-bs-toggle='tab'
@@ -38,6 +50,7 @@ const DashboardResource = () => {
         </li>
         <li className={['nav-item', style.link].join(' ')}>
           <a
+            onClick={handleClick}
             className={['nav-link', style.a].join(' ')}
             id='album-tab'
             data-bs-toggle='tab'
@@ -51,7 +64,7 @@ const DashboardResource = () => {
 
       <div className='tab-content' id='tabContent'>
         <div
-          className='tab-pane fade'
+          className='tab-pane fade active'
           id='PDF'
           role='tabpanel'
           aria-labelledby='home-tab'
@@ -77,6 +90,10 @@ const DashboardResource = () => {
       </div>
     </section>
   )
+}
+
+DashboardResource.propTypes = {
+  isTDB: PropTypes.bool,
 }
 
 export default DashboardResource

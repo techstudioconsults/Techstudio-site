@@ -12,6 +12,7 @@
   text-decoration: none;
   list-style-type: none;
   text-align: center;
+  z-index: 999;
   @include flex;
   @include flex_centered;
   @include breakpoint-up('xl') {
@@ -31,7 +32,7 @@
 
   .navGroup {
     @include flex;
-    gap: fn.rem(70);
+    gap: fn.rem(50);
     padding: fn.rem(10) 0 fn.rem(5);
 
     .link {

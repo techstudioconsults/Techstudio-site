@@ -1,0 +1,48 @@
+@use '../../../../scss/global/colors' as colors;
+@use '../../../../scss/utils/functions' as fn;
+@import '../../../../scss/utils/breakpoints';
+@import '../../../../scss/utils/mixins';
+
+.messageCard {
+  @include flex;
+  gap: fn.rem(13);
+  height: fit-content;
+  padding: fn.rem(20);
+
+  &:hover {
+    background-color: colors.$light-blue-II;
+  }
+
+  .messageInfo {
+    .header {
+      @include flex;
+      @include flex_align;
+      justify-content: space-between;
+      margin-bottom: fn.rem(13);
+      .name {
+        font-weight: 700;
+      }
+      .number {
+        font-size: fn.rem(14);
+        width: fn.rem(34);
+        height: fn.rem(34);
+        @include flex;
+        @include flex_centered;
+        border-radius: 100%;
+        background-color: colors.$blue;
+        color: colors.$light;
+      }
+
+      .time {
+        font-size: fn.rem(14);
+        color: colors.$gray;
+      }
+    }
+
+    .messageWrapper {
+      .message {
+        font-size: fn.rem(14);
+      }
+    }
+  }
+}

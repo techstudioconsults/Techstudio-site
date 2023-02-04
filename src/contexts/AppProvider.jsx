@@ -5,12 +5,18 @@ const AppContext = createContext()
 
 export const AppProvider = ({ children }) => {
   const [index, setIndex] = useState(0)
+  const [route, setRoute] = useState(null)
 
   const getCourseDetails = (name) => {
     setIndex(parseInt(name))
   }
+  const getdashboardNavRoute = (route) => {
+    setRoute(route)
+  }
   return (
-    <AppContext.Provider value={{ index, getCourseDetails }}>
+    <AppContext.Provider
+      value={{ index, getCourseDetails, route, getdashboardNavRoute }}
+    >
       {children}
     </AppContext.Provider>
   )
@@ -18,6 +24,7 @@ export const AppProvider = ({ children }) => {
 
 AppProvider.propTypes = {
   index: PropTypes.number,
+  route: PropTypes.string,
   children: PropTypes.node.isRequired,
 }
 
