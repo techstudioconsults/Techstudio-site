@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/icons/logo.png'
@@ -6,8 +6,8 @@ import style from './dashboardLeftSideNav.module.scss'
 import { DASHBOARD_CONTENT } from '../Layout/dashboardLayout/content'
 // import AppContext from '../../contexts/AppProvider'
 
-const DashboardSideNav = ({ isTDB }) => {
-  const { leftStudentNav, leftTeacherNav } = DASHBOARD_CONTENT
+const DashboardSideNav = ({ isTDB, isADB }) => {
+  const { leftStudentNav, leftTeacherNav, leftAdminNav } = DASHBOARD_CONTENT
   // const { route, getdashboardNavRoute } = useContext(AppContext)
 
   // const handleActiveRoute = (e) => {
@@ -16,6 +16,25 @@ const DashboardSideNav = ({ isTDB }) => {
 
   const navDisplay = isTDB
     ? leftTeacherNav.map((nav) => {
+        return (
+          <Link
+            // onClick={handleActiveRoute}
+            id={nav.title}
+            to={nav.link}
+            key={nav.id}
+            className={[style.link].join(' ')}
+          >
+            <li className={style.list}>
+              <div className={style.imgContainer}>
+                <img src={nav.img} alt='img' />
+              </div>
+              <p className={[style.title].join(' ')}>{nav.title}</p>
+            </li>
+          </Link>
+        )
+      })
+    : isADB
+    ? leftAdminNav.map((nav) => {
         return (
           <Link
             // onClick={handleActiveRoute}
@@ -65,6 +84,7 @@ const DashboardSideNav = ({ isTDB }) => {
 
 DashboardSideNav.propTypes = {
   isTDB: PropTypes.bool,
+  isADB: PropTypes.bool,
 }
 
 export default DashboardSideNav

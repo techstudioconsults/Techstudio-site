@@ -1,0 +1,18 @@
+@use '../../../../../../scss/global/colors' as colors;
+@use '../../../../../../scss/utils/functions' as fn;
+@import '../../../../../../scss/utils/breakpoints';
+@import '../../../../../../scss/utils/mixins';
+
+.tracklayout {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: fn.rem(16);
+  @include breakpoint-up('lg') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .col2 {
+    @include flex_column;
+    gap: fn.rem(16);
+  }
+}

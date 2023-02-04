@@ -30,6 +30,7 @@ export { default as MessageCard } from './global/cards/messageCard/MessageCard'
 export { default as ScheduleClassForm } from './global/forms/scheduleClassFom/ScheduleClassForm'
 export { default as StartAClass } from './global/modals/StartAClass'
 export { default as OffCanvas } from './global/offCanvas/OffCanvas'
+export { default as ClassDetails } from './global/cards/classDetails/ClassDetails'
 
 // HOME
 export { default as Hero } from './home/hero'

@@ -6,7 +6,7 @@ import { DashboardLeftSideNav, DashboardMobileNav } from '../..'
 // STYLES
 import style from './dashboardLayout.module.scss'
 
-const DashboardLayout = ({ isTDB }) => {
+const DashboardLayout = ({ isTDB, isADB }) => {
   return (
     <main className={[style.dashboardLayout, `row`].join(' ')}>
       <div className={style.left}>
@@ -16,6 +16,9 @@ const DashboardLayout = ({ isTDB }) => {
         <div className={[`col-1`, isTDB ? `d-none` : `d-grid`].join(' ')}>
           <DashboardLeftSideNav />
         </div>
+        <div className={[`col-1`, isADB ? `d-grid` : `d-none`].join(' ')}>
+          <DashboardLeftSideNav isADB />
+        </div>
       </div>
       <div className='d-xl-none'>
         <div className={[isTDB ? `visible` : `d-none`].join(' ')}>
@@ -23,6 +26,9 @@ const DashboardLayout = ({ isTDB }) => {
         </div>
         <div className={[isTDB ? `d-none` : `visible`].join(' ')}>
           <DashboardMobileNav />
+        </div>
+        <div className={[isADB ? `d-visible` : `d-none`].join(' ')}>
+          <DashboardMobileNav isADB />
         </div>
       </div>
       <div className={[style.body, `col-11`].join(' ')}>
@@ -34,6 +40,7 @@ const DashboardLayout = ({ isTDB }) => {
 
 DashboardLayout.propTypes = {
   isTDB: PropTypes.bool,
+  isADB: PropTypes.bool,
 }
 
 export default DashboardLayout

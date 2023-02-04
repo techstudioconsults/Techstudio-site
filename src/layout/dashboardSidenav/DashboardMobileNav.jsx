@@ -4,22 +4,43 @@ import { Link } from 'react-router-dom'
 import { DASHBOARD_CONTENT } from '../Layout/dashboardLayout/content'
 import style from './dashboardMobilenav.module.scss'
 
-const DashboardMobileNav = ({ isTDB }) => {
-  const { leftStudentNav, leftTeacherNav } = DASHBOARD_CONTENT
+const DashboardMobileNav = ({ isTDB, isADB }) => {
+  const { leftStudentNav, leftTeacherNav, leftAdminNav } = DASHBOARD_CONTENT
 
   const navDisplay = isTDB
     ? leftTeacherNav.map((nav) => {
         return (
           <Link
+            // onClick={handleActiveRoute}
+            id={nav.title}
             to={nav.link}
             key={nav.id}
-            className={[style.link, style.active].join(' ')}
+            className={[style.link].join(' ')}
           >
             <li className={style.list}>
               <div className={style.imgContainer}>
                 <img src={nav.img} alt='img' />
               </div>
-              <p className={style.title}>{nav.title}</p>
+              <p className={[style.title].join(' ')}>{nav.title}</p>
+            </li>
+          </Link>
+        )
+      })
+    : isADB
+    ? leftAdminNav.map((nav) => {
+        return (
+          <Link
+            // onClick={handleActiveRoute}
+            id={nav.title}
+            to={nav.link}
+            key={nav.id}
+            className={[style.link].join(' ')}
+          >
+            <li className={style.list}>
+              <div className={style.imgContainer}>
+                <img src={nav.img} alt='img' />
+              </div>
+              <p className={[style.title].join(' ')}>{nav.title}</p>
             </li>
           </Link>
         )
@@ -40,6 +61,7 @@ const DashboardMobileNav = ({ isTDB }) => {
           </Link>
         )
       })
+
   return (
     <nav className={style.mobileNav}>
       <div className={style.navGroup}>{navDisplay}</div>
@@ -49,6 +71,7 @@ const DashboardMobileNav = ({ isTDB }) => {
 
 DashboardMobileNav.propTypes = {
   isTDB: PropTypes.bool,
+  isADB: PropTypes.bool,
 }
 
 export default DashboardMobileNav

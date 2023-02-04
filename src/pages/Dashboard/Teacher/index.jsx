@@ -4,7 +4,7 @@ import { DashboardRightDrawer } from '../../../layout'
 import { DASHBOARD_CONTENT } from '../../../layout/Layout/dashboardLayout/content'
 import StudentDashboardSectionThree from './components/StudentDashboardSectionThree'
 import StudentDashboardSectionTwo from './components/StudentDashboardSectionTwo'
-import style from './studentDashboard.module.scss'
+import style from './teacherDashboard.module.scss'
 
 const index = () => {
   const { teacherDashboard } = DASHBOARD_CONTENT

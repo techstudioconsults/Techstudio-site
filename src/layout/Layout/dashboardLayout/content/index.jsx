@@ -56,6 +56,32 @@ export const DASHBOARD_CONTENT = {
       link: `/teacher/tasks`,
     },
   ],
+  leftAdminNav: [
+    {
+      id: 1,
+      img: img1Grey,
+      title: `Dashboard`,
+      link: `/admin/dashboard`,
+    },
+    {
+      id: 2,
+      img: img2Grey,
+      title: `Classes`,
+      link: `/admin/classes`,
+    },
+    {
+      id: 3,
+      img: img3Grey,
+      title: `Messages`,
+      link: `/admin/messages`,
+    },
+    {
+      id: 4,
+      img: checklistGrey,
+      title: `Tasks`,
+      link: `/admin/tasks`,
+    },
+  ],
 
   imageList: [
     `https://res.cloudinary.com/kingsleysolomon/image/upload/v1643440809/clapmi/avatar_3_lnfwyk.png`,
@@ -272,5 +298,48 @@ export const DASHBOARD_CONTENT = {
         metaDetails: `By Sorunke Sherif`,
       },
     ],
+  },
+
+  adminDashboard: {
+    taskSummary: {
+      cards: [
+        {
+          id: 1,
+          img: {
+            src: img5,
+            accent: `#ECEAFE`,
+          },
+          title: `Enrolled Students`,
+          total: 100,
+        },
+        {
+          id: 2,
+          img: {
+            src: img7,
+            accent: `#EBF0E6`,
+          },
+          title: `Tutors`,
+          total: 12,
+        },
+        {
+          id: 3,
+          img: {
+            src: img6,
+            accent: `#D9EDFF`,
+          },
+          title: `Materials`,
+          total: 12,
+        },
+        {
+          id: 4,
+          img: {
+            src: img8,
+            accent: `#E000171A`,
+          },
+          title: `Outstanding fees`,
+          total: 7,
+        },
+      ],
+    },
   },
 }

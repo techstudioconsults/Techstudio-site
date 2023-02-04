@@ -1,18 +1,23 @@
 import React from 'react'
-import { DashboardLayout } from '../../../layout'
+import { DashboardNavbar } from '../../../components'
+import { DASHBOARD_CONTENT } from '../../../layout/Layout/dashboardLayout/content'
+import StudentDashboardSectionTwo from '../Student/components/StudentDashboardSectionTwo'
+import style from './adminDashboard.module.scss'
+import AdminDashboardTab from './components/tab/AdminDashboardTab'
 
 const index = () => {
+  const { adminDashboard } = DASHBOARD_CONTENT
+
   return (
-    <DashboardLayout>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea itaque quos
-        veritatis aspernatur dignissimos. Perspiciatis, earum soluta! Ad
-        inventore quos corrupti qui nisi natus laborum cupiditate minus. Quos
-        suscipit minima maiores eos necessitatibus ex est eaque consectetur
-        molestias reprehenderit modi, cum, sit distinctio assumenda doloremque,
-        similique dolores quisquam error. Ipsa.
-      </p>
-    </DashboardLayout>
+    <section className={style.adminDashboard}>
+      <div className={style.dashboardDisplay}>
+        <DashboardNavbar isTDB />
+        <StudentDashboardSectionTwo content={adminDashboard.taskSummary} />
+        <div>
+          <AdminDashboardTab />
+        </div>
+      </div>
+    </section>
   )
 }
 

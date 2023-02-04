@@ -72,7 +72,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
         <div
           className={[
             'collapse navbar-collapse d-lg-flex justify-content-between ms-lg-10 ms-xl-24',
-            style.navbarDropdown,
+            color ? style.navbarDropdownLight : style.navbarDropdown,
           ].join(' ')}
           id='navbarNavAltMarkup'
         >

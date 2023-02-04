@@ -26,6 +26,7 @@ import {
   TeacherClassView,
   TeacherDashboard,
 } from './pages'
+import AdminClassView from './pages/Dashboard/Admin/classes/AdminClassView'
 import { DEVELOPMENT_CONTENT } from './pages/Development/content'
 
 const App = () => {
@@ -71,7 +72,11 @@ const App = () => {
           path='/course/mobile'
           element={<Development content={mobileDevelopment} />}
         />
-        <Route path='/admin' element={<AdminDashboard />} />
+        <Route path='/admin' element={<DashboardLayout isADB />}>
+          <Route path='dashboard' element={<AdminDashboard />} />
+          <Route path='classes' element={<AdminClassView />} />
+          <Route path='messages' element={<Messages />} />
+        </Route>
         <Route path='/student' element={<DashboardLayout />}>
           <Route path='dashboard' element={<StudentDashboard />} />
           <Route path='classes' element={<StudentCalssesView />} />

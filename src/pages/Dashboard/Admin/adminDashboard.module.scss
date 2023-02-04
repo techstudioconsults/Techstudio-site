@@ -1,0 +1,17 @@
+@use '../../../scss/global/colors' as colors;
+@use '../../../scss/utils/functions' as fn;
+@import '../../../scss/utils/breakpoints';
+@import '../../../scss/utils/mixins';
+
+.adminDashboard {
+  //   border: 1px solid red;
+  @include flex;
+
+  .dashboardDisplay {
+    padding: fn.rem(20) fn.rem(10);
+    width: 100%;
+    @include breakpoint-up('md') {
+      padding: fn.rem(32);
+    }
+  }
+}
