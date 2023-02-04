@@ -1,9 +1,13 @@
 import img1Grey from '../../../../assets/icons/menu-grey.png'
+import img1Light from '../../../../assets/icons/menu-white.png'
 import img2Grey from '../../../../assets/icons/cap-grey.png'
+import img2Light from '../../../../assets/icons/cap-light.png'
 import img3Grey from '../../../../assets/icons/message-gray.png'
+import img3Light from '../../../../assets/icons/message-gray.png'
+import checklistGrey from '../../../../assets/icons/checklist-grey.png'
+import checklistLight from '../../../../assets/icons/checklist-light.png'
 import teacherImg4 from '../../../../assets/images/teacher.webp'
 import studentImg4 from '../../../../assets/images/db-banner.-img.webp'
-import checklistGrey from '../../../../assets/icons/checklist-grey.png'
 import img5 from '../../../../assets/icons/Icon-awesome-folder.png'
 import img6 from '../../../../assets/icons/Icon-awesome-tasks.png'
 import img7 from '../../../../assets/icons/Icon-awesome-folder-plus.png'
@@ -13,19 +17,22 @@ export const DASHBOARD_CONTENT = {
   leftStudentNav: [
     {
       id: 1,
-      img: img1Grey,
+      imgGrey: img1Grey,
+      imgLight: img1Light,
       title: `Dashboard`,
       link: `/student/dashboard`,
     },
     {
       id: 2,
-      img: img2Grey,
+      imgGrey: img2Grey,
+      imgLight: img2Light,
       title: `Classes`,
       link: `/student/classes`,
     },
     {
       id: 3,
-      img: img3Grey,
+      imgGrey: img3Grey,
+      imgLight: img3Light,
       title: `Messages`,
       link: `/student/messages`,
     },
@@ -33,25 +40,29 @@ export const DASHBOARD_CONTENT = {
   leftTeacherNav: [
     {
       id: 1,
-      img: img1Grey,
+      imgGrey: img1Grey,
+      imgLight: img1Light,
       title: `Dashboard`,
       link: `/teacher/dashboard`,
     },
     {
       id: 2,
-      img: img2Grey,
+      imgGrey: img2Grey,
+      imgLight: img2Light,
       title: `Classes`,
       link: `/teacher/classes`,
     },
     {
       id: 3,
-      img: img3Grey,
+      imgGrey: img3Grey,
+      imgLight: img3Light,
       title: `Messages`,
       link: `/teacher/messages`,
     },
     {
       id: 4,
-      img: checklistGrey,
+      imgGrey: checklistGrey,
+      imgLight: checklistLight,
       title: `Tasks`,
       link: `/teacher/tasks`,
     },
@@ -59,25 +70,29 @@ export const DASHBOARD_CONTENT = {
   leftAdminNav: [
     {
       id: 1,
-      img: img1Grey,
+      imgGrey: img1Grey,
+      imgLight: img1Light,
       title: `Dashboard`,
       link: `/admin/dashboard`,
     },
     {
       id: 2,
-      img: img2Grey,
+      imgGrey: img2Grey,
+      imgLight: img2Light,
       title: `Classes`,
       link: `/admin/classes`,
     },
     {
       id: 3,
-      img: img3Grey,
+      imgGrey: img3Grey,
+      imgLight: img3Light,
       title: `Messages`,
       link: `/admin/messages`,
     },
     {
       id: 4,
-      img: checklistGrey,
+      imgGrey: checklistGrey,
+      imgLight: checklistLight,
       title: `Tasks`,
       link: `/admin/tasks`,
     },

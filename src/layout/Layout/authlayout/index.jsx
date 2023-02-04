@@ -16,9 +16,11 @@ const index = ({ children }) => {
         <img src={authImg} alt='auth-img' className='cc-img-fluid' />
       </div>
       <div className={style.children}>
-        {children}
-        <div className={['px-14', style.minimalFooter].join(' ')}>
-          <MinimalFooter />
+        <div className={style.childrenWrapper}>
+          {children}
+          <div className={[style.minimalFooter].join(' ')}>
+            <MinimalFooter />
+          </div>
         </div>
       </div>
     </section>

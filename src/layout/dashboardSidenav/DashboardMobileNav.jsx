@@ -11,7 +11,6 @@ const DashboardMobileNav = ({ isTDB, isADB }) => {
     ? leftTeacherNav.map((nav) => {
         return (
           <Link
-            // onClick={handleActiveRoute}
             id={nav.title}
             to={nav.link}
             key={nav.id}

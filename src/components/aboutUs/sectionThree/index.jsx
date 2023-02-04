@@ -15,7 +15,7 @@ const index = ({ content, textAlignLeft }) => {
         <div
           className={[
             style.header,
-            textAlignLeft ? `text-start` : `text-center`,
+            // textAlignLeft ? `text-start` : `text-center`,
           ].join(' ')}
         >
           <h2 className={style.title}>{header.title}</h2>

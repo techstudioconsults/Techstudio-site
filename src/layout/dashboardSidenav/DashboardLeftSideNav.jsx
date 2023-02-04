@@ -1,24 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import logo from '../../assets/icons/logo.png'
 import style from './dashboardLeftSideNav.module.scss'
 import { DASHBOARD_CONTENT } from '../Layout/dashboardLayout/content'
-// import AppContext from '../../contexts/AppProvider'
 
 const DashboardSideNav = ({ isTDB, isADB }) => {
   const { leftStudentNav, leftTeacherNav, leftAdminNav } = DASHBOARD_CONTENT
-  // const { route, getdashboardNavRoute } = useContext(AppContext)
 
-  // const handleActiveRoute = (e) => {
-  //   getdashboardNavRoute(e.currentTarget.id)
-  // }
+  const { pathname } = useLocation()
+  const route = pathname.split('/')
 
   const navDisplay = isTDB
     ? leftTeacherNav.map((nav) => {
         return (
-          <Link
-            // onClick={handleActiveRoute}
+          <NavLink
             id={nav.title}
             to={nav.link}
             key={nav.id}
@@ -26,18 +22,33 @@ const DashboardSideNav = ({ isTDB, isADB }) => {
           >
             <li className={style.list}>
               <div className={style.imgContainer}>
-                <img src={nav.img} alt='img' />
+                <img
+                  src={
+                    route[2] === nav.title.toLocaleLowerCase()
+                      ? nav.imgLight
+                      : nav.imgGrey
+                  }
+                  alt='img'
+                />
               </div>
-              <p className={[style.title].join(' ')}>{nav.title}</p>
+              <p
+                className={[
+                  style.title,
+                  route[2] === nav.title.toLocaleLowerCase()
+                    ? `text-white`
+                    : null,
+                ].join(' ')}
+              >
+                {nav.title}
+              </p>
             </li>
-          </Link>
+          </NavLink>
         )
       })
     : isADB
     ? leftAdminNav.map((nav) => {
         return (
-          <Link
-            // onClick={handleActiveRoute}
+          <NavLink
             id={nav.title}
             to={nav.link}
             key={nav.id}
@@ -45,36 +56,69 @@ const DashboardSideNav = ({ isTDB, isADB }) => {
           >
             <li className={style.list}>
               <div className={style.imgContainer}>
-                <img src={nav.img} alt='img' />
+                <img
+                  src={
+                    route[2] === nav.title.toLocaleLowerCase()
+                      ? nav.imgLight
+                      : nav.imgGrey
+                  }
+                  alt='img'
+                />
               </div>
-              <p className={[style.title].join(' ')}>{nav.title}</p>
+              <p
+                className={[
+                  style.title,
+                  route[2] === nav.title.toLocaleLowerCase()
+                    ? `text-white`
+                    : null,
+                ].join(' ')}
+              >
+                {nav.title}
+              </p>
             </li>
-          </Link>
+          </NavLink>
         )
       })
     : leftStudentNav.map((nav) => {
         return (
-          <Link
+          <NavLink
+            id={nav.title}
             to={nav.link}
             key={nav.id}
-            className={[style.link, style.active].join(' ')}
+            className={[style.link].join(' ')}
           >
             <li className={style.list}>
               <div className={style.imgContainer}>
-                <img src={nav.img} alt='img' />
+                <img
+                  src={
+                    route[2] === nav.title.toLocaleLowerCase()
+                      ? nav.imgLight
+                      : nav.imgGrey
+                  }
+                  alt='img'
+                />
               </div>
-              <p className={style.title}>{nav.title}</p>
+              <p
+                className={[
+                  style.title,
+                  route[2] === nav.title.toLocaleLowerCase()
+                    ? `text-white`
+                    : null,
+                ].join(' ')}
+              >
+                {nav.title}
+              </p>
             </li>
-          </Link>
+          </NavLink>
         )
       })
 
   return (
     <div className={style.dashboardSideNav}>
       <div className={style.logoDiv}>
-        <Link to={`/`} className={style.imgLogoContainer}>
+        <NavLink to={`/`} className={style.imgLogoContainer}>
           <img src={logo} alt='logo' className='cc-img-fluid' />
-        </Link>
+        </NavLink>
       </div>
       {/* link nav */}
       <div className={style.navGroup}>{navDisplay}</div>
