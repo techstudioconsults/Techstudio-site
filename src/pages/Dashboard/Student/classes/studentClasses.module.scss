@@ -20,6 +20,7 @@
     .header {
       @include flex;
       @include flex_align;
+      margin-bottom: fn.rem(16);
     }
   }
 

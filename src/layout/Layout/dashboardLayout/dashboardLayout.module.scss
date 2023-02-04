@@ -23,6 +23,10 @@
   .body {
     background-color: colors.$grey-bg;
     width: 100%;
+    padding-bottom: fn.rem(70) !important;
+    @include breakpoint-up('lg') {
+      padding-bottom: 0 !important;
+    }
     @include breakpoint-up('xl') {
       width: 93.4%;
       margin-left: auto;
