@@ -17,7 +17,7 @@ const DashboardNavbar = ({ isTDB }) => {
       <div className={style.input}>
         <input type='text' placeholder='Search for task and more' />
       </div>
-      <div className={[isTDB ? `d-block` : `d-none`].join(' ')}>
+      <div className={[isTDB ? `d-none d-md-block` : `d-none`].join(' ')}>
         <Button
           linkHref={`/`}
           linkText='Create Class'
@@ -26,7 +26,7 @@ const DashboardNavbar = ({ isTDB }) => {
           height={`36`}
         />
       </div>
-      <div>
+      <div className='d-lg-none'>
         <CalendarOffCanvas>
           <DashboardRightDrawer />
         </CalendarOffCanvas>

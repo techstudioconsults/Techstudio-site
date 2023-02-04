@@ -5,7 +5,7 @@
 
 .liveCard {
   @include flex_column;
-  @include flex_align;
+  align-items: flex-start;
   justify-content: space-between;
   border: 1px solid colors.$border-grey;
   gap: fn.rem(20);
@@ -31,8 +31,8 @@
     }
 
     .detail {
-      @include flex;
-      @include flex_align;
+      @include flex_column;
+      gap: fn.rem(8);
       justify-content: space-between;
 
       font-size: fn.rem(12);
@@ -54,12 +54,18 @@
           }
         }
       }
+
+      @include breakpoint-up('lg') {
+        @include flex;
+        @include flex_align;
+      }
     }
   }
 
   .buttonDiv {
     .btn {
-      width: fn.rem(144);
+      width: 100%;
+      min-width: fn.rem(144);
       background-color: colors.$blue;
       color: colors.$light;
       border-radius: fn.rem(4);

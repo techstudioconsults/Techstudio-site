@@ -1,5 +1,5 @@
 import React from 'react'
-import { DashboardBanner, DashboardNavbar } from '../../../components'
+import { Button, DashboardBanner, DashboardNavbar } from '../../../components'
 import { DashboardRightDrawer } from '../../../layout'
 import { DASHBOARD_CONTENT } from '../../../layout/Layout/dashboardLayout/content'
 import StudentDashboardSectionThree from './components/StudentDashboardSectionThree'
@@ -13,6 +13,16 @@ const index = () => {
     <section className={style.studentDashboard}>
       <div className={style.dashboardDisplay}>
         <DashboardNavbar isTDB />
+        <div className='my-5 w-25 d-md-none'>
+          <Button
+            linkHref={`/`}
+            linkText='Create Class'
+            solidBtn
+            navBtn
+            width={9}
+            height={`36`}
+          />
+        </div>
         <DashboardBanner content={teacherDashboard.banner} />
         <StudentDashboardSectionTwo content={teacherDashboard.taskSummary} />
         <StudentDashboardSectionThree isTDB />
