@@ -9,11 +9,10 @@ const TrackClassesTab = () => {
       <ul className={['nav', style.tabList].join(' ')}>
         <li className={['nav-item', style.link].join(' ')}>
           <a
-            className={['nav-link', style.a].join(' ')}
+            className={['nav-link active', style.a].join(' ')}
             id='mobile-tab'
             data-bs-toggle='tab'
-            data-bs-target='#mobile'
-            href='#r'
+            href='#mobile'
           >
             Mobile Development
           </a>
@@ -23,8 +22,7 @@ const TrackClassesTab = () => {
             className={['nav-link', style.a].join(' ')}
             id='frontend-tab'
             data-bs-toggle='tab'
-            data-bs-target='#frontend'
-            href='#r'
+            href='#frontend'
           >
             Frontend
           </a>
@@ -34,8 +32,7 @@ const TrackClassesTab = () => {
             className={['nav-link', style.a].join(' ')}
             id='uiux-tab'
             data-bs-toggle='tab'
-            data-bs-target='#uiux'
-            href='#r'
+            href='#uiux'
           >
             UI/UX
           </a>
@@ -45,8 +42,7 @@ const TrackClassesTab = () => {
             className={['nav-link', style.a].join(' ')}
             id='full-stack-tab'
             data-bs-toggle='tab'
-            data-bs-target='#full-stack'
-            href='#r'
+            href='#fullstack'
           >
             Full Stack
           </a>
@@ -56,17 +52,16 @@ const TrackClassesTab = () => {
             className={['nav-link', style.a].join(' ')}
             id='data-science-tab'
             data-bs-toggle='tab'
-            data-bs-target='#data-science'
-            href='#r'
+            href='#datascience'
           >
             Data Science
           </a>
         </li>
       </ul>
 
-      <div className='tab-content p-6' id='tabContent'>
+      <div className='tab-content py-6' id='tabContent'>
         <div
-          className='tab-pane fade active'
+          className='tab-pane fade show active'
           id='mobile'
           role='tabpanel'
           aria-labelledby='course-tab'
@@ -97,7 +92,7 @@ const TrackClassesTab = () => {
         </div>
         <div
           className='tab-pane fade'
-          id='full-stack'
+          id='fullstack'
           role='tabpanel'
           aria-labelledby='discussion-tab'
         >
@@ -107,7 +102,7 @@ const TrackClassesTab = () => {
         </div>
         <div
           className='tab-pane fade'
-          id='data-science'
+          id='datascience'
           role='tabpanel'
           aria-labelledby='discussion-tab'
         >

@@ -5,11 +5,11 @@ import './custom.css'
 import ResourceListDisplay from './ResourceListDisplay'
 import PropTypes from 'prop-types'
 
-const DashboardResource = ({ isTDB }) => {
+const DashboardResource = ({ isTDB, isADB }) => {
   const { studentBoard } = DASHBOARD_CONTENT
 
   const fileDisplay = studentBoard.resources.PDF.map((file) => {
-    return <ResourceListDisplay key={file.id} file={file} />
+    return <ResourceListDisplay key={file.id} file={file} isADB />
   })
   const videoDisplay = studentBoard.resources.PDF.map((file) => {
     return <ResourceListDisplay key={file.id} file={file} isVideo />
@@ -56,13 +56,19 @@ const DashboardResource = ({ isTDB }) => {
           id='PDF'
           aria-labelledby='home-tab'
         >
-          <div className={style.listWrapper}>{fileDisplay}</div>
+          <div className={[style.listWrapper, `hide_scrollbar`].join(' ')}>
+            {fileDisplay}
+          </div>
         </div>
         <div className='tab-pane fade' id='video' aria-labelledby='about-tab'>
-          <div className={style.listWrapper}>{videoDisplay}</div>
+          <div className={[style.listWrapper, `hide_scrollbar`].join(' ')}>
+            {videoDisplay}
+          </div>
         </div>
         <div className='tab-pane fade' id='audio' aria-labelledby='album-tab'>
-          <div className={style.listWrapper}>{fileDisplay}</div>
+          <div className={[style.listWrapper, `hide_scrollbar`].join(' ')}>
+            {fileDisplay}
+          </div>
         </div>
       </div>
     </section>
@@ -71,6 +77,7 @@ const DashboardResource = ({ isTDB }) => {
 
 DashboardResource.propTypes = {
   isTDB: PropTypes.bool,
+  isADB: PropTypes.bool,
 }
 
 export default DashboardResource

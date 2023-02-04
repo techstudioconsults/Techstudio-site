@@ -19,7 +19,7 @@ const index = () => {
             linkText='Create Class'
             solidBtn
             navBtn
-            width={9}
+            width={`9`}
             height={`36`}
           />
         </div>

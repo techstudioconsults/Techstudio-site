@@ -23,11 +23,10 @@ const ClassesTab = ({ isTDB }) => {
         <ul className={['nav', style.tabList].join(' ')}>
           <li className={['nav-item', style.link].join(' ')}>
             <a
-              className={['nav-link', style.a].join(' ')}
+              className={['nav-link active', style.a].join(' ')}
               id='home-tab'
               data-bs-toggle='tab'
-              data-bs-target='#PDF'
-              href='#r'
+              href='#live'
             >
               LIVE
             </a>
@@ -37,8 +36,7 @@ const ClassesTab = ({ isTDB }) => {
               className={['nav-link', style.a].join(' ')}
               id='about-tab'
               data-bs-toggle='tab'
-              data-bs-target='#video'
-              href='#r'
+              href='#recorded'
             >
               RECORDED
             </a>
@@ -53,8 +51,8 @@ const ClassesTab = ({ isTDB }) => {
 
       <div className='tab-content' id='tabContent'>
         <div
-          className='tab-pane fade active'
-          id='PDF'
+          className='tab-pane fade show active'
+          id='live'
           role='tabpanel'
           aria-labelledby='home-tab'
         >
@@ -62,7 +60,7 @@ const ClassesTab = ({ isTDB }) => {
         </div>
         <div
           className='tab-pane fade'
-          id='video'
+          id='recorded'
           role='tabpanel'
           aria-labelledby='about-tab'
         >

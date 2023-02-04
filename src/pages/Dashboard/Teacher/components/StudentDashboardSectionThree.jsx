@@ -22,7 +22,7 @@ const StudentDashboardSectionThree = ({ isTDB }) => {
             Upload New file
           </span>
         </div>
-        <DashboardResource isTDB />
+        <DashboardResource />
       </div>
       <div className={style.feedback_stats}>
         <GraphCard />

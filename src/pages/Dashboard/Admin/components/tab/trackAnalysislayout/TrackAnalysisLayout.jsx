@@ -27,7 +27,7 @@ const TrackAnalysisLayout = () => {
         />
       </div>
       <div className={[style.col3, `bg-white p-5`].join(' ')}>
-        <ClassDetails />
+        <ClassDetails isADB />
       </div>
     </section>
   )

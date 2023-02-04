@@ -15,11 +15,10 @@ const StudentDashboardClassTab = () => {
       <ul className={['nav', style.tabList].join(' ')}>
         <li className={['nav-item', style.link].join(' ')}>
           <a
-            className={['nav-link', style.a].join(' ')}
+            className={['nav-link active', style.a].join(' ')}
             id='home-tab'
             data-bs-toggle='tab'
-            data-bs-target='#Course'
-            href='#r'
+            href='#about-course'
           >
             About Course
           </a>
@@ -29,8 +28,7 @@ const StudentDashboardClassTab = () => {
             className={['nav-link', style.a].join(' ')}
             id='about-tab'
             data-bs-toggle='tab'
-            data-bs-target='#Discussions'
-            href='#r'
+            href='#discussions'
           >
             Discussions
           </a>
@@ -40,8 +38,7 @@ const StudentDashboardClassTab = () => {
             className={['nav-link', style.a].join(' ')}
             id='about-tab'
             data-bs-toggle='tab'
-            data-bs-target='#Resources'
-            href='#r'
+            href='#resources'
           >
             Resources
           </a>
@@ -50,8 +47,8 @@ const StudentDashboardClassTab = () => {
 
       <div className='tab-content p-6' id='tabContent'>
         <div
-          className='tab-pane fade active'
-          id='Course'
+          className='tab-pane fade show active'
+          id='about-course'
           role='tabpanel'
           aria-labelledby='course-tab'
         >
@@ -66,7 +63,7 @@ const StudentDashboardClassTab = () => {
         </div>
         <div
           className='tab-pane fade'
-          id='Discussions'
+          id='discussions'
           role='tabpanel'
           aria-labelledby='discussion-tab'
         >
@@ -81,7 +78,7 @@ const StudentDashboardClassTab = () => {
         </div>
         <div
           className='tab-pane fade'
-          id='Resources'
+          id='resources'
           role='tabpanel'
           aria-labelledby='resource-tab'
         >
