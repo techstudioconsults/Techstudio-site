@@ -9,6 +9,7 @@ export const AppProvider = ({ children }) => {
 
   const getCourseDetails = (name) => {
     setIndex(parseInt(name))
+    console.log(name)
   }
   const getdashboardNavRoute = (route) => {
     setRoute(route)

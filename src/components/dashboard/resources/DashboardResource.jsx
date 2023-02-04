@@ -1,13 +1,12 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { DASHBOARD_CONTENT } from '../../../layout/Layout/dashboardLayout/content'
 import style from './dashboardresource.module.scss'
+import './custom.css'
 import ResourceListDisplay from './ResourceListDisplay'
 import PropTypes from 'prop-types'
-import AppContext from '../../../contexts/AppProvider'
 
 const DashboardResource = ({ isTDB }) => {
   const { studentBoard } = DASHBOARD_CONTENT
-  const { index, getCourseDetails } = useContext(AppContext)
 
   const fileDisplay = studentBoard.resources.PDF.map((file) => {
     return <ResourceListDisplay key={file.id} file={file} />
@@ -16,46 +15,35 @@ const DashboardResource = ({ isTDB }) => {
     return <ResourceListDisplay key={file.id} file={file} isVideo />
   })
 
-  const handleClick = (e) => {
-    let name = e.target.name
-    getCourseDetails(name)
-  }
-
   return (
     <section className={style.tab}>
       <ul className={['nav', style.tabList].join(' ')}>
-        <li className={['nav-item active', style.link].join(' ')}>
+        <li className={['nav-item', style.link].join(' ')}>
           <a
-            onClick={handleClick}
-            className={['nav-link', style.a].join(' ')}
-            id='home-tab'
+            className={['nav-link active', style.a].join(' ')}
             data-bs-toggle='tab'
-            data-bs-target='#PDF'
-            href='#r'
+            href='#PDF'
+            id={1}
           >
             PDF
           </a>
         </li>
         <li className={['nav-item', style.link].join(' ')}>
           <a
-            onClick={handleClick}
             className={['nav-link', style.a].join(' ')}
-            id='about-tab'
             data-bs-toggle='tab'
-            data-bs-target='#video'
-            href='#r'
+            href='#video'
+            id={2}
           >
             VIDEO
           </a>
         </li>
         <li className={['nav-item', style.link].join(' ')}>
           <a
-            onClick={handleClick}
             className={['nav-link', style.a].join(' ')}
-            id='album-tab'
             data-bs-toggle='tab'
-            data-bs-target='#audio'
-            href='#r'
+            href='#audio'
+            id={3}
           >
             AUDIO
           </a>
@@ -64,27 +52,16 @@ const DashboardResource = ({ isTDB }) => {
 
       <div className='tab-content' id='tabContent'>
         <div
-          className='tab-pane fade active'
+          className='tab-pane fade show active'
           id='PDF'
-          role='tabpanel'
           aria-labelledby='home-tab'
         >
           <div className={style.listWrapper}>{fileDisplay}</div>
         </div>
-        <div
-          className='tab-pane fade'
-          id='video'
-          role='tabpanel'
-          aria-labelledby='about-tab'
-        >
+        <div className='tab-pane fade' id='video' aria-labelledby='about-tab'>
           <div className={style.listWrapper}>{videoDisplay}</div>
         </div>
-        <div
-          className='tab-pane fade show'
-          id='audio'
-          role='tabpanel'
-          aria-labelledby='album-tab'
-        >
+        <div className='tab-pane fade' id='audio' aria-labelledby='album-tab'>
           <div className={style.listWrapper}>{fileDisplay}</div>
         </div>
       </div>
