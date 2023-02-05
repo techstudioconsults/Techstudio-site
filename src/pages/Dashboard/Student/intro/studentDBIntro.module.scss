@@ -1,0 +1,46 @@
+@use '../../../../scss/global/colors' as colors;
+@use '../../../../scss/utils/functions' as fn;
+@import '../../../../scss/utils/breakpoints';
+@import '../../../../scss/utils/mixins';
+
+.introLayout {
+  @include flex;
+
+  .sideNav {
+    height: 100vh;
+    background-color: colors.$deep-blue;
+    display: none;
+    align-items: center;
+    padding-block: fn.rem(32);
+    @include breakpoint-up('lg') {
+      width: 5%;
+      @include flex_column;
+    }
+    .logoDiv {
+      .imgLogoContainer {
+        width: fn.rem(28);
+        height: fn.rem(28);
+      }
+    }
+  }
+
+  .body {
+    background-color: colors.$grey-bg;
+    padding: fn.rem(16);
+    height: 100vh;
+    @include breakpoint-up('lg') {
+      padding: fn.rem(32);
+      width: 95%;
+      display: block;
+    }
+
+    .wrapper {
+      height: 90%;
+      margin-block: fn.rem(32);
+      @include breakpoint-up('2xl') {
+        @include flex;
+        @include flex_centered;
+      }
+    }
+  }
+}

@@ -1,0 +1,78 @@
+@use '../../../../scss/global/colors' as colors;
+@use '../../../../scss/utils/functions' as fn;
+@import '../../../../scss/utils/breakpoints';
+@import '../../../../scss/utils/mixins';
+
+.introCard {
+  position: relative;
+  background-color: colors.$base-bg;
+  max-width: fn.rem(1028);
+  height: 100%;
+  color: colors.$deep-blue;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: fn.rem(4);
+  padding: fn.rem(32) fn.rem(16);
+  @include breakpoint-up('lg') {
+    height: fit-content;
+    padding: fn.rem(70);
+  }
+
+  .header {
+    margin-bottom: fn.rem(52);
+    .title {
+      font-weight: 800;
+    }
+    .text {
+      @include breakpoint-up('lg') {
+        margin-inline-end: fn.rem(150);
+      }
+    }
+  }
+
+  .body {
+    .subTitle {
+      font-size: fn.rem(14);
+      font-weight: 600;
+      @include breakpoint-up('lg') {
+        font-size: fn.rem(18);
+      }
+    }
+
+    .list {
+      div {
+        margin-block: fn.rem(4);
+        @include breakpoint-up('lg') {
+          width: 40%;
+        }
+        span {
+          color: colors.$blue;
+          font-size: fn.rem(14);
+          @include breakpoint-up('lg') {
+            font-size: fn.rem(16);
+          }
+        }
+      }
+    }
+
+    .caption {
+      margin-block: fn.rem(52);
+    }
+  }
+
+  .footer {
+    width: 100%;
+    max-width: fn.rem(144);
+  }
+
+  .img {
+    position: absolute;
+    width: fn.rem(421);
+    height: fn.rem(401);
+    bottom: -1.5rem;
+    right: -15rem;
+    display: none;
+    @include breakpoint-up('xl') {
+      display: block;
+    }
+  }
+}
