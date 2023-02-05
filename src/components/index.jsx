@@ -31,6 +31,8 @@ export { default as ScheduleClassForm } from './global/forms/scheduleClassFom/Sc
 export { default as StartAClass } from './global/modals/StartAClass'
 export { default as OffCanvas } from './global/offCanvas/OffCanvas'
 export { default as ClassDetails } from './global/cards/classDetails/ClassDetails'
+export { default as JobRequirementModal } from './global/forms/jobRequirement/JobRequirementModal'
+export { default as JobRequirementForm } from './global/forms/jobRequirement/jobRequirmentForm/JobRequirementForm'
 
 // HOME
 export { default as Hero } from './home/hero'

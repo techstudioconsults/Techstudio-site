@@ -1,0 +1,13 @@
+@use '../../../../scss/global/colors' as colors;
+@use '../../../../scss/utils/functions' as fn;
+@import '../../../../scss/utils/breakpoints';
+@import '../../../../scss/utils/mixins';
+
+.body {
+  width: 100vw;
+  //   border: 1px solid red;
+  .content {
+    height: 100%;
+    border-top: 10px solid colors.$blue;
+  }
+}
