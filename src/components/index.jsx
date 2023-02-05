@@ -81,3 +81,4 @@ export { default as DashboardResource } from './dashboard/resources/DashboardRes
 export { default as FeedbackCard } from './dashboard/dashboardStatFeedback/feedbacks/FeedbackCard'
 export { default as GraphCard } from './dashboard/dashboardStatFeedback/stats/GraphCard'
 export { default as ClassesTab } from './dashboard/tab/classesTab/ClassesTab'
+export { default as ChatDisplay } from './dashboard/videoChatDisplay/ChatDisplay'

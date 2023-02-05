@@ -1,12 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import { AiFillFileText } from 'react-icons/ai'
 import { FaVideo } from 'react-icons/fa'
 import { IoMdChatbubbles } from 'react-icons/io'
 import { DASHBOARD_CONTENT } from '../../../../../layout/Layout/dashboardLayout/content'
 import style from './classNotification.module.scss'
 
-const ClassNotificationView = ({ mobile }) => {
+const ClassNotificationView = () => {
   const { studentBoard } = DASHBOARD_CONTENT
   const notificationDisplay = studentBoard.notification.map((notice) => {
     return (
@@ -28,7 +28,7 @@ const ClassNotificationView = ({ mobile }) => {
     )
   })
   return (
-    <div className={[style.notification, mobile ? `m-0` : `m-4`].join(' ')}>
+    <div className={[style.notification].join(' ')}>
       <h5>Notification</h5>
       <div className={style.notificationGroup}>
         <h6 className={style.date}>Today, 28th March, 2021</h6>
@@ -43,7 +43,7 @@ const ClassNotificationView = ({ mobile }) => {
 }
 
 ClassNotificationView.propTypes = {
-  mobile: PropTypes.bool.isRequired,
+  // mobile: PropTypes.bool.isRequired,
 }
 
 export default ClassNotificationView
