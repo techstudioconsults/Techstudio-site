@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import {
+  AddAFile,
   DashboardResource,
   FeedbackCard,
   GraphCard,
@@ -14,13 +15,7 @@ const StudentDashboardSectionThree = ({ isTDB }) => {
       <div className={style.resource}>
         <div className='d-flex align-items-center justify-content-between mb-5'>
           <h5 className={[style.title, `mb-0`].join(' ')}>Resources</h5>
-          <span
-            className={['text-primary fs-sm', isTDB ? `d-flex` : `d-none`].join(
-              ' '
-            )}
-          >
-            Upload New file
-          </span>
+          <AddAFile />
         </div>
         <DashboardResource />
       </div>
