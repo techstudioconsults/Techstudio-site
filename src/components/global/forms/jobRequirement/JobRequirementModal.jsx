@@ -28,18 +28,18 @@ const JobRequirementModal = () => {
           ].join(' ')}
         >
           <div className={['modal-content px-lg-12', style.content].join(' ')}>
-            <div className='modal-header'>
+            <div className='modal-header py-10 align-items-center justify-content-center text-center'>
               <h3 className='modal-title fs-3xl' id='exampleModalLabel'>
                 Job Requirement
               </h3>
-              <button
+              {/* <button
                 type='button'
                 className='btn-close'
                 data-bs-dismiss='modal'
                 aria-label='Close'
-              ></button>
+              ></button> */}
             </div>
-            <div className='modal-body'>
+            <div className='modal-body hide_scrollbar'>
               <JobRequirementForm />
             </div>
             <div className='modal-footer'>
