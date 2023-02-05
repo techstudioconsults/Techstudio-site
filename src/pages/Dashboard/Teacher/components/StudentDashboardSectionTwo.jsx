@@ -8,7 +8,11 @@ const StudentDashboardSectionTwo = ({ content }) => {
   const cardDisplay = cards.map((card) => {
     return <DashboardMiniCard key={card.id} card={card} />
   })
-  return <div className={style.cardGroup}>{cardDisplay}</div>
+  return (
+    <div className={[style.cardGroup, `hide_scrollbar`].join(' ')}>
+      {cardDisplay}
+    </div>
+  )
 }
 
 StudentDashboardSectionTwo.propTypes = {

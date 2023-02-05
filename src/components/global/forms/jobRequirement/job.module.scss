@@ -3,10 +3,11 @@
 @import '../../../../scss/utils/breakpoints';
 @import '../../../../scss/utils/mixins';
 
-.classSummary {
-  height: 100%;
-
-  .classTimeType {
-    margin: fn.rem(28) 0 fn.rem(30);
+.body {
+  width: 100vw;
+  //   border: 1px solid red;
+  .content {
+    height: 100%;
+    border-top: 10px solid colors.$blue;
   }
 }

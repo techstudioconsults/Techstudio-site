@@ -1,0 +1,22 @@
+@use '../../../scss/global/colors' as colors;
+@use '../../../scss/utils/functions' as fn;
+@import '../../../scss/utils/breakpoints';
+@import '../../../scss/utils/mixins';
+
+.uploadForm {
+  padding: fn.rem(16);
+  @include breakpoint-up('lg') {
+    padding: fn.rem(32) fn.rem(41);
+  }
+  .formWrapper {
+    border: 1px dashed colors.$gray;
+    border-radius: fn.rem(4);
+    @include flex_column;
+    @include flex_centered;
+    padding: fn.rem(32);
+
+    .uploadBtn {
+      margin-block: fn.rem(20);
+    }
+  }
+}

@@ -6,7 +6,7 @@ import { CgAttachment } from 'react-icons/cg'
 import { Avatar } from '../../../../components'
 import { Link } from 'react-router-dom'
 
-const LiveClassDisplayCard = ({ isTDB }) => {
+const LiveClassDisplayCard = ({ isTDB, isRecordedFile }) => {
   return (
     <section>
       <div className={[style.liveCard].join(' ')}>
@@ -33,10 +33,23 @@ const LiveClassDisplayCard = ({ isTDB }) => {
           </div>
         </div>
         <div
-          className={[style.buttonDiv, isTDB ? `d-none` : `d-block`].join(' ')}
+          className={[
+            style.buttonDiv,
+            !isTDB && !isRecordedFile ? `d-block` : `d-none`,
+          ].join(' ')}
         >
-          <Link to={`/student/classes/single-class`}>
+          <Link to={`/student/classes/single-live-class`}>
             <button className={style.btn}>Start Class</button>
+          </Link>
+        </div>
+        <div
+          className={[
+            style.buttonDiv,
+            isRecordedFile ? `d-block` : `d-none`,
+          ].join(' ')}
+        >
+          <Link to={`/student/classes/single-recorded-class`}>
+            <button className={style.btn}>play</button>
           </Link>
         </div>
       </div>
@@ -102,6 +115,7 @@ const LiveClassDisplayCard = ({ isTDB }) => {
 
 LiveClassDisplayCard.propTypes = {
   isTDB: PropTypes.bool,
+  isRecordedFile: PropTypes.bool,
 }
 
 export default LiveClassDisplayCard

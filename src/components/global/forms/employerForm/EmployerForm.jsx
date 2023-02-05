@@ -55,7 +55,7 @@ const EmployerForm = ({ showTopInputs }) => {
       </div>
 
       <div className={style.btnContainer}>
-        <button type='submit'>Get Started</button>
+        <button href='/'>Get Started</button>
       </div>
     </form>
   )

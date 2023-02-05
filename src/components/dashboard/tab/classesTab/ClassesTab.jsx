@@ -9,12 +9,20 @@ import ScheduleClassForm from '../../../global/forms/scheduleClassFom/ScheduleCl
 const ClassesTab = ({ isTDB }) => {
   const { studentBoard } = DASHBOARD_CONTENT
 
-  const fileDisplay = isTDB
+  const liveFileDisplay = isTDB
     ? studentBoard.resources.PDF.map((file, index) => {
         return <LiveClassDisplayCard isTDB key={index} />
       })
     : studentBoard.resources.PDF.map((file, index) => {
         return <LiveClassDisplayCard key={index} />
+      })
+
+  const recordedFileDisplay = isTDB
+    ? studentBoard.resources.PDF.map((file, index) => {
+        return <LiveClassDisplayCard isTDB key={index} />
+      })
+    : studentBoard.resources.PDF.map((file, index) => {
+        return <LiveClassDisplayCard isRecordedFile key={index} />
       })
 
   return (
@@ -23,11 +31,10 @@ const ClassesTab = ({ isTDB }) => {
         <ul className={['nav', style.tabList].join(' ')}>
           <li className={['nav-item', style.link].join(' ')}>
             <a
-              className={['nav-link', style.a].join(' ')}
+              className={['nav-link active', style.a].join(' ')}
               id='home-tab'
               data-bs-toggle='tab'
-              data-bs-target='#PDF'
-              href='#r'
+              href='#live'
             >
               LIVE
             </a>
@@ -37,8 +44,7 @@ const ClassesTab = ({ isTDB }) => {
               className={['nav-link', style.a].join(' ')}
               id='about-tab'
               data-bs-toggle='tab'
-              data-bs-target='#video'
-              href='#r'
+              href='#recorded'
             >
               RECORDED
             </a>
@@ -53,27 +59,20 @@ const ClassesTab = ({ isTDB }) => {
 
       <div className='tab-content' id='tabContent'>
         <div
-          className='tab-pane fade active'
-          id='PDF'
+          className='tab-pane fade show active'
+          id='live'
           role='tabpanel'
           aria-labelledby='home-tab'
         >
-          <div className={style.listWrapper}>{fileDisplay}</div>
+          <div className={style.listWrapper}>{liveFileDisplay}</div>
         </div>
         <div
           className='tab-pane fade'
-          id='video'
+          id='recorded'
           role='tabpanel'
           aria-labelledby='about-tab'
         >
-          <div className={style.listWrapper}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque,
-            libero est, autem quaerat culpa non sequi fugiat esse id recusandae
-            quidem harum error eveniet minima voluptas numquam nemo minus cumque
-            soluta, dignissimos ducimus cum accusantium nisi. Molestias
-            explicabo, maiores sapiente repellat quo enim accusamus labore
-            maxime nesciunt numquam exercitationem odio?
-          </div>
+          <div className={style.listWrapper}>{recordedFileDisplay}</div>
         </div>
       </div>
     </section>

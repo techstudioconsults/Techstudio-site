@@ -20,8 +20,10 @@ import {
   Signup,
   SingleBlogPage,
   SingleCourseView,
+  SingleCourseViewLive,
   StudentCalssesView,
   StudentDashboard,
+  StudentDashboardIntro,
   Tasks,
   TeacherClassView,
   TeacherDashboard,
@@ -77,10 +79,18 @@ const App = () => {
           <Route path='classes' element={<AdminClassView />} />
           <Route path='messages' element={<Messages />} />
         </Route>
+        <Route path='student/welcome' element={<StudentDashboardIntro />} />
         <Route path='/student' element={<DashboardLayout />}>
           <Route path='dashboard' element={<StudentDashboard />} />
           <Route path='classes' element={<StudentCalssesView />} />
-          <Route path='classes/single-class' element={<SingleCourseView />} />
+          <Route
+            path='classes/single-live-class'
+            element={<SingleCourseViewLive />}
+          />
+          <Route
+            path='classes/single-recorded-class'
+            element={<SingleCourseView />}
+          />
           <Route path='messages' element={<Messages />} />
         </Route>
         <Route path='/teacher' element={<DashboardLayout isTDB />}>

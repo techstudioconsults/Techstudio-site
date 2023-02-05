@@ -58,7 +58,7 @@ const ContactForm = () => {
           <p className={style.forgotpassword}>Forgot Password?</p>
         </div>
       </div>
-      <Link to={`/admin`} className={style.btnContainer}>
+      <Link to={`/student/welcome`} className={style.btnContainer}>
         <button type='submit'>Login</button>
       </Link>
       <footer className={style.caption}>

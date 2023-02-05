@@ -11,13 +11,13 @@ const StudentCalssesView = () => {
           <h4 className={[style.title, `mb-0`].join(' ')}>Classes</h4>
           <Avatar />
           <CalendarOffCanvas>
-            <ClassNotificationView mobile />
+            <ClassNotificationView />
           </CalendarOffCanvas>
         </div>
         <ClassesTab />
       </div>
       <div className={style.notification}>
-        <ClassNotificationView mobile={false} />
+        <ClassNotificationView />
       </div>
     </section>
   )
