@@ -39,7 +39,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
         backgroundColor: bg,
       }}
     >
-      <div className='container py-3'>
+      <div className='container-xxl py-3'>
         <Link className='navbar-brand' to='/'>
           <div className='d-flex align-items-center gap-2'>
             <div className={style.navImgContainer}>
