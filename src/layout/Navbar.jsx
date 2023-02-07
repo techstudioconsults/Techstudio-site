@@ -1,13 +1,10 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import { HiOutlineMenuAlt4 } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
 import techimage from '../assets/icons/logo.png'
 import { FaChevronDown } from 'react-icons/fa'
-import { useEffect } from 'react'
 import { Button } from '../components'
-import { useRef } from 'react'
-import { useState } from 'react'
 import style from './layout.module.scss'
 
 const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
@@ -15,8 +12,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
   const navEl = useRef()
 
   useEffect(() => {
-    // let { clientHeight } = navEl.current
-    window.addEventListener('scroll', () => {
+    const handleScroll = () => {
       if (navEl) {
         if (window.scrollY >= 10) {
           navEl.current.style.backgroundColor = `#1f2666`
@@ -28,7 +24,11 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
           navEl.current.style.boxShadow = null
         }
       }
-    })
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
   }, [keepColor])
 
   return (
