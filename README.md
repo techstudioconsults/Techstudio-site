@@ -1,91 +1,85 @@
-# Getting Started with Techstudio App
+<p >
+  <a href="" rel="noopener">
+ <img src="https://res.cloudinary.com/kingsleysolomon/image/upload/v1675691868/techstudio/Image_129_gdnwqa.png" alt="techstudio-academy"></a>
+</p>
 
-This project can be previewed Live [Click Here To View](https://tsacademy.vercel.app/).
+<h3>Techstudio Academy</h3>
+<p> Your Dream Tech Career Starts Here
+    <br>
+    <br>
+    <br>
+</p>
 
-## Contribution
+## 📝 Table of Contents
 
-- Clone the dev branch and make all Pull Requests to the dev branch.
-- In this project conventinal commmit lint is installed to enforce commit messages follows the industry standard pattern.
+- [About](#about)
+- [Built Using](#built_using)
+- [Contributing](#contribution)
+- [Authors](#authors)
 
-### Examples includes
+## 🧐 About <a name = "about"></a>
 
-JavaScript
-[
-  > 'build': 'For Build related commits',
-  >
-  > 'chore': 'For smaller less meaninful additions or subtractions',
-  >
-  > 'ci': 'For Continious Integration related Commits(DevOps)',
-  >
-  >'docs': 'For commiting changes related to Documentaion',
-  >
-  >'feat': 'For commiting changes related a particular feature',
-  >
-  > 'fix': 'For commits related to bug fixes',
-  >
-  > 'perf': 'For commits related to performance enhancement',
-  >
-  > 'refactor': 'For commits related to refactoring codes',
-  >
-  > 'revert': 'For commits related to reverting changes/commits',
-  >
-  > 'style': 'For commits related to adding styles',
-  >
-  >'test': 'For commits related to test additions',
-]
+Techstudio offers graduates a path to a fulfilling career in the world of tech
 
+### Prerequisites
 
-### Usage
+[Node v16 or higher](https://nodejs.org/en/)
 
-This is a sample of a good and bad commit messages
+### Installing
 
-JavaScript
-> "foo: some message" # fails
->
-> "fix: some message" # passes
->
-> "feat(scope): some message" # passes
+In order to run this project on your local machine or system, you will need to clone the source code by doing
 
+```
+git clone https://github.com/techstudioconsults/Techstudio-site
+```
 
-## Available Scripts
+or you could download the repo locally then run
 
-In the project directory, you can run:
+```
+npm install
+```
 
-### `yarn start`
+if you prefer yarn
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+yarn install
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+once the modules have been installed, in the root of the project run
 
-### `yarn test`
+```
+npm start or yarn start
+```
 
-Launches the test runner in the interactive watch mode.\
+this would start the dev server and the project will display in your browser.
 
-### `yarn format`
+## Editor setup
 
-Launches the prettier formatter in the interactive watch mode.\
+We're using eslint for js linting, and prettier for code formating, make sure you install eslint and prettier plugins in your editor so you can
+see linting errors as you code and have your code formatted on save by prettier. If formatOnSave doesn't work please google how to set up
+format on save for the eslint & prettier plugins in your editor 🙃
 
-### `yarn lint`
+## Contributing  <a name = "contribution"></a>
 
-Launches the eslint formatter in the interactive watch mode.\
+For detailed information on how to go about contributing to this project. Check out the
 
-### `yarn prepare`
+- [Contribution Guide](docs/CONTRIBUTING.md)
+- [Styling Guide](docs/STYLING.md)
 
-Launches husky and runs all husky scripts. For this project only a pre-commit hook is included.
-To run `npx lint-staged` in an attempt to lint all files before any commit is made.
+**Before sending PRs or making a merge make sure you code is properly formatted.** You can easily do that by running
 
-### `yarn build`
+```bash
+yarn lint # to lint all files # in project directory
+yarn format # to format using Prettier # in project directory
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ⛏️ Built Using <a name = "built_using"></a>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [React](https://reactjs.org/) - Javascript library/Framework
+- [Bootstrap 5](https://getbootstrap.com/docs/5.2/getting-started/introduction/) - CSS framework
 
-### Deployment
+## ✍️ Authors <a name = "authors"></a>
 
-This App is live: [Check it out](https://techstudio.com)
+- [Kingsley Solomon](https://github.com/kinxlo) - Frontend
+- [Olanitori Tobi](https://github.com/Intuneteq) - Backend

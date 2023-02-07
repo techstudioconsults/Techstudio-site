@@ -5,7 +5,9 @@ import 'react-quill/dist/quill.snow.css'
 import style from './jobform.module.scss'
 
 const JobRequirementForm = () => {
-  const [value, setValue] = useState('')
+  const [jobDescription, setJobDescription] = useState('')
+  const [responsibility, setResponsibility] = useState('')
+  const [requirement, setRequirement] = useState('')
 
   return (
     <form className={style.jobForm}>
@@ -78,20 +80,20 @@ const JobRequirementForm = () => {
             placeholder='Enter the title of position you want to fill'
             className={style.quill}
             theme='snow'
-            value={value}
-            onChange={setValue}
+            value={jobDescription}
+            onChange={setJobDescription}
           />
         </div>
         <div className={['mb-3', style.quillWrapper].join(' ')}>
           <label htmlFor='job-type' className='form-label'>
-            Job Description
+            Requirement
           </label>
           <ReactQuill
             placeholder='Describe your minimum requirement for this job'
             className={style.quill}
             theme='snow'
-            value={value}
-            onChange={setValue}
+            value={requirement}
+            onChange={setRequirement}
           />
         </div>
       </section>
@@ -153,8 +155,8 @@ const JobRequirementForm = () => {
             placeholder='Describe your minimum requirement for this job'
             className={style.quill}
             theme='snow'
-            value={value}
-            onChange={setValue}
+            value={responsibility}
+            onChange={setResponsibility}
           />
         </div>
       </section>
