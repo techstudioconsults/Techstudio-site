@@ -4,7 +4,7 @@
 
 <!-- [FE Quality Control Docs](https://docs.google.com/document/d/1Sbq-ZC4O5477cx5cRuZKReVsdglABg7c585NAoZTHIU/edit) - For guidelines on how to contributeto the frontend. -->
 
-# Styling in Zuri Main
+# Styling in Techstudio Main
 
 To avoid style clashes use scss modules when styling in Techstudio
 for example

@@ -70,7 +70,7 @@ So here is a run down of how you would go about contributing:
 
 - #### Configure the upstream
 
-  Now that you have the local copy of Zuri main. There are a lot of developers contributing to the project, so you have to update your local copy very frequently. Therefore, you need to connect your local copy to the original repository. To do that :
+  Now that you have the local copy of Techstudio main. There are a lot of developers contributing to the project, so you have to update your local copy very frequently. Therefore, you need to connect your local copy to the original repository. To do that :
 
   - copy this link here `https://github.com/techstudioconsults/Techstudio-site`
   - go to your local machine terminal, in the project folder
