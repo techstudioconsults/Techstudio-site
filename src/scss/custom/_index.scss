@@ -12,6 +12,7 @@ $info: #5a9eff;
 $dark: #292929;
 $body-color: #979dad;
 $mute: #6c757d;
+$danger: #800000;
 
 $font-weight-lighter: lighter;
 $font-weight-light: 300;
@@ -24,6 +25,7 @@ $theme-colors: (
   'primary': $primary,
   'info': $info,
   'dark': $dark,
+  'danger': $danger,
 );
 
 $grid-columns: 12 !default;
