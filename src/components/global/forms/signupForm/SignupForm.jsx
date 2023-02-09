@@ -23,7 +23,7 @@ const ContactForm = () => {
   })
   const onSubmit = (data) => {
     console.log(data)
-    axios.post(`https://206.189.27.92/api/auth/register`, data).then((data) => {
+    axios.post(`http://206.189.27.92/api/auth/register`, data).then((data) => {
       console.log(data)
     })
   }
