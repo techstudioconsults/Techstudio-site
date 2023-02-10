@@ -1,0 +1,82 @@
+@use '../../scss/global/colors' as colors;
+@use '../../scss/utils/functions' as fn;
+@import '../../scss/utils/breakpoints';
+@import '../../scss/utils/mixins';
+
+.error_main {
+  @include flex_centered;
+  gap: fn.rem(32);
+}
+.error_main_one {
+  display: flex;
+  flex-direction: column;
+  gap: fn.rem(48);
+}
+.error_main_one > div {
+  display: flex;
+  flex-direction: column;
+  gap: fn.rem(8);
+}
+.error_img {
+  width: 100%;
+  height: 100%;
+  max-width: fn.rem(799);
+  max-height: fn.rem(500);
+}
+.error_text_one {
+  font-size: fn.rem(64);
+  font-weight: 800;
+  color: colors.$deep-blue;
+}
+.error_text_two {
+  font-size: fn.rem(32);
+  font-weight: 600;
+  color: colors.$deep-blue;
+}
+.error_text_three {
+  font-size: fn.rem(16);
+  color: colors.$deep-blue;
+}
+.error_btn {
+  background: colors.$blue;
+  border-radius: 8px;
+  width: fn.rem(144);
+  height: fn.rem(48);
+  padding: fn.rem(14);
+  font-weight: 600;
+  color: colors.$light;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+@media screen and (max-width: 1024px) {
+  .error_main_one {
+    width: fn.rem(420);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .error_main {
+    flex-direction: column-reverse;
+    width: 100%;
+    padding: 8vh 16vw;
+  }
+  .error_main_one {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .error_main_one div {
+    width: 100%;
+  }
+  .error_main_one div > * {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 480px) {
+  .error_main {
+    padding: 8vh 8vw;
+  }
+}

@@ -16,6 +16,7 @@ import {
   HomePage,
   Intro,
   Messages,
+  PageNotFound,
   SignIn,
   Signup,
   SingleBlogPage,
@@ -100,6 +101,8 @@ const App = () => {
           <Route path='messages' element={<Messages />} />
           <Route path='tasks' element={<Tasks />} />
         </Route>
+        {/* 404 PAGE NOT FOUND ROUTE */}
+        <Route path='*' element={<PageNotFound />} />
       </Routes>
       {/* dashboard routes */}
     </Suspense>
