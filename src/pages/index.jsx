@@ -19,3 +19,4 @@ export { default as TeacherClassView } from './Dashboard/Teacher/classes/Teacher
 export { default as Tasks } from './Dashboard/Teacher/tasks/Tasks'
 export { default as StudentDashboardIntro } from './Dashboard/Student/intro/StudentDashboardIntro'
 export { default as SingleCourseViewLive } from './Dashboard/Student/classes/singleCourseViewLive/SingleCourseViewLive'
+export { default as PageNotFound } from './404'
