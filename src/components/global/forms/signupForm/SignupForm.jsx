@@ -23,9 +23,11 @@ const ContactForm = () => {
   })
   const onSubmit = (data) => {
     console.log(data)
-    axios.post(`http://206.189.27.92/api/auth/register`, data).then((data) => {
-      console.log(data)
-    })
+    axios
+      .post(`${process.env.REACT_APP_BASE_URL}/auth/register`, data)
+      .then((data) => {
+        console.log(data)
+      })
   }
 
   return (
@@ -128,7 +130,7 @@ const ContactForm = () => {
             className='form-control'
             aria-describedby='phoneHelpBlock'
             placeholder='user type'
-            {...register('phoneNumber')}
+            {...register('phoneNumber', validation)}
           />
           <ErrorMessage
             errors={errors}
@@ -155,7 +157,7 @@ const ContactForm = () => {
             className='form-control'
             aria-describedby='emailHelpBlock'
             placeholder='example@example.com'
-            {...register('email')}
+            {...register('email', validation)}
           />
           <ErrorMessage
             errors={errors}
