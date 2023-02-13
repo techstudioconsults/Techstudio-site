@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 import techimage from '../assets/icons/logo.png'
-import { FaFacebookF, FaLinkedinIn, FaTwitter } from 'react-icons/fa'
+import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa'
 
 const Footer = () => {
   return (
@@ -128,19 +128,31 @@ const Footer = () => {
             <p>&copy; {new Date().getFullYear()} TechStudio Academy</p>
             <ul className='list-unstyled d-flex gap-10'>
               <li className=''>
-                <Link className='text-white cc-link-hover'>
+                <a
+                  target={`_blank`}
+                  href='https://twitter.com/TechStudioAcdmy'
+                  className='text-white cc-link-hover'
+                >
                   <FaTwitter className='fs-xl' />
-                </Link>
+                </a>
               </li>
               <li className=''>
-                <Link className='text-white cc-link-hover '>
+                <a
+                  target={`_blank`}
+                  href='https://facebook.com/techstudioacademy'
+                  className='text-white cc-link-hover '
+                >
                   <FaFacebookF className='fs-xl' />
-                </Link>
+                </a>
               </li>
               <li className=''>
-                <Link className='text-white cc-link-hover '>
-                  <FaLinkedinIn className='fs-xl' />
-                </Link>
+                <a
+                  target={`_blank`}
+                  href='https://instagram.com/techstudioacademy'
+                  className='text-white cc-link-hover '
+                >
+                  <FaInstagram className='fs-xl' />
+                </a>
               </li>
             </ul>
           </div>

@@ -21,6 +21,7 @@ const ContactForm = () => {
   } = useForm({
     criteriaMode: 'all',
   })
+
   const onSubmit = (data) => {
     console.log(data)
     axios
@@ -174,6 +175,7 @@ const ContactForm = () => {
           />
         </div>
       </div>
+
       <div className={style.secondRow}>
         <div className='form-check d-flex align-items-center gap-2'>
           <input
