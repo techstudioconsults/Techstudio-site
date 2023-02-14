@@ -1,6 +1,6 @@
 import React from 'react'
-import { FaFacebookF, FaLinkedinIn, FaTwitter } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa'
+
 import Container from './Container'
 
 const MinimalFooter = () => {
@@ -13,19 +13,31 @@ const MinimalFooter = () => {
           </p>
           <ul className='list-unstyled d-flex gap-5'>
             <li className='ms-3'>
-              <Link className='text-blue'>
+              <a
+                target={`_blank`}
+                href='https://twitter.com/TechStudioAcdmy'
+                className='text-blue'
+              >
                 <FaTwitter className='fs-sm' />
-              </Link>
+              </a>
             </li>
             <li className='ms-3'>
-              <Link className='text-blue'>
+              <a
+                target={`_blank`}
+                href='https://facebook.com/techstudioacademy'
+                className='text-blue'
+              >
                 <FaFacebookF className='fs-sm' />
-              </Link>
+              </a>
             </li>
             <li className='ms-3'>
-              <Link className='text-blue'>
-                <FaLinkedinIn className='fs-sm' />
-              </Link>
+              <a
+                target={`_blank`}
+                href='https://instagram.com/techstudioacademy'
+                className='text-blue cc-link-hover '
+              >
+                <FaInstagram className='fs-sm' />
+              </a>
             </li>
           </ul>
         </div>
