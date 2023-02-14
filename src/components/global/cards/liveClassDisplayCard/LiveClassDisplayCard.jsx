@@ -3,22 +3,21 @@ import PropTypes from 'prop-types'
 import clock from '../../../../assets/icons/clock.png'
 import style from './liveClass.module.scss'
 import { CgAttachment } from 'react-icons/cg'
-import { Avatar } from '../../../../components'
+import { AssignmentOffcanvas, Avatar, Portal } from '../../../../components'
 import { Link } from 'react-router-dom'
 
 const LiveClassDisplayCard = ({ isTDB, isRecordedFile }) => {
   return (
-    <section>
+    <section
+      data-bs-toggle='offcanvas'
+      data-bs-target='#assignment-offcanvas'
+      aria-controls='assignment-offcanvas'
+    >
       <div className={[style.liveCard].join(' ')}>
         <div className={style.avatar}>
           <Avatar />
         </div>
-        <div
-          type='button'
-          data-bs-toggle='modal'
-          data-bs-target='#assignment'
-          className={style.content}
-        >
+        <div className={style.content}>
           <h5 className={style.title}>
             Becoming a UX Designer from Scratch: Things to look out for
           </h5>
@@ -55,27 +54,15 @@ const LiveClassDisplayCard = ({ isTDB, isRecordedFile }) => {
       </div>
 
       {isTDB ? null : (
-        <div
-          className='modal fade'
-          id='assignment'
-          tabIndex='-1'
-          aria-labelledby='assignment'
-          aria-hidden='true'
-        >
-          <div className='modal-dialog modal-fullscreen-md-down'>
-            <div className='modal-content'>
-              <div className='modal-header'>
-                <h4 className='modal-title fs-5' id='assignment'>
+        <Portal>
+          <AssignmentOffcanvas text='damn'>
+            <div>
+              <div>
+                <h4 className='fs-5' id='assignment'>
                   Submit Assignment
                 </h4>
-                <button
-                  type='button'
-                  className='btn-close btn-blue'
-                  data-bs-dismiss='modal'
-                  aria-label='Close'
-                ></button>
               </div>
-              <div className={['modal-body', style.Modalbody].join(' ')}>
+              <div className={[style.Modalbody].join(' ')}>
                 <h6 className={[style.title, `text-black`].join(' ')}>
                   Fundamentals of Design
                 </h6>
@@ -106,8 +93,8 @@ const LiveClassDisplayCard = ({ isTDB, isRecordedFile }) => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </AssignmentOffcanvas>
+        </Portal>
       )}
     </section>
   )

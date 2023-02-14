@@ -5,6 +5,10 @@ import LiveClassDisplayCard from '../../../global/cards/liveClassDisplayCard/Liv
 import style from './classesTab.module.scss'
 import StartAClass from '../../../global/modals/StartAClass'
 import ScheduleClassForm from '../../../global/forms/scheduleClassFom/ScheduleClassForm'
+import AssignmentOffcanvas from '../../../global/offCanvas/AssignmentOffcanvas'
+import { AiOutlinePlusCircle } from 'react-icons/ai'
+import AddAClassOffCanvas from '../../../global/offCanvas/AddAClassOffcanvas'
+import Portal from '../../../global/POTAL/Portal'
 
 const ClassesTab = ({ isTDB }) => {
   const { studentBoard } = DASHBOARD_CONTENT
@@ -32,7 +36,7 @@ const ClassesTab = ({ isTDB }) => {
           <li className={['nav-item', style.link].join(' ')}>
             <a
               className={['nav-link active', style.a].join(' ')}
-              id='home-tab'
+              id='live-tab'
               data-bs-toggle='tab'
               href='#live'
             >
@@ -42,7 +46,7 @@ const ClassesTab = ({ isTDB }) => {
           <li className={['nav-item', style.link].join(' ')}>
             <a
               className={['nav-link', style.a].join(' ')}
-              id='about-tab'
+              id='record-tab'
               data-bs-toggle='tab'
               href='#recorded'
             >
@@ -51,9 +55,19 @@ const ClassesTab = ({ isTDB }) => {
           </li>
         </ul>
         <div className={isTDB ? `d-block` : `d-none`}>
-          <StartAClass title={`Add a class`}>
-            <ScheduleClassForm />
-          </StartAClass>
+          <p
+            data-bs-toggle='offcanvas'
+            href='#addclass-offcanvas'
+            aria-controls='addclass-offcanvas'
+            className='d-flex align-items-center gap-2 text-primary fs-sm fw-semibold'
+          >
+            <AiOutlinePlusCircle size={`1rem`} /> Add New Class
+          </p>
+          <Portal>
+            <AddAClassOffCanvas>
+              <ScheduleClassForm />
+            </AddAClassOffCanvas>
+          </Portal>
         </div>
       </div>
 

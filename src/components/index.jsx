@@ -34,6 +34,9 @@ export { default as ClassDetails } from './global/cards/classDetails/ClassDetail
 export { default as JobRequirementModal } from './global/forms/jobRequirement/JobRequirementModal'
 export { default as JobRequirementForm } from './global/forms/jobRequirement/jobRequirmentForm/JobRequirementForm'
 export { default as AddAFile } from './global/modals/AddAFile'
+export { default as Portal } from './global/POTAL/Portal'
+export { default as AssignmentOffcanvas } from './global/offCanvas/AssignmentOffcanvas'
+export { default as AddAClassOffcanvas } from './global/offCanvas/AddAClassOffcanvas'
 
 // HOME
 export { default as Hero } from './home/hero'

@@ -1,9 +1,11 @@
 import React from 'react'
 import {
+  AddAFile,
   ClassDetails,
   DashboardResource,
   FeedbackCard,
   GraphCard,
+  Portal,
 } from '../../../../../../components'
 import style from './trackAnalysis.module.scss'
 
@@ -13,9 +15,16 @@ const TrackAnalysisLayout = () => {
       <div className={[style.col1, `bg-white p-5`].join(' ')}>
         <div className='d-flex align-items-center justify-content-between mb-5'>
           <h5 className={[style.title, `mb-0`].join(' ')}>Resources</h5>
-          <span className={['text-primary fs-sm'].join(' ')}>
-            Upload New file
-          </span>
+          <div
+            type='button'
+            data-bs-toggle='modal'
+            data-bs-target='#start-a-class'
+          >
+            <p className='text-primary fs-sm fw-semibold'>Upload New file</p>
+          </div>
+          <Portal wrapperId='react-portal-modal-container'>
+            <AddAFile /> {/** portal */}
+          </Portal>
         </div>
         <DashboardResource isTDB />
       </div>

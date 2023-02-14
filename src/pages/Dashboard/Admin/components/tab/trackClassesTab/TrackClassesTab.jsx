@@ -6,7 +6,7 @@ import style from '../adminTab.module.scss'
 const TrackClassesTab = () => {
   return (
     <section className={style.tab}>
-      <ul className={['nav', style.tabList].join(' ')}>
+      <ul className={['nav hide_scrollbar', style.tabList].join(' ')}>
         <li className={['nav-item', style.link].join(' ')}>
           <a
             className={['nav-link active', style.a].join(' ')}
