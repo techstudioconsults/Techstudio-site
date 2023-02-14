@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Avatar, CalendarApp, ClassDetails } from '../../components'
+import { AvatarDropdown, CalendarApp, ClassDetails } from '../../components'
 import style from './dashboardDrawer.module.scss'
 
 function dashboardRightDrawer({ isTDB }) {
@@ -8,7 +8,9 @@ function dashboardRightDrawer({ isTDB }) {
 
   return (
     <section className={style.drawer}>
-      <Avatar />
+      <div className='d-flex justify-content-end align-items-center'>
+        <AvatarDropdown />
+      </div>
       <div>
         <CalendarApp />
       </div>
