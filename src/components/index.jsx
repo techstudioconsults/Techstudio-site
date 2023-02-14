@@ -38,6 +38,8 @@ export { default as Portal } from './global/POTAL/Portal'
 export { default as AssignmentOffcanvas } from './global/offCanvas/AssignmentOffcanvas'
 export { default as AddAClassOffcanvas } from './global/offCanvas/AddAClassOffcanvas'
 export { default as AvatarDropdown } from './global/avatar/avatarDropdown/AvatarDropdown'
+export { default as AdminSignupForm } from './global/forms/adminSignupForm/AdminSignupForm'
+export { default as StudentSignupForm } from './global/forms/studentSignupForm/StudentSignupForm'
 
 // HOME
 export { default as Hero } from './home/hero'
