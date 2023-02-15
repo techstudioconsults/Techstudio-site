@@ -1,10 +1,14 @@
 import React from 'react'
-import { FaEye } from 'react-icons/fa'
+import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import style from '../signupForm/signupForm.module.scss'
 import axios from 'axios'
 import { ErrorMessage } from '@hookform/error-message'
 import { useForm } from 'react-hook-form'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+import { useState } from 'react'
+import Portal from '../../POTAL/Portal'
+import Feedback from '../../modals/Feedback'
 
 const validation = {
   required: 'This input is required.',
@@ -15,6 +19,9 @@ const validation = {
 }
 
 const ContactForm = () => {
+  const [isShow, setShow] = useState(false)
+  const [isLoading, setLoading] = useState(false)
+
   const {
     register,
     handleSubmit,
@@ -24,16 +31,31 @@ const ContactForm = () => {
   })
 
   const onSubmit = (data) => {
+    setLoading(true)
     console.log(data)
+    let modal = bootstrap.Modal.getOrCreateInstance(
+      document.getElementById('feedback')
+    )
     axios
       .post(`${process.env.REACT_APP_BASE_URL}/auth/login`, data)
       .then((data) => {
+        setLoading(false)
         console.log(data)
+        modal.show()
       })
+  }
+
+  const togglePasswordView = () => {
+    setShow((prevState) => {
+      return !prevState
+    })
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={[style.form].join(' ')}>
+      <Portal wrapperId='react-portal-modal-container'>
+        <Feedback />
+      </Portal>
       <div className={style.secondRow}>
         <div className={style.email}>
           <label htmlFor='email' className='form-label'>
@@ -67,20 +89,20 @@ const ContactForm = () => {
           </label>
           <div className={[style.password, 'input-group mb-3'].join(' ')}>
             <input
-              type='password'
+              type={isShow ? `text` : `password`}
               id='password'
               className='form-control'
               aria-describedby='passwordHelpBlock'
               placeholder='Password'
               {...register('password', validation)}
             />
-            <span
+            <button
+              onClick={togglePasswordView}
               className={['input-group-text', style.showPassword].join(' ')}
               id='passwordHelpBlock'
             >
-              <FaEye />
-              {/* <FaEyeSlash /> */}
-            </span>
+              {isShow ? <FaEyeSlash /> : <FaEye />}
+            </button>
           </div>
           <ErrorMessage
             errors={errors}
@@ -115,12 +137,19 @@ const ContactForm = () => {
         </div>
       </div>
       <div className={style.btnContainer}>
-        <button type='submit'>Login</button>
+        <button
+          className={[style.noiseImage, isLoading ? style.gradient : null].join(
+            ' '
+          )}
+          type='submit'
+        >
+          {isLoading ? `Chill, let me get the door...` : `Login`}
+        </button>
       </div>
       <footer className={style.caption}>
         <p className={style.footerLink}>
           Don’t have an account yet?{' '}
-          <Link to={`/signup`} className={style.signupLink}>
+          <Link to={`/register`} className={style.signupLink}>
             Sign up here
           </Link>
         </p>

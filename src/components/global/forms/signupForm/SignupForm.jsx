@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
 import style from './signupForm.module.scss'
 import axios from 'axios'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+import Portal from '../../POTAL/Portal'
+import Feedback from '../../modals/Feedback'
 
 const validation = {
   required: 'This input is required.',
@@ -14,6 +17,8 @@ const validation = {
 }
 
 const ContactForm = () => {
+  const [isLoading, setLoading] = useState(false)
+
   const {
     register,
     handleSubmit,
@@ -23,16 +28,25 @@ const ContactForm = () => {
   })
 
   const onSubmit = (data) => {
+    setLoading(true)
     console.log(data)
+    let modal = bootstrap.Modal.getOrCreateInstance(
+      document.getElementById('feedback')
+    )
     axios
       .post(`${process.env.REACT_APP_BASE_URL}/auth/register`, data)
       .then((data) => {
+        setLoading(false)
         console.log(data)
+        modal.show()
       })
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={[style.form].join(' ')}>
+      <Portal wrapperId='react-portal-modal-container'>
+        <Feedback />
+      </Portal>
       <div className={style.row}>
         <div>
           <label htmlFor='firstname' className='form-label'>
@@ -194,12 +208,19 @@ const ContactForm = () => {
         </div>
       </div>
       <div className={style.btnContainer}>
-        <button type='submit'>Register</button>
+        <button
+          className={[style.noiseImage, isLoading ? style.gradient : null].join(
+            ' '
+          )}
+          type='submit'
+        >
+          {isLoading ? `Hold on let me add you up...` : `Register`}
+        </button>
       </div>
       <footer className={style.caption}>
         <p className={style.footerLink}>
           Do you have an account already?{' '}
-          <Link to={`/signin`} className={style.signupLink}>
+          <Link to={`/login`} className={style.signupLink}>
             Sign in here
           </Link>
         </p>

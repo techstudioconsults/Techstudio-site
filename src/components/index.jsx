@@ -40,6 +40,7 @@ export { default as AddAClassOffcanvas } from './global/offCanvas/AddAClassOffca
 export { default as AvatarDropdown } from './global/avatar/avatarDropdown/AvatarDropdown'
 export { default as AdminSignupForm } from './global/forms/adminSignupForm/AdminSignupForm'
 export { default as StudentSignupForm } from './global/forms/studentSignupForm/StudentSignupForm'
+export { default as Feedback } from './global/modals/Feedback'
 
 // HOME
 export { default as Hero } from './home/hero'
