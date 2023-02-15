@@ -78,10 +78,23 @@
   .btnContainer {
     button {
       width: 100%;
+      background-image: url('https://stackdiary.com/wp-content/uploads/2022/10/noise_img.png');
+      background-size: auto;
       background-color: colors.$blue;
       color: colors.$light;
       border-radius: fn.rem(4);
       font-size: fn.rem(14);
+    }
+    .noiseImage {
+      background-position: 0px 0px;
+    }
+
+    /* apply this to the container you want to animate */
+    .gradient {
+      background: linear-gradient(-45deg, #ffeb3b, #74efff, #9c27b0);
+      background-size: 400% 400%;
+      animation: gradient-bg 20s ease infinite;
+      // transition: all 1s ease;
     }
   }
 
@@ -117,12 +130,6 @@
     width: 100%;
   }
 
-  .btnContainer {
-    button {
-      height: fn.rem(56);
-    }
-  }
-
   &::after {
     position: absolute;
     content: url(../../../../assets/images/repeatGrid.webp);
@@ -133,5 +140,17 @@
       right: fn.rem(-50);
     }
     z-index: -1;
+  }
+}
+
+@keyframes gradient-bg {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }

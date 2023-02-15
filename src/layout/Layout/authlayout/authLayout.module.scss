@@ -16,6 +16,7 @@
     position: absolute;
     top: fn.rem(75);
     left: fn.rem(55);
+    z-index: 999;
   }
   .imgContainer,
   .children {

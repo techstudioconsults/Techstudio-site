@@ -39,5 +39,19 @@
         // padding-inline-end: fn.rem(100);
       }
     }
+
+    .info {
+      @include flex;
+      gap: fn.rem(16);
+      margin-top: fn.rem(32);
+
+      .icon{
+        color: colors.$deep-blue;
+      }
+
+      .email {
+        color: colors.$deep-blue;
+      }
+    }
   }
 }

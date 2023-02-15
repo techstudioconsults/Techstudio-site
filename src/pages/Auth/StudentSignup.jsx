@@ -1,22 +1,20 @@
 import React from 'react'
-import { SignupForm } from '../../components'
+import { StudentSignupForm } from '../../components'
 import { Authlayout } from '../../layout'
 import style from './auth.module.scss'
 
-const Signup = () => {
+const Register = () => {
   return (
     <Authlayout>
       <section className={[style.signup, `cc-shadow`].join(' ')}>
         <div className={style.header}>
-          <h4 className='text-blue fw-bolder mb-3'>
-            One last step, let’s get to know you
-          </h4>
+          <h4 className='text-blue fw-bolder mb-3'>Student Registration</h4>
           <p className={style.subTitle}>Create an account with Us</p>
         </div>
-        <SignupForm />
+        <StudentSignupForm />
       </section>
     </Authlayout>
   )
 }
 
-export default Signup
+export default Register

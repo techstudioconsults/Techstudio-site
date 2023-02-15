@@ -18,7 +18,7 @@ import {
   Messages,
   PageNotFound,
   SignIn,
-  Signup,
+  Register,
   SingleBlogPage,
   SingleCourseView,
   SingleCourseViewLive,
@@ -28,6 +28,8 @@ import {
   Tasks,
   TeacherClassView,
   TeacherDashboard,
+  AdminSignup,
+  StudentSignup,
 } from './pages'
 import AdminClassView from './pages/Dashboard/Admin/classes/AdminClassView'
 import { DEVELOPMENT_CONTENT } from './pages/Development/content'
@@ -45,9 +47,11 @@ const App = () => {
     <Suspense fallback={<Loading text='LOADING...' />}>
       <Routes>
         <Route index path='/' element={<HomePage />} />
-        <Route path='/signup' element={<Signup />} />
         <Route path='/tracks' element={<Intro />} />
-        <Route path='/signin' element={<SignIn />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/login' element={<SignIn />} />
+        <Route path='/admin/register' element={<AdminSignup />} />
+        <Route path='/student/signup' element={<StudentSignup />} />
         <Route path='/payment' element={<Payment />} />
         <Route path='/employers' element={<Employers />} />
         <Route path='/payment/accounts' element={<Accounts />} />

@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
-import style from './signupForm.module.scss'
+import style from '../signupForm/signupForm.module.scss'
 import axios from 'axios'
-import * as bootstrap from 'bootstrap/dist/js/bootstrap'
-import Portal from '../../POTAL/Portal'
 import Feedback from '../../modals/Feedback'
+import Portal from '../../POTAL/Portal'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 
 const validation = {
   required: 'This input is required.',
@@ -28,13 +28,13 @@ const ContactForm = () => {
   })
 
   const onSubmit = (data) => {
-    setLoading(true)
     console.log(data)
+    setLoading(true)
     let modal = bootstrap.Modal.getOrCreateInstance(
       document.getElementById('feedback')
     )
     axios
-      .post(`${process.env.REACT_APP_BASE_URL}/auth/register`, data)
+      .post(`${process.env.REACT_APP_BASE_URL}/auth/register/admin`, data)
       .then((data) => {
         setLoading(false)
         console.log(data)
@@ -44,6 +44,9 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={[style.form].join(' ')}>
+      <div type='button' data-bs-toggle='modal' data-bs-target='#feedback'>
+        <p className='text-primary fs-sm fw-semibold'>feedback</p>
+      </div>
       <Portal wrapperId='react-portal-modal-container'>
         <Feedback />
       </Portal>
@@ -99,38 +102,6 @@ const ContactForm = () => {
                 : null
             }}
           />
-        </div>
-      </div>
-
-      <div className={style.row}>
-        <div>
-          <label htmlFor='subject' className='form-label'>
-            Time Schedule
-          </label>
-          <select
-            id='subject'
-            {...register('schedule')}
-            className={[`form-select`, style.select].join(' ')}
-          >
-            <option>Weekday Classes</option>
-            <option>Weekend Classes</option>
-          </select>
-        </div>
-        <div>
-          <label htmlFor='course' className='form-label'>
-            Courses
-          </label>
-          <select
-            id='course'
-            {...register('course')}
-            className={[`form-select`, style.select].join(' ')}
-          >
-            <option>Mobile Development</option>
-            <option>Fullstack Development</option>
-            <option>Frontend Development</option>
-            <option>UI/UX Development</option>
-            <option>Data science</option>
-          </select>
         </div>
       </div>
 
@@ -191,22 +162,34 @@ const ContactForm = () => {
       </div>
 
       <div className={style.secondRow}>
-        <div className='form-check d-flex align-items-center gap-2'>
-          <input
-            {...register('newsletter')}
-            className='form-check-input'
-            type='checkbox'
-            value=''
-            id='newsletter'
-          />
-          <label
-            className={['form-check-label', style.checkboxLabel].join(' ')}
-            htmlFor='newsletter'
-          >
-            Send me alerts and Weekly Newsletters
+        <div className={style.paswword}>
+          <label htmlFor='password' className='form-label'>
+            Password
           </label>
+          <input
+            type='password'
+            id='password'
+            className='form-control'
+            aria-describedby='emailHelpBlock'
+            placeholder='Password'
+            {...register('password', validation)}
+          />
+          <ErrorMessage
+            errors={errors}
+            name='password'
+            render={({ messages }) => {
+              return messages
+                ? Object.entries(messages).map(([type, message]) => (
+                    <p className='fs-xs text-danger' key={type}>
+                      {message}
+                    </p>
+                  ))
+                : null
+            }}
+          />
         </div>
       </div>
+
       <div className={style.btnContainer}>
         <button
           className={[style.noiseImage, isLoading ? style.gradient : null].join(
@@ -214,7 +197,7 @@ const ContactForm = () => {
           )}
           type='submit'
         >
-          {isLoading ? `Hold on let me add you up...` : `Register`}
+          {isLoading ? `Chill, let me get the keys...` : `Sign up`}
         </button>
       </div>
       <footer className={style.caption}>

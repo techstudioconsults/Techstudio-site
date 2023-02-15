@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
-import style from './signupForm.module.scss'
+import style from '../signupForm/signupForm.module.scss'
 import axios from 'axios'
-import * as bootstrap from 'bootstrap/dist/js/bootstrap'
-import Portal from '../../POTAL/Portal'
 import Feedback from '../../modals/Feedback'
+import Portal from '../../POTAL/Portal'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 
 const validation = {
   required: 'This input is required.',
@@ -33,8 +33,13 @@ const ContactForm = () => {
     let modal = bootstrap.Modal.getOrCreateInstance(
       document.getElementById('feedback')
     )
+    const formData = {
+      ...data,
+      phoneNumber: parseInt(data.phoneNumber),
+    }
+    console.log(formData)
     axios
-      .post(`${process.env.REACT_APP_BASE_URL}/auth/register`, data)
+      .post(`${process.env.REACT_APP_BASE_URL}/auth/signup`, data)
       .then((data) => {
         setLoading(false)
         console.log(data)
@@ -112,8 +117,8 @@ const ContactForm = () => {
             {...register('schedule')}
             className={[`form-select`, style.select].join(' ')}
           >
-            <option>Weekday Classes</option>
-            <option>Weekend Classes</option>
+            <option>Weekday</option>
+            <option>Weekend</option>
           </select>
         </div>
         <div>
@@ -190,21 +195,44 @@ const ContactForm = () => {
         </div>
       </div>
 
-      <div className={style.secondRow}>
-        <div className='form-check d-flex align-items-center gap-2'>
-          <input
-            {...register('newsletter')}
-            className='form-check-input'
-            type='checkbox'
-            value=''
-            id='newsletter'
-          />
-          <label
-            className={['form-check-label', style.checkboxLabel].join(' ')}
-            htmlFor='newsletter'
-          >
-            Send me alerts and Weekly Newsletters
+      <div className={style.row}>
+        <div className={style.paswword}>
+          <label htmlFor='password' className='form-label'>
+            Password
           </label>
+          <input
+            type='password'
+            id='password'
+            className='form-control'
+            aria-describedby='emailHelpBlock'
+            placeholder='Password'
+            {...register('password', validation)}
+          />
+          <ErrorMessage
+            errors={errors}
+            name='password'
+            render={({ messages }) => {
+              return messages
+                ? Object.entries(messages).map(([type, message]) => (
+                    <p className='fs-xs text-danger' key={type}>
+                      {message}
+                    </p>
+                  ))
+                : null
+            }}
+          />
+        </div>
+        <div>
+          <label htmlFor='subject' className='form-label'>
+            User Role
+          </label>
+          <select
+            id='role'
+            {...register('userRole')}
+            className={[`form-select`, style.select].join(' ')}
+          >
+            <option>STUDENT</option>
+          </select>
         </div>
       </div>
       <div className={style.btnContainer}>
@@ -214,7 +242,7 @@ const ContactForm = () => {
           )}
           type='submit'
         >
-          {isLoading ? `Hold on let me add you up...` : `Register`}
+          {isLoading ? `Chill, let me get the door...` : `Register`}
         </button>
       </div>
       <footer className={style.caption}>

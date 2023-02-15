@@ -2,7 +2,7 @@ import img from '../../../assets/images/nigeria.webp'
 export const CONTACT_CONTENT = {
   hero: {
     title: `We'd love to hear from you`,
-    subTitle: `Whether you have a question about our classes, pricing or anything else, our team is ready to answer all your questions`,
+    subTitle: `Do you have questions about any of our courses, pricing, policies, terms of service, benefits of enrolling with us, our team is more than willing to be of service.`,
   },
 
   location: {
@@ -13,7 +13,8 @@ export const CONTACT_CONTENT = {
     address: {
       img: img,
       state: `Lagos, Nigeria`,
-      address: `2950 S. Delaware Street, Suite 201 San Mateo CA 94403 Reception/General enquiries: +1 650 513 0514`,
+      address: `1 Ogunlesi Street, Off Awoyokun, Onipanu, Lagos.`,
+      // Speak to our staff; Call 08113800161or 08126051769 Email: info@techstudioacademy.com IG: @techstudioacademy Twitter: @techstudio1 Facebook: Techstudioacademy
     },
   },
 }

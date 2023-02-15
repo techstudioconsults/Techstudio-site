@@ -34,6 +34,13 @@ export { default as ClassDetails } from './global/cards/classDetails/ClassDetail
 export { default as JobRequirementModal } from './global/forms/jobRequirement/JobRequirementModal'
 export { default as JobRequirementForm } from './global/forms/jobRequirement/jobRequirmentForm/JobRequirementForm'
 export { default as AddAFile } from './global/modals/AddAFile'
+export { default as Portal } from './global/POTAL/Portal'
+export { default as AssignmentOffcanvas } from './global/offCanvas/AssignmentOffcanvas'
+export { default as AddAClassOffcanvas } from './global/offCanvas/AddAClassOffcanvas'
+export { default as AvatarDropdown } from './global/avatar/avatarDropdown/AvatarDropdown'
+export { default as AdminSignupForm } from './global/forms/adminSignupForm/AdminSignupForm'
+export { default as StudentSignupForm } from './global/forms/studentSignupForm/StudentSignupForm'
+export { default as Feedback } from './global/modals/Feedback'
 
 // HOME
 export { default as Hero } from './home/hero'

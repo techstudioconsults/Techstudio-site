@@ -4,8 +4,8 @@ import img4 from '../../../assets/images/home-img4.webp'
 
 export const HOME_CONTENT = {
   hero: {
-    title: [`Your Dream Tech Career Starts Here`],
-    description: `Techstudio offers graduates a path to a fulfilling career in the world of tech`,
+    title: [`Unlock Your Tech Potential With Us Today`],
+    description: `Transform Your Career and Become a Skilled Tech Professional by Enrolling with Tech Studio Academy.`,
   },
 
   sectionTwo: {
@@ -15,18 +15,18 @@ export const HOME_CONTENT = {
     cards: [
       {
         image: img2,
-        title: `Always welcoming`,
-        description: `Our platform allows easy onboarding to any of our programs you wish to be part of.`,
+        title: `Great learning Environment`,
+        description: `We provide you with the best learning facility you can lay your eyes on. All our classes are conducive, en-suite and equipped with high-speed internet and the latest technologies for learning.`,
       },
       {
         image: img3,
-        title: `Online and Offline Classes`,
-        description: `Our platform provides a comfortable and seamless Online and offline class experience`,
+        title: `Career Support`,
+        description: `We offer you the best support - either while you’re learning or after you’ve graduated. Our support team provides students with guidance and tips on building a top-notch portfolio that woos employers. We provide career support to get you hired in no time.`,
       },
       {
         image: img4,
-        title: `There when you need us`,
-        description: `Our dedicated team of tech experts research and, compile knowledge across sectors in tech to give you the best resources needed.`,
+        title: `Experienced Tutor`,
+        description: `Our tutors are highly skilled professionals that are chosen based on industry experience and teaching ability.`,
       },
     ],
   },
@@ -46,8 +46,8 @@ export const HOME_CONTENT = {
   sectionFour: {
     header: {
       caption: `TAKE A COURSE`,
-      title: [`Learn a skill to elevate your earning potential`],
-      subTitle: `Our Graduate Accelerator program is designed to connect the most ambitious university graduates with long-term employment and help you launch your career.`,
+      title: [`Acquire a tech skill to transcend your current earning status`],
+      subTitle: `We provide high-quality and affordable technology training to meet our students’ needs. Also, we ensure all our students are equipped with the necessary tech skills for related work opportunities at the end of the program.`,
     },
   },
 
@@ -56,17 +56,17 @@ export const HOME_CONTENT = {
       {
         id: 1,
         title: `Apply`,
-        desc: `Apply for any of our learning tracks. Techstudio offers diverse range of learning courses designed to give you the skills needed to grow professionally.`,
+        desc: `At Tech Studio we offer a variety of courses designed to build your skills and professionally improve you. All you have to do is apply.`,
       },
       {
         id: 2,
         title: `Get Admitted`,
-        desc: `Receive an admission offer and reserve your spot in the program. You will complete the required KYC procedures`,
+        desc: `Once we confirm your payment for the program, we reserve your spot. You will go through the onboarding process before the program starts.`,
       },
       {
         id: 3,
         title: `Start classes`,
-        desc: `Attend your first class, partake in group projects, and 1:1 sessions. Our team will keep an eye on your growth even even after the training`,
+        desc: `Be sure to attend the introductory classes, this will play a huge role in your subsequent learning stages. You’ll participate in projects, personal tasks and group works; this is a way for our tutors to evaluate your skills, growth, and knowledge. We have provided a conducive learning environment and modern learning facilities for you, so you may have ease of learning.`,
       },
     ],
   },

@@ -14,6 +14,7 @@
     background-color: colors.$deep-blue;
     height: fn.rem(749);
   }
+
   .heroWrapper {
     text-align: center;
     @include flex_column;
@@ -33,7 +34,7 @@
 
       .title {
         @include breakpoint-up('2xl') {
-          font-size: fn.rem(48);
+          font-size: fn.rem(44);
         }
       }
 
@@ -50,7 +51,7 @@
 
     .heroImg {
       flex: 2;
-      max-width: fn.rem(701);
+      max-width: fn.rem(640);
       height: fn.rem(484);
 
       img {

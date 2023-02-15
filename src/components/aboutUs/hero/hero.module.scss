@@ -6,9 +6,11 @@
 .aboutHero {
   //   border: 1px solid red;
   @include flex_column;
+  text-align: center;
   gap: fn.rem(32);
   margin-top: fn.rem(100);
   @include breakpoint-up('lg') {
+    text-align: left;
     @include flex;
     @include flex_align;
   }
@@ -31,6 +33,10 @@
     // border: 1px solid green;
     max-width: fn.rem(659);
     height: fn.rem(659);
-    @include flex_centered;
+    display: none;
+    @include breakpoint-up('lg') {
+      @include flex_centered;
+      // display: block;
+    }
   }
 }
