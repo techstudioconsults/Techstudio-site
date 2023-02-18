@@ -1,0 +1,33 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: self-hosted
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm install
+          #  pm2 stop 2
+          #  pm2 start 2
+          #  pm2 save
+          #  sudo service nginx restart 
+    - run: |
+        export NODE_OPTIONS="--max_old_space_size=4096"
+        CI=false npm run build --if-present
+    # - run: npm test
