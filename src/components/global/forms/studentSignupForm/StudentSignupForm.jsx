@@ -31,7 +31,7 @@ const ContactForm = () => {
     setLoading(true)
     console.log(data)
     let modal = bootstrap.Modal.getOrCreateInstance(
-      document.getElementById('feedback') 
+      document.getElementById('feedback')
     )
     const formData = {
       ...data,
