@@ -2,8 +2,7 @@
   "name": "react-template",
   "version": "0.1.0",
   "engines": {
-    "npm": "please-use-yarn",
-    "yarn": ">= 1.19.1"
+    "npm": "latest"
   },
   "private": true,
   "dependencies": {

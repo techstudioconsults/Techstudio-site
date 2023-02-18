@@ -24,7 +24,7 @@ const index = ({ content }) => {
               <Button
                 width={`11`}
                 solidBtn={false}
-                linkHref='/signin'
+                linkHref='/login'
                 linkText='Log in'
               />
             </div>

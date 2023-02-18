@@ -31,7 +31,7 @@ const ContactForm = () => {
     setLoading(true)
     console.log(data)
     let modal = bootstrap.Modal.getOrCreateInstance(
-      document.getElementById('feedback')
+      document.getElementById('feedback') 
     )
     const formData = {
       ...data,
@@ -45,12 +45,21 @@ const ContactForm = () => {
         console.log(data)
         modal.show()
       })
+      .catch(() => {
+        setLoading(false)
+      })
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={[style.form].join(' ')}>
       <Portal wrapperId='react-portal-modal-container'>
-        <Feedback />
+        <Feedback
+          content={{
+            title: `Registration Successfull!`,
+            desc: ` Your details have been received and our Customer Care
+                Representative will contact you shortly.`,
+          }}
+        />
       </Portal>
       <div className={style.row}>
         <div>
