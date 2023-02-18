@@ -1,0 +1,4 @@
+questions to ask mr y:
+1. how do you want the payment system work flow
+2. the difference between "schedule a lesson" and "create class" screen (34 and 36)
+3. ui design looks or is incomplete screen(15, 42, 43)

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import { MdClose } from 'react-icons/md'
 import feedback from '../../../assets/images/feedback.webp'
 
-const Feedback = () => {
+const Feedback = ({ content }) => {
   return (
     <div
       className='modal fade'
@@ -28,13 +28,8 @@ const Feedback = () => {
               <img src={feedback} alt='feedback' />
             </div>
             <div className=''>
-              <h4 className='fw-bold text-blue pt-5'>
-                Registration Successful!!!
-              </h4>
-              <p className='px-8'>
-                Your details have been received and our Customer Care
-                Representative will contact you shortly.
-              </p>
+              <h4 className='fw-bold text-blue pt-5'>{content.title}</h4>
+              <p className='px-8'>{content.desc}</p>
             </div>
           </div>
         </div>
@@ -45,6 +40,7 @@ const Feedback = () => {
 
 Feedback.propTypes = {
   ref: PropTypes.any,
+  content: PropTypes.object.isRequired,
 }
 
 export default Feedback
