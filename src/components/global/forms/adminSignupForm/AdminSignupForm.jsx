@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
 import style from '../signupForm/signupForm.module.scss'
-import axios from 'axios'
 import Feedback from '../../modals/Feedback'
 import Portal from '../../POTAL/Portal'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+import { useRegisterAdminMutation } from '../../../../pages/Auth/api/authApiSlice'
 
 const validation = {
   required: 'This input is required.',
@@ -17,7 +17,7 @@ const validation = {
 }
 
 const ContactForm = () => {
-  const [isLoading, setLoading] = useState(false)
+  const [registerAdmin, { isLoading }] = useRegisterAdminMutation()
 
   const {
     register,
@@ -27,29 +27,22 @@ const ContactForm = () => {
     criteriaMode: 'all',
   })
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data)
-    setLoading(true)
-    let modal = bootstrap.Modal.getOrCreateInstance(
-      document.getElementById('feedback')
-    )
-    axios
-      .post(`${process.env.REACT_APP_BASE_URL}/auth/register/admin`, data)
-      .then((data) => {
-        setLoading(false)
-        console.log(data)
-        modal.show()
-      })
-      .catch(() => {
-        setLoading(false)
-      })
+    try {
+      let modal = bootstrap.Modal.getOrCreateInstance(
+        document.getElementById('feedback')
+      )
+      const res = await registerAdmin(data).unwrap()
+      console.log(res)
+      res.success ? modal.show() : null
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={[style.form].join(' ')}>
-      <div type='button' data-bs-toggle='modal' data-bs-target='#feedback'>
-        <p className='text-primary fs-sm fw-semibold'>feedback</p>
-      </div>
       <Portal wrapperId='react-portal-modal-container'>
         <Feedback
           content={{

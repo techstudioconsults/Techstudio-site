@@ -1,13 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
 import style from './signupForm.module.scss'
-import axios from 'axios'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import Portal from '../../POTAL/Portal'
 import Feedback from '../../modals/Feedback'
+// RTK
+import { useRegisterStudentMutation } from '../../../../pages/Auth/api/authApiSlice'
 
+// input validation
 const validation = {
   required: 'This input is required.',
   minLength: {
@@ -17,7 +19,7 @@ const validation = {
 }
 
 const ContactForm = () => {
-  const [isLoading, setLoading] = useState(false)
+  const [registerStudent, { isLoading }] = useRegisterStudentMutation()
 
   const {
     register,
@@ -27,26 +29,25 @@ const ContactForm = () => {
     criteriaMode: 'all',
   })
 
-  const onSubmit = (data) => {
-    setLoading(true)
+  const onSubmit = async (data) => {
     console.log(data)
-    let modal = bootstrap.Modal.getOrCreateInstance(
-      document.getElementById('feedback')
-    )
-    axios
-      .post(`${process.env.REACT_APP_BASE_URL}/auth/register`, data)
-      .then((data) => {
-        setLoading(false)
-        console.log(data)
-        modal.show()
-      })
-      .catch(() => {
-        setLoading(false)
-      })
+    try {
+      let modal = bootstrap.Modal.getOrCreateInstance(
+        document.getElementById('feedback')
+      )
+      const res = await registerStudent(data).unwrap()
+      console.log(res)
+      res.success ? modal.show() : null
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={[style.form].join(' ')}>
+      {/* <p ref={errRef} aria-live='assertive'>
+        {errMsg}
+      </p> */}
       <Portal wrapperId='react-portal-modal-container'>
         <Feedback
           content={{
@@ -67,6 +68,7 @@ const ContactForm = () => {
             className='form-control'
             aria-describedby='firstnameHelpBlock'
             placeholder='First Name'
+            autoComplete='off'
             {...register('firstName', validation)}
           />
           <ErrorMessage
@@ -93,6 +95,7 @@ const ContactForm = () => {
             className='form-control'
             aria-describedby='lastnameHelpBlock'
             placeholder='Last Name'
+            autoComplete='off'
             {...register('lastName', validation)}
           />
           <ErrorMessage

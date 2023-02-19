@@ -31,8 +31,11 @@ import {
   AdminSignup,
   StudentSignup,
 } from './pages'
+import PersistLogin from './pages/Auth/login/PersistLogin'
 import AdminClassView from './pages/Dashboard/Admin/classes/AdminClassView'
 import { DEVELOPMENT_CONTENT } from './pages/Development/content'
+import RequireAuth from './hooks/RequireAuth'
+import { ROLES } from './config/role'
 
 const App = () => {
   const {
@@ -46,6 +49,7 @@ const App = () => {
   return (
     <Suspense fallback={<Loading text='LOADING...' />}>
       <Routes>
+        {/* public routes */}
         <Route index path='/' element={<HomePage />} />
         <Route path='/tracks' element={<Intro />} />
         <Route path='/register' element={<Register />} />
@@ -79,32 +83,79 @@ const App = () => {
           path='/course/mobile'
           element={<Development content={mobileDevelopment} />}
         />
-        <Route path='/admin' element={<DashboardLayout isADB />}>
-          <Route path='dashboard' element={<AdminDashboard />} />
-          <Route path='classes' element={<AdminClassView />} />
-          <Route path='messages' element={<Messages />} />
-        </Route>
-        <Route path='student/welcome' element={<StudentDashboardIntro />} />
-        <Route path='/student' element={<DashboardLayout />}>
-          <Route path='dashboard' element={<StudentDashboard />} />
-          <Route path='classes' element={<StudentCalssesView />} />
+
+        {/* protected Routes */}
+        <Route element={<PersistLogin />}>
           <Route
-            path='classes/single-live-class'
-            element={<SingleCourseViewLive />}
-          />
-          <Route
-            path='classes/single-recorded-class'
-            element={<SingleCourseView />}
-          />
-          <Route path='messages' element={<Messages />} />
+            element={<RequireAuth allowedRoles={[...Object.values(ROLES)]} />}
+          >
+            {/* admin routes */}
+            <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
+              <Route element={<DashboardLayout isADB />}>
+                <Route
+                  index
+                  path='/admin/dashboard'
+                  element={<AdminDashboard />}
+                />
+                <Route path='/admin/classes' element={<AdminClassView />} />
+                <Route path='/admin/messages' element={<Messages />} />
+              </Route>
+            </Route>
+            {/* student routes */}
+            <Route
+              element={
+                <RequireAuth allowedRoles={[ROLES.Admin, ROLES.Student]} />
+              }
+            >
+              <Route element={<DashboardLayout />}>
+                <Route
+                  index
+                  path='/student/welcome'
+                  element={<StudentDashboardIntro />}
+                />
+                <Route
+                  path='/student/dashboard'
+                  element={<StudentDashboard />}
+                />
+                <Route
+                  path='/student/classes'
+                  element={<StudentCalssesView />}
+                />
+                <Route
+                  path='/student/classes/single-live-class'
+                  element={<SingleCourseViewLive />}
+                />
+                <Route
+                  path='/student/classes/single-recorded-class'
+                  element={<SingleCourseView />}
+                />
+                <Route path='student/messages' element={<Messages />} />
+              </Route>
+            </Route>
+            {/* tutors routes */}
+            <Route
+              element={
+                <RequireAuth allowedRoles={[ROLES.Admin, ROLES.Tutor]} />
+              }
+            >
+              <Route element={<DashboardLayout isTDB />}>
+                <Route
+                  index
+                  path='/tutor/dashboard'
+                  element={<TeacherDashboard />}
+                />
+                <Route path='tutor/classes' element={<TeacherClassView />} />
+                <Route
+                  path='/tutor/classes/single-class'
+                  element={<SingleCourseView />}
+                />
+                <Route path='/tutor/messages' element={<Messages />} />
+                <Route path='/tutor/tasks' element={<Tasks />} />
+              </Route>
+            </Route>
+          </Route>
         </Route>
-        <Route path='/teacher' element={<DashboardLayout isTDB />}>
-          <Route path='dashboard' element={<TeacherDashboard />} />
-          <Route path='classes' element={<TeacherClassView />} />
-          <Route path='classes/single-class' element={<SingleCourseView />} />
-          <Route path='messages' element={<Messages />} />
-          <Route path='tasks' element={<Tasks />} />
-        </Route>
+        {/* End of protected route */}
         {/* 404 PAGE NOT FOUND ROUTE */}
         <Route path='*' element={<PageNotFound />} />
       </Routes>

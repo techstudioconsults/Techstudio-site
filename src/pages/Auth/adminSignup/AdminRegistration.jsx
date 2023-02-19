@@ -1,22 +1,22 @@
 import React from 'react'
-import { SignupForm } from '../../components'
-import { Authlayout } from '../../layout'
-import style from './auth.module.scss'
+import { AdminSignupForm } from '../../../components'
+import { Authlayout } from '../../../layout'
+import style from '../auth.module.scss'
 
-const Register = () => {
+const AdminSignup = () => {
   return (
     <Authlayout>
       <section className={[style.signup, `cc-shadow`].join(' ')}>
         <div className={style.header}>
           <h4 className='text-blue fw-bolder mb-3'>
-            One last step, let’s get to know you
+            Administration Registration
           </h4>
           <p className={style.subTitle}>Create an account with Us</p>
         </div>
-        <SignupForm />
+        <AdminSignupForm />
       </section>
     </Authlayout>
   )
 }
 
-export default Register
+export default AdminSignup

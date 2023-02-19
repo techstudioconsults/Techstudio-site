@@ -1,7 +1,7 @@
 import React from 'react'
-import { StudentSignupForm } from '../../components'
-import { Authlayout } from '../../layout'
-import style from './auth.module.scss'
+import { StudentSignupForm } from '../../../components'
+import { Authlayout } from '../../../layout'
+import style from '../auth.module.scss'
 
 const Register = () => {
   return (
