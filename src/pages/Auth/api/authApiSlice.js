@@ -35,6 +35,14 @@ export const authApiSlice = apiSlice.injectEndpoints({
       }),
     }),
 
+    contactUs: builder.mutation({
+      query: (credentials) => ({
+        url: '/mailing/contactus',
+        method: 'POST',
+        body: { ...credentials },
+      }),
+    }),
+
     sendLogout: builder.mutation({
       query: () => ({
         url: '/auth/logout',
@@ -80,4 +88,5 @@ export const {
   useSendLogoutMutation,
   useSignupStudentMutation,
   useRefreshMutation,
+  useContactUsMutation,
 } = authApiSlice

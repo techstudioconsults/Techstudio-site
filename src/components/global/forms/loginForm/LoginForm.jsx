@@ -12,7 +12,6 @@ import { setCredentials } from '../../../../pages/Auth/api/authSlice'
 import usePersist from '../../../../hooks/usePersist'
 import ToastComponent from '../../toast/ToastComponent'
 import useToast from '../../../../hooks/useToast'
-import useAuth from '../../../../hooks/useAuth'
 
 const validation = {
   required: 'This input is required.',
@@ -35,7 +34,6 @@ const ContactForm = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { toast } = useToast()
-  const { status } = useAuth()
 
   const {
     register,
@@ -52,7 +50,7 @@ const ContactForm = () => {
       res.success
         ? dispatch(setCredentials({ accessToken: res.data.accessToken }))
         : null
-      navigate(`/${status.toLowerCase()}/dashboard`)
+      navigate(`/${res.data.role.toLowerCase()}/dashboard`)
     } catch (err) {
       setErrorMessage(err.data.message)
       toast.show()
