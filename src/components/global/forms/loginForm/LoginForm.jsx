@@ -10,6 +10,9 @@ import { useLoginMutation } from '../../../../pages/Auth/api/authApiSlice.js'
 import { useDispatch } from 'react-redux'
 import { setCredentials } from '../../../../pages/Auth/api/authSlice'
 import usePersist from '../../../../hooks/usePersist'
+import ToastComponent from '../../toast/ToastComponent'
+import useToast from '../../../../hooks/useToast'
+import useAuth from '../../../../hooks/useAuth'
 
 const validation = {
   required: 'This input is required.',
@@ -22,14 +25,17 @@ const validation = {
 const ContactForm = () => {
   // state
   const [isShow, setShow] = useState(false)
-  const [persist, setPersist] = usePersist()
+  const [errorMessage, setErrorMessage] = useState(null)
 
   // mutations
   const [login, { isLoading }] = useLoginMutation()
 
-  // actions
+  // hooks
+  const [persist, setPersist] = usePersist()
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const { toast } = useToast()
+  const { status } = useAuth()
 
   const {
     register,
@@ -39,15 +45,17 @@ const ContactForm = () => {
     criteriaMode: 'all',
   })
 
+  // restructure this function to use the inbuilt call back action (error, isError)
   const onSubmit = async (data) => {
     try {
       const res = await login(data).unwrap()
       res.success
         ? dispatch(setCredentials({ accessToken: res.data.accessToken }))
         : null
-      navigate('/admin/dashboard')
+      navigate(`/${status.toLowerCase()}/dashboard`)
     } catch (err) {
-      console.log(err)
+      setErrorMessage(err.data.message)
+      toast.show()
     }
   }
 
@@ -153,8 +161,14 @@ const ContactForm = () => {
           )}
           type='submit'
         >
+          <div
+            hidden={!isLoading}
+            className='spinner-border spinner-border-sm me-5 text-white'
+            role='status'
+          />
           {isLoading ? `Chill, let me get the door...` : `Login`}
         </button>
+        <ToastComponent errorMessage={errorMessage} />
       </div>
       <footer className={style.caption}>
         <p className={style.footerLink}>

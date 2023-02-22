@@ -226,6 +226,11 @@ const ContactForm = () => {
           )}
           type='submit'
         >
+          <div
+            hidden={!isLoading}
+            className='spinner-border spinner-border-sm me-5 text-white'
+            role='status'
+          />
           {isLoading ? `Hold on let me add you up...` : `Register`}
         </button>
       </div>

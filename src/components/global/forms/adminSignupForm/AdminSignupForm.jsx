@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
@@ -7,6 +7,8 @@ import Feedback from '../../modals/Feedback'
 import Portal from '../../POTAL/Portal'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { useRegisterAdminMutation } from '../../../../pages/Auth/api/authApiSlice'
+import ToastComponent from '../../toast/ToastComponent'
+import useToast from '../../../../hooks/useToast'
 
 const validation = {
   required: 'This input is required.',
@@ -17,7 +19,10 @@ const validation = {
 }
 
 const ContactForm = () => {
+  // state
+  const [errorMessage, setErrorMessage] = useState(null)
   const [registerAdmin, { isLoading }] = useRegisterAdminMutation()
+  const { toast } = useToast()
 
   const {
     register,
@@ -37,7 +42,8 @@ const ContactForm = () => {
       console.log(res)
       res.success ? modal.show() : null
     } catch (err) {
-      console.log(err)
+      setErrorMessage(err.data.message)
+      toast.show()
     }
   }
 
@@ -199,8 +205,14 @@ const ContactForm = () => {
           )}
           type='submit'
         >
+          <div
+            hidden={!isLoading}
+            className='spinner-border spinner-border-sm me-5 text-white'
+            role='status'
+          />
           {isLoading ? `Chill, let me get the keys...` : `Sign up`}
         </button>
+        <ToastComponent errorMessage={errorMessage} />
       </div>
       <footer className={style.caption}>
         <p className={style.footerLink}>
