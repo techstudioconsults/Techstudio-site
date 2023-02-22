@@ -7,13 +7,11 @@ import {
   SectionThree,
   SectionTwo,
 } from '../../components'
-import useAuth from '../../hooks/useAuth'
+
 import { ExternalLayout, Navbar } from '../../layout'
 import { HOME_CONTENT } from './content'
 
 const Home = () => {
-  const { status } = useAuth()
-  console.log(status)
   const {
     hero,
     sectionTwo,
