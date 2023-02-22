@@ -1,4 +1,5 @@
 @use '../utils/functions' as fn;
+@use '../global//colors' as colors;
 @import '../../scss/utils/breakpoints';
 
 h1,
@@ -9,6 +10,7 @@ h5,
 h6 {
   letter-spacing: fn.rem(0.5);
   line-height: 1.5;
+  // color: colors.$deep-blue;
 }
 
 h1,

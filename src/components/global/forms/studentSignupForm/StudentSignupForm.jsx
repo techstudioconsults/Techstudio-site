@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
 import style from '../signupForm/signupForm.module.scss'
-import axios from 'axios'
 import Feedback from '../../modals/Feedback'
 import Portal from '../../POTAL/Portal'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+import { useSignupStudentMutation } from '../../../../pages/Auth/api/authApiSlice'
+import useToast from '../../../../hooks/useToast'
+import ToastComponent from '../../toast/ToastComponent'
 
 const validation = {
   required: 'This input is required.',
@@ -17,7 +19,9 @@ const validation = {
 }
 
 const ContactForm = () => {
-  const [isLoading, setLoading] = useState(false)
+  const [signupStudent, { isLoading }] = useSignupStudentMutation()
+  const [errorMessage, setErrorMessage] = useState(null)
+  const { toast } = useToast()
 
   const {
     register,
@@ -27,27 +31,23 @@ const ContactForm = () => {
     criteriaMode: 'all',
   })
 
-  const onSubmit = (data) => {
-    setLoading(true)
-    console.log(data)
-    let modal = bootstrap.Modal.getOrCreateInstance(
-      document.getElementById('feedback')
-    )
+  const onSubmit = async (data) => {
     const formData = {
       ...data,
+      course: data.course.toLowerCase(),
       phoneNumber: parseInt(data.phoneNumber),
     }
-    console.log(formData)
-    axios
-      .post(`${process.env.REACT_APP_BASE_URL}/auth/signup`, data)
-      .then((data) => {
-        setLoading(false)
-        console.log(data)
-        modal.show()
-      })
-      .catch(() => {
-        setLoading(false)
-      })
+    try {
+      let modal = bootstrap.Modal.getOrCreateInstance(
+        document.getElementById('feedback')
+      )
+      const res = await signupStudent(formData).unwrap()
+      console.log(res)
+      res.success ? modal.show() : null
+    } catch (err) {
+      setErrorMessage(err.data.message)
+      toast.show()
+    }
   }
 
   return (
@@ -126,8 +126,8 @@ const ContactForm = () => {
             {...register('schedule')}
             className={[`form-select`, style.select].join(' ')}
           >
-            <option>Weekday</option>
-            <option>Weekend</option>
+            <option>weekday</option>
+            <option>weekend</option>
           </select>
         </div>
         <div>
@@ -139,11 +139,16 @@ const ContactForm = () => {
             {...register('course')}
             className={[`form-select`, style.select].join(' ')}
           >
-            <option>Mobile Development</option>
+            <option>ui/ux</option>
+            <option>graphics</option>
+            <option>android</option>
+            <option>frontend</option>
+            <option>backend</option>
+            {/* <option>Mobile Development</option>
             <option>Fullstack Development</option>
             <option>Frontend Development</option>
             <option>UI/UX Development</option>
-            <option>Data science</option>
+            <option>Data science</option> */}
           </select>
         </div>
       </div>
@@ -241,6 +246,7 @@ const ContactForm = () => {
             className={[`form-select`, style.select].join(' ')}
           >
             <option>STUDENT</option>
+            <option>TUTOR</option>
           </select>
         </div>
       </div>
@@ -251,8 +257,14 @@ const ContactForm = () => {
           )}
           type='submit'
         >
+          <div
+            hidden={!isLoading}
+            className='spinner-border spinner-border-sm me-5 text-white'
+            role='status'
+          />
           {isLoading ? `Chill, let me get the door...` : `Register`}
         </button>
+        <ToastComponent errorMessage={errorMessage} />
       </div>
       <footer className={style.caption}>
         <p className={style.footerLink}>

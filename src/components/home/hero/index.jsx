@@ -18,7 +18,8 @@ const index = ({ content }) => {
               <Button
                 width={`11`}
                 solidBtn
-                linkHref='/tracks'
+                // linkHref='/tracks'
+                linkHref='/student/signup'
                 linkText='Take a course'
               />
               <Button

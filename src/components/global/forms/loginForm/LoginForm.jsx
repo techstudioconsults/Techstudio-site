@@ -1,14 +1,17 @@
-import React from 'react'
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import React, { useState } from 'react'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import style from '../signupForm/signupForm.module.scss'
-import axios from 'axios'
 import { ErrorMessage } from '@hookform/error-message'
 import { useForm } from 'react-hook-form'
-import * as bootstrap from 'bootstrap/dist/js/bootstrap'
-import { useState } from 'react'
-import Portal from '../../POTAL/Portal'
-import Feedback from '../../modals/Feedback'
+// RTK
+import { useLoginMutation } from '../../../../pages/Auth/api/authApiSlice.js'
+import { useDispatch } from 'react-redux'
+import { setCredentials } from '../../../../pages/Auth/api/authSlice'
+import usePersist from '../../../../hooks/usePersist'
+import ToastComponent from '../../toast/ToastComponent'
+import useToast from '../../../../hooks/useToast'
 
 const validation = {
   required: 'This input is required.',
@@ -19,8 +22,18 @@ const validation = {
 }
 
 const ContactForm = () => {
+  // state
   const [isShow, setShow] = useState(false)
-  const [isLoading, setLoading] = useState(false)
+  const [errorMessage, setErrorMessage] = useState(null)
+
+  // mutations
+  const [login, { isLoading }] = useLoginMutation()
+
+  // hooks
+  const [persist, setPersist] = usePersist()
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const { toast } = useToast()
 
   const {
     register,
@@ -30,22 +43,18 @@ const ContactForm = () => {
     criteriaMode: 'all',
   })
 
-  const onSubmit = (data) => {
-    setLoading(true)
-    console.log(data)
-    let modal = bootstrap.Modal.getOrCreateInstance(
-      document.getElementById('feedback')
-    )
-    axios
-      .post(`${process.env.REACT_APP_BASE_URL}/auth/login`, data)
-      .then((data) => {
-        setLoading(false)
-        console.log(data)
-        modal.show()
-      })
-      .catch(() => {
-        setLoading(false)
-      })
+  // restructure this function to use the inbuilt call back action (error, isError)
+  const onSubmit = async (data) => {
+    try {
+      const res = await login(data).unwrap()
+      res.success
+        ? dispatch(setCredentials({ accessToken: res.data.accessToken }))
+        : null
+      navigate(`/${res.data.role.toLowerCase()}/dashboard`)
+    } catch (err) {
+      setErrorMessage(err.data.message)
+      toast.show()
+    }
   }
 
   const togglePasswordView = (e) => {
@@ -54,18 +63,12 @@ const ContactForm = () => {
       return !prevState
     })
   }
+  const handleToggle = () => {
+    setPersist((prev) => !prev)
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={[style.form].join(' ')}>
-      {/* <Portal wrapperId='react-portal-modal-container'>
-          <Feedback
-            content={{
-              title: `Registration Successfull!`,
-              desc: ` Your details have been received and our Customer Care
-                  Representative will contact you shortly.`,
-            }}
-        />
-      </Portal> */}
       <div className={style.secondRow}>
         <div className={style.email}>
           <label htmlFor='email' className='form-label'>
@@ -106,13 +109,14 @@ const ContactForm = () => {
               placeholder='Password'
               {...register('password', validation)}
             />
-            <button
+            {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
+            <div
               onClick={togglePasswordView}
               className={['input-group-text', style.showPassword].join(' ')}
               id='passwordHelpBlock'
             >
               {isShow ? <FaEyeSlash /> : <FaEye />}
-            </button>
+            </div>
           </div>
           <ErrorMessage
             errors={errors}
@@ -134,11 +138,13 @@ const ContactForm = () => {
               className='form-check-input'
               type='checkbox'
               value=''
-              id='newsletter'
+              id='remember-me'
+              onChange={handleToggle}
+              checked={persist}
             />
             <label
               className={['form-check-label', style.checkboxLabel].join(' ')}
-              htmlFor='newsletter'
+              htmlFor='remember-me'
             >
               Remember me
             </label>
@@ -153,8 +159,14 @@ const ContactForm = () => {
           )}
           type='submit'
         >
+          <div
+            hidden={!isLoading}
+            className='spinner-border spinner-border-sm me-5 text-white'
+            role='status'
+          />
           {isLoading ? `Chill, let me get the door...` : `Login`}
         </button>
+        <ToastComponent errorMessage={errorMessage} />
       </div>
       <footer className={style.caption}>
         <p className={style.footerLink}>

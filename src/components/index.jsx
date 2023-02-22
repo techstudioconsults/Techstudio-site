@@ -41,6 +41,7 @@ export { default as AvatarDropdown } from './global/avatar/avatarDropdown/Avatar
 export { default as AdminSignupForm } from './global/forms/adminSignupForm/AdminSignupForm'
 export { default as StudentSignupForm } from './global/forms/studentSignupForm/StudentSignupForm'
 export { default as Feedback } from './global/modals/Feedback'
+export { default as ToastComponent } from './global/toast/ToastComponent'
 
 // HOME
 export { default as Hero } from './home/hero'
