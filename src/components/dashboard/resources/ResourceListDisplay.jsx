@@ -4,7 +4,7 @@ import pdf from '../../../assets/icons/Icon-awesome-file-pdf.png'
 import cam from '../../../assets/icons/cam.png'
 import { MdOutlineFileDownload, MdPlayCircleFilled } from 'react-icons/md'
 
-const ResourceListDisplay = ({ file, isVideo, isAudio, isTextFile, isADB }) => {
+const ResourceListDisplay = ({ file, isVideo, isTextFile, isADB }) => {
   return (
     <section className='d-flex align-items-center justify-content-between p-2'>
       <div className='d-flex align-items-center gap-3'>

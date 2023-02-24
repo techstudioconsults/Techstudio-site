@@ -33,6 +33,7 @@
       flex: 1;
 
       .title {
+        color: colors.$light;
         @include breakpoint-up('2xl') {
           font-size: fn.rem(44);
         }

@@ -4,9 +4,9 @@
 @import '../../../../scss/utils/mixins';
 
 .form {
-  //   border: 1px solid red;
+  border-top: fn.rem(7) solid colors.$blue;
   max-width: fn.rem(480);
-  //   height: fn.rem(553);
+  border-radius: fn.rem(8);
   @include flex_column;
   gap: fn.rem(24);
   padding: fn.rem(24);

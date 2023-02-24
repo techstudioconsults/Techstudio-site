@@ -5,7 +5,7 @@ import './custom.css'
 import ResourceListDisplay from './ResourceListDisplay'
 import PropTypes from 'prop-types'
 
-const DashboardResource = ({ isTDB, isADB }) => {
+const DashboardResource = () => {
   const { studentBoard } = DASHBOARD_CONTENT
 
   const fileDisplay = studentBoard.resources.PDF.map((file) => {

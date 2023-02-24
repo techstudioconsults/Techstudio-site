@@ -1,5 +1,5 @@
 import { ErrorMessage } from '@hookform/error-message'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import useToast from '../../../../hooks/useToast'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
@@ -23,8 +23,9 @@ const ContactForm = () => {
   const { toast } = useToast()
   const {
     register,
+    reset,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful },
   } = useForm({
     criteriaMode: 'all',
   })
@@ -42,6 +43,11 @@ const ContactForm = () => {
       toast.show()
     }
   }
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset()
+    }
+  }, [isSubmitSuccessful, reset])
 
   return (
     <form
@@ -152,7 +158,7 @@ const ContactForm = () => {
             className='spinner-border spinner-border-sm me-5 text-white'
             role='status'
           />
-          {isLoading ? `A moment please...` : `Login`}
+          {isLoading ? `Please wait...` : `Send Message`}
         </button>
         <ToastComponent errorMessage={errorMessage} />
       </div>

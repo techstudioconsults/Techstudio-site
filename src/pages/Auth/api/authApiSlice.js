@@ -9,6 +9,19 @@ export const authApiSlice = apiSlice.injectEndpoints({
         method: 'POST',
         body: { ...credentials },
       }),
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled
+          dispatch(
+            setCredentials({
+              accessToken: data.data.accessToken,
+              refreshToken: data.data.refreshToken,
+            })
+          )
+        } catch (err) {
+          console.log(err)
+        }
+      },
     }),
 
     registerStudent: builder.mutation({
@@ -42,20 +55,28 @@ export const authApiSlice = apiSlice.injectEndpoints({
         body: { ...credentials },
       }),
     }),
+    forgotPassword: builder.mutation({
+      query: (credentials) => ({
+        url: '/auth/forgotpassword',
+        method: 'PATCH',
+        body: { ...credentials },
+      }),
+    }),
 
     sendLogout: builder.mutation({
-      query: () => ({
+      query: (credentials) => ({
         url: '/auth/logout',
-        method: 'POST',
+        method: 'DELETE',
+        body: { ...credentials },
       }),
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled
           console.log(data)
           dispatch(logOut())
-          setTimeout(() => {
-            dispatch(apiSlice.util.resetApiState())
-          }, 1000)
+          // setTimeout(() => {
+          //   dispatch(apiSlice.util.resetApiState())
+          // }, 1000)
         } catch (err) {
           console.log(err)
         }
@@ -63,9 +84,10 @@ export const authApiSlice = apiSlice.injectEndpoints({
     }),
 
     refresh: builder.mutation({
-      query: () => ({
-        url: '/auth/refresh',
-        method: 'GET',
+      query: (credentials) => ({
+        url: '/auth/token',
+        method: 'POST',
+        body: { ...credentials },
       }),
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
@@ -89,4 +111,5 @@ export const {
   useSignupStudentMutation,
   useRefreshMutation,
   useContactUsMutation,
+  useForgotPasswordMutation,
 } = authApiSlice

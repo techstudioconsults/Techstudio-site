@@ -13,7 +13,7 @@ const index = ({ content }) => {
         <BannerII>
           <div className='ms-3 ms-lg-40 text-white py-20 py-xl-0'>
             <span>{header.caption}</span>
-            <h3 className='mt-7 fw-bold'>{header.title}</h3>
+            <h3 className='mt-7 fw-bold text-white'>{header.title}</h3>
             <div className={style.btnContainer}>
               <Button
                 linkHref='/signup'
