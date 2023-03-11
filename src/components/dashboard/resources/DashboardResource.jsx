@@ -16,7 +16,7 @@ const DashboardResource = () => {
   })
 
   return (
-    <section className={style.tab}>
+    <section className={style.resourceTab}>
       <ul className={['nav', style.tabList].join(' ')}>
         <li className={['nav-item', style.link].join(' ')}>
           <a

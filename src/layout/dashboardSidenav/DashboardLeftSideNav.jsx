@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { NavLink, useLocation } from 'react-router-dom'
 import logo from '../../assets/icons/logo.png'
 import style from './dashboardLeftSideNav.module.scss'
+import { Icon } from '@iconify/react'
 import { DASHBOARD_CONTENT } from '../Layout/dashboardLayout/content'
 
 const DashboardSideNav = ({ isTDB, isADB }) => {
@@ -56,13 +57,15 @@ const DashboardSideNav = ({ isTDB, isADB }) => {
           >
             <li className={style.list}>
               <div className={style.imgContainer}>
-                <img
-                  src={
+                <Icon
+                  width={`1.5rem`}
+                  height={`1.5rem`}
+                  icon={nav.icon}
+                  color={
                     route[2] === nav.title.toLocaleLowerCase()
-                      ? nav.imgLight
-                      : nav.imgGrey
+                      ? `white`
+                      : `grey`
                   }
-                  alt='img'
                 />
               </div>
               <p

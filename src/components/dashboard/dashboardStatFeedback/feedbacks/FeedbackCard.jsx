@@ -17,11 +17,14 @@ const FeedbackCard = ({ title, message }) => {
         </div>
         <div className={style.message}>
           <p>{message}</p>
+          <div className='d-flex gap-5'>
+            <p className={style.date}>(weekday)</p>
+            <p className={style.duration}>week 5</p>
+          </div>
         </div>
       </div>
       <div className={style.footer}>
         <p className={style.name}>Sorunke Sherif</p>
-        <p className={style.date}>May 3, 2021</p>
       </div>
     </section>
   )

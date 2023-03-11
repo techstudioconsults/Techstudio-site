@@ -91,3 +91,4 @@ export { default as FeedbackCard } from './dashboard/dashboardStatFeedback/feedb
 export { default as GraphCard } from './dashboard/dashboardStatFeedback/stats/GraphCard'
 export { default as ClassesTab } from './dashboard/tab/classesTab/ClassesTab'
 export { default as ChatDisplay } from './dashboard/videoChatDisplay/ChatDisplay'
+export { default as TutorList } from './dashboard/tutorList/TutorList'

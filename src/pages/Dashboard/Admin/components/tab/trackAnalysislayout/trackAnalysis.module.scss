@@ -11,6 +11,10 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
+  .col1 {
+    height: 100%;
+  }
+
   .col2 {
     @include flex_column;
     gap: fn.rem(16);

@@ -17,9 +17,11 @@
 
   .sectionTwoLayout {
     @include flex;
-    margin-block: fn.rem(32);
     gap: fn.rem(32);
+
     .spanCol2 {
+      @include flex_column;
+      gap: fn.rem(32);
       width: 100%;
       @include breakpoint-up('xxl') {
         width: 75%;
@@ -33,7 +35,8 @@
       width: 25%;
       display: none;
       @include breakpoint-up('xxl') {
-        display: flex;
+        @include flex_column;
+        gap: fn.rem(32);
       }
       @include breakpoint-up('2xl') {
         width: 20%;
