@@ -23,13 +23,15 @@ const DashboardSideNav = ({ isTDB, isADB }) => {
           >
             <li className={style.list}>
               <div className={style.imgContainer}>
-                <img
-                  src={
+                <Icon
+                  width={`1.5rem`}
+                  height={`1.5rem`}
+                  icon={nav.icon}
+                  color={
                     route[2] === nav.title.toLocaleLowerCase()
-                      ? nav.imgLight
-                      : nav.imgGrey
+                      ? `white`
+                      : `grey`
                   }
-                  alt='img'
                 />
               </div>
               <p
@@ -92,13 +94,15 @@ const DashboardSideNav = ({ isTDB, isADB }) => {
           >
             <li className={style.list}>
               <div className={style.imgContainer}>
-                <img
-                  src={
+                <Icon
+                  width={`1.5rem`}
+                  height={`1.5rem`}
+                  icon={nav.icon}
+                  color={
                     route[2] === nav.title.toLocaleLowerCase()
-                      ? nav.imgLight
-                      : nav.imgGrey
+                      ? `white`
+                      : `grey`
                   }
-                  alt='img'
                 />
               </div>
               <p

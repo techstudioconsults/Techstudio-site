@@ -1,7 +1,5 @@
 # Styleguide link
 
-<!-- [Zuri Master Guide](https://www.figma.com/file/srHjZ2Ztg7yOS7XDJMMX4m/Zuri-Chat-Master-Board?node-id=19%3A19322) - For typography, color palette, iconography, imagery, buttons, forms and spacing. -->
-
 <!-- [FE Quality Control Docs](https://docs.google.com/document/d/1Sbq-ZC4O5477cx5cRuZKReVsdglABg7c585NAoZTHIU/edit) - For guidelines on how to contributeto the frontend. -->
 
 # Styling in Techstudio Main
@@ -19,7 +17,7 @@ export default TestComponent
 
 ```js
 // IS VALID
-import style from "./styles.module.scss"
+import style from './styles.module.scss'
 
 const TestComponent = () => {
   return <div style={`${style.testComponentDiv}`}></div>
@@ -37,7 +35,7 @@ const TestComponent = () => {
 export default TestComponent
 ```
 
-<!-- # Styling for plugins in Zuri Main
+<!--
 
 In the `webpack.config.js` modify to
 
@@ -64,7 +62,7 @@ const mergeRules = {
 
 <!-- module.exports = (webpackConfigEnv, argv) => {
   const defaultConfig = singleSpaDefaults({
-    orgName: 'zuri',
+    orgName: 'techstudio',
     projectName: '{REPLACE WITH APPLICATION NAME}',
     webpackConfigEnv,
     argv,
@@ -92,5 +90,9 @@ const mergeRules = {
       ],
     },
   }) -->
+
 }
+
+```
+
 ```

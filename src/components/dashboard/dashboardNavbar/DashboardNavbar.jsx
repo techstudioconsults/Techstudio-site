@@ -24,7 +24,7 @@ const DashboardNavbar = ({ isTDB }) => {
             className={[isTDB ? `d-none d-md-flex gap-3` : `d-none`].join(' ')}
           >
             <Button
-              linkHref={`/`}
+              linkHref={`/admin/courses/create`}
               linkText='Create Course'
               solidBtn
               navBtn

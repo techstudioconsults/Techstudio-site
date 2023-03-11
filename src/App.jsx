@@ -31,6 +31,8 @@ import {
   AdminSignup,
   StudentSignup,
   ForgotPassword,
+  AdminCourseView,
+  CreateCourse,
 } from './pages'
 
 import AdminClassView from './pages/Dashboard/Admin/classes/AdminClassView'
@@ -95,8 +97,9 @@ const App = () => {
         {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}> */}
         <Route element={<DashboardLayout isADB />}>
           <Route index path='/admin/dashboard' element={<AdminDashboard />} />
+          <Route path='/admin/courses' element={<AdminCourseView />} />
+          <Route path='/admin/courses/create' element={<CreateCourse />} />
           <Route path='/admin/classes' element={<AdminClassView />} />
-          <Route path='/admin/messages' element={<Messages />} />
         </Route>
         {/* </Route> */}
         {/* student routes */}
