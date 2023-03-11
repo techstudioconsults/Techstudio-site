@@ -20,4 +20,18 @@
       }
     }
   }
+
+  .navbarCTA {
+    // border: 1px solid red;
+    @include flex;
+    width: 100%;
+    @include flex_centered;
+    justify-content: space-between;
+
+    .navbarLayout {
+      @include flex_centered;
+      justify-content: space-between;
+      gap: fn.rem(48);
+    }
+  }
 }

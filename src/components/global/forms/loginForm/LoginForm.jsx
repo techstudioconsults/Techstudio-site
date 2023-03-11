@@ -45,6 +45,7 @@ const ContactForm = () => {
   const onSubmit = async (data) => {
     try {
       const res = await login(data).unwrap()
+      console.log(res)
       res.success ? navigate(`/${res.data.role.toLowerCase()}/dashboard`) : null
     } catch (err) {
       setErrorMessage(err.data.message)

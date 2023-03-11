@@ -14,4 +14,30 @@
       padding: fn.rem(32);
     }
   }
+
+  .sectionTwoLayout {
+    @include flex;
+    margin-block: fn.rem(32);
+    gap: fn.rem(32);
+    .spanCol2 {
+      width: 100%;
+      @include breakpoint-up('xxl') {
+        width: 75%;
+      }
+      @include breakpoint-up('2xl') {
+        width: 80%;
+      }
+    }
+
+    .calendar {
+      width: 25%;
+      display: none;
+      @include breakpoint-up('xxl') {
+        display: flex;
+      }
+      @include breakpoint-up('2xl') {
+        width: 20%;
+      }
+    }
+  }
 }
