@@ -6,6 +6,7 @@
 .signup {
   padding: fn.rem(37);
   border-radius: fn.rem(8);
+  border-top: fn.rem(7) solid colors.$blue;
 
   .header {
     .subTitle {

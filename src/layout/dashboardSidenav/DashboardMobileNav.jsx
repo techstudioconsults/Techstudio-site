@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { NavLink, useLocation } from 'react-router-dom'
 import { DASHBOARD_CONTENT } from '../Layout/dashboardLayout/content'
+import { Icon } from '@iconify/react'
 import style from './dashboardMobilenav.module.scss'
 
 const DashboardMobileNav = ({ isTDB, isADB }) => {
@@ -21,13 +22,15 @@ const DashboardMobileNav = ({ isTDB, isADB }) => {
           >
             <li className={style.list}>
               <div className={style.imgContainer}>
-                <img
-                  src={
+                <Icon
+                  width={`1.5rem`}
+                  height={`1.5rem`}
+                  icon={nav.icon}
+                  color={
                     route[2] === nav.title.toLocaleLowerCase()
-                      ? nav.imgLight
-                      : nav.imgGrey
+                      ? `white`
+                      : `grey`
                   }
-                  alt='img'
                 />
               </div>
               <p
@@ -55,13 +58,15 @@ const DashboardMobileNav = ({ isTDB, isADB }) => {
           >
             <li className={style.list}>
               <div className={style.imgContainer}>
-                <img
-                  src={
+                <Icon
+                  width={`1.5rem`}
+                  height={`1.5rem`}
+                  icon={nav.icon}
+                  color={
                     route[2] === nav.title.toLocaleLowerCase()
-                      ? nav.imgLight
-                      : nav.imgGrey
+                      ? `white`
+                      : `grey`
                   }
-                  alt='img'
                 />
               </div>
               <p
@@ -88,13 +93,15 @@ const DashboardMobileNav = ({ isTDB, isADB }) => {
           >
             <li className={style.list}>
               <div className={style.imgContainer}>
-                <img
-                  src={
+                <Icon
+                  width={`1.5rem`}
+                  height={`1.5rem`}
+                  icon={nav.icon}
+                  color={
                     route[2] === nav.title.toLocaleLowerCase()
-                      ? nav.imgLight
-                      : nav.imgGrey
+                      ? `white`
+                      : `grey`
                   }
-                  alt='img'
                 />
               </div>
               <p

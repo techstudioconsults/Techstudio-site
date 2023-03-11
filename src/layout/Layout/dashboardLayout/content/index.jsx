@@ -8,31 +8,28 @@ import checklistGrey from '../../../../assets/icons/checklist-grey.png'
 import checklistLight from '../../../../assets/icons/checklist-light.png'
 import teacherImg4 from '../../../../assets/images/teacher.webp'
 import studentImg4 from '../../../../assets/images/db-banner.-img.webp'
-import img5 from '../../../../assets/icons/Icon-awesome-folder.png'
-import img6 from '../../../../assets/icons/Icon-awesome-tasks.png'
-import img7 from '../../../../assets/icons/Icon-awesome-folder-plus.png'
-import img8 from '../../../../assets/icons/Icon-material-timelapse.png'
+// import img5 from '../../../../assets/icons/Icon-awesome-folder.png'
+// import img6 from '../../../../assets/icons/Icon-awesome-tasks.png'
+// import img7 from '../../../../assets/icons/Icon-awesome-folder-plus.png'
+// import img8 from '../../../../assets/icons/Icon-material-timelapse.png'
 
 export const DASHBOARD_CONTENT = {
   leftStudentNav: [
     {
       id: 1,
-      imgGrey: img1Grey,
-      imgLight: img1Light,
+      icon: `material-symbols:dashboard`,
       title: `Dashboard`,
       link: `/student/dashboard`,
     },
     {
       id: 2,
-      imgGrey: img2Grey,
-      imgLight: img2Light,
+      icon: `eos-icons:product-classes`,
       title: `Classes`,
       link: `/student/classes`,
     },
     {
       id: 3,
-      imgGrey: img3Grey,
-      imgLight: img3Light,
+      icon: `mdi:message-group`,
       title: `Messages`,
       link: `/student/messages`,
     },
@@ -40,61 +37,65 @@ export const DASHBOARD_CONTENT = {
   leftTeacherNav: [
     {
       id: 1,
-      imgGrey: img1Grey,
-      imgLight: img1Light,
+      icon: `material-symbols:dashboard`,
       title: `Dashboard`,
-      link: `/teacher/dashboard`,
+      link: `/tutor/dashboard`,
     },
     {
       id: 2,
-      imgGrey: img2Grey,
-      imgLight: img2Light,
+      icon: `eos-icons:product-classes`,
       title: `Classes`,
-      link: `/teacher/classes`,
+      link: `/tutor/classes`,
     },
     {
       id: 3,
-      imgGrey: img3Grey,
-      imgLight: img3Light,
+      icon: `mdi:message-group`,
       title: `Messages`,
-      link: `/teacher/messages`,
+      link: `/tutor/messages`,
     },
     {
       id: 4,
-      imgGrey: checklistGrey,
-      imgLight: checklistLight,
+      icon: `fluent:clipboard-task-24-filled`,
       title: `Tasks`,
-      link: `/teacher/tasks`,
+      link: `/tutor/tasks`,
     },
   ],
   leftAdminNav: [
     {
       id: 1,
-      imgGrey: img1Grey,
-      imgLight: img1Light,
+      icon: `material-symbols:dashboard`,
       title: `Dashboard`,
       link: `/admin/dashboard`,
     },
     {
       id: 2,
-      imgGrey: img2Grey,
-      imgLight: img2Light,
+      icon: `iconoir:graduation-cap`,
+      title: `Courses`,
+      link: `/admin/courses`,
+    },
+    {
+      id: 3,
+      icon: `grommet-icons:resources`,
+      title: `Resources`,
+      link: `/admin/resources`,
+    },
+    {
+      id: 4,
+      icon: `eos-icons:product-classes`,
       title: `Classes`,
       link: `/admin/classes`,
     },
     {
-      id: 3,
-      imgGrey: img3Grey,
-      imgLight: img3Light,
-      title: `Messages`,
-      link: `/admin/messages`,
+      id: 5,
+      icon: `mdi:account-payment`,
+      title: `Payment`,
+      link: `/admin/payment`,
     },
     {
-      id: 4,
-      imgGrey: checklistGrey,
-      imgLight: checklistLight,
-      title: `Tasks`,
-      link: `/admin/tasks`,
+      id: 6,
+      icon: `gridicons:multiple-users`,
+      title: `Users`,
+      link: `/admin/users`,
     },
   ],
 
@@ -123,7 +124,7 @@ export const DASHBOARD_CONTENT = {
         {
           id: 1,
           img: {
-            src: img5,
+            src: `fe:users`,
             accent: `#ECEAFE`,
           },
           title: `Total Tasks`,
@@ -132,7 +133,7 @@ export const DASHBOARD_CONTENT = {
         {
           id: 2,
           img: {
-            src: img7,
+            src: ``,
             accent: `#EBF0E6`,
           },
           title: `Tasks submitted`,
@@ -141,7 +142,7 @@ export const DASHBOARD_CONTENT = {
         {
           id: 3,
           img: {
-            src: img6,
+            src: ``,
             accent: `#D9EDFF`,
           },
           title: `Pending Tasks`,
@@ -150,7 +151,7 @@ export const DASHBOARD_CONTENT = {
         {
           id: 4,
           img: {
-            src: img8,
+            src: ``,
             accent: `#E000171A`,
           },
           title: `Weeks Remaining`,
@@ -226,7 +227,7 @@ export const DASHBOARD_CONTENT = {
         {
           id: 1,
           img: {
-            src: img5,
+            src: ``,
             accent: `#ECEAFE`,
           },
           title: `Enrolled Students`,
@@ -235,7 +236,7 @@ export const DASHBOARD_CONTENT = {
         {
           id: 2,
           img: {
-            src: img7,
+            src: ``,
             accent: `#EBF0E6`,
           },
           title: `Tasks assigned`,
@@ -244,7 +245,7 @@ export const DASHBOARD_CONTENT = {
         {
           id: 3,
           img: {
-            src: img6,
+            src: ``,
             accent: `#D9EDFF`,
           },
           title: `Tasks Submitted`,
@@ -253,7 +254,7 @@ export const DASHBOARD_CONTENT = {
         {
           id: 4,
           img: {
-            src: img8,
+            src: ``,
             accent: `#E000171A`,
           },
           title: `Weeks Remaining`,
@@ -321,8 +322,9 @@ export const DASHBOARD_CONTENT = {
         {
           id: 1,
           img: {
-            src: img5,
-            accent: `#ECEAFE`,
+            src: `fe:users`,
+            accent: `#4847E033`,
+            color: `#4847E0`,
           },
           title: `Enrolled Students`,
           total: 100,
@@ -330,8 +332,9 @@ export const DASHBOARD_CONTENT = {
         {
           id: 2,
           img: {
-            src: img7,
-            accent: `#EBF0E6`,
+            src: `la:chalkboard-teacher`,
+            accent: `#0266F433`,
+            color: `#0266F4`,
           },
           title: `Tutors`,
           total: 12,
@@ -339,17 +342,19 @@ export const DASHBOARD_CONTENT = {
         {
           id: 3,
           img: {
-            src: img6,
-            accent: `#D9EDFF`,
+            src: `material-symbols:create-new-folder`,
+            accent: `#56790033`,
+            color: `#567900`,
           },
-          title: `Materials`,
+          title: `Resources`,
           total: 12,
         },
         {
           id: 4,
           img: {
-            src: img8,
-            accent: `#E000171A`,
+            src: `ri:exchange-dollar-fill`,
+            accent: `#E0001733`,
+            color: `#E00017`,
           },
           title: `Outstanding fees`,
           total: 7,

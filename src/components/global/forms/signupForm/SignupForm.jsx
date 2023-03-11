@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
@@ -24,7 +24,8 @@ const ContactForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    reset,
+    formState: { errors, isSubmitSuccessful },
   } = useForm({
     criteriaMode: 'all',
   })
@@ -42,6 +43,12 @@ const ContactForm = () => {
       console.log(err)
     }
   }
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset()
+    }
+  }, [isSubmitSuccessful, reset])
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={[style.form].join(' ')}>
@@ -231,7 +238,7 @@ const ContactForm = () => {
             className='spinner-border spinner-border-sm me-5 text-white'
             role='status'
           />
-          {isLoading ? `Hold on let me add you up...` : `Register`}
+          {isLoading ? `Please wait...` : `Register`}
         </button>
       </div>
       <footer className={style.caption}>

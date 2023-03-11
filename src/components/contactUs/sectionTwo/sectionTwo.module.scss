@@ -17,7 +17,7 @@
   }
 
   .locationWrapper {
-    margin-block-start: fn.rem(100);
+    // margin-block-start: fn.rem(100);
     .location {
       margin-bottom: fn.rem(23);
       .title {
@@ -45,12 +45,13 @@
       gap: fn.rem(16);
       margin-top: fn.rem(32);
 
-      .icon{
+      .icon {
         color: colors.$deep-blue;
       }
 
       .email {
         color: colors.$deep-blue;
+        font-weight: 600;
       }
     }
   }

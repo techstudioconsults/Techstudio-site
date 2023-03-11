@@ -10,7 +10,7 @@ import {
 } from '../../../../components'
 import style from './studentdashboardSections.module.scss'
 
-const StudentDashboardSectionThree = ({ isTDB }) => {
+const StudentDashboardSectionThree = () => {
   return (
     <section className={style.sectionThree}>
       <div className={style.resource}>

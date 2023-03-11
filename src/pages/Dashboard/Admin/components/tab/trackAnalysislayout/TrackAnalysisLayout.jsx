@@ -1,11 +1,11 @@
 import React from 'react'
 import {
   AddAFile,
-  ClassDetails,
   DashboardResource,
   FeedbackCard,
   GraphCard,
   Portal,
+  TutorList,
 } from '../../../../../../components'
 import style from './trackAnalysis.module.scss'
 
@@ -26,17 +26,17 @@ const TrackAnalysisLayout = () => {
             <AddAFile /> {/** portal */}
           </Portal>
         </div>
-        <DashboardResource isTDB />
+        <DashboardResource />
       </div>
       <div className={[style.col2].join(' ')}>
         <GraphCard />
         <FeedbackCard
-          title={`Your inbox`}
-          message={`I am having issues uploading assignment On XD sir, can I have it sent as…`}
+          title={`Classes`}
+          message={`Javascript Fullstack January 2023`}
         />
       </div>
       <div className={[style.col3, `bg-white p-5`].join(' ')}>
-        <ClassDetails isADB />
+        <TutorList />
       </div>
     </section>
   )

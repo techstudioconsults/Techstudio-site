@@ -6,6 +6,7 @@
 .tab {
   margin-top: fn.rem(41);
   width: 100%;
+
   .tabList {
     @include flex;
     flex-wrap: nowrap;
@@ -20,36 +21,18 @@
     }
 
     .link {
-      // flex: 1;
-      width: fn.rem(200);
+      flex: 1;
       .a {
+        width: fn.rem(200);
         text-align: center;
         color: colors.$deep-blue;
         font-size: fn.rem(14);
         font-weight: 600;
-        width: fn.rem(200);
+        background-color: transparent;
+
         @include breakpoint-up('lg') {
           font-size: fn.rem(16);
         }
-
-        &:active {
-          font-size: fn.rem(16);
-          //   border-radius: fn.rem(4);
-          border-bottom: 2px solid colors.$blue;
-        }
-
-        &:focus {
-          font-size: fn.rem(16);
-          //   border-radius: fn.rem(4);
-          border-bottom: 2px solid colors.$blue;
-        }
-        // width: fn.rem(117);
-      }
-
-      .a.active {
-        background-color: colors.$light;
-        font-size: fn.rem(14);
-        border-radius: fn.rem(4);
       }
     }
   }

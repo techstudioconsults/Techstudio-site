@@ -6,7 +6,6 @@
 .nav {
   .input {
     height: fn.rem(36);
-    width: fn.rem(400);
     input {
       padding-inline: fn.rem(20);
       width: 100%;
@@ -18,6 +17,20 @@
         font-size: fn.rem(12);
         color: colors.$gray;
       }
+    }
+  }
+
+  .navbarCTA {
+    // border: 1px solid red;
+    @include flex;
+    width: 100%;
+    @include flex_centered;
+    justify-content: space-between;
+
+    .navbarLayout {
+      @include flex_centered;
+      justify-content: space-between;
+      gap: fn.rem(48);
     }
   }
 }

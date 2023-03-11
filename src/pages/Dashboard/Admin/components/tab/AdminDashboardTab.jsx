@@ -1,114 +1,133 @@
 import React from 'react'
 
 import style from './adminTab.module.scss'
+import '../../../../../scss/custom/bs-custom.css'
 import TrackAnalysisLayout from './trackAnalysislayout/TrackAnalysisLayout'
 
 const AdminDashboardTab = () => {
   return (
     <section className={style.tab}>
-      <ul className={['nav', style.tabList].join(' ')}>
-        <li className={['nav-item', style.link].join(' ')}>
-          <a
+      <ul
+        className={['nav admin-tab', style.tabList].join(' ')}
+        id='myTab'
+        role='tablist'
+      >
+        <li className={['nav-item ', style.link].join(' ')} role='presentation'>
+          <button
             className={['nav-link active', style.a].join(' ')}
-            id='mobile-tab'
+            id='product-management-tab'
             data-bs-toggle='tab'
-            href='#mobile'
+            data-bs-target='#product-management-tab-pane'
+            type='button'
+            role='tab'
+            aria-controls='product-management-tab-pane'
+            aria-selected='true'
           >
-            Mobile Development
-          </a>
+            Product Management
+          </button>
         </li>
-        <li className={['nav-item', style.link].join(' ')}>
-          <a
+        <li className={['nav-item ', style.link].join(' ')} role='presentation'>
+          <button
             className={['nav-link', style.a].join(' ')}
-            id='frontend-tab'
+            id='uiux-design-tab'
             data-bs-toggle='tab'
-            href='#frontend'
+            data-bs-target='#uiux-design-tab-pane'
+            type='button'
+            role='tab'
+            aria-controls='uiux-design-tab-pane'
+            aria-selected='false'
           >
-            Frontend
-          </a>
+            UIUX Design
+          </button>
         </li>
-        <li className={['nav-item', style.link].join(' ')}>
-          <a
+        <li className={['nav-item ', style.link].join(' ')} role='presentation'>
+          <button
             className={['nav-link', style.a].join(' ')}
-            id='uiux-tab'
+            id='python-tab'
             data-bs-toggle='tab'
-            href='#uiux'
+            data-bs-target='#python-tab-pane'
+            type='button'
+            role='tab'
+            aria-controls='python-tab-pane'
+            aria-selected='false'
           >
-            UI/UX
-          </a>
+            Python Fullstack
+          </button>
         </li>
-        <li className={['nav-item', style.link].join(' ')}>
-          <a
+        <li className={['nav-item ', style.link].join(' ')} role='presentation'>
+          <button
             className={['nav-link', style.a].join(' ')}
-            id='full-stack-tab'
+            id='javascript-tab'
             data-bs-toggle='tab'
-            href='#fullstack'
+            data-bs-target='#javascript-tab-pane'
+            type='button'
+            role='tab'
+            aria-controls='javascript-tab-pane'
+            aria-selected='false'
           >
-            Full Stack
-          </a>
+            javascript Fullstack
+          </button>
         </li>
-        <li className={['nav-item', style.link].join(' ')}>
-          <a
+        <li className={['nav-item ', style.link].join(' ')} role='presentation'>
+          <button
             className={['nav-link', style.a].join(' ')}
             id='data-science-tab'
             data-bs-toggle='tab'
-            href='#datascience'
+            data-bs-target='#data-science-tab-pane'
+            type='button'
+            role='tab'
+            aria-controls='data-science-tab-pane'
+            aria-selected='false'
           >
             Data Science
-          </a>
+          </button>
         </li>
       </ul>
-
-      <div className='tab-content py-6' id='tabContent'>
+      <div className='tab-content my-8' id='myTabContent'>
         <div
           className='tab-pane fade show active'
-          id='mobile'
+          id='product-management-tab-pane'
           role='tabpanel'
-          aria-labelledby='course-tab'
+          aria-labelledby='product-management-tab'
+          tabIndex='0'
         >
-          <div className={style.listWrapper}>
-            <TrackAnalysisLayout />
-          </div>
+          <TrackAnalysisLayout />
         </div>
         <div
           className='tab-pane fade'
-          id='frontend'
+          id='uiux-design-tab-pane'
           role='tabpanel'
-          aria-labelledby='discussion-tab'
+          aria-labelledby='uiux-design-tab'
+          tabIndex='0'
         >
-          <div className={style.listWrapper}>
-            <TrackAnalysisLayout />
-          </div>
+          <TrackAnalysisLayout />
         </div>
         <div
           className='tab-pane fade'
-          id='uiux'
+          id='python-tab-pane'
           role='tabpanel'
-          aria-labelledby='resource-tab'
+          aria-labelledby='python-tab'
+          tabIndex='0'
         >
-          <div className={[style.listWrapper].join(' ')}>
-            <TrackAnalysisLayout />
-          </div>
+          <TrackAnalysisLayout />
         </div>
         <div
           className='tab-pane fade'
-          id='fullstack'
+          id='javascript-tab-pane'
           role='tabpanel'
-          aria-labelledby='discussion-tab'
+          aria-labelledby='javascript-tab'
+          tabIndex='0'
         >
-          <div className={style.listWrapper}>
-            <TrackAnalysisLayout />
-          </div>
+          <TrackAnalysisLayout />
         </div>
         <div
           className='tab-pane fade'
-          id='datascience'
+          id='data-science-tab-pane'
           role='tabpanel'
-          aria-labelledby='discussion-tab'
+          aria-labelledby='data-science-tab'
+          tabIndex='0'
         >
-          <div className={style.listWrapper}>
-            <TrackAnalysisLayout />
-          </div>
+          <TrackAnalysisLayout />
         </div>
       </div>
     </section>

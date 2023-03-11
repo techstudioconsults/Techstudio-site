@@ -42,6 +42,7 @@ export { default as AdminSignupForm } from './global/forms/adminSignupForm/Admin
 export { default as StudentSignupForm } from './global/forms/studentSignupForm/StudentSignupForm'
 export { default as Feedback } from './global/modals/Feedback'
 export { default as ToastComponent } from './global/toast/ToastComponent'
+export { default as ForgotPasswordForm } from './global/forms/forgotpassword/ForgotPasswordForm'
 
 // HOME
 export { default as Hero } from './home/hero'
@@ -90,3 +91,4 @@ export { default as FeedbackCard } from './dashboard/dashboardStatFeedback/feedb
 export { default as GraphCard } from './dashboard/dashboardStatFeedback/stats/GraphCard'
 export { default as ClassesTab } from './dashboard/tab/classesTab/ClassesTab'
 export { default as ChatDisplay } from './dashboard/videoChatDisplay/ChatDisplay'
+export { default as TutorList } from './dashboard/tutorList/TutorList'

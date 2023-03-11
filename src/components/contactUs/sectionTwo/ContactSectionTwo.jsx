@@ -32,6 +32,14 @@ const ContactSectionTwo = ({ content }) => {
               <MdEmail size={`1.5rem`} className={style.icon} />
               <p className={style.email}>info@techstudioacademy.com</p>
             </div>
+            {/* <div className={style.info}>
+              <MdEmail size={`1.5rem`} className={style.icon} />
+              <p className={style.email}>info@techstudioacademy.com</p>
+            </div>
+            <div className={style.info}>
+              <MdEmail size={`1.5rem`} className={style.icon} />
+              <p className={style.email}>info@techstudioacademy.com</p>
+            </div> */}
           </div>
         </div>
       </section>

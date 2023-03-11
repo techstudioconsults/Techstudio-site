@@ -11,21 +11,21 @@ import App from './App'
 import { AppProvider } from './contexts/AppProvider'
 import ScrollToTop from './components/global/scroll-to-top/ScrollToTop'
 import { BrowserRouter } from 'react-router-dom'
-import { PersistGate } from 'redux-persist/integration/react'
-import { store, persistor } from './app/store'
+// import { PersistGate } from 'redux-persist/integration/react'
+import { store } from './app/store'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter>
-          <AppProvider>
-            <ScrollToTop />
-            <App />
-          </AppProvider>
-        </BrowserRouter>
-      </PersistGate>
+      {/* <PersistGate loading={null} persistor={persistor}> */}
+      <BrowserRouter>
+        <AppProvider>
+          <ScrollToTop />
+          <App />
+        </AppProvider>
+      </BrowserRouter>
+      {/* </PersistGate> */}
     </Provider>
   </React.StrictMode>
 )

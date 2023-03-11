@@ -4,7 +4,7 @@ import style from './sectionThree.module.scss'
 import AboutSectionThreeCard from '../../global/cards/AboutSectionThreeCard'
 import { Container } from '../../../layout'
 
-const index = ({ content, textAlignLeft }) => {
+const index = ({ content }) => {
   const { header, cards } = content
   const cardsDisplay = cards.map((card) => {
     return <AboutSectionThreeCard key={card.title} content={card} />
@@ -29,7 +29,7 @@ const index = ({ content, textAlignLeft }) => {
 
 index.propTypes = {
   content: PropTypes.object.isRequired,
-  textAlignLeft: PropTypes.bool,
+  // textAlignLeft: PropTypes.bool,
 }
 
 export default index
