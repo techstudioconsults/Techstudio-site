@@ -43,6 +43,7 @@ export { default as StudentSignupForm } from './global/forms/studentSignupForm/S
 export { default as Feedback } from './global/modals/Feedback'
 export { default as ToastComponent } from './global/toast/ToastComponent'
 export { default as ForgotPasswordForm } from './global/forms/forgotpassword/ForgotPasswordForm'
+export { default as FileChooser } from './global/fileChooser/FileChooser'
 
 // HOME
 export { default as Hero } from './home/hero'

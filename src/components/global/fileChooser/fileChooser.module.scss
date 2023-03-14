@@ -1,0 +1,24 @@
+@use '../../../scss/global/colors' as colors;
+@use '../../../scss/utils/functions' as fn;
+@import '../../../scss/utils/breakpoints';
+@import '../../../scss/utils/mixins';
+
+.fileChooser {
+  @include flex;
+  @include flex_centered;
+  gap: fn.rem(65);
+  border: 1px dashed colors.$blue;
+  border-radius: fn.rem(8);
+  padding-inline-start: fn.rem(16);
+  color: colors.$blue;
+  background-color: colors.$light-blue-II;
+
+  .text {
+    color: #292929;
+    font-size: fn.rem(14);
+  }
+
+  button {
+    height: fn.rem(50);
+  }
+}
