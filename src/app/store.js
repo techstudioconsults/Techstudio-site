@@ -13,6 +13,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { apiSlice } from './api/apiSlice'
 import { setupListeners } from '@reduxjs/toolkit/query'
 import authReducer from '../pages/Auth/api/authSlice'
+import coursesReducer from '../pages/Dashboard/Admin/courses/api/coursesSlice'
 
 // const persistConfig = {
 //   key: 'root',
@@ -27,14 +28,15 @@ export const store = configureStore({
     [apiSlice.reducerPath]: apiSlice.reducer,
     auth: authReducer,
     // auth: persistedReducer,
+    courses: coursesReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(apiSlice.middleware),
-  // {
-  //   serializableCheck: {
-  //     ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-  //   },
-  // }
+
+  // serializableCheck: {
+  //   ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+  // },
+
   devTools: process.env.NODE_ENV !== 'production',
 })
 

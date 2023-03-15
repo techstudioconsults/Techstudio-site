@@ -1,14 +1,70 @@
-import React, { useState } from 'react'
-import { AvatarDropdown, FileChooser } from '../../../../../components'
+/* eslint-disable react/prop-types */
+/* eslint-disable react/display-name */
+
+import { AvatarDropdown } from '../../../../../components'
 import style from './createCourse.module.scss'
-import Multiselect from 'multiselect-react-dropdown'
-import { Icon } from '@iconify/react'
+import Select from 'react-select'
+import { Controller, useForm } from 'react-hook-form'
+import { useCreateCourseMutation } from '../api/coursesApiSlice'
+import { useDropzone } from 'react-dropzone'
+import { useCallback } from 'react'
+
+const selectOptions = [
+  { value: '640ac66f9db6823bc6b3e11d', label: 'Kingsley' },
+  { value: '640ac66f9db6823bc6b3e11d', label: 'Afeeze' },
+  { value: '640ac66f9db6823bc6b3e11d', label: 'Aisha' },
+  { value: '640ac66f9db6823bc6b3e11d', label: 'Tobi' },
+]
+
+// const formData = new FormData()
+let formDataObject = {}
 
 const CreateCourse = () => {
-  const [options, setOptions] = useState([
-    { name: 'Option 1', id: 1 },
-    { name: 'Option 2', id: 2 },
-  ])
+  const [CreateCourse] = useCreateCourseMutation()
+
+  const onDrop = useCallback((acceptedFiles) => {
+    // console.log(acceptedFiles)
+    // acceptedFiles.forEach((item) => formData.append('files[]', item))
+    formDataObject.files = acceptedFiles
+  }, [])
+  const { acceptedFiles, getRootProps, getInputProps } = useDropzone({ onDrop })
+
+  const files = acceptedFiles.map((file) => (
+    <li key={file.path}>
+      {file.path} - {file.size} bytes
+    </li>
+  ))
+
+  const { register, handleSubmit, control } = useForm({
+    criteriaMode: 'all',
+    mode: 'onChange',
+  })
+
+  const onSubmit = async (data) => {
+    console.log(data)
+    const duration = [data.onlineClass, data.weekdayClass, data.weekendClass]
+    const tutors = data.tutors.map((obj) => obj.value)
+    formDataObject.duration = duration
+    formDataObject.tutors = tutors
+    formDataObject.title = data.title
+    formDataObject.description = data.description
+    console.log(formDataObject)
+    // formData.append(`title`, data.title)
+    // formData.append(`description`, data.description)
+    // duration.forEach((item) => formData.append('duration[]', item))
+    // tutors.forEach((item) => formData.append('tutors[]', item))
+    // formData.append(`tutors[]`, data.title)
+    try {
+      await CreateCourse(formDataObject).unwrap()
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  // const onSubmit = () => {
+  //   console.log(`api call`)
+  // }
+
   return (
     <section className={style.courseView}>
       <div className={style.dashboardDisplay}>
@@ -19,7 +75,7 @@ const CreateCourse = () => {
           </p>
         </div>
         <div className='my-10'>
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)} encType='multipart/form-data'>
             {/* title */}
             <div className='mb-8 d-flex align-items-center '>
               <label
@@ -34,13 +90,14 @@ const CreateCourse = () => {
                   type='text'
                   className='form-control form-control-lg'
                   id='title'
+                  {...register('title')}
                 />
               </div>
             </div>
             {/* about course */}
             <div className='mb-8 d-flex'>
               <label
-                htmlFor='title'
+                htmlFor='description'
                 className={`col-form-label fs-2xl ${style.labels}`}
               >
                 About Courses
@@ -50,65 +107,68 @@ const CreateCourse = () => {
                   placeholder='Placeholder Text'
                   type='text'
                   className='form-control form-control-lg'
-                  id='title'
+                  id='description'
+                  {...register('description')}
                 />
               </div>
             </div>
             {/* duration */}
             <div className='mb-8 d-flex'>
-              <label
-                htmlFor='title'
+              <p
+                // htmlFor='duration'
                 className={`col-form-label fs-2xl ${style.labels}`}
               >
                 Duration
-              </label>
+              </p>
               <div
                 className={(style.inputs, `d-flex align-items-center gap-8`)}
               >
-                <div className='form-check form-control-lg'>
-                  <input
-                    className='form-check-input '
-                    type='radio'
-                    name='duration'
-                    id='online'
-                  />
-                  <label className='form-check-label' htmlFor='online'>
-                    Online
-                  </label>
-                </div>
-                <div className='form-check form-control-lg'>
-                  <input
-                    className='form-check-input'
-                    type='radio'
-                    name='duration'
-                    id='weekday'
-                  />
-                  <label className='form-check-label' htmlFor='weekday'>
-                    Weekday
-                  </label>
-                </div>
-                <div className='form-check form-control-lg'>
-                  <input
-                    className='form-check-input'
-                    type='radio'
-                    name='duration'
-                    id='weekend'
-                  />
-                  <label className='form-check-label' htmlFor='weekend'>
-                    Weekend
-                  </label>
-                </div>
-                <div>
-                  <select
-                    className='form-select form-select-lg'
-                    aria-label='.form-select-lg example'
-                  >
-                    <option selected value='1'>
-                      1 Month
-                    </option>
-                    <option value='2'>2 Month</option>
-                    <option value='3'>3 Month</option>
-                  </select>
+                <div className='d-flex gap-8'>
+                  {/* online */}
+                  <div>
+                    <label htmlFor='online'>online</label>
+                    <select
+                      id='online'
+                      className='form-select form-select-lg mt-2'
+                      aria-label='.form-select-lg example'
+                      {...register('onlineClass')}
+                    >
+                      <option value='1'>1 Month</option>
+                      <option value='2'>2 Month</option>
+                      <option value='3'>3 Month</option>
+                      <option value='4'>4 Month</option>
+                    </select>
+                  </div>
+                  {/* weekday */}
+                  <div>
+                    <label htmlFor='weekday'>weekday</label>
+                    <select
+                      id='weekday'
+                      className='form-select form-select-lg mt-2'
+                      aria-label='.form-select-lg example'
+                      {...register('weekdayClass')}
+                    >
+                      <option value='1'>1 Month</option>
+                      <option value='2'>2 Month</option>
+                      <option value='3'>3 Month</option>
+                      <option value='4'>4 Month</option>
+                    </select>
+                  </div>
+                  {/* weekend */}
+                  <div>
+                    <label htmlFor='weekend'>weekend</label>
+                    <select
+                      id='weekend'
+                      className='form-select form-select-lg mt-2'
+                      aria-label='.form-select-lg example'
+                      {...register('weekendClass')}
+                    >
+                      <option value='1'>1 Month</option>
+                      <option value='2'>2 Month</option>
+                      <option value='3'>3 Month</option>
+                      <option value='4'>4 Month</option>
+                    </select>
+                  </div>
                 </div>
               </div>
             </div>
@@ -121,78 +181,74 @@ const CreateCourse = () => {
                 Tutors
               </label>
               <div className={style.inputs}>
-                <div
-                  className={(style.inputs, `d-flex align-items-center gap-8`)}
-                >
-                  <div className='form-check form-control-lg'>
-                    <input
-                      className='form-check-input '
-                      type='radio'
-                      name='duration'
-                      id='online'
-                    />
-                    <label className='form-check-label' htmlFor='online'>
-                      Online
-                    </label>
-                  </div>
-                  <div className='form-check form-control-lg'>
-                    <input
-                      className='form-check-input'
-                      type='radio'
-                      name='duration'
-                      id='weekday'
-                    />
-                    <label className='form-check-label' htmlFor='weekday'>
-                      Weekday
-                    </label>
-                  </div>
-                  <div className='form-check form-control-lg'>
-                    <input
-                      className='form-check-input'
-                      type='radio'
-                      name='duration'
-                      id='weekend'
-                    />
-                    <label className='form-check-label' htmlFor='weekend'>
-                      Weekend
-                    </label>
-                  </div>
-                </div>
                 <div>
-                  <Multiselect
-                    style={{
-                      chips: {
-                        gap: `1rem`,
-                        background: `#0266F41A`,
-                        padding: `0.7rem 1rem`,
-                        color: `#0266F4`,
-                        border: `1px solid #0266F4`,
-                        borderRadius: 5,
-                      },
-                      inputField: {
-                        marginInline: `1rem`,
-                      },
-                      multiselectContainer: {
-                        borderRadius: 5,
-                      },
+                  {/* <label htmlFor='online'>online</label> */}
+                  <Controller
+                    name='tutors'
+                    control={control}
+                    render={({ field }) => {
+                      return (
+                        <>
+                          <Select
+                            className='reactSelect my-2'
+                            name='tutors'
+                            placeholder='Select Tutors'
+                            options={selectOptions}
+                            isMulti
+                            {...field}
+                          />
+                        </>
+                      )
                     }}
-                    showArrow
-                    placeholder='select tutor'
-                    options={options}
-                    displayValue={`name`}
-                    customCloseIcon={
-                      <Icon
-                        width={`1.3rem`}
-                        icon={`mdi:close-circle-outline`}
-                      />
-                    }
                   />
                 </div>
+                {/* <div>
+                  <label htmlFor='weekday'>weekday</label>
+                  <Controller
+                    name='tutors-weekday'
+                    control={control}
+                    render={({ field }) => {
+                      return (
+                        <>
+                          <Select
+                            className='reactSelect my-2'
+                            name='tutors-weekday'
+                            placeholder='Select Tutors'
+                            options={selectOptions}
+                            isMulti
+                            {...field}
+                          />
+                        </>
+                      )
+                    }}
+                  />
+                </div> */}
+                {/* <div>
+                  <label htmlFor='weekend'>weekend</label>
+                  <Controller
+                    name='tutors-weekend'
+                    control={control}
+                    render={({ field }) => {
+                      return (
+                        <>
+                          <Select
+                            className='reactSelect mt-2'
+                            name='tutors-weekend'
+                            placeholder='Select Tutors'
+                            options={selectOptions}
+                            isMulti
+                            {...field}
+                          />
+                        </>
+                      )
+                    }}
+                  />
+                </div> */}
               </div>
             </div>
             {/* file chooser */}
             <section>
-              <div className='d-flex'>
+              <div className='d-flex gap-20 '>
                 <label
                   htmlFor='title'
                   className={`col-form-label fs-2xl ${style.labels}`}
@@ -200,12 +256,23 @@ const CreateCourse = () => {
                   Resources
                 </label>
                 <div
-                  className={(style.inputs, `d-flex align-items-center gap-8`)}
+                  className={
+                    (style.inputs,
+                    `d-flex align-items-center w-100 border border-1 p-5`)
+                  }
                 >
-                  <FileChooser />
+                  <section className='w-100'>
+                    <div {...getRootProps({ className: 'dropzone' })}>
+                      <input {...getInputProps()} />
+                      <p>Drag drop some files here, or click to select files</p>
+                    </div>
+                    <aside>
+                      <h4>Files</h4>
+                      <ul>{files}</ul>
+                    </aside>
+                  </section>
                 </div>
               </div>
-              <div></div>
             </section>
             {/* CTA */}
             <div className='d-flex gap-10 justify-content-end my-8'>
@@ -227,3 +294,35 @@ const CreateCourse = () => {
 }
 
 export default CreateCourse
+
+{
+  /* <Multiselect
+                            style={{
+                              chips: {
+                                gap: `1rem`,
+                                background: `#0266F41A`,
+                                padding: `0.7rem 1rem`,
+                                color: `#0266F4`,
+                                border: `1px solid #0266F4`,
+                                borderRadius: 5,
+                              },
+                              inputField: {
+                                marginInline: `1rem`,
+                              },
+                              multiselectContainer: {
+                                borderRadius: 5,
+                              },
+                            }}
+                            showArrow
+                            name='tutors'
+                            placeholder='select tutor'
+                            options={options}
+                            displayValue={`name`}
+                            customCloseIcon={
+                              <Icon
+                                width={`1.3rem`}
+                                icon={`mdi:close-circle-outline`}
+                              />
+                            }
+                          /> */
+}

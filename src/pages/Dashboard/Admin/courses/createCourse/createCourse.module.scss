@@ -4,8 +4,11 @@
 @import '../../../../../scss/utils/mixins';
 
 .courseView {
+  background-image: url('../../../../../assets/images/512\ 1.png');
+  background-position: right;
+  background-size: 30%;
+  background-repeat: no-repeat;
   background-color: colors.$light;
-  border: 1px solid red;
   @include flex;
 
   .labels {
@@ -23,7 +26,8 @@
   .inputs {
     width: 70%;
 
-    input, textarea {
+    input,
+    textarea {
       color: colors.$text-dark;
     }
 
