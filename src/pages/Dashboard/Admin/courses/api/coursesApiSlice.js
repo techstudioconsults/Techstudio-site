@@ -1,4 +1,5 @@
 import { apiSlice } from '../../../../../app/api/apiSlice'
+import { setCourses } from './coursesSlice'
 
 export const coursesApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -13,12 +14,6 @@ export const coursesApiSlice = apiSlice.injectEndpoints({
         try {
           const { data } = await queryFulfilled
           console.log(data)
-          // dispatch(
-          //   setCredentials({
-          //     accessToken: data.data.accessToken,
-          //     refreshToken: data.data.refreshToken,
-          //   })
-          // )
         } catch (err) {
           console.log(err)
         }
@@ -29,10 +24,20 @@ export const coursesApiSlice = apiSlice.injectEndpoints({
         url: '/course/tutors',
         method: 'GET',
       }),
-      async onQueryStarted(arg, { queryFulfilled }) {
+    }),
+    viewAllCourses: builder.mutation({
+      query: () => ({
+        url: '/course',
+        method: 'GET',
+      }),
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled
-          console.log(data)
+          dispatch(
+            setCourses({
+              courses: data.data.courses,
+            })
+          )
         } catch (err) {
           console.log(err)
         }
@@ -41,4 +46,8 @@ export const coursesApiSlice = apiSlice.injectEndpoints({
   }),
 })
 
-export const { useCreateCourseMutation, useGetTutorsMutation } = coursesApiSlice
+export const {
+  useCreateCourseMutation,
+  useGetTutorsMutation,
+  useViewAllCoursesMutation,
+} = coursesApiSlice

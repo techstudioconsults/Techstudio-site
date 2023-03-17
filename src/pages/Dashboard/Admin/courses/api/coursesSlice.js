@@ -1,18 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const STATE = {}
+const STATE = { courses: null }
 
 const COURSES_SLICE = {
   name: 'courses',
   initialState: STATE,
-  reducers: {},
+  reducers: {
+    setCourses: (state, action) => {
+      const { courses } = action.payload
+      state.courses = courses
+    },
+  },
 }
 
 const coursesSlice = createSlice(COURSES_SLICE)
 
-export const { setCredentials, logOut } = coursesSlice.actions
+export const { setCourses } = coursesSlice.actions
 
 export default coursesSlice.reducer
 
-// export const selectCurrentToken = (state) => state.auth.token
-// export const selectCurrentRefreshToken = (state) => state.auth.refreshToken
+export const selectCourses = (state) => state.courses.courses

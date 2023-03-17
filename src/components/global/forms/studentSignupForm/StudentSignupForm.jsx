@@ -60,6 +60,7 @@ const ContactForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={[style.form].join(' ')}>
       <Portal wrapperId='react-portal-modal-container'>
+        <ToastComponent errorMessage={errorMessage} />
         <Feedback
           content={{
             title: `Registration Successfull!`,
@@ -271,7 +272,6 @@ const ContactForm = () => {
           />
           {isLoading ? `Please wait...` : `Register`}
         </button>
-        <ToastComponent errorMessage={errorMessage} />
       </div>
       <footer className={style.caption}>
         <p className={style.footerLink}>

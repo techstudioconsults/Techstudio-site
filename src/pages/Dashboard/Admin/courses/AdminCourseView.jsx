@@ -1,15 +1,33 @@
-import React from 'react'
+import React, { useCallback, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import {
   AvatarDropdown,
   Button,
   CalendarOffCanvas,
 } from '../../../../components'
 import style from './adminCourse.module.scss'
+import { useViewAllCoursesMutation } from './api/coursesApiSlice'
+import { selectCourses } from './api/coursesSlice'
 import CourseDetails from './courseDetails/CourseDetails'
 import CourseList from './courseList/CourseList'
 
-// eslint-disable-next-line react/prop-types
 const AdminCourseView = () => {
+  const [viewAllCourses, { isLoading }] = useViewAllCoursesMutation()
+  const courses = useSelector(selectCourses)
+
+  const getCourses = useCallback(async () => {
+    await viewAllCourses().unwrap()
+  }, [viewAllCourses])
+
+  useEffect(() => {
+    getCourses()
+  }, [getCourses])
+
+  // map the courses data to the courseslist component
+  const courseList = courses?.map((course, index) => {
+    return <CourseList key={index} course={course} />
+  })
+
   return (
     <section className={style.courseView}>
       <div className={style.dashboardDisplay}>
@@ -50,12 +68,7 @@ const AdminCourseView = () => {
               <p>Tutors</p>
             </div>
           </div>
-          <div className='mt-5 d-flex flex-column gap-5'>
-            <CourseList />
-            <CourseList />
-            <CourseList />
-            <CourseList />
-          </div>
+          <div className='mt-5 d-flex flex-column gap-5'>{courseList}</div>
         </div>
       </div>
       <div className={style.notification}>

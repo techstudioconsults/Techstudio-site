@@ -1,26 +1,31 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/display-name */
 
-import { AvatarDropdown } from '../../../../../components'
+import {
+  AvatarDropdown,
+  Feedback,
+  Portal,
+  ToastComponent,
+} from '../../../../../components'
 import style from './createCourse.module.scss'
 import Select from 'react-select'
 import { Controller, useForm } from 'react-hook-form'
-import { useCreateCourseMutation } from '../api/coursesApiSlice'
+import { useGetTutorsMutation } from '../api/coursesApiSlice'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 import { selectCurrentToken } from '../../../../Auth/api/authSlice'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+import { useCallback, useEffect, useState } from 'react'
+import useToast from '../../../../../hooks/useToast'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
-const selectOptions = [
-  { value: '640ac66f9db6823bc6b3e11d', label: 'Kingsley' },
-  { value: '640ac66f9db6823bc6b3e11d', label: 'Afeeze' },
-  { value: '640ac66f9db6823bc6b3e11d', label: 'Aisha' },
-  { value: '640ac66f9db6823bc6b3e11d', label: 'Tobi' },
-]
-
 const CreateCourse = () => {
-  const [CreateCourse] = useCreateCourseMutation()
+  const [tutors, setTutors] = useState([])
+  const [errorMessage, setErrorMessage] = useState(null)
+  const { toast } = useToast()
+
+  const [getTutors] = useGetTutorsMutation()
   const token = useSelector(selectCurrentToken)
   const credentials = {
     headers: {
@@ -29,10 +34,34 @@ const CreateCourse = () => {
     },
   }
 
-  const { register, handleSubmit, control } = useForm({
+  const findTutors = useCallback(async () => {
+    const res = await getTutors().unwrap()
+    const tutors = res.data.tutors.map((tutor) => {
+      return { value: tutor.id, label: `${tutor.firstName} ${tutor.lastName}` }
+    })
+    setTutors(tutors)
+  }, [getTutors])
+
+  useEffect(() => {
+    findTutors()
+  }, [findTutors])
+
+  const {
+    reset,
+    register,
+    handleSubmit,
+    control,
+    formState: { isSubmitSuccessful },
+  } = useForm({
     criteriaMode: 'all',
     mode: 'onChange',
   })
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset()
+    }
+  }, [isSubmitSuccessful, reset])
 
   // =============================================================================
   // this code block works with RTK Query --- kept getting error from frile upload
@@ -90,12 +119,32 @@ const CreateCourse = () => {
     files.forEach((item) => formData.append('files', item))
     tutors.forEach((item) => formData.append('tutors[]', item))
 
-    const res = await axios.post(`${baseUrl}/course`, formData, credentials)
-    console.log(res)
+    try {
+      let modal = bootstrap.Modal.getOrCreateInstance(
+        document.getElementById('feedback')
+      )
+
+      const res = await axios.post(`${baseUrl}/course`, formData, credentials)
+      console.log(res)
+      res.status === 201 ? modal.show() : null
+    } catch (err) {
+      console.log(err.response.data.message)
+      setErrorMessage(err.response.data.message)
+      toast.show()
+    }
   }
 
   return (
     <section className={style.courseView}>
+      <Portal wrapperId='react-portal-modal-container'>
+        <ToastComponent errorMessage={errorMessage} />
+        <Feedback
+          content={{
+            title: `Changes Saved Successfully!`,
+            desc: `Your changes have been saved successfully. Kindly click continue to exit this page.`,
+          }}
+        />
+      </Portal>
       <div className={style.dashboardDisplay}>
         <div className={style.header}>
           <h4 className={[style.title, `mb-0`].join(' ')}>Create Courses</h4>
@@ -222,7 +271,7 @@ const CreateCourse = () => {
                             className='reactSelect my-2'
                             name='tutors'
                             placeholder='Select Tutors'
-                            options={selectOptions}
+                            options={tutors}
                             isMulti
                             {...field}
                           />
