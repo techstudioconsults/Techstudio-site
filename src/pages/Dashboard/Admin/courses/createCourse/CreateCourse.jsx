@@ -6,8 +6,11 @@ import style from './createCourse.module.scss'
 import Select from 'react-select'
 import { Controller, useForm } from 'react-hook-form'
 import { useCreateCourseMutation } from '../api/coursesApiSlice'
-import { useDropzone } from 'react-dropzone'
-import { useCallback } from 'react'
+import axios from 'axios'
+import { useSelector } from 'react-redux'
+import { selectCurrentToken } from '../../../../Auth/api/authSlice'
+
+const baseUrl = process.env.REACT_APP_BASE_URL
 
 const selectOptions = [
   { value: '640ac66f9db6823bc6b3e11d', label: 'Kingsley' },
@@ -16,54 +19,80 @@ const selectOptions = [
   { value: '640ac66f9db6823bc6b3e11d', label: 'Tobi' },
 ]
 
-// const formData = new FormData()
-let formDataObject = {}
-
 const CreateCourse = () => {
   const [CreateCourse] = useCreateCourseMutation()
-
-  const onDrop = useCallback((acceptedFiles) => {
-    // console.log(acceptedFiles)
-    // acceptedFiles.forEach((item) => formData.append('files[]', item))
-    formDataObject.files = acceptedFiles
-  }, [])
-  const { acceptedFiles, getRootProps, getInputProps } = useDropzone({ onDrop })
-
-  const files = acceptedFiles.map((file) => (
-    <li key={file.path}>
-      {file.path} - {file.size} bytes
-    </li>
-  ))
+  const token = useSelector(selectCurrentToken)
+  const credentials = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'multipart/form-data',
+    },
+  }
 
   const { register, handleSubmit, control } = useForm({
     criteriaMode: 'all',
     mode: 'onChange',
   })
 
-  const onSubmit = async (data) => {
-    console.log(data)
-    const duration = [data.onlineClass, data.weekdayClass, data.weekendClass]
-    const tutors = data.tutors.map((obj) => obj.value)
-    formDataObject.duration = duration
-    formDataObject.tutors = tutors
-    formDataObject.title = data.title
-    formDataObject.description = data.description
-    console.log(formDataObject)
-    // formData.append(`title`, data.title)
-    // formData.append(`description`, data.description)
-    // duration.forEach((item) => formData.append('duration[]', item))
-    // tutors.forEach((item) => formData.append('tutors[]', item))
-    // formData.append(`tutors[]`, data.title)
-    try {
-      await CreateCourse(formDataObject).unwrap()
-    } catch (err) {
-      console.log(err)
-    }
-  }
+  // =============================================================================
+  // this code block works with RTK Query --- kept getting error from frile upload
+  // =============================================================================
 
-  // const onSubmit = () => {
-  //   console.log(`api call`)
+  // const onSubmit = async (data) => {
+  //   const formData = new FormData()
+  //   const duration = {
+  //     online: data.onlineClass,
+  //     weekday: data.weekdayClass,
+  //     weekend: data.weekendClass,
+  //   }
+  //   const tutors = data.tutors.map((obj) => obj.value)
+  //   const files = [...data.files]
+
+  //   formData.append(`title`, data.title)
+  //   formData.append(`description`, data.description)
+
+  //   Object.keys(duration).forEach((key) => {
+  //     if (typeof duration[key] !== 'object')
+  //       formData.append(`duration[${key}]`, duration[key])
+  //     else formData.append(key, JSON.stringify(duration[key]))
+  //   })
+
+  //   files.forEach((item) => formData.append('files', item))
+  //   tutors.forEach((item) => formData.append('tutors[]', item))
+
+  //   try {
+  //     await CreateCourse(formData).unwrap()
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
   // }
+  // ================================================================================
+
+  // due to the error gotten from the response above...we went with the axios alternative
+  const onSubmit = async (data) => {
+    const formData = new FormData()
+    const duration = {
+      online: data.onlineClass,
+      weekday: data.weekdayClass,
+      weekend: data.weekendClass,
+    }
+    const tutors = data.tutors.map((obj) => obj.value)
+    const files = [...data.files]
+
+    formData.append(`title`, data.title)
+    formData.append(`description`, data.description)
+
+    Object.keys(duration).forEach((key) => {
+      if (typeof duration[key] !== 'object')
+        formData.append(`duration[${key}]`, duration[key])
+      else formData.append(key, JSON.stringify(duration[key]))
+    })
+    files.forEach((item) => formData.append('files', item))
+    tutors.forEach((item) => formData.append('tutors[]', item))
+
+    const res = await axios.post(`${baseUrl}/course`, formData, credentials)
+    console.log(res)
+  }
 
   return (
     <section className={style.courseView}>
@@ -261,7 +290,8 @@ const CreateCourse = () => {
                     `d-flex align-items-center w-100 border border-1 p-5`)
                   }
                 >
-                  <section className='w-100'>
+                  <input type='file' multiple {...register('files')} />
+                  {/* <section className='w-100'>
                     <div {...getRootProps({ className: 'dropzone' })}>
                       <input {...getInputProps()} />
                       <p>Drag drop some files here, or click to select files</p>
@@ -270,7 +300,7 @@ const CreateCourse = () => {
                       <h4>Files</h4>
                       <ul>{files}</ul>
                     </aside>
-                  </section>
+                  </section> */}
                 </div>
               </div>
             </section>
