@@ -21,7 +21,10 @@ import useToast from '../../../../../hooks/useToast'
 const baseUrl = process.env.REACT_APP_BASE_URL
 
 const colorStyles = {
-  control: (styles) => ({ ...styles, backgroundColor: 'white' }),
+  control: (styles) => ({
+    ...styles,
+    backgroundColor: 'white',
+  }),
   multiValue: (styles) => {
     return {
       ...styles,
@@ -44,6 +47,22 @@ const colorStyles = {
     }
   },
 }
+
+const durationSelectInput = {
+  control: (styles) => ({
+    ...styles,
+    backgroundColor: 'white',
+    width: `168px`,
+  }),
+}
+
+const durationInWeeks = [
+  { value: '1', label: '1 week' },
+  { value: '2', label: '2 weeks' },
+  { value: '3', label: '3 weeks' },
+  { value: '4', label: '4 weeks' },
+  { value: '5', label: '5 weeks' },
+]
 
 const CreateCourse = () => {
   const [tutors, setTutors] = useState([])
@@ -128,9 +147,9 @@ const CreateCourse = () => {
     setLoading(true)
     const formData = new FormData()
     const duration = {
-      online: data.onlineClass,
-      weekday: data.weekdayClass,
-      weekend: data.weekendClass,
+      online: data.onlineClass.value,
+      weekday: data.weekdayClass.value,
+      weekend: data.weekendClass.value,
     }
 
     const onlineTutors = data.onlineTutors.map((obj) => obj.value)
@@ -244,54 +263,64 @@ const CreateCourse = () => {
                 Duration
               </p>
               <div
-                className={(style.inputs, `d-flex align-items-center gap-8`)}
+                className={
+                  (style.inputs,
+                  `d-flex align-items-center justify-content-between gap-8`)
+                }
               >
-                <div className='d-flex gap-8'>
-                  {/* online */}
-                  <div>
-                    <label htmlFor='online'>online</label>
-                    <select
-                      id='online'
-                      className='form-select form-select-lg mt-2'
-                      aria-label='.form-select-lg example'
-                      {...register('onlineClass')}
-                    >
-                      <option value='1'>1 week</option>
-                      <option value='2'>2 weeks</option>
-                      <option value='3'>3 weeks</option>
-                      <option value='4'>4 weeks</option>
-                    </select>
-                  </div>
-                  {/* weekday */}
-                  <div>
-                    <label htmlFor='weekday'>weekday</label>
-                    <select
-                      id='weekday'
-                      className='form-select form-select-lg mt-2'
-                      aria-label='.form-select-lg example'
-                      {...register('weekdayClass')}
-                    >
-                      <option value='1'>1 week</option>
-                      <option value='2'>2 weeks</option>
-                      <option value='3'>3 weeks</option>
-                      <option value='4'>4 weeks</option>
-                    </select>
-                  </div>
-                  {/* weekend */}
-                  <div>
-                    <label htmlFor='weekend'>weekend</label>
-                    <select
-                      id='weekend'
-                      className='form-select form-select-lg mt-2'
-                      aria-label='.form-select-lg example'
-                      {...register('weekendClass')}
-                    >
-                      <option value='1'>1 week</option>
-                      <option value='2'>2 weeks</option>
-                      <option value='3'>3 weeks</option>
-                      <option value='4'>4 weeks</option>
-                    </select>
-                  </div>
+                {/* online */}
+                <div>
+                  <label htmlFor='online'>online</label>
+                  <Controller
+                    name='onlineClass'
+                    control={control}
+                    render={({ field }) => {
+                      return (
+                        <Select
+                          styles={durationSelectInput}
+                          name='onlineClass'
+                          options={durationInWeeks}
+                          {...field}
+                        />
+                      )
+                    }}
+                  />
+                </div>
+                {/* weekday */}
+                <div>
+                  <label htmlFor='weekday'>weekday</label>
+                  <Controller
+                    name='weekdayClass'
+                    control={control}
+                    render={({ field }) => {
+                      return (
+                        <Select
+                          styles={durationSelectInput}
+                          name='weekdayClass'
+                          options={durationInWeeks}
+                          {...field}
+                        />
+                      )
+                    }}
+                  />
+                </div>
+                {/* weekend */}
+                <div>
+                  <label htmlFor='weekend'>weekend</label>
+                  <Controller
+                    name='weekendClass'
+                    control={control}
+                    render={({ field }) => {
+                      return (
+                        <Select
+                          styles={durationSelectInput}
+                          name='weekendClass'
+                          options={durationInWeeks}
+                          {...field}
+                        />
+                      )
+                    }}
+                  />
                 </div>
               </div>
             </div>
