@@ -18,7 +18,6 @@ import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { useCallback, useEffect, useState } from 'react'
 import useToast from '../../../../../hooks/useToast'
 import { useLocation } from 'react-router-dom'
-import SelectDropdown from '../../../../../components/global/select/SelectDropdown'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
@@ -93,8 +92,6 @@ const CreateCourse = () => {
     let weekdayTutors
     let weekendTutors
 
-    console.log(data)
-
     // ===== data structure =============
     const duration = {
       online: data.onlineClass,
@@ -120,7 +117,7 @@ const CreateCourse = () => {
     const files = [...data.files]
     // =====end of data structure =============
 
-    // ================= form data creation ======================
+    // ================= form data structure ======================
     formData.append(`title`, data.title)
     formData.append(`description`, data.description)
 
@@ -305,7 +302,6 @@ const CreateCourse = () => {
                             isMulti
                             {...field}
                           />
-                          {/* <SelectDropdown /> */}
                         </>
                       )
                     }}

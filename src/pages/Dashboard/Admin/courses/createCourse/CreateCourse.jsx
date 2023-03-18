@@ -20,8 +20,34 @@ import useToast from '../../../../../hooks/useToast'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
+const colorStyles = {
+  control: (styles) => ({ ...styles, backgroundColor: 'white' }),
+  multiValue: (styles) => {
+    return {
+      ...styles,
+      backgroundColor: `#0266F41A`,
+      color: '#A7A7A7',
+      padding: `5px`,
+      border: `1px solid #0266F4`,
+      borderRadius: `5px`,
+      marginRight: `10px`,
+    }
+  },
+  multiValueRemove: (styles) => {
+    return {
+      ...styles,
+      color: '#0266F4',
+      cursor: 'pointer',
+      ':hover': {
+        color: '#0266F41',
+      },
+    }
+  },
+}
+
 const CreateCourse = () => {
   const [tutors, setTutors] = useState([])
+  const [isLoading, setLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState(null)
   const { toast } = useToast()
 
@@ -99,6 +125,7 @@ const CreateCourse = () => {
 
   // due to the error gotten from the response above...we went with the axios alternative
   const onSubmit = async (data) => {
+    setLoading(true)
     const formData = new FormData()
     const duration = {
       online: data.onlineClass,
@@ -141,8 +168,12 @@ const CreateCourse = () => {
       )
 
       const res = await axios.post(`${baseUrl}/course`, formData, credentials)
-      res.status === 201 ? modal.show() : null
+      if (res.status === 201) {
+        setLoading(false)
+        modal.show()
+      }
     } catch (err) {
+      setLoading(false)
       setErrorMessage(err.response.data.message)
       toast.show()
     }
@@ -178,7 +209,7 @@ const CreateCourse = () => {
               </label>
               <div className={style.inputs}>
                 <input
-                  placeholder='Placeholder Text'
+                  placeholder='course title'
                   type='text'
                   className='form-control form-control-lg'
                   id='title'
@@ -196,7 +227,7 @@ const CreateCourse = () => {
               </label>
               <div className={style.inputs}>
                 <textarea
-                  placeholder='Placeholder Text'
+                  placeholder='course description'
                   type='text'
                   className='form-control form-control-lg'
                   id='description'
@@ -282,6 +313,7 @@ const CreateCourse = () => {
                       return (
                         <>
                           <Select
+                            styles={colorStyles}
                             className='reactSelect my-2'
                             name='onlineTutors'
                             placeholder='Select Tutors'
@@ -303,6 +335,7 @@ const CreateCourse = () => {
                       return (
                         <>
                           <Select
+                            styles={colorStyles}
                             className='reactSelect my-2'
                             name='weekdayTutors'
                             placeholder='Select Tutors'
@@ -324,6 +357,7 @@ const CreateCourse = () => {
                       return (
                         <>
                           <Select
+                            styles={colorStyles}
                             className='reactSelect mt-2'
                             name='weekendTutors'
                             placeholder='Select Tutors'
@@ -350,27 +384,26 @@ const CreateCourse = () => {
                 <div
                   className={
                     (style.inputs,
-                    `d-flex align-items-center w-100 border border-1 p-5`)
+                    `d-flex align-items-center w-100 border border-1 p-5 rounded-2`)
                   }
                 >
                   <input type='file' multiple {...register('files')} />
-                  {/* <section className='w-100'>
-                    <div {...getRootProps({ className: 'dropzone' })}>
-                      <input {...getInputProps()} />
-                      <p>Drag drop some files here, or click to select files</p>
-                    </div>
-                    <aside>
-                      <h4>Files</h4>
-                      <ul>{files}</ul>
-                    </aside>
-                  </section> */}
                 </div>
               </div>
             </section>
             {/* CTA */}
             <div className='d-flex gap-10 justify-content-end my-8'>
-              <button type='submit' className='btn btn-primary w-25'>
-                Save Change
+              <button
+                disabled={isLoading}
+                type='submit'
+                className='btn btn-primary w-25'
+              >
+                <div
+                  hidden={!isLoading}
+                  className='spinner-border spinner-border-sm me-5 text-white'
+                  role='status'
+                />
+                {isLoading ? `Please wait...` : `Save Change`}
               </button>
               <button className='btn btn-outline-danger w-25'>Cancel</button>
             </div>
@@ -387,35 +420,3 @@ const CreateCourse = () => {
 }
 
 export default CreateCourse
-
-{
-  /* <Multiselect
-                            style={{
-                              chips: {
-                                gap: `1rem`,
-                                background: `#0266F41A`,
-                                padding: `0.7rem 1rem`,
-                                color: `#0266F4`,
-                                border: `1px solid #0266F4`,
-                                borderRadius: 5,
-                              },
-                              inputField: {
-                                marginInline: `1rem`,
-                              },
-                              multiselectContainer: {
-                                borderRadius: 5,
-                              },
-                            }}
-                            showArrow
-                            name='tutors'
-                            placeholder='select tutor'
-                            options={options}
-                            displayValue={`name`}
-                            customCloseIcon={
-                              <Icon
-                                width={`1.3rem`}
-                                icon={`mdi:close-circle-outline`}
-                              />
-                            }
-                          /> */
-}
