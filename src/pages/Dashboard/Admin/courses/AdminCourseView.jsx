@@ -7,13 +7,14 @@ import {
 } from '../../../../components'
 import style from './adminCourse.module.scss'
 import { useViewAllCoursesMutation } from './api/coursesApiSlice'
-import { selectCourses } from './api/coursesSlice'
+import { selectCourseDetails, selectCourses } from './api/coursesSlice'
 import CourseDetails from './courseDetails/CourseDetails'
 import CourseList from './courseList/CourseList'
 
 const AdminCourseView = () => {
   const [viewAllCourses, { isLoading }] = useViewAllCoursesMutation()
   const courses = useSelector(selectCourses)
+  const courseDetails = useSelector(selectCourseDetails)
 
   const getCourses = useCallback(async () => {
     await viewAllCourses().unwrap()
@@ -26,6 +27,7 @@ const AdminCourseView = () => {
   // map the courses data to the courseslist component
   const courseList = courses?.map((course, index) => {
     return <CourseList key={index} course={course} />
+    // return <p key={index}>courses</p>
   })
 
   return (
@@ -49,7 +51,7 @@ const AdminCourseView = () => {
           </div>
           <div className='d-xl-none'>
             <CalendarOffCanvas>
-              <CourseDetails />
+              <CourseDetails courseDetails={courseDetails} />
             </CalendarOffCanvas>
           </div>
         </div>
@@ -75,7 +77,7 @@ const AdminCourseView = () => {
         <div className='d-flex justify-content-end'>
           <AvatarDropdown />
         </div>
-        <CourseDetails />
+        <CourseDetails courseDetails={courseDetails} />
       </div>
     </section>
   )

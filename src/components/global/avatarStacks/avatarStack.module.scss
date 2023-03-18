@@ -20,6 +20,26 @@
     }
   }
 
+  .initials {
+    @include flex_centered;
+    background-color: colors.$light-blue;
+    width: fn.rem(30);
+    height: fn.rem(30);
+    border-radius: 100%;
+    border: 2px solid colors.$light;
+    overflow: hidden;
+
+    &:nth-child(1n + 2) {
+      margin-left: fn.rem(-10);
+    }
+
+    span {
+      color: colors.$light;
+      font-size: fn.rem(10);
+      font-weight: 900;
+    }
+  }
+
   .message {
     font-size: fn.rem(14);
     color: colors.$gray;

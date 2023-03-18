@@ -2,14 +2,20 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import style from './avatarStack.module.scss'
 
-const AvatarStack = ({ imageList, dontShowMore }) => {
-  const imagesDisplay = imageList.slice(0, 3).map((img, index) => {
+const AvatarStack = ({ imageList, dontShowMore, tutors }) => {
+  const imagesDisplay = tutors?.map((tutor, index) => {
     return (
-      <div key={index} className={style.avatarImg}>
-        <img src={img} alt='img' className='cc-img-fluid' />
+      // <div key={index} className={style.avatarImg}>
+      //   <img src={null} alt='img' className='cc-img-fluid' />
+      // </div>
+      <div key={index} className={style.initials}>
+        <span>{`${tutor.firstName.charAt(0)}.${tutor.lastName.charAt(
+          0
+        )}`}</span>
       </div>
     )
   })
+
   return (
     <div className={style.avatarCollections}>
       {imagesDisplay}
@@ -18,7 +24,7 @@ const AvatarStack = ({ imageList, dontShowMore }) => {
           ' '
         )}
       >
-        +{imageList.length - imagesDisplay.length} joined the class
+        +{imageList?.length - imagesDisplay?.length} joined the class
       </p>
     </div>
   )
@@ -27,6 +33,7 @@ const AvatarStack = ({ imageList, dontShowMore }) => {
 AvatarStack.propTypes = {
   imageList: PropTypes.array.isRequired,
   dontShowMore: PropTypes.bool,
+  tutors: PropTypes.array,
 }
 
 export default AvatarStack

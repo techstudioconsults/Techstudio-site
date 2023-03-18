@@ -4,7 +4,7 @@
 @import '../../../../scss/utils/mixins';
 
 .courseView {
-  border: 1px solid red;
+  // border: 1px solid red;
   @include flex;
 
   .dashboardDisplay {
@@ -36,6 +36,21 @@
           color: colors.$gray;
         }
       }
+    }
+
+    .courseList {
+      border: 1px solid colors.$light-blue !important;
+      border-left: 5px solid colors.$light-blue !important;
+    }
+
+    .noActive {
+      border: 1px solid red !important;
+    }
+
+    .dropdown {
+      color: colors.$deep-blue;
+      margin-left: -9rem !important;
+      margin-top: 0.5rem !important;
     }
 
     .tableHeadTitle {

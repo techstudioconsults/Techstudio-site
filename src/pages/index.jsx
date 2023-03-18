@@ -24,4 +24,5 @@ export { default as SingleCourseViewLive } from './Dashboard/Student/classes/sin
 export { default as PageNotFound } from './404'
 export { default as AdminCourseView } from './Dashboard/Admin/courses/AdminCourseView'
 export { default as CreateCourse } from './Dashboard/Admin/courses/createCourse/CreateCourse'
+export { default as EditCourse } from './Dashboard/Admin/courses/createCourse/EditCourse'
 export { default as ForgotPassword } from './Auth/forgotPassword/ForgotPassword'

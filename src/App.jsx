@@ -33,6 +33,7 @@ import {
   ForgotPassword,
   AdminCourseView,
   CreateCourse,
+  EditCourse,
 } from './pages'
 
 import AdminClassView from './pages/Dashboard/Admin/classes/AdminClassView'
@@ -103,6 +104,7 @@ const App = () => {
               />
               <Route path='/admin/courses' element={<AdminCourseView />} />
               <Route path='/admin/courses/create' element={<CreateCourse />} />
+              <Route path='/admin/courses/edit' element={<EditCourse />} />
               <Route path='/admin/classes' element={<AdminClassView />} />
             </Route>
           </Route>

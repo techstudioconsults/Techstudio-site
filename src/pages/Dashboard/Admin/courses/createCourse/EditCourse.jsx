@@ -20,7 +20,7 @@ import useToast from '../../../../../hooks/useToast'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
-const CreateCourse = () => {
+const EditCourse = () => {
   const [tutors, setTutors] = useState([])
   const [errorMessage, setErrorMessage] = useState(null)
   const { toast } = useToast()
@@ -63,41 +63,6 @@ const CreateCourse = () => {
     }
   }, [isSubmitSuccessful, reset])
 
-  // =============================================================================
-  // this code block works with RTK Query --- kept getting error from frile upload
-  // =============================================================================
-
-  // const onSubmit = async (data) => {
-  //   const formData = new FormData()
-  //   const duration = {
-  //     online: data.onlineClass,
-  //     weekday: data.weekdayClass,
-  //     weekend: data.weekendClass,
-  //   }
-  //   const tutors = data.tutors.map((obj) => obj.value)
-  //   const files = [...data.files]
-
-  //   formData.append(`title`, data.title)
-  //   formData.append(`description`, data.description)
-
-  //   Object.keys(duration).forEach((key) => {
-  //     if (typeof duration[key] !== 'object')
-  //       formData.append(`duration[${key}]`, duration[key])
-  //     else formData.append(key, JSON.stringify(duration[key]))
-  //   })
-
-  //   files.forEach((item) => formData.append('files', item))
-  //   tutors.forEach((item) => formData.append('tutors[]', item))
-
-  //   try {
-  //     await CreateCourse(formData).unwrap()
-  //   } catch (err) {
-  //     console.log(err)
-  //   }
-  // }
-  // ================================================================================
-
-  // due to the error gotten from the response above...we went with the axios alternative
   const onSubmit = async (data) => {
     const formData = new FormData()
     const duration = {
@@ -105,16 +70,7 @@ const CreateCourse = () => {
       weekday: data.weekdayClass,
       weekend: data.weekendClass,
     }
-
-    const onlineTutors = data.onlineTutors.map((obj) => obj.value)
-    const weekdayTutors = data.weekdayTutors.map((obj) => obj.value)
-    const weekendTutors = data.weekendTutors.map((obj) => obj.value)
-
-    const tutors = {
-      online: [...onlineTutors],
-      weekday: [...weekdayTutors],
-      weekend: [...weekendTutors],
-    }
+    const tutors = data.tutors.map((obj) => obj.value)
     const files = [...data.files]
 
     formData.append(`title`, data.title)
@@ -125,15 +81,8 @@ const CreateCourse = () => {
         formData.append(`duration[${key}]`, duration[key])
       else formData.append(key, JSON.stringify(duration[key]))
     })
-
     files.forEach((item) => formData.append('files', item))
-
-    Object.keys(tutors).forEach((key) => {
-      if (typeof tutors[key] === 'object')
-        tutors[key].forEach((tutor, index) => {
-          formData.append(`tutors[${key}][${index}]`, tutor)
-        })
-    })
+    tutors.forEach((item) => formData.append('tutors[]', item))
 
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
@@ -141,8 +90,10 @@ const CreateCourse = () => {
       )
 
       const res = await axios.post(`${baseUrl}/course`, formData, credentials)
+      console.log(res)
       res.status === 201 ? modal.show() : null
     } catch (err) {
+      console.log(err.response.data.message)
       setErrorMessage(err.response.data.message)
       toast.show()
     }
@@ -178,6 +129,7 @@ const CreateCourse = () => {
               </label>
               <div className={style.inputs}>
                 <input
+                  defaultValue={`java`}
                   placeholder='Placeholder Text'
                   type='text'
                   className='form-control form-control-lg'
@@ -196,6 +148,7 @@ const CreateCourse = () => {
               </label>
               <div className={style.inputs}>
                 <textarea
+                  defaultValue={`?`}
                   placeholder='Placeholder Text'
                   type='text'
                   className='form-control form-control-lg'
@@ -221,6 +174,7 @@ const CreateCourse = () => {
                     <label htmlFor='online'>online</label>
                     <select
                       id='online'
+                      defaultValue={`5 weeks`}
                       className='form-select form-select-lg mt-2'
                       aria-label='.form-select-lg example'
                       {...register('onlineClass')}
@@ -236,6 +190,7 @@ const CreateCourse = () => {
                     <label htmlFor='weekday'>weekday</label>
                     <select
                       id='weekday'
+                      value='5 weeks'
                       className='form-select form-select-lg mt-2'
                       aria-label='.form-select-lg example'
                       {...register('weekdayClass')}
@@ -251,6 +206,7 @@ const CreateCourse = () => {
                     <label htmlFor='weekend'>weekend</label>
                     <select
                       id='weekend'
+                      defaultValue={`5 weeks`}
                       className='form-select form-select-lg mt-2'
                       aria-label='.form-select-lg example'
                       {...register('weekendClass')}
@@ -274,16 +230,16 @@ const CreateCourse = () => {
               </label>
               <div className={style.inputs}>
                 <div>
-                  <label htmlFor='online'>online</label>
+                  {/* <label htmlFor='online'>online</label> */}
                   <Controller
-                    name='onlineTutors'
+                    name='tutors'
                     control={control}
                     render={({ field }) => {
                       return (
                         <>
                           <Select
                             className='reactSelect my-2'
-                            name='onlineTutors'
+                            name='tutors'
                             placeholder='Select Tutors'
                             options={tutors}
                             isMulti
@@ -294,19 +250,19 @@ const CreateCourse = () => {
                     }}
                   />
                 </div>
-                <div>
+                {/* <div>
                   <label htmlFor='weekday'>weekday</label>
                   <Controller
-                    name='weekdayTutors'
+                    name='tutors-weekday'
                     control={control}
                     render={({ field }) => {
                       return (
                         <>
                           <Select
                             className='reactSelect my-2'
-                            name='weekdayTutors'
+                            name='tutors-weekday'
                             placeholder='Select Tutors'
-                            options={tutors}
+                            options={selectOptions}
                             isMulti
                             {...field}
                           />
@@ -314,20 +270,20 @@ const CreateCourse = () => {
                       )
                     }}
                   />
-                </div>
-                <div>
+                </div> */}
+                {/* <div>
                   <label htmlFor='weekend'>weekend</label>
                   <Controller
-                    name='weekendTutors'
+                    name='tutors-weekend'
                     control={control}
                     render={({ field }) => {
                       return (
                         <>
                           <Select
                             className='reactSelect mt-2'
-                            name='weekendTutors'
+                            name='tutors-weekend'
                             placeholder='Select Tutors'
-                            options={tutors}
+                            options={selectOptions}
                             isMulti
                             {...field}
                           />
@@ -335,7 +291,7 @@ const CreateCourse = () => {
                       )
                     }}
                   />
-                </div>
+                </div> */}
               </div>
             </div>
             {/* file chooser */}
@@ -354,16 +310,6 @@ const CreateCourse = () => {
                   }
                 >
                   <input type='file' multiple {...register('files')} />
-                  {/* <section className='w-100'>
-                    <div {...getRootProps({ className: 'dropzone' })}>
-                      <input {...getInputProps()} />
-                      <p>Drag drop some files here, or click to select files</p>
-                    </div>
-                    <aside>
-                      <h4>Files</h4>
-                      <ul>{files}</ul>
-                    </aside>
-                  </section> */}
                 </div>
               </div>
             </section>
@@ -386,36 +332,4 @@ const CreateCourse = () => {
   )
 }
 
-export default CreateCourse
-
-{
-  /* <Multiselect
-                            style={{
-                              chips: {
-                                gap: `1rem`,
-                                background: `#0266F41A`,
-                                padding: `0.7rem 1rem`,
-                                color: `#0266F4`,
-                                border: `1px solid #0266F4`,
-                                borderRadius: 5,
-                              },
-                              inputField: {
-                                marginInline: `1rem`,
-                              },
-                              multiselectContainer: {
-                                borderRadius: 5,
-                              },
-                            }}
-                            showArrow
-                            name='tutors'
-                            placeholder='select tutor'
-                            options={options}
-                            displayValue={`name`}
-                            customCloseIcon={
-                              <Icon
-                                width={`1.3rem`}
-                                icon={`mdi:close-circle-outline`}
-                              />
-                            }
-                          /> */
-}
+export default EditCourse

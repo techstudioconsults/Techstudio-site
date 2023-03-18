@@ -3,21 +3,20 @@ import { AvatarStack } from '../../../../../components'
 import { Icon } from '@iconify/react'
 import { DASHBOARD_CONTENT } from '../../../../../layout/Layout/dashboardLayout/content'
 import style from '../adminCourse.module.scss'
+import PropTypes from 'prop-types'
 
-const CourseDetails = () => {
+const CourseDetails = ({ courseDetails }) => {
+  const { title, description, tutors, duration } = courseDetails
   const { imageList } = DASHBOARD_CONTENT
+
+  // id === courseID ? setActive(true) : setActive(false)
+  // id === courseDetails.id ? console.log(true) : console.log(false)
+
   return (
     <div className={style.courseDetails}>
       <div className={style.courseBanner}>
-        <p className={`${style.title} fw-bold mb-3`}>
-          Javascript Fullstack Web Development
-        </p>
-        <p className={style.text}>
-          Lorem ipsum dolor sit amet consectetur. Tristique sagittis nibh sit
-          facilisis malesuada. Augue massa ultricies a donec. Odio sed augue.
-          Lorem ipsum dolor sit amet consectetur. Tristique sagittis nibh sit
-          facilisis malesuada. Augue massa ultricies a donec. Odio sed augue.
-        </p>
+        <p className={`${style.title} fw-bold mb-3`}>{title}</p>
+        <p className={style.text}>{description}</p>
       </div>
       <div>
         <table className='table'>
@@ -58,44 +57,56 @@ const CourseDetails = () => {
           <tbody>
             <tr>
               <td>
-                <div className='text-white'>4 Months</div>
+                <div className='text-white'>{duration?.online} weeks</div>
                 <div>(online)</div>
               </td>
               <td>
-                <AvatarStack dontShowMore imageList={imageList} />
+                <AvatarStack
+                  tutors={tutors?.online}
+                  dontShowMore
+                  imageList={imageList}
+                />
                 {/* <span>(online)</span> */}
               </td>
               <td>
-                <div className='text-white'>4 Classes</div>
+                <div className='text-white'>N/A</div>
                 <div>(online)</div>
               </td>
             </tr>
             <tr>
               <td>
-                <div className='text-white'>4 Months</div>
-                <div>(online)</div>
+                <div className='text-white'>{duration?.weekday} weeks</div>
+                <div>(weekday)</div>
               </td>
               <td>
-                <AvatarStack dontShowMore imageList={imageList} />
+                <AvatarStack
+                  tutors={tutors?.weekday}
+                  dontShowMore
+                  imageList={imageList}
+                />
                 {/* <span>(online)</span> */}
               </td>
               <td>
-                <div className='text-white'>2 Classes</div>
-                <div>(online)</div>
+                <div className='text-white'>N/A</div>
+                <div>(weekday)</div>
               </td>
             </tr>
             <tr>
               <td>
-                <div className='text-white'>6 Months</div>
-                <div>(online)</div>
+                <div className='text-white'>{duration?.weekend} weeks</div>
+                <div>(weekend)</div>
               </td>
               <td>
-                <AvatarStack dontShowMore imageList={imageList} />
+                <AvatarStack
+                  tutors={tutors?.weekend}
+                  dontShowMore
+                  imageList={imageList}
+                />
                 {/* <span>(online)</span> */}
               </td>
               <td>
-                <div className='text-white'>2 Classes</div>
-                <div>(online)</div>
+                <div className='text-white'>N/A</div>
+                <div>(weekend)</div>
               </td>
             </tr>
           </tbody>
@@ -103,6 +114,11 @@ const CourseDetails = () => {
       </div>
     </div>
   )
+}
+
+CourseDetails.propTypes = {
+  courseDetails: PropTypes.object,
+  courseID: PropTypes.string,
 }
 
 export default CourseDetails

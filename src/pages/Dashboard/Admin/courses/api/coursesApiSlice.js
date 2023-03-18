@@ -1,5 +1,5 @@
 import { apiSlice } from '../../../../../app/api/apiSlice'
-import { setCourses } from './coursesSlice'
+import { setCourseDetails, setCourses } from './coursesSlice'
 
 export const coursesApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -33,11 +33,44 @@ export const coursesApiSlice = apiSlice.injectEndpoints({
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled
+          console.log(data)
           dispatch(
             setCourses({
               courses: data.data.courses,
             })
           )
+        } catch (err) {
+          console.log(err)
+        }
+      },
+    }),
+    viewCoursesDetails: builder.mutation({
+      query: (courseID) => ({
+        url: `/course/${courseID}`,
+        method: 'GET',
+      }),
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled
+          dispatch(
+            setCourseDetails({
+              courseDetails: data.data.course,
+            })
+          )
+        } catch (err) {
+          console.log(err)
+        }
+      },
+    }),
+    deleteCourse: builder.mutation({
+      query: (courseID) => ({
+        url: `/course/${courseID}`,
+        method: 'DELETE',
+      }),
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled
+          console.log(data)
         } catch (err) {
           console.log(err)
         }
@@ -50,4 +83,6 @@ export const {
   useCreateCourseMutation,
   useGetTutorsMutation,
   useViewAllCoursesMutation,
+  useViewCoursesDetailsMutation,
+  useDeleteCourseMutation,
 } = coursesApiSlice

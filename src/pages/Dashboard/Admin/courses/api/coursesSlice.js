@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const STATE = { courses: null }
+const STATE = { courses: [], courseDetails: {} }
 
 const COURSES_SLICE = {
   name: 'courses',
@@ -10,13 +10,18 @@ const COURSES_SLICE = {
       const { courses } = action.payload
       state.courses = courses
     },
+    setCourseDetails: (state, action) => {
+      const { courseDetails } = action.payload
+      state.courseDetails = courseDetails
+    },
   },
 }
 
 const coursesSlice = createSlice(COURSES_SLICE)
 
-export const { setCourses } = coursesSlice.actions
+export const { setCourses, setCourseDetails } = coursesSlice.actions
 
 export default coursesSlice.reducer
 
 export const selectCourses = (state) => state.courses.courses
+export const selectCourseDetails = (state) => state.courses.courseDetails
