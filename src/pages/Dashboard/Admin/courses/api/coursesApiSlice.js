@@ -19,6 +19,22 @@ export const coursesApiSlice = apiSlice.injectEndpoints({
         }
       },
     }),
+    // updateCourse: builder.mutation({
+    //   query: (credentials) => ({
+    //     url: `/course${}`,
+    //     method: 'PATCH',
+    //     Headers: { 'Content-type': 'multipart/form-data' },
+    //     body: { ...credentials },
+    //   }),
+    //   async onQueryStarted(arg, { queryFulfilled }) {
+    //     try {
+    //       const { data } = await queryFulfilled
+    //       console.log(data)
+    //     } catch (err) {
+    //       console.log(err)
+    //     }
+    //   },
+    // }),
     getTutors: builder.mutation({
       query: () => ({
         url: '/course/tutors',

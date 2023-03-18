@@ -26,7 +26,8 @@ const CourseList = ({ course }) => {
 
   const handleDeleteCourse = async () => {
     const res = await deleteCourse(id).unwrap()
-    console.log(res)
+    // console.log(res.status)
+    console.log(res.statusCode)
   }
 
   return (
@@ -106,7 +107,7 @@ const CourseList = ({ course }) => {
         </div>
         <ul className={`dropdown-menu ${style.dropdown}`}>
           <div className='d-flex align-items-center px-3'>
-            <Link to={`/admin/courses/edit`}>
+            <Link to={`/admin/courses/${id}/edit`} state={{ course }}>
               <Icon
                 width={`1.1rem`}
                 icon={`material-symbols:edit`}

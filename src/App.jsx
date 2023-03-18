@@ -104,7 +104,7 @@ const App = () => {
               />
               <Route path='/admin/courses' element={<AdminCourseView />} />
               <Route path='/admin/courses/create' element={<CreateCourse />} />
-              <Route path='/admin/courses/edit' element={<EditCourse />} />
+              <Route path='/admin/courses/:id/edit' element={<EditCourse />} />
               <Route path='/admin/classes' element={<AdminClassView />} />
             </Route>
           </Route>

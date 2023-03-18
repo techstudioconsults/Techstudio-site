@@ -17,16 +17,32 @@ import { selectCurrentToken } from '../../../../Auth/api/authSlice'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { useCallback, useEffect, useState } from 'react'
 import useToast from '../../../../../hooks/useToast'
+import { useLocation } from 'react-router-dom'
+import SelectDropdown from '../../../../../components/global/select/SelectDropdown'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
-const EditCourse = () => {
+const CreateCourse = () => {
   const [tutors, setTutors] = useState([])
   const [errorMessage, setErrorMessage] = useState(null)
   const { toast } = useToast()
-
+  const {
+    state: { course },
+  } = useLocation()
   const [getTutors] = useGetTutorsMutation()
   const token = useSelector(selectCurrentToken)
+
+  const {
+    reset,
+    register,
+    handleSubmit,
+    control,
+    formState: { isSubmitSuccessful },
+  } = useForm({
+    criteriaMode: 'all',
+    mode: 'onChange',
+  })
+
   const credentials = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -46,33 +62,65 @@ const EditCourse = () => {
     findTutors()
   }, [findTutors])
 
-  const {
-    reset,
-    register,
-    handleSubmit,
-    control,
-    formState: { isSubmitSuccessful },
-  } = useForm({
-    criteriaMode: 'all',
-    mode: 'onChange',
-  })
-
   useEffect(() => {
     if (isSubmitSuccessful) {
       reset()
     }
   }, [isSubmitSuccessful, reset])
 
+  const prevOnlineTutors = course.tutors.online.map((tutor) => {
+    return {
+      value: tutor.tutorId,
+      label: `${tutor.firstName} ${tutor.lastName}`,
+    }
+  })
+  const prevWeekdayTutors = course.tutors.weekday.map((tutor) => {
+    return {
+      value: tutor.tutorId,
+      label: `${tutor.firstName} ${tutor.lastName}`,
+    }
+  })
+  const prevWeekendTutors = course.tutors.weekend.map((tutor) => {
+    return {
+      value: tutor.tutorId,
+      label: `${tutor.firstName} ${tutor.lastName}`,
+    }
+  })
+
   const onSubmit = async (data) => {
     const formData = new FormData()
+    let onlineTutors
+    let weekdayTutors
+    let weekendTutors
+
+    console.log(data)
+
+    // ===== data structure =============
     const duration = {
       online: data.onlineClass,
       weekday: data.weekdayClass,
       weekend: data.weekendClass,
     }
-    const tutors = data.tutors.map((obj) => obj.value)
-    const files = [...data.files]
 
+    data.onlineTutors
+      ? (onlineTutors = data.onlineTutors?.map((obj) => obj.value))
+      : (onlineTutors = prevOnlineTutors?.map((obj) => obj.value))
+    data.weekdayTutors
+      ? (weekdayTutors = data.weekdayTutors?.map((obj) => obj.value))
+      : (weekdayTutors = prevWeekdayTutors?.map((obj) => obj.value))
+    data.weekendTutors
+      ? (weekendTutors = data.weekendTutors?.map((obj) => obj.value))
+      : (weekendTutors = prevWeekendTutors?.map((obj) => obj.value))
+
+    const tutors = {
+      online: [...onlineTutors],
+      weekday: [...weekdayTutors],
+      weekend: [...weekendTutors],
+    }
+    const files = [...data.files]
+    // =====end of data structure =============
+
+    // ================= form data creation ======================
     formData.append(`title`, data.title)
     formData.append(`description`, data.description)
 
@@ -81,19 +129,33 @@ const EditCourse = () => {
         formData.append(`duration[${key}]`, duration[key])
       else formData.append(key, JSON.stringify(duration[key]))
     })
+
     files.forEach((item) => formData.append('files', item))
-    tutors.forEach((item) => formData.append('tutors[]', item))
+
+    Object.keys(tutors).forEach((key) => {
+      if (typeof tutors[key] === 'object')
+        tutors[key].forEach((tutor, index) => {
+          formData.append(`tutors[${key}][${index}]`, tutor)
+        })
+    })
+
+    // Display the key/value pairs
+    for (var pair of formData.entries()) {
+      console.log(pair[0] + ', ' + pair[1])
+    }
 
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
         document.getElementById('feedback')
       )
 
-      const res = await axios.post(`${baseUrl}/course`, formData, credentials)
-      console.log(res)
-      res.status === 201 ? modal.show() : null
+      const res = await axios.patch(
+        `${baseUrl}/course/${course.id}`,
+        formData,
+        credentials
+      )
+      res.status === 200 ? modal.show() : null
     } catch (err) {
-      console.log(err.response.data.message)
       setErrorMessage(err.response.data.message)
       toast.show()
     }
@@ -112,9 +174,9 @@ const EditCourse = () => {
       </Portal>
       <div className={style.dashboardDisplay}>
         <div className={style.header}>
-          <h4 className={[style.title, `mb-0`].join(' ')}>Create Courses</h4>
+          <h4 className={[style.title, `mb-0`].join(' ')}>Edit Course</h4>
           <p className={style.subTitle}>
-            Fill in the fields below to create a new course.
+            Fill in the fields below to edit the {course.title} course
           </p>
         </div>
         <div className='my-10'>
@@ -129,7 +191,7 @@ const EditCourse = () => {
               </label>
               <div className={style.inputs}>
                 <input
-                  defaultValue={`java`}
+                  defaultValue={course.title}
                   placeholder='Placeholder Text'
                   type='text'
                   className='form-control form-control-lg'
@@ -148,7 +210,7 @@ const EditCourse = () => {
               </label>
               <div className={style.inputs}>
                 <textarea
-                  defaultValue={`?`}
+                  defaultValue={course.description}
                   placeholder='Placeholder Text'
                   type='text'
                   className='form-control form-control-lg'
@@ -174,7 +236,6 @@ const EditCourse = () => {
                     <label htmlFor='online'>online</label>
                     <select
                       id='online'
-                      defaultValue={`5 weeks`}
                       className='form-select form-select-lg mt-2'
                       aria-label='.form-select-lg example'
                       {...register('onlineClass')}
@@ -190,7 +251,6 @@ const EditCourse = () => {
                     <label htmlFor='weekday'>weekday</label>
                     <select
                       id='weekday'
-                      value='5 weeks'
                       className='form-select form-select-lg mt-2'
                       aria-label='.form-select-lg example'
                       {...register('weekdayClass')}
@@ -206,7 +266,6 @@ const EditCourse = () => {
                     <label htmlFor='weekend'>weekend</label>
                     <select
                       id='weekend'
-                      defaultValue={`5 weeks`}
                       className='form-select form-select-lg mt-2'
                       aria-label='.form-select-lg example'
                       {...register('weekendClass')}
@@ -230,16 +289,40 @@ const EditCourse = () => {
               </label>
               <div className={style.inputs}>
                 <div>
-                  {/* <label htmlFor='online'>online</label> */}
+                  <label htmlFor='online'>online</label>
                   <Controller
-                    name='tutors'
+                    name='onlineTutors'
                     control={control}
                     render={({ field }) => {
                       return (
                         <>
                           <Select
+                            name='onlineTutors'
+                            options={tutors}
                             className='reactSelect my-2'
-                            name='tutors'
+                            placeholder='Select Tutors'
+                            defaultValue={prevOnlineTutors}
+                            isMulti
+                            {...field}
+                          />
+                          {/* <SelectDropdown /> */}
+                        </>
+                      )
+                    }}
+                  />
+                </div>
+                <div>
+                  <label htmlFor='weekday'>weekday</label>
+                  <Controller
+                    name='weekdayTutors'
+                    control={control}
+                    render={({ field }) => {
+                      return (
+                        <>
+                          <Select
+                            defaultValue={prevWeekdayTutors}
+                            className='reactSelect my-2'
+                            name='weekdayTutors'
                             placeholder='Select Tutors'
                             options={tutors}
                             isMulti
@@ -250,40 +333,20 @@ const EditCourse = () => {
                     }}
                   />
                 </div>
-                {/* <div>
-                  <label htmlFor='weekday'>weekday</label>
-                  <Controller
-                    name='tutors-weekday'
-                    control={control}
-                    render={({ field }) => {
-                      return (
-                        <>
-                          <Select
-                            className='reactSelect my-2'
-                            name='tutors-weekday'
-                            placeholder='Select Tutors'
-                            options={selectOptions}
-                            isMulti
-                            {...field}
-                          />
-                        </>
-                      )
-                    }}
-                  />
-                </div> */}
-                {/* <div>
+                <div>
                   <label htmlFor='weekend'>weekend</label>
                   <Controller
-                    name='tutors-weekend'
+                    name='weekendTutors'
                     control={control}
                     render={({ field }) => {
                       return (
                         <>
                           <Select
+                            defaultValue={prevWeekendTutors}
                             className='reactSelect mt-2'
-                            name='tutors-weekend'
+                            name='weekendTutors'
                             placeholder='Select Tutors'
-                            options={selectOptions}
+                            options={tutors}
                             isMulti
                             {...field}
                           />
@@ -291,7 +354,7 @@ const EditCourse = () => {
                       )
                     }}
                   />
-                </div> */}
+                </div>
               </div>
             </div>
             {/* file chooser */}
@@ -332,4 +395,4 @@ const EditCourse = () => {
   )
 }
 
-export default EditCourse
+export default CreateCourse
