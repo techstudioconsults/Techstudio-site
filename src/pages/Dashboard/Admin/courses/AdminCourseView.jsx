@@ -7,15 +7,18 @@ import {
   AvatarDropdown,
   Button,
   CalendarOffCanvas,
+  SkeletonLoader,
 } from '../../../../components'
 import style from './adminCourse.module.scss'
 import { useViewAllCoursesMutation } from './api/coursesApiSlice'
 import { selectCourseDetails, selectCourses } from './api/coursesSlice'
 import CourseDetails from './courseDetails/CourseDetails'
 import CourseList from './courseList/CourseList'
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const AdminCourseView = () => {
-  const [viewAllCourses] = useViewAllCoursesMutation()
+  const [viewAllCourses, { isLoading }] = useViewAllCoursesMutation()
   const [isShowDetails, setShowDetails] = useState(false)
   const courses = useSelector(selectCourses)
   const courseDetails = useSelector(selectCourseDetails)
@@ -83,7 +86,9 @@ const AdminCourseView = () => {
               <p>Tutors</p>
             </div>
           </div>
-          <div className='mt-5 d-flex flex-column gap-5'>{courseList}</div>
+          <div className='mt-5 d-flex flex-column gap-5'>
+            {isLoading ? <SkeletonLoader /> : courseList}
+          </div>
         </div>
       </div>
       <div className={style.notification}>
