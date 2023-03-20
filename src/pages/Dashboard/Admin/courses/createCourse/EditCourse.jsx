@@ -3,6 +3,7 @@
 
 import {
   AvatarDropdown,
+  CancelModal,
   Portal,
   Save,
   ToastComponent,
@@ -232,6 +233,14 @@ const CreateCourse = () => {
     }
   }
 
+  const handleCancelAction = (event) => {
+    event.stopPropagation()
+    let modal = bootstrap.Modal.getOrCreateInstance(
+      document.getElementById('cancel-modal')
+    )
+    modal.show()
+  }
+
   return (
     <section className={style.courseView}>
       <Portal wrapperId='react-portal-modal-container'>
@@ -248,6 +257,8 @@ const CreateCourse = () => {
           saveCourse={handleSubmit(onSubmit)}
           isSave={isSave}
         />
+
+        <CancelModal />
       </Portal>
       <div className={style.dashboardDisplay}>
         <div className={style.header}>
@@ -483,7 +494,13 @@ const CreateCourse = () => {
                 />
                 {isLoading ? `Please wait...` : `Save Change`}
               </button>
-              <button className='btn btn-outline-danger w-25'>Cancel</button>
+              <button
+                type='button'
+                onClick={handleCancelAction}
+                className='btn btn-outline-danger w-25 dont-delete-btn'
+              >
+                Cancel
+              </button>
             </div>
           </form>
         </div>

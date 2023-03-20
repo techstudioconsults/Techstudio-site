@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 
 // STYLES
 import './index.scss'
+import './scss/custom/bs-custom.css'
 // COMPONENTS
 import App from './App'
 // import 'bootstrap/dist/js/bootstrap.bundle.min'

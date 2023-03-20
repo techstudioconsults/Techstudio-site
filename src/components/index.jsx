@@ -47,6 +47,7 @@ export { default as FileChooser } from './global/fileChooser/FileChooser'
 export { default as Save } from './global/modals/Save'
 export { default as SaveSuccess } from './global/modals/SaveSuccess'
 export { default as DeleteModal } from './global/modals/DeleteModal'
+export { default as CancelModal } from './global/modals/CancelModal'
 export { default as SkeletonLoader } from './global/skeletonLoader/SkeletonLoader'
 
 // HOME

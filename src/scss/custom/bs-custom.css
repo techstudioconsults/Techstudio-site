@@ -4,3 +4,17 @@
   border-radius: 0;
   border-bottom: 2px solid #0266f4;
 }
+
+.dont-delete-btn:hover,
+.dont-delete-btn:active,
+.dont-delete-btn:focus {
+  background-color: transparent;
+  color: #E00017;
+}
+
+.cancel-btn:hover,
+.cancel-btn:active,
+.cancel-btn:focus {
+  background-color: transparent;
+  color: #0266f4;
+}

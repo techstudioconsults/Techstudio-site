@@ -64,7 +64,7 @@ const DeleteModal = ({ content }) => {
                 hidden={isDeleted}
                 data-bs-dismiss='modal'
                 aria-label='Close'
-                className={`btn btn-outline-danger w-50`}
+                className={`btn btn-outline-danger w-50 dont-delete-btn`}
               >
                 No
               </button>

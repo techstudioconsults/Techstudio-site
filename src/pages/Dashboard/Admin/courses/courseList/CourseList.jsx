@@ -132,7 +132,7 @@ const CourseList = ({ course, showDetailsBox }) => {
       </div>
       <div className='dropdown' onClick={(event) => event.stopPropagation()}>
         <div
-          className='dropdown-toggle p-0'
+          className='dropdown-toggle p-0 mt-9'
           data-bs-toggle='dropdown'
           data-bs-offset='-140,10'
           aria-expanded='false'
@@ -153,7 +153,6 @@ const CourseList = ({ course, showDetailsBox }) => {
           <hr className='my-2' />
           <div
             onClick={handleDeleteModal}
-            // onClick={deleteCoursers}
             className='d-flex align-items-center text-danger px-3'
           >
             <Icon
