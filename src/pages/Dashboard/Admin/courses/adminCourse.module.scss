@@ -4,7 +4,12 @@
 @import '../../../../scss/utils/mixins';
 
 .courseView {
-  // border: 1px solid red;
+  background-image: url('../../../../assets/images/512\ 1.png');
+  background-position: right;
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-color: colors.$light;
+  background-attachment: fixed;
   @include flex;
 
   .dashboardDisplay {
@@ -14,7 +19,7 @@
       padding: fn.rem(32);
     }
     @include breakpoint-up('xl') {
-      width: 65%;
+      width: 60%;
     }
 
     .header {
@@ -38,11 +43,6 @@
       }
     }
 
-    .courseList {
-      border: 1px solid colors.$light-blue !important;
-      border-left: 5px solid colors.$light-blue !important;
-    }
-
     .noActive {
       border: 1px solid red !important;
     }
@@ -55,6 +55,9 @@
 
     .tableHeadTitle {
       flex: 2;
+      p {
+        color: colors.$deep-blue;
+      }
     }
 
     .tableHead {
@@ -73,7 +76,7 @@
   }
 
   .notification {
-    width: 35%;
+    width: 40%;
     padding: fn.rem(32) fn.rem(16);
     position: sticky;
     top: 0;
@@ -86,33 +89,65 @@
       gap: fn.rem(85);
     }
   }
-  .courseDetails {
-    padding: fn.rem(32);
-    border-radius: fn.rem(10);
-    background-color: colors.$deep-blue;
-    color: colors.$light;
-    height: 100%;
-    font-size: fn.rem(10);
+}
+// ============================================
+.courseDetails {
+  padding: fn.rem(32);
+  border-radius: fn.rem(10);
+  background-color: colors.$deep-blue;
+  color: colors.$light;
+  height: 100%;
+  font-size: fn.rem(10);
+  opacity: 0;
+  overflow: scroll;
 
-    @include breakpoint-up('lg') {
-      font-size: fn.rem(14);
-    }
+  @include breakpoint-up('lg') {
+    font-size: fn.rem(14);
+  }
 
-    .courseBanner {
-      color: colors.$deep-blue;
-      padding: fn.rem(16);
-      background-color: colors.$light-blue-II;
-      border: 1px solid colors.$blue;
-      border-radius: fn.rem(20) fn.rem(20) fn.rem(20) 0;
-      margin-bottom: fn.rem(32);
-      .text {
-        color: colors.$gray;
-        font-size: fn.rem(10);
-        line-height: fn.rem(19);
-        @include breakpoint-up('lg') {
-          font-size: fn.rem(14);
-        }
+  .courseBanner {
+    color: colors.$deep-blue;
+    padding: fn.rem(16);
+    background-color: colors.$light-blue-II;
+    border: 1px solid colors.$blue;
+    border-radius: fn.rem(20) fn.rem(20) fn.rem(20) 0;
+    margin-bottom: fn.rem(32);
+    .text {
+      color: colors.$gray;
+      font-size: fn.rem(10);
+      line-height: fn.rem(19);
+      @include breakpoint-up('lg') {
+        font-size: fn.rem(14);
       }
     }
+  }
+}
+
+.courseDetails.show {
+  animation: showDetails 1s forwards;
+}
+
+@keyframes showDetails {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.courseList {
+  border-left: 5px solid colors.$light;
+  // border: 1px solid colors.$deep-blue;
+  // border-left: 5px solid colors.$deep-blue;
+  &:hover {
+    border: 1px solid colors.$light-blue;
+    border-left: 5px solid colors.$light-blue;
+  }
+  &:focus {
+    border: 1px solid colors.$light-blue !important;
+    border-left: 5px solid colors.$light-blue !important;
   }
 }

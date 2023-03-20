@@ -5,6 +5,7 @@ import {
   AvatarDropdown,
   Feedback,
   Portal,
+  Save,
   ToastComponent,
 } from '../../../../../components'
 import style from './createCourse.module.scss'
@@ -21,8 +22,54 @@ import { useLocation } from 'react-router-dom'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
+const colorStyles = {
+  control: (styles) => ({
+    ...styles,
+    backgroundColor: 'white',
+  }),
+  multiValue: (styles) => {
+    return {
+      ...styles,
+      backgroundColor: `#0266F41A`,
+      color: '#A7A7A7',
+      padding: `5px`,
+      border: `1px solid #0266F4`,
+      borderRadius: `5px`,
+      marginRight: `10px`,
+    }
+  },
+  multiValueRemove: (styles) => {
+    return {
+      ...styles,
+      color: '#0266F4',
+      cursor: 'pointer',
+      ':hover': {
+        color: '#0266F41',
+      },
+    }
+  },
+}
+
+const durationSelectInput = {
+  control: (styles) => ({
+    ...styles,
+    backgroundColor: 'white',
+    width: `168px`,
+  }),
+}
+
+const durationInWeeks = [
+  { value: '1', label: '1 week' },
+  { value: '2', label: '2 weeks' },
+  { value: '3', label: '3 weeks' },
+  { value: '4', label: '4 weeks' },
+  { value: '5', label: '5 weeks' },
+]
+
 const CreateCourse = () => {
   const [tutors, setTutors] = useState([])
+  const [isLoading, setLoading] = useState(false)
+  const [isSave, setSave] = useState(false)
   const [errorMessage, setErrorMessage] = useState(null)
   const { toast } = useToast()
   const {
@@ -67,6 +114,22 @@ const CreateCourse = () => {
     }
   }, [isSubmitSuccessful, reset])
 
+  const prevOnlineDuration = [
+    { value: course.duration.online, label: `${course.duration.online} weeks` },
+  ]
+  const prevWeekdayDuration = [
+    {
+      value: course.duration.weekday,
+      label: `${course.duration.weekday} weeks`,
+    },
+  ]
+  const prevWeekendDuration = [
+    {
+      value: course.duration.weekend,
+      label: `${course.duration.weekend} weeks`,
+    },
+  ]
+
   const prevOnlineTutors = course.tutors.online.map((tutor) => {
     return {
       value: tutor.tutorId,
@@ -87,6 +150,7 @@ const CreateCourse = () => {
   })
 
   const onSubmit = async (data) => {
+    setLoading(true)
     const formData = new FormData()
     let onlineTutors
     let weekdayTutors
@@ -94,9 +158,9 @@ const CreateCourse = () => {
 
     // ===== data structure =============
     const duration = {
-      online: data.onlineClass,
-      weekday: data.weekdayClass,
-      weekend: data.weekendClass,
+      online: data.onlineClass?.value || prevOnlineDuration[0].value,
+      weekday: data.weekdayClass?.value || prevWeekdayDuration[0].value,
+      weekend: data.weekendClass?.value || prevWeekendDuration[0].value,
     }
 
     data.onlineTutors
@@ -136,37 +200,62 @@ const CreateCourse = () => {
         })
     })
 
-    // Display the key/value pairs
-    for (var pair of formData.entries()) {
-      console.log(pair[0] + ', ' + pair[1])
-    }
-
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
-        document.getElementById('feedback')
+        document.getElementById('save-modal')
       )
-
+      setSave(false)
       const res = await axios.patch(
         `${baseUrl}/course/${course.id}`,
         formData,
         credentials
       )
-      res.status === 200 ? modal.show() : null
+      if (res.status === 200) {
+        setLoading(false)
+        setSave(true)
+        modal.show()
+      }
     } catch (err) {
       setErrorMessage(err.response.data.message)
       toast.show()
     }
   }
 
+  const handleSaveModal = (event) => {
+    event.preventDefault()
+    try {
+      let modal = bootstrap.Modal.getOrCreateInstance(
+        document.getElementById('save-modal')
+      )
+      modal.show()
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  // const handleSaveCourse = async () => {
+  //   setSave(false)
+  //   // const res = await deleteCourse(id).unwrap()
+  //   // if (res.success) {
+  //   //   setSave(true)
+  //   // }
+  // }
+
   return (
     <section className={style.courseView}>
       <Portal wrapperId='react-portal-modal-container'>
         <ToastComponent errorMessage={errorMessage} />
-        <Feedback
+        <Save
           content={{
-            title: `Changes Saved Successfully!`,
+            title: `${
+              isSave
+                ? `Changes Saved Successfully!`
+                : `Are you sure you want to save changes?`
+            }`,
             desc: `Your changes have been saved successfully. Kindly click continue to exit this page.`,
           }}
+          saveCourse={handleSubmit(onSubmit)}
+          isSave={isSave}
         />
       </Portal>
       <div className={style.dashboardDisplay}>
@@ -177,7 +266,7 @@ const CreateCourse = () => {
           </p>
         </div>
         <div className='my-10'>
-          <form onSubmit={handleSubmit(onSubmit)} encType='multipart/form-data'>
+          <form onSubmit={handleSaveModal} encType='multipart/form-data'>
             {/* title */}
             <div className='mb-8 d-flex align-items-center '>
               <label
@@ -229,7 +318,7 @@ const CreateCourse = () => {
               >
                 <div className='d-flex gap-8'>
                   {/* online */}
-                  <div>
+                  {/* <div>
                     <label htmlFor='online'>online</label>
                     <select
                       id='online'
@@ -242,9 +331,29 @@ const CreateCourse = () => {
                       <option value='3'>3 weeks</option>
                       <option value='4'>4 weeks</option>
                     </select>
+                  </div> */}
+                  <div>
+                    <label className='mb-3' htmlFor='online'>
+                      online
+                    </label>
+                    <Controller
+                      name='onlineClass'
+                      control={control}
+                      render={({ field }) => {
+                        return (
+                          <Select
+                            defaultValue={prevOnlineDuration}
+                            styles={durationSelectInput}
+                            name='onlineClass'
+                            options={durationInWeeks}
+                            {...field}
+                          />
+                        )
+                      }}
+                    />
                   </div>
                   {/* weekday */}
-                  <div>
+                  {/* <div>
                     <label htmlFor='weekday'>weekday</label>
                     <select
                       id='weekday'
@@ -257,9 +366,29 @@ const CreateCourse = () => {
                       <option value='3'>3 weeks</option>
                       <option value='4'>4 weeks</option>
                     </select>
+                  </div> */}
+                  <div>
+                    <label className='mb-3' htmlFor='weekday'>
+                      weekday
+                    </label>
+                    <Controller
+                      name='weekdayClass'
+                      control={control}
+                      render={({ field }) => {
+                        return (
+                          <Select
+                            defaultValue={prevWeekdayDuration}
+                            styles={durationSelectInput}
+                            name='weekdayClass'
+                            options={durationInWeeks}
+                            {...field}
+                          />
+                        )
+                      }}
+                    />
                   </div>
                   {/* weekend */}
-                  <div>
+                  {/* <div>
                     <label htmlFor='weekend'>weekend</label>
                     <select
                       id='weekend'
@@ -272,6 +401,26 @@ const CreateCourse = () => {
                       <option value='3'>3 weeks</option>
                       <option value='4'>4 weeks</option>
                     </select>
+                  </div> */}
+                  <div>
+                    <label className='mb-3' htmlFor='weekend'>
+                      weekend
+                    </label>
+                    <Controller
+                      name='weekendClass'
+                      control={control}
+                      render={({ field }) => {
+                        return (
+                          <Select
+                            defaultValue={prevWeekendDuration}
+                            styles={durationSelectInput}
+                            name='weekendClass'
+                            options={durationInWeeks}
+                            {...field}
+                          />
+                        )
+                      }}
+                    />
                   </div>
                 </div>
               </div>
@@ -294,6 +443,7 @@ const CreateCourse = () => {
                       return (
                         <>
                           <Select
+                            styles={colorStyles}
                             name='onlineTutors'
                             options={tutors}
                             className='reactSelect my-2'
@@ -316,6 +466,7 @@ const CreateCourse = () => {
                       return (
                         <>
                           <Select
+                            styles={colorStyles}
                             defaultValue={prevWeekdayTutors}
                             className='reactSelect my-2'
                             name='weekdayTutors'
@@ -338,6 +489,7 @@ const CreateCourse = () => {
                       return (
                         <>
                           <Select
+                            styles={colorStyles}
                             defaultValue={prevWeekendTutors}
                             className='reactSelect mt-2'
                             name='weekendTutors'
@@ -375,7 +527,12 @@ const CreateCourse = () => {
             {/* CTA */}
             <div className='d-flex gap-10 justify-content-end my-8'>
               <button type='submit' className='btn btn-primary w-25'>
-                Save Change
+                <div
+                  hidden={!isLoading}
+                  className='spinner-border spinner-border-sm me-5 text-white'
+                  role='status'
+                />
+                {isLoading ? `Please wait...` : `Save Change`}
               </button>
               <button className='btn btn-outline-danger w-25'>Cancel</button>
             </div>

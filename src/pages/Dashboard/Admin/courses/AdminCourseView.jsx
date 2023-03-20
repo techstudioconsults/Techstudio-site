@@ -1,4 +1,7 @@
-import React, { useCallback, useEffect } from 'react'
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import React, { useCallback, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import {
   AvatarDropdown,
@@ -13,6 +16,7 @@ import CourseList from './courseList/CourseList'
 
 const AdminCourseView = () => {
   const [viewAllCourses, { isLoading }] = useViewAllCoursesMutation()
+  const [isShowDetails, setShowDetails] = useState(false)
   const courses = useSelector(selectCourses)
   const courseDetails = useSelector(selectCourseDetails)
 
@@ -24,10 +28,15 @@ const AdminCourseView = () => {
     getCourses()
   }, [getCourses])
 
+  const showDetailsBox = () => {
+    setShowDetails(true)
+  }
+
   // map the courses data to the courseslist component
   const courseList = courses?.map((course, index) => {
-    return <CourseList key={index} course={course} />
-    // return <p key={index}>courses</p>
+    return (
+      <CourseList showDetailsBox={showDetailsBox} key={index} course={course} />
+    )
   })
 
   return (
@@ -70,14 +79,16 @@ const AdminCourseView = () => {
               <p>Tutors</p>
             </div>
           </div>
-          <div className='mt-5 d-flex flex-column gap-5'>{courseList}</div>
+          <div className='mt-5 d-flex flex-column gap-5' role='group'>
+            {courseList}
+          </div>
         </div>
       </div>
       <div className={style.notification}>
         <div className='d-flex justify-content-end'>
           <AvatarDropdown />
         </div>
-        <CourseDetails courseDetails={courseDetails} />
+        <CourseDetails show={isShowDetails} courseDetails={courseDetails} />
       </div>
     </section>
   )

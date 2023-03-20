@@ -8,7 +8,11 @@ const AvatarStack = ({ imageList, dontShowMore, tutors }) => {
       // <div key={index} className={style.avatarImg}>
       //   <img src={null} alt='img' className='cc-img-fluid' />
       // </div>
-      <div key={index} className={style.initials}>
+      <div
+        title={`${tutor.firstName} ${tutor.firstName}`}
+        key={index}
+        className={style.initials}
+      >
         <span>{`${tutor.firstName.charAt(0)}.${tutor.lastName.charAt(
           0
         )}`}</span>

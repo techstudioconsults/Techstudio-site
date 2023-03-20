@@ -3,8 +3,8 @@
 
 import {
   AvatarDropdown,
-  Feedback,
   Portal,
+  SaveSuccess,
   ToastComponent,
 } from '../../../../../components'
 import style from './createCourse.module.scss'
@@ -183,7 +183,7 @@ const CreateCourse = () => {
 
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
-        document.getElementById('feedback')
+        document.getElementById('save-success')
       )
 
       const res = await axios.post(`${baseUrl}/course`, formData, credentials)
@@ -197,12 +197,13 @@ const CreateCourse = () => {
       toast.show()
     }
   }
+  // ==============================================================
 
   return (
     <section className={style.courseView}>
       <Portal wrapperId='react-portal-modal-container'>
         <ToastComponent errorMessage={errorMessage} />
-        <Feedback
+        <SaveSuccess
           content={{
             title: `Changes Saved Successfully!`,
             desc: `Your changes have been saved successfully. Kindly click continue to exit this page.`,
@@ -270,7 +271,9 @@ const CreateCourse = () => {
               >
                 {/* online */}
                 <div>
-                  <label htmlFor='online'>online</label>
+                  <label className='mb-3' htmlFor='online'>
+                    online
+                  </label>
                   <Controller
                     name='onlineClass'
                     control={control}
@@ -288,7 +291,9 @@ const CreateCourse = () => {
                 </div>
                 {/* weekday */}
                 <div>
-                  <label htmlFor='weekday'>weekday</label>
+                  <label className='mb-3' htmlFor='weekday'>
+                    weekday
+                  </label>
                   <Controller
                     name='weekdayClass'
                     control={control}
@@ -306,7 +311,9 @@ const CreateCourse = () => {
                 </div>
                 {/* weekend */}
                 <div>
-                  <label htmlFor='weekend'>weekend</label>
+                  <label className='mb-3' htmlFor='weekend'>
+                    weekend
+                  </label>
                   <Controller
                     name='weekendClass'
                     control={control}

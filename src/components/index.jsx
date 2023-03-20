@@ -44,6 +44,9 @@ export { default as Feedback } from './global/modals/Feedback'
 export { default as ToastComponent } from './global/toast/ToastComponent'
 export { default as ForgotPasswordForm } from './global/forms/forgotpassword/ForgotPasswordForm'
 export { default as FileChooser } from './global/fileChooser/FileChooser'
+export { default as Save } from './global/modals/Save'
+export { default as SaveSuccess } from './global/modals/SaveSuccess'
+export { default as DeleteModal } from './global/modals/DeleteModal'
 
 // HOME
 export { default as Hero } from './home/hero'

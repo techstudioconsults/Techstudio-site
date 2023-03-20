@@ -49,7 +49,6 @@ export const coursesApiSlice = apiSlice.injectEndpoints({
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled
-          console.log(data)
           dispatch(
             setCourses({
               courses: data.data.courses,
@@ -83,14 +82,6 @@ export const coursesApiSlice = apiSlice.injectEndpoints({
         url: `/course/${courseID}`,
         method: 'DELETE',
       }),
-      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
-        try {
-          const { data } = await queryFulfilled
-          console.log(data)
-        } catch (err) {
-          console.log(err)
-        }
-      },
     }),
   }),
 })

@@ -5,7 +5,7 @@ import { DASHBOARD_CONTENT } from '../../../../../layout/Layout/dashboardLayout/
 import style from '../adminCourse.module.scss'
 import PropTypes from 'prop-types'
 
-const CourseDetails = ({ courseDetails }) => {
+const CourseDetails = ({ courseDetails, show }) => {
   const { title, description, tutors, duration } = courseDetails
   const { imageList } = DASHBOARD_CONTENT
 
@@ -13,7 +13,7 @@ const CourseDetails = ({ courseDetails }) => {
   // id === courseDetails.id ? console.log(true) : console.log(false)
 
   return (
-    <div className={style.courseDetails}>
+    <div className={`${style.courseDetails} ${show ? style.show : null}`}>
       <div className={style.courseBanner}>
         <p className={`${style.title} fw-bold mb-3`}>{title}</p>
         <p className={style.text}>{description}</p>
@@ -119,6 +119,7 @@ const CourseDetails = ({ courseDetails }) => {
 CourseDetails.propTypes = {
   courseDetails: PropTypes.object,
   courseID: PropTypes.string,
+  show: PropTypes.bool,
 }
 
 export default CourseDetails
