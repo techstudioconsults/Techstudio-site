@@ -157,12 +157,7 @@ const ContactForm = () => {
         </div>
       </div>
       <div className={style.btnContainer}>
-        <button
-          className={[style.noiseImage, isLoading ? style.gradient : null].join(
-            ' '
-          )}
-          type='submit'
-        >
+        <button type='submit'>
           <div
             hidden={!isLoading}
             className='spinner-border spinner-border-sm me-5 text-white'

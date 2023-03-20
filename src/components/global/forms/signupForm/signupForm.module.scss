@@ -57,6 +57,7 @@
       .showPassword {
         border-left: none !important;
         background-color: transparent !important;
+        cursor: pointer;
       }
     }
 
@@ -78,8 +79,8 @@
   .btnContainer {
     button {
       width: 100%;
-      background-image: url('https://stackdiary.com/wp-content/uploads/2022/10/noise_img.png');
-      background-size: auto;
+      // background-image: url('https://stackdiary.com/wp-content/uploads/2022/10/noise_img.png');
+      // background-size: auto;
       background-color: colors.$blue;
       color: colors.$light;
       border-radius: fn.rem(4);
