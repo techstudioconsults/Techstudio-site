@@ -7,37 +7,23 @@ import { AvatarStack, DeleteModal, Portal } from '../../../../../components'
 import { DASHBOARD_CONTENT } from '../../../../../layout/Layout/dashboardLayout/content'
 import style from '../adminCourse.module.scss'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
-import {
-  useDeleteCourseMutation,
-  useViewCoursesDetailsMutation,
-  useViewAllCoursesMutation,
-} from '../api/coursesApiSlice'
-import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { selectActiveCourse, setActiveCourse } from '../api/coursesSlice'
+import { useViewCoursesDetailsMutation } from '../api/coursesApiSlice'
 
 const CourseList = ({ course, showDetailsBox }) => {
   const { id, title, duration, tutors } = course
-  const [isDeleted, setDeleted] = useState(false)
   const { imageList } = DASHBOARD_CONTENT
-  // const activeCourse = useSelector(selectActiveCourse)
-  // const dispatch = useDispatch()
+
   const [viewCoursesDetails] = useViewCoursesDetailsMutation()
-  const [deleteCourse] = useDeleteCourseMutation()
-  const [viewAllCourses] = useViewAllCoursesMutation()
 
   const handleClick = async () => {
     showDetailsBox()
-    // if (event.currentTarget.id === id) {
-    //   dispatch(setActiveCourse({ isActive: true }))
-    // }
     await viewCoursesDetails(id).unwrap()
   }
 
   const handleDeleteModal = () => {
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
-        document.getElementById('delete-modal')
+        document.getElementById(`${id}`)
       )
       modal.show()
     } catch (err) {
@@ -45,39 +31,24 @@ const CourseList = ({ course, showDetailsBox }) => {
     }
   }
 
-  const handleDeleteCourse = async () => {
-    setDeleted(false)
-    const res = await deleteCourse(id).unwrap()
-    if (res.success) {
-      setDeleted(true)
-      await viewAllCourses().unwrap() //a better way to handle this must exist...i cant find it yet
-    }
-  }
-
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
     <button
-      id={id}
       onClick={handleClick}
       className={`btn btn-lg h-100 d-flex justify-content-between align-items-start text-dark p-3 border ${style.courseList}`}
     >
       <Portal wrapperId='react-portal-modal-container'>
         <DeleteModal
           content={{
-            title: `${
-              isDeleted
-                ? `Deleted Successfully!`
-                : `Are you sure you want to delete this course?`
-            }`,
+            title: `${`Are you sure you want to delete this course?`}`,
             desc: `${title} Course has successfully being deleted. Kindly click continue to exit this page.`,
+            courseID: id,
           }}
-          deleteCourse={handleDeleteCourse}
-          isDeleted={isDeleted}
         />
       </Portal>
       <div className={style.tableHeadTitle}>
         <p className='fw-bold fs-sm text-start'>{title}</p>
-        {/* <p className='fs-xs text-start text-danger'>{id}</p> */}
+        <p className='fs-xs text-start text-danger'>{id}</p>
       </div>
       <div className={`${style.tableHead} h-100`}>
         <ul className='d-flex flex-column align-items-start justify-content-between gap-5 text-muted'>
@@ -159,6 +130,7 @@ const CourseList = ({ course, showDetailsBox }) => {
           <hr className='my-2' />
           <div
             onClick={handleDeleteModal}
+            // onClick={deleteCoursers}
             className='d-flex align-items-center text-danger px-3'
           >
             <Icon

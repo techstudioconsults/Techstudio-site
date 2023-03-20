@@ -1,16 +1,31 @@
 import PropTypes from 'prop-types'
-// import { MdClose } from 'react-icons/md'
+import { useState } from 'react'
+import {
+  useDeleteCourseMutation,
+  useViewAllCoursesMutation,
+} from '../../../pages/Dashboard/Admin/courses/api/coursesApiSlice'
 
-const Save = ({ content, deleteCourse, isDeleted }) => {
+const DeleteModal = ({ content }) => {
+  const [isDeleted, setDeleted] = useState(false)
+  const [deleteCourse] = useDeleteCourseMutation()
   const stopPropagation = (event) => {
     event.stopPropagation()
   }
+
+  const handleDeleteCourse = async () => {
+    setDeleted(false)
+    const res = await deleteCourse(content.courseID).unwrap()
+    if (res.success) {
+      setDeleted(true)
+    }
+  }
+
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
     <div
       onClick={stopPropagation}
       className='modal fade'
-      id='delete-modal'
+      id={content.courseID}
       tabIndex='-1'
       aria-labelledby='delete-modal'
       data-bs-backdrop='static'
@@ -18,13 +33,6 @@ const Save = ({ content, deleteCourse, isDeleted }) => {
     >
       <div className='modal-dialog modal-fullscreen-md-down modal-md'>
         <div className='modal-content'>
-          {/* <div className='modal-header d-flex justify-content-end'>
-            <MdClose
-              size={`1.5rem`}
-              data-bs-dismiss='modal'
-              aria-label='Close'
-            />
-          </div> */}
           <div
             className={[
               'modal-body d-flex flex-column align-items-center text-center py-20',
@@ -41,10 +49,7 @@ const Save = ({ content, deleteCourse, isDeleted }) => {
             >
               <button
                 hidden={isDeleted}
-                onClick={() => {
-                  stopPropagation
-                  deleteCourse()
-                }}
+                onClick={handleDeleteCourse}
                 className={`btn btn-primary w-50`}
               >
                 Yes
@@ -75,11 +80,9 @@ const Save = ({ content, deleteCourse, isDeleted }) => {
   )
 }
 
-Save.propTypes = {
+DeleteModal.propTypes = {
   ref: PropTypes.any,
   content: PropTypes.object.isRequired,
-  deleteCourse: PropTypes.func,
-  isDeleted: PropTypes.bool,
 }
 
-export default Save
+export default DeleteModal

@@ -15,7 +15,7 @@ import CourseDetails from './courseDetails/CourseDetails'
 import CourseList from './courseList/CourseList'
 
 const AdminCourseView = () => {
-  const [viewAllCourses, { isLoading }] = useViewAllCoursesMutation()
+  const [viewAllCourses] = useViewAllCoursesMutation()
   const [isShowDetails, setShowDetails] = useState(false)
   const courses = useSelector(selectCourses)
   const courseDetails = useSelector(selectCourseDetails)
@@ -33,9 +33,13 @@ const AdminCourseView = () => {
   }
 
   // map the courses data to the courseslist component
-  const courseList = courses?.map((course, index) => {
+  const courseList = courses?.map((course) => {
     return (
-      <CourseList showDetailsBox={showDetailsBox} key={index} course={course} />
+      <CourseList
+        showDetailsBox={showDetailsBox}
+        key={course.id}
+        course={course}
+      />
     )
   })
 
@@ -79,9 +83,7 @@ const AdminCourseView = () => {
               <p>Tutors</p>
             </div>
           </div>
-          <div className='mt-5 d-flex flex-column gap-5' role='group'>
-            {courseList}
-          </div>
+          <div className='mt-5 d-flex flex-column gap-5'>{courseList}</div>
         </div>
       </div>
       <div className={style.notification}>

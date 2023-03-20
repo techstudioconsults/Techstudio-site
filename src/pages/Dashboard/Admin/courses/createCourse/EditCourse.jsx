@@ -3,7 +3,6 @@
 
 import {
   AvatarDropdown,
-  Feedback,
   Portal,
   Save,
   ToastComponent,
@@ -233,14 +232,6 @@ const CreateCourse = () => {
     }
   }
 
-  // const handleSaveCourse = async () => {
-  //   setSave(false)
-  //   // const res = await deleteCourse(id).unwrap()
-  //   // if (res.success) {
-  //   //   setSave(true)
-  //   // }
-  // }
-
   return (
     <section className={style.courseView}>
       <Portal wrapperId='react-portal-modal-container'>
@@ -318,20 +309,6 @@ const CreateCourse = () => {
               >
                 <div className='d-flex gap-8'>
                   {/* online */}
-                  {/* <div>
-                    <label htmlFor='online'>online</label>
-                    <select
-                      id='online'
-                      className='form-select form-select-lg mt-2'
-                      aria-label='.form-select-lg example'
-                      {...register('onlineClass')}
-                    >
-                      <option value='1'>1 week</option>
-                      <option value='2'>2 weeks</option>
-                      <option value='3'>3 weeks</option>
-                      <option value='4'>4 weeks</option>
-                    </select>
-                  </div> */}
                   <div>
                     <label className='mb-3' htmlFor='online'>
                       online
@@ -353,20 +330,6 @@ const CreateCourse = () => {
                     />
                   </div>
                   {/* weekday */}
-                  {/* <div>
-                    <label htmlFor='weekday'>weekday</label>
-                    <select
-                      id='weekday'
-                      className='form-select form-select-lg mt-2'
-                      aria-label='.form-select-lg example'
-                      {...register('weekdayClass')}
-                    >
-                      <option value='1'>1 week</option>
-                      <option value='2'>2 weeks</option>
-                      <option value='3'>3 weeks</option>
-                      <option value='4'>4 weeks</option>
-                    </select>
-                  </div> */}
                   <div>
                     <label className='mb-3' htmlFor='weekday'>
                       weekday
@@ -388,20 +351,6 @@ const CreateCourse = () => {
                     />
                   </div>
                   {/* weekend */}
-                  {/* <div>
-                    <label htmlFor='weekend'>weekend</label>
-                    <select
-                      id='weekend'
-                      className='form-select form-select-lg mt-2'
-                      aria-label='.form-select-lg example'
-                      {...register('weekendClass')}
-                    >
-                      <option value='1'>1 week</option>
-                      <option value='2'>2 weeks</option>
-                      <option value='3'>3 weeks</option>
-                      <option value='4'>4 weeks</option>
-                    </select>
-                  </div> */}
                   <div>
                     <label className='mb-3' htmlFor='weekend'>
                       weekend

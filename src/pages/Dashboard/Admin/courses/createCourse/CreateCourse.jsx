@@ -92,21 +92,21 @@ const CreateCourse = () => {
   }, [findTutors])
 
   const {
-    reset,
+    // reset,
     register,
     handleSubmit,
     control,
-    formState: { isSubmitSuccessful },
+    // formState: { isSubmitSuccessful },
   } = useForm({
     criteriaMode: 'all',
     mode: 'onChange',
   })
 
-  useEffect(() => {
-    if (isSubmitSuccessful) {
-      reset()
-    }
-  }, [isSubmitSuccessful, reset])
+  // useEffect(() => {
+  //   if (isSubmitSuccessful) {
+  //     reset()
+  //   }
+  // }, [isSubmitSuccessful, reset])
 
   // =============================================================================
   // this code block works with RTK Query --- kept getting error from frile upload
