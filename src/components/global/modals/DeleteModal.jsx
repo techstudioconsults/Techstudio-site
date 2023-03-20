@@ -4,7 +4,7 @@ import { useDeleteCourseMutation } from '../../../pages/Dashboard/Admin/courses/
 
 const DeleteModal = ({ content }) => {
   const [isDeleted, setDeleted] = useState(false)
-  const [deleteCourse] = useDeleteCourseMutation()
+  const [deleteCourse, { isLoading }] = useDeleteCourseMutation()
   const stopPropagation = (event) => {
     event.stopPropagation()
   }
@@ -47,11 +47,17 @@ const DeleteModal = ({ content }) => {
               className={`d-flex flex-column align-items-center gap-5 w-100 mt-10`}
             >
               <button
+                disabled={isLoading}
                 hidden={isDeleted}
                 onClick={handleDeleteCourse}
                 className={`btn btn-primary w-50`}
               >
-                Yes
+                <div
+                  hidden={!isLoading}
+                  className='spinner-border spinner-border-sm me-5 text-white'
+                  role='status'
+                />
+                {isLoading ? `Please wait...` : `Yes`}
               </button>
               <button
                 onClick={stopPropagation}
