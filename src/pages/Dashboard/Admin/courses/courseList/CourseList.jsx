@@ -8,8 +8,10 @@ import { DASHBOARD_CONTENT } from '../../../../../layout/Layout/dashboardLayout/
 import style from '../adminCourse.module.scss'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { useViewCoursesDetailsMutation } from '../api/coursesApiSlice'
+import { useState } from 'react'
 
 const CourseList = ({ course, showDetailsBox }) => {
+  const [showStatus, setShowStatus] = useState(true)
   const { id, title, duration, tutors } = course
   const { imageList } = DASHBOARD_CONTENT
 
@@ -31,9 +33,18 @@ const CourseList = ({ course, showDetailsBox }) => {
     }
   }
 
+  const handleMouseEnter = () => {
+    setShowStatus(false)
+  }
+  const handleMouseLeave = () => {
+    setShowStatus(true)
+  }
+
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
     <button
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       onClick={handleClick}
       className={`btn btn-lg h-100 d-flex justify-content-between align-items-start text-dark p-3 border ${style.courseList}`}
     >
@@ -48,21 +59,27 @@ const CourseList = ({ course, showDetailsBox }) => {
       </Portal>
       <div className={style.tableHeadTitle}>
         <p className='fw-bold fs-sm text-start'>{title}</p>
-        <p className='fs-xs text-start text-danger'>{id}</p>
+        {/* <p className='fs-xs text-start text-danger'>{id}</p> */}
       </div>
       <div className={`${style.tableHead} h-100`}>
         <ul className='d-flex flex-column align-items-start justify-content-between gap-5 text-muted'>
           <li>
             <span className='fw-bold'>{duration?.online} weeks</span>{' '}
-            {/* <span className='text-primary'>(online)</span> */}
+            <span hidden={showStatus} className='text-danger'>
+              (online)
+            </span>
           </li>
           <li>
             <span className='fw-bold'>{duration?.weekday} weeks</span>{' '}
-            {/* <span className='text-primary'>(weekday)</span> */}
+            <span hidden={showStatus} className='text-danger'>
+              (weekday)
+            </span>
           </li>
           <li>
             <span className='fw-bold'>{duration?.weekend} weeks</span>{' '}
-            {/* <span className='text-primary'>(weekend)</span> */}
+            <span hidden={showStatus} className='text-danger'>
+              (weekend)
+            </span>
           </li>
         </ul>
       </div>
@@ -70,15 +87,21 @@ const CourseList = ({ course, showDetailsBox }) => {
         <ul className='d-flex flex-column align-items-start justify-content-between gap-5 text-muted'>
           <li>
             <span className='fw-bold'>N/A</span>{' '}
-            {/* <span className='text-primary'>(online)</span> */}
+            <span hidden={showStatus} className='text-danger'>
+              (online)
+            </span>
           </li>
           <li>
             <span className='fw-bold'>N/A</span>{' '}
-            {/* <span className='text-primary'>(weekday)</span> */}
+            <span hidden={showStatus} className='text-danger'>
+              (weekday)
+            </span>
           </li>
           <li>
             <span className='fw-bold'>N/A</span>{' '}
-            {/* <span className='text-primary'>(weekend)</span> */}
+            <span hidden={showStatus} className='text-danger'>
+              (weekend)
+            </span>
           </li>
         </ul>
       </div>

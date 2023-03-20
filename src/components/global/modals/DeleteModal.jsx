@@ -1,9 +1,6 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
-import {
-  useDeleteCourseMutation,
-  useViewAllCoursesMutation,
-} from '../../../pages/Dashboard/Admin/courses/api/coursesApiSlice'
+import { useDeleteCourseMutation } from '../../../pages/Dashboard/Admin/courses/api/coursesApiSlice'
 
 const DeleteModal = ({ content }) => {
   const [isDeleted, setDeleted] = useState(false)
@@ -39,7 +36,9 @@ const DeleteModal = ({ content }) => {
             ].join(' ')}
           >
             <div className=''>
-              <h4 className='fw-bold text-blue pt-5 px-10'>{content.title}</h4>
+              <h4 className='fw-bold text-blue pt-5 px-10'>
+                {!isDeleted ? content.title : `Course Deleted Successfully`}
+              </h4>
               <p hidden={!isDeleted} className='px-10'>
                 {content.desc}
               </p>
