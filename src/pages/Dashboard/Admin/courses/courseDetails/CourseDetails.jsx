@@ -9,9 +9,6 @@ const CourseDetails = ({ courseDetails, show }) => {
   const { title, description, tutors, duration } = courseDetails
   const { imageList } = DASHBOARD_CONTENT
 
-  // id === courseID ? setActive(true) : setActive(false)
-  // id === courseDetails.id ? console.log(true) : console.log(false)
-
   return (
     <div className={`${style.courseDetails} ${show ? style.show : null}`}>
       <div className={style.courseBanner}>
@@ -46,7 +43,7 @@ const CourseDetails = ({ courseDetails, show }) => {
           <tbody>
             <tr>
               <th scope='row' className='fw-light text-info'>
-                Online
+                Online:
               </th>
               <td>
                 <div className='text-white'>{duration?.online} weeks</div>
@@ -64,7 +61,7 @@ const CourseDetails = ({ courseDetails, show }) => {
             </tr>
             <tr>
               <th scope='row' className='fw-light text-info'>
-                Weekday
+                Weekday:
               </th>
               <td>
                 <div className='text-white'>{duration?.weekday} weeks</div>
@@ -82,7 +79,7 @@ const CourseDetails = ({ courseDetails, show }) => {
             </tr>
             <tr>
               <th scope='row' className='fw-light text-info'>
-                Weekend
+                Weekend:
               </th>
               <td>
                 <div className='text-white'>{duration?.weekend} weeks</div>

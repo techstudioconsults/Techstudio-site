@@ -55,15 +55,15 @@ const durationSelectInput = {
     ...styles,
     backgroundColor: 'white',
     width: `168px`,
+    fontSize: `14px`,
   }),
 }
 
 const durationInWeeks = [
-  { value: '1', label: '1 week' },
-  { value: '2', label: '2 weeks' },
-  { value: '3', label: '3 weeks' },
-  { value: '4', label: '4 weeks' },
-  { value: '5', label: '5 weeks' },
+  { value: '10', label: '10 week' },
+  { value: '12', label: '12 weeks' },
+  { value: '16', label: '16 weeks' },
+  { value: '24', label: '24 weeks' },
 ]
 
 const CreateCourse = () => {

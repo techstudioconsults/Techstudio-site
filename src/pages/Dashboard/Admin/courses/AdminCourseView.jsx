@@ -3,19 +3,15 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useCallback, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import {
-  AvatarDropdown,
-  Button,
-  CalendarOffCanvas,
-  SkeletonLoader,
-} from '../../../../components'
+import { AvatarDropdown, SkeletonLoader } from '../../../../components'
 import style from './adminCourse.module.scss'
 import { useViewAllCoursesMutation } from './api/coursesApiSlice'
 import { selectCourseDetails, selectCourses } from './api/coursesSlice'
 import CourseDetails from './courseDetails/CourseDetails'
 import CourseList from './courseList/CourseList'
-import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+import { Icon } from '@iconify/react'
+import { Link } from 'react-router-dom'
 
 const AdminCourseView = () => {
   const [viewAllCourses, { isLoading }] = useViewAllCoursesMutation()
@@ -50,40 +46,51 @@ const AdminCourseView = () => {
     <section className={style.courseView}>
       <div className={style.dashboardDisplay}>
         <div className={style.header}>
-          <h4 className={[style.title, `mb-0`].join(' ')}>Courses</h4>
-          <div className='d-flex align-items-center gap-10'>
-            <div className={style.input}>
-              <input type='text' placeholder='Search for courses and more' />
-            </div>
-            <div className={[`d-none d-md-flex gap-3`].join(' ')}>
-              <Button
-                linkHref={`/admin/courses/create`}
-                linkText='Create Course'
-                solidBtn
-                navBtn
-                height={`40`}
+          <h4 className={[style.title, `mb-0 fw-bold`].join(' ')}>Courses</h4>
+          <div className='d-flex align-items-center gap-3'>
+            {/* make this search input a stand alone component */}
+            <div className={`input-group border rounded ${style.searchInput}`}>
+              <input
+                type={`search`}
+                className='form-control border border-0 text-secondary h-100'
+                aria-describedby='search'
+                placeholder='Search for courses, classes, students and more'
               />
+              <div
+                className={`input-group-text bg-white border border-0 text-secondary h-100`}
+                id='passwordHelpBlock'
+              >
+                <Icon width={`1.2rem`} icon={`ri:search-line`} />
+              </div>
             </div>
-          </div>
-          <div className='d-xl-none'>
-            <CalendarOffCanvas>
-              <CourseDetails courseDetails={courseDetails} />
-            </CalendarOffCanvas>
+            <div>
+              <Link to={`/admin/courses/create`}>
+                <button
+                  style={{ height: `2.25rem`, width: `9.938rem` }}
+                  className='btn btn-primary fs-sm'
+                >
+                  Create Course
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
-        <div className='my-10'>
-          <div className={`d-flex justify-content-between`}>
-            <div className={style.tableHeadTitle}>
-              <p>Course Title</p>
-            </div>
-            <div className={style.tableHead}>
-              <p>Duration</p>
-            </div>
-            <div className={style.tableHead}>
-              <p>Classes</p>
-            </div>
-            <div className={style.tableHead}>
-              <p>Tutors</p>
+        <div className='mt-20'>
+          <div className='container'>
+            <div className='row'>
+              <div className='col-5'>
+                <p className='text-secondary'>Course Title</p>
+              </div>
+              <div className='col-2'>
+                <p className='text-secondary'>Duration</p>
+              </div>
+              <div className='col-2'>
+                <p className='text-secondary'>Classes</p>
+              </div>
+              <div className='col-2'>
+                <p className='text-secondary'>Tutors</p>
+              </div>
+              <div className='col-1'></div>
             </div>
           </div>
           <div className='mt-5 d-flex flex-column gap-5'>

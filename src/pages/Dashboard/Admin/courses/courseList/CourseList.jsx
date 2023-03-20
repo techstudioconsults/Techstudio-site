@@ -41,13 +41,7 @@ const CourseList = ({ course, showDetailsBox }) => {
   }
 
   return (
-    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-    <button
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onClick={handleClick}
-      className={`btn btn-lg h-100 d-flex justify-content-between align-items-start text-dark p-3 border ${style.courseList}`}
-    >
+    <>
       <Portal wrapperId='react-portal-modal-container'>
         <DeleteModal
           content={{
@@ -57,114 +51,139 @@ const CourseList = ({ course, showDetailsBox }) => {
           }}
         />
       </Portal>
-      <div className={style.tableHeadTitle}>
-        <p className='fw-bold fs-sm text-start'>{title}</p>
-        {/* <p className='fs-xs text-start text-danger'>{id}</p> */}
-      </div>
-      <div className={`${style.tableHead} h-100`}>
-        <ul className='d-flex flex-column align-items-start justify-content-between gap-5 text-muted'>
-          <li>
-            <span className='fw-bold'>{duration?.online} weeks</span>{' '}
-            <span hidden={showStatus} className='text-danger'>
-              (online)
-            </span>
-          </li>
-          <li>
-            <span className='fw-bold'>{duration?.weekday} weeks</span>{' '}
-            <span hidden={showStatus} className='text-danger'>
-              (weekday)
-            </span>
-          </li>
-          <li>
-            <span className='fw-bold'>{duration?.weekend} weeks</span>{' '}
-            <span hidden={showStatus} className='text-danger'>
-              (weekend)
-            </span>
-          </li>
-        </ul>
-      </div>
-      <div className={style.tableHead}>
-        <ul className='d-flex flex-column align-items-start justify-content-between gap-5 text-muted'>
-          <li>
-            <span className='fw-bold'>N/A</span>{' '}
-            <span hidden={showStatus} className='text-danger'>
-              (online)
-            </span>
-          </li>
-          <li>
-            <span className='fw-bold'>N/A</span>{' '}
-            <span hidden={showStatus} className='text-danger'>
-              (weekday)
-            </span>
-          </li>
-          <li>
-            <span className='fw-bold'>N/A</span>{' '}
-            <span hidden={showStatus} className='text-danger'>
-              (weekend)
-            </span>
-          </li>
-        </ul>
-      </div>
-      <div className={style.tableHead}>
-        <ul className='d-flex flex-column align-items-start justify-content-between gap-1'>
-          <li>
-            <AvatarStack
-              tutors={tutors?.online}
-              dontShowMore
-              imageList={imageList}
-            />
-          </li>
-          <li>
-            <AvatarStack
-              tutors={tutors?.weekday}
-              dontShowMore
-              imageList={imageList}
-            />
-          </li>
-          <li>
-            <AvatarStack
-              tutors={tutors?.weekend}
-              dontShowMore
-              imageList={imageList}
-            />
-          </li>
-        </ul>
-      </div>
-      <div className='dropdown' onClick={(event) => event.stopPropagation()}>
-        <div
-          className='dropdown-toggle p-0 mt-9'
-          data-bs-toggle='dropdown'
-          data-bs-offset='-140,10'
-          aria-expanded='false'
-        >
-          <Icon width={`1.5rem`} icon={`ph:dots-three-vertical-bold`} />
+      <button
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onClick={handleClick}
+        className={`btn btn-lg h-100 d-flex justify-content-between align-items-start text-dark border p-0 py-5 ps-2 rounded-0 ${style.courseList}`}
+      >
+        <div className='container'>
+          <div className='row'>
+            <div className='col-5'>
+              <div className={style.tableHeadTitle}>
+                <p className='fw-bold fs-sm text-start'>{title}</p>
+                {/* <p className='fs-xs text-start text-danger'>{id}</p> */}
+              </div>
+            </div>
+            <div className='col-2'>
+              <div className={`${style.tableHead} h-100`}>
+                <ul className='d-flex flex-column align-items-start justify-content-between text-muted'>
+                  <li>
+                    <span className='fw-bold'>{duration?.online} weeks</span>{' '}
+                    <span hidden={showStatus} className='text-danger'>
+                      (online)
+                    </span>
+                  </li>
+                  <li>
+                    <span className='fw-bold'>{duration?.weekday} weeks</span>{' '}
+                    <span hidden={showStatus} className='text-danger'>
+                      (weekday)
+                    </span>
+                  </li>
+                  <li>
+                    <span className='fw-bold'>{duration?.weekend} weeks</span>{' '}
+                    <span hidden={showStatus} className='text-danger'>
+                      (weekend)
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className='col-2'>
+              <div className={`${style.tableHead} h-100`}>
+                <ul className='d-flex flex-column align-items-start justify-content-between text-muted'>
+                  <li>
+                    <span className='fw-bold'>N/A</span>{' '}
+                    <span hidden={showStatus} className='text-danger'>
+                      (online)
+                    </span>
+                  </li>
+                  <li>
+                    <span className='fw-bold'>N/A</span>{' '}
+                    <span hidden={showStatus} className='text-danger'>
+                      (weekday)
+                    </span>
+                  </li>
+                  <li>
+                    <span className='fw-bold'>N/A</span>{' '}
+                    <span hidden={showStatus} className='text-danger'>
+                      (weekend)
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className='col-2'>
+              <div className={style.tableHead}>
+                <ul className='d-flex flex-column align-items-start justify-content-between gap-1'>
+                  <li>
+                    <AvatarStack
+                      tutors={tutors?.online}
+                      dontShowMore
+                      imageList={imageList}
+                    />
+                  </li>
+                  <li>
+                    <AvatarStack
+                      tutors={tutors?.weekday}
+                      dontShowMore
+                      imageList={imageList}
+                    />
+                  </li>
+                  <li>
+                    <AvatarStack
+                      tutors={tutors?.weekend}
+                      dontShowMore
+                      imageList={imageList}
+                    />
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className='col-1'>
+              <div
+                hidden={showStatus}
+                className='dropdown'
+                onClick={(event) => event.stopPropagation()}
+              >
+                <div
+                  className='dropdown-toggle p-0 mt-9'
+                  data-bs-toggle='dropdown'
+                  data-bs-offset='-140,10'
+                  aria-expanded='false'
+                >
+                  <Icon width={`1.5rem`} icon={`ph:dots-three-vertical-bold`} />
+                </div>
+                <ul className={`dropdown-menu`}>
+                  <div className='d-flex align-items-center px-3'>
+                    <Link to={`/admin/courses/${id}/edit`} state={{ course }}>
+                      <Icon
+                        width={`1.1rem`}
+                        icon={`material-symbols:edit`}
+                        className='me-3'
+                      />
+                      <span>Edit course</span>
+                    </Link>
+                  </div>
+                  <hr className='my-2' />
+                  <div
+                    onClick={handleDeleteModal}
+                    className='d-flex align-items-center text-danger px-3'
+                  >
+                    <Icon
+                      width={`1.1rem`}
+                      icon={`material-symbols:delete-outline-rounded`}
+                      className='me-3'
+                    />
+                    <span>Delete course</span>
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-        <ul className={`dropdown-menu`}>
-          <div className='d-flex align-items-center px-3'>
-            <Link to={`/admin/courses/${id}/edit`} state={{ course }}>
-              <Icon
-                width={`1.1rem`}
-                icon={`material-symbols:edit`}
-                className='me-3'
-              />
-              <span>Edit course</span>
-            </Link>
-          </div>
-          <hr className='my-2' />
-          <div
-            onClick={handleDeleteModal}
-            className='d-flex align-items-center text-danger px-3'
-          >
-            <Icon
-              width={`1.1rem`}
-              icon={`material-symbols:delete-outline-rounded`}
-              className='me-3'
-            />
-            <span>Delete course</span>
-          </div>
-        </ul>
-      </div>
-    </button>
+      </button>
+    </>
   )
 }
 
