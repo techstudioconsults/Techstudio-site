@@ -19,46 +19,40 @@ const CourseDetails = ({ courseDetails, show }) => {
         <p className={style.text}>{description}</p>
       </div>
       <div>
-        <table className='table'>
+        <table className='table table-borderless table-lg align-middle'>
           <thead className='text-white'>
             <tr>
-              <th scope='col'>
+              <th scope='col'></th>
+              <th scope='col' className='fw-light text-info'>
                 <span className='me-1'>
-                  <Icon
-                    width={`1.5rem`}
-                    height={`1.5rem`}
-                    icon='mdi:clock-time-five-outline'
-                  />
+                  <Icon width={`1.2rem`} icon='mdi:clock-time-five-outline' />
                 </span>
-                Duration
+                Duration:
               </th>
-              <th scope='col'>
+              <th scope='col' className='fw-light text-info'>
                 <span className='me-1'>
-                  <Icon
-                    width={`1.5rem`}
-                    height={`1.5rem`}
-                    icon='la:chalkboard-teacher'
-                  />
+                  <Icon width={`1.2rem`} icon='ic:baseline-laptop-mac' />
                 </span>
-                Tutor
+                Classes:
               </th>
-              <th scope='col'>
+              <th scope='col' className='fw-light text-info'>
                 <span className='me-1'>
-                  <Icon
-                    width={`1.5rem`}
-                    height={`1.5rem`}
-                    icon='ic:baseline-laptop-mac'
-                  />
+                  <Icon width={`1.2rem`} icon='la:chalkboard-teacher' />
                 </span>
-                Classes
+                Tutor:
               </th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <th scope='row' className='fw-light text-info'>
+                Online
+              </th>
               <td>
                 <div className='text-white'>{duration?.online} weeks</div>
-                <div>(online)</div>
+              </td>
+              <td>
+                <div className='text-white'>N/A</div>
               </td>
               <td>
                 <AvatarStack
@@ -66,17 +60,17 @@ const CourseDetails = ({ courseDetails, show }) => {
                   dontShowMore
                   imageList={imageList}
                 />
-                {/* <span>(online)</span> */}
-              </td>
-              <td>
-                <div className='text-white'>N/A</div>
-                <div>(online)</div>
               </td>
             </tr>
             <tr>
+              <th scope='row' className='fw-light text-info'>
+                Weekday
+              </th>
               <td>
                 <div className='text-white'>{duration?.weekday} weeks</div>
-                <div>(weekday)</div>
+              </td>
+              <td>
+                <div className='text-white'>N/A</div>
               </td>
               <td>
                 <AvatarStack
@@ -84,17 +78,17 @@ const CourseDetails = ({ courseDetails, show }) => {
                   dontShowMore
                   imageList={imageList}
                 />
-                {/* <span>(online)</span> */}
-              </td>
-              <td>
-                <div className='text-white'>N/A</div>
-                <div>(weekday)</div>
               </td>
             </tr>
             <tr>
+              <th scope='row' className='fw-light text-info'>
+                Weekend
+              </th>
               <td>
                 <div className='text-white'>{duration?.weekend} weeks</div>
-                <div>(weekend)</div>
+              </td>
+              <td>
+                <div className='text-white'>N/A</div>
               </td>
               <td>
                 <AvatarStack
@@ -102,11 +96,6 @@ const CourseDetails = ({ courseDetails, show }) => {
                   dontShowMore
                   imageList={imageList}
                 />
-                {/* <span>(online)</span> */}
-              </td>
-              <td>
-                <div className='text-white'>N/A</div>
-                <div>(weekend)</div>
               </td>
             </tr>
           </tbody>
