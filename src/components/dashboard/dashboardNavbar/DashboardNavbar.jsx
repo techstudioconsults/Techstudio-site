@@ -1,10 +1,10 @@
 import React from 'react'
 import { DashboardRightDrawer } from '../../../layout'
-import Button from '../../global/Button'
 import CalendarOffCanvas from '../../global/offCanvas/CalendarOffCanvas'
 import style from './dashboardnavbar.module.scss'
 import PropTypes from 'prop-types'
-// import AvatarDropdown from '../../global/avatar/avatarDropdown/AvatarDropdown'
+import { Link } from 'react-router-dom'
+import { Icon } from '@iconify/react'
 
 const DashboardNavbar = ({ isTDB }) => {
   return (
@@ -15,22 +15,38 @@ const DashboardNavbar = ({ isTDB }) => {
       ].join(' ')}
     >
       <div className={style.navbarCTA}>
-        <h5 className='m-0 fw-bold text-blue d-none d-md-flex'>Dashboard</h5>
-        <div className='d-flex align-items-center gap-10'>
-          <div className={style.input}>
-            <input type='text' placeholder='Search for task and more' />
+        <h5 className='m-0 fw-bolder text-blue d-none d-md-flex'>Dashboard</h5>
+        <div className='d-flex align-items-center gap-2'>
+          {/* make this search input a stand alone component */}
+          <div className={`input-group ${style.searchInput}`}>
+            <input
+              type={`search`}
+              className='form-control border border-0 text-secondary h-100'
+              aria-describedby='search'
+              placeholder='Search for courses, classes, students and more'
+            />
+            <div
+              className={`input-group-text bg-white border border-0 text-secondary h-100`}
+              id='passwordHelpBlock'
+            >
+              <Icon width={`1.2rem`} icon={`ri:search-line`} />
+            </div>
           </div>
           <div
-            className={[isTDB ? `d-none d-md-flex gap-3` : `d-none`].join(' ')}
+            className={[isTDB ? `d-none d-md-flex gap-2` : `d-none`].join(' ')}
           >
-            <Button
-              linkHref={`/admin/courses/create`}
-              linkText='Create Course'
-              solidBtn
-              navBtn
-              height={`40`}
-            />
-            <button className='btn btn-outline-primary fs-sm px-8'>
+            <Link to={`/admin/courses/create`}>
+              <button
+                style={{ height: `2.25rem`, width: `9.938rem` }}
+                className='btn btn-primary fs-sm'
+              >
+                Create Course
+              </button>
+            </Link>
+            <button
+              style={{ height: `2.25rem`, width: `10.063rem` }}
+              className='btn btn-outline-primary fs-sm fw-semibold'
+            >
               Create Class
             </button>
           </div>

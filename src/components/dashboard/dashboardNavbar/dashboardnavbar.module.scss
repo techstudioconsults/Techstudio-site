@@ -4,22 +4,6 @@
 @import '../../../scss/utils/mixins';
 
 .nav {
-  .input {
-    height: fn.rem(36);
-    input {
-      padding-inline: fn.rem(20);
-      width: 100%;
-      height: 100%;
-      border: 0.5px solid colors.$border-grey;
-      border-radius: fn.rem(4);
-
-      &::placeholder {
-        font-size: fn.rem(12);
-        color: colors.$gray;
-      }
-    }
-  }
-
   .navbarCTA {
     // border: 1px solid red;
     @include flex;
@@ -31,6 +15,17 @@
       @include flex_centered;
       justify-content: space-between;
       gap: fn.rem(48);
+    }
+
+    .searchInput {
+      width: fn.rem(400);
+      height: fn.rem(36);
+      input {
+        &::placeholder {
+          font-size: fn.rem(10);
+          color: colors.$secondary;
+        }
+      }
     }
   }
 }

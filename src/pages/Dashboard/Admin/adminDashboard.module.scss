@@ -21,7 +21,7 @@
 
     .spanCol2 {
       @include flex_column;
-      gap: fn.rem(32);
+      gap: fn.rem(50);
       width: 100%;
       @include breakpoint-up('xxl') {
         width: 75%;

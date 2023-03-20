@@ -1,8 +1,8 @@
 .admin-tab .active {
   font-size: 1rem;
   background-color: transparent;
-  border-radius: 0;
-  border-bottom: 2px solid #0266f4;
+  border-radius: 0 !important;
+  border-bottom: 3px solid #0266f4;
 }
 
 .dont-delete-btn:hover,

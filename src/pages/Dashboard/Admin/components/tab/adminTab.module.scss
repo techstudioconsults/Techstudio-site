@@ -4,14 +4,14 @@
 @import '../../../../../scss/utils/mixins';
 
 .tab {
-  margin-top: fn.rem(41);
+  // margin-top: fn.rem(41);
   width: 100%;
 
   .tabList {
     @include flex;
     flex-wrap: nowrap;
-    justify-content: flex-start;
-    gap: fn.rem(10);
+    // justify-content: flex-start;
+    // gap: fn.rem(10);
     width: 100%;
     border-bottom: 1px solid colors.$light-grey;
     margin: auto;
@@ -21,13 +21,13 @@
     }
 
     .link {
-      flex: 1;
+      // flex: 1;
       .a {
-        width: fn.rem(200);
+        // width: fn.rem(200);
         text-align: center;
-        color: colors.$deep-blue;
+        color: colors.$secondary;
         font-size: fn.rem(14);
-        font-weight: 600;
+        font-weight: 400;
         background-color: transparent;
 
         @include breakpoint-up('lg') {
