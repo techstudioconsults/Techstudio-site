@@ -2,33 +2,43 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import style from './avatarStack.module.scss'
 
-const AvatarStack = ({ imageList, dontShowMore, tutors }) => {
-  const imagesDisplay = tutors?.map((tutor, index) => {
-    return (
-      // <div key={index} className={style.avatarImg}>
-      //   <img src={null} alt='img' className='cc-img-fluid' />
-      // </div>
-      <div
-        title={`${tutor.firstName} ${tutor.firstName}`}
-        key={index}
-        className={style.initials}
-      >
-        <span>{`${tutor.firstName.charAt(0)}.${tutor.lastName.charAt(
-          0
-        )}`}</span>
-      </div>
-    )
-  })
+const AvatarStack = ({ showImage, imageList, dontShowMore, tutors }) => {
+  let imagesDisplay
+  if (!dontShowMore) {
+    imagesDisplay = imageList?.slice(0, 3).map((img, index) => {
+      return (
+        <div key={index} className={style.avatarImg}>
+          <img src={img} alt='img' className='cc-img-fluid' />
+        </div>
+      )
+    })
+  } else {
+    imagesDisplay = tutors?.map((tutor, index) => {
+      return (
+        <div
+          title={`${tutor.firstName} ${tutor.firstName}`}
+          key={index}
+          className={style.initials}
+        >
+          <span>{`${tutor.firstName.charAt(0)}.${tutor.lastName.charAt(
+            0
+          )}`}</span>
+        </div>
+      )
+    })
+  }
 
   return (
     <div className={style.avatarCollections}>
       {imagesDisplay}
       <p
-        className={[style.message, `ms-1`, dontShowMore ? `d-none` : null].join(
-          ' '
-        )}
+        className={[
+          style.message,
+          `ms-2 text-white`,
+          dontShowMore ? `d-none` : null,
+        ].join(' ')}
       >
-        +{imageList?.length - imagesDisplay?.length} joined the class
+        +{imageList?.length - imagesDisplay?.length} enrolled for the class
       </p>
     </div>
   )
@@ -38,6 +48,7 @@ AvatarStack.propTypes = {
   imageList: PropTypes.array.isRequired,
   dontShowMore: PropTypes.bool,
   tutors: PropTypes.array,
+  showImage: PropTypes.bool,
 }
 
 export default AvatarStack

@@ -49,6 +49,8 @@ export { default as SaveSuccess } from './global/modals/SaveSuccess'
 export { default as DeleteModal } from './global/modals/DeleteModal'
 export { default as CancelModal } from './global/modals/CancelModal'
 export { default as SkeletonLoader } from './global/skeletonLoader/SkeletonLoader'
+export { default as AdminClassTab } from './dashboard/tab/adminClassTab/AdminClassTab'
+export { default as AdminClassDisplayCard } from './global/cards/adminClassDisplayCard/AdminClassDisplayCard'
 
 // HOME
 export { default as Hero } from './home/hero'

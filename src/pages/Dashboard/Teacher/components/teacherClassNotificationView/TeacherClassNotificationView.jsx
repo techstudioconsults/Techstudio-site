@@ -5,6 +5,7 @@ import style from './classNotification.module.scss'
 import { Avatar, AvatarStack } from '../../../../../components'
 import { MdCalendarToday, MdOutlineComputer } from 'react-icons/md'
 import { AiOutlineClockCircle } from 'react-icons/ai'
+import { Icon } from '@iconify/react'
 
 const TeacherClassNotificationView = ({ mobile }) => {
   const { imageList } = DASHBOARD_CONTENT
@@ -14,9 +15,7 @@ const TeacherClassNotificationView = ({ mobile }) => {
 
   return (
     <div
-      className={[style.notification, mobile ? `m-0 p-8` : `m-4 p-12`].join(
-        ' '
-      )}
+      className={[style.notification, mobile ? `m-0 p-8` : `p-10`].join(' ')}
     >
       <div className={style.classSummary}>
         <div>
@@ -25,61 +24,84 @@ const TeacherClassNotificationView = ({ mobile }) => {
               <Avatar />
             </div>
             <h6 className={['fw-bold', style.title].join(' ')}>
-              Becoming a UX Designer from Scratch: Things to look out for
+              Javascript Fullstack January 2023
             </h6>
-            <p className={[style.text].join(' ')}>
-              Emma Gannon, Author, Broadcaster
+            <p className={[style.text, `text-secondary`].join(' ')}>
+              Ibori James, Tutor
+            </p>
+            <p className={`text-dark ${style.desc}`}>
+              Lorem ipsum dolor sit amet consectetur. Quis nam viverra vitae
+              varius aenean tempor vel etiam. Tortor aliquet imperdiet magnis
+              tristique dignissim pharetra malesuada. Mauris egestas eget sapien
+              at massa tellus.
             </p>
           </div>
-          <div className={style.Participants}>
-            <p style={color} className='fs-sm'>
-              Participants:
-            </p>
-            <AvatarStack imageList={imageList} />
+          <div
+            className={`d-flex justify-content-between align-items-center mt-5`}
+          >
+            <p className='fs-sm text-info'>Students:</p>
+            <div className='w-75'>
+              <AvatarStack imageList={imageList} />
+            </div>
           </div>
-          <div className={style.classTimeType}>
-            <div className='d-flex align-items-center gap-3'>
-              <div>
-                <AiOutlineClockCircle color='#95A8B8' size={20} />
+          <div
+            className={`d-flex justify-content-between align-items-center mt-5`}
+          >
+            <p className='fs-sm text-info'>Course:</p>
+            <p className='fs-sm text-white w-75'>javascript Fullstack</p>
+          </div>
+          <div className={`d-flex gap-5 flex-wrap mt-5`}>
+            <div className='flex-grow-1 d-flex align-items-start gap-3'>
+              <div className='text-info'>
+                <Icon
+                  icon={`material-symbols:calendar-today`}
+                  width={`1.5rem`}
+                />
               </div>
               <div>
-                <p className='fw-bold fs-sm'>55 mins</p>
+                <p className='fw-bold fs-sm'>18 Jan, 2023</p>
                 <p style={color} className={['fs-sm'].join(' ')}>
-                  Time
+                  Start Date
                 </p>
               </div>
             </div>
-            <div className='d-flex align-items-center gap-3'>
-              <div>
-                <MdOutlineComputer color='#95A8B8' size={20} />
+            <div className='flex-grow-1 d-flex align-items-start gap-3'>
+              <div className='text-info'>
+                <Icon
+                  icon={`material-symbols:calendar-today`}
+                  width={`1.5rem`}
+                />
               </div>
               <div>
                 <p className='fw-bold fs-sm'>Live Class</p>
                 <p style={color} className={['fs-sm'].join(' ')}>
-                  class Type
+                  End Date
                 </p>
               </div>
             </div>
-            <div className='d-flex align-items-center gap-3'>
-              <div>
-                <MdCalendarToday color='#95A8B8' size={20} />
+            <div className='flex-grow-1 d-flex align-items-start gap-3'>
+              <div className='text-info'>
+                <Icon
+                  icon={`material-symbols:calendar-today`}
+                  width={`1.5rem`}
+                />
               </div>
               <div>
                 <p className='fw-bold fs-sm'>17 Jan, 2021</p>
                 <p style={color} className={['fs-sm'].join(' ')}>
-                  Date
+                  prefrence
                 </p>
               </div>
             </div>
           </div>
         </div>
-        <div className={[`d-flex gap-3 my-5 align-items-center `].join(' ')}>
-          <button className='fs-sm bg-primary text-white rounded rounded-lg px-3 w-50'>
-            Start Class
+        <div className={[`d-flex gap-3 align-items-center `].join(' ')}>
+          <button className='fs-xs bg-primary text-white rounded rounded-lg px-3 w-50'>
+            Schedule A Lesson
           </button>
-          <button className='fs-sm fw-semibold bg-white text-primary rounded rounded-lg px-3 w-50 border border-primary'>
+          {/* <button className='fs-sm fw-semibold bg-white text-primary rounded rounded-lg px-3 w-50 border border-primary'>
             Reschedule
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

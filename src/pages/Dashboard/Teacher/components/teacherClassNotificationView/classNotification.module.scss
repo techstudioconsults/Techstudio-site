@@ -5,12 +5,10 @@
 
 .notification {
   border-radius: fn.rem(8);
-  //   margin: fn.rem(16);
-  // padding: fn.rem(48);
-  width: 100%;
   background-color: colors.$deep-blue;
   color: colors.$light;
-  height: 96%;
+  height: 100%;
+  overflow: auto;
 
   .classSummary {
     height: 100%;
@@ -26,7 +24,7 @@
 
       .avatar {
         position: absolute;
-        top: 50%;
+        top: 30%;
         left: 0;
         transform: translate(-50%, -50%);
         border: 2px solid colors.$light;
@@ -47,8 +45,14 @@
       .text {
         font-size: fn.rem(10);
         @include breakpoint-up('md') {
-          font-size: fn.rem(12);
+          font-size: fn.rem(14);
+          font-weight: bold;
         }
+      }
+
+      .desc {
+        line-height: fn.rem(18);
+        font-size: fn.rem(13);
       }
     }
 
@@ -63,9 +67,9 @@
       }
     }
 
-    .classTimeType {
-      @include flex_column;
-      gap: fn.rem(16);
-    }
+    // .classTimeType {
+    //   @include flex_column;
+    //   gap: fn.rem(16);
+    // }
   }
 }

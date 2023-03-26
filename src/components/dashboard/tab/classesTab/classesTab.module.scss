@@ -8,6 +8,7 @@
   .tabList {
     width: 100%;
     max-width: fn.rem(300);
+    // height: fn.rem(36);
     margin: auto;
     @include breakpoint-up('lg') {
       margin: initial;
@@ -21,12 +22,15 @@
 
     .link {
       flex: 1;
+      // height: 100%;
 
       .a {
         text-align: center;
         color: colors.$text-dark;
         font-size: fn.rem(14);
         font-weight: 600;
+        // height: 100%;
+        // padding: fn.rem(2);
 
         &:active {
           background-color: colors.$light;

@@ -4,7 +4,13 @@ import { Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
 // COMPONENTS
-import { Accounts, Loading, Payment } from './components'
+import {
+  Accounts,
+  AdminClassTab,
+  ClassesTab,
+  Loading,
+  Payment,
+} from './components'
 import { DashboardLayout } from './layout'
 import {
   AboutUs,
@@ -105,7 +111,9 @@ const App = () => {
               <Route path='/admin/courses' element={<AdminCourseView />} />
               <Route path='/admin/courses/create' element={<CreateCourse />} />
               <Route path='/admin/courses/:id/edit' element={<EditCourse />} />
-              <Route path='/admin/classes' element={<AdminClassView />} />
+              <Route path='/admin/classes' element={<AdminClassView />}>
+                <Route path=':class' element={<AdminClassTab isTDB />} />
+              </Route>
             </Route>
           </Route>
           {/* student routes */}

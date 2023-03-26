@@ -1,0 +1,73 @@
+@use '../../../../scss/global/colors' as colors;
+@use '../../../../scss/utils/functions' as fn;
+@import '../../../../scss/utils/breakpoints';
+@import '../../../../scss/utils/mixins';
+
+// ============================================
+.courseDetails {
+  padding: fn.rem(32);
+  border-radius: fn.rem(10);
+  background-color: colors.$deep-blue;
+  color: colors.$light;
+  height: 100%;
+  font-size: fn.rem(10);
+  opacity: 0;
+  overflow: scroll;
+
+  @include breakpoint-up('lg') {
+    font-size: fn.rem(14);
+  }
+
+  .courseBanner {
+    color: colors.$deep-blue;
+    padding: fn.rem(16);
+    background-color: colors.$light-blue-II;
+    border: 1px solid colors.$blue;
+    border-radius: fn.rem(20) fn.rem(20) fn.rem(20) 0;
+    margin-bottom: fn.rem(32);
+    .text {
+      color: colors.$gray;
+      font-size: fn.rem(10);
+      line-height: fn.rem(19);
+      @include breakpoint-up('lg') {
+        font-size: fn.rem(14);
+      }
+    }
+  }
+}
+
+.courseDetails.show {
+  animation: showDetails 1s forwards;
+}
+
+@keyframes showDetails {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.courseList {
+  // border-left: 5px solid colors.$light;
+  // border: 1px solid colors.$deep-blue;
+  // border-left: 5px solid colors.$deep-blue;
+  &:hover {
+    border: 1px solid colors.$blue;
+    border-left: 6px solid colors.$blue;
+  }
+  &:focus {
+    border: 1px solid colors.$blue !important;
+    border-left: 6px solid colors.$blue !important;
+  }
+}
+
+.avatarWrapper {
+  width: fn.rem(20);
+  height: fn.rem(20);
+  border-radius: 100%;
+  overflow: hidden;
+}

@@ -2,33 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { DASHBOARD_CONTENT } from '../../../../layout/Layout/dashboardLayout/content'
 import LiveClassDisplayCard from '../../../global/cards/liveClassDisplayCard/LiveClassDisplayCard'
-import style from './classesTab.module.scss'
+import style from '../classesTab/classesTab.module.scss'
 import ScheduleClassForm from '../../../global/forms/scheduleClassFom/ScheduleClassForm'
 import { AiOutlinePlusCircle } from 'react-icons/ai'
 import AddAClassOffCanvas from '../../../global/offCanvas/AddAClassOffcanvas'
 import Portal from '../../../global/POTAL/Portal'
 import { useLocation } from 'react-router'
+import AdminClassDisplayCard from '../../../global/cards/adminClassDisplayCard/AdminClassDisplayCard'
 
 const ClassesTab = ({ isTDB }) => {
-  const { studentBoard } = DASHBOARD_CONTENT
-
   const location = useLocation()
-
-  const liveFileDisplay = isTDB
-    ? studentBoard.resources.PDF.map((file, index) => {
-        return <LiveClassDisplayCard isTDB key={index} />
-      })
-    : studentBoard.resources.PDF.map((file, index) => {
-        return <LiveClassDisplayCard key={index} />
-      })
-
-  const recordedFileDisplay = isTDB
-    ? studentBoard.resources.PDF.map((file, index) => {
-        return <LiveClassDisplayCard isTDB key={index} />
-      })
-    : studentBoard.resources.PDF.map((file, index) => {
-        return <LiveClassDisplayCard isRecordedFile key={index} />
-      })
 
   return (
     <section className={style.tab}>
@@ -39,9 +22,9 @@ const ClassesTab = ({ isTDB }) => {
               className={['nav-link active', style.a].join(' ')}
               id='live-tab'
               data-bs-toggle='tab'
-              href='#live'
+              href='#ongoing'
             >
-              LIVE
+              ONGOING
             </a>
           </li>
           <li className={['nav-item', style.link].join(' ')}>
@@ -49,9 +32,9 @@ const ClassesTab = ({ isTDB }) => {
               className={['nav-link', style.a].join(' ')}
               id='record-tab'
               data-bs-toggle='tab'
-              href='#recorded'
+              href='#previous'
             >
-              RECORDED
+              PREVIOUS
             </a>
           </li>
         </ul>
@@ -85,19 +68,30 @@ const ClassesTab = ({ isTDB }) => {
       <div className='tab-content' id='tabContent'>
         <div
           className='tab-pane fade show active'
-          id='live'
+          id='ongoing'
           role='tabpanel'
           aria-labelledby='home-tab'
         >
-          <div className={style.listWrapper}>{liveFileDisplay}</div>
+          <div className={style.listWrapper}>
+            <AdminClassDisplayCard />
+            <AdminClassDisplayCard />
+            <AdminClassDisplayCard />
+            <AdminClassDisplayCard />
+            <AdminClassDisplayCard />
+            <AdminClassDisplayCard />
+            <AdminClassDisplayCard />
+            <AdminClassDisplayCard />
+          </div>
         </div>
         <div
           className='tab-pane fade'
-          id='recorded'
+          id='previous'
           role='tabpanel'
           aria-labelledby='about-tab'
         >
-          <div className={style.listWrapper}>{recordedFileDisplay}</div>
+          <div className={style.listWrapper}>
+            <AdminClassDisplayCard />
+          </div>
         </div>
       </div>
     </section>

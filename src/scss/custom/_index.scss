@@ -9,11 +9,11 @@
 // 2. Include any default variable overrides here
 $primary: #0266f4;
 $secondary: #747474;
-$info: #B8DFF2;
+$info: #b8dff2;
 $dark: #292929;
 $body-color: #979dad;
 $mute: #6c757d;
-$danger: #E00017;
+$danger: #e00017;
 
 $font-weight-lighter: lighter;
 $font-weight-light: 300;
@@ -27,6 +27,8 @@ $theme-colors: (
   'info': $info,
   'dark': $dark,
   'danger': $danger,
+  'muted': $mute,
+  'secondary': $secondary,
 );
 
 $grid-columns: 12 !default;

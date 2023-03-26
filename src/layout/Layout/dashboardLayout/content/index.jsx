@@ -74,16 +74,16 @@ export const DASHBOARD_CONTENT = {
       link: `/admin/courses`,
     },
     {
-      id: 3,
-      icon: `grommet-icons:resources`,
-      title: `Resources`,
-      link: `/admin/resources`,
-    },
-    {
       id: 4,
       icon: `eos-icons:product-classes`,
       title: `Classes`,
       link: `/admin/classes`,
+    },
+    {
+      id: 3,
+      icon: `grommet-icons:resources`,
+      title: `Resources`,
+      link: `/admin/resources`,
     },
     {
       id: 5,
