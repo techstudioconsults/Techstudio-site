@@ -26,3 +26,4 @@ export { default as AdminCourseView } from './Dashboard/Admin/courses/AdminCours
 export { default as CreateCourse } from './Dashboard/Admin/courses/createCourse/CreateCourse'
 export { default as EditCourse } from './Dashboard/Admin/courses/createCourse/EditCourse'
 export { default as ForgotPassword } from './Auth/forgotPassword/ForgotPassword'
+export { default as CreateClass } from './Dashboard/Admin/classes/createClass/CreateClass'

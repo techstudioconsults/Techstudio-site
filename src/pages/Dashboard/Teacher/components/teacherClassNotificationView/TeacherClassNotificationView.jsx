@@ -60,9 +60,7 @@ const TeacherClassNotificationView = ({ mobile }) => {
               </div>
               <div>
                 <p className='fw-bold fs-sm'>18 Jan, 2023</p>
-                <p style={color} className={['fs-sm'].join(' ')}>
-                  Start Date
-                </p>
+                <p className={['fs-xs text-info'].join(' ')}>Start Date</p>
               </div>
             </div>
             <div className='flex-grow-1 d-flex align-items-start gap-3'>
@@ -74,21 +72,16 @@ const TeacherClassNotificationView = ({ mobile }) => {
               </div>
               <div>
                 <p className='fw-bold fs-sm'>Live Class</p>
-                <p style={color} className={['fs-sm'].join(' ')}>
-                  End Date
-                </p>
+                <p className={['fs-xs text-info'].join(' ')}>End Date</p>
               </div>
             </div>
             <div className='flex-grow-1 d-flex align-items-start gap-3'>
               <div className='text-info'>
-                <Icon
-                  icon={`material-symbols:calendar-today`}
-                  width={`1.5rem`}
-                />
+                <Icon icon={`ic:baseline-computer`} width={`1.5rem`} />
               </div>
               <div>
                 <p className='fw-bold fs-sm'>17 Jan, 2021</p>
-                <p style={color} className={['fs-sm'].join(' ')}>
+                <p style={color} className={['fs-xs text-info'].join(' ')}>
                   prefrence
                 </p>
               </div>

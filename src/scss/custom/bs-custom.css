@@ -9,7 +9,7 @@
 .dont-delete-btn:active,
 .dont-delete-btn:focus {
   background-color: transparent;
-  color: #E00017;
+  color: #e00017;
 }
 
 .cancel-btn:hover,
@@ -19,6 +19,12 @@
   color: #0266f4;
 }
 
-.table td, .table th {
- padding: 1rem;
+.table td,
+.table th {
+  padding: 1rem;
+}
+
+.form-check-input {
+  width: 22px;
+  height: 22px;
 }

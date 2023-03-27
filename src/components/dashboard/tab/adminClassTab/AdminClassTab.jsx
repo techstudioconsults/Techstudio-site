@@ -1,45 +1,92 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { DASHBOARD_CONTENT } from '../../../../layout/Layout/dashboardLayout/content'
-import LiveClassDisplayCard from '../../../global/cards/liveClassDisplayCard/LiveClassDisplayCard'
+// import { DASHBOARD_CONTENT } from '../../../../layout/Layout/dashboardLayout/content'
+// import LiveClassDisplayCard from '../../../global/cards/liveClassDisplayCard/LiveClassDisplayCard'
 import style from '../classesTab/classesTab.module.scss'
-import ScheduleClassForm from '../../../global/forms/scheduleClassFom/ScheduleClassForm'
-import { AiOutlinePlusCircle } from 'react-icons/ai'
-import AddAClassOffCanvas from '../../../global/offCanvas/AddAClassOffcanvas'
-import Portal from '../../../global/POTAL/Portal'
-import { useLocation } from 'react-router'
+// import ScheduleClassForm from '../../../global/forms/scheduleClassFom/ScheduleClassForm'
+// import { AiOutlinePlusCircle } from 'react-icons/ai'
+// import AddAClassOffCanvas from '../../../global/offCanvas/AddAClassOffcanvas'
+// import Portal from '../../../global/POTAL/Portal'
+// import { useLocation } from 'react-router'
 import AdminClassDisplayCard from '../../../global/cards/adminClassDisplayCard/AdminClassDisplayCard'
+import { Icon } from '@iconify/react'
+import LessonCard from '../../../global/cards/lessonCards/LessonCard'
+import { Link } from 'react-router-dom'
 
 const ClassesTab = ({ isTDB }) => {
-  const location = useLocation()
+  const [isLesson, setLesson] = useState(false)
+  // const location = useLocation()
+
+  const toggleLesson = () => {
+    setLesson((prevState) => {
+      return !prevState
+    })
+  }
 
   return (
     <section className={style.tab}>
       <div className='d-flex flex-column flex-md-row align-items-center justify-content-between gap-3'>
-        <ul className={['nav', style.tabList].join(' ')}>
-          <li className={['nav-item', style.link].join(' ')}>
-            <a
-              className={['nav-link active', style.a].join(' ')}
-              id='live-tab'
-              data-bs-toggle='tab'
-              href='#ongoing'
-            >
-              ONGOING
-            </a>
+        <div className={['nav', style.tabList].join(' ')}>
+          <div className={`${style.tablistGroup}`}>
+            <li className={['nav-item', style.link].join(' ')}>
+              <a
+                className={['nav-link active', style.a].join(' ')}
+                id='ongoing-tab'
+                data-bs-toggle='tab'
+                href='#ongoing'
+                onClick={() => setLesson(false)}
+              >
+                ONGOING
+              </a>
+            </li>
+            <li className={['nav-item', style.link].join(' ')}>
+              <a
+                className={['nav-link', style.a].join(' ')}
+                id='previous-tab'
+                data-bs-toggle='tab'
+                href='#previous'
+                onClick={() => setLesson(false)}
+              >
+                PREVIOUS
+              </a>
+            </li>
+          </div>
+          <li className={['nav-item ', style.link, style.lessonLink].join(' ')}>
+            <div className={`${!isLesson ? `d-block` : `d-none`}`}>
+              <a
+                className={['nav-link', style.a].join(' ')}
+                id='lesson-tab'
+                data-bs-toggle='tab'
+                href='#lesson'
+                onClick={toggleLesson}
+              >
+                View Lesson
+              </a>
+            </div>
+            <div className={`d-flex ${isLesson ? `d-block` : `d-none`}`}>
+              <a
+                className={['nav-link', style.lessonBtn, style.a].join(' ')}
+                id='ongoing-tab'
+                data-bs-toggle='tab'
+                href='#ongoing'
+                onClick={toggleLesson}
+              >
+                LESSONS
+              </a>
+              <Link
+                to={`/admin/class/create`}
+                className={['nav-link', style.a].join(' ')}
+                id='lesson-tab'
+              >
+                <span>
+                  <Icon icon={`ic:baseline-add-circle-outline`} />
+                </span>
+                <span> New Lesson</span>
+              </Link>
+            </div>
           </li>
-          <li className={['nav-item', style.link].join(' ')}>
-            <a
-              className={['nav-link', style.a].join(' ')}
-              id='record-tab'
-              data-bs-toggle='tab'
-              href='#previous'
-            >
-              PREVIOUS
-            </a>
-          </li>
-        </ul>
-        {location.pathname}
-        <div className={isTDB ? `d-block` : `d-none`}>
+        </div>
+        {/* <div className={isTDB ? `d-block` : `d-none`}>
           <p
             data-bs-toggle='offcanvas'
             href='#addclass-offcanvas'
@@ -62,7 +109,7 @@ const ClassesTab = ({ isTDB }) => {
               <ScheduleClassForm />
             </AddAClassOffCanvas>
           </Portal>
-        </div>
+        </div> */}
       </div>
 
       <div className='tab-content' id='tabContent'>
@@ -91,6 +138,20 @@ const ClassesTab = ({ isTDB }) => {
         >
           <div className={style.listWrapper}>
             <AdminClassDisplayCard />
+          </div>
+        </div>
+        <div
+          className='tab-pane fade'
+          id='lesson'
+          role='tabpanel'
+          aria-labelledby='lesson-tab'
+        >
+          <div className={style.listWrapper}>
+            <LessonCard />
+            <LessonCard />
+            <LessonCard />
+            <LessonCard />
+            <LessonCard />
           </div>
         </div>
       </div>

@@ -40,6 +40,7 @@ import {
   AdminCourseView,
   CreateCourse,
   EditCourse,
+  CreateClass,
 } from './pages'
 
 import AdminClassView from './pages/Dashboard/Admin/classes/AdminClassView'
@@ -114,6 +115,7 @@ const App = () => {
               <Route path='/admin/classes' element={<AdminClassView />}>
                 <Route path=':class' element={<AdminClassTab isTDB />} />
               </Route>
+              <Route path='/admin/class/create' element={<CreateClass />} />
             </Route>
           </Route>
           {/* student routes */}

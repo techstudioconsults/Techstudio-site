@@ -19,7 +19,7 @@
   }
 
   select {
-    width: fn.rem(164);
+    // width: 100vw;
     height: fn.rem(48);
     font-size: fn.rem(16);
   }
@@ -29,7 +29,7 @@
 
     input,
     textarea {
-      height: fn.rem(52);
+      // height: fn.rem(52);
       color: colors.$text-dark;
       font-size: fn.rem(14);
     }

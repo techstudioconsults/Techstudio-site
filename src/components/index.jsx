@@ -51,6 +51,7 @@ export { default as CancelModal } from './global/modals/CancelModal'
 export { default as SkeletonLoader } from './global/skeletonLoader/SkeletonLoader'
 export { default as AdminClassTab } from './dashboard/tab/adminClassTab/AdminClassTab'
 export { default as AdminClassDisplayCard } from './global/cards/adminClassDisplayCard/AdminClassDisplayCard'
+export { default as LessonCard } from './global/cards/lessonCards/LessonCard'
 
 // HOME
 export { default as Hero } from './home/hero'
