@@ -74,7 +74,7 @@ const ClassesTab = ({ isTDB }) => {
                 LESSONS
               </a>
               <Link
-                to={`/admin/class/create`}
+                to={`/admin/class/lesson/create`}
                 className={['nav-link', style.a].join(' ')}
                 id='lesson-tab'
               >

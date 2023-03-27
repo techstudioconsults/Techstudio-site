@@ -25,7 +25,7 @@ const CourseList = ({ course, showDetailsBox }) => {
   const handleDeleteModal = () => {
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
-        document.getElementById(`${id}`)
+        document.getElementById(`delete-modal`)
       )
       modal.show()
     } catch (err) {

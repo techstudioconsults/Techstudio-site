@@ -79,7 +79,7 @@ const LessonCard = () => {
             </div>
             <ul className={`dropdown-menu`}>
               <div className='d-flex align-items-center px-5'>
-                <Link to={`/admin/courses/${`id`}/edit`} state={{}}>
+                <Link to={`/admin/class/lesson/edit`} state={{}}>
                   <Icon
                     width={`1.1rem`}
                     icon={`material-symbols:edit`}

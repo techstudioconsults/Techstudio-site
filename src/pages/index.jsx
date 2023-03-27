@@ -27,3 +27,6 @@ export { default as CreateCourse } from './Dashboard/Admin/courses/createCourse/
 export { default as EditCourse } from './Dashboard/Admin/courses/createCourse/EditCourse'
 export { default as ForgotPassword } from './Auth/forgotPassword/ForgotPassword'
 export { default as CreateClass } from './Dashboard/Admin/classes/createClass/CreateClass'
+export { default as EditClass } from './Dashboard/Admin/classes/createClass/EditClass'
+export { default as CreateLesson } from './Dashboard/Admin/lesson/CreateLesson'
+export { default as EditLesson } from './Dashboard/Admin/lesson/EditLesson'

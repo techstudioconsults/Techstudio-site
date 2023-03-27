@@ -80,7 +80,7 @@ const AdminClassDisplayCard = () => {
                 <ul className={`dropdown-menu`}>
                   <div className='d-flex align-items-center px-3'>
                     {/* <Link to={`/admin/courses/${id}/edit`} state={{ course }}> */}
-                    <Link to={`#`}>
+                    <Link to={`/admin/class/edit`}>
                       <Icon
                         width={`1.1rem`}
                         icon={`material-symbols:edit`}

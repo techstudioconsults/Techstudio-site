@@ -32,7 +32,7 @@ const AdminClassView = () => {
               </div>
             </div>
             <div>
-              <Link to={`/admin/courses/create`}>
+              <Link to={`/admin/class/create`}>
                 <button
                   style={{ height: `2.25rem`, width: `9.938rem` }}
                   className='btn btn-primary fs-sm'
