@@ -52,7 +52,11 @@ const DeleteModal = ({ content }) => {
           >
             <div className=''>
               <h4 className='fw-bold text-blue pt-5 px-10'>
-                {!isDeleted ? content.title : `Course Deleted Successfully`}
+                {!isDeleted
+                  ? content.title
+                  : content.action === `delete-class`
+                  ? `Class Deleted Successfully`
+                  : `Course Deleted Successfully`}
               </h4>
               <p hidden={!isDeleted} className='px-10'>
                 {content.desc}

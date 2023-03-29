@@ -39,10 +39,7 @@ const TeacherClassNotificationView = ({ mobile }) => {
               Ibori James, Tutor
             </p>
             <p className={`text-dark ${style.desc}`}>
-              Lorem ipsum dolor sit amet consectetur. Quis nam viverra vitae
-              varius aenean tempor vel etiam. Tortor aliquet imperdiet magnis
-              tristique dignissim pharetra malesuada. Mauris egestas eget sapien
-              at massa tellus.
+              {classDetails.description}
             </p>
           </div>
           <div
