@@ -6,11 +6,20 @@ import { Avatar, AvatarStack } from '../../../../../components'
 import { MdCalendarToday, MdOutlineComputer } from 'react-icons/md'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import { Icon } from '@iconify/react'
+import { useSelector } from 'react-redux'
+import { selectClassDetails } from '../../../Admin/classes/api/classSlice'
+
+const color = {
+  color: `#95A8B8`,
+}
 
 const TeacherClassNotificationView = ({ mobile }) => {
   const { imageList } = DASHBOARD_CONTENT
-  const color = {
-    color: `#95A8B8`,
+  const classDetails = useSelector(selectClassDetails)
+
+  const convertDateToReadable = (date) => {
+    let dateSet = new Date(date).toUTCString().split(' ')
+    return `${dateSet[2]} ${dateSet[1]}, ${dateSet[3]}`
   }
 
   return (
@@ -24,7 +33,7 @@ const TeacherClassNotificationView = ({ mobile }) => {
               <Avatar />
             </div>
             <h6 className={['fw-bold', style.title].join(' ')}>
-              Javascript Fullstack January 2023
+              {classDetails.title}
             </h6>
             <p className={[style.text, `text-secondary`].join(' ')}>
               Ibori James, Tutor
@@ -59,7 +68,9 @@ const TeacherClassNotificationView = ({ mobile }) => {
                 />
               </div>
               <div>
-                <p className='fw-bold fs-sm'>18 Jan, 2023</p>
+                <p className='fw-bold fs-sm'>
+                  {convertDateToReadable(classDetails.startDate)}
+                </p>
                 <p className={['fs-xs text-info'].join(' ')}>Start Date</p>
               </div>
             </div>
@@ -71,7 +82,9 @@ const TeacherClassNotificationView = ({ mobile }) => {
                 />
               </div>
               <div>
-                <p className='fw-bold fs-sm'>Live Class</p>
+                <p className='fw-bold fs-sm'>
+                  {convertDateToReadable(classDetails.endDate)}
+                </p>
                 <p className={['fs-xs text-info'].join(' ')}>End Date</p>
               </div>
             </div>
@@ -80,7 +93,7 @@ const TeacherClassNotificationView = ({ mobile }) => {
                 <Icon icon={`ic:baseline-computer`} width={`1.5rem`} />
               </div>
               <div>
-                <p className='fw-bold fs-sm'>17 Jan, 2021</p>
+                <p className='fw-bold fs-sm'>Live Class</p>
                 <p style={color} className={['fs-xs text-info'].join(' ')}>
                   prefrence
                 </p>

@@ -64,8 +64,6 @@ const App = () => {
 
   const classes = useSelector(selectClasses)
 
-  console.log(classes)
-
   return (
     <Suspense fallback={<Loading text='LOADING...' />}>
       <Routes>

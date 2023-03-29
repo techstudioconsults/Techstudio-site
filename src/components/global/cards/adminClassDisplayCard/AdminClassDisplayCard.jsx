@@ -1,24 +1,16 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Icon } from '@iconify/react'
 import React, { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import style from './adminClassDisplay.module.scss'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { useGetTutorsMutation } from '../../../../pages/Dashboard/Admin/courses/api/coursesApiSlice'
+import { useDispatch } from 'react-redux'
+import Portal from '../../POTAL/Portal'
+import DeleteModal from '../../modals/DeleteModal'
 
-const months = [
-  { id: 1, month: `January` },
-  { id: 2, month: `Febuary` },
-  { id: 3, month: `March` },
-  { id: 4, month: `April` },
-  { id: 5, month: `May` },
-  { id: 6, month: `June` },
-  { id: 7, month: `July` },
-  { id: 8, month: `August` },
-  { id: 9, month: `September` },
-  { id: 10, month: `October` },
-  { id: 11, month: `November` },
-  { id: 12, month: `December` },
-]
 const weeks = [
   { id: 1, week: `Monday` },
   { id: 2, week: `Tuesday` },
@@ -32,6 +24,7 @@ const weeks = [
 const AdminClassDisplayCard = ({ singleClass }) => {
   const [getTutors] = useGetTutorsMutation()
   const [classTutors, setClassTutors] = useState([])
+  const dispatch = useDispatch()
 
   const findTutors = useCallback(async () => {
     const res = await getTutors().unwrap()
@@ -68,21 +61,38 @@ const AdminClassDisplayCard = ({ singleClass }) => {
     return `${weekData[0].week}`
   }
 
+  const showClassDetails = () => {
+    console.log(`details`)
+    dispatch({ type: 'classes/setClassDetails', payload: singleClass })
+  }
+
+  const handleDeleteModal = () => {
+    try {
+      let modal = bootstrap.Modal.getOrCreateInstance(
+        document.getElementById(`${singleClass.id}`)
+      )
+      modal.show()
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   return (
     <>
-      {/* <Portal wrapperId='react-portal-modal-container'>
+      <Portal wrapperId='react-portal-modal-container'>
         <DeleteModal
           content={{
-            title: `${`Are you sure you want to delete this course?`}`,
-            desc: `${title} Course has successfully being deleted. Kindly click continue to exit this page.`,
-            courseID: id,
+            title: `${`Are you sure you want to delete this class?`}`,
+            desc: `${singleClass.title} class has successfully being deleted. Kindly click continue to exit this page.`,
+            classID: singleClass.id,
+            action: `delete-class`,
           }}
         />
-      </Portal> */}
+      </Portal>
       <button
         // onMouseEnter={handleMouseEnter}
         // onMouseLeave={handleMouseLeave}x
-        // onClick={handleClick}
+        onClick={showClassDetails}
         className={`btn btn-lg h-100 d-flex justify-content-between align-items-start text-dark border p-0 py-5 ps-2 rounded-0 ${style.courseList}`}
       >
         <div className='container'>
@@ -160,7 +170,7 @@ const AdminClassDisplayCard = ({ singleClass }) => {
                   </div>
                   <hr className='my-2' />
                   <div
-                    // onClick={handleDeleteModal}
+                    onClick={handleDeleteModal}
                     className='d-flex align-items-center text-danger px-3'
                   >
                     <Icon

@@ -1,19 +1,32 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
+import { useDeleteClassMutation } from '../../../pages/Dashboard/Admin/classes/api/classApiSlice'
 import { useDeleteCourseMutation } from '../../../pages/Dashboard/Admin/courses/api/coursesApiSlice'
 
 const DeleteModal = ({ content }) => {
   const [isDeleted, setDeleted] = useState(false)
   const [deleteCourse, { isLoading }] = useDeleteCourseMutation()
+  const [deleteClass] = useDeleteClassMutation()
   const stopPropagation = (event) => {
     event.stopPropagation()
   }
+  let handleDelete = null
 
-  const handleDeleteCourse = async () => {
-    setDeleted(false)
-    const res = await deleteCourse(content.courseID).unwrap()
-    if (res.success) {
-      setDeleted(true)
+  if (content.action === `delete-class`) {
+    handleDelete = async () => {
+      setDeleted(false)
+      const res = await deleteClass(content.classID).unwrap()
+      if (res.success) {
+        setDeleted(true)
+      }
+    }
+  } else {
+    handleDelete = async () => {
+      setDeleted(false)
+      const res = await deleteCourse(content.courseID).unwrap()
+      if (res.success) {
+        setDeleted(true)
+      }
     }
   }
 
@@ -22,7 +35,9 @@ const DeleteModal = ({ content }) => {
     <div
       onClick={stopPropagation}
       className='modal fade'
-      id={`${content.courseID}`}
+      id={
+        content.action === `delete-class` ? content.classID : content.courseID
+      }
       tabIndex='-1'
       aria-labelledby='delete-modal'
       data-bs-backdrop='static'
@@ -49,7 +64,7 @@ const DeleteModal = ({ content }) => {
               <button
                 disabled={isLoading}
                 hidden={isDeleted}
-                onClick={handleDeleteCourse}
+                onClick={handleDelete}
                 className={`btn btn-primary w-50`}
               >
                 <div

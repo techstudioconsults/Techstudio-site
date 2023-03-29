@@ -14,8 +14,7 @@ const CLASS_SLICE = {
       state.classes = classes
     },
     setClassDetails: (state, action) => {
-      const { classDetails } = action.payload
-      state.classDetails = classDetails
+      state.classDetails = action.payload
     },
   },
 }
