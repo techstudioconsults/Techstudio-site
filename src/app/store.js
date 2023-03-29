@@ -14,6 +14,7 @@ import { apiSlice } from './api/apiSlice'
 import { setupListeners } from '@reduxjs/toolkit/query'
 import authReducer from '../pages/Auth/api/authSlice'
 import coursesReducer from '../pages/Dashboard/Admin/courses/api/coursesSlice'
+import classesReducer from '../pages/Dashboard/Admin/classes/api/classSlice'
 
 const persistConfig = {
   key: 'root',
@@ -29,6 +30,7 @@ export const store = configureStore({
     // auth: authReducer,
     auth: persistedReducer,
     courses: coursesReducer,
+    classes: classesReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(apiSlice.middleware),

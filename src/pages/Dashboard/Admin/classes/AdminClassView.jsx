@@ -8,8 +8,42 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import { Icon } from '@iconify/react'
 import { Link } from 'react-router-dom'
 import TeacherClassNotificationView from '../../Teacher/components/teacherClassNotificationView/TeacherClassNotificationView'
+import { useViewAllCoursesMutation } from '../courses/api/coursesApiSlice'
+import { useCallback, useEffect, useState } from 'react'
+import { selectCourses } from '../courses/api/coursesSlice'
+import { useSelector } from 'react-redux'
 
 const AdminClassView = () => {
+  const [isShowDetails, setShowDetails] = useState(false)
+  const [viewAllCourses] = useViewAllCoursesMutation()
+
+  const courses = useSelector(selectCourses)
+
+  const showDetailsBox = () => {
+    setShowDetails(true)
+  }
+
+  const getCourses = useCallback(async () => {
+    await viewAllCourses().unwrap()
+  }, [viewAllCourses])
+
+  useEffect(() => {
+    getCourses()
+  }, [getCourses])
+
+  const coursesNav = courses?.map((course) => {
+    return (
+      <li key={course.id}>
+        <Link
+          to={`/admin/class/${course.id}/create`}
+          state={{ tutors: course.tutors }}
+        >
+          <span className='fs-sm'>{course.title}</span>
+        </Link>
+      </li>
+    )
+  })
+
   return (
     <section className={style.classView}>
       <div className={style.dashboardDisplay}>
@@ -32,20 +66,25 @@ const AdminClassView = () => {
               </div>
             </div>
             <div>
-              <Link to={`/admin/class/create`}>
+              <div className='btn-group'>
                 <button
                   style={{ height: `2.25rem`, width: `9.938rem` }}
-                  className='btn btn-primary fs-sm'
+                  className='btn btn-primary fs-sm dropdown-toggle'
+                  type='button'
+                  data-bs-toggle='dropdown'
+                  data-bs-offset='-140,10'
+                  aria-expanded='true'
                 >
-                  Create Class
+                  Create class
                 </button>
-              </Link>
+                <ul className='dropdown-menu p-3'>{coursesNav}</ul>
+              </div>
             </div>
           </div>
         </div>
         <div className='mt-10'>
           <div className='mt-5 d-flex flex-column gap-5'>
-            <TrackClassesTab />
+            <TrackClassesTab courses={courses} />
           </div>
         </div>
       </div>

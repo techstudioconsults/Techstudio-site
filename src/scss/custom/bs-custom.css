@@ -28,3 +28,13 @@
   width: 22px;
   height: 22px;
 }
+
+.dropdown-menu {
+  width: 300px !important;
+  /* height: 400px !important; */
+}
+
+.dropdown-menu li a {
+  justify-content: flex-start;
+  margin: 0.5rem 0;
+}

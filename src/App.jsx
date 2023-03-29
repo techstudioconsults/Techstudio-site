@@ -50,6 +50,8 @@ import AdminClassView from './pages/Dashboard/Admin/classes/AdminClassView'
 import { DEVELOPMENT_CONTENT } from './pages/Development/content'
 import RequireAuth from './hooks/RequireAuth'
 import { ROLES } from './config/role'
+import { selectClasses } from './pages/Dashboard/Admin/classes/api/classSlice'
+import { useSelector } from 'react-redux'
 
 const App = () => {
   const {
@@ -59,6 +61,10 @@ const App = () => {
     mobileDevelopment,
     UIUXDevelopment,
   } = DEVELOPMENT_CONTENT
+
+  const classes = useSelector(selectClasses)
+
+  console.log(classes)
 
   return (
     <Suspense fallback={<Loading text='LOADING...' />}>
@@ -116,10 +122,13 @@ const App = () => {
               <Route path='/admin/courses/create' element={<CreateCourse />} />
               <Route path='/admin/courses/:id/edit' element={<EditCourse />} />
               <Route path='/admin/classes' element={<AdminClassView />}>
-                <Route path=':class' element={<AdminClassTab isTDB />} />
+                <Route
+                  path=':class'
+                  element={<AdminClassTab classes={classes} isTDB />}
+                />
               </Route>
-              <Route path='/admin/class/create' element={<CreateClass />} />
-              <Route path='/admin/class/edit' element={<EditClass />} />
+              <Route path='/admin/class/:id/create' element={<CreateClass />} />
+              <Route path='/admin/class/:id/edit' element={<EditClass />} />
               <Route
                 path='/admin/class/lesson/create'
                 element={<CreateLesson />}

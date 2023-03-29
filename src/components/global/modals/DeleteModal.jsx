@@ -22,7 +22,7 @@ const DeleteModal = ({ content }) => {
     <div
       onClick={stopPropagation}
       className='modal fade'
-      id={`delete-modal`}
+      id={`${content.courseID}`}
       tabIndex='-1'
       aria-labelledby='delete-modal'
       data-bs-backdrop='static'

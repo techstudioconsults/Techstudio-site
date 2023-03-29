@@ -1,27 +1,30 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-// import { DASHBOARD_CONTENT } from '../../../../layout/Layout/dashboardLayout/content'
-// import LiveClassDisplayCard from '../../../global/cards/liveClassDisplayCard/LiveClassDisplayCard'
 import style from '../classesTab/classesTab.module.scss'
-// import ScheduleClassForm from '../../../global/forms/scheduleClassFom/ScheduleClassForm'
-// import { AiOutlinePlusCircle } from 'react-icons/ai'
-// import AddAClassOffCanvas from '../../../global/offCanvas/AddAClassOffcanvas'
-// import Portal from '../../../global/POTAL/Portal'
-// import { useLocation } from 'react-router'
 import AdminClassDisplayCard from '../../../global/cards/adminClassDisplayCard/AdminClassDisplayCard'
 import { Icon } from '@iconify/react'
 import LessonCard from '../../../global/cards/lessonCards/LessonCard'
 import { Link } from 'react-router-dom'
 
-const ClassesTab = ({ isTDB }) => {
+const ClassesTab = ({ classes, isTDB }) => {
   const [isLesson, setLesson] = useState(false)
-  // const location = useLocation()
 
   const toggleLesson = () => {
     setLesson((prevState) => {
       return !prevState
     })
   }
+
+  const onGoingClasses = classes?.ongoing?.map((singleClass) => {
+    return (
+      <AdminClassDisplayCard key={singleClass.id} singleClass={singleClass} />
+    )
+  })
+  const previousClasses = classes?.previous?.map((singleClass) => {
+    return (
+      <AdminClassDisplayCard key={singleClass.id} singleClass={singleClass} />
+    )
+  })
 
   return (
     <section className={style.tab}>
@@ -86,30 +89,6 @@ const ClassesTab = ({ isTDB }) => {
             </div>
           </li>
         </div>
-        {/* <div className={isTDB ? `d-block` : `d-none`}>
-          <p
-            data-bs-toggle='offcanvas'
-            href='#addclass-offcanvas'
-            aria-controls='addclass-offcanvas'
-            // className='d-flex align-items-center gap-2 text-primary fw-semibold'
-            hidden
-          >
-            <AiOutlinePlusCircle size={`1rem`} /> New Lessons
-          </p>
-          <p
-            data-bs-toggle='offcanvas'
-            href='#addclass-offcanvas'
-            aria-controls='addclass-offcanvas'
-            className='d-flex align-items-center gap-2 text-primary fw-semibold'
-          >
-            View Lessons
-          </p>
-          <Portal>
-            <AddAClassOffCanvas>
-              <ScheduleClassForm />
-            </AddAClassOffCanvas>
-          </Portal>
-        </div> */}
       </div>
 
       <div className='tab-content' id='tabContent'>
@@ -119,16 +98,7 @@ const ClassesTab = ({ isTDB }) => {
           role='tabpanel'
           aria-labelledby='home-tab'
         >
-          <div className={style.listWrapper}>
-            <AdminClassDisplayCard />
-            <AdminClassDisplayCard />
-            <AdminClassDisplayCard />
-            <AdminClassDisplayCard />
-            <AdminClassDisplayCard />
-            <AdminClassDisplayCard />
-            <AdminClassDisplayCard />
-            <AdminClassDisplayCard />
-          </div>
+          <div className={style.listWrapper}>{onGoingClasses}</div>
         </div>
         <div
           className='tab-pane fade'
@@ -136,9 +106,7 @@ const ClassesTab = ({ isTDB }) => {
           role='tabpanel'
           aria-labelledby='about-tab'
         >
-          <div className={style.listWrapper}>
-            <AdminClassDisplayCard />
-          </div>
+          <div className={style.listWrapper}>{previousClasses}</div>
         </div>
         <div
           className='tab-pane fade'
@@ -161,6 +129,7 @@ const ClassesTab = ({ isTDB }) => {
 
 ClassesTab.propTypes = {
   isTDB: PropTypes.bool,
+  classes: PropTypes.object,
 }
 
 export default ClassesTab

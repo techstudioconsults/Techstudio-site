@@ -1,10 +1,73 @@
 import { Icon } from '@iconify/react'
-import React from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import Avatar from '../../avatar/Avatar'
+import PropTypes from 'prop-types'
 import style from './adminClassDisplay.module.scss'
+import { useGetTutorsMutation } from '../../../../pages/Dashboard/Admin/courses/api/coursesApiSlice'
 
-const AdminClassDisplayCard = () => {
+const months = [
+  { id: 1, month: `January` },
+  { id: 2, month: `Febuary` },
+  { id: 3, month: `March` },
+  { id: 4, month: `April` },
+  { id: 5, month: `May` },
+  { id: 6, month: `June` },
+  { id: 7, month: `July` },
+  { id: 8, month: `August` },
+  { id: 9, month: `September` },
+  { id: 10, month: `October` },
+  { id: 11, month: `November` },
+  { id: 12, month: `December` },
+]
+const weeks = [
+  { id: 1, week: `Monday` },
+  { id: 2, week: `Tuesday` },
+  { id: 3, week: `Wednesday` },
+  { id: 4, week: `Thursday` },
+  { id: 5, week: `Friday` },
+  { id: 6, week: `Saturday` },
+  { id: 7, week: `Sunday` },
+]
+
+const AdminClassDisplayCard = ({ singleClass }) => {
+  const [getTutors] = useGetTutorsMutation()
+  const [classTutors, setClassTutors] = useState([])
+
+  const findTutors = useCallback(async () => {
+    const res = await getTutors().unwrap()
+    const tutors = res.data.tutors.map((tutor) => {
+      return { value: tutor.id, label: `${tutor.firstName} ${tutor.lastName}` }
+    })
+    tutors.map((tutor) => {
+      singleClass.tutors.map((classTutorID) => {
+        tutor.value === classTutorID
+          ? setClassTutors((prevState) => {
+              return [...prevState, tutor]
+            })
+          : null
+      })
+    })
+  }, [getTutors, singleClass.tutors])
+
+  useEffect(() => {
+    findTutors()
+  }, [findTutors])
+
+  const convertDateToReadable = (date) => {
+    let dateSet = new Date(date).toUTCString().split(' ')
+    return `${dateSet[2]} ${dateSet[1]}, ${dateSet[3]}`
+  }
+
+  const convertWeekToReadable = (date) => {
+    let dateSet = new Date(date).toUTCString().split(',')
+    let weekData = weeks.filter((week) => {
+      if (week.week.includes(dateSet[0])) {
+        return week.week
+      }
+    })
+    return `${weekData[0].week}`
+  }
+
   return (
     <>
       {/* <Portal wrapperId='react-portal-modal-container'>
@@ -18,7 +81,7 @@ const AdminClassDisplayCard = () => {
       </Portal> */}
       <button
         // onMouseEnter={handleMouseEnter}
-        // onMouseLeave={handleMouseLeave}
+        // onMouseLeave={handleMouseLeave}x
         // onClick={handleClick}
         className={`btn btn-lg h-100 d-flex justify-content-between align-items-start text-dark border p-0 py-5 ps-2 rounded-0 ${style.courseList}`}
       >
@@ -26,19 +89,23 @@ const AdminClassDisplayCard = () => {
           <div className='row align-items-center'>
             <div className='col-3'>
               <div className={style.tableHeadTitle}>
-                <p className='fw-bold fs-sm text-start'>
-                  Javascript Fullstack January 2023
-                </p>
+                <p className='fw-bold fs-sm text-start'>{singleClass?.title}</p>
                 {/* <p className='fs-xs text-start text-danger'>{id}</p> */}
               </div>
             </div>
             <div className='col-3'>
               <div className={`${style.tableHead} h-100 text-end`}>
                 <p className='fs-sm text-muted fw-semibold'>
-                  Start Date: <span className='text-primary'>Jan 18, 2023</span>
+                  Start Date:{' '}
+                  <span className='text-primary'>
+                    {convertDateToReadable(singleClass?.startDate)}
+                  </span>
                 </p>
                 <p className='fs-sm text-muted fw-semibold'>
-                  End Date: <span className='text-danger'>Jan 18, 2023</span>
+                  End Date:{' '}
+                  <span className='text-danger'>
+                    {convertDateToReadable(singleClass?.endDate)}
+                  </span>
                 </p>
               </div>
             </div>
@@ -46,7 +113,7 @@ const AdminClassDisplayCard = () => {
               <div
                 className={`${style.tableHead} h-100 fs-sm fw-semibold text-muted text-end`}
               >
-                <span>Wednesday</span>
+                <span>{convertWeekToReadable(singleClass?.startDate)}</span>
               </div>
             </div>
             <div className='col-3'>
@@ -60,7 +127,9 @@ const AdminClassDisplayCard = () => {
                     className='cc-img-fluid'
                   />
                 </div>
-                <span className='fw-semibold text-muted'>Ibori James</span>
+                <span className='fw-semibold text-muted'>
+                  {classTutors?.[0]?.label}
+                </span>
               </div>
             </div>
             <div className='col-1'>
@@ -109,6 +178,10 @@ const AdminClassDisplayCard = () => {
       </button>
     </>
   )
+}
+
+AdminClassDisplayCard.propTypes = {
+  singleClass: PropTypes.object,
 }
 
 export default AdminClassDisplayCard

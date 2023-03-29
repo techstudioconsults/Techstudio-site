@@ -19,6 +19,25 @@ export const coursesApiSlice = apiSlice.injectEndpoints({
         }
       },
     }),
+
+    // this temporary===========
+
+    createClass: builder.mutation({
+      query: (credentials) => ({
+        url: `/class/${credentials.courseID}`,
+        method: 'POST',
+        Headers: { 'Content-type': 'multipart/form-data' },
+        body: { ...credentials.body },
+      }),
+      async onQueryStarted(arg, { queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled
+          console.log(data)
+        } catch (err) {
+          console.log(err)
+        }
+      },
+    }),
     // updateCourse: builder.mutation({
     //   query: (credentials) => ({
     //     url: `/course${}`,
@@ -88,6 +107,7 @@ export const coursesApiSlice = apiSlice.injectEndpoints({
 
 export const {
   useCreateCourseMutation,
+  useCreateClassMutation,
   useGetTutorsMutation,
   useViewAllCoursesMutation,
   useViewCoursesDetailsMutation,
