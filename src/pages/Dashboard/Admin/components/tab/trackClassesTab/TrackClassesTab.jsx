@@ -3,13 +3,18 @@ import { Outlet } from 'react-router'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import style from '../adminTab.module.scss'
-import { useGetClassByCourseIDMutation } from '../../../classes/api/classApiSlice'
+import {
+  useGetClassByCourseIDMutation,
+  useGetLessonByCourseIDMutation,
+} from '../../../classes/api/classApiSlice'
 
 const TrackClassesTab = ({ courses }) => {
   const [getClassByCourseID] = useGetClassByCourseIDMutation()
+  const [getLessonByCourseID] = useGetLessonByCourseIDMutation()
 
   const getClasses = async (courseID) => {
     await getClassByCourseID(courseID).unwrap()
+    await getLessonByCourseID(courseID).unwrap()
   }
 
   const coursesNav = courses?.map((course) => {

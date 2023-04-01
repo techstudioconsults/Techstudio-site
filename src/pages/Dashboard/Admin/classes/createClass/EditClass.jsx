@@ -12,12 +12,21 @@ import style from '../../courses/createCourse/createCourse.module.scss'
 import Select from 'react-select'
 import { Controller, useForm } from 'react-hook-form'
 // import { useGetTutorsMutation } from '../api/coursesApiSlice'
-import axios from 'axios'
-import { useSelector } from 'react-redux'
-import { selectCurrentToken } from '../../../../Auth/api/authSlice'
+// import axios from 'axios'
+// import { useSelector } from 'react-redux'
+// import { selectCurrentToken } from '../../../../Auth/api/authSlice'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { useCallback, useEffect, useState } from 'react'
 import useToast from '../../../../../hooks/useToast'
+import { useLocation } from 'react-router-dom'
+import {
+  useEditClassMutation,
+  useViewCoursesDetailsMutation,
+} from '../../courses/api/coursesApiSlice'
+import axios from 'axios'
+import { useSelector } from 'react-redux'
+import { selectCurrentToken } from '../../../../Auth/api/authSlice'
+import { selectCourseDetails } from '../../courses/api/coursesSlice'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
@@ -58,21 +67,19 @@ const durationSelectInput = {
   }),
 }
 
-const durationInWeeks = [
-  { value: '10', label: '10 week' },
-  { value: '12', label: '12 weeks' },
-  { value: '16', label: '16 weeks' },
-  { value: '24', label: '24 weeks' },
-]
-
 const EditClass = () => {
   const [tutors, setTutors] = useState([])
   const [isLoading, setLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState(null)
-  const { toast } = useToast()
-
-  //   const [getTutors] = useGetTutorsMutation()
   const token = useSelector(selectCurrentToken)
+  const { state } = useLocation()
+  const { toast } = useToast()
+  const classID = location.pathname.split(`/`)[3]
+  const [viewCoursesDetails] = useViewCoursesDetailsMutation()
+  const courseDetails = useSelector(selectCourseDetails)
+
+  console.log(state)
+
   const credentials = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -80,17 +87,31 @@ const EditClass = () => {
     },
   }
 
-  //   const findTutors = useCallback(async () => {
-  //     const res = await getTutors().unwrap()
-  //     const tutors = res.data.tutors.map((tutor) => {
-  //       return { value: tutor.id, label: `${tutor.firstName} ${tutor.lastName}` }
-  //     })
-  //     setTutors(tutors)
-  //   }, [getTutors])
+  const prevTutor = state.tutors.map((tutor) => {
+    return {
+      value: tutor.id,
+      label: tutor.name,
+    }
+  })
 
-  //   useEffect(() => {
-  //     findTutors()
-  //   }, [findTutors])
+  const findTutors = (status) => {
+    const tutors = courseDetails.tutors[status].map((tutor) => {
+      return {
+        value: tutor.tutorId,
+        label: `${tutor.firstName} ${tutor.lastName}`,
+      }
+    })
+    setTutors(tutors)
+  }
+
+  const getCourseByCourseID = useCallback(async () => {
+    const res = await viewCoursesDetails(state.courseId).unwrap()
+    console.log(res)
+  }, [state.courseId, viewCoursesDetails])
+
+  useEffect(() => {
+    getCourseByCourseID()
+  }, [getCourseByCourseID])
 
   const {
     // reset,
@@ -103,92 +124,44 @@ const EditClass = () => {
     mode: 'onChange',
   })
 
-  // useEffect(() => {
-  //   if (isSubmitSuccessful) {
-  //     reset()
-  //   }
-  // }, [isSubmitSuccessful, reset])
-
-  // =============================================================================
-  // this code block works with RTK Query --- kept getting error from frile upload
-  // =============================================================================
-
-  // const onSubmit = async (data) => {
-  //   const formData = new FormData()
-  //   const duration = {
-  //     online: data.onlineClass,
-  //     weekday: data.weekdayClass,
-  //     weekend: data.weekendClass,
-  //   }
-  //   const tutors = data.tutors.map((obj) => obj.value)
-  //   const files = [...data.files]
-
-  //   formData.append(`title`, data.title)
-  //   formData.append(`description`, data.description)
-
-  //   Object.keys(duration).forEach((key) => {
-  //     if (typeof duration[key] !== 'object')
-  //       formData.append(`duration[${key}]`, duration[key])
-  //     else formData.append(key, JSON.stringify(duration[key]))
-  //   })
-
-  //   files.forEach((item) => formData.append('files', item))
-  //   tutors.forEach((item) => formData.append('tutors[]', item))
-
-  //   try {
-  //     await EditClass(formData).unwrap()
-  //   } catch (err) {
-  //     console.log(err)
-  //   }
-  // }
-  // ================================================================================
-
   // due to the error gotten from the response above...we went with the axios alternative
   const onSubmit = async (data) => {
     setLoading(true)
     const formData = new FormData()
-    const duration = {
-      online: data.onlineClass.value,
-      weekday: data.weekdayClass.value,
-      weekend: data.weekendClass.value,
-    }
 
-    const onlineTutors = data.onlineTutors.map((obj) => obj.value)
-    const weekdayTutors = data.weekdayTutors.map((obj) => obj.value)
-    const weekendTutors = data.weekendTutors.map((obj) => obj.value)
-
-    const tutors = {
-      online: [...onlineTutors],
-      weekday: [...weekdayTutors],
-      weekend: [...weekendTutors],
-    }
+    console.log(data)
+    console.log(new Date(data.endDate).toISOString())
     const files = [...data.files]
 
     formData.append(`title`, data.title)
     formData.append(`description`, data.description)
+    formData.append(`preference`, data.preference)
+    formData.append(`startDate`, new Date(data.startDate).toISOString())
+    formData.append(`endDate`, new Date(data.endDate).toISOString())
 
-    Object.keys(duration).forEach((key) => {
-      if (typeof duration[key] !== 'object')
-        formData.append(`duration[${key}]`, duration[key])
-      else formData.append(key, JSON.stringify(duration[key]))
-    })
+    data.tutors
+      ? data.tutors.forEach((item) => formData.append('tutors[]', item.value))
+      : prevTutor.forEach((item) => formData.append('tutors[]', item.value))
 
+    // data.tutors.forEach((item) => formData.append('tutors[]', item.value))
     files.forEach((item) => formData.append('files', item))
 
-    Object.keys(tutors).forEach((key) => {
-      if (typeof tutors[key] === 'object')
-        tutors[key].forEach((tutor, index) => {
-          formData.append(`tutors[${key}][${index}]`, tutor)
-        })
-    })
+    for (var pair of formData.entries()) {
+      console.log(pair[0] + ', ' + pair[1])
+    }
 
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
         document.getElementById('save-success')
       )
 
-      const res = await axios.post(`${baseUrl}/course`, formData, credentials)
-      if (res.status === 201) {
+      const res = await axios.patch(
+        `${baseUrl}/class/${classID}`,
+        formData,
+        credentials
+      )
+      console.log(res)
+      if (res.status === 200) {
         setLoading(false)
         modal.show()
       }
@@ -225,7 +198,7 @@ const EditClass = () => {
         <div className={style.header}>
           <h4 className={[style.title, `mb-0`].join(' ')}>Edit Class</h4>
           <p className={style.subTitle}>
-            Fill in the fields below to edit a class under a course.
+            Fill in the fields below to create a new class under a course.
           </p>
         </div>
         <form onSubmit={handleSubmit(onSubmit)} encType='multipart/form-data'>
@@ -243,7 +216,8 @@ const EditClass = () => {
               <div className='col-8'>
                 <div className={`${style.inputs} w-100`}>
                   <input
-                    placeholder='course title'
+                    defaultValue={state.title}
+                    placeholder='class title'
                     type='text'
                     className='form-control form-control-lg'
                     id='title'
@@ -265,7 +239,8 @@ const EditClass = () => {
               <div className='col-8'>
                 <div className={`${style.inputs} w-100`}>
                   <textarea
-                    placeholder='course description'
+                    defaultValue={state.description}
+                    placeholder='class description'
                     type='text'
                     className='form-control form-control-lg'
                     id='description'
@@ -287,10 +262,13 @@ const EditClass = () => {
                     className={`${style.inputs} d-flex justify-content-between w-100`}
                   >
                     <input
+                      defaultValue={new Date(
+                        state.startDate
+                      ).toLocaleDateString('en-CA')}
                       type='date'
                       className='form-control form-control-lg'
                       id='start-date'
-                      {...register('date')}
+                      {...register('startDate')}
                     />
                   </div>
                 </div>
@@ -308,10 +286,13 @@ const EditClass = () => {
                     className={`${style.inputs} d-flex justify-content-between w-100`}
                   >
                     <input
+                      defaultValue={new Date(state.endDate).toLocaleDateString(
+                        'en-CA'
+                      )}
                       type='date'
                       className='form-control form-control-lg'
                       id='start-date'
-                      {...register('date')}
+                      {...register('endDate')}
                     />
                   </div>
                 </div>
@@ -333,45 +314,54 @@ const EditClass = () => {
                 >
                   <div className='form-check form-check-inline'>
                     <input
+                      defaultChecked={state.preference === `online`}
                       className='form-check-input me-2'
                       type='radio'
-                      name='inlineRadioOptions'
-                      id='inlineRadio1'
-                      value='option1'
+                      name='preference'
+                      id='online'
+                      value='online'
+                      onClick={() => findTutors(`online`)}
+                      {...register('preference')}
                     />
-                    <label htmlFor='inlineRadio1' className='form-check-label'>
+                    <label htmlFor='online' className='form-check-label'>
                       online
                     </label>
                   </div>
                   <div className='form-check form-check-inline'>
                     <input
+                      defaultChecked={state.preference === `weekday`}
                       className='form-check-input me-2'
                       type='radio'
-                      name='inlineRadioOptions'
-                      id='inlineRadio2'
-                      value='option2'
+                      name='preference'
+                      id='weekday'
+                      value='weekday'
+                      onClick={() => findTutors(`weekday`)}
+                      {...register('preference')}
                     />
-                    <label htmlFor='inlineRadio2' className='form-check-label'>
+                    <label htmlFor='weekday' className='form-check-label'>
                       weekday
                     </label>
                   </div>
                   <div className='form-check form-check-inline'>
                     <input
+                      defaultChecked={state.preference === `weekend`}
                       className='form-check-input me-2'
                       type='radio'
-                      name='inlineRadioOptions'
-                      id='inlineRadio3'
-                      value='option3'
+                      name='preference'
+                      id='weekend'
+                      value='weekend'
+                      onClick={() => findTutors(`weekend`)}
+                      {...register('preference')}
                     />
-                    <label htmlFor='inlineRadio3' className='form-check-label'>
-                      weekday
+                    <label htmlFor='weekend' className='form-check-label'>
+                      weekend
                     </label>
                   </div>
                 </div>
               </div>
             </div>
             {/* course */}
-            <div className='mb-8 d-flex row'>
+            {/* <div className='mb-8 d-flex row'>
               <div className='col-4'>
                 <label
                   htmlFor='title'
@@ -405,7 +395,7 @@ const EditClass = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
             {/* tutors */}
             <div className='mb-8 row'>
               <div className='col-4'>
@@ -420,7 +410,7 @@ const EditClass = () => {
                 <div className={`${style.inputs} w-100`}>
                   <div>
                     <Controller
-                      name='onlineTutors'
+                      name='tutors'
                       control={control}
                       render={({ field }) => {
                         return (
@@ -428,8 +418,9 @@ const EditClass = () => {
                             <Select
                               styles={colorStyles}
                               className='reactSelect my-2'
-                              name='onlineTutors'
+                              name='tutors'
                               placeholder='select tutors'
+                              defaultValue={prevTutor}
                               options={tutors}
                               isMulti
                               {...field}
@@ -447,7 +438,7 @@ const EditClass = () => {
               <div className='mb-8 align-items-center row'>
                 <div className='col-4'>
                   <label
-                    htmlFor='title'
+                    htmlFor='resource'
                     className={`col-form-label fs-lg ${style.labels}`}
                   >
                     Resources
@@ -461,7 +452,12 @@ const EditClass = () => {
                         `d-flex align-items-center w-100 border border-1 p-5 rounded-2`)
                       }
                     >
-                      <input type='file' multiple {...register('files')} />
+                      <input
+                        id='resource'
+                        type='file'
+                        multiple
+                        {...register('files')}
+                      />
                     </div>
                   </div>
                 </div>

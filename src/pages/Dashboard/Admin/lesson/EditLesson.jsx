@@ -9,9 +9,16 @@ import axios from 'axios'
 import { useSelector } from 'react-redux'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { useCallback, useEffect, useState } from 'react'
-import { AvatarDropdown } from '../../../../components'
+import {
+  AvatarDropdown,
+  CancelModal,
+  Portal,
+  SaveSuccess,
+  ToastComponent,
+} from '../../../../components'
 import { selectCurrentToken } from '../../../Auth/api/authSlice'
 import useToast from '../../../../hooks/useToast'
+import { useLocation } from 'react-router-dom'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
@@ -24,7 +31,7 @@ const colorStyles = {
   input: (styles) => {
     return {
       ...styles,
-      height: `32px`,
+      // height: `32px`,
       fontSize: `14px`,
     }
   },
@@ -60,20 +67,17 @@ const durationSelectInput = {
   }),
 }
 
-const durationInWeeks = [
-  { value: '10', label: '10 week' },
-  { value: '12', label: '12 weeks' },
-  { value: '16', label: '16 weeks' },
-  { value: '24', label: '24 weeks' },
-]
-
-const CreateLesson = () => {
+const EditLesson = () => {
   const [tutors, setTutors] = useState([])
+  const [resources, setResources] = useState([])
   const [isLoading, setLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState(null)
+  const location = useLocation()
   const { toast } = useToast()
+  const lessonID = location.pathname.split(`/`)[3]
 
-  //   const [getTutors] = useGetTutorsMutation()
+  console.log(location.state)
+
   const token = useSelector(selectCurrentToken)
   const credentials = {
     headers: {
@@ -82,17 +86,62 @@ const CreateLesson = () => {
     },
   }
 
-  //   const findTutors = useCallback(async () => {
-  //     const res = await getTutors().unwrap()
-  //     const tutors = res.data.tutors.map((tutor) => {
-  //       return { value: tutor.id, label: `${tutor.firstName} ${tutor.lastName}` }
-  //     })
-  //     setTutors(tutors)
-  //   }, [getTutors])
+  const prevTutor = [
+    {
+      value: location.state.tutorId,
+      label: location.state.tutorName,
+    },
+    {
+      value: `3`,
+      label: `another user`,
+    },
+  ]
 
-  //   useEffect(() => {
-  //     findTutors()
-  //   }, [findTutors])
+  const prevResources = location.state.resources.map((resource) => {
+    return {
+      value: resource,
+      label: resource,
+    }
+  })
+
+  const getTutors = useCallback(() => {
+    setTutors((prevState) => {
+      return [
+        ...prevState,
+        {
+          value: location.state.tutorId,
+          label: location.state.tutorName,
+        },
+      ]
+    })
+  }, [location?.state])
+
+  useEffect(() => {
+    getTutors()
+  }, [getTutors])
+
+  const allResources = useCallback(async () => {
+    let resources = location?.state?.resources
+    if (resources) {
+      resources.map((resource) => {
+        setResources((prevState) => {
+          return [
+            ...prevState,
+            {
+              value: resource,
+              label: resource,
+            },
+          ]
+        })
+      })
+    }
+  }, [location?.state?.resources])
+
+  useEffect(() => {
+    allResources()
+  }, [allResources])
+
+  console.log(tutors)
 
   const {
     // reset,
@@ -105,92 +154,50 @@ const CreateLesson = () => {
     mode: 'onChange',
   })
 
-  // useEffect(() => {
-  //   if (isSubmitSuccessful) {
-  //     reset()
-  //   }
-  // }, [isSubmitSuccessful, reset])
-
-  // =============================================================================
-  // this code block works with RTK Query --- kept getting error from frile upload
   // =============================================================================
 
-  // const onSubmit = async (data) => {
-  //   const formData = new FormData()
-  //   const duration = {
-  //     online: data.onlineClass,
-  //     weekday: data.weekdayClass,
-  //     weekend: data.weekendClass,
-  //   }
-  //   const tutors = data.tutors.map((obj) => obj.value)
-  //   const files = [...data.files]
-
-  //   formData.append(`title`, data.title)
-  //   formData.append(`description`, data.description)
-
-  //   Object.keys(duration).forEach((key) => {
-  //     if (typeof duration[key] !== 'object')
-  //       formData.append(`duration[${key}]`, duration[key])
-  //     else formData.append(key, JSON.stringify(duration[key]))
-  //   })
-
-  //   files.forEach((item) => formData.append('files', item))
-  //   tutors.forEach((item) => formData.append('tutors[]', item))
-
-  //   try {
-  //     await CreateLesson(formData).unwrap()
-  //   } catch (err) {
-  //     console.log(err)
-  //   }
-  // }
-  // ================================================================================
-
-  // due to the error gotten from the response above...we went with the axios alternative
+  // due to the error gotten from the RTK Query on files...we went with the axios alternative
   const onSubmit = async (data) => {
     setLoading(true)
     const formData = new FormData()
-    const duration = {
-      online: data.onlineClass.value,
-      weekday: data.weekdayClass.value,
-      weekend: data.weekendClass.value,
-    }
 
-    const onlineTutors = data.onlineTutors.map((obj) => obj.value)
-    const weekdayTutors = data.weekdayTutors.map((obj) => obj.value)
-    const weekendTutors = data.weekendTutors.map((obj) => obj.value)
-
-    const tutors = {
-      online: [...onlineTutors],
-      weekday: [...weekdayTutors],
-      weekend: [...weekendTutors],
-    }
+    console.log(data)
     const files = [...data.files]
 
-    formData.append(`title`, data.title)
-    formData.append(`description`, data.description)
+    formData.append(`topic`, data.topic)
 
-    Object.keys(duration).forEach((key) => {
-      if (typeof duration[key] !== 'object')
-        formData.append(`duration[${key}]`, duration[key])
-      else formData.append(key, JSON.stringify(duration[key]))
-    })
+    data?.tutor
+      ? formData.append(`tutor`, data.tutor?.[0].value)
+      : formData.append(`tutor`, prevTutor?.[0].value)
+
+    formData.append(`date`, new Date(data.date).toISOString())
+    formData.append(`time`, data.time)
+    resources.length === 0
+      ? data.resources.forEach((item) =>
+          formData.append('resources[]', item.value)
+        )
+      : prevResources.forEach((item) =>
+          formData.append('resources[]', item.value)
+        )
 
     files.forEach((item) => formData.append('files', item))
 
-    Object.keys(tutors).forEach((key) => {
-      if (typeof tutors[key] === 'object')
-        tutors[key].forEach((tutor, index) => {
-          formData.append(`tutors[${key}][${index}]`, tutor)
-        })
-    })
+    for (var pair of formData.entries()) {
+      console.log(pair[0] + ', ' + pair[1])
+    }
 
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
         document.getElementById('save-success')
       )
 
-      const res = await axios.post(`${baseUrl}/course`, formData, credentials)
-      if (res.status === 201) {
+      const res = await axios.patch(
+        `${baseUrl}/lesson/${lessonID}`,
+        formData,
+        credentials
+      )
+      console.log(res)
+      if (res.status === 200) {
         setLoading(false)
         modal.show()
       }
@@ -212,7 +219,7 @@ const CreateLesson = () => {
 
   return (
     <section className={style.courseView}>
-      {/* <Portal wrapperId='react-portal-modal-container'>
+      <Portal wrapperId='react-portal-modal-container'>
         <ToastComponent errorMessage={errorMessage} />
         <SaveSuccess
           content={{
@@ -221,7 +228,7 @@ const CreateLesson = () => {
           }}
         />
         <CancelModal />
-      </Portal> */}
+      </Portal>
 
       <div className={style.dashboardDisplay}>
         <div className={style.header}>
@@ -245,6 +252,7 @@ const CreateLesson = () => {
               <div className='col-8'>
                 <div className={`${style.inputs} w-100`}>
                   <input
+                    defaultValue={location.state.topic}
                     placeholder='topic title'
                     type='text'
                     className='form-control form-control-lg'
@@ -255,7 +263,7 @@ const CreateLesson = () => {
               </div>
             </div>
             {/* class */}
-            <div className='mb-8 d-flex row'>
+            {/* <div className='mb-8 d-flex row'>
               <div className='col-4'>
                 <label
                   htmlFor='title'
@@ -289,7 +297,7 @@ const CreateLesson = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
             {/* tutors */}
             <div className='mb-8 row'>
               <div className='col-4'>
@@ -304,7 +312,7 @@ const CreateLesson = () => {
                 <div className={`${style.inputs} w-100`}>
                   <div>
                     <Controller
-                      name='onlineTutors'
+                      name='tutor'
                       control={control}
                       render={({ field }) => {
                         return (
@@ -312,10 +320,11 @@ const CreateLesson = () => {
                             <Select
                               styles={colorStyles}
                               className='reactSelect my-2'
-                              name='onlineTutors'
-                              placeholder=''
+                              name='tutor'
+                              placeholder='select tutor'
+                              defaultValue={prevTutor[0]}
+                              // isMulti
                               options={tutors}
-                              isMulti
                               {...field}
                             />
                           </>
@@ -339,6 +348,9 @@ const CreateLesson = () => {
                     className={`${style.inputs} d-flex justify-content-between w-100`}
                   >
                     <input
+                      defaultValue={new Date(
+                        location.state.date
+                      ).toLocaleDateString('en-CA')}
                       type='date'
                       className='form-control form-control-lg'
                       id='start-date'
@@ -361,17 +373,18 @@ const CreateLesson = () => {
                     className={`${style.inputs} d-flex justify-content-between w-100`}
                   >
                     <input
+                      defaultValue={location.state.time}
                       type='time'
                       className='form-control form-control-lg'
                       id='start-date'
-                      {...register('date')}
+                      {...register('time')}
                     />
                   </div>
                 </div>
               </div>
             </div>
             {/* course */}
-            <div className='mb-8 d-flex row'>
+            {/* <div className='mb-8 d-flex row'>
               <div className='col-4'>
                 <label
                   htmlFor='title'
@@ -405,6 +418,44 @@ const CreateLesson = () => {
                   </div>
                 </div>
               </div>
+            </div> */}
+
+            {/* Resource */}
+            <div className='mb-8 d-flex row'>
+              <div className='col-4'>
+                <label
+                  htmlFor='title'
+                  className={`col-form-label fs-lg ${style.labels} w-100`}
+                >
+                  Resources
+                </label>
+              </div>
+              <div className='col-8'>
+                <div className={`${style.inputs} w-100`}>
+                  <div>
+                    <Controller
+                      name='resources'
+                      control={control}
+                      render={({ field }) => {
+                        return (
+                          <>
+                            <Select
+                              styles={colorStyles}
+                              className='reactSelect my-2'
+                              name='resources'
+                              placeholder=''
+                              defaultValue={prevResources}
+                              options={resources}
+                              isMulti
+                              {...field}
+                            />
+                          </>
+                        )
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* file chooser */}
@@ -415,7 +466,7 @@ const CreateLesson = () => {
                     htmlFor='title'
                     className={`col-form-label fs-lg ${style.labels}`}
                   >
-                    Resources
+                    External Resources
                   </label>
                 </div>
                 <div className='col-8'>
@@ -473,4 +524,4 @@ const CreateLesson = () => {
   )
 }
 
-export default CreateLesson
+export default EditLesson

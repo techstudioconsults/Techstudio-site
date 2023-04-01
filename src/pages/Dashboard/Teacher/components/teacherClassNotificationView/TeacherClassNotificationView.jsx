@@ -7,7 +7,8 @@ import { MdCalendarToday, MdOutlineComputer } from 'react-icons/md'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import { Icon } from '@iconify/react'
 import { useSelector } from 'react-redux'
-import { selectClassDetails } from '../../../Admin/classes/api/classSlice'
+import { selectDetails } from '../../../Admin/classes/api/classSlice'
+import { Link } from 'react-router-dom'
 
 const color = {
   color: `#95A8B8`,
@@ -15,7 +16,7 @@ const color = {
 
 const TeacherClassNotificationView = ({ mobile }) => {
   const { imageList } = DASHBOARD_CONTENT
-  const classDetails = useSelector(selectClassDetails)
+  const details = useSelector(selectDetails)
 
   const convertDateToReadable = (date) => {
     let dateSet = new Date(date).toUTCString().split(' ')
@@ -33,13 +34,13 @@ const TeacherClassNotificationView = ({ mobile }) => {
               <Avatar />
             </div>
             <h6 className={['fw-bold', style.title].join(' ')}>
-              {classDetails.title}
+              {details?.title || details?.topic}
             </h6>
             <p className={[style.text, `text-secondary`].join(' ')}>
-              Ibori James, Tutor
+              {details?.tutors?.[0].name || details?.tutorName}
             </p>
-            <p className={`text-dark ${style.desc}`}>
-              {classDetails.description}
+            <p className={`text-dark text-wrap ${style.desc}`}>
+              {details?.description}
             </p>
           </div>
           <div
@@ -54,7 +55,7 @@ const TeacherClassNotificationView = ({ mobile }) => {
             className={`d-flex justify-content-between align-items-center mt-5`}
           >
             <p className='fs-sm text-info'>Course:</p>
-            <p className='fs-sm text-white w-75'>javascript Fullstack</p>
+            <p className='fs-sm text-white w-75'></p>
           </div>
           <div className={`d-flex gap-5 flex-wrap mt-5`}>
             <div className='flex-grow-1 d-flex align-items-start gap-3'>
@@ -66,7 +67,7 @@ const TeacherClassNotificationView = ({ mobile }) => {
               </div>
               <div>
                 <p className='fw-bold fs-sm'>
-                  {convertDateToReadable(classDetails.startDate)}
+                  {convertDateToReadable(details?.startDate || details?.date)}
                 </p>
                 <p className={['fs-xs text-info'].join(' ')}>Start Date</p>
               </div>
@@ -78,11 +79,15 @@ const TeacherClassNotificationView = ({ mobile }) => {
                   width={`1.5rem`}
                 />
               </div>
-              <div>
+              <div hidden={!details?.endDate}>
                 <p className='fw-bold fs-sm'>
-                  {convertDateToReadable(classDetails.endDate)}
+                  {convertDateToReadable(details?.endDate)}
                 </p>
                 <p className={['fs-xs text-info'].join(' ')}>End Date</p>
+              </div>
+              <div hidden={!details?.time}>
+                <p className='fw-bold fs-sm'>{details?.time}</p>
+                <p className={['fs-xs text-info'].join(' ')}>time</p>
               </div>
             </div>
             <div className='flex-grow-1 d-flex align-items-start gap-3'>
@@ -90,18 +95,22 @@ const TeacherClassNotificationView = ({ mobile }) => {
                 <Icon icon={`ic:baseline-computer`} width={`1.5rem`} />
               </div>
               <div>
-                <p className='fw-bold fs-sm'>Live Class</p>
+                <p className='fw-bold fs-sm'>
+                  {details?.preference || details?.classType} class
+                </p>
                 <p style={color} className={['fs-xs text-info'].join(' ')}>
-                  prefrence
+                  preference
                 </p>
               </div>
             </div>
           </div>
         </div>
         <div className={[`d-flex gap-3 align-items-center `].join(' ')}>
-          <button className='fs-xs bg-primary text-white rounded rounded-lg px-3 w-50'>
-            Schedule A Lesson
-          </button>
+          <Link to={`/admin/class/:id/lesson/edit`}>
+            <button className='fs-xs bg-primary text-white rounded rounded-lg px-3'>
+              Reschedule A Lesson
+            </button>
+          </Link>
           {/* <button className='fs-sm fw-semibold bg-white text-primary rounded rounded-lg px-3 w-50 border border-primary'>
             Reschedule
           </button> */}

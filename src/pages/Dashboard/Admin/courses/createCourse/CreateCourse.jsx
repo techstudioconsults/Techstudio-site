@@ -82,7 +82,7 @@ const CreateCourse = () => {
 
   const findTutors = useCallback(async () => {
     const res = await getTutors().unwrap()
-    const tutors = res.data.tutors.map((tutor) => {
+    const tutors = res.data.map((tutor) => {
       return { value: tutor.id, label: `${tutor.firstName} ${tutor.lastName}` }
     })
     setTutors(tutors)

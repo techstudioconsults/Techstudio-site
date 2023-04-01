@@ -26,25 +26,25 @@ const AdminClassDisplayCard = ({ singleClass }) => {
   const [classTutors, setClassTutors] = useState([])
   const dispatch = useDispatch()
 
-  const findTutors = useCallback(async () => {
-    const res = await getTutors().unwrap()
-    const tutors = res.data.tutors.map((tutor) => {
-      return { value: tutor.id, label: `${tutor.firstName} ${tutor.lastName}` }
-    })
-    tutors.map((tutor) => {
-      singleClass.tutors.map((classTutorID) => {
-        tutor.value === classTutorID
-          ? setClassTutors((prevState) => {
-              return [...prevState, tutor]
-            })
-          : null
-      })
-    })
-  }, [getTutors, singleClass.tutors])
+  // const findTutors = useCallback(async () => {
+  //   const res = await getTutors().unwrap()
+  //   const tutors = res.data.tutors.map((tutor) => {
+  //     return { value: tutor.id, label: `${tutor.firstName} ${tutor.lastName}` }
+  //   })
+  //   tutors.map((tutor) => {
+  //     singleClass.tutors.map((classTutorID) => {
+  //       tutor.value === classTutorID
+  //         ? setClassTutors((prevState) => {
+  //             return [...prevState, tutor]
+  //           })
+  //         : null
+  //     })
+  //   })
+  // }, [getTutors, singleClass.tutors])
 
-  useEffect(() => {
-    findTutors()
-  }, [findTutors])
+  // useEffect(() => {
+  //   findTutors()
+  // }, [findTutors])
 
   const convertDateToReadable = (date) => {
     let dateSet = new Date(date).toUTCString().split(' ')
@@ -138,7 +138,7 @@ const AdminClassDisplayCard = ({ singleClass }) => {
                   />
                 </div>
                 <span className='fw-semibold text-muted'>
-                  {classTutors?.[0]?.label}
+                  {singleClass?.tutors[0]?.name}
                 </span>
               </div>
             </div>
@@ -157,9 +157,26 @@ const AdminClassDisplayCard = ({ singleClass }) => {
                   <Icon width={`1.5rem`} icon={`ph:dots-three-vertical-bold`} />
                 </div>
                 <ul className={`dropdown-menu`}>
+                  <div className='d-flex align-items-center text-primary px-3'>
+                    <Link
+                      to={`/admin/class/${singleClass.id}/lesson/create`}
+                      state={singleClass}
+                    >
+                      <Icon
+                        width={`1.1rem`}
+                        icon={`healthicons:i-training-class`}
+                        className='me-3'
+                      />
+                      <span>Create Lesson</span>
+                    </Link>
+                  </div>
+                  <hr className='my-2' />
                   <div className='d-flex align-items-center px-3'>
                     {/* <Link to={`/admin/courses/${id}/edit`} state={{ course }}> */}
-                    <Link to={`/admin/class/edit`}>
+                    <Link
+                      to={`/admin/class/${singleClass.id}/edit`}
+                      state={singleClass}
+                    >
                       <Icon
                         width={`1.1rem`}
                         icon={`material-symbols:edit`}

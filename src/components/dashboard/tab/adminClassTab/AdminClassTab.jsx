@@ -6,8 +6,12 @@ import { Icon } from '@iconify/react'
 import LessonCard from '../../../global/cards/lessonCards/LessonCard'
 import { Link } from 'react-router-dom'
 
-const ClassesTab = ({ classes, isTDB }) => {
+const ClassesTab = ({ classes, lessons, isTDB }) => {
   const [isLesson, setLesson] = useState(false)
+  let onGoingClasses
+  let previousClasses
+  let ongoingLessons
+  let previousLessons
 
   const toggleLesson = () => {
     setLesson((prevState) => {
@@ -15,16 +19,25 @@ const ClassesTab = ({ classes, isTDB }) => {
     })
   }
 
-  const onGoingClasses = classes?.ongoing?.map((singleClass) => {
-    return (
-      <AdminClassDisplayCard key={singleClass.id} singleClass={singleClass} />
-    )
-  })
-  const previousClasses = classes?.previous?.map((singleClass) => {
-    return (
-      <AdminClassDisplayCard key={singleClass.id} singleClass={singleClass} />
-    )
-  })
+  if (isLesson) {
+    ongoingLessons = lessons?.ongoing?.map((singleLesson) => {
+      return <LessonCard key={singleLesson.id} singleLesson={singleLesson} />
+    })
+    previousLessons = lessons?.previous?.map((singleLesson) => {
+      return <LessonCard key={singleLesson.id} singleLesson={singleLesson} />
+    })
+  } else {
+    onGoingClasses = classes?.ongoing?.map((singleClass) => {
+      return (
+        <AdminClassDisplayCard key={singleClass.id} singleClass={singleClass} />
+      )
+    })
+    previousClasses = classes?.previous?.map((singleClass) => {
+      return (
+        <AdminClassDisplayCard key={singleClass.id} singleClass={singleClass} />
+      )
+    })
+  }
 
   return (
     <section className={style.tab}>
@@ -37,7 +50,7 @@ const ClassesTab = ({ classes, isTDB }) => {
                 id='ongoing-tab'
                 data-bs-toggle='tab'
                 href='#ongoing'
-                onClick={() => setLesson(false)}
+                // onClick={() => setLesson(false)}
               >
                 ONGOING
               </a>
@@ -48,7 +61,7 @@ const ClassesTab = ({ classes, isTDB }) => {
                 id='previous-tab'
                 data-bs-toggle='tab'
                 href='#previous'
-                onClick={() => setLesson(false)}
+                // onClick={() => setLesson(false)}
               >
                 PREVIOUS
               </a>
@@ -60,7 +73,7 @@ const ClassesTab = ({ classes, isTDB }) => {
                 className={['nav-link', style.a].join(' ')}
                 id='lesson-tab'
                 data-bs-toggle='tab'
-                href='#lesson'
+                href='#ongoing'
                 onClick={toggleLesson}
               >
                 View Lesson
@@ -98,7 +111,9 @@ const ClassesTab = ({ classes, isTDB }) => {
           role='tabpanel'
           aria-labelledby='home-tab'
         >
-          <div className={style.listWrapper}>{onGoingClasses}</div>
+          <div className={style.listWrapper}>
+            {isLesson ? ongoingLessons : onGoingClasses}
+          </div>
         </div>
         <div
           className='tab-pane fade'
@@ -106,9 +121,11 @@ const ClassesTab = ({ classes, isTDB }) => {
           role='tabpanel'
           aria-labelledby='about-tab'
         >
-          <div className={style.listWrapper}>{previousClasses}</div>
+          <div className={style.listWrapper}>
+            {isLesson ? previousLessons : previousClasses}
+          </div>
         </div>
-        <div
+        {/* <div
           className='tab-pane fade'
           id='lesson'
           role='tabpanel'
@@ -119,9 +136,8 @@ const ClassesTab = ({ classes, isTDB }) => {
             <LessonCard />
             <LessonCard />
             <LessonCard />
-            <LessonCard />
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   )
@@ -130,6 +146,7 @@ const ClassesTab = ({ classes, isTDB }) => {
 ClassesTab.propTypes = {
   isTDB: PropTypes.bool,
   classes: PropTypes.object,
+  lessons: PropTypes.object,
 }
 
 export default ClassesTab

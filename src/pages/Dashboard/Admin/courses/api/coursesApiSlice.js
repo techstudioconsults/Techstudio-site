@@ -70,7 +70,7 @@ export const coursesApiSlice = apiSlice.injectEndpoints({
           const { data } = await queryFulfilled
           dispatch(
             setCourses({
-              courses: data.data.courses,
+              courses: data.data,
             })
           )
         } catch (err) {
@@ -88,7 +88,7 @@ export const coursesApiSlice = apiSlice.injectEndpoints({
           const { data } = await queryFulfilled
           dispatch(
             setCourseDetails({
-              courseDetails: data.data.course,
+              courseDetails: data.data,
             })
           )
         } catch (err) {

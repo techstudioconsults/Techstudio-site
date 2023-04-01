@@ -112,6 +112,7 @@
       color: colors.$gray;
       font-size: fn.rem(10);
       line-height: fn.rem(19);
+      word-wrap: break-word;
       @include breakpoint-up('lg') {
         font-size: fn.rem(14);
       }

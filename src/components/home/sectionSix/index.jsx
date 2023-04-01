@@ -16,7 +16,7 @@ const index = ({ content }) => {
             <h3 className='mt-7 fw-bold text-white'>{header.title}</h3>
             <div className={style.btnContainer}>
               <Button
-                linkHref='/signup'
+                linkHref='/register'
                 linkText='Register'
                 solidBtn
                 navBtn

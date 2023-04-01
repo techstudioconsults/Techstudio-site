@@ -1,5 +1,5 @@
 import { apiSlice } from '../../../../../app/api/apiSlice'
-import { setClasses } from './classSlice'
+import { setClasses, setLessons, setResources } from './classSlice'
 
 export const coursesApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -13,7 +13,7 @@ export const coursesApiSlice = apiSlice.injectEndpoints({
           const { data } = await queryFulfilled
           dispatch(
             setClasses({
-              classes: data.data.classes,
+              classes: data.data,
             })
           )
         } catch (err) {
@@ -21,14 +21,46 @@ export const coursesApiSlice = apiSlice.injectEndpoints({
         }
       },
     }),
+
+    getLessonByCourseID: builder.mutation({
+      query: (courseID) => ({
+        url: `/lesson/course/${courseID}`,
+        method: 'GET',
+      }),
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled
+          console.log(data)
+          dispatch(
+            setLessons({
+              lessons: data.data,
+            })
+          )
+        } catch (err) {
+          console.log(err)
+        }
+      },
+    }),
+
     deleteClass: builder.mutation({
       query: (classID) => ({
         url: `/class/${classID}`,
         method: 'DELETE',
       }),
     }),
+
+    deleteLesson: builder.mutation({
+      query: (lessonID) => ({
+        url: `/lesson/${lessonID}`,
+        method: 'DELETE',
+      }),
+    }),
   }),
 })
 
-export const { useGetClassByCourseIDMutation, useDeleteClassMutation } =
-  coursesApiSlice
+export const {
+  useGetClassByCourseIDMutation,
+  useGetLessonByCourseIDMutation,
+  useDeleteClassMutation,
+  useDeleteLessonMutation,
+} = coursesApiSlice

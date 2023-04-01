@@ -17,16 +17,16 @@ import { store } from './app/store'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      {/* <PersistGate loading={null} persistor={persistor}> */}
-      <BrowserRouter>
-        <AppProvider>
-          <ScrollToTop />
-          <App />
-        </AppProvider>
-      </BrowserRouter>
-      {/* </PersistGate> */}
-    </Provider>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <Provider store={store}>
+    {/* <PersistGate loading={null} persistor={persistor}> */}
+    <BrowserRouter>
+      <AppProvider>
+        <ScrollToTop />
+        <App />
+      </AppProvider>
+    </BrowserRouter>
+    {/* </PersistGate> */}
+  </Provider>
+  // </React.StrictMode>
 )
