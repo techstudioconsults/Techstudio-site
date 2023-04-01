@@ -11,10 +11,10 @@ html {
   -webkit-text-stroke-width: 0.1px;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
-  display: none;
+  // display: none;
 
   @media screen and (min-width: 1024px) {
-    display: initial;
+    // display: initial;
   }
 }
 
