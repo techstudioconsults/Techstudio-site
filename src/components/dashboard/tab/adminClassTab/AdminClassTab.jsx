@@ -5,6 +5,8 @@ import AdminClassDisplayCard from '../../../global/cards/adminClassDisplayCard/A
 import { Icon } from '@iconify/react'
 import LessonCard from '../../../global/cards/lessonCards/LessonCard'
 import { Link } from 'react-router-dom'
+import Feedback from '../../../global/feedbacks/Feedback'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 
 const ClassesTab = ({ classes, lessons, isTDB }) => {
   const [isLesson, setLesson] = useState(false)
@@ -14,36 +16,64 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
   let previousLessons
 
   const toggleLesson = () => {
+    let firstTab = bootstrap.Tab.getInstance(
+      document.getElementById(`ongoing-tab`)
+    ) // Select first tab
     setLesson((prevState) => {
       return !prevState
     })
+    firstTab.show()
+    // console.log(firstTab)
   }
 
   if (isLesson) {
-    ongoingLessons = lessons?.ongoing?.map((singleLesson) => {
-      return <LessonCard key={singleLesson.id} singleLesson={singleLesson} />
-    })
-    previousLessons = lessons?.previous?.map((singleLesson) => {
-      return <LessonCard key={singleLesson.id} singleLesson={singleLesson} />
-    })
+    ongoingLessons = lessons?.ongoing?.length ? (
+      lessons?.ongoing?.map((singleLesson) => {
+        return <LessonCard key={singleLesson.id} singleLesson={singleLesson} />
+      })
+    ) : (
+      <Feedback message={`You have zero ongoing lessons at the moment !`} />
+    )
+    previousLessons = lessons?.previous?.length ? (
+      lessons?.previous?.map((singleLesson) => {
+        return <LessonCard key={singleLesson.id} singleLesson={singleLesson} />
+      })
+    ) : (
+      <Feedback message={`You have zero previous lessons a the moment`} />
+    )
   } else {
-    onGoingClasses = classes?.ongoing?.map((singleClass) => {
-      return (
-        <AdminClassDisplayCard key={singleClass.id} singleClass={singleClass} />
-      )
-    })
-    previousClasses = classes?.previous?.map((singleClass) => {
-      return (
-        <AdminClassDisplayCard key={singleClass.id} singleClass={singleClass} />
-      )
-    })
+    onGoingClasses = classes?.ongoing?.length ? (
+      classes?.ongoing?.map((singleClass) => {
+        return (
+          <AdminClassDisplayCard
+            key={singleClass.id}
+            singleClass={singleClass}
+          />
+        )
+      })
+    ) : (
+      <Feedback message={`you have zero ungoing classes at the moment`} />
+    )
+
+    previousClasses = classes?.previous?.length ? (
+      classes?.previous?.map((singleClass) => {
+        return (
+          <AdminClassDisplayCard
+            key={singleClass.id}
+            singleClass={singleClass}
+          />
+        )
+      })
+    ) : (
+      <Feedback message={`You have zero previous classes at the moment`} />
+    )
   }
 
   return (
     <section className={style.tab}>
       <div className='d-flex flex-column flex-md-row align-items-center justify-content-between gap-3'>
         <div className={['nav', style.tabList].join(' ')}>
-          <div className={`${style.tablistGroup}`}>
+          <div id={`classTab`} className={`${style.tablistGroup}`}>
             <li className={['nav-item', style.link].join(' ')}>
               <a
                 className={['nav-link active', style.a].join(' ')}
@@ -89,7 +119,7 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
               >
                 LESSONS
               </a>
-              <Link
+              {/* <Link
                 to={`/admin/class/lesson/create`}
                 className={['nav-link', style.a].join(' ')}
                 id='lesson-tab'
@@ -98,7 +128,7 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
                   <Icon icon={`ic:baseline-add-circle-outline`} />
                 </span>
                 <span> New Lesson</span>
-              </Link>
+              </Link> */}
             </div>
           </li>
         </div>

@@ -44,7 +44,7 @@ const DeleteModal = ({ content }) => {
       const res = await deleteCourse(content.courseID).unwrap()
       if (res.success) {
         setDeleted(true)
-        await viewAllCourses().unwrap()
+        // await viewAllCourses().unwrap()
       }
     }
   }

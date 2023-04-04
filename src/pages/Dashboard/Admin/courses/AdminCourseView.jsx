@@ -12,6 +12,7 @@ import CourseList from './courseList/CourseList'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { Icon } from '@iconify/react'
 import { Link } from 'react-router-dom'
+import Feedback from '../../../../components/global/feedbacks/Feedback'
 
 const AdminCourseView = () => {
   const [viewAllCourses, { isLoading }] = useViewAllCoursesMutation()
@@ -31,16 +32,19 @@ const AdminCourseView = () => {
     setShowDetails(true)
   }
 
-  // map the courses data to the courseslist component
-  const courseList = courses?.map((course) => {
-    return (
-      <CourseList
-        showDetailsBox={showDetailsBox}
-        key={course.id}
-        course={course}
-      />
-    )
-  })
+  const courseList = courses.length ? ( // map the courses data to the courseslist component
+    courses?.map((course) => {
+      return (
+        <CourseList
+          showDetailsBox={showDetailsBox}
+          key={course.id}
+          course={course}
+        />
+      )
+    })
+  ) : (
+    <Feedback message={`Course list is empty !`} />
+  )
 
   return (
     <section className={style.courseView}>

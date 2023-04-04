@@ -97,7 +97,7 @@ const EditLesson = () => {
     },
   ]
 
-  const prevResources = location.state.resources.map((resource) => {
+  const prevResources = location.state.resources.slice(0, 1).map((resource) => {
     return {
       value: resource,
       label: resource,
@@ -167,16 +167,18 @@ const EditLesson = () => {
     formData.append(`topic`, data.topic)
 
     data?.tutor
-      ? formData.append(`tutor`, data.tutor?.[0].value)
+      ? formData.append(`tutor`, prevTutor?.[0].value)
       : formData.append(`tutor`, prevTutor?.[0].value)
 
     formData.append(`date`, new Date(data.date).toISOString())
     formData.append(`time`, data.time)
+
     resources.length === 0
-      ? data.resources.forEach((item) =>
-          formData.append('resources[]', item.value)
-        )
-      : prevResources.forEach((item) =>
+      ? null
+      : // data.resources.forEach((item) =>
+        //     formData.append('resources[]', item.value)
+        //   )
+        prevResources.forEach((item) =>
           formData.append('resources[]', item.value)
         )
 
@@ -485,30 +487,27 @@ const EditLesson = () => {
             </section>
             {/* CTA */}
             <div>
-              <div className='mb-8 align-items-center row'>
-                <div className='col-4'></div>
-                <div className='col-8'>
-                  <div className={`w-100 text-end`}>
-                    <button
-                      disabled={isLoading}
-                      type='submit'
-                      className='btn btn-primary w-25 me-10'
-                    >
-                      <div
-                        hidden={!isLoading}
-                        className='spinner-border spinner-border-sm me-5 text-white'
-                        role='status'
-                      />
-                      {isLoading ? `Please wait...` : `Save Change`}
-                    </button>
-                    <button
-                      type='button'
-                      onClick={handleCancelAction}
-                      className='btn btn-outline-danger w-25 dont-delete-btn'
-                    >
-                      Cancel
-                    </button>
-                  </div>
+              <div className='d-flex gap-10 justify-content-end my-8 row'>
+                <div className={`w-100 text-end`}>
+                  <button
+                    disabled={isLoading}
+                    type='submit'
+                    className='btn btn-primary w-25 me-10'
+                  >
+                    <div
+                      hidden={!isLoading}
+                      className='spinner-border spinner-border-sm me-5 text-white'
+                      role='status'
+                    />
+                    {isLoading ? `Please wait...` : `Save Change`}
+                  </button>
+                  <button
+                    type='button'
+                    onClick={handleCancelAction}
+                    className='btn btn-outline-danger w-25 dont-delete-btn'
+                  >
+                    Cancel
+                  </button>
                 </div>
               </div>
             </div>

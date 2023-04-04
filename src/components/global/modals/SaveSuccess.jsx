@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import { MdClose } from 'react-icons/md'
+import { Link } from 'react-router-dom'
 
 const Save = ({ content }) => {
   return (
@@ -30,13 +31,15 @@ const Save = ({ content }) => {
               <p className='px-8'>{content.desc}</p>
             </div>
             <div className={`w-100 text-center mt-10`}>
-              <button
-                data-bs-dismiss='modal'
-                aria-label='Close'
-                className={`btn btn-primary w-50`}
-              >
-                Continue
-              </button>
+              <Link to={`/admin/classes/${content.courseID}`}>
+                <button
+                  data-bs-dismiss='modal'
+                  aria-label='Close'
+                  className={`btn btn-primary w-50`}
+                >
+                  Continue
+                </button>
+              </Link>
             </div>
           </div>
         </div>

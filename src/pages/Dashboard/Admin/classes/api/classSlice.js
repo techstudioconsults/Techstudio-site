@@ -5,6 +5,7 @@ const STATE = {
   details: {},
   resources: {},
   lessons: {},
+  showDetailBox: false,
 }
 
 const CLASS_SLICE = {
@@ -21,6 +22,7 @@ const CLASS_SLICE = {
     },
     setClassDetails: (state, action) => {
       state.details = action.payload
+      state.showDetailBox = true
     },
     setLessonDetails: (state, action) => {
       state.details = action.payload
@@ -42,3 +44,4 @@ export const selectClasses = (state) => state.classes.classes
 export const selectLessons = (state) => state.classes.lessons
 export const selectDetails = (state) => state.classes.details
 export const selectAllResources = (state) => state.classes.resources
+export const selectShowDetailBox = (state) => state.classes.showDetailBox

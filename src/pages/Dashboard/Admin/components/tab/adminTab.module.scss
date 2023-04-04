@@ -10,6 +10,7 @@
   .tabList {
     @include flex;
     flex-wrap: nowrap;
+    // border: 1px solid red;
     // justify-content: flex-start;
     // gap: fn.rem(10);
     width: 100%;
@@ -21,9 +22,11 @@
     }
 
     .link {
-      // flex: 1;
+      flex: 1;
       .a {
-        // width: fn.rem(200);
+        // width: fn.rem(300);
+        width: fn.rem(250);
+        // width: 100%;
         text-align: center;
         color: colors.$secondary;
         font-size: fn.rem(14);

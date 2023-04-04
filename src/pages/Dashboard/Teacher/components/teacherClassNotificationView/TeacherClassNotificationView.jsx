@@ -7,7 +7,10 @@ import { MdCalendarToday, MdOutlineComputer } from 'react-icons/md'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import { Icon } from '@iconify/react'
 import { useSelector } from 'react-redux'
-import { selectDetails } from '../../../Admin/classes/api/classSlice'
+import {
+  selectDetails,
+  selectShowDetailBox,
+} from '../../../Admin/classes/api/classSlice'
 import { Link } from 'react-router-dom'
 
 const color = {
@@ -17,6 +20,7 @@ const color = {
 const TeacherClassNotificationView = ({ mobile }) => {
   const { imageList } = DASHBOARD_CONTENT
   const details = useSelector(selectDetails)
+  const showDetailsBox = useSelector(selectShowDetailBox)
 
   const convertDateToReadable = (date) => {
     let dateSet = new Date(date).toUTCString().split(' ')
@@ -25,7 +29,11 @@ const TeacherClassNotificationView = ({ mobile }) => {
 
   return (
     <div
-      className={[style.notification, mobile ? `m-0 p-8` : `p-10`].join(' ')}
+      className={[
+        style.notification,
+        mobile ? `m-0 p-8` : `p-10`,
+        showDetailsBox ? `d-block` : `d-none`,
+      ].join(' ')}
     >
       <div className={style.classSummary}>
         <div>

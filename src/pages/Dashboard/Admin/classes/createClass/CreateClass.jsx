@@ -160,6 +160,7 @@ const CreateClass = () => {
           content={{
             title: `Changes Saved Successfully!`,
             desc: `Your changes have been saved successfully. Kindly click continue to exit this page.`,
+            courseID: courseID,
           }}
         />
         <CancelModal />
@@ -423,32 +424,27 @@ const CreateClass = () => {
               </div>
             </section>
             {/* CTA */}
-            <div>
-              <div className='mb-8 align-items-center row'>
-                <div className='col-4'></div>
-                <div className='col-8'>
-                  <div className={`w-100 text-end`}>
-                    <button
-                      disabled={isLoading}
-                      type='submit'
-                      className='btn btn-primary w-25 me-10'
-                    >
-                      <div
-                        hidden={!isLoading}
-                        className='spinner-border spinner-border-sm me-5 text-white'
-                        role='status'
-                      />
-                      {isLoading ? `Please wait...` : `Save Change`}
-                    </button>
-                    <button
-                      type='button'
-                      onClick={handleCancelAction}
-                      className='btn btn-outline-danger w-25 dont-delete-btn'
-                    >
-                      Cancel
-                    </button>
-                  </div>
-                </div>
+            <div className='d-flex gap-10 justify-content-end my-8 row'>
+              <div className={`w-100 text-end`}>
+                <button
+                  disabled={isLoading}
+                  type='submit'
+                  className='btn btn-primary w-25 me-10'
+                >
+                  <div
+                    hidden={!isLoading}
+                    className='spinner-border spinner-border-sm me-5 text-white'
+                    role='status'
+                  />
+                  {isLoading ? `Please wait...` : `Save Change`}
+                </button>
+                <button
+                  type='button'
+                  onClick={handleCancelAction}
+                  className='btn btn-outline-danger w-25 dont-delete-btn'
+                >
+                  Cancel
+                </button>
               </div>
             </div>
           </div>

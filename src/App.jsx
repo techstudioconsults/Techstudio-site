@@ -125,6 +125,7 @@ const App = () => {
               <Route path='/admin/courses/:id/edit' element={<EditCourse />} />
               <Route path='/admin/classes' element={<AdminClassView />}>
                 <Route
+                  index
                   path=':class'
                   element={
                     <AdminClassTab lessons={lessons} classes={classes} isTDB />

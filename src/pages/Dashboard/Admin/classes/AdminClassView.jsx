@@ -6,26 +6,27 @@ import style from './adminClasses.module.scss' //using courses view layout !impo
 import TrackClassesTab from '../components/tab/trackClassesTab/TrackClassesTab'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { Icon } from '@iconify/react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import TeacherClassNotificationView from '../../Teacher/components/teacherClassNotificationView/TeacherClassNotificationView'
 import { useViewAllCoursesMutation } from '../courses/api/coursesApiSlice'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect } from 'react'
 import { selectCourses } from '../courses/api/coursesSlice'
 import { useSelector } from 'react-redux'
+import Feedback from '../../../../components/global/feedbacks/Feedback'
 
 const AdminClassView = () => {
-  const [isShowDetails, setShowDetails] = useState(false)
   const [viewAllCourses] = useViewAllCoursesMutation()
+  const navigate = useNavigate()
 
   const courses = useSelector(selectCourses)
-
-  const showDetailsBox = () => {
-    setShowDetails(true)
-  }
 
   const getCourses = useCallback(async () => {
     await viewAllCourses().unwrap()
   }, [viewAllCourses])
+
+  useEffect(() => {
+    navigate(`/admin/classes/${courses?.[0]?.id}`)
+  }, [courses, navigate])
 
   useEffect(() => {
     getCourses()
@@ -43,6 +44,12 @@ const AdminClassView = () => {
       </li>
     )
   })
+
+  const feedback = courses.length ? (
+    <TrackClassesTab courses={courses} />
+  ) : (
+    <Feedback message={`Create a course in order to create a class`} />
+  )
 
   return (
     <section className={style.classView}>
@@ -83,9 +90,7 @@ const AdminClassView = () => {
           </div>
         </div>
         <div className='mt-10'>
-          <div className='mt-5 d-flex flex-column gap-5'>
-            <TrackClassesTab courses={courses} />
-          </div>
+          <div className='mt-5 d-flex flex-column gap-5'>{feedback}</div>
         </div>
       </div>
       <div className={`${style.notification}`}>
