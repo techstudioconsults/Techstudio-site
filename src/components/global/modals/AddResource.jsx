@@ -1,11 +1,51 @@
 import React, { useState } from 'react'
-import { MdClose } from 'react-icons/md'
+import { useForm } from 'react-hook-form'
+import { useLocation } from 'react-router-dom'
+import { useAddNewResourceMutation } from '../../../pages/Dashboard/Admin/resources/api/resourceApiSlice'
 // import PropTypes from 'prop-types'
 import style from './upload.module.scss'
 
 // eslint-disable-next-line react/prop-types
 const AddAFile = () => {
-  const [isLoading, setLoading] = useState()
+  // const [isLoading, setLoading] = useState()
+  const [addNewResource, { isLoading }] = useAddNewResourceMutation()
+  const { pathname } = useLocation()
+  const courseID = pathname.split(`/`)[3]
+
+  const { register, handleSubmit } = useForm()
+
+  const submitResource = async (data) => {
+    const files = [...data.file]
+    console.log(files)
+    const formData = new FormData()
+    files.forEach((file) => formData.append(`files`, file))
+
+    try {
+      // let modal = bootstrap.Modal.getOrCreateInstance(
+      //   document.getElementById('save-success')
+      // )
+
+      // const res = await axios.post(
+      //   `${baseUrl}/class/${courseID}`,
+      //   formData,
+      //   credentials
+      // )
+      const res = await addNewResource({
+        courseID: courseID,
+        body: formData,
+      }).unwrap()
+      console.log(res)
+      if (res.status === 201) {
+        // setLoading(false)
+        // modal.show()
+      }
+    } catch (err) {
+      // setLoading(false)
+      // setErrorMessage(err.response.data.message)
+      // toast.show()
+    }
+  }
+
   return (
     <div
       className='modal fade'
@@ -22,13 +62,16 @@ const AddAFile = () => {
               aria-label='Close'
             />
           </div> */}
-          <div className={['modal-body p-16'].join(' ')}>
+          <form
+            onSubmit={handleSubmit(submitResource)}
+            className={['modal-body p-16'].join(' ')}
+          >
             <h4 className='text-blue text-center fs-3xl fw-bold'>
               A New Resource
             </h4>
             <div className='my-10 container'>
               {/* topic */}
-              <div className='mb-8 d-flex row'>
+              {/* <div className='mb-8 d-flex row'>
                 <div className='col-4'>
                   <label
                     htmlFor='title'
@@ -50,7 +93,7 @@ const AddAFile = () => {
                     </select>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               {/* file chooser */}
               <section>
@@ -71,7 +114,12 @@ const AddAFile = () => {
                           `d-flex align-items-center w-100 border border-1 p-5 rounded-2`)
                         }
                       >
-                        <input id='resource' type='file' multiple />
+                        <input
+                          {...register(`file`)}
+                          id='resource'
+                          type='file'
+                          multiple
+                        />
                       </div>
                     </div>
                   </div>
@@ -102,7 +150,7 @@ const AddAFile = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>

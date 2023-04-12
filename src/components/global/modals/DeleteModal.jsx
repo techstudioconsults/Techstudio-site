@@ -5,18 +5,16 @@ import {
   useDeleteClassMutation,
   useDeleteLessonMutation,
 } from '../../../pages/Dashboard/Admin/classes/api/classApiSlice'
-import {
-  useDeleteCourseMutation,
-  useViewAllCoursesMutation,
-} from '../../../pages/Dashboard/Admin/courses/api/coursesApiSlice'
+import { useDeleteCourseMutation } from '../../../pages/Dashboard/Admin/courses/api/coursesApiSlice'
+import { useDeleteResourceMutation } from '../../../pages/Dashboard/Admin/resources/api/resourceApiSlice'
 
 const DeleteModal = ({ content }) => {
   const [isDeleted, setDeleted] = useState(false)
   const [deleteCourse, { isLoading }] = useDeleteCourseMutation()
-  const [viewAllCourses] = useViewAllCoursesMutation()
   const [deleteClass] = useDeleteClassMutation()
   const [deleteLesson] = useDeleteLessonMutation()
-  const dispatch = useDispatch()
+  const [deleteResource] = useDeleteResourceMutation()
+  // const dispatch = useDispatch()
   const stopPropagation = (event) => {
     event.stopPropagation()
   }
@@ -38,6 +36,14 @@ const DeleteModal = ({ content }) => {
         setDeleted(true)
       }
     }
+  } else if (content.action === `delete-resource`) {
+    handleDelete = async () => {
+      setDeleted(false)
+      const res = await deleteResource(content.resourceID).unwrap()
+      if (res.success) {
+        setDeleted(true)
+      }
+    }
   } else {
     handleDelete = async () => {
       setDeleted(false)
@@ -55,7 +61,13 @@ const DeleteModal = ({ content }) => {
       onClick={stopPropagation}
       className='modal fade'
       id={
-        content.action === `delete-class` ? content.classID : content.courseID
+        content.action === `delete-class`
+          ? content.classID
+          : content.action === `delete-lesson`
+          ? content.lessonID
+          : content.action === `delete-resource`
+          ? content.resourceID
+          : content.courseID
       }
       // id={
       //   content.action === `delete-class`
@@ -69,7 +81,7 @@ const DeleteModal = ({ content }) => {
       data-bs-backdrop='static'
       data-bs-keyboard='false'
     >
-      <div className='modal-dialog modal-fullscreen-md-down modal-md'>
+      <div className='modal-dialog modal-fullscreen-md-down modal-md modal-dialog-centered'>
         <div className='modal-content'>
           <div
             className={[
@@ -82,7 +94,9 @@ const DeleteModal = ({ content }) => {
                   ? content.title
                   : content.action === `delete-class`
                   ? `Class Deleted Successfully`
-                  : `Course Deleted Successfully`}
+                  : content.action === `delete-resource`
+                  ? `resource Deleted Successfully`
+                  : `Course Deleted Successufully`}
               </h4>
               <p hidden={!isDeleted} className='px-10'>
                 {content.desc}

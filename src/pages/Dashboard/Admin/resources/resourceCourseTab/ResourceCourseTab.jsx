@@ -4,20 +4,24 @@ import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import style from '../resourceCourseTab/resourceCourseTab.module.scss'
 
-const ResourceCourseTab = ({ courses }) => {
+const ResourceCourseTab = ({ resources }) => {
   const location = useLocation()
 
-  const courseId = location.pathname.split(`/`)[3]
+  // const courseId = location.pathname.split(`/`)[3]
 
   // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName) => {
     return location.pathname.includes(routeName)
   }
 
-  const coursesNav = courses?.map((course) => {
+  const coursesNav = resources?.map((course) => {
     return (
       <li key={course?.id} className={['nav-item', style.link].join(' ')}>
         <NavLink
+          state={{
+            courseTitle: course.title,
+            courseResources: course.resources,
+          }}
           to={`/admin/resources/${course?.id}`}
           className={[
             'nav-link',
@@ -47,7 +51,7 @@ const ResourceCourseTab = ({ courses }) => {
 }
 
 ResourceCourseTab.propTypes = {
-  courses: PropTypes.array,
+  resources: PropTypes.array,
   // feedback: PropTypes.node,
 }
 

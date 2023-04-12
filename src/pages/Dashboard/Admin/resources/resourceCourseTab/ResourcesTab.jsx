@@ -4,15 +4,31 @@ import style from './resourceTab.module.scss'
 import '../../../../../components/dashboard/resources/custom.css'
 import PropTypes from 'prop-types'
 import AdminResourceListDisplay from './AdminResourceListDisplay'
+import { useLocation } from 'react-router-dom'
 
 const ResourceTab = () => {
   const { studentBoard } = DASHBOARD_CONTENT
 
-  const fileDisplay = studentBoard.resources.PDF.map((file) => {
-    return <AdminResourceListDisplay key={file.id} file={file} />
+  const { state } = useLocation()
+  console.log(state)
+
+  const fileDisplay = state?.courseResources?.map((file) => {
+    return (
+      <AdminResourceListDisplay
+        key={file.id}
+        file={file}
+        course={state?.courseTitle}
+      />
+    )
   })
-  const videoDisplay = studentBoard.resources.PDF.map((file) => {
-    return <AdminResourceListDisplay key={file.id} file={file} />
+  const videoDisplay = state?.courseResources?.map((file) => {
+    return (
+      <AdminResourceListDisplay
+        key={file.id}
+        file={file}
+        course={state?.courseTitle}
+      />
+    )
   })
 
   return (
@@ -25,7 +41,7 @@ const ResourceTab = () => {
             href='#PDF'
             id={1}
           >
-            PDF
+            DOCUMENT
           </a>
         </li>
         <li className={['nav-item', style.link].join(' ')}>

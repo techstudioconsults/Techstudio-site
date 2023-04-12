@@ -9,7 +9,8 @@ const RESOURCE_SLICE = {
   initialState: STATE,
   reducers: {
     setResources: (state, action) => {
-      state.resources = action.payload
+      const { resources } = action.payload
+      state.resources = resources
     },
   },
 }

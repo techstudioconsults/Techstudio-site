@@ -4,11 +4,11 @@ import React from 'react'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { DeleteModal, Portal } from '../../../../../components'
 
-const AdminResourceListDisplay = ({ file }) => {
+const AdminResourceListDisplay = ({ file, course }) => {
   const handleDeleteModal = () => {
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
-        document.getElementById(`delete-resource`)
+        document.getElementById(file?.id)
       )
       modal.show()
     } catch (err) {
@@ -24,7 +24,7 @@ const AdminResourceListDisplay = ({ file }) => {
             action: `delete-resource`,
             title: `${`Are you sure you want to delete this resource?`}`,
             desc: `This resource has successfully being deleted. Kindly click continue to exit this page.`,
-            // courseID: id,
+            resourceID: file?.id,
           }}
         />
       </Portal>
@@ -36,17 +36,19 @@ const AdminResourceListDisplay = ({ file }) => {
             <Icon width={`2rem`} icon={file?.icon} />
           </div>
           <div>
-            <p className='fw-semibold text-blue'>{file?.title}</p>
-            <p className='fs-sm text-secondary'>Added on 03/03/2023</p>
+            <p className='fw-semibold text-blue'>{file?.name}</p>
+            <p className='fs-sm text-secondary'>
+              {new Date(file?.createdAt).toLocaleString()}
+            </p>
           </div>
         </div>
         <div>
-          <p className='fs-sm text-secondary'>File Size: 1.05kb</p>
+          <p className='fs-sm text-secondary'>File Size: {file?.fileSize}</p>
         </div>
         <div>
-          <p className='fs-sm text-secondary'>Python Fullstack</p>
+          <p className='fs-sm text-secondary'>{course}</p>
         </div>
-        <div className='text-danger'>
+        <div className='text-danger' style={{ cursor: `pointer` }}>
           <Icon
             onClick={handleDeleteModal}
             width={`1.5rem`}
@@ -60,6 +62,7 @@ const AdminResourceListDisplay = ({ file }) => {
 
 AdminResourceListDisplay.propTypes = {
   file: PropTypes.object,
+  course: PropTypes.string,
 }
 
 export default AdminResourceListDisplay

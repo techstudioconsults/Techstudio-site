@@ -14,19 +14,17 @@ import { useSelector } from 'react-redux'
 import Feedback from '../../../../components/global/feedbacks/Feedback'
 import ResourceCourseTab from './resourceCourseTab/ResourceCourseTab'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+import { useGetAllResourcesMutation } from './api/resourceApiSlice'
+import { selectAllResources } from './api/resourceSlice'
 
 const AdminResourcesView = () => {
-  const [viewAllCourses] = useViewAllCoursesMutation()
+  const [getAllResource] = useGetAllResourcesMutation()
 
-  const courses = useSelector(selectCourses)
+  const resources = useSelector(selectAllResources)
 
-  const getCourses = useCallback(async () => {
-    await viewAllCourses().unwrap()
-  }, [viewAllCourses])
-
-  useEffect(() => {
-    getCourses()
-  }, [getCourses])
+  const getResources = useCallback(async () => {
+    await getAllResource().unwrap()
+  }, [getAllResource])
 
   const addResource = (event) => {
     event.stopPropagation()
@@ -36,21 +34,12 @@ const AdminResourcesView = () => {
     modal.show()
   }
 
-  //   const coursesNav = courses?.map((course) => {
-  //     return (
-  //       <li key={course.id}>
-  //         {/* <Link
-  //           to={`/admin/resource/${course.id}/create`}
-  //           state={{ tutors: course.tutors }}
-  //         > */}
-  //         <span className='fs-sm'>{course.title}</span>
-  //         {/* </Link> */}
-  //       </li>
-  //     )
-  //   })
+  useEffect(() => {
+    getResources()
+  }, [getResources])
 
-  const feedback = courses.length ? (
-    <ResourceCourseTab courses={courses} />
+  const feedback = resources.length ? (
+    <ResourceCourseTab resources={resources} />
   ) : (
     <Feedback message={`Create a course in order to create a class`} />
   )
