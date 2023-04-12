@@ -52,6 +52,7 @@ export { default as SkeletonLoader } from './global/skeletonLoader/SkeletonLoade
 export { default as AdminClassTab } from './dashboard/tab/adminClassTab/AdminClassTab'
 export { default as AdminClassDisplayCard } from './global/cards/adminClassDisplayCard/AdminClassDisplayCard'
 export { default as LessonCard } from './global/cards/lessonCards/LessonCard'
+export { default as AddResource } from './global/modals/AddResource'
 
 // HOME
 export { default as Hero } from './home/hero'

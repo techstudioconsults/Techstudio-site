@@ -30,3 +30,5 @@ export { default as CreateClass } from './Dashboard/Admin/classes/createClass/Cr
 export { default as EditClass } from './Dashboard/Admin/classes/createClass/EditClass'
 export { default as CreateLesson } from './Dashboard/Admin/lesson/CreateLesson'
 export { default as EditLesson } from './Dashboard/Admin/lesson/EditLesson'
+export { default as AdminResourceView } from './Dashboard/Admin/resources/AdminResourceView'
+export { default as ResourcesTab } from './Dashboard/Admin/resources/resourceCourseTab/ResourcesTab'

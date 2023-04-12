@@ -1,25 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit'
-import {
-  persistReducer,
-  persistStore,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from 'redux-persist'
+import { persistReducer, persistStore } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import { apiSlice } from './api/apiSlice'
 import { setupListeners } from '@reduxjs/toolkit/query'
 import authReducer from '../pages/Auth/api/authSlice'
 import coursesReducer from '../pages/Dashboard/Admin/courses/api/coursesSlice'
 import classesReducer from '../pages/Dashboard/Admin/classes/api/classSlice'
+import resourceReducer from '../pages/Dashboard/Admin/resources/api/resourceSlice'
 
 const persistConfig = {
   key: 'root',
   version: 1,
   storage,
+  // whitelist: ['auth'], // only persist the auth state
 }
 
 const persistedReducer = persistReducer(persistConfig, authReducer)
@@ -31,13 +24,13 @@ export const store = configureStore({
     auth: persistedReducer,
     courses: coursesReducer,
     classes: classesReducer,
+    resources: resourceReducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(apiSlice.middleware),
-
-  serializableCheck: {
-    ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-  },
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }).concat(apiSlice.middleware),
+  // devTools: process.env.NODE_ENV !== 'production',
 
   devTools: process.env.NODE_ENV !== 'production',
 })

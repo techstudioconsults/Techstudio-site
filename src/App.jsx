@@ -44,6 +44,9 @@ import {
   EditClass,
   CreateLesson,
   EditLesson,
+  AdminResourceView,
+  ResourceCourseTab,
+  ResourcesTab,
 } from './pages'
 
 import AdminClassView from './pages/Dashboard/Admin/classes/AdminClassView'
@@ -142,6 +145,9 @@ const App = () => {
                 path='/admin/class/:id/lesson/edit'
                 element={<EditLesson />}
               />
+              <Route path='/admin/resources' element={<AdminResourceView />}>
+                <Route index path=':resource' element={<ResourcesTab />} />
+              </Route>
             </Route>
           </Route>
           {/* student routes */}

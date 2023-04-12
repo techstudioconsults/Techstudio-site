@@ -1,11 +1,11 @@
-import img1Grey from '../../../../assets/icons/menu-grey.png'
-import img1Light from '../../../../assets/icons/menu-white.png'
-import img2Grey from '../../../../assets/icons/cap-grey.png'
-import img2Light from '../../../../assets/icons/cap-light.png'
-import img3Grey from '../../../../assets/icons/message-gray.png'
-import img3Light from '../../../../assets/icons/message-gray.png'
-import checklistGrey from '../../../../assets/icons/checklist-grey.png'
-import checklistLight from '../../../../assets/icons/checklist-light.png'
+// import img1Grey from '../../../../assets/icons/menu-grey.png'
+// import img1Light from '../../../../assets/icons/menu-white.png'
+// import img2Grey from '../../../../assets/icons/cap-grey.png'
+// import img2Light from '../../../../assets/icons/cap-light.png'
+// import img3Grey from '../../../../assets/icons/message-gray.png'
+// import img3Light from '../../../../assets/icons/message-gray.png'
+// import checklistGrey from '../../../../assets/icons/checklist-grey.png'
+// import checklistLight from '../../../../assets/icons/checklist-light.png'
 import teacherImg4 from '../../../../assets/images/teacher.webp'
 import studentImg4 from '../../../../assets/images/db-banner.-img.webp'
 // import img5 from '../../../../assets/icons/Icon-awesome-folder.png'
@@ -162,18 +162,43 @@ export const DASHBOARD_CONTENT = {
 
     resources: {
       PDF: [
-        { id: 1, title: `Design and Insights.pdf` },
-        { id: 2, title: `Design Methodology.xslx` },
-        { id: 4, title: `Application for Leave.ppt` },
-        { id: 5, title: `Working with colours.docx` },
-        { id: 6, title: `Tools and tips.docx` },
-        { id: 7, title: `Presenting your design.docx` },
-        { id: 8, title: `Portfolio.docx` },
-        { id: 9, title: `Portfolio.docx` },
-        { id: 10, title: `Portfolio.docx` },
-        { id: 11, title: `Portfolio.docx` },
-        { id: 12, title: `Portfolio.docx` },
-        { id: 13, title: `Portfolio.docx` },
+        {
+          id: 1,
+          title: `Design and Insights.pdf`,
+          icon: `bi:file-earmark-pdf-fill`,
+          color: `red`,
+        },
+        {
+          id: 2,
+          title: `Design Methodology.xslx`,
+          icon: `vscode-icons:file-type-excel2`,
+          color: `blue`,
+        },
+        {
+          id: 4,
+          title: `Application for Leave.ppt`,
+          icon: `vscode-icons:file-type-powerpoint2`,
+          color: `red`,
+        },
+        {
+          id: 5,
+          title: `Working with colours.docx`,
+          icon: `bxs:file-doc`,
+          color: `blue`,
+        },
+        {
+          id: 6,
+          title: `Tools and tips.docx`,
+          icon: `bxs:file-doc`,
+          color: `blue`,
+        },
+        {
+          id: 7,
+          title: `Presenting your design.docx`,
+          icon: `bxs:file-doc`,
+          color: `blue`,
+        },
+        { id: 8, title: `Portfolio.docx`, icon: `bxs:file-doc`, color: `blue` },
       ],
       video: [
         { id: 1, title: `Design and Insights.pdf` },
