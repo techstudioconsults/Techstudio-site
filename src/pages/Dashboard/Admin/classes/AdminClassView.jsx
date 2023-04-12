@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
@@ -26,7 +27,7 @@ const AdminClassView = () => {
 
   useEffect(() => {
     navigate(`/admin/classes/${courses?.[0]?.id}`)
-  }, [courses, navigate])
+  }, [courses])
 
   useEffect(() => {
     getCourses()
