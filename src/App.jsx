@@ -47,6 +47,7 @@ import {
   AdminResourceView,
   ResourceCourseTab,
   ResourcesTab,
+  UserRegistrationForm,
 } from './pages'
 
 import AdminClassView from './pages/Dashboard/Admin/classes/AdminClassView'
@@ -58,6 +59,9 @@ import {
   selectLessons,
 } from './pages/Dashboard/Admin/classes/api/classSlice'
 import { useSelector } from 'react-redux'
+import AdminUsersView from './pages/Dashboard/Admin/users/AdminUsersView'
+import UserTab from './pages/Dashboard/Admin/users/userCourseTab/UsersTab'
+import AdminUserListDisplay from './pages/Dashboard/Admin/users/userCourseTab/UsersListDisplay'
 
 const App = () => {
   const {
@@ -147,6 +151,9 @@ const App = () => {
               />
               <Route path='/admin/resources' element={<AdminResourceView />}>
                 <Route index path=':resource' element={<ResourcesTab />} />
+              </Route>
+              <Route path='/admin/users' element={<AdminUsersView />}>
+                <Route index path=':user' element={<AdminUserListDisplay />} />
               </Route>
             </Route>
           </Route>
