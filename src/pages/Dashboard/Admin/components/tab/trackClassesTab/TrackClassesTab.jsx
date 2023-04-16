@@ -13,15 +13,14 @@ const TrackClassesTab = ({ courses }) => {
   const [getClassByCourseID] = useGetClassByCourseIDMutation()
   const [getLessonByCourseID] = useGetLessonByCourseIDMutation()
 
-  const courseId = location.pathname.split(`/`)[3]
+  const courseId = location?.pathname?.split(`/`)[3]
 
-  const getClasses = useCallback(
-    async (courseID) => {
-      await getClassByCourseID(courseID).unwrap()
-      await getLessonByCourseID(courseID).unwrap()
-    },
-    [getClassByCourseID, getLessonByCourseID]
-  )
+  const getClasses = useCallback(async () => {
+    if (courseId) {
+      await getClassByCourseID(courseId).unwrap()
+      await getLessonByCourseID(courseId).unwrap()
+    }
+  }, [courseId, getClassByCourseID, getLessonByCourseID])
 
   // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName) => {
@@ -49,7 +48,7 @@ const TrackClassesTab = ({ courses }) => {
   })
 
   useEffect(() => {
-    getClasses(courseId)
+    getClasses()
   }, [courseId, getClasses])
 
   return (

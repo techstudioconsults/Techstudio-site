@@ -16,13 +16,13 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
   let previousLessons
 
   const toggleLesson = () => {
-    let firstTab = bootstrap.Tab.getInstance(
-      document.getElementById(`ongoing-tab`)
-    ) // Select first tab
+    // let firstTab = bootstrap.Tab.getInstance(
+    //   document.getElementById(`ongoing-tab`)
+    // ) // Select first tab
     setLesson((prevState) => {
       return !prevState
     })
-    firstTab.show()
+    // firstTab.show()
     // console.log(firstTab)
   }
 

@@ -62,6 +62,8 @@ import {
 import { useSelector } from 'react-redux'
 import AdminUsersView from './pages/Dashboard/Admin/users/AdminUsersView'
 import AdminUserListDisplay from './pages/Dashboard/Admin/users/userCourseTab/UsersListDisplay'
+import TrackAnalysisLayout from './pages/Dashboard/Admin/components/tab/trackAnalysislayout/TrackAnalysisLayout'
+import AdminDashboardTab from './pages/Dashboard/Admin/components/tab/AdminDashboardTab'
 
 const App = () => {
   const {
@@ -123,11 +125,9 @@ const App = () => {
           {/* admin routes */}
           <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
             <Route element={<DashboardLayout isADB />}>
-              <Route
-                index
-                path='/admin/dashboard'
-                element={<AdminDashboard />}
-              />
+              <Route path='/admin/dashboard' element={<AdminDashboard />}>
+                <Route path=':course' element={<TrackAnalysisLayout />} />
+              </Route>
               <Route path='/admin/courses' element={<AdminCourseView />} />
               <Route path='/admin/courses/create' element={<CreateCourse />} />
               <Route path='/admin/courses/:id/edit' element={<EditCourse />} />

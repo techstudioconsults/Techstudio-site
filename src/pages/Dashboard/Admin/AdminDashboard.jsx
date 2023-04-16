@@ -1,16 +1,37 @@
-import React from 'react'
+import React, { useCallback, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import {
   AvatarDropdown,
   CalendarApp,
   DashboardNavbar,
 } from '../../../components'
+import Feedback from '../../../components/global/feedbacks/Feedback'
 import { DASHBOARD_CONTENT } from '../../../layout/Layout/dashboardLayout/content'
 import StudentDashboardSectionTwo from '../Student/components/StudentDashboardSectionTwo'
 import style from './adminDashboard.module.scss'
 import AdminDashboardTab from './components/tab/AdminDashboardTab'
+import { useViewAllCoursesMutation } from './courses/api/coursesApiSlice'
+import { selectCourses } from './courses/api/coursesSlice'
 
-const index = () => {
+const AdminDashboard = () => {
   const { adminDashboard } = DASHBOARD_CONTENT
+
+  const [viewAllCourses] = useViewAllCoursesMutation()
+  const courses = useSelector(selectCourses)
+
+  const getCourses = useCallback(async () => {
+    await viewAllCourses().unwrap()
+  }, [viewAllCourses])
+
+  useEffect(() => {
+    getCourses()
+  }, [getCourses])
+
+  const feedback = courses?.length ? (
+    <AdminDashboardTab courses={courses} />
+  ) : (
+    <Feedback message={`Create a course in order to create a class`} />
+  )
 
   return (
     <section className={style.adminDashboard}>
@@ -36,12 +57,10 @@ const index = () => {
             <CalendarApp />
           </div>
         </div>
-        <div>
-          <AdminDashboardTab />
-        </div>
+        <div>{feedback}</div>
       </div>
     </section>
   )
 }
 
-export default index
+export default AdminDashboard

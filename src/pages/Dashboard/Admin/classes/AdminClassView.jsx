@@ -17,7 +17,7 @@ import Feedback from '../../../../components/global/feedbacks/Feedback'
 
 const AdminClassView = () => {
   const [viewAllCourses] = useViewAllCoursesMutation()
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   const courses = useSelector(selectCourses)
 
@@ -25,9 +25,9 @@ const AdminClassView = () => {
     await viewAllCourses().unwrap()
   }, [viewAllCourses])
 
-  useEffect(() => {
-    navigate(`/admin/classes/${courses?.[0]?.id}`)
-  }, [courses])
+  // useEffect(() => {
+  //   navigate(`/admin/classes/${courses?.[0]?.id}`)
+  // }, [courses])
 
   useEffect(() => {
     getCourses()

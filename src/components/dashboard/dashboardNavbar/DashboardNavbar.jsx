@@ -3,10 +3,13 @@ import { DashboardRightDrawer } from '../../../layout'
 import CalendarOffCanvas from '../../global/offCanvas/CalendarOffCanvas'
 import style from './dashboardnavbar.module.scss'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Icon } from '@iconify/react'
 
 const DashboardNavbar = ({ isTDB }) => {
+  const location = useLocation()
+  const courseID = location.pathname.split(`/`)[3]
+
   return (
     <nav
       className={[
@@ -43,12 +46,17 @@ const DashboardNavbar = ({ isTDB }) => {
                 Create Course
               </button>
             </Link>
-            <button
-              style={{ height: `2.25rem`, width: `10.063rem` }}
-              className='btn btn-outline-primary fs-sm fw-semibold'
+            <Link
+              to={`/admin/class/${courseID}/create`}
+              state={{ tutors: location?.state?.tutors }}
             >
-              Create Class
-            </button>
+              <button
+                style={{ height: `2.25rem`, width: `10.063rem` }}
+                className='btn btn-outline-primary fs-sm fw-semibold'
+              >
+                Create Class
+              </button>
+            </Link>
           </div>
         </div>
       </div>

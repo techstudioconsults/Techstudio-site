@@ -80,7 +80,7 @@ const CreateClass = () => {
   }
 
   const findTutors = (status) => {
-    const tutors = location?.state?.tutors[status].map((tutor) => {
+    const tutors = location?.state?.tutors[status]?.map((tutor) => {
       return {
         value: tutor.tutorId,
         label: `${tutor.firstName} ${tutor.lastName}`,
