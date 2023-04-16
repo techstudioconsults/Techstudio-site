@@ -7,6 +7,7 @@ import { Route, Routes } from 'react-router-dom'
 import {
   Accounts,
   AdminClassTab,
+  ChangePassword,
   ClassesTab,
   Loading,
   Payment,
@@ -60,7 +61,6 @@ import {
 } from './pages/Dashboard/Admin/classes/api/classSlice'
 import { useSelector } from 'react-redux'
 import AdminUsersView from './pages/Dashboard/Admin/users/AdminUsersView'
-import UserTab from './pages/Dashboard/Admin/users/userCourseTab/UsersTab'
 import AdminUserListDisplay from './pages/Dashboard/Admin/users/userCourseTab/UsersListDisplay'
 
 const App = () => {
@@ -81,11 +81,12 @@ const App = () => {
         {/* public routes */}
         <Route index path='/' element={<HomePage />} />
         <Route path='/tracks' element={<Intro />} />
-        <Route path='/register' element={<Register />} />
+        <Route path='/student/register' element={<Register />} />
         <Route path='/login' element={<SignIn />} />
         <Route path='/forgot-password' element={<ForgotPassword />} />
+        <Route path='/change-password/:token' element={<ChangePassword />} />
         <Route path='/admin/register' element={<AdminSignup />} />
-        <Route path='/student/signup' element={<StudentSignup />} />
+        {/* <Route path='/student/signup' element={<StudentSignup />} /> */}
         <Route path='/payment' element={<Payment />} />
         {/* <Route path='/employers' element={<Employers />} /> */}
         <Route path='/payment/accounts' element={<Accounts />} />

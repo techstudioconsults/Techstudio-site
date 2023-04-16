@@ -53,6 +53,7 @@ export { default as AdminClassTab } from './dashboard/tab/adminClassTab/AdminCla
 export { default as AdminClassDisplayCard } from './global/cards/adminClassDisplayCard/AdminClassDisplayCard'
 export { default as LessonCard } from './global/cards/lessonCards/LessonCard'
 export { default as AddResource } from './global/modals/AddResource'
+export { default as ChangePassword } from './global/forms/changePassword/ChangePassword'
 
 // HOME
 export { default as Hero } from './home/hero'

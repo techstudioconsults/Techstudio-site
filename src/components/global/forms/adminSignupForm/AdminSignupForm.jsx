@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
 import style from '../signupForm/signupForm.module.scss'
@@ -23,6 +23,7 @@ const ContactForm = () => {
   const [errorMessage, setErrorMessage] = useState(null)
   const [registerAdmin, { isLoading }] = useRegisterAdminMutation()
   const { toast } = useToast()
+  const navigate = useNavigate()
 
   const {
     register,
@@ -41,7 +42,11 @@ const ContactForm = () => {
       )
       const res = await registerAdmin(data).unwrap()
       console.log(res)
-      res.success ? modal.show() : null
+      if (res.success) {
+        modal.show()
+        // navigate(res.data.link)
+        navigate(`/change-password/${res.data.link.split(`/`)[4]}`)
+      }
     } catch (err) {
       setErrorMessage(err.data.message)
       toast.show()
@@ -176,7 +181,7 @@ const ContactForm = () => {
         </div>
       </div>
 
-      <div className={style.secondRow}>
+      {/* <div className={style.secondRow}>
         <div className={style.paswword}>
           <label htmlFor='password' className='form-label'>
             Password
@@ -203,7 +208,7 @@ const ContactForm = () => {
             }}
           />
         </div>
-      </div>
+      </div> */}
 
       <div className={style.btnContainer}>
         <button type='submit'>

@@ -1,8 +1,70 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import useToast from '../../../../../hooks/useToast'
+import { useRegisterAdminMutation } from '../../../../Auth/api/authApiSlice'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+import { Feedback, Portal, ToastComponent } from '../../../../../components'
+
+const validation = {
+  required: 'This input is required.',
+  minLength: {
+    value: 4,
+    message: 'This input must exceed 3 characters',
+  },
+}
 
 const AdminRegistrationForm = () => {
+  const [registerAdmin, { isLoading }] = useRegisterAdminMutation()
+  const [errorMessage, setErrorMessage] = useState(null)
+  const { toast } = useToast()
+
+  const {
+    register,
+    reset,
+    handleSubmit,
+    formState: { errors, isSubmitSuccessful },
+  } = useForm({
+    criteriaMode: 'all',
+  })
+
+  const onSubmit = async (data) => {
+    console.log(data)
+    const formData = {
+      ...data,
+      // userRole: `ADMIIN`,
+      phoneNumber: parseInt(data.phoneNumber),
+    }
+    console.log(formData)
+    try {
+      let modal = bootstrap.Modal.getOrCreateInstance(
+        document.getElementById('feedback')
+      )
+      const res = await registerAdmin(formData).unwrap()
+      console.log(res)
+      res.success ? modal.show() : null
+    } catch (err) {
+      setErrorMessage(err.data.message)
+      toast.show()
+    }
+  }
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset()
+    }
+  }, [isSubmitSuccessful, reset])
   return (
-    <form encType='multipart/form-data'>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Portal wrapperId='react-portal-modal-container'>
+        <ToastComponent errorMessage={errorMessage} />
+        <Feedback
+          content={{
+            title: `Registration Successfull!`,
+            desc: ` Your details have been received and our Customer Care
+                Representative will contact you shortly.`,
+          }}
+        />
+      </Portal>
       <header>
         <h5 className='fs-lg'>User’s Profile</h5>
         <p>Fill in the user’s details. All fields are required.</p>
@@ -25,6 +87,7 @@ const AdminRegistrationForm = () => {
                 type='text'
                 className='form-control form-control-lg'
                 id='firstName'
+                {...register('firstName', validation)}
               />
             </div>
           </div>
@@ -46,6 +109,7 @@ const AdminRegistrationForm = () => {
                 type='text'
                 className='form-control form-control-lg'
                 id='lastName'
+                {...register('lastName', validation)}
               />
             </div>
           </div>
@@ -67,6 +131,7 @@ const AdminRegistrationForm = () => {
                 type='text'
                 className='form-control form-control-lg'
                 id='email'
+                {...register('email', validation)}
               />
             </div>
           </div>
@@ -88,6 +153,7 @@ const AdminRegistrationForm = () => {
                 type='number'
                 className='form-control form-control-lg'
                 id='phoneNumber'
+                {...register('phoneNumber', validation)}
               />
             </div>
           </div>
@@ -112,7 +178,6 @@ const AdminRegistrationForm = () => {
                   name='passwordRadio'
                   id='choosePassword'
                   value='option1'
-                  checked
                 />
                 <label
                   className='form-check-label mt-1'
@@ -135,6 +200,16 @@ const AdminRegistrationForm = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className='row'>
+          <button type='submit' className='btn btn-primary'>
+            <div
+              hidden={!isLoading}
+              className='spinner-border spinner-border-sm me-5 text-white'
+              role='status'
+            />
+            {isLoading ? `Please wait...` : `Register`}
+          </button>
         </div>
       </div>
     </form>
