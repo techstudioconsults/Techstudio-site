@@ -1,14 +1,124 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+import PropTypes, { instanceOf } from 'prop-types'
 import style from './usersTab.module.scss'
 // import Feedback from '../../../global/feedbacks/Feedback'
 import UsersCourseTab from './UsersCourseTab'
 import { useDownloadAllTutorsMutation } from '../api/usersApiSlice'
+import download from 'downloadjs'
+import axios from 'axios'
+import { useSelector } from 'react-redux'
+import { selectCurrentToken } from '../../../../Auth/api/authSlice'
+import { useLocation, useParams } from 'react-router-dom'
+const baseUrl = process.env.REACT_APP_BASE_URL
 
 const UserTab = ({ courses }) => {
-  const [downloadAllTutors] = useDownloadAllTutorsMutation()
-  const handleDownload = async () => {
-    await downloadAllTutors().unwrap()
+  const [isTutorTab, setTutorTab] = useState(true)
+  const [isLoading, setLoading] = useState()
+  const token = useSelector(selectCurrentToken)
+  const { courseID } = useParams()
+  console.log(courseID)
+  // const [downloadAllTutors] = useDownloadAllTutorsMutation()
+
+  // const handleDownload = async () => {
+  //   const res = await downloadAllTutors().unwrap()
+  //   console.log(res.data instanceof Blob)
+  //   let blob
+  //   if (res.error.originalStatus === 200) {
+  //     blob = new Blob([res.data], { type: 'text/csv' })
+  //     download(blob, 'certificate.csv')
+  //   }
+  // }
+
+  const credentials = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'text/csv',
+    },
+  }
+
+  const downloadAllTutors = async () => {
+    setLoading(true)
+    try {
+      const res = await axios.get(
+        `${baseUrl}/users/tutors/download`,
+        credentials
+      )
+      console.log(res.data)
+      if (res.status === 200) {
+        setLoading(false)
+        const blob = new Blob([res.data], { type: 'text/csv' })
+        download(blob, 'certificate.csv')
+      }
+    } catch (err) {
+      // setLoading(false)
+      // setErrorMessage(err.response.data.message)
+      // toast.show()
+    }
+  }
+  const downloadTutorsByID = async () => {
+    setLoading(true)
+    try {
+      const res = await axios.get(
+        `${baseUrl}/users/tutors/download/${courseID}`,
+        credentials
+      )
+      console.log(res.data)
+      if (res.status === 200) {
+        setLoading(false)
+        const blob = new Blob([res.data], { type: 'text/csv' })
+        download(blob, 'certificate.csv')
+      }
+    } catch (err) {
+      // setLoading(false)
+      // setErrorMessage(err.response.data.message)
+      // toast.show()
+    }
+  }
+
+  const downloadAllStudents = async () => {
+    setLoading(true)
+    try {
+      const res = await axios.get(
+        `${baseUrl}/users/students/download`,
+        credentials
+      )
+      console.log(res.data)
+      if (res.status === 200) {
+        setLoading(false)
+        const blob = new Blob([res.data], { type: 'text/csv' })
+        download(blob, 'certificate.csv')
+      }
+    } catch (err) {
+      // setLoading(false)
+      // setErrorMessage(err.response.data.message)
+      // toast.show()
+    }
+  }
+  const downloadStudentsByID = async () => {
+    setLoading(true)
+    try {
+      const res = await axios.get(
+        `${baseUrl}/users/students/download/${courseID}`,
+        credentials
+      )
+      console.log(res.data)
+      if (res.status === 200) {
+        setLoading(false)
+        const blob = new Blob([res.data], { type: 'text/csv' })
+        download(blob, 'certificate.csv')
+      }
+    } catch (err) {
+      // setLoading(false)
+      // setErrorMessage(err.response.data.message)
+      // toast.show()
+    }
+  }
+
+  const handleTutorDownload = () => {
+    courseID !== `all` ? downloadTutorsByID() : downloadAllTutors()
+  }
+  const handleStudentDownload = () => {
+    courseID !== `all` ? downloadStudentsByID() : downloadAllStudents()
   }
 
   return (
@@ -22,7 +132,7 @@ const UserTab = ({ courses }) => {
                 id='ongoing-tab'
                 data-bs-toggle='tab'
                 href='#ongoing'
-                // onClick={() => setLesson(false)}
+                onClick={() => setTutorTab(true)}
               >
                 Tutors
               </a>
@@ -33,7 +143,7 @@ const UserTab = ({ courses }) => {
                 id='previous-tab'
                 data-bs-toggle='tab'
                 href='#previous'
-                // onClick={() => setLesson(false)}
+                onClick={() => setTutorTab(false)}
               >
                 Students
               </a>
@@ -54,11 +164,32 @@ const UserTab = ({ courses }) => {
             </div>
             <div>
               <button
+                hidden={!isTutorTab}
+                disabled={isLoading}
                 className='btn btn-outline btn-outline-primary'
-                onClick={handleDownload}
+                onClick={handleTutorDownload}
                 id='download-list'
               >
-                Download List
+                <div
+                  hidden={!isLoading}
+                  className='spinner-border spinner-border-sm me-5 text-primary'
+                  role='status'
+                />
+                {isLoading ? `Downloading...` : `Download List`}
+              </button>
+              <button
+                hidden={isTutorTab}
+                disabled={isLoading}
+                className='btn btn-outline btn-outline-primary'
+                onClick={handleStudentDownload}
+                id='download-list'
+              >
+                <div
+                  hidden={!isLoading}
+                  className='spinner-border spinner-border-sm me-5 text-primary'
+                  role='status'
+                />
+                {isLoading ? `Downloading...` : `Download List`}
               </button>
             </div>
           </div>
