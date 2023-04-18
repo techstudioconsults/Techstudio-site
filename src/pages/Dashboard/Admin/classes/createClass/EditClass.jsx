@@ -133,6 +133,8 @@ const EditClass = () => {
 
   const {
     // reset,
+    setValue,
+    watch,
     register,
     handleSubmit,
     control,
@@ -143,6 +145,18 @@ const EditClass = () => {
     resolver: yupResolver(schema),
     defaultValues,
   })
+
+  // const selectedTutors = watch('tutors')
+
+  // const handleTutorsChange = (selectedOptions) => {
+  //   setValue('tutors', '')
+  // }
+
+  // useEffect(() => {
+  //   if (!selectedTutors) {
+  //     setValue('tutors', null)
+  //   }
+  // }, [selectedTutors, setValue])
 
   // due to the error gotten from the response above...we went with the axios alternative
   const onSubmit = async (data) => {
@@ -473,13 +487,14 @@ const EditClass = () => {
                         return (
                           <>
                             <Select
+                              {...field}
                               styles={colorStyles}
                               className='reactSelect my-2'
                               name='tutors'
+                              // onChange={handleTutorsChange}
                               placeholder='select tutors'
                               options={tutors}
                               isMulti
-                              {...field}
                             />
                           </>
                         )
