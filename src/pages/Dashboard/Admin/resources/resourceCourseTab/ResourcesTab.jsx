@@ -18,7 +18,7 @@ const ResourceTab = () => {
   }
 
   const { state } = useLocation()
-  console.log(state)
+  // console.log(state)
 
   const fileDisplay = state?.courseResources?.map((file) => {
     if (checkExtension(file.name) !== `mp4`) {

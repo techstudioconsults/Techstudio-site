@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from 'react'
-import { Outlet, useLocation } from 'react-router'
+import { Outlet, useLocation, useNavigate, useParams } from 'react-router'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import style from '../adminTab.module.scss'
@@ -14,19 +14,32 @@ const TrackClassesTab = ({ courses }) => {
   const [getClassByCourseID, classArgs] = useGetClassByCourseIDMutation()
   const [getLessonByCourseID, lessonArgs] = useGetLessonByCourseIDMutation()
 
-  const courseId = location?.pathname?.split(`/`)[3]
-
-  const getClasses = useCallback(async () => {
-    if (courseId) {
-      await getClassByCourseID(courseId).unwrap()
-      await getLessonByCourseID(courseId).unwrap()
-    }
-  }, [courseId, getClassByCourseID, getLessonByCourseID])
-
+  let { courseID } = useParams()
+  const redirect = useNavigate()
   // verifies if routeName is the one active (in browser input)
-  const activeRoute = (routeName) => {
-    return location.pathname.includes(routeName)
-  }
+  const activeRoute = useCallback(
+    (routeName) => {
+      return location.pathname.includes(routeName)
+    },
+    [location.pathname]
+  )
+  const getClasses = useCallback(async () => {
+    if (courseID) {
+      await getClassByCourseID(courseID).unwrap()
+      await getLessonByCourseID(courseID).unwrap()
+    }
+  }, [courseID, getClassByCourseID, getLessonByCourseID])
+
+  useEffect(() => {
+    if (!courseID) {
+      redirect(`/admin/classes/${courses[0].id}`)
+    }
+    activeRoute(courseID)
+  }, [activeRoute, courseID, courses, redirect])
+
+  useEffect(() => {
+    getClasses()
+  }, [courseID, getClasses])
 
   const coursesNav = courses?.map((course) => {
     return (
@@ -47,10 +60,6 @@ const TrackClassesTab = ({ courses }) => {
       </li>
     )
   })
-
-  useEffect(() => {
-    getClasses()
-  }, [courseId, getClasses])
 
   return (
     <section className={`${style.tab}`}>

@@ -9,17 +9,19 @@ import {
   useGetTutorsByCourseIDMutation,
 } from '../api/usersApiSlice'
 import { useSelector } from 'react-redux'
-import { selectAllTutors } from '../api/usersSlice'
+import { selectAllStudents, selectAllTutors } from '../api/usersSlice'
+import SpinnerComponent from '../../../../../components/global/skeletonLoader/SpinnerComponent'
 
 const AdminUserListDisplay = () => {
   const [getAllTutors] = useGetAllTutorsMutation()
   const [getAllStudents] = useGetAllStudentsMutation()
-  const [getTutorsByCourseID] = useGetTutorsByCourseIDMutation()
-  const [getStudentsByCourseID] = useGetStudentsByCourseIDMutation()
+  const [getTutorsByCourseID, tutorsArgs] = useGetTutorsByCourseIDMutation()
+  const [getStudentsByCourseID, studentsArgs] =
+    useGetStudentsByCourseIDMutation()
   const location = useLocation()
   const courseId = location.pathname.split(`/`)[3]
   const allTutors = useSelector(selectAllTutors)
-  const allStudents = useSelector(selectAllTutors)
+  const allStudents = useSelector(selectAllStudents)
 
   const getTutors = useCallback(async () => {
     if (courseId === `all`) {
@@ -45,8 +47,11 @@ const AdminUserListDisplay = () => {
   }, [getStudents, getTutors])
 
   const users =
-    location?.state.type === `tutors`
-      ? allTutors?.map((tutor, index) => {
+    location?.state.type === `tutors` ? (
+      tutorsArgs.isLoading ? (
+        <SpinnerComponent />
+      ) : (
+        allTutors?.map((tutor, index) => {
           return (
             <div
               key={index}
@@ -91,39 +96,43 @@ const AdminUserListDisplay = () => {
             </div>
           )
         })
-      : allStudents?.map((student, index) => {
-          return (
-            <div
-              key={index}
-              className='row align-items-center border border-1 p-2'
-            >
-              <section className='col col-4'>
-                <div className='d-flex'>
-                  <div>
-                    <p className='fw-bold text-blue'>{student?.fullName}</p>
-                  </div>
-                </div>
-              </section>
-              <section className='col col-3'>
+      )
+    ) : studentsArgs.isLoading ? (
+      <SpinnerComponent />
+    ) : (
+      allStudents?.map((student, index) => {
+        return (
+          <div
+            key={index}
+            className='row align-items-center border border-1 p-2'
+          >
+            <section className='col col-4'>
+              <div className='d-flex'>
                 <div>
-                  <p className='fs-sm text-secondary'>{student?.course}</p>
+                  <p className='fw-bold text-blue'>{student?.fullName}</p>
                 </div>
-              </section>
-              <section className='col col-3'>
-                <div>
-                  <p className='fs-sm text-primary fw-semibold'>
-                    {student?.email}
-                  </p>
-                </div>
-              </section>
-              <section className='col col-2'>
-                <div>
-                  <p className='fs-sm text-danger fw-semibold'>
-                    {student?.phoneNumber}
-                  </p>
-                </div>
-              </section>
-              {/* <section className='col col-1'>
+              </div>
+            </section>
+            <section className='col col-3'>
+              <div>
+                <p className='fs-sm text-secondary'>{student?.course}</p>
+              </div>
+            </section>
+            <section className='col col-3'>
+              <div>
+                <p className='fs-sm text-primary fw-semibold'>
+                  {student?.email}
+                </p>
+              </div>
+            </section>
+            <section className='col col-2'>
+              <div>
+                <p className='fs-sm text-danger fw-semibold'>
+                  {student?.phoneNumber}
+                </p>
+              </div>
+            </section>
+            {/* <section className='col col-1'>
                 <div className='text-danger' style={{ cursor: `pointer` }}>
                   <button
                     className={`text-danger btn btn-outline btn-sm fw-semibold`}
@@ -132,13 +141,10 @@ const AdminUserListDisplay = () => {
                   </button>
                 </div>
               </section> */}
-            </div>
-          )
-        })
-
-  // useEffect(() => {
-  //   navigate(`/admin/users/${courses?.[0]?.id}`)
-  // }, [courses, navigate])
+          </div>
+        )
+      })
+    )
 
   return (
     <>

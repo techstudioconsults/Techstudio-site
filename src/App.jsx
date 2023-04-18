@@ -121,15 +121,14 @@ const App = () => {
           <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
             <Route element={<DashboardLayout isADB />}>
               <Route path='/admin/dashboard' element={<AdminDashboard />}>
-                <Route path=':course' element={<TrackAnalysisLayout />} />
+                <Route path=':courseID' element={<TrackAnalysisLayout />} />
               </Route>
               <Route path='/admin/courses' element={<AdminCourseView />} />
               <Route path='/admin/courses/create' element={<CreateCourse />} />
               <Route path='/admin/courses/:id/edit' element={<EditCourse />} />
               <Route path='/admin/classes' element={<AdminClassView />}>
                 <Route
-                  index
-                  path=':class'
+                  path=':courseID'
                   element={
                     <AdminClassTab lessons={lessons} classes={classes} isTDB />
                   }
@@ -149,7 +148,11 @@ const App = () => {
                 <Route index path=':resource' element={<ResourcesTab />} />
               </Route>
               <Route path='/admin/users' element={<AdminUsersView />}>
-                <Route index path=':user' element={<AdminUserListDisplay />} />
+                <Route
+                  index
+                  path=':courseID'
+                  element={<AdminUserListDisplay />}
+                />
               </Route>
             </Route>
           </Route>

@@ -7,7 +7,7 @@ import style from './adminClasses.module.scss' //using courses view layout !impo
 import TrackClassesTab from '../components/tab/trackClassesTab/TrackClassesTab'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { Icon } from '@iconify/react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import TeacherClassNotificationView from '../../Teacher/components/teacherClassNotificationView/TeacherClassNotificationView'
 import { useViewAllCoursesMutation } from '../courses/api/coursesApiSlice'
 import { useCallback, useEffect } from 'react'
@@ -18,17 +18,11 @@ import SpinnerComponent from '../../../../components/global/skeletonLoader/Spinn
 
 const AdminClassView = () => {
   const [viewAllCourses, courseArgs] = useViewAllCoursesMutation()
-  // const navigate = useNavigate()
-
   const courses = useSelector(selectCourses)
 
   const getCourses = useCallback(async () => {
     await viewAllCourses().unwrap()
   }, [viewAllCourses])
-
-  // useEffect(() => {
-  //   navigate(`/admin/classes/${courses?.[0]?.id}`)
-  // }, [courses])
 
   useEffect(() => {
     getCourses()

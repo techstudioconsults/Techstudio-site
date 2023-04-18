@@ -75,7 +75,6 @@ const UserTab = ({ courses }) => {
         >
           <div className={style.listWrapper}>
             <UsersCourseTab type={`tutors`} courses={courses} />
-            user1
           </div>
         </div>
         <div
@@ -86,7 +85,6 @@ const UserTab = ({ courses }) => {
         >
           <div className={style.listWrapper}>
             <UsersCourseTab type={`students`} courses={courses} />
-            user2
           </div>
         </div>
         {/* <div

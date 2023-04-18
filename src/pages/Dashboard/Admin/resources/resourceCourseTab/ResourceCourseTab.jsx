@@ -1,18 +1,30 @@
-import React from 'react'
-import { Outlet, useLocation } from 'react-router'
+import React, { useCallback, useEffect } from 'react'
+import { Outlet, useLocation, useNavigate, useParams } from 'react-router'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import style from '../resourceCourseTab/resourceCourseTab.module.scss'
 
 const ResourceCourseTab = ({ resources }) => {
   const location = useLocation()
+  let { courseID } = useParams()
+  const redirect = useNavigate()
 
-  // const courseId = location.pathname.split(`/`)[3]
+  console.log(resources)
 
   // verifies if routeName is the one active (in browser input)
-  const activeRoute = (routeName) => {
-    return location.pathname.includes(routeName)
-  }
+  const activeRoute = useCallback(
+    (routeName) => {
+      return location.pathname.includes(routeName)
+    },
+    [location.pathname]
+  )
+
+  useEffect(() => {
+    if (!courseID) {
+      redirect(`/admin/resources/${resources[0].id}`)
+    }
+    activeRoute(courseID)
+  }, [courseID, resources])
 
   const coursesNav = resources?.map((course) => {
     return (

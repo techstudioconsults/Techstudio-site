@@ -1,13 +1,25 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import style from './adminTab.module.scss'
 import '../../../../../scss/custom/bs-custom.css'
 import PropTypes from 'prop-types'
-import { NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet, useNavigate, useParams } from 'react-router-dom'
+import { useEffect } from 'react'
 
 const AdminDashboardTab = ({ courses }) => {
   // verifies if routeName is the one active (in browser input)
+  let { courseID } = useParams()
+  const redirect = useNavigate()
+
   const activeRoute = (routeName) => {
     return location.pathname.includes(routeName)
   }
+
+  useEffect(() => {
+    if (!courseID) {
+      redirect(`/admin/dashboard/${courses[0].id}`)
+    }
+    activeRoute(courseID)
+  }, [courseID])
 
   const coursesNav = courses?.map((course) => {
     return (

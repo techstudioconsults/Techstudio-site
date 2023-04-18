@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^13.2.1",
     "axios": "^1.2.1",
     "bootstrap": "^5.2.3",
+    "downloadjs": "^1.4.7",
     "express": "^4.18.2",
     "google-map-react": "^2.2.0",
     "jwt-decode": "^3.1.2",
