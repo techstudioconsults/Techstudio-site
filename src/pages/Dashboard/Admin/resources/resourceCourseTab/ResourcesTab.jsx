@@ -5,30 +5,48 @@ import '../../../../../components/dashboard/resources/custom.css'
 import PropTypes from 'prop-types'
 import AdminResourceListDisplay from './AdminResourceListDisplay'
 import { useLocation } from 'react-router-dom'
+import Feedback from '../../../../../components/global/feedbacks/Feedback'
 
 const ResourceTab = () => {
   const { studentBoard } = DASHBOARD_CONTENT
+
+  function checkExtension(str) {
+    // Split the string by the dot character
+    const parts = str.split('.')
+    const extension = parts[parts.length - 1]
+    return extension
+  }
 
   const { state } = useLocation()
   console.log(state)
 
   const fileDisplay = state?.courseResources?.map((file) => {
-    return (
-      <AdminResourceListDisplay
-        key={file.id}
-        file={file}
-        course={state?.courseTitle}
-      />
-    )
+    if (checkExtension(file.name) !== `mp4`) {
+      return (
+        <AdminResourceListDisplay
+          key={file.id}
+          file={file}
+          course={state?.courseTitle}
+        />
+      )
+    }
+    // else {
+    //   return <Feedback key={file.id} />
+    // }
   })
   const videoDisplay = state?.courseResources?.map((file) => {
-    return (
-      <AdminResourceListDisplay
-        key={file.id}
-        file={file}
-        course={state?.courseTitle}
-      />
-    )
+    if (checkExtension(file.name) === `mp4`) {
+      return (
+        <AdminResourceListDisplay
+          key={file.id}
+          file={file}
+          course={state?.courseTitle}
+        />
+      )
+    }
+    // else {
+    //   return <Feedback key={file.id} />
+    // }
   })
 
   return (
@@ -78,7 +96,11 @@ const ResourceTab = () => {
               `hide_scrollbar d-flex flex-column gap-5`,
             ].join(' ')}
           >
-            {fileDisplay}
+            {state?.courseResources.length ? (
+              fileDisplay
+            ) : (
+              <Feedback message={`No resources uploaded for this course`} />
+            )}
           </div>
         </div>
         <div className='tab-pane fade' id='video' aria-labelledby='about-tab'>
@@ -88,7 +110,11 @@ const ResourceTab = () => {
               `hide_scrollbar d-flex flex-column gap-5`,
             ].join(' ')}
           >
-            {videoDisplay}
+            {state?.courseResources.length ? (
+              videoDisplay
+            ) : (
+              <Feedback message={`No resources uploaded for this course`} />
+            )}
           </div>
         </div>
         <div className='tab-pane fade' id='audio' aria-labelledby='album-tab'>
@@ -98,7 +124,11 @@ const ResourceTab = () => {
               `hide_scrollbar d-flex flex-column gap-5`,
             ].join(' ')}
           >
-            {fileDisplay}
+            {state?.courseResources.length ? (
+              fileDisplay
+            ) : (
+              <Feedback message={`No resources uploaded for this course`} />
+            )}
           </div>
         </div>
       </div>

@@ -8,14 +8,17 @@ import { DASHBOARD_CONTENT } from '../../../../../layout/Layout/dashboardLayout/
 import style from '../adminCourse.module.scss'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { useViewCoursesDetailsMutation } from '../api/coursesApiSlice'
-import { useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
+import { useGetClassByCourseIDMutation } from '../../classes/api/classApiSlice'
 
 const CourseList = ({ course, showDetailsBox }) => {
   const [showStatus, setShowStatus] = useState(true)
+  const [totalClasses, setTotalClasses] = useState([])
   const { id, title, duration, tutors } = course
   const { imageList } = DASHBOARD_CONTENT
 
   const [viewCoursesDetails] = useViewCoursesDetailsMutation()
+  const [getClassByCourseID] = useGetClassByCourseIDMutation()
 
   const handleClick = async () => {
     showDetailsBox()
@@ -39,6 +42,15 @@ const CourseList = ({ course, showDetailsBox }) => {
   const handleMouseLeave = () => {
     setShowStatus(true)
   }
+
+  const getClasses = useCallback(async () => {
+    const res = await getClassByCourseID(id)
+    setTotalClasses(res.data.data.ongoing)
+  }, [getClassByCourseID, id])
+
+  useEffect(() => {
+    getClasses()
+  }, [getClasses])
 
   return (
     <>
@@ -93,19 +105,25 @@ const CourseList = ({ course, showDetailsBox }) => {
               <div className={`${style.tableHead} h-100`}>
                 <ul className='d-flex flex-column align-items-start justify-content-between text-muted'>
                   <li>
-                    <span className='fw-bold'>N/A</span>{' '}
+                    <span className='fw-bold'>
+                      {totalClasses?.length || `N/A`}
+                    </span>{' '}
                     <span hidden={showStatus} className='text-danger'>
                       (online)
                     </span>
                   </li>
                   <li>
-                    <span className='fw-bold'>N/A</span>{' '}
+                    <span className='fw-bold'>
+                      {totalClasses?.length || `N/A`}
+                    </span>{' '}
                     <span hidden={showStatus} className='text-danger'>
                       (weekday)
                     </span>
                   </li>
                   <li>
-                    <span className='fw-bold'>N/A</span>{' '}
+                    <span className='fw-bold'>
+                      {totalClasses?.length || `N/A`}
+                    </span>{' '}
                     <span hidden={showStatus} className='text-danger'>
                       (weekend)
                     </span>

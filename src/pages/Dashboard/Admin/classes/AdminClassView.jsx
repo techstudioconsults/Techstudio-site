@@ -14,9 +14,10 @@ import { useCallback, useEffect } from 'react'
 import { selectCourses } from '../courses/api/coursesSlice'
 import { useSelector } from 'react-redux'
 import Feedback from '../../../../components/global/feedbacks/Feedback'
+import SpinnerComponent from '../../../../components/global/skeletonLoader/SpinnerComponent'
 
 const AdminClassView = () => {
-  const [viewAllCourses] = useViewAllCoursesMutation()
+  const [viewAllCourses, courseArgs] = useViewAllCoursesMutation()
   // const navigate = useNavigate()
 
   const courses = useSelector(selectCourses)
@@ -91,7 +92,9 @@ const AdminClassView = () => {
           </div>
         </div>
         <div className='mt-10'>
-          <div className='mt-5 d-flex flex-column gap-5'>{feedback}</div>
+          <div className='mt-5 d-flex flex-column gap-5'>
+            {courseArgs.isLoading ? <SpinnerComponent /> : feedback}
+          </div>
         </div>
       </div>
       <div className={`${style.notification}`}>

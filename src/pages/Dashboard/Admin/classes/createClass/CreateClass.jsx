@@ -23,6 +23,9 @@ import { useCreateClassMutation } from '../../courses/api/coursesApiSlice'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 import { selectCurrentToken } from '../../../../Auth/api/authSlice'
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { ErrorMessage } from '@hookform/error-message'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
@@ -63,6 +66,15 @@ const durationSelectInput = {
   }),
 }
 
+const schema = yup.object().shape({
+  title: yup.string().required('title is required'),
+  description: yup.string().required('description is required'),
+  tutors: yup.array().required('at least one tutor is required'),
+  startDate: yup.string().required('when does the class start?'),
+  endDate: yup.string().required('when does the class end?'),
+  preference: yup.string().required('class preference requirerd'),
+})
+
 const CreateClass = () => {
   const [tutors, setTutors] = useState([])
   const [isLoading, setLoading] = useState(false)
@@ -94,10 +106,11 @@ const CreateClass = () => {
     register,
     handleSubmit,
     control,
-    // formState: { isSubmitSuccessful },
+    formState: { errors, isSubmitSuccessful },
   } = useForm({
     criteriaMode: 'all',
     mode: 'onChange',
+    resolver: yupResolver(schema),
   })
 
   // due to the error gotten from the response above...we went with the axios alternative
@@ -117,9 +130,9 @@ const CreateClass = () => {
     data.tutors.forEach((item) => formData.append('tutors[]', item.value))
     files.forEach((item) => formData.append('files', item))
 
-    for (var pair of formData.entries()) {
-      console.log(pair[0] + ', ' + pair[1])
-    }
+    // for (var pair of formData.entries()) {
+    //   console.log(pair[0] + ', ' + pair[1])
+    // }
 
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
@@ -154,8 +167,8 @@ const CreateClass = () => {
 
   return (
     <section className={style.courseView}>
+      <ToastComponent errorMessage={errorMessage} />
       <Portal wrapperId='react-portal-modal-container'>
-        <ToastComponent errorMessage={errorMessage} />
         <SaveSuccess
           content={{
             title: `Changes Saved Successfully!`,
@@ -194,6 +207,19 @@ const CreateClass = () => {
                     id='title'
                     {...register('title')}
                   />
+                  <ErrorMessage
+                    errors={errors}
+                    name='title'
+                    render={({ messages }) => {
+                      return messages
+                        ? Object.entries(messages).map(([type, message]) => (
+                            <p className='fs-xs text-danger' key={type}>
+                              {message}
+                            </p>
+                          ))
+                        : null
+                    }}
+                  />
                 </div>
               </div>
             </div>
@@ -216,6 +242,19 @@ const CreateClass = () => {
                     id='description'
                     {...register('description')}
                   />
+                  <ErrorMessage
+                    errors={errors}
+                    name='description'
+                    render={({ messages }) => {
+                      return messages
+                        ? Object.entries(messages).map(([type, message]) => (
+                            <p className='fs-xs text-danger' key={type}>
+                              {message}
+                            </p>
+                          ))
+                        : null
+                    }}
+                  />
                 </div>
               </div>
             </div>
@@ -229,13 +268,26 @@ const CreateClass = () => {
                 </div>
                 <div className='col-8'>
                   <div
-                    className={`${style.inputs} d-flex justify-content-between w-100`}
+                    className={`${style.inputs} d-flex flex-column justify-content-between w-100`}
                   >
                     <input
                       type='date'
                       className='form-control form-control-lg'
                       id='start-date'
                       {...register('startDate')}
+                    />
+                    <ErrorMessage
+                      errors={errors}
+                      name='startDate'
+                      render={({ messages }) => {
+                        return messages
+                          ? Object.entries(messages).map(([type, message]) => (
+                              <p className='fs-xs text-danger' key={type}>
+                                {message}
+                              </p>
+                            ))
+                          : null
+                      }}
                     />
                   </div>
                 </div>
@@ -250,13 +302,26 @@ const CreateClass = () => {
                 </div>
                 <div className='col-8'>
                   <div
-                    className={`${style.inputs} d-flex justify-content-between w-100`}
+                    className={`${style.inputs} d-flex flex-column justify-content-between w-100`}
                   >
                     <input
                       type='date'
                       className='form-control form-control-lg'
-                      id='start-date'
+                      id='end-date'
                       {...register('endDate')}
+                    />
+                    <ErrorMessage
+                      errors={errors}
+                      name='endDate'
+                      render={({ messages }) => {
+                        return messages
+                          ? Object.entries(messages).map(([type, message]) => (
+                              <p className='fs-xs text-danger' key={type}>
+                                {message}
+                              </p>
+                            ))
+                          : null
+                      }}
                     />
                   </div>
                 </div>
@@ -274,7 +339,7 @@ const CreateClass = () => {
               </div>
               <div className='col-8'>
                 <div
-                  className={`${style.inputs} w-100 d-flex justify-content-between`}
+                  className={`${style.inputs} w-100 d-flex  justify-content-between`}
                 >
                   <div className='form-check form-check-inline'>
                     <input
@@ -319,49 +384,27 @@ const CreateClass = () => {
                     </label>
                   </div>
                 </div>
+                <ErrorMessage
+                  errors={errors}
+                  name='preference'
+                  render={({ messages }) => {
+                    return messages
+                      ? Object.entries(messages).map(([type, message]) => (
+                          <p className='fs-xs text-danger' key={type}>
+                            {message}
+                          </p>
+                        ))
+                      : null
+                  }}
+                />
               </div>
             </div>
-            {/* course */}
-            {/* <div className='mb-8 d-flex row'>
-              <div className='col-4'>
-                <label
-                  htmlFor='title'
-                  className={`col-form-label fs-lg ${style.labels} w-100`}
-                >
-                  Course
-                </label>
-              </div>
-              <div className='col-8'>
-                <div className={`${style.inputs} w-100`}>
-                  <div>
-                    <Controller
-                      name='course'
-                      control={control}
-                      render={({ field }) => {
-                        return (
-                          <>
-                            <Select
-                              styles={colorStyles}
-                              className='reactSelect my-2'
-                              name='onlineTutors'
-                              placeholder='select course'
-                              options={tutors}
-                              isMulti
-                              {...field}
-                            />
-                          </>
-                        )
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div> */}
+
             {/* tutors */}
             <div className='mb-8 row'>
               <div className='col-4'>
                 <label
-                  htmlFor='title'
+                  htmlFor='tutors'
                   className={`col-form-label fs-lg ${style.labels}`}
                 >
                   Tutors
@@ -372,6 +415,7 @@ const CreateClass = () => {
                   <div>
                     <Controller
                       name='tutors'
+                      // rules={{ required: true }}
                       control={control}
                       render={({ field }) => {
                         return (
@@ -387,6 +431,19 @@ const CreateClass = () => {
                             />
                           </>
                         )
+                      }}
+                    />
+                    <ErrorMessage
+                      errors={errors}
+                      name='tutors'
+                      render={({ messages }) => {
+                        return messages
+                          ? Object.entries(messages).map(([type, message]) => (
+                              <p className='fs-xs text-danger' key={type}>
+                                {message}
+                              </p>
+                            ))
+                          : null
                       }}
                     />
                   </div>
@@ -436,7 +493,7 @@ const CreateClass = () => {
                     className='spinner-border spinner-border-sm me-5 text-white'
                     role='status'
                   />
-                  {isLoading ? `Please wait...` : `Save Change`}
+                  {isLoading ? `Please wait...` : `Save Class`}
                 </button>
                 <button
                   type='button'

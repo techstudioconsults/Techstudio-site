@@ -10,10 +10,10 @@ import { useDeleteResourceMutation } from '../../../pages/Dashboard/Admin/resour
 
 const DeleteModal = ({ content }) => {
   const [isDeleted, setDeleted] = useState(false)
-  const [deleteCourse, { isLoading }] = useDeleteCourseMutation()
-  const [deleteClass] = useDeleteClassMutation()
-  const [deleteLesson] = useDeleteLessonMutation()
-  const [deleteResource] = useDeleteResourceMutation()
+  const [deleteCourse, deleteCourseArgs] = useDeleteCourseMutation()
+  const [deleteClass, deleteClassArgs] = useDeleteClassMutation()
+  const [deleteLesson, deleteLessonArgs] = useDeleteLessonMutation()
+  const [deleteResource, deleteResourceArgs] = useDeleteResourceMutation()
   // const dispatch = useDispatch()
   const stopPropagation = (event) => {
     event.stopPropagation()
@@ -106,17 +106,32 @@ const DeleteModal = ({ content }) => {
               className={`d-flex flex-column align-items-center gap-5 w-100 mt-10`}
             >
               <button
-                disabled={isLoading}
+                disabled={
+                  deleteCourseArgs.isLoading ||
+                  deleteClassArgs.isLoading ||
+                  deleteLessonArgs.isLoading ||
+                  deleteResourceArgs.isLoading
+                }
                 hidden={isDeleted}
                 onClick={handleDelete}
                 className={`btn btn-primary w-50`}
               >
                 <div
-                  hidden={!isLoading}
+                  hidden={
+                    !deleteCourseArgs.isLoading ||
+                    !deleteClassArgs.isLoading ||
+                    !deleteLessonArgs.isLoading ||
+                    !deleteResourceArgs.isLoading
+                  }
                   className='spinner-border spinner-border-sm me-5 text-white'
                   role='status'
                 />
-                {isLoading ? `Please wait...` : `Yes`}
+                {deleteCourseArgs.isLoading ||
+                deleteClassArgs.isLoading ||
+                deleteLessonArgs.isLoading ||
+                deleteResourceArgs.isLoading
+                  ? `Please wait...`
+                  : `Yes`}
               </button>
               <button
                 onClick={stopPropagation}

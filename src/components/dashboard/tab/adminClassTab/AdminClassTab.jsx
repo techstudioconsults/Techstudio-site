@@ -4,11 +4,12 @@ import style from '../classesTab/classesTab.module.scss'
 import AdminClassDisplayCard from '../../../global/cards/adminClassDisplayCard/AdminClassDisplayCard'
 import { Icon } from '@iconify/react'
 import LessonCard from '../../../global/cards/lessonCards/LessonCard'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Feedback from '../../../global/feedbacks/Feedback'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 
 const ClassesTab = ({ classes, lessons, isTDB }) => {
+  const location = useLocation()
   const [isLesson, setLesson] = useState(false)
   let onGoingClasses
   let previousClasses
@@ -155,19 +156,6 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
             {isLesson ? previousLessons : previousClasses}
           </div>
         </div>
-        {/* <div
-          className='tab-pane fade'
-          id='lesson'
-          role='tabpanel'
-          aria-labelledby='lesson-tab'
-        >
-          <div className={style.listWrapper}>
-            <LessonCard />
-            <LessonCard />
-            <LessonCard />
-            <LessonCard />
-          </div>
-        </div> */}
       </div>
     </section>
   )

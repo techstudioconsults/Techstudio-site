@@ -46,17 +46,19 @@ const DashboardNavbar = ({ isTDB }) => {
                 Create Course
               </button>
             </Link>
-            <Link
-              to={`/admin/class/${courseID}/create`}
-              state={{ tutors: location?.state?.tutors }}
-            >
-              <button
-                style={{ height: `2.25rem`, width: `10.063rem` }}
-                className='btn btn-outline-primary fs-sm fw-semibold'
+            {courseID ? (
+              <Link
+                to={`/admin/class/${courseID}/create`}
+                state={{ tutors: location?.state?.tutors }}
               >
-                Create Class
-              </button>
-            </Link>
+                <button
+                  style={{ height: `2.25rem`, width: `10.063rem` }}
+                  className='btn btn-outline-primary fs-sm fw-semibold'
+                >
+                  Create Class
+                </button>
+              </Link>
+            ) : null}
           </div>
         </div>
       </div>

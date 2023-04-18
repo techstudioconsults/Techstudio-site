@@ -5,6 +5,7 @@ import {
   AvatarDropdown,
   CancelModal,
   Portal,
+  Save,
   SaveSuccess,
   ToastComponent,
 } from '../../../../../components'
@@ -27,6 +28,9 @@ import axios from 'axios'
 import { useSelector } from 'react-redux'
 import { selectCurrentToken } from '../../../../Auth/api/authSlice'
 import { selectCourseDetails } from '../../courses/api/coursesSlice'
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { ErrorMessage } from '@hookform/error-message'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
@@ -67,8 +71,18 @@ const durationSelectInput = {
   }),
 }
 
+const schema = yup.object().shape({
+  title: yup.string().required('title is required'),
+  description: yup.string().required('description is required'),
+  tutors: yup.array().required('at least one tutor is required'),
+  startDate: yup.string().required('when does the class start?'),
+  endDate: yup.string().required('when does the class end?'),
+  preference: yup.string().required('class preference requirerd'),
+})
+
 const EditClass = () => {
   const [tutors, setTutors] = useState([])
+  const [isSave, setSave] = useState(false)
   const [isLoading, setLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState(null)
   const token = useSelector(selectCurrentToken)
@@ -77,9 +91,6 @@ const EditClass = () => {
   const classID = location.pathname.split(`/`)[3]
   const [viewCoursesDetails] = useViewCoursesDetailsMutation()
   const courseDetails = useSelector(selectCourseDetails)
-
-  console.log(state)
-
   const credentials = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -87,12 +98,19 @@ const EditClass = () => {
     },
   }
 
-  const prevTutor = state.tutors.map((tutor) => {
-    return {
-      value: tutor.id,
-      label: tutor.name,
-    }
-  })
+  const defaultValues = {
+    title: state.title,
+    description: state.description,
+    startDate: new Date(state.startDate).toLocaleDateString('en-CA'),
+    endDate: new Date(state.endDate).toLocaleDateString('en-CA'),
+    preference: state.preference,
+    tutors: state.tutors.map((tutor) => {
+      return {
+        value: tutor.id,
+        label: tutor.name,
+      }
+    }),
+  }
 
   const findTutors = (status) => {
     const tutors = courseDetails.tutors[status].map((tutor) => {
@@ -118,10 +136,12 @@ const EditClass = () => {
     register,
     handleSubmit,
     control,
-    // formState: { isSubmitSuccessful },
+    formState: { errors, isSubmitSuccessful },
   } = useForm({
     criteriaMode: 'all',
     mode: 'onChange',
+    resolver: yupResolver(schema),
+    defaultValues,
   })
 
   // due to the error gotten from the response above...we went with the axios alternative
@@ -138,23 +158,18 @@ const EditClass = () => {
     formData.append(`preference`, data.preference)
     formData.append(`startDate`, new Date(data.startDate).toISOString())
     formData.append(`endDate`, new Date(data.endDate).toISOString())
-
-    data.tutors
-      ? data.tutors.forEach((item) => formData.append('tutors[]', item.value))
-      : prevTutor.forEach((item) => formData.append('tutors[]', item.value))
-
-    // data.tutors.forEach((item) => formData.append('tutors[]', item.value))
+    data.tutors.forEach((item) => formData.append('tutors[]', item.value))
     files.forEach((item) => formData.append('files', item))
 
-    for (var pair of formData.entries()) {
-      console.log(pair[0] + ', ' + pair[1])
-    }
+    // for (var pair of formData.entries()) {
+    //   console.log(pair[0] + ', ' + pair[1])
+    // }
 
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
-        document.getElementById('save-success')
+        document.getElementById('save-modal')
       )
-
+      setSave(false)
       const res = await axios.patch(
         `${baseUrl}/class/${classID}`,
         formData,
@@ -163,6 +178,7 @@ const EditClass = () => {
       console.log(res)
       if (res.status === 200) {
         setLoading(false)
+        setSave(true)
         modal.show()
       }
     } catch (err) {
@@ -172,6 +188,18 @@ const EditClass = () => {
     }
   }
   // ==============================================================
+
+  const handleSaveModal = (event) => {
+    event.preventDefault()
+    try {
+      let modal = bootstrap.Modal.getOrCreateInstance(
+        document.getElementById('save-modal')
+      )
+      modal.show()
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   const handleCancelAction = (event) => {
     event.stopPropagation()
@@ -183,15 +211,21 @@ const EditClass = () => {
 
   return (
     <section className={style.courseView}>
+      <ToastComponent errorMessage={errorMessage} />
       <Portal wrapperId='react-portal-modal-container'>
-        <ToastComponent errorMessage={errorMessage} />
-        <SaveSuccess
+        <Save
           content={{
-            title: `Changes Saved Successfully!`,
+            title: `${
+              isSave
+                ? `Changes Saved Successfully!`
+                : `Are you sure you want to save changes?`
+            }`,
             desc: `Your changes have been saved successfully. Kindly click continue to exit this page.`,
-            courseID: state.courseId,
           }}
+          saveCourse={handleSubmit(onSubmit)}
+          isSave={isSave}
         />
+
         <CancelModal />
       </Portal>
 
@@ -202,7 +236,7 @@ const EditClass = () => {
             Fill in the fields below to create a new class under a course.
           </p>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} encType='multipart/form-data'>
+        <form onSubmit={handleSaveModal} encType='multipart/form-data'>
           <div className='my-10 container'>
             {/* title */}
             <div className='mb-8 d-flex row'>
@@ -217,12 +251,24 @@ const EditClass = () => {
               <div className='col-8'>
                 <div className={`${style.inputs} w-100`}>
                   <input
-                    defaultValue={state.title}
                     placeholder='class title'
                     type='text'
                     className='form-control form-control-lg'
                     id='title'
                     {...register('title')}
+                  />
+                  <ErrorMessage
+                    errors={errors}
+                    name='title'
+                    render={({ messages }) => {
+                      return messages
+                        ? Object.entries(messages).map(([type, message]) => (
+                            <p className='fs-xs text-danger' key={type}>
+                              {message}
+                            </p>
+                          ))
+                        : null
+                    }}
                   />
                 </div>
               </div>
@@ -240,12 +286,24 @@ const EditClass = () => {
               <div className='col-8'>
                 <div className={`${style.inputs} w-100`}>
                   <textarea
-                    defaultValue={state.description}
                     placeholder='class description'
                     type='text'
                     className='form-control form-control-lg'
                     id='description'
                     {...register('description')}
+                  />
+                  <ErrorMessage
+                    errors={errors}
+                    name='description'
+                    render={({ messages }) => {
+                      return messages
+                        ? Object.entries(messages).map(([type, message]) => (
+                            <p className='fs-xs text-danger' key={type}>
+                              {message}
+                            </p>
+                          ))
+                        : null
+                    }}
                   />
                 </div>
               </div>
@@ -260,16 +318,26 @@ const EditClass = () => {
                 </div>
                 <div className='col-8'>
                   <div
-                    className={`${style.inputs} d-flex justify-content-between w-100`}
+                    className={`${style.inputs} d-flex flex-column justify-content-between w-100`}
                   >
                     <input
-                      defaultValue={new Date(
-                        state.startDate
-                      ).toLocaleDateString('en-CA')}
                       type='date'
                       className='form-control form-control-lg'
                       id='start-date'
                       {...register('startDate')}
+                    />
+                    <ErrorMessage
+                      errors={errors}
+                      name='startDate'
+                      render={({ messages }) => {
+                        return messages
+                          ? Object.entries(messages).map(([type, message]) => (
+                              <p className='fs-xs text-danger' key={type}>
+                                {message}
+                              </p>
+                            ))
+                          : null
+                      }}
                     />
                   </div>
                 </div>
@@ -284,16 +352,26 @@ const EditClass = () => {
                 </div>
                 <div className='col-8'>
                   <div
-                    className={`${style.inputs} d-flex justify-content-between w-100`}
+                    className={`${style.inputs} d-flex flex-column justify-content-between w-100`}
                   >
                     <input
-                      defaultValue={new Date(state.endDate).toLocaleDateString(
-                        'en-CA'
-                      )}
                       type='date'
                       className='form-control form-control-lg'
                       id='start-date'
                       {...register('endDate')}
+                    />
+                    <ErrorMessage
+                      errors={errors}
+                      name='endDate'
+                      render={({ messages }) => {
+                        return messages
+                          ? Object.entries(messages).map(([type, message]) => (
+                              <p className='fs-xs text-danger' key={type}>
+                                {message}
+                              </p>
+                            ))
+                          : null
+                      }}
                     />
                   </div>
                 </div>
@@ -315,7 +393,7 @@ const EditClass = () => {
                 >
                   <div className='form-check form-check-inline'>
                     <input
-                      defaultChecked={state.preference === `online`}
+                      // defaultChecked={state.preference === `online`}
                       className='form-check-input me-2'
                       type='radio'
                       name='preference'
@@ -330,7 +408,7 @@ const EditClass = () => {
                   </div>
                   <div className='form-check form-check-inline'>
                     <input
-                      defaultChecked={state.preference === `weekday`}
+                      // defaultChecked={state.preference === `weekday`}
                       className='form-check-input me-2'
                       type='radio'
                       name='preference'
@@ -345,7 +423,7 @@ const EditClass = () => {
                   </div>
                   <div className='form-check form-check-inline'>
                     <input
-                      defaultChecked={state.preference === `weekend`}
+                      // defaultChecked={state.preference === `weekend`}
                       className='form-check-input me-2'
                       type='radio'
                       name='preference'
@@ -359,44 +437,22 @@ const EditClass = () => {
                     </label>
                   </div>
                 </div>
+                <ErrorMessage
+                  errors={errors}
+                  name='preference'
+                  render={({ messages }) => {
+                    return messages
+                      ? Object.entries(messages).map(([type, message]) => (
+                          <p className='fs-xs text-danger' key={type}>
+                            {message}
+                          </p>
+                        ))
+                      : null
+                  }}
+                />
               </div>
             </div>
-            {/* course */}
-            {/* <div className='mb-8 d-flex row'>
-              <div className='col-4'>
-                <label
-                  htmlFor='title'
-                  className={`col-form-label fs-lg ${style.labels} w-100`}
-                >
-                  Course
-                </label>
-              </div>
-              <div className='col-8'>
-                <div className={`${style.inputs} w-100`}>
-                  <div>
-                    <Controller
-                      name='course'
-                      control={control}
-                      render={({ field }) => {
-                        return (
-                          <>
-                            <Select
-                              styles={colorStyles}
-                              className='reactSelect my-2'
-                              name='onlineTutors'
-                              placeholder='select course'
-                              options={tutors}
-                              isMulti
-                              {...field}
-                            />
-                          </>
-                        )
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div> */}
+
             {/* tutors */}
             <div className='mb-8 row'>
               <div className='col-4'>
@@ -421,13 +477,25 @@ const EditClass = () => {
                               className='reactSelect my-2'
                               name='tutors'
                               placeholder='select tutors'
-                              defaultValue={prevTutor}
                               options={tutors}
                               isMulti
                               {...field}
                             />
                           </>
                         )
+                      }}
+                    />
+                    <ErrorMessage
+                      errors={errors}
+                      name='tutors'
+                      render={({ messages }) => {
+                        return messages
+                          ? Object.entries(messages).map(([type, message]) => (
+                              <p className='fs-xs text-danger' key={type}>
+                                {message}
+                              </p>
+                            ))
+                          : null
                       }}
                     />
                   </div>

@@ -31,9 +31,11 @@ const AdminUserListDisplay = () => {
 
   const getStudents = useCallback(async () => {
     if (courseId === `all`) {
-      await getAllStudents().unwrap()
+      const res = await getAllStudents().unwrap()
+      console.log(res)
     } else {
-      await getStudentsByCourseID(courseId).unwrap()
+      const res = await getStudentsByCourseID(courseId).unwrap()
+      console.log(res)
     }
   }, [courseId, getAllStudents, getStudentsByCourseID])
 
@@ -89,7 +91,7 @@ const AdminUserListDisplay = () => {
             </div>
           )
         })
-      : allStudents?.map((tutor, index) => {
+      : allStudents?.map((student, index) => {
           return (
             <div
               key={index}
@@ -98,26 +100,26 @@ const AdminUserListDisplay = () => {
               <section className='col col-4'>
                 <div className='d-flex'>
                   <div>
-                    <p className='fw-bold text-blue'>{tutor?.fullName}</p>
+                    <p className='fw-bold text-blue'>{student?.fullName}</p>
                   </div>
                 </div>
               </section>
               <section className='col col-3'>
                 <div>
-                  <p className='fs-sm text-secondary'>{tutor?.course}</p>
+                  <p className='fs-sm text-secondary'>{student?.course}</p>
                 </div>
               </section>
               <section className='col col-3'>
                 <div>
                   <p className='fs-sm text-primary fw-semibold'>
-                    {tutor?.email}
+                    {student?.email}
                   </p>
                 </div>
               </section>
               <section className='col col-2'>
                 <div>
-                  <p className='fs-sm text-primary fw-semibold'>
-                    {tutor?.phoneNumber}
+                  <p className='fs-sm text-danger fw-semibold'>
+                    {student?.phoneNumber}
                   </p>
                 </div>
               </section>

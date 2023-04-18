@@ -19,6 +19,9 @@ import {
 import { selectCurrentToken } from '../../../Auth/api/authSlice'
 import useToast from '../../../../hooks/useToast'
 import { useLocation } from 'react-router-dom'
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { ErrorMessage } from '@hookform/error-message'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
@@ -67,6 +70,13 @@ const durationSelectInput = {
   }),
 }
 
+const schema = yup.object().shape({
+  topic: yup.string().required('title is required'),
+  tutor: yup.object().required('at least one tutor is required'),
+  date: yup.string().required('date field is required?'),
+  time: yup.string().required('what time does the lesson start?'),
+})
+
 const CreateLesson = () => {
   const [tutors, setTutors] = useState([])
   const [resources, setResources] = useState([])
@@ -75,8 +85,6 @@ const CreateLesson = () => {
   const location = useLocation()
   const { toast } = useToast()
   const classID = location.pathname.split(`/`)[3]
-
-  console.log(location)
 
   const token = useSelector(selectCurrentToken)
   const credentials = {
@@ -125,17 +133,16 @@ const CreateLesson = () => {
     allResources()
   }, [allResources])
 
-  console.log(tutors)
-
   const {
     // reset,
     register,
     handleSubmit,
     control,
-    // formState: { isSubmitSuccessful },
+    formState: { errors },
   } = useForm({
     criteriaMode: 'all',
     mode: 'onChange',
+    resolver: yupResolver(schema),
   })
 
   // =============================================================================
@@ -159,9 +166,9 @@ const CreateLesson = () => {
     }
     files.forEach((item) => formData.append('files', item))
 
-    for (var pair of formData.entries()) {
-      console.log(pair[0] + ', ' + pair[1])
-    }
+    // for (var pair of formData.entries()) {
+    //   console.log(pair[0] + ', ' + pair[1])
+    // }
 
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
@@ -196,8 +203,8 @@ const CreateLesson = () => {
 
   return (
     <section className={style.courseView}>
+      <ToastComponent errorMessage={errorMessage} />
       <Portal wrapperId='react-portal-modal-container'>
-        <ToastComponent errorMessage={errorMessage} />
         <SaveSuccess
           content={{
             title: `Changes Saved Successfully!`,
@@ -220,7 +227,7 @@ const CreateLesson = () => {
             <div className='mb-8 d-flex row'>
               <div className='col-4'>
                 <label
-                  htmlFor='title'
+                  htmlFor='topic'
                   className={`col-form-label fs-lg ${style.labels} w-100`}
                 >
                   Topic
@@ -229,51 +236,29 @@ const CreateLesson = () => {
               <div className='col-8'>
                 <div className={`${style.inputs} w-100`}>
                   <input
-                    placeholder='topic title'
+                    placeholder='topic'
                     type='text'
                     className='form-control form-control-lg'
-                    id='title'
+                    id='topic'
                     {...register('topic')}
+                  />
+                  <ErrorMessage
+                    errors={errors}
+                    name='topic'
+                    render={({ messages }) => {
+                      return messages
+                        ? Object.entries(messages).map(([type, message]) => (
+                            <p className='fs-xs text-danger' key={type}>
+                              {message}
+                            </p>
+                          ))
+                        : null
+                    }}
                   />
                 </div>
               </div>
             </div>
-            {/* class */}
-            {/* <div className='mb-8 d-flex row'>
-              <div className='col-4'>
-                <label
-                  htmlFor='title'
-                  className={`col-form-label fs-lg ${style.labels} w-100`}
-                >
-                  Class
-                </label>
-              </div>
-              <div className='col-8'>
-                <div className={`${style.inputs} w-100`}>
-                  <div>
-                    <Controller
-                      name='course'
-                      control={control}
-                      render={({ field }) => {
-                        return (
-                          <>
-                            <Select
-                              styles={colorStyles}
-                              className='reactSelect my-2'
-                              name='onlineTutors'
-                              placeholder=''
-                              options={tutors}
-                              isMulti
-                              {...field}
-                            />
-                          </>
-                        )
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div> */}
+
             {/* tutors */}
             <div className='mb-8 row'>
               <div className='col-4'>
@@ -305,6 +290,19 @@ const CreateLesson = () => {
                         )
                       }}
                     />
+                    <ErrorMessage
+                      errors={errors}
+                      name='tutor'
+                      render={({ messages }) => {
+                        return messages
+                          ? Object.entries(messages).map(([type, message]) => (
+                              <p className='fs-xs text-danger' key={type}>
+                                {message}
+                              </p>
+                            ))
+                          : null
+                      }}
+                    />
                   </div>
                 </div>
               </div>
@@ -319,13 +317,26 @@ const CreateLesson = () => {
                 </div>
                 <div className='col-8'>
                   <div
-                    className={`${style.inputs} d-flex justify-content-between w-100`}
+                    className={`${style.inputs} d-flex flex-column justify-content-between w-100`}
                   >
                     <input
                       type='date'
                       className='form-control form-control-lg'
                       id='start-date'
                       {...register('date')}
+                    />
+                    <ErrorMessage
+                      errors={errors}
+                      name='date'
+                      render={({ messages }) => {
+                        return messages
+                          ? Object.entries(messages).map(([type, message]) => (
+                              <p className='fs-xs text-danger' key={type}>
+                                {message}
+                              </p>
+                            ))
+                          : null
+                      }}
                     />
                   </div>
                 </div>
@@ -341,7 +352,7 @@ const CreateLesson = () => {
                 </div>
                 <div className='col-8'>
                   <div
-                    className={`${style.inputs} d-flex justify-content-between w-100`}
+                    className={`${style.inputs} d-flex flex-column justify-content-between w-100`}
                   >
                     <input
                       type='time'
@@ -349,46 +360,23 @@ const CreateLesson = () => {
                       id='start-date'
                       {...register('time')}
                     />
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* course */}
-            {/* <div className='mb-8 d-flex row'>
-              <div className='col-4'>
-                <label
-                  htmlFor='title'
-                  className={`col-form-label fs-lg ${style.labels} w-100`}
-                >
-                  Course
-                </label>
-              </div>
-              <div className='col-8'>
-                <div className={`${style.inputs} w-100`}>
-                  <div>
-                    <Controller
-                      name='course'
-                      control={control}
-                      render={({ field }) => {
-                        return (
-                          <>
-                            <Select
-                              styles={colorStyles}
-                              className='reactSelect my-2'
-                              name='onlineTutors'
-                              placeholder=''
-                              options={tutors}
-                              isMulti
-                              {...field}
-                            />
-                          </>
-                        )
+                    <ErrorMessage
+                      errors={errors}
+                      name='time'
+                      render={({ messages }) => {
+                        return messages
+                          ? Object.entries(messages).map(([type, message]) => (
+                              <p className='fs-xs text-danger' key={type}>
+                                {message}
+                              </p>
+                            ))
+                          : null
                       }}
                     />
                   </div>
                 </div>
               </div>
-            </div> */}
+            </div>
 
             {/* Resource */}
             <div className='mb-8 d-flex row'>
@@ -466,7 +454,7 @@ const CreateLesson = () => {
                       className='spinner-border spinner-border-sm me-5 text-white'
                       role='status'
                     />
-                    {isLoading ? `Please wait...` : `Save Change`}
+                    {isLoading ? `Please wait...` : `Save Lesson`}
                   </button>
                   <button
                     type='button'

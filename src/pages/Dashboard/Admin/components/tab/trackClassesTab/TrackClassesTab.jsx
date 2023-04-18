@@ -7,11 +7,12 @@ import {
   useGetClassByCourseIDMutation,
   useGetLessonByCourseIDMutation,
 } from '../../../classes/api/classApiSlice'
+import SpinnerComponent from '../../../../../../components/global/skeletonLoader/SpinnerComponent'
 
 const TrackClassesTab = ({ courses }) => {
   const location = useLocation()
-  const [getClassByCourseID] = useGetClassByCourseIDMutation()
-  const [getLessonByCourseID] = useGetLessonByCourseIDMutation()
+  const [getClassByCourseID, classArgs] = useGetClassByCourseIDMutation()
+  const [getLessonByCourseID, lessonArgs] = useGetLessonByCourseIDMutation()
 
   const courseId = location?.pathname?.split(`/`)[3]
 
@@ -58,7 +59,8 @@ const TrackClassesTab = ({ courses }) => {
       </ul>
 
       <div className='tab-content py-6' id='tabContent'>
-        <Outlet />
+        {classArgs.isLoading ? <SpinnerComponent /> : <Outlet />}
+        {/* <Outlet /> */}
       </div>
     </section>
   )

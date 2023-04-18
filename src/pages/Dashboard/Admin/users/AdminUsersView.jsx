@@ -85,7 +85,7 @@ const AdminUsersView = () => {
           <div className='d-flex justify-content-end'>
             <AvatarDropdown />
           </div>
-          <TeacherClassNotificationView mobile={false} />
+          {/* <TeacherClassNotificationView mobile={false} /> */}
         </div>
       </section>
     </>

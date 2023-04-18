@@ -56,10 +56,8 @@ const StudentRegistrationForm = () => {
       ...data,
       phoneNumber: parseInt(data.phoneNumber),
       course: courseSelected,
-      // course: ,
       deposit: ``,
       userRole: `STUDENT`,
-      schedule: ``,
     }
     console.log(formData)
 
@@ -245,7 +243,7 @@ const StudentRegistrationForm = () => {
           <div className='col-8'>
             <div className={` w-100`}>
               <select
-                {...register(`classes`, validation)}
+                {...register(`schedule`, validation)}
                 className='form-select'
                 aria-label='Default select example'
               >

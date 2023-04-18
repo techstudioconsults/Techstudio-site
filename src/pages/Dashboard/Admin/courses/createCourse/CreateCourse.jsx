@@ -18,8 +18,13 @@ import { selectCurrentToken } from '../../../../Auth/api/authSlice'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { useCallback, useEffect, useState } from 'react'
 import useToast from '../../../../../hooks/useToast'
+import { ErrorMessage } from '@hookform/error-message'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
+
+// input validation
 
 const colorStyles = {
   control: (styles) => ({
@@ -65,6 +70,17 @@ const durationInWeeks = [
   { value: '24', label: '24 weeks' },
 ]
 
+const schema = yup.object().shape({
+  title: yup.string().required('title is required'),
+  description: yup.string().required('description is required'),
+  onlineClass: yup.object().required('duration is required'),
+  weekdayClass: yup.object().required('duration is required'),
+  weekendClass: yup.object().required('duration is required'),
+  onlineTutors: yup.array().required('at least one tutor required'),
+  weekdayTutors: yup.array().required('at least one tutor required'),
+  weekendTutors: yup.array().required('at least one tutor required'),
+})
+
 const CreateCourse = () => {
   const [tutors, setTutors] = useState([])
   const [isLoading, setLoading] = useState(false)
@@ -97,10 +113,11 @@ const CreateCourse = () => {
     register,
     handleSubmit,
     control,
-    // formState: { isSubmitSuccessful },
+    formState: { errors, isSubmitSuccessful },
   } = useForm({
     criteriaMode: 'all',
     mode: 'onChange',
+    resolver: yupResolver(schema),
   })
 
   // useEffect(() => {
@@ -210,8 +227,8 @@ const CreateCourse = () => {
 
   return (
     <section className={style.courseView}>
+      <ToastComponent errorMessage={errorMessage} />
       <Portal wrapperId='react-portal-modal-container'>
-        <ToastComponent errorMessage={errorMessage} />
         <SaveSuccess
           content={{
             title: `Changes Saved Successfully!`,
@@ -246,6 +263,19 @@ const CreateCourse = () => {
                   id='title'
                   {...register('title')}
                 />
+                <ErrorMessage
+                  errors={errors}
+                  name='title'
+                  render={({ messages }) => {
+                    return messages
+                      ? Object.entries(messages).map(([type, message]) => (
+                          <p className='fs-xs text-danger' key={type}>
+                            {message}
+                          </p>
+                        ))
+                      : null
+                  }}
+                />
               </div>
             </div>
             {/* about course */}
@@ -263,6 +293,19 @@ const CreateCourse = () => {
                   className='form-control form-control-lg'
                   id='description'
                   {...register('description')}
+                />
+                <ErrorMessage
+                  errors={errors}
+                  name='description'
+                  render={({ messages }) => {
+                    return messages
+                      ? Object.entries(messages).map(([type, message]) => (
+                          <p className='fs-xs text-danger' key={type}>
+                            {message}
+                          </p>
+                        ))
+                      : null
+                  }}
                 />
               </div>
             </div>
@@ -287,16 +330,30 @@ const CreateCourse = () => {
                   </label>
                   <Controller
                     name='onlineClass'
+                    rules={{ required: true }}
                     control={control}
                     render={({ field }) => {
                       return (
                         <Select
+                          isClearable
                           styles={durationSelectInput}
-                          name='onlineClass'
                           options={durationInWeeks}
                           {...field}
                         />
                       )
+                    }}
+                  />
+                  <ErrorMessage
+                    errors={errors}
+                    name='onlineClass'
+                    render={({ messages }) => {
+                      return messages
+                        ? Object.entries(messages).map(([type, message]) => (
+                            <p className='fs-xs text-danger' key={type}>
+                              {message}
+                            </p>
+                          ))
+                        : null
                     }}
                   />
                 </div>
@@ -308,6 +365,7 @@ const CreateCourse = () => {
                   <Controller
                     name='weekdayClass'
                     control={control}
+                    rules={{ required: true }}
                     render={({ field }) => {
                       return (
                         <Select
@@ -319,6 +377,19 @@ const CreateCourse = () => {
                       )
                     }}
                   />
+                  <ErrorMessage
+                    errors={errors}
+                    name='weekdayClass'
+                    render={({ messages }) => {
+                      return messages
+                        ? Object.entries(messages).map(([type, message]) => (
+                            <p className='fs-xs text-danger' key={type}>
+                              {message}
+                            </p>
+                          ))
+                        : null
+                    }}
+                  />
                 </div>
                 {/* weekend */}
                 <div>
@@ -327,6 +398,7 @@ const CreateCourse = () => {
                   </label>
                   <Controller
                     name='weekendClass'
+                    rules={{ required: true }}
                     control={control}
                     render={({ field }) => {
                       return (
@@ -337,6 +409,19 @@ const CreateCourse = () => {
                           {...field}
                         />
                       )
+                    }}
+                  />
+                  <ErrorMessage
+                    errors={errors}
+                    name='weekendClass'
+                    render={({ messages }) => {
+                      return messages
+                        ? Object.entries(messages).map(([type, message]) => (
+                            <p className='fs-xs text-danger' key={type}>
+                              {message}
+                            </p>
+                          ))
+                        : null
                     }}
                   />
                 </div>
@@ -372,6 +457,19 @@ const CreateCourse = () => {
                       )
                     }}
                   />
+                  <ErrorMessage
+                    errors={errors}
+                    name='onlineTutors'
+                    render={({ messages }) => {
+                      return messages
+                        ? Object.entries(messages).map(([type, message]) => (
+                            <p className='fs-xs text-danger' key={type}>
+                              {message}
+                            </p>
+                          ))
+                        : null
+                    }}
+                  />
                 </div>
                 <div>
                   <label htmlFor='weekday'>weekday</label>
@@ -394,6 +492,19 @@ const CreateCourse = () => {
                       )
                     }}
                   />
+                  <ErrorMessage
+                    errors={errors}
+                    name='weekdayTutors'
+                    render={({ messages }) => {
+                      return messages
+                        ? Object.entries(messages).map(([type, message]) => (
+                            <p className='fs-xs text-danger' key={type}>
+                              {message}
+                            </p>
+                          ))
+                        : null
+                    }}
+                  />
                 </div>
                 <div>
                   <label htmlFor='weekend'>weekend</label>
@@ -414,6 +525,19 @@ const CreateCourse = () => {
                           />
                         </>
                       )
+                    }}
+                  />
+                  <ErrorMessage
+                    errors={errors}
+                    name='weekendTutors'
+                    render={({ messages }) => {
+                      return messages
+                        ? Object.entries(messages).map(([type, message]) => (
+                            <p className='fs-xs text-danger' key={type}>
+                              {message}
+                            </p>
+                          ))
+                        : null
                     }}
                   />
                 </div>
@@ -450,7 +574,7 @@ const CreateCourse = () => {
                   className='spinner-border spinner-border-sm me-5 text-white'
                   role='status'
                 />
-                {isLoading ? `Please wait...` : `Save Change`}
+                {isLoading ? `Please wait...` : `Save Course`}
               </button>
               <button
                 type='button'

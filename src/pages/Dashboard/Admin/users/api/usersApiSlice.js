@@ -22,27 +22,6 @@ export const usersApiSlice = apiSlice.injectEndpoints({
         }
       },
     }),
-
-    getAllStudents: builder.mutation({
-      query: () => ({
-        url: `/users/students`,
-        method: 'GET',
-      }),
-      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
-        try {
-          const { data } = await queryFulfilled
-          console.log(data)
-          dispatch(
-            setStudents({
-              students: data.data,
-            })
-          )
-        } catch (err) {
-          console.log(err)
-        }
-      },
-    }),
-
     getTutorsByCourseID: builder.mutation({
       query: (courseID) => ({
         url: `/users/tutors/${courseID}`,
@@ -63,6 +42,24 @@ export const usersApiSlice = apiSlice.injectEndpoints({
       },
     }),
 
+    getAllStudents: builder.mutation({
+      query: () => ({
+        url: `/users/students`,
+        method: 'GET',
+      }),
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled
+          dispatch(
+            setStudents({
+              students: data.data,
+            })
+          )
+        } catch (err) {
+          console.log(err)
+        }
+      },
+    }),
     getStudentsByCourseID: builder.mutation({
       query: (courseID) => ({
         url: `/users/students/${courseID}`,
@@ -71,7 +68,6 @@ export const usersApiSlice = apiSlice.injectEndpoints({
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled
-          console.log(data)
           dispatch(
             setStudents({
               students: data.data,

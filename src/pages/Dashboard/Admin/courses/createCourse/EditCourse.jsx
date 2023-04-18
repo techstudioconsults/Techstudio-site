@@ -19,6 +19,9 @@ import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { useCallback, useEffect, useState } from 'react'
 import useToast from '../../../../../hooks/useToast'
 import { useLocation } from 'react-router-dom'
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { ErrorMessage } from '@hookform/error-message'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
@@ -66,6 +69,17 @@ const durationInWeeks = [
   { value: '24', label: '24 weeks' },
 ]
 
+const schema = yup.object().shape({
+  title: yup.string().required('title is required'),
+  description: yup.string().required('description is required'),
+  onlineClass: yup.object().required('duration is required'),
+  weekdayClass: yup.object().required('duration is required'),
+  weekendClass: yup.object().required('duration is required'),
+  onlineTutors: yup.array().required('at least one tutor required'),
+  weekdayTutors: yup.array().required('at least one tutor required'),
+  weekendTutors: yup.array().required('at least one tutor required'),
+})
+
 const CreateCourse = () => {
   const [tutors, setTutors] = useState([])
   const [isLoading, setLoading] = useState(false)
@@ -78,15 +92,52 @@ const CreateCourse = () => {
   const [getTutors] = useGetTutorsMutation()
   const token = useSelector(selectCurrentToken)
 
+  const defaultValues = {
+    title: course.title,
+    description: course.description,
+    onlineClass: {
+      value: course.duration.online,
+      label: `${course.duration.online} weeks`,
+    },
+    weekdayClass: {
+      value: course.duration.weekday,
+      label: `${course.duration.weekday} weeks`,
+    },
+    weekendClass: {
+      value: course.duration.weekend,
+      label: `${course.duration.weekend} weeks`,
+    },
+    onlineTutors: course.tutors.online.map((tutor) => {
+      return {
+        value: tutor.tutorId,
+        label: `${tutor.firstName} ${tutor.lastName}`,
+      }
+    }),
+    weekdayTutors: course.tutors.weekday.map((tutor) => {
+      return {
+        value: tutor.tutorId,
+        label: `${tutor.firstName} ${tutor.lastName}`,
+      }
+    }),
+    weekendTutors: course.tutors.weekend.map((tutor) => {
+      return {
+        value: tutor.tutorId,
+        label: `${tutor.firstName} ${tutor.lastName}`,
+      }
+    }),
+  }
+
   const {
     reset,
     register,
     handleSubmit,
     control,
-    formState: { isSubmitSuccessful },
+    formState: { errors },
   } = useForm({
     criteriaMode: 'all',
     mode: 'onChange',
+    resolver: yupResolver(schema),
+    defaultValues,
   })
 
   const credentials = {
@@ -96,9 +147,11 @@ const CreateCourse = () => {
     },
   }
 
+  console.log(course)
+
   const findTutors = useCallback(async () => {
     const res = await getTutors().unwrap()
-    const tutors = res.data.tutors.map((tutor) => {
+    const tutors = res?.data?.map((tutor) => {
       return { value: tutor.id, label: `${tutor.firstName} ${tutor.lastName}` }
     })
     setTutors(tutors)
@@ -107,47 +160,6 @@ const CreateCourse = () => {
   useEffect(() => {
     findTutors()
   }, [findTutors])
-
-  useEffect(() => {
-    if (isSubmitSuccessful) {
-      reset()
-    }
-  }, [isSubmitSuccessful, reset])
-
-  const prevOnlineDuration = [
-    { value: course.duration.online, label: `${course.duration.online} weeks` },
-  ]
-  const prevWeekdayDuration = [
-    {
-      value: course.duration.weekday,
-      label: `${course.duration.weekday} weeks`,
-    },
-  ]
-  const prevWeekendDuration = [
-    {
-      value: course.duration.weekend,
-      label: `${course.duration.weekend} weeks`,
-    },
-  ]
-
-  const prevOnlineTutors = course.tutors.online.map((tutor) => {
-    return {
-      value: tutor.tutorId,
-      label: `${tutor.firstName} ${tutor.lastName}`,
-    }
-  })
-  const prevWeekdayTutors = course.tutors.weekday.map((tutor) => {
-    return {
-      value: tutor.tutorId,
-      label: `${tutor.firstName} ${tutor.lastName}`,
-    }
-  })
-  const prevWeekendTutors = course.tutors.weekend.map((tutor) => {
-    return {
-      value: tutor.tutorId,
-      label: `${tutor.firstName} ${tutor.lastName}`,
-    }
-  })
 
   const onSubmit = async (data) => {
     setLoading(true)
@@ -158,20 +170,14 @@ const CreateCourse = () => {
 
     // ===== data structure =============
     const duration = {
-      online: data.onlineClass?.value || prevOnlineDuration[0].value,
-      weekday: data.weekdayClass?.value || prevWeekdayDuration[0].value,
-      weekend: data.weekendClass?.value || prevWeekendDuration[0].value,
+      online: data.onlineClass?.value,
+      weekday: data.weekdayClass?.value,
+      weekend: data.weekendClass?.value,
     }
 
-    data.onlineTutors
-      ? (onlineTutors = data.onlineTutors?.map((obj) => obj.value))
-      : (onlineTutors = prevOnlineTutors?.map((obj) => obj.value))
-    data.weekdayTutors
-      ? (weekdayTutors = data.weekdayTutors?.map((obj) => obj.value))
-      : (weekdayTutors = prevWeekdayTutors?.map((obj) => obj.value))
-    data.weekendTutors
-      ? (weekendTutors = data.weekendTutors?.map((obj) => obj.value))
-      : (weekendTutors = prevWeekendTutors?.map((obj) => obj.value))
+    onlineTutors = data.onlineTutors?.map((obj) => obj.value)
+    weekdayTutors = data.weekdayTutors?.map((obj) => obj.value)
+    weekendTutors = data.weekendTutors?.map((obj) => obj.value)
 
     const tutors = {
       online: [...onlineTutors],
@@ -243,8 +249,8 @@ const CreateCourse = () => {
 
   return (
     <section className={style.courseView}>
+      <ToastComponent errorMessage={errorMessage} />
       <Portal wrapperId='react-portal-modal-container'>
-        <ToastComponent errorMessage={errorMessage} />
         <Save
           content={{
             title: `${
@@ -279,12 +285,24 @@ const CreateCourse = () => {
               </label>
               <div className={style.inputs}>
                 <input
-                  defaultValue={course.title}
                   placeholder='Placeholder Text'
                   type='text'
                   className='form-control form-control-lg'
                   id='title'
                   {...register('title')}
+                />
+                <ErrorMessage
+                  errors={errors}
+                  name='title'
+                  render={({ messages }) => {
+                    return messages
+                      ? Object.entries(messages).map(([type, message]) => (
+                          <p className='fs-xs text-danger' key={type}>
+                            {message}
+                          </p>
+                        ))
+                      : null
+                  }}
                 />
               </div>
             </div>
@@ -298,12 +316,24 @@ const CreateCourse = () => {
               </label>
               <div className={style.inputs}>
                 <textarea
-                  defaultValue={course.description}
                   placeholder='Placeholder Text'
                   type='text'
                   className='form-control form-control-lg'
                   id='description'
                   {...register('description')}
+                />
+                <ErrorMessage
+                  errors={errors}
+                  name='description'
+                  render={({ messages }) => {
+                    return messages
+                      ? Object.entries(messages).map(([type, message]) => (
+                          <p className='fs-xs text-danger' key={type}>
+                            {message}
+                          </p>
+                        ))
+                      : null
+                  }}
                 />
               </div>
             </div>
@@ -330,13 +360,26 @@ const CreateCourse = () => {
                       render={({ field }) => {
                         return (
                           <Select
-                            defaultValue={prevOnlineDuration}
+                            // defaultValue={prevOnlineDuration}
                             styles={durationSelectInput}
                             name='onlineClass'
                             options={durationInWeeks}
                             {...field}
                           />
                         )
+                      }}
+                    />
+                    <ErrorMessage
+                      errors={errors}
+                      name='onlineClass'
+                      render={({ messages }) => {
+                        return messages
+                          ? Object.entries(messages).map(([type, message]) => (
+                              <p className='fs-xs text-danger' key={type}>
+                                {message}
+                              </p>
+                            ))
+                          : null
                       }}
                     />
                   </div>
@@ -351,13 +394,26 @@ const CreateCourse = () => {
                       render={({ field }) => {
                         return (
                           <Select
-                            defaultValue={prevWeekdayDuration}
+                            // defaultValue={prevWeekdayDuration}
                             styles={durationSelectInput}
                             name='weekdayClass'
                             options={durationInWeeks}
                             {...field}
                           />
                         )
+                      }}
+                    />
+                    <ErrorMessage
+                      errors={errors}
+                      name='weekdayClass'
+                      render={({ messages }) => {
+                        return messages
+                          ? Object.entries(messages).map(([type, message]) => (
+                              <p className='fs-xs text-danger' key={type}>
+                                {message}
+                              </p>
+                            ))
+                          : null
                       }}
                     />
                   </div>
@@ -372,13 +428,26 @@ const CreateCourse = () => {
                       render={({ field }) => {
                         return (
                           <Select
-                            defaultValue={prevWeekendDuration}
+                            // defaultValue={prevWeekendDuration}
                             styles={durationSelectInput}
                             name='weekendClass'
                             options={durationInWeeks}
                             {...field}
                           />
                         )
+                      }}
+                    />
+                    <ErrorMessage
+                      errors={errors}
+                      name='weekendClass'
+                      render={({ messages }) => {
+                        return messages
+                          ? Object.entries(messages).map(([type, message]) => (
+                              <p className='fs-xs text-danger' key={type}>
+                                {message}
+                              </p>
+                            ))
+                          : null
                       }}
                     />
                   </div>
@@ -408,12 +477,25 @@ const CreateCourse = () => {
                             options={tutors}
                             className='reactSelect my-2'
                             placeholder='Select Tutors'
-                            defaultValue={prevOnlineTutors}
+                            // defaultValue={prevOnlineTutors}
                             isMulti
                             {...field}
                           />
                         </>
                       )
+                    }}
+                  />
+                  <ErrorMessage
+                    errors={errors}
+                    name='onlineTutors'
+                    render={({ messages }) => {
+                      return messages
+                        ? Object.entries(messages).map(([type, message]) => (
+                            <p className='fs-xs text-danger' key={type}>
+                              {message}
+                            </p>
+                          ))
+                        : null
                     }}
                   />
                 </div>
@@ -427,7 +509,7 @@ const CreateCourse = () => {
                         <>
                           <Select
                             styles={colorStyles}
-                            defaultValue={prevWeekdayTutors}
+                            // defaultValue={prevWeekdayTutors}
                             className='reactSelect my-2'
                             name='weekdayTutors'
                             placeholder='Select Tutors'
@@ -437,6 +519,19 @@ const CreateCourse = () => {
                           />
                         </>
                       )
+                    }}
+                  />
+                  <ErrorMessage
+                    errors={errors}
+                    name='weekdayTutors'
+                    render={({ messages }) => {
+                      return messages
+                        ? Object.entries(messages).map(([type, message]) => (
+                            <p className='fs-xs text-danger' key={type}>
+                              {message}
+                            </p>
+                          ))
+                        : null
                     }}
                   />
                 </div>
@@ -450,7 +545,7 @@ const CreateCourse = () => {
                         <>
                           <Select
                             styles={colorStyles}
-                            defaultValue={prevWeekendTutors}
+                            // defaultValue={prevWeekendTutors}
                             className='reactSelect mt-2'
                             name='weekendTutors'
                             placeholder='Select Tutors'
@@ -460,6 +555,19 @@ const CreateCourse = () => {
                           />
                         </>
                       )
+                    }}
+                  />
+                  <ErrorMessage
+                    errors={errors}
+                    name='weekendTutors'
+                    render={({ messages }) => {
+                      return messages
+                        ? Object.entries(messages).map(([type, message]) => (
+                            <p className='fs-xs text-danger' key={type}>
+                              {message}
+                            </p>
+                          ))
+                        : null
                     }}
                   />
                 </div>

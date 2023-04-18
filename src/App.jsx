@@ -8,7 +8,6 @@ import {
   Accounts,
   AdminClassTab,
   ChangePassword,
-  ClassesTab,
   Loading,
   Payment,
 } from './components'
@@ -36,7 +35,6 @@ import {
   TeacherClassView,
   TeacherDashboard,
   AdminSignup,
-  StudentSignup,
   ForgotPassword,
   AdminCourseView,
   CreateCourse,
@@ -46,9 +44,7 @@ import {
   CreateLesson,
   EditLesson,
   AdminResourceView,
-  ResourceCourseTab,
   ResourcesTab,
-  UserRegistrationForm,
 } from './pages'
 
 import AdminClassView from './pages/Dashboard/Admin/classes/AdminClassView'
@@ -63,7 +59,6 @@ import { useSelector } from 'react-redux'
 import AdminUsersView from './pages/Dashboard/Admin/users/AdminUsersView'
 import AdminUserListDisplay from './pages/Dashboard/Admin/users/userCourseTab/UsersListDisplay'
 import TrackAnalysisLayout from './pages/Dashboard/Admin/components/tab/trackAnalysislayout/TrackAnalysisLayout'
-import AdminDashboardTab from './pages/Dashboard/Admin/components/tab/AdminDashboardTab'
 
 const App = () => {
   const {

@@ -28,6 +28,8 @@ const LessonCard = ({ singleLesson }) => {
   //   return `${weekData[0].week}`
   // }
 
+  console.log(singleLesson.id)
+
   const showLessonDetails = () => {
     console.log(`details`)
     dispatch({ type: 'classes/setLessonDetails', payload: singleLesson })
@@ -48,9 +50,9 @@ const LessonCard = ({ singleLesson }) => {
       <Portal wrapperId='react-portal-modal-container'>
         <DeleteModal
           content={{
-            title: `${`Are you sure you want to delete this class?`}`,
-            desc: `${singleLesson?.title} class has successfully being deleted. Kindly click continue to exit this page.`,
-            classID: singleLesson?.id,
+            title: `${`Are you sure you want to delete this Lesson?`}`,
+            desc: `${singleLesson?.title} Lesson has successfully being deleted. Kindly click continue to exit this page.`,
+            lessonID: singleLesson?.id,
             action: `delete-lesson`,
           }}
         />

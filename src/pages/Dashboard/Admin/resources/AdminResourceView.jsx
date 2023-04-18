@@ -16,9 +16,10 @@ import ResourceCourseTab from './resourceCourseTab/ResourceCourseTab'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { useGetAllResourcesMutation } from './api/resourceApiSlice'
 import { selectAllResources } from './api/resourceSlice'
+import SpinnerComponent from '../../../../components/global/skeletonLoader/SpinnerComponent'
 
 const AdminResourcesView = () => {
-  const [getAllResource] = useGetAllResourcesMutation()
+  const [getAllResource, resourceArgs] = useGetAllResourcesMutation()
 
   const resources = useSelector(selectAllResources)
 
@@ -88,7 +89,9 @@ const AdminResourcesView = () => {
             </div>
           </div>
           <div className='mt-10'>
-            <div className='mt-5 d-flex flex-column gap-5'>{feedback}</div>
+            <div className='mt-5 d-flex flex-column gap-5'>
+              {resourceArgs.isLoading ? <SpinnerComponent /> : feedback}
+            </div>
           </div>
         </div>
         <div className={`${style.notification}`}>
