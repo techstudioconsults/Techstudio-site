@@ -16,10 +16,9 @@ import { Controller, useForm } from 'react-hook-form'
 // import { useSelector } from 'react-redux'
 // import { selectCurrentToken } from '../../../../Auth/api/authSlice'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
-import { useCallback, useEffect, useState } from 'react'
+import { useState } from 'react'
 import useToast from '../../../../../hooks/useToast'
 import { useLocation } from 'react-router-dom'
-import { useCreateClassMutation } from '../../courses/api/coursesApiSlice'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 import { selectCurrentToken } from '../../../../Auth/api/authSlice'
@@ -57,22 +56,25 @@ const colorStyles = {
   },
 }
 
-const durationSelectInput = {
-  control: (styles) => ({
-    ...styles,
-    backgroundColor: 'white',
-    width: `168px`,
-    fontSize: `14px`,
-  }),
-}
+// const durationSelectInput = {
+//   control: (styles) => ({
+//     ...styles,
+//     backgroundColor: 'white',
+//     width: `168px`,
+//     fontSize: `14px`,
+//   }),
+// }
 
 const schema = yup.object().shape({
   title: yup.string().required('title is required'),
   description: yup.string().required('description is required'),
-  tutors: yup.array().required('at least one tutor is required'),
+  tutors: yup
+    .array()
+    .min(1, 'Please select at least one tutor')
+    .required('at least one tutor is required'),
   startDate: yup.string().required('when does the class start?'),
   endDate: yup.string().required('when does the class end?'),
-  preference: yup.string().required('class preference requirerd'),
+  preference: yup.string().required('class preference required'),
 })
 
 const CreateClass = () => {
@@ -415,7 +417,6 @@ const CreateClass = () => {
                   <div>
                     <Controller
                       name='tutors'
-                      // rules={{ required: true }}
                       control={control}
                       render={({ field }) => {
                         return (
@@ -423,7 +424,6 @@ const CreateClass = () => {
                             <Select
                               styles={colorStyles}
                               className='reactSelect my-2'
-                              name='tutors'
                               placeholder='select tutors'
                               options={tutors}
                               isMulti
