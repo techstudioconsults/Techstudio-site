@@ -13,13 +13,14 @@
   @include flex;
 
   .dashboardDisplay {
+    // border: 1px solid red;
     padding: fn.rem(20) fn.rem(10);
     width: 100%;
     @include breakpoint-up('md') {
       padding: fn.rem(32);
     }
     @include breakpoint-up('xl') {
-      width: 60%;
+      width: 72.5%;
     }
 
     .header {
@@ -72,18 +73,14 @@
   }
 
   .notification {
-    width: 40%;
+    width: calc(50%);
     padding: fn.rem(32) fn.rem(16);
     position: sticky;
     top: 0;
     height: 100vh;
-    display: none;
-
-    @include breakpoint-up('xl') {
-      @include flex_column;
-      justify-content: space-between;
-      gap: fn.rem(85);
-    }
+    @include flex_column;
+    justify-content: space-between;
+    gap: fn.rem(85);
   }
 }
 // ============================================
@@ -94,7 +91,6 @@
   color: colors.$light;
   height: 100%;
   font-size: fn.rem(10);
-  opacity: 0;
   overflow: scroll;
 
   @include breakpoint-up('lg') {
@@ -121,7 +117,7 @@
 }
 
 .courseDetails.show {
-  animation: showDetails 1s forwards;
+  // animation: showDetails 1s forwards;
 }
 
 @keyframes showDetails {
@@ -136,15 +132,17 @@
 }
 
 .courseList {
+  // width: 914px;
+  // border: 1px solid red !important;
   // border-left: 5px solid colors.$light;
   // border: 1px solid colors.$deep-blue;
   // border-left: 5px solid colors.$deep-blue;
-  &:hover {
-    border: 1px solid colors.$blue;
-    border-left: 6px solid colors.$blue;
-  }
-  &:focus {
-    border: 1px solid colors.$blue !important;
-    border-left: 6px solid colors.$blue !important;
-  }
+  // &:hover {
+  //   border: 1px solid colors.$blue;
+  //   border-left: 6px solid colors.$blue;
+  // }
+  // &:focus {
+  border: 1px solid colors.$blue !important;
+  border-left: 6px solid colors.$blue !important;
+  // }
 }

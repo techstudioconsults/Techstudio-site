@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { AvatarDropdown, SkeletonLoader } from '../../../../components'
 import style from './adminCourse.module.scss'
@@ -19,6 +19,7 @@ const AdminCourseView = () => {
   const [isShowDetails, setShowDetails] = useState(false)
   const courses = useSelector(selectCourses)
   const courseDetails = useSelector(selectCourseDetails)
+  const notificationRef = useRef(null)
 
   const getCourses = useCallback(async () => {
     await viewAllCourses().unwrap()
@@ -29,6 +30,7 @@ const AdminCourseView = () => {
   }, [getCourses])
 
   const showDetailsBox = () => {
+    notificationRef.current.hidden = false
     setShowDetails(true)
   }
 
@@ -102,7 +104,7 @@ const AdminCourseView = () => {
           </div>
         </div>
       </div>
-      <div className={style.notification}>
+      <div hidden ref={notificationRef} className={style.notification}>
         <div className='d-flex justify-content-end'>
           <AvatarDropdown />
         </div>

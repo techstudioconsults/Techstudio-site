@@ -1,4 +1,5 @@
 import { apiSlice } from '../../../../../app/api/apiSlice'
+import { setcourseDetailsLoading } from '../../../../../app/api/appSlice'
 import { setCourseDetails, setCourses } from './coursesSlice'
 
 export const coursesApiSlice = apiSlice.injectEndpoints({
@@ -86,6 +87,7 @@ export const coursesApiSlice = apiSlice.injectEndpoints({
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled
+          // console.log(data)
           dispatch(
             setCourseDetails({
               courseDetails: data.data,

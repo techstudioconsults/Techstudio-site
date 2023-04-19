@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import style from '../classesTab/classesTab.module.scss'
 import AdminClassDisplayCard from '../../../global/cards/adminClassDisplayCard/AdminClassDisplayCard'
-import { Icon } from '@iconify/react'
 import LessonCard from '../../../global/cards/lessonCards/LessonCard'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Feedback from '../../../global/feedbacks/Feedback'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+import { Icon } from '@iconify/react'
 
 const ClassesTab = ({ classes, lessons, isTDB }) => {
-  const location = useLocation()
+  const onGoingTabRef = useRef(null)
   const [isLesson, setLesson] = useState(false)
   let onGoingClasses
   let previousClasses
@@ -17,14 +17,14 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
   let previousLessons
 
   const toggleLesson = () => {
-    // let firstTab = bootstrap.Tab.getInstance(
-    //   document.getElementById(`ongoing-tab`)
-    // ) // Select first tab
-    setLesson((prevState) => {
-      return !prevState
-    })
-    // firstTab.show()
-    // console.log(firstTab)
+    try {
+      onGoingTabRef.current.click()
+      setLesson((prevState) => {
+        return !prevState
+      })
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   if (isLesson) {
@@ -77,6 +77,7 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
           <div id={`classTab`} className={`${style.tablistGroup}`}>
             <li className={['nav-item', style.link].join(' ')}>
               <a
+                ref={onGoingTabRef}
                 className={['nav-link active', style.a].join(' ')}
                 id='ongoing-tab'
                 data-bs-toggle='tab'
@@ -113,14 +114,14 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
             <div className={`d-flex ${isLesson ? `d-block` : `d-none`}`}>
               <a
                 className={['nav-link', style.lessonBtn, style.a].join(' ')}
-                id='ongoing-tab'
+                id='lesson-tab'
                 data-bs-toggle='tab'
                 href='#ongoing'
                 onClick={toggleLesson}
               >
                 LESSONS
               </a>
-              {/* <Link
+              <Link
                 to={`/admin/class/lesson/create`}
                 className={['nav-link', style.a].join(' ')}
                 id='lesson-tab'
@@ -129,7 +130,7 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
                   <Icon icon={`ic:baseline-add-circle-outline`} />
                 </span>
                 <span> New Lesson</span>
-              </Link> */}
+              </Link>
             </div>
           </li>
         </div>

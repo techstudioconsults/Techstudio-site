@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Icon } from '@iconify/react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { AvatarStack, DeleteModal, Portal } from '../../../../../components'
 import { DASHBOARD_CONTENT } from '../../../../../layout/Layout/dashboardLayout/content'
 import style from '../adminCourse.module.scss'
@@ -10,19 +10,41 @@ import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { useViewCoursesDetailsMutation } from '../api/coursesApiSlice'
 import { useCallback, useEffect, useState } from 'react'
 import { useGetClassByCourseIDMutation } from '../../classes/api/classApiSlice'
+import { useDispatch } from 'react-redux'
 
 const CourseList = ({ course, showDetailsBox }) => {
+  const navigate = useNavigate()
   const [showStatus, setShowStatus] = useState(true)
+  const [active, setActive] = useState(false)
   const [totalClasses, setTotalClasses] = useState([])
   const { id, title, duration, tutors } = course
   const { imageList } = DASHBOARD_CONTENT
-
+  const dispatch = useDispatch()
+  const location = useLocation()
   const [viewCoursesDetails] = useViewCoursesDetailsMutation()
   const [getClassByCourseID] = useGetClassByCourseIDMutation()
 
+  const setActiveCourse = () => {
+    location.search.includes(id) ? setActive(true) : setActive(false)
+  }
+
   const handleClick = async () => {
+    dispatch({
+      type: `app/setcourseDetailsLoading`,
+      payload: true,
+    })
     showDetailsBox()
-    await viewCoursesDetails(id).unwrap()
+    const res = await viewCoursesDetails(id).unwrap()
+    if (res.success) {
+      const queryParams = new URLSearchParams(location.search)
+      queryParams.set('', id)
+      const newSearch = queryParams.toString()
+      navigate(`?${newSearch}`)
+      dispatch({
+        type: `app/setcourseDetailsLoading`,
+        payload: false,
+      })
+    }
   }
 
   const handleDeleteModal = () => {
@@ -52,6 +74,10 @@ const CourseList = ({ course, showDetailsBox }) => {
     getClasses()
   }, [getClasses])
 
+  useEffect(() => {
+    setActiveCourse()
+  }, [getClasses, setActiveCourse])
+
   return (
     <>
       <Portal wrapperId='react-portal-modal-container'>
@@ -67,7 +93,9 @@ const CourseList = ({ course, showDetailsBox }) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onClick={handleClick}
-        className={`btn btn-lg h-100 d-flex justify-content-between align-items-start text-dark border p-0 py-5 ps-2 rounded-0 ${style.courseList}`}
+        className={`btn btn-lg h-100 d-flex justify-content-between align-items-start text-dark border p-0 py-5 ps-2 rounded-0 ${
+          active ? style.courseList : null
+        }`}
       >
         <div className='container'>
           <div className='row'>

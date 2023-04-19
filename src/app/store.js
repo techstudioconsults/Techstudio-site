@@ -8,6 +8,7 @@ import coursesReducer from '../pages/Dashboard/Admin/courses/api/coursesSlice'
 import classesReducer from '../pages/Dashboard/Admin/classes/api/classSlice'
 import resourceReducer from '../pages/Dashboard/Admin/resources/api/resourceSlice'
 import usersReducer from '../pages/Dashboard/Admin/users/api/usersSlice'
+import appReducer from './api/appSlice'
 
 const persistConfig = {
   key: 'root',
@@ -27,6 +28,7 @@ export const store = configureStore({
     classes: classesReducer,
     resources: resourceReducer,
     users: usersReducer,
+    app: appReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
