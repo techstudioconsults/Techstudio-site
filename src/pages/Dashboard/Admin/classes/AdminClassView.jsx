@@ -7,7 +7,7 @@ import style from './adminClasses.module.scss' //using courses view layout !impo
 import TrackClassesTab from '../components/tab/trackClassesTab/TrackClassesTab'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { Icon } from '@iconify/react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import TeacherClassNotificationView from '../../Teacher/components/teacherClassNotificationView/TeacherClassNotificationView'
 import { useViewAllCoursesMutation } from '../courses/api/coursesApiSlice'
 import { useCallback, useEffect } from 'react'
@@ -19,6 +19,7 @@ import SpinnerComponent from '../../../../components/global/skeletonLoader/Spinn
 const AdminClassView = () => {
   const [viewAllCourses, courseArgs] = useViewAllCoursesMutation()
   const courses = useSelector(selectCourses)
+  const { courseID } = useParams()
 
   const getCourses = useCallback(async () => {
     await viewAllCourses().unwrap()
@@ -27,19 +28,6 @@ const AdminClassView = () => {
   useEffect(() => {
     getCourses()
   }, [getCourses])
-
-  const coursesNav = courses?.map((course) => {
-    return (
-      <li key={course.id}>
-        <Link
-          to={`/admin/class/${course.id}/create`}
-          state={{ tutors: course.tutors }}
-        >
-          <span className='fs-sm'>{course.title}</span>
-        </Link>
-      </li>
-    )
-  })
 
   const feedback = courses.length ? (
     <TrackClassesTab courses={courses} />
@@ -69,19 +57,14 @@ const AdminClassView = () => {
               </div>
             </div>
             <div>
-              <div className='btn-group'>
+              <Link to={`/admin/class/${courseID}/create`}>
                 <button
                   style={{ height: `2.25rem`, width: `9.938rem` }}
-                  className='btn btn-primary fs-sm dropdown-toggle'
-                  type='button'
-                  data-bs-toggle='dropdown'
-                  data-bs-offset='-140,10'
-                  aria-expanded='true'
+                  className='btn btn-primary fs-sm'
                 >
                   Create class
                 </button>
-                <ul className='dropdown-menu p-3'>{coursesNav}</ul>
-              </div>
+              </Link>
             </div>
           </div>
         </div>

@@ -136,7 +136,10 @@ const App = () => {
                   }
                 />
               </Route>
-              <Route path='/admin/class/:id/create' element={<CreateClass />} />
+              <Route
+                path='/admin/class/:courseID/create'
+                element={<CreateClass />}
+              />
               <Route path='/admin/class/:id/edit' element={<EditClass />} />
               <Route
                 path='/admin/class/:courseID/lesson/create'

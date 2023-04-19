@@ -16,15 +16,16 @@ import { Controller, useForm } from 'react-hook-form'
 // import { useSelector } from 'react-redux'
 // import { selectCurrentToken } from '../../../../Auth/api/authSlice'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
-import { useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import useToast from '../../../../../hooks/useToast'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 import { selectCurrentToken } from '../../../../Auth/api/authSlice'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { ErrorMessage } from '@hookform/error-message'
+import { useViewCoursesDetailsMutation } from '../../courses/api/coursesApiSlice'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
@@ -79,12 +80,14 @@ const schema = yup.object().shape({
 
 const CreateClass = () => {
   const [tutors, setTutors] = useState([])
+  const [crudeTutors, setCrudeTutors] = useState({})
   const [isLoading, setLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState(null)
   const token = useSelector(selectCurrentToken)
-  const location = useLocation()
+  // const location = useLocation()
   const { toast } = useToast()
-  const courseID = location.pathname.split(`/`)[3]
+  const { courseID } = useParams()
+  const [viewCoursesDetails] = useViewCoursesDetailsMutation()
 
   const credentials = {
     headers: {
@@ -93,8 +96,19 @@ const CreateClass = () => {
     },
   }
 
+  const getCourse = useCallback(async () => {
+    const res = await viewCoursesDetails(courseID).unwrap()
+    if (res.success) {
+      setCrudeTutors(res.data.tutors)
+    }
+  }, [courseID, viewCoursesDetails])
+
+  useEffect(() => {
+    getCourse()
+  }, [getCourse])
+
   const findTutors = (status) => {
-    const tutors = location?.state?.tutors[status]?.map((tutor) => {
+    const tutors = crudeTutors[status]?.map((tutor) => {
       return {
         value: tutor.tutorId,
         label: `${tutor.firstName} ${tutor.lastName}`,
