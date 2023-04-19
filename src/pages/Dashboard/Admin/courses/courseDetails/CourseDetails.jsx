@@ -16,7 +16,9 @@ const CourseDetails = ({ courseDetails, show }) => {
   return (
     <div className={`${style.courseDetails} ${show ? style.show : null}`}>
       {courseDetailsLoading ? (
-        <SpinnerComponent />
+        <div className='h-100 d-flex align-items-center justify-content-center'>
+          <SpinnerComponent color={`white`} />
+        </div>
       ) : (
         <>
           <div className={style.courseBanner}>

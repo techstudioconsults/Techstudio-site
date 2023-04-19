@@ -24,11 +24,15 @@ const CourseList = ({ course, showDetailsBox }) => {
   const [viewCoursesDetails] = useViewCoursesDetailsMutation()
   const [getClassByCourseID] = useGetClassByCourseIDMutation()
 
-  const setActiveCourse = () => {
+  const setActiveCourse = useCallback(() => {
     location.search.includes(id) ? setActive(true) : setActive(false)
-  }
+  }, [id, location.search])
 
   const handleClick = async () => {
+    const queryParams = new URLSearchParams(location.search)
+    queryParams.set('', id)
+    const newSearch = queryParams.toString()
+    navigate(`?${newSearch}`)
     dispatch({
       type: `app/setcourseDetailsLoading`,
       payload: true,
@@ -36,10 +40,6 @@ const CourseList = ({ course, showDetailsBox }) => {
     showDetailsBox()
     const res = await viewCoursesDetails(id).unwrap()
     if (res.success) {
-      const queryParams = new URLSearchParams(location.search)
-      queryParams.set('', id)
-      const newSearch = queryParams.toString()
-      navigate(`?${newSearch}`)
       dispatch({
         type: `app/setcourseDetailsLoading`,
         payload: false,
@@ -76,7 +76,7 @@ const CourseList = ({ course, showDetailsBox }) => {
 
   useEffect(() => {
     setActiveCourse()
-  }, [getClasses, setActiveCourse])
+  }, [setActiveCourse])
 
   return (
     <>
