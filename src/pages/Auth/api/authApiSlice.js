@@ -71,6 +71,22 @@ export const authApiSlice = apiSlice.injectEndpoints({
       }),
     }),
 
+    getOTP: builder.mutation({
+      query: (credentials) => ({
+        url: '/mailing/otp',
+        method: 'POST',
+        body: { ...credentials },
+      }),
+    }),
+
+    verifyOTP: builder.mutation({
+      query: (credentials) => ({
+        url: '/auth/otp',
+        method: 'POST',
+        body: { ...credentials },
+      }),
+    }),
+
     sendLogout: builder.mutation({
       query: (credentials) => ({
         url: '/auth/logout',
@@ -121,4 +137,6 @@ export const {
   useContactUsMutation,
   useForgotPasswordMutation,
   useSetNewPasswordMutation,
+  useGetOTPMutation,
+  useVerifyOTPMutation,
 } = authApiSlice

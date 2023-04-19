@@ -59,6 +59,7 @@ import { useSelector } from 'react-redux'
 import AdminUsersView from './pages/Dashboard/Admin/users/AdminUsersView'
 import AdminUserListDisplay from './pages/Dashboard/Admin/users/userCourseTab/UsersListDisplay'
 import TrackAnalysisLayout from './pages/Dashboard/Admin/components/tab/trackAnalysislayout/TrackAnalysisLayout'
+import OPTVerification from './pages/Auth/OTP/OTPVerification'
 
 const App = () => {
   const {
@@ -81,6 +82,7 @@ const App = () => {
         <Route path='/student/register' element={<Register />} />
         <Route path='/login' element={<SignIn />} />
         <Route path='/forgot-password' element={<ForgotPassword />} />
+        <Route path='/verify-otp' element={<OPTVerification />} />
         <Route path='/change-password/:token' element={<ChangePassword />} />
         <Route path='/admin/register' element={<AdminSignup />} />
         {/* <Route path='/student/signup' element={<StudentSignup />} /> */}

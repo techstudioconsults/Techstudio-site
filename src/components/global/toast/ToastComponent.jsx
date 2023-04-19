@@ -1,11 +1,14 @@
 import PropTypes from 'prop-types'
 import { MdClose, MdError } from 'react-icons/md'
 
-const ToastComponent = ({ errorMessage = 'error' }) => {
+const ToastComponent = ({
+  bgColor = `#800000`,
+  errorMessage = 'something went wrong',
+}) => {
   return (
     <div className='toast-container position-fixed top-0 end-0 p-3'>
       <div
-        style={{ background: `#800000`, width: `fit-content` }}
+        style={{ background: bgColor, width: `fit-content` }}
         className='toast align-items-center border-0'
         id='feedback-toast'
         role='alert'
@@ -34,6 +37,7 @@ const ToastComponent = ({ errorMessage = 'error' }) => {
 
 ToastComponent.propTypes = {
   errorMessage: PropTypes.string,
+  bgColor: PropTypes.string,
 }
 
 export default ToastComponent
