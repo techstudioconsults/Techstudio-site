@@ -41,9 +41,11 @@ const CancelModal = () => {
               <button
                 data-bs-dismiss='modal'
                 aria-label='Close'
-                className={`btn btn-outline-primary w-50 cancel-btn`}
+                className={`btn btn-outline-danger w-50 cancel-btn`}
               >
-                <Link to={`/admin/courses`}>Discard Changes</Link>
+                <Link className='text-danger' to={`/admin/courses`}>
+                  Discard Changes
+                </Link>
               </button>
             </div>
           </div>
