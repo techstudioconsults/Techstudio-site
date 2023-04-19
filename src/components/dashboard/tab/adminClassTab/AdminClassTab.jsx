@@ -3,14 +3,14 @@ import PropTypes from 'prop-types'
 import style from '../classesTab/classesTab.module.scss'
 import AdminClassDisplayCard from '../../../global/cards/adminClassDisplayCard/AdminClassDisplayCard'
 import LessonCard from '../../../global/cards/lessonCards/LessonCard'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import Feedback from '../../../global/feedbacks/Feedback'
-import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { Icon } from '@iconify/react'
 
 const ClassesTab = ({ classes, lessons, isTDB }) => {
   const onGoingTabRef = useRef(null)
   const [isLesson, setLesson] = useState(false)
+  const { courseID } = useParams()
   let onGoingClasses
   let previousClasses
   let ongoingLessons
@@ -122,7 +122,7 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
                 LESSONS
               </a>
               <Link
-                to={`/admin/class/lesson/create`}
+                to={`/admin/class/${courseID}/lesson/create`}
                 className={['nav-link', style.a].join(' ')}
                 id='lesson-tab'
               >

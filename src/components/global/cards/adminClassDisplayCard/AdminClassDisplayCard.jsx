@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Icon } from '@iconify/react'
 import React, { useCallback, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import style from './adminClassDisplay.module.scss'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
@@ -24,6 +24,7 @@ const weeks = [
 const AdminClassDisplayCard = ({ singleClass }) => {
   const [getTutors] = useGetTutorsMutation()
   const [classTutors, setClassTutors] = useState([])
+  const { courseID } = useParams()
   const dispatch = useDispatch()
 
   // const findTutors = useCallback(async () => {
@@ -143,23 +144,19 @@ const AdminClassDisplayCard = ({ singleClass }) => {
               </div>
             </div>
             <div className='col-1'>
-              <div
-                // hidden={showStatus}
-                className='dropdown'
-                // onClick={(event) => event.stopPropagation()}
-              >
+              <div className='dropdown'>
                 <div
                   className='dropdown-toggle p-0'
                   data-bs-toggle='dropdown'
-                  data-bs-offset='-140,10'
+                  data-bs-offset='-270,10'
                   aria-expanded='false'
                 >
                   <Icon width={`1.5rem`} icon={`ph:dots-three-vertical-bold`} />
                 </div>
                 <ul className={`dropdown-menu`}>
-                  <div className='d-flex align-items-center text-primary px-3'>
+                  {/* <div className='d-flex align-items-center text-primary px-3'>
                     <Link
-                      to={`/admin/class/${singleClass.id}/lesson/create`}
+                      to={`/admin/class/${courseID}/lesson/create`}
                       state={singleClass}
                     >
                       <Icon
@@ -169,7 +166,7 @@ const AdminClassDisplayCard = ({ singleClass }) => {
                       />
                       <span>Create Lesson</span>
                     </Link>
-                  </div>
+                  </div> */}
                   <hr className='my-2' />
                   <div className='d-flex align-items-center px-3'>
                     {/* <Link to={`/admin/courses/${id}/edit`} state={{ course }}> */}

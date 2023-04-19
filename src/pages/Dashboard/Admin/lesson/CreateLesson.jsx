@@ -18,10 +18,11 @@ import {
 } from '../../../../components'
 import { selectCurrentToken } from '../../../Auth/api/authSlice'
 import useToast from '../../../../hooks/useToast'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { ErrorMessage } from '@hookform/error-message'
+import { useGetClassByCourseIDMutation } from '../classes/api/classApiSlice'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
@@ -79,12 +80,16 @@ const schema = yup.object().shape({
 
 const CreateLesson = () => {
   const [tutors, setTutors] = useState([])
+  const [classes, setClasses] = useState([])
+  const [classID, setClassID] = useState()
   const [resources, setResources] = useState([])
   const [isLoading, setLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState(null)
+  const [getClassesByCourseID] = useGetClassByCourseIDMutation()
   const location = useLocation()
+  // console.log(location)
   const { toast } = useToast()
-  const classID = location.pathname.split(`/`)[3]
+  const { courseID } = useParams()
 
   const token = useSelector(selectCurrentToken)
   const credentials = {
@@ -94,23 +99,39 @@ const CreateLesson = () => {
     },
   }
 
-  const getTutors = useCallback(() => {
-    location?.state?.tutors?.map((tutor) => {
-      setTutors((prevState) => {
-        return [
-          ...prevState,
-          {
-            value: tutor.id,
-            label: tutor.name,
-          },
-        ]
-      })
-    })
-  }, [location?.state])
+  const getClasses = useCallback(async () => {
+    const res = await getClassesByCourseID(courseID).unwrap()
+    if (res.success) {
+      setClasses(res.data.ongoing)
+    }
+  }, [courseID, getClassesByCourseID])
 
   useEffect(() => {
-    getTutors()
-  }, [getTutors])
+    getClasses()
+  }, [getClasses])
+
+  const classOption = classes?.map((classItem) => {
+    return (
+      <option key={classItem.id} value={classItem.id}>
+        {classItem.title}
+      </option>
+    )
+  })
+
+  const getTutors = (e) => {
+    setClassID(e.target.value)
+    classes?.map((singleClass) => {
+      if (singleClass.id === e.target.value) {
+        const tutorsList = singleClass.tutors.map((tutor) => {
+          return {
+            value: tutor.id,
+            label: tutor.name,
+          }
+        })
+        setTutors(tutorsList)
+      }
+    })
+  }
 
   const allResources = useCallback(async () => {
     let resources = location?.state?.resources
@@ -149,6 +170,7 @@ const CreateLesson = () => {
 
   // due to the error gotten from the RTK Query on files...we went with the axios alternative
   const onSubmit = async (data) => {
+    console.log(data)
     setLoading(true)
     const formData = new FormData()
 
@@ -208,7 +230,7 @@ const CreateLesson = () => {
         <SaveSuccess
           content={{
             title: `Changes Saved Successfully!`,
-            desc: `Your changes have been saved successfully. Kindly click continue to exit this page.`,
+            desc: `Lesson created successfully. Kindly click continue to exit this page.`,
           }}
         />
         <CancelModal />
@@ -258,7 +280,30 @@ const CreateLesson = () => {
                 </div>
               </div>
             </div>
-
+            {/* Classes */}
+            <div className='mb-8 d-flex row align-items-center'>
+              <div className='col-4'>
+                <label
+                  htmlFor='classes'
+                  className={`col-form-label fs-lg fw-bold text-blue w-100`}
+                >
+                  Classes
+                </label>
+              </div>
+              <div className='col-8'>
+                <div className={` w-100`}>
+                  <select
+                    // {...register(`class`)}
+                    className='form-select'
+                    aria-label='Default select example'
+                    onChange={getTutors}
+                  >
+                    <option hidden>select class</option>
+                    {classOption}
+                  </select>
+                </div>
+              </div>
+            </div>
             {/* tutors */}
             <div className='mb-8 row'>
               <div className='col-4'>
