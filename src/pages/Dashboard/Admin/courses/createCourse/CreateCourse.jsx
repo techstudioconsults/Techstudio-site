@@ -231,8 +231,8 @@ const CreateCourse = () => {
       <Portal wrapperId='react-portal-modal-container'>
         <SaveSuccess
           content={{
-            title: `Changes Saved Successfully!`,
-            desc: `Course created successfully. Kindly click continue to exit this page.`,
+            title: `Course Created Successfully!`,
+            desc: `Kindly click continue to exit this page.`,
             action: `courses`,
           }}
         />
