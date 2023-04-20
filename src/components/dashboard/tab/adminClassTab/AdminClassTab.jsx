@@ -3,14 +3,16 @@ import PropTypes from 'prop-types'
 import style from '../classesTab/classesTab.module.scss'
 import AdminClassDisplayCard from '../../../global/cards/adminClassDisplayCard/AdminClassDisplayCard'
 import LessonCard from '../../../global/cards/lessonCards/LessonCard'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import Feedback from '../../../global/feedbacks/Feedback'
 import { Icon } from '@iconify/react'
 
 const ClassesTab = ({ classes, lessons, isTDB }) => {
   const onGoingTabRef = useRef(null)
+  const lessonTabRef = useRef(null)
   const [isLesson, setLesson] = useState(false)
   const { courseID } = useParams()
+  const location = useLocation()
   let onGoingClasses
   let previousClasses
   let ongoingLessons
@@ -70,6 +72,12 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
     )
   }
 
+  useEffect(() => {
+    if (location?.state?.from?.pathname?.includes(`lesson`)) {
+      lessonTabRef.current.click()
+    }
+  }, [location?.state?.from?.pathname])
+
   return (
     <section className={style.tab}>
       <div className='d-flex flex-column flex-md-row align-items-center justify-content-between gap-3'>
@@ -113,6 +121,7 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
             </div>
             <div className={`d-flex ${isLesson ? `d-block` : `d-none`}`}>
               <a
+                ref={lessonTabRef}
                 className={['nav-link', style.lessonBtn, style.a].join(' ')}
                 id='lesson-tab'
                 data-bs-toggle='tab'

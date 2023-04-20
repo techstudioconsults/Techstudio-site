@@ -190,6 +190,7 @@ const CreateClass = () => {
             title: `Changes Saved Successfully!`,
             desc: `Your changes have been saved successfully. Kindly click continue to exit this page.`,
             courseID: courseID,
+            action: `classes`,
           }}
         />
         <CancelModal />

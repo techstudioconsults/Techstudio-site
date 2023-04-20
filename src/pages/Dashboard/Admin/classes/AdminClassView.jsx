@@ -7,7 +7,7 @@ import style from './adminClasses.module.scss' //using courses view layout !impo
 import TrackClassesTab from '../components/tab/trackClassesTab/TrackClassesTab'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { Icon } from '@iconify/react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import TeacherClassNotificationView from '../../Teacher/components/teacherClassNotificationView/TeacherClassNotificationView'
 import { useViewAllCoursesMutation } from '../courses/api/coursesApiSlice'
 import { useCallback, useEffect } from 'react'

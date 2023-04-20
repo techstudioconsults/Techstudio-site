@@ -232,7 +232,8 @@ const CreateCourse = () => {
         <SaveSuccess
           content={{
             title: `Changes Saved Successfully!`,
-            desc: `Your changes have been saved successfully. Kindly click continue to exit this page.`,
+            desc: `Course created successfully. Kindly click continue to exit this page.`,
+            action: `courses`,
           }}
         />
         <CancelModal />

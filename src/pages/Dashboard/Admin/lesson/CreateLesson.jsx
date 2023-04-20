@@ -231,6 +231,8 @@ const CreateLesson = () => {
           content={{
             title: `Changes Saved Successfully!`,
             desc: `Lesson created successfully. Kindly click continue to exit this page.`,
+            courseID: courseID,
+            action: `lessons`,
           }}
         />
         <CancelModal />

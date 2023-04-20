@@ -1,8 +1,30 @@
 import PropTypes from 'prop-types'
+import { useEffect, useState } from 'react'
 import { MdClose } from 'react-icons/md'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 const Save = ({ content }) => {
+  const [route, setRoute] = useState()
+  const location = useLocation()
+  console.log(location)
+
+  useEffect(() => {
+    switch (content.action) {
+      case `courses`:
+        setRoute(`/admin/courses`)
+        break
+      case `classes`:
+        setRoute(`/admin/classes/${content.courseID}`)
+        break
+      case `lessons`:
+        setRoute(`/admin/classes/${content.courseID}`)
+        break
+
+      default:
+        break
+    }
+  }, [content.action, content.courseID])
+
   return (
     <div
       className='modal fade'
@@ -31,7 +53,7 @@ const Save = ({ content }) => {
               <p className='px-8'>{content.desc}</p>
             </div>
             <div className={`w-100 text-center mt-10`}>
-              <Link to={`/admin/classes/${content.courseID}`}>
+              <Link to={route} state={{ from: location }}>
                 <button
                   data-bs-dismiss='modal'
                   aria-label='Close'
