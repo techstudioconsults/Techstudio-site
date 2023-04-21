@@ -46,6 +46,7 @@ const AdminDashboardTab = ({ courses }) => {
       <ul className={['nav hide_scrollbar', style.tabList].join(' ')}>
         {coursesNav}
       </ul>
+      <hr className={`${style.hr} my-0`} />
       <div className='tab-content my-8' id='myTabContent'>
         <Outlet />
       </div>
