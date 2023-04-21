@@ -76,9 +76,18 @@ const schema = yup.object().shape({
   onlineClass: yup.object().required('duration is required'),
   weekdayClass: yup.object().required('duration is required'),
   weekendClass: yup.object().required('duration is required'),
-  onlineTutors: yup.array().required('at least one tutor required'),
-  weekdayTutors: yup.array().required('at least one tutor required'),
-  weekendTutors: yup.array().required('at least one tutor required'),
+  onlineTutors: yup
+    .array()
+    .min(1, 'Please select at least one tutor')
+    .required('at least one tutor is required'),
+  weekdayTutors: yup
+    .array()
+    .min(1, 'Please select at least one tutor')
+    .required('at least one tutor is required'),
+  weekendTutors: yup
+    .array()
+    .min(1, 'Please select at least one tutor')
+    .required('at least one tutor is required'),
 })
 
 const CreateCourse = () => {
@@ -289,6 +298,7 @@ const CreateCourse = () => {
               </label>
               <div className={style.inputs}>
                 <textarea
+                  maxLength='500'
                   placeholder='course description'
                   type='text'
                   className='form-control form-control-lg'

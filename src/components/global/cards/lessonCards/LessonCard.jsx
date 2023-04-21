@@ -121,7 +121,7 @@ const LessonCard = ({ singleLesson }) => {
             <div
               className='dropdown-toggle p-0'
               data-bs-toggle='dropdown'
-              data-bs-offset='-140,10'
+              data-bs-offset='-270,10'
               aria-expanded='false'
             >
               <Icon width={`1.5rem`} icon={`ph:dots-three-vertical-bold`} />

@@ -253,6 +253,7 @@ const CreateClass = () => {
               <div className='col-8'>
                 <div className={`${style.inputs} w-100`}>
                   <textarea
+                    maxLength='500'
                     placeholder='class description'
                     type='text'
                     className='form-control form-control-lg'
