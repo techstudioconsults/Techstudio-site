@@ -111,7 +111,7 @@ const EditLesson = () => {
         label: tutor.label,
       }
     }),
-    resources: state.resources.map((resource) => {
+    resources: state?.resources?.map((resource) => {
       return {
         value: resource,
         label: resource,
@@ -205,9 +205,17 @@ const EditLesson = () => {
           content={{
             title: `Changes Saved Successfully!`,
             desc: `Your changes have been saved successfully. Kindly click continue to exit this page.`,
+            action: `lesson`,
+            courseID: state.courseId,
           }}
         />
-        <CancelModal />
+        <CancelModal
+          content={{
+            action: `edit`,
+            routeAction: `lesson`,
+            courseID: state.courseId,
+          }}
+        />
       </Portal>
 
       <div className={style.dashboardDisplay}>

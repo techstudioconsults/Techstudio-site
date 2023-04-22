@@ -274,7 +274,7 @@ const CreateCourse = () => {
           isSave={isSave}
         />
 
-        <CancelModal content={{ action: `edit` }} />
+        <CancelModal content={{ action: `edit`, routeAction: `course` }} />
       </Portal>
       <div className={style.dashboardDisplay}>
         <div className={style.header}>

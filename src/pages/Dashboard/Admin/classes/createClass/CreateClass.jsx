@@ -190,10 +190,16 @@ const CreateClass = () => {
             title: `Class Created Successfully!`,
             desc: `Kindly click continue to exit this page.`,
             courseID: courseID,
-            action: `classes`,
+            action: `class`,
           }}
         />
-        <CancelModal />
+        <CancelModal
+          content={{
+            action: `create`,
+            routeAction: `class`,
+            courseID: courseID,
+          }}
+        />
       </Portal>
 
       <div className={style.dashboardDisplay}>

@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux'
 import {
   useDeleteClassMutation,
   useDeleteLessonMutation,
+  useGetClassByCourseIDMutation,
+  useGetLessonByCourseIDMutation,
 } from '../../../pages/Dashboard/Admin/classes/api/classApiSlice'
 import {
   useDeleteCourseMutation,
@@ -18,6 +20,8 @@ const DeleteModal = ({ content }) => {
   const [deleteLesson, deleteLessonArgs] = useDeleteLessonMutation()
   const [deleteResource, deleteResourceArgs] = useDeleteResourceMutation()
   const [viewAllCourses] = useViewAllCoursesMutation()
+  const [getClassByCourseID] = useGetClassByCourseIDMutation()
+  const [getLessonByCourseID] = useGetLessonByCourseIDMutation()
 
   // const dispatch = useDispatch()
 
@@ -31,7 +35,22 @@ const DeleteModal = ({ content }) => {
 
   const stopPropagation = async (event) => {
     event.stopPropagation()
-    await viewAllCourses().unwrap()
+    switch (content.action) {
+      case `delete-course`:
+        await viewAllCourses().unwrap()
+        break
+      case `delete-class`:
+        await getClassByCourseID(content.courseID).unwrap()
+        break
+      case `delete-lesson`:
+        await getLessonByCourseID(content.courseID).unwrap()
+        break
+      case `delete-resource`:
+        // await viewAllCourses().unwrap()
+        break
+      default:
+        break
+    }
   }
   let handleDelete = null
 

@@ -10,13 +10,13 @@ const Save = ({ content }) => {
 
   useEffect(() => {
     switch (content.action) {
-      case `courses`:
+      case `course`:
         setRoute(`/admin/courses`)
         break
-      case `classes`:
+      case `class`:
         setRoute(`/admin/classes/${content.courseID}`)
         break
-      case `lessons`:
+      case `lesson`:
         setRoute(`/admin/classes/${content.courseID}`)
         break
 
@@ -53,7 +53,7 @@ const Save = ({ content }) => {
               <p className='px-8'>{content.desc}</p>
             </div>
             <div className={`w-100 text-center mt-10`}>
-              <Link to={route} state={{ from: location }}>
+              <Link to={route} state={{ from: content.action }}>
                 <button
                   data-bs-dismiss='modal'
                   aria-label='Close'

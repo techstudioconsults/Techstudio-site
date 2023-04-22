@@ -73,10 +73,11 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
   }
 
   useEffect(() => {
-    if (location?.state?.from?.pathname?.includes(`lesson`)) {
+    console.log(location)
+    if (location?.state?.from?.includes(`lesson`)) {
       lessonTabRef.current.click()
     }
-  }, [location?.state?.from?.pathname])
+  }, [location])
 
   return (
     <section className={style.tab}>

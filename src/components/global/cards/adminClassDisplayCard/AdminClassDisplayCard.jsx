@@ -86,6 +86,7 @@ const AdminClassDisplayCard = ({ singleClass }) => {
             title: `${`Are you sure you want to delete this class?`}`,
             desc: `${singleClass.title} class has successfully being deleted. Kindly click continue to exit this page.`,
             classID: singleClass.id,
+            courseID: courseID,
             action: `delete-class`,
           }}
         />

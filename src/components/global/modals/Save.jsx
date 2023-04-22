@@ -6,11 +6,11 @@ const Save = ({ content, saveCourse, isSave }) => {
   const navigate = useNavigate()
   const checkAction = (action) => {
     switch (action) {
-      case `edit class`:
-        navigate(`/admin/classes`)
+      case `class`:
+        navigate(`/admin/classes/${content.courseID}`)
         break
 
-      case `edit course`:
+      case `course`:
         navigate(`/admin/courses`)
         break
       default:

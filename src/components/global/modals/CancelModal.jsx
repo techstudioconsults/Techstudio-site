@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
 import PropTypes from 'prop-types'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 
 const CancelModal = ({ content }) => {
+  const { courseID } = useParams()
+  const location = useLocation()
+  const navigate = useNavigate()
   const checkAction = (action) => {
     switch (action) {
       case `create`:
@@ -11,6 +14,26 @@ const CancelModal = ({ content }) => {
       case `edit`:
         return `Continue Editing`
 
+      default:
+        return `Continue`
+    }
+  }
+
+  const routeAction = (action) => {
+    switch (action) {
+      case `class`:
+        navigate(`/admin/classes/${content.courseID}`)
+        break
+
+      case `course`:
+        navigate(`/admin/courses`)
+        break
+
+      case `lesson`:
+        navigate(`/admin/classes/${content.courseID}`, {
+          state: { from: `lesson` },
+        })
+        break
       default:
         return `Continue`
     }
@@ -53,13 +76,14 @@ const CancelModal = ({ content }) => {
                 {checkAction(content?.action)}
               </button>
               <button
+                onClick={() => routeAction(content?.routeAction)}
                 data-bs-dismiss='modal'
                 aria-label='Close'
                 className={`btn btn-outline-danger w-50 cancel-btn`}
               >
-                <Link className='text-danger' to={`/admin/courses`}>
-                  Discard Changes
-                </Link>
+                {/* <Link className='text-danger' to={`/admin/courses`}> */}
+                Discard Changes
+                {/* </Link> */}
               </button>
             </div>
           </div>

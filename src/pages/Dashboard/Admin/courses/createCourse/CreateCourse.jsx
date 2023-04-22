@@ -242,10 +242,10 @@ const CreateCourse = () => {
           content={{
             title: `Course Created Successfully!`,
             desc: `Kindly click continue to exit this page.`,
-            action: `courses`,
+            action: `course`,
           }}
         />
-        <CancelModal content={{ action: `create` }} />
+        <CancelModal content={{ action: `create`, routeAction: `course` }} />
       </Portal>
 
       <div className={style.dashboardDisplay}>

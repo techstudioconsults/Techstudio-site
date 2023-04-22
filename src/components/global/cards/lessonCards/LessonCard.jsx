@@ -28,7 +28,7 @@ const LessonCard = ({ singleLesson }) => {
   //   return `${weekData[0].week}`
   // }
 
-  console.log(singleLesson.id)
+  console.log(singleLesson)
 
   const showLessonDetails = () => {
     console.log(`details`)
@@ -51,8 +51,9 @@ const LessonCard = ({ singleLesson }) => {
         <DeleteModal
           content={{
             title: `${`Are you sure you want to delete this Lesson?`}`,
-            desc: `${singleLesson?.title} Lesson has successfully being deleted. Kindly click continue to exit this page.`,
+            desc: `${singleLesson?.topic} Lesson has successfully being deleted. Kindly click continue to exit this page.`,
             lessonID: singleLesson?.id,
+            courseID: singleLesson.courseId,
             action: `delete-lesson`,
           }}
         />

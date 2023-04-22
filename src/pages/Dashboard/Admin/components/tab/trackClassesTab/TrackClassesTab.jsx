@@ -32,7 +32,7 @@ const TrackClassesTab = ({ courses }) => {
 
   useEffect(() => {
     if (!courseID) {
-      redirect(`/admin/classes/${courses[0].id}`)
+      redirect(`/admin/classes/${courses[0]?.id}`)
     }
     activeRoute(courseID)
   }, [activeRoute, courseID, courses, redirect])
@@ -69,7 +69,6 @@ const TrackClassesTab = ({ courses }) => {
 
       <div className='tab-content py-6' id='tabContent'>
         {classArgs.isLoading ? <SpinnerComponent /> : <Outlet />}
-        {/* <Outlet /> */}
       </div>
     </section>
   )

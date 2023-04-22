@@ -74,7 +74,10 @@ const durationSelectInput = {
 const schema = yup.object().shape({
   title: yup.string().required('title is required'),
   description: yup.string().required('description is required'),
-  tutors: yup.array().required('at least one tutor is required'),
+  tutors: yup
+    .array()
+    .min(1, 'Please select at least one tutor')
+    .required('at least one tutor is required'),
   startDate: yup.string().required('when does the class start?'),
   endDate: yup.string().required('when does the class end?'),
   preference: yup.string().required('class preference requirerd'),
@@ -132,9 +135,6 @@ const EditClass = () => {
   }, [getCourseByCourseID])
 
   const {
-    // reset,
-    setValue,
-    watch,
     register,
     handleSubmit,
     control,
@@ -235,12 +235,20 @@ const EditClass = () => {
                 : `Are you sure you want to save changes?`
             }`,
             desc: `Your changes have been saved successfully. Kindly click continue to exit this page.`,
+            action: `class`,
+            courseID: state.courseId,
           }}
           saveCourse={handleSubmit(onSubmit)}
           isSave={isSave}
         />
 
-        <CancelModal />
+        <CancelModal
+          content={{
+            action: `edit`,
+            routeAction: `class`,
+            courseID: state.courseId,
+          }}
+        />
       </Portal>
 
       <div className={style.dashboardDisplay}>

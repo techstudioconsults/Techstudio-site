@@ -135,8 +135,8 @@ const CreateLesson = () => {
 
   const allResources = useCallback(async () => {
     let resources = location?.state?.resources
-    Object.keys(resources).forEach((key) => {
-      resources[key].map((res) => {
+    Object?.keys(resources)?.forEach((key) => {
+      resources[key]?.map((res) => {
         setResources((prevState) => {
           return [
             ...prevState,
@@ -232,10 +232,16 @@ const CreateLesson = () => {
             title: `Lesson Created Successfully!`,
             desc: `Kindly click continue to exit this page.`,
             courseID: courseID,
-            action: `lessons`,
+            action: `lesson`,
           }}
         />
-        <CancelModal />
+        <CancelModal
+          content={{
+            action: `create`,
+            routeAction: `lesson`,
+            courseID: courseID,
+          }}
+        />
       </Portal>
 
       <div className={style.dashboardDisplay}>

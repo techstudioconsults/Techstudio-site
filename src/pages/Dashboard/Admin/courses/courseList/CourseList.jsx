@@ -86,6 +86,7 @@ const CourseList = ({ course, showDetailsBox }) => {
             title: `${`Are you sure you want to delete this course?`}`,
             desc: `${title} Course has successfully being deleted. Kindly click continue to exit this page.`,
             courseID: id,
+            action: `delete-course`,
           }}
         />
       </Portal>
