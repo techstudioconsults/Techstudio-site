@@ -245,7 +245,7 @@ const CreateCourse = () => {
             action: `courses`,
           }}
         />
-        <CancelModal />
+        <CancelModal content={{ action: `create` }} />
       </Portal>
 
       <div className={style.dashboardDisplay}>

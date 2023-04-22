@@ -5,7 +5,10 @@ import {
   useDeleteClassMutation,
   useDeleteLessonMutation,
 } from '../../../pages/Dashboard/Admin/classes/api/classApiSlice'
-import { useDeleteCourseMutation } from '../../../pages/Dashboard/Admin/courses/api/coursesApiSlice'
+import {
+  useDeleteCourseMutation,
+  useViewAllCoursesMutation,
+} from '../../../pages/Dashboard/Admin/courses/api/coursesApiSlice'
 import { useDeleteResourceMutation } from '../../../pages/Dashboard/Admin/resources/api/resourceApiSlice'
 
 const DeleteModal = ({ content }) => {
@@ -14,9 +17,21 @@ const DeleteModal = ({ content }) => {
   const [deleteClass, deleteClassArgs] = useDeleteClassMutation()
   const [deleteLesson, deleteLessonArgs] = useDeleteLessonMutation()
   const [deleteResource, deleteResourceArgs] = useDeleteResourceMutation()
+  const [viewAllCourses] = useViewAllCoursesMutation()
+
   // const dispatch = useDispatch()
-  const stopPropagation = (event) => {
+
+  // async function closeModal() {
+  //   const modal = document.querySelector('.delete-modal')
+  //   const backdrop = document.querySelector('.modal-backdrop')
+  //   modal.classList.remove('show')
+  //   backdrop.remove()
+  //   await viewAllCourses().unwrap()
+  // }
+
+  const stopPropagation = async (event) => {
     event.stopPropagation()
+    await viewAllCourses().unwrap()
   }
   let handleDelete = null
 
@@ -50,7 +65,6 @@ const DeleteModal = ({ content }) => {
       const res = await deleteCourse(content.courseID).unwrap()
       if (res.success) {
         setDeleted(true)
-        // await viewAllCourses().unwrap()
       }
     }
   }
@@ -58,8 +72,8 @@ const DeleteModal = ({ content }) => {
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
     <div
-      onClick={stopPropagation}
-      className='modal fade'
+      // onClick={stopPropagation}
+      className='modal fade delete-modal'
       id={
         content.action === `delete-class`
           ? content.classID

@@ -1,7 +1,21 @@
+/* eslint-disable react/prop-types */
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
-const CancelModal = () => {
+const CancelModal = ({ content }) => {
+  const checkAction = (action) => {
+    switch (action) {
+      case `create`:
+        return `Continue Creating`
+
+      case `edit`:
+        return `Continue Editing`
+
+      default:
+        return `Continue`
+    }
+  }
+
   const stopPropagation = (event) => {
     event.stopPropagation()
   }
@@ -36,7 +50,7 @@ const CancelModal = () => {
                 aria-label='Close'
                 className={`btn btn-primary w-50`}
               >
-                Continue Editing
+                {checkAction(content?.action)}
               </button>
               <button
                 data-bs-dismiss='modal'

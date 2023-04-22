@@ -1,14 +1,31 @@
 import PropTypes from 'prop-types'
+import { useNavigate } from 'react-router-dom'
 // import { MdClose } from 'react-icons/md'
 
 const Save = ({ content, saveCourse, isSave }) => {
+  const navigate = useNavigate()
+  const checkAction = (action) => {
+    switch (action) {
+      case `edit class`:
+        navigate(`/admin/classes`)
+        break
+
+      case `edit course`:
+        navigate(`/admin/courses`)
+        break
+      default:
+        return `Continue`
+    }
+  }
+
   const stopPropagation = (event) => {
     event.stopPropagation()
+    checkAction(content.action)
   }
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
     <div
-      onClick={stopPropagation}
+      // onClick={stopPropagation}
       className='modal fade'
       id='save-modal'
       tabIndex='-1'
@@ -50,7 +67,7 @@ const Save = ({ content, saveCourse, isSave }) => {
                 Proceed to Save
               </button>
               <button
-                onClick={stopPropagation}
+                // onClick={stopPropagation}
                 hidden={isSave}
                 data-bs-dismiss='modal'
                 aria-label='Close'
