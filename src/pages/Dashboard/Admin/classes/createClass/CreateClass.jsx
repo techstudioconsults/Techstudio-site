@@ -295,7 +295,7 @@ const CreateClass = () => {
               <div className='col-8'>
                 <div className={`${style.inputs} w-100`}>
                   <input
-                    placeholder='class title'
+                    placeholder='class fee'
                     type='text'
                     className='form-control form-control-lg'
                     id='fee'

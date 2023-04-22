@@ -377,7 +377,7 @@ export const DASHBOARD_CONTENT = {
         {
           id: 4,
           img: {
-            src: `ri:exchange-dollar-fill`,
+            src: `tabler:currency-naira`,
             accent: `#E0001733`,
             color: `#E00017`,
           },
