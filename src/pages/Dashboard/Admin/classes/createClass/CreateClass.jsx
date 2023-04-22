@@ -68,6 +68,7 @@ const colorStyles = {
 
 const schema = yup.object().shape({
   title: yup.string().required('title is required'),
+  fee: yup.string().required('fee is required'),
   description: yup.string().required('description is required'),
   tutors: yup
     .array()
@@ -269,6 +270,40 @@ const CreateClass = () => {
                   <ErrorMessage
                     errors={errors}
                     name='description'
+                    render={({ messages }) => {
+                      return messages
+                        ? Object.entries(messages).map(([type, message]) => (
+                            <p className='fs-xs text-danger' key={type}>
+                              {message}
+                            </p>
+                          ))
+                        : null
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className='mb-8 d-flex row'>
+              <div className='col-4'>
+                <label
+                  htmlFor='title'
+                  className={`col-form-label fs-lg ${style.labels} w-100`}
+                >
+                  Fee
+                </label>
+              </div>
+              <div className='col-8'>
+                <div className={`${style.inputs} w-100`}>
+                  <input
+                    placeholder='class title'
+                    type='text'
+                    className='form-control form-control-lg'
+                    id='fee'
+                    // {...register('fee')}
+                  />
+                  <ErrorMessage
+                    errors={errors}
+                    name='fee'
                     render={({ messages }) => {
                       return messages
                         ? Object.entries(messages).map(([type, message]) => (
