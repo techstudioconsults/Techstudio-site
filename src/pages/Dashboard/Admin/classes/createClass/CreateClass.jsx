@@ -68,7 +68,7 @@ const colorStyles = {
 
 const schema = yup.object().shape({
   title: yup.string().required('title is required'),
-  fee: yup.string().required('fee is required'),
+  // fee: yup.string().required('fee is required'),
   description: yup.string().required('description is required'),
   tutors: yup
     .array()

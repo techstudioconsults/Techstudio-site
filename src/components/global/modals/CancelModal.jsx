@@ -53,7 +53,7 @@ const CancelModal = ({ content }) => {
       data-bs-backdrop='static'
       data-bs-keyboard='false'
     >
-      <div className='modal-dialog modal-fullscreen-md-down modal-md'>
+      <div className='modal-dialog modal-dialog-centered modal-fullscreen-md-down modal-md'>
         <div className='modal-content'>
           <div
             className={[

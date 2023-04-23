@@ -5,27 +5,19 @@ import { AddResource, AvatarDropdown, Portal } from '../../../../components'
 import style from './adminResource.module.scss' //using courses view layout !important
 import 'react-loading-skeleton/dist/skeleton.css'
 import { Icon } from '@iconify/react'
-import { Link } from 'react-router-dom'
 import TeacherClassNotificationView from '../../Teacher/components/teacherClassNotificationView/TeacherClassNotificationView'
-import { useViewAllCoursesMutation } from '../courses/api/coursesApiSlice'
 import { useCallback, useEffect } from 'react'
-import { selectCourses } from '../courses/api/coursesSlice'
 import { useSelector } from 'react-redux'
 import Feedback from '../../../../components/global/feedbacks/Feedback'
 import ResourceCourseTab from './resourceCourseTab/ResourceCourseTab'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
-import { useGetAllResourcesMutation } from './api/resourceApiSlice'
-import { selectAllResources } from './api/resourceSlice'
 import SpinnerComponent from '../../../../components/global/skeletonLoader/SpinnerComponent'
+import { useViewAllCoursesMutation } from '../courses/api/coursesApiSlice'
+import { selectCourses } from '../courses/api/coursesSlice'
 
 const AdminResourcesView = () => {
-  const [getAllResource, resourceArgs] = useGetAllResourcesMutation()
-
-  const resources = useSelector(selectAllResources)
-
-  const getResources = useCallback(async () => {
-    await getAllResource().unwrap()
-  }, [getAllResource])
+  const [viewAllCourses, coursesArgs] = useViewAllCoursesMutation()
+  const courses = useSelector(selectCourses)
 
   const addResource = (event) => {
     event.stopPropagation()
@@ -35,12 +27,16 @@ const AdminResourcesView = () => {
     modal.show()
   }
 
-  useEffect(() => {
-    getResources()
-  }, [getResources])
+  const getCourses = useCallback(async () => {
+    await viewAllCourses().unwrap()
+  }, [viewAllCourses])
 
-  const feedback = resources.length ? (
-    <ResourceCourseTab resources={resources} />
+  useEffect(() => {
+    getCourses()
+  }, [getCourses])
+
+  const feedback = courses.length ? (
+    <ResourceCourseTab courses={courses} />
   ) : (
     <Feedback message={`Create a course in order to create a class`} />
   )
@@ -90,7 +86,7 @@ const AdminResourcesView = () => {
           </div>
           <div className='mt-10'>
             <div className='mt-5 d-flex flex-column gap-5'>
-              {resourceArgs.isLoading ? <SpinnerComponent /> : feedback}
+              {coursesArgs.isLoading ? <SpinnerComponent /> : feedback}
             </div>
           </div>
         </div>
@@ -98,7 +94,7 @@ const AdminResourcesView = () => {
           <div className='d-flex justify-content-end'>
             <AvatarDropdown />
           </div>
-          <TeacherClassNotificationView mobile={false} />
+          {/* <TeacherClassNotificationView mobile={false} /> */}
         </div>
       </section>
     </>

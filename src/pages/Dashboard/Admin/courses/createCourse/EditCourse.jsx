@@ -268,7 +268,7 @@ const CreateCourse = () => {
                 : `Are you sure you want to save changes?`
             }`,
             desc: `Your changes have been saved successfully. Kindly click continue to exit this page.`,
-            action: `edit course`,
+            action: `course`,
           }}
           saveCourse={handleSubmit(onSubmit)}
           isSave={isSave}

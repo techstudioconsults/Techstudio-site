@@ -1,12 +1,9 @@
 import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
-import { MdClose } from 'react-icons/md'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Save = ({ content }) => {
   const [route, setRoute] = useState()
-  const location = useLocation()
-  console.log(location)
 
   useEffect(() => {
     switch (content.action) {
@@ -34,7 +31,7 @@ const Save = ({ content }) => {
       tabIndex='-1'
       aria-labelledby='save-success'
     >
-      <div className='modal-dialog modal-fullscreen-md-down modal-md'>
+      <div className='modal-dialog modal-dialog-centered modal-fullscreen-md-down modal-md'>
         <div className='modal-content'>
           {/* <div className='modal-header d-flex justify-content-end'>
             <MdClose

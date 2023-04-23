@@ -3,13 +3,21 @@ import { Outlet, useLocation, useNavigate, useParams } from 'react-router'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import style from '../resourceCourseTab/resourceCourseTab.module.scss'
+import { useGetAllResourcesMutation } from '../api/resourceApiSlice'
 
-const ResourceCourseTab = ({ resources }) => {
+const ResourceCourseTab = ({ courses }) => {
   const location = useLocation()
   let { courseID } = useParams()
-  const redirect = useNavigate()
+  const navigate = useNavigate()
 
-  console.log(resources)
+  const [getAllResource, resourceArgs] = useGetAllResourcesMutation()
+  const getResources = useCallback(async () => {
+    await getAllResource().unwrap()
+  }, [getAllResource])
+
+  useEffect(() => {
+    getResources()
+  }, [getResources])
 
   // verifies if routeName is the one active (in browser input)
   const activeRoute = useCallback(
@@ -21,18 +29,20 @@ const ResourceCourseTab = ({ resources }) => {
 
   useEffect(() => {
     if (!courseID) {
-      redirect(`/admin/resources/${resources[0].id}`)
+      navigate(`/admin/resources/${courses[0]?.id}`, {
+        state: { courseID: courses[0]?.id },
+      })
     }
     activeRoute(courseID)
-  }, [courseID, resources])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [courseID, courses])
 
-  const coursesNav = resources?.map((course) => {
+  const coursesNav = courses?.map((course) => {
     return (
       <li key={course?.id} className={['nav-item', style.link].join(' ')}>
         <NavLink
           state={{
-            courseTitle: course.title,
-            courseResources: course.resources,
+            courseID: course?.id,
           }}
           to={`/admin/resources/${course?.id}`}
           className={[
@@ -63,7 +73,7 @@ const ResourceCourseTab = ({ resources }) => {
 }
 
 ResourceCourseTab.propTypes = {
-  resources: PropTypes.array,
+  courses: PropTypes.array,
   // feedback: PropTypes.node,
 }
 

@@ -13,7 +13,7 @@ const AddAFile = () => {
       tabIndex='-1'
       aria-labelledby='start-a-class'
     >
-      <div className='modal-dialog modal-fullscreen-md-down modal-lg'>
+      <div className='modal-dialog modal-dialog-centered modal-fullscreen-md-down modal-lg'>
         <div className='modal-content'>
           <div className='modal-header d-flex justify-content-end'>
             <MdClose

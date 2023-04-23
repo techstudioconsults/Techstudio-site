@@ -114,7 +114,7 @@ const DeleteModal = ({ content }) => {
       data-bs-backdrop='static'
       data-bs-keyboard='false'
     >
-      <div className='modal-dialog modal-fullscreen-md-down modal-md modal-dialog-centered'>
+      <div className='modal-dialog modal-dialog-centered modal-fullscreen-md-down modal-md modal-dialog-centered'>
         <div className='modal-content'>
           <div
             className={[

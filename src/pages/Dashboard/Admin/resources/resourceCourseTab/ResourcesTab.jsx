@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { DASHBOARD_CONTENT } from '../../../../../layout/Layout/dashboardLayout/content'
 import style from './resourceTab.module.scss'
 import '../../../../../components/dashboard/resources/custom.css'
@@ -6,9 +6,14 @@ import PropTypes from 'prop-types'
 import AdminResourceListDisplay from './AdminResourceListDisplay'
 import { useLocation } from 'react-router-dom'
 import Feedback from '../../../../../components/global/feedbacks/Feedback'
+import { useSelector } from 'react-redux'
+import { selectAllResources } from '../api/resourceSlice'
 
 const ResourceTab = () => {
-  const { studentBoard } = DASHBOARD_CONTENT
+  // const { studentBoard } = DASHBOARD_CONTENT
+  const [resources, setResources] = useState([])
+  const allResources = useSelector(selectAllResources)
+  const { state } = useLocation()
 
   function checkExtension(str) {
     // Split the string by the dot character
@@ -17,36 +22,50 @@ const ResourceTab = () => {
     return extension
   }
 
-  const { state } = useLocation()
-  // console.log(state)
+  useEffect(() => {
+    allResources.forEach((resource) => {
+      if (resource.id === state.courseID) {
+        setResources(resource)
+      }
+    })
+  }, [allResources, state.courseID])
 
-  const fileDisplay = state?.courseResources?.map((file) => {
-    if (checkExtension(file.name) !== `mp4`) {
+  const fileDisplay = resources?.resources?.map((file) => {
+    if (
+      checkExtension(file.name) !== `mp4` &&
+      checkExtension(file.name) !== `mp3`
+    ) {
       return (
         <AdminResourceListDisplay
           key={file.id}
           file={file}
-          course={state?.courseTitle}
+          // course={state?.courseTitle}
         />
       )
     }
-    // else {
-    //   return <Feedback key={file.id} />
-    // }
   })
-  const videoDisplay = state?.courseResources?.map((file) => {
+  const videoDisplay = resources?.resources?.map((file) => {
     if (checkExtension(file.name) === `mp4`) {
       return (
         <AdminResourceListDisplay
           key={file.id}
           file={file}
-          course={state?.courseTitle}
+          // course={state?.courseTitle}
         />
       )
     }
-    // else {
-    //   return <Feedback key={file.id} />
-    // }
+  })
+
+  const audioDisplay = resources?.resources?.map((file) => {
+    if (checkExtension(file.name) === `mp3`) {
+      return (
+        <AdminResourceListDisplay
+          key={file.id}
+          file={file}
+          // course={state?.courseTitle}
+        />
+      )
+    }
   })
 
   return (
@@ -96,7 +115,7 @@ const ResourceTab = () => {
               `hide_scrollbar d-flex flex-column gap-5`,
             ].join(' ')}
           >
-            {state?.courseResources.length ? (
+            {resources?.resources?.length ? (
               fileDisplay
             ) : (
               <Feedback message={`No resources uploaded for this course`} />
@@ -110,7 +129,7 @@ const ResourceTab = () => {
               `hide_scrollbar d-flex flex-column gap-5`,
             ].join(' ')}
           >
-            {state?.courseResources.length ? (
+            {resources?.resources?.length ? (
               videoDisplay
             ) : (
               <Feedback message={`No resources uploaded for this course`} />
@@ -124,8 +143,8 @@ const ResourceTab = () => {
               `hide_scrollbar d-flex flex-column gap-5`,
             ].join(' ')}
           >
-            {state?.courseResources.length ? (
-              fileDisplay
+            {resources?.resources?.length ? (
+              audioDisplay
             ) : (
               <Feedback message={`No resources uploaded for this course`} />
             )}

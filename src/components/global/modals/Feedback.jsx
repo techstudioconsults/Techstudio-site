@@ -10,7 +10,7 @@ const Feedback = ({ content }) => {
       tabIndex='-1'
       aria-labelledby='feedback'
     >
-      <div className='modal-dialog modal-fullscreen-md-down modal-lg px-lg-20'>
+      <div className='modal-dialog modal-dialog-centered modal-fullscreen-md-down modal-lg px-lg-20'>
         <div className='modal-content'>
           <div className='modal-header d-flex justify-content-end'>
             <MdClose

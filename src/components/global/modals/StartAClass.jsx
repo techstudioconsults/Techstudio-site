@@ -17,7 +17,7 @@ const StartAClass = ({ children, title }) => {
         aria-labelledby='start-a-class'
         aria-hidden='true'
       >
-        <div className='modal-dialog modal-fullscreen-md-down'>
+        <div className='modal-dialog modal-dialog-centered modal-fullscreen-md-down'>
           <div className='modal-content'>
             <div className='modal-header'>
               <h4 className='modal-title fs-5' id='start-a-class'>

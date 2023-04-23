@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const STATE = {
-  resources: {},
+  resources: [],
 }
 
 const RESOURCE_SLICE = {
