@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useSelector } from 'react-redux'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
@@ -10,13 +10,21 @@ import style from './upload.module.scss'
 import useToast from '../../../hooks/useToast'
 import ToastComponent from '../toast/ToastComponent'
 import Portal from '../POTAL/Portal'
-import { CancelModal, SaveSuccess } from '../..'
+import { SaveSuccess } from '../..'
+import { ErrorMessage } from '@hookform/error-message'
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
+// const schema = yup.object().shape({
+//   courseTitle: yup.string().oneOf([]).required(),
+//   file: yup.mixed().required('File is required'),
+// })
 // eslint-disable-next-line react/prop-types
 const AddAFile = () => {
   const [isLoading, setIsLoading] = useState(false)
+  const cancelButtonRef = useRef(null)
   const [errorMessage, setErrorMessage] = useState(null)
   const courses = useSelector(selectCourses)
   const token = useSelector(selectCurrentToken)
@@ -37,7 +45,16 @@ const AddAFile = () => {
     )
   })
 
-  const { register, handleSubmit } = useForm()
+  const {
+    // reset,
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitSuccessful },
+  } = useForm({
+    criteriaMode: 'all',
+    mode: 'onChange',
+    // resolver: yupResolver(schema),
+  })
 
   const submitResource = async (data) => {
     setIsLoading(true)
@@ -58,6 +75,7 @@ const AddAFile = () => {
       console.log(res)
       if (res.data.success) {
         setIsLoading(false)
+        cancelButtonRef.current.click()
         modal.show()
       }
     } catch (err) {
@@ -79,14 +97,8 @@ const AddAFile = () => {
             action: `resource`,
           }}
         />
-        <CancelModal
-          content={{
-            action: `create`,
-            routeAction: `resource`,
-            // courseID: courseID,
-          }}
-        />
       </Portal>
+
       <div
         className='modal fade'
         id='add-resource'
@@ -95,13 +107,6 @@ const AddAFile = () => {
       >
         <div className='modal-dialog modal-dialog-centered modal-fullscreen-md-down modal-lg '>
           <div className='modal-content'>
-            {/* <div className='modal-header d-flex justify-content-end'>
-            <MdClose
-              size={`1.5rem`}
-              data-bs-dismiss='modal'
-              aria-label='Close'
-            />
-          </div> */}
             <form
               onSubmit={handleSubmit(submitResource)}
               className={['modal-body p-16'].join(' ')}
@@ -114,7 +119,7 @@ const AddAFile = () => {
                 <div className='mb-8 d-flex row'>
                   <div className='col-4'>
                     <label
-                      htmlFor='title'
+                      htmlFor='courseTitle'
                       className={`col-form-label fs-lg text-blue fw-semibold ${style.labels} w-100`}
                     >
                       Course
@@ -123,6 +128,7 @@ const AddAFile = () => {
                   <div className='col-8'>
                     <div className={`${style.inputs} w-100`}>
                       <select
+                        // required
                         {...register(`courseTitle`)}
                         className='form-select'
                         aria-label='Default select example'
@@ -133,6 +139,21 @@ const AddAFile = () => {
                         </option>
                         {coursesTitle}
                       </select>
+                      <ErrorMessage
+                        errors={errors}
+                        name='courseTitle'
+                        render={({ messages }) => {
+                          return messages
+                            ? Object.entries(messages).map(
+                                ([type, message]) => (
+                                  <p className='fs-xs text-danger' key={type}>
+                                    {message}
+                                  </p>
+                                )
+                              )
+                            : null
+                        }}
+                      />
                     </div>
                   </div>
                 </div>
@@ -157,12 +178,28 @@ const AddAFile = () => {
                           }
                         >
                           <input
+                            // required
                             {...register(`files`)}
                             id='resource'
                             type='file'
                             multiple
                           />
                         </div>
+                        <ErrorMessage
+                          errors={errors}
+                          name='file'
+                          render={({ messages }) => {
+                            return messages
+                              ? Object.entries(messages).map(
+                                  ([type, message]) => (
+                                    <p className='fs-xs text-danger' key={type}>
+                                      {message}
+                                    </p>
+                                  )
+                                )
+                              : null
+                          }}
+                        />
                       </div>
                     </div>
                   </div>
@@ -184,8 +221,10 @@ const AddAFile = () => {
                     </button>
                     <button
                       type='button'
-                      // onClick={handleCancelAction}
+                      data-bs-dismiss='modal'
+                      aria-label='Close'
                       className='btn btn-outline-danger w-25 dont-delete-btn'
+                      ref={cancelButtonRef}
                     >
                       Cancel
                     </button>

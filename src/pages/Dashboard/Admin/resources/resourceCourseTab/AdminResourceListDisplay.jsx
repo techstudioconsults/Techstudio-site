@@ -5,7 +5,7 @@ import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { DeleteModal, Portal } from '../../../../../components'
 import Feedback from '../../../../../components/global/feedbacks/Feedback'
 
-const AdminResourceListDisplay = ({ file, course }) => {
+const AdminResourceListDisplay = ({ file, course, type }) => {
   const handleDeleteModal = () => {
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
@@ -14,6 +14,19 @@ const AdminResourceListDisplay = ({ file, course }) => {
       modal.show()
     } catch (err) {
       console.log(err)
+    }
+  }
+
+  const setIcon = () => {
+    switch (type) {
+      case `document`:
+        return `flat-color-icons:document`
+      case `video`:
+        return `vscode-icons:file-type-video`
+      case `audio`:
+        return `flat-color-icons:audio-file`
+      default:
+        break
     }
   }
 
@@ -34,11 +47,11 @@ const AdminResourceListDisplay = ({ file, course }) => {
           <section className='d-flex justify-content-between align-items-center'>
             <div className='d-flex align-items-center gap-10'>
               <div
-                className={
-                  file.color === `red` ? `text-danger` : `text-primary`
-                }
+              // className={
+              //   file.color === `red` ? `text-danger` : `text-primary`
+              // }
               >
-                <Icon width={`2rem`} icon={file?.icon} />
+                <Icon width={`2rem`} icon={setIcon()} />
               </div>
               <div>
                 <p className='fw-semibold text-blue'>{file?.name}</p>
@@ -74,6 +87,7 @@ const AdminResourceListDisplay = ({ file, course }) => {
 AdminResourceListDisplay.propTypes = {
   file: PropTypes.object,
   course: PropTypes.string,
+  type: PropTypes.string,
 }
 
 export default AdminResourceListDisplay

@@ -13,7 +13,9 @@ const ResourceTab = () => {
   // const { studentBoard } = DASHBOARD_CONTENT
   const [resources, setResources] = useState([])
   const allResources = useSelector(selectAllResources)
-  const { state } = useLocation()
+  const location = useLocation()
+
+  console.log(location)
 
   function checkExtension(str) {
     // Split the string by the dot character
@@ -24,11 +26,11 @@ const ResourceTab = () => {
 
   useEffect(() => {
     allResources.forEach((resource) => {
-      if (resource.id === state.courseID) {
+      if (resource.id === location.state.courseID) {
         setResources(resource)
       }
     })
-  }, [allResources, state.courseID])
+  }, [allResources, location.state.courseID])
 
   const fileDisplay = resources?.resources?.map((file) => {
     if (
@@ -39,6 +41,7 @@ const ResourceTab = () => {
         <AdminResourceListDisplay
           key={file.id}
           file={file}
+          type={`document`}
           // course={state?.courseTitle}
         />
       )
@@ -50,6 +53,7 @@ const ResourceTab = () => {
         <AdminResourceListDisplay
           key={file.id}
           file={file}
+          type={`video`}
           // course={state?.courseTitle}
         />
       )
@@ -62,6 +66,7 @@ const ResourceTab = () => {
         <AdminResourceListDisplay
           key={file.id}
           file={file}
+          type={`audio`}
           // course={state?.courseTitle}
         />
       )

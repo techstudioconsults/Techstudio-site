@@ -150,7 +150,7 @@ const App = () => {
                 element={<EditLesson />}
               />
               <Route path='/admin/resources' element={<AdminResourceView />}>
-                <Route index path=':resource' element={<ResourcesTab />} />
+                <Route path=':resource' element={<ResourcesTab />} />
               </Route>
               <Route path='/admin/users' element={<AdminUsersView />}>
                 <Route

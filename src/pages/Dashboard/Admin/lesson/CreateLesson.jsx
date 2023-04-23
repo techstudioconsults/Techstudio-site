@@ -23,6 +23,7 @@ import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { ErrorMessage } from '@hookform/error-message'
 import { useGetClassByCourseIDMutation } from '../classes/api/classApiSlice'
+import { useViewCoursesDetailsMutation } from '../courses/api/coursesApiSlice'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
@@ -73,6 +74,7 @@ const durationSelectInput = {
 
 const schema = yup.object().shape({
   topic: yup.string().required('title is required'),
+  class: yup.object().required('class is required'),
   tutor: yup.object().required('at least one tutor is required'),
   date: yup.string().required('date field is required?'),
   time: yup.string().required('what time does the lesson start?'),
@@ -86,8 +88,7 @@ const CreateLesson = () => {
   const [isLoading, setLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState(null)
   const [getClassesByCourseID] = useGetClassByCourseIDMutation()
-  const location = useLocation()
-  // console.log(location)
+  const [viewCoursesDetails] = useViewCoursesDetailsMutation()
   const { toast } = useToast()
   const { courseID } = useParams()
 
@@ -111,17 +112,36 @@ const CreateLesson = () => {
   }, [getClasses])
 
   const classOption = classes?.map((classItem) => {
-    return (
-      <option key={classItem.id} value={classItem.id}>
-        {classItem.title}
-      </option>
-    )
+    return {
+      value: classItem.id,
+      label: classItem.title,
+    }
+    // return (
+    //   <option key={classItem.id} value={classItem.id}>
+    //     {classItem.title}
+    //   </option>
+    // )
   })
 
-  const getTutors = (e) => {
-    setClassID(e.target.value)
+  // const getTutors = (e) => {
+  //   setClassID(e.target.value)
+  //   classes?.map((singleClass) => {
+  //     if (singleClass.id === e.target.value) {
+  //       const tutorsList = singleClass.tutors.map((tutor) => {
+  //         return {
+  //           value: tutor.id,
+  //           label: tutor.name,
+  //         }
+  //       })
+  //       setTutors(tutorsList)
+  //     }
+  //   })
+  // }
+
+  const getTutors = (value) => {
+    setClassID(value)
     classes?.map((singleClass) => {
-      if (singleClass.id === e.target.value) {
+      if (singleClass.id === value) {
         const tutorsList = singleClass.tutors.map((tutor) => {
           return {
             value: tutor.id,
@@ -130,29 +150,69 @@ const CreateLesson = () => {
         })
         setTutors(tutorsList)
       }
+      // if (singleClass.id === value) {
+      //   Object?.keys(singleClass.resources)?.forEach((key) => {
+      //     singleClass.resources[key]?.map((resource) => {
+      //       console.log(`resource`)
+      //       setResources((prevState) => {
+      //         return [
+      //           ...prevState,
+      //           {
+      //             value: resource,
+      //             label: resource,
+      //           },
+      //         ]
+      //       })
+      //     })
+      //   })
+      // }
     })
   }
 
-  const allResources = useCallback(async () => {
-    let resources = location?.state?.resources
-    Object?.keys(resources)?.forEach((key) => {
-      resources[key]?.map((res) => {
-        setResources((prevState) => {
-          return [
-            ...prevState,
-            {
-              value: res,
-              label: res,
-            },
-          ]
+  const getResources = useCallback(async () => {
+    const res = await viewCoursesDetails(courseID).unwrap()
+    if (res.success) {
+      Object?.keys(res.data.resources)?.forEach((key) => {
+        res.data.resources[key]?.map((resource) => {
+          console.log(resource)
+          setResources((prevState) => {
+            return [
+              ...prevState,
+              {
+                value: resource,
+                label: resource,
+              },
+            ]
+          })
         })
       })
-    })
-  }, [location?.state?.resources])
+    }
+  }, [courseID, viewCoursesDetails])
 
   useEffect(() => {
-    allResources()
-  }, [allResources])
+    getResources()
+  }, [getResources])
+
+  // const allResources = useCallback(async () => {
+  //   let resources = location?.state?.resources
+  //   Object?.keys(resources)?.forEach((key) => {
+  //     resources[key]?.map((res) => {
+  //       setResources((prevState) => {
+  //         return [
+  //           ...prevState,
+  //           {
+  //             value: res,
+  //             label: res,
+  //           },
+  //         ]
+  //       })
+  //     })
+  //   })
+  // }, [location?.state?.resources])
+
+  // useEffect(() => {
+  //   allResources()
+  // }, [allResources])
 
   const {
     // reset,
@@ -289,7 +349,58 @@ const CreateLesson = () => {
               </div>
             </div>
             {/* Classes */}
-            <div className='mb-8 d-flex row align-items-center'>
+            <div className='mb-8 row'>
+              <div className='col-4'>
+                <label
+                  htmlFor='class'
+                  className={`col-form-label fs-lg ${style.labels}`}
+                >
+                  Class
+                </label>
+              </div>
+              <div className='col-8'>
+                <div className={`${style.inputs} w-100`}>
+                  <div>
+                    <Controller
+                      name='class'
+                      control={control}
+                      render={({ field: { onChange, value } }) => {
+                        return (
+                          <>
+                            <Select
+                              styles={colorStyles}
+                              className='reactSelect my-2'
+                              name='class'
+                              placeholder='select a class'
+                              options={classOption}
+                              onChange={(selectedOption) => {
+                                onChange(selectedOption)
+                                getTutors(selectedOption.value)
+                              }}
+                              value={value}
+                            />
+                          </>
+                        )
+                      }}
+                    />
+                    <ErrorMessage
+                      errors={errors}
+                      name='class'
+                      render={({ messages }) => {
+                        return messages
+                          ? Object.entries(messages).map(([type, message]) => (
+                              <p className='fs-xs text-danger' key={type}>
+                                {message}
+                              </p>
+                            ))
+                          : null
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* <div className='mb-8 d-flex row align-items-center'>
               <div className='col-4'>
                 <label
                   htmlFor='classes'
@@ -311,7 +422,7 @@ const CreateLesson = () => {
                   </select>
                 </div>
               </div>
-            </div>
+            </div> */}
             {/* tutors */}
             <div className='mb-8 row'>
               <div className='col-4'>
