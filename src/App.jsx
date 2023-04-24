@@ -1,7 +1,7 @@
 // REACT DEFAULTS
 import React from 'react'
 import { Suspense } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 
 // COMPONENTS
 import {
@@ -60,6 +60,8 @@ import AdminUsersView from './pages/Dashboard/Admin/users/AdminUsersView'
 import AdminUserListDisplay from './pages/Dashboard/Admin/users/userCourseTab/UsersListDisplay'
 import TrackAnalysisLayout from './pages/Dashboard/Admin/components/tab/trackAnalysislayout/TrackAnalysisLayout'
 import OPTVerification from './pages/Auth/OTP/OTPVerification'
+import { selectUserType } from './app/api/appSlice'
+import StudentListDisplay from './pages/Dashboard/Admin/users/userCourseTab/StudentListDisplay'
 
 const App = () => {
   const {
@@ -72,6 +74,7 @@ const App = () => {
 
   const classes = useSelector(selectClasses)
   const lessons = useSelector(selectLessons)
+  const userType = useSelector(selectUserType)
 
   return (
     <Suspense fallback={<Loading text='LOADING...' />}>
@@ -156,7 +159,13 @@ const App = () => {
                 <Route
                   index
                   path=':courseID'
-                  element={<AdminUserListDisplay />}
+                  element={
+                    userType === `tutor` ? (
+                      <AdminUserListDisplay />
+                    ) : (
+                      <StudentListDisplay />
+                    )
+                  }
                 />
               </Route>
             </Route>

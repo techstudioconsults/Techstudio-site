@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux'
 import { selectAllStudents, selectAllTutors } from '../api/usersSlice'
 import SpinnerComponent from '../../../../../components/global/skeletonLoader/SpinnerComponent'
 
-const AdminUserListDisplay = () => {
+const StudentListDisplay = () => {
   const [getAllTutors] = useGetAllTutorsMutation()
   const [getAllStudents] = useGetAllStudentsMutation()
   const [getTutorsByCourseID, tutorsArgs] = useGetTutorsByCourseIDMutation()
@@ -49,51 +49,50 @@ const AdminUserListDisplay = () => {
   return (
     <>
       <section className='container d-flex flex-column gap-5'>
-        {tutorsArgs.isLoading ? (
+        {studentsArgs.isLoading ? (
           <SpinnerComponent />
         ) : (
-          allTutors?.map((tutor, index) => {
+          allStudents?.map((student, index) => {
             return (
               <div
                 key={index}
-                className='row align-items-center border border-1 px-2 py-1'
+                className='row align-items-center border border-1 p-2'
               >
-                <section className='col col-3'>
-                  <div className='d-flex gap-3'>
-                    <Avatar />
+                <section className='col col-4'>
+                  <div className='d-flex'>
                     <div>
-                      <p className='fw-bold text-blue'>{tutor?.fullName}</p>
+                      <p className='fw-bold text-blue'>{student?.fullName}</p>
                     </div>
                   </div>
                 </section>
                 <section className='col col-3'>
                   <div>
-                    <p className='fs-sm text-secondary'>{tutor?.course}</p>
+                    <p className='fs-sm text-secondary'>{student?.course}</p>
                   </div>
                 </section>
                 <section className='col col-3'>
                   <div>
                     <p className='fs-sm text-primary fw-semibold'>
-                      {tutor?.email}
+                      {student?.email}
                     </p>
                   </div>
                 </section>
                 <section className='col col-2'>
                   <div>
-                    <p className='fs-sm text-primary fw-semibold'>
-                      {tutor?.phoneNumber}
+                    <p className='fs-sm text-danger fw-semibold'>
+                      {student?.phoneNumber}
                     </p>
                   </div>
                 </section>
-                <section className='col col-1'>
-                  <div className='text-danger' style={{ cursor: `pointer` }}>
-                    <button
-                      className={`text-danger btn btn-outline btn-sm fw-semibold`}
-                    >
-                      Remote
-                    </button>
-                  </div>
-                </section>
+                {/* <section className='col col-1'>
+                <div className='text-danger' style={{ cursor: `pointer` }}>
+                  <button
+                    className={`text-danger btn btn-outline btn-sm fw-semibold`}
+                  >
+                    Remove
+                  </button>
+                </div>
+              </section> */}
               </div>
             )
           })
@@ -103,9 +102,9 @@ const AdminUserListDisplay = () => {
   )
 }
 
-AdminUserListDisplay.propTypes = {
+StudentListDisplay.propTypes = {
   file: PropTypes.object,
   course: PropTypes.string,
 }
 
-export default AdminUserListDisplay
+export default StudentListDisplay

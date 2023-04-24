@@ -326,6 +326,7 @@ const CreateCourse = () => {
               </label>
               <div className={style.inputs}>
                 <textarea
+                  maxLength={`500`}
                   placeholder='Placeholder Text'
                   type='text'
                   className='form-control form-control-lg'

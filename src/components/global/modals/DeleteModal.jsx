@@ -22,8 +22,7 @@ const DeleteModal = ({ content }) => {
   const [viewAllCourses] = useViewAllCoursesMutation()
   const [getClassByCourseID] = useGetClassByCourseIDMutation()
   const [getLessonByCourseID] = useGetLessonByCourseIDMutation()
-
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
   // async function closeModal() {
   //   const modal = document.querySelector('.delete-modal')
@@ -38,6 +37,10 @@ const DeleteModal = ({ content }) => {
     switch (content.action) {
       case `delete-course`:
         await viewAllCourses().unwrap()
+        dispatch({
+          type: `courses/setCourseDetails`,
+          payload: { courseDetails: null },
+        })
         break
       case `delete-class`:
         await getClassByCourseID(content.courseID).unwrap()

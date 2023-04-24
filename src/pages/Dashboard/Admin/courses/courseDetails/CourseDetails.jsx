@@ -9,7 +9,7 @@ import { selectCourseDetailsLoading } from '../../../../../app/api/appSlice'
 import SpinnerComponent from '../../../../../components/global/skeletonLoader/SpinnerComponent'
 
 const CourseDetails = ({ courseDetails, show }) => {
-  const { title, description, tutors, duration } = courseDetails
+  // const { title, description, tutors, duration } = courseDetails
   const { imageList } = DASHBOARD_CONTENT
   const courseDetailsLoading = useSelector(selectCourseDetailsLoading)
 
@@ -21,9 +21,11 @@ const CourseDetails = ({ courseDetails, show }) => {
         </div>
       ) : (
         <>
-          <div className={style.courseBanner}>
-            <p className={`${style.title} fw-bold mb-3`}>{title}</p>
-            <p className={style.text}>{description}</p>
+          <div className={`${style.courseBanner} hide_scrollbar`}>
+            <p className={`${style.title} fw-bold mb-3`}>
+              {courseDetails?.title}
+            </p>
+            <p className={style.text}>{courseDetails?.description}</p>
           </div>
           <div>
             <table className='table table-borderless table-lg align-middle'>
@@ -59,14 +61,16 @@ const CourseDetails = ({ courseDetails, show }) => {
                     Online:
                   </th>
                   <td>
-                    <div className='text-white'>{duration?.online} weeks</div>
+                    <div className='text-white'>
+                      {courseDetails?.duration?.online} weeks
+                    </div>
                   </td>
                   <td>
                     <div className='text-white'>N/A</div>
                   </td>
                   <td>
                     <AvatarStack
-                      tutors={tutors?.online}
+                      tutors={courseDetails?.tutors?.online}
                       dontShowMore
                       imageList={imageList}
                     />
@@ -77,14 +81,16 @@ const CourseDetails = ({ courseDetails, show }) => {
                     Weekday:
                   </th>
                   <td>
-                    <div className='text-white'>{duration?.weekday} weeks</div>
+                    <div className='text-white'>
+                      {courseDetails?.duration?.weekday} weeks
+                    </div>
                   </td>
                   <td>
                     <div className='text-white'>N/A</div>
                   </td>
                   <td>
                     <AvatarStack
-                      tutors={tutors?.weekday}
+                      tutors={courseDetails?.tutors?.weekday}
                       dontShowMore
                       imageList={imageList}
                     />
@@ -95,14 +101,16 @@ const CourseDetails = ({ courseDetails, show }) => {
                     Weekend:
                   </th>
                   <td>
-                    <div className='text-white'>{duration?.weekend} weeks</div>
+                    <div className='text-white'>
+                      {courseDetails?.duration?.weekend} weeks
+                    </div>
                   </td>
                   <td>
                     <div className='text-white'>N/A</div>
                   </td>
                   <td>
                     <AvatarStack
-                      tutors={tutors?.weekend}
+                      tutors={courseDetails?.tutors?.weekend}
                       dontShowMore
                       imageList={imageList}
                     />

@@ -198,8 +198,9 @@ const StudentRegistrationForm = () => {
           <div className='col-8'>
             <div className={` w-100`}>
               <input
-                placeholder='080123456789'
-                type='number'
+                type='tel'
+                pattern='[0-9]{11}'
+                placeholder='08012345678'
                 className='form-control form-control-lg'
                 id='phoneNumber'
                 {...register('phoneNumber', validation)}

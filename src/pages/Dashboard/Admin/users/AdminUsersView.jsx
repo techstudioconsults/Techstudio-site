@@ -1,17 +1,16 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import { AddResource, AvatarDropdown, Portal } from '../../../../components'
+import { AvatarDropdown, Portal } from '../../../../components'
 import style from './adminUsers.module.scss' //using courses view layout !important
 import 'react-loading-skeleton/dist/skeleton.css'
 import { Icon } from '@iconify/react'
-import TeacherClassNotificationView from '../../Teacher/components/teacherClassNotificationView/TeacherClassNotificationView'
+// import TeacherClassNotificationView from '../../Teacher/components/teacherClassNotificationView/TeacherClassNotificationView'
 import { useCallback, useEffect } from 'react'
 import UsersTab from './userCourseTab/UsersTab'
 import { useSelector } from 'react-redux'
 import { useViewAllCoursesMutation } from '../courses/api/coursesApiSlice'
 import { selectCourses } from '../courses/api/coursesSlice'
-import { Link } from 'react-router-dom'
 import UserRegistrationFormModal from './userRegistrationForms/UserRegistrationFormModal'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 

@@ -234,29 +234,22 @@ const EditLesson = () => {
     const files = [...data.files]
 
     formData.append(`topic`, data.topic)
-
     formData.append(`tutor`, data.tutor.value)
-
     formData.append(`date`, new Date(data.date).toISOString())
     formData.append(`time`, data.time)
-
     if (resources.length) {
       data.resources.forEach((item) =>
         formData.append('resources[]', item.value)
       )
     }
-
     files.forEach((item) => formData.append('files', item))
-
     for (var pair of formData.entries()) {
       console.log(pair[0] + ', ' + pair[1])
     }
-
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
         document.getElementById('save-success')
       )
-
       const res = await axios.patch(
         `${baseUrl}/lesson/${lessonID}`,
         formData,

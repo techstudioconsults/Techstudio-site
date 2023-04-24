@@ -89,6 +89,7 @@
   border-radius: fn.rem(10);
   background-color: colors.$deep-blue;
   color: colors.$light;
+  width: 100%;
   height: 100%;
   font-size: fn.rem(10);
   overflow: scroll;
@@ -104,6 +105,9 @@
     border: 1px solid colors.$blue;
     border-radius: fn.rem(20) fn.rem(20) fn.rem(20) 0;
     margin-bottom: fn.rem(32);
+    width: 100%;
+    height: 15rem;
+    overflow: scroll;
     .text {
       color: colors.$gray;
       font-size: fn.rem(10);

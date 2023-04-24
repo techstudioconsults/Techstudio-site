@@ -33,7 +33,6 @@ const UsersCourseTab = ({ courses, type }) => {
       <li key={course?.id} className={['nav-item', style.link].join(' ')}>
         <NavLink
           state={{
-            type: type,
             courseID: course.id,
           }}
           to={`/admin/users/${course?.id}`}
@@ -57,7 +56,6 @@ const UsersCourseTab = ({ courses, type }) => {
         <li key={1} className={['nav-item', style.link].join(' ')}>
           <NavLink
             state={{
-              type: type,
               courseID: `all`,
             }}
             to={`/admin/users/${`all`}`}

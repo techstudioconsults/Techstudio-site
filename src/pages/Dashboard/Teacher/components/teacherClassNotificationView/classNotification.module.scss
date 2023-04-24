@@ -21,6 +21,8 @@
       border: 2px solid colors.$light;
       border-radius: fn.rem(20);
       border-bottom-left-radius: 0;
+      height: 12rem;
+      // overflow: scroll;
 
       .avatar {
         position: absolute;
@@ -29,6 +31,7 @@
         transform: translate(-50%, -50%);
         border: 2px solid colors.$light;
         border-radius: 100%;
+        z-index: 999;
       }
 
       .title,

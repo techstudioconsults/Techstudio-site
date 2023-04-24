@@ -6,7 +6,7 @@ import UsersCourseTab from './UsersCourseTab'
 import { useDownloadAllTutorsMutation } from '../api/usersApiSlice'
 import download from 'downloadjs'
 import axios from 'axios'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { selectCurrentToken } from '../../../../Auth/api/authSlice'
 import { useLocation, useParams } from 'react-router-dom'
 const baseUrl = process.env.REACT_APP_BASE_URL
@@ -17,6 +17,7 @@ const UserTab = ({ courses }) => {
   const token = useSelector(selectCurrentToken)
   const { courseID } = useParams()
   console.log(courseID)
+  const dispatch = useDispatch()
   // const [downloadAllTutors] = useDownloadAllTutorsMutation()
 
   // const handleDownload = async () => {
@@ -121,6 +122,15 @@ const UserTab = ({ courses }) => {
     courseID !== `all` ? downloadStudentsByID() : downloadAllStudents()
   }
 
+  const handleTutorTab = () => {
+    setTutorTab(true)
+    dispatch({ type: `app/setUserType`, payload: `tutor` })
+  }
+  const handleStudentTab = () => {
+    setTutorTab(false)
+    dispatch({ type: `app/setUserType`, payload: `student` })
+  }
+
   return (
     <section className={style.tab}>
       <div className='d-flex flex-column flex-md-row align-items-center justify-content-between gap-3'>
@@ -132,7 +142,7 @@ const UserTab = ({ courses }) => {
                 id='ongoing-tab'
                 data-bs-toggle='tab'
                 href='#ongoing'
-                onClick={() => setTutorTab(true)}
+                onClick={handleTutorTab}
               >
                 Tutors
               </a>
@@ -143,7 +153,7 @@ const UserTab = ({ courses }) => {
                 id='previous-tab'
                 data-bs-toggle='tab'
                 href='#previous'
-                onClick={() => setTutorTab(false)}
+                onClick={handleStudentTab}
               >
                 Students
               </a>
