@@ -52,15 +52,15 @@ const AdminClassDisplayCard = ({ singleClass }) => {
     return `${dateSet[2]} ${dateSet[1]}, ${dateSet[3]}`
   }
 
-  const convertWeekToReadable = (date) => {
-    let dateSet = new Date(date).toUTCString().split(',')
-    let weekData = weeks.filter((week) => {
-      if (week.week.includes(dateSet[0])) {
-        return week.week
-      }
-    })
-    return `${weekData[0].week}`
-  }
+  // const convertWeekToReadable = (date) => {
+  //   let dateSet = new Date(date).toUTCString().split(',')
+  //   let weekData = weeks.filter((week) => {
+  //     if (week.week.includes(dateSet[0])) {
+  //       return week.week
+  //     }
+  //   })
+  //   return `${weekData[0].week}`
+  // }
 
   const showClassDetails = () => {
     console.log(`details`)
@@ -125,7 +125,7 @@ const AdminClassDisplayCard = ({ singleClass }) => {
               <div
                 className={`${style.tableHead} h-100 fs-sm fw-semibold text-muted text-end`}
               >
-                <span>{convertWeekToReadable(singleClass?.startDate)}</span>
+                <span>{singleClass?.preference}</span>
               </div>
             </div>
             <div className='col-3'>
