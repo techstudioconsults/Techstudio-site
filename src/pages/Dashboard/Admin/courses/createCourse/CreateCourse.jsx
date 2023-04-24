@@ -261,9 +261,9 @@ const CreateCourse = () => {
             <div className='mb-8 d-flex align-items-center '>
               <label
                 htmlFor='title'
-                className={`col-form-label fs-2xl ${style.labels}`}
+                className={`col-form-label fs-lg ${style.labels}`}
               >
-                Title
+                Course
               </label>
               <div className={style.inputs}>
                 <input
@@ -292,9 +292,9 @@ const CreateCourse = () => {
             <div className='mb-8 d-flex'>
               <label
                 htmlFor='description'
-                className={`col-form-label fs-2xl ${style.labels}`}
+                className={`col-form-label fs-lg ${style.labels}`}
               >
-                About Courses
+                About Course
               </label>
               <div className={style.inputs}>
                 <textarea
@@ -324,7 +324,7 @@ const CreateCourse = () => {
             <div className='mb-8 d-flex'>
               <p
                 // htmlFor='duration'
-                className={`col-form-label fs-2xl ${style.labels}`}
+                className={`col-form-label fs-lg ${style.labels}`}
               >
                 Duration
               </p>
@@ -442,7 +442,7 @@ const CreateCourse = () => {
             <div className='mb-8 d-flex'>
               <label
                 htmlFor='title'
-                className={`col-form-label fs-2xl ${style.labels}`}
+                className={`col-form-label fs-lg ${style.labels}`}
               >
                 Tutors
               </label>
@@ -559,7 +559,7 @@ const CreateCourse = () => {
               <div className='d-flex gap-20 '>
                 <label
                   htmlFor='title'
-                  className={`col-form-label fs-2xl ${style.labels}`}
+                  className={`col-form-label fs-lg ${style.labels}`}
                 >
                   Resources
                 </label>
