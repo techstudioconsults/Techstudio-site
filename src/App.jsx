@@ -168,6 +168,10 @@ const App = () => {
                   }
                 />
               </Route>
+              {/* PAYMENT ROUTE */}
+              {/* <Route element={<Payment />}>
+                <Route element={<PamentTab />} />
+              </Route> */}
             </Route>
           </Route>
           {/* student routes */}

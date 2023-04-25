@@ -55,13 +55,14 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
         )
       })
     ) : (
-      <Feedback message={`you have zero ungoing classes at the moment`} />
+      <Feedback message={`you have zero ongoing classes at the moment`} />
     )
 
     previousClasses = classes?.previous?.length ? (
       classes?.previous?.map((singleClass) => {
         return (
           <AdminClassDisplayCard
+            isPrevious
             key={singleClass.id}
             singleClass={singleClass}
           />

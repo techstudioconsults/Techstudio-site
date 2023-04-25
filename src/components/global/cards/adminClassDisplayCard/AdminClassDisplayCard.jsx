@@ -21,7 +21,7 @@ const weeks = [
   { id: 7, week: `Sunday` },
 ]
 
-const AdminClassDisplayCard = ({ singleClass }) => {
+const AdminClassDisplayCard = ({ singleClass, isPrevious }) => {
   const [getTutors] = useGetTutorsMutation()
   const [classTutors, setClassTutors] = useState([])
   const { courseID } = useParams()
@@ -155,22 +155,11 @@ const AdminClassDisplayCard = ({ singleClass }) => {
                   <Icon width={`1.5rem`} icon={`ph:dots-three-vertical-bold`} />
                 </div>
                 <ul className={`dropdown-menu`}>
-                  {/* <div className='d-flex align-items-center text-primary px-3'>
-                    <Link
-                      to={`/admin/class/${courseID}/lesson/create`}
-                      state={singleClass}
-                    >
-                      <Icon
-                        width={`1.1rem`}
-                        icon={`healthicons:i-training-class`}
-                        className='me-3'
-                      />
-                      <span>Create Lesson</span>
-                    </Link>
-                  </div> */}
-                  <hr className='my-2' />
-                  <div className='d-flex align-items-center px-3'>
-                    {/* <Link to={`/admin/courses/${id}/edit`} state={{ course }}> */}
+                  <div
+                    className={`${
+                      isPrevious ? `d-none` : `d-flex`
+                    } align-items-center px-3`}
+                  >
                     <Link
                       to={`/admin/class/${singleClass.id}/edit`}
                       state={singleClass}
@@ -183,7 +172,7 @@ const AdminClassDisplayCard = ({ singleClass }) => {
                       <span>Edit class</span>
                     </Link>
                   </div>
-                  <hr className='my-2' />
+                  <hr hidden={isPrevious} className='my-2' />
                   <div
                     onClick={handleDeleteModal}
                     className='d-flex align-items-center text-danger px-3'
@@ -207,6 +196,7 @@ const AdminClassDisplayCard = ({ singleClass }) => {
 
 AdminClassDisplayCard.propTypes = {
   singleClass: PropTypes.object,
+  isPrevious: PropTypes.bool,
 }
 
 export default AdminClassDisplayCard
