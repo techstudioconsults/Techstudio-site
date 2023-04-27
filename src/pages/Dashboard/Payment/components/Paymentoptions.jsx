@@ -4,9 +4,9 @@ import { courses, paidCourses } from '../data'
 
 const Paymentoptions = () => {
   const { courseID } = useParams()
+
   return (
     <div>
-      <h1> {courseID}</h1>
       <div className='mt-4 d-flex justify-content-end align-items-center gap-3'>
         <div>
           <select
@@ -35,6 +35,34 @@ const Paymentoptions = () => {
             Download List
           </a>
         </div>
+      </div>
+      <div className='mt-5'>
+        {paidCourses.map((c) => {
+          return (
+            <div
+              key={c.id}
+              className='d-flex justify-content-around align-items-center border border-2 border-secondary my-4'
+            >
+              <div>
+                <h6 className=''>{c.name} </h6>
+                <p>{c.class} </p>
+              </div>
+              <div>
+                <p>{c.total} </p>
+              </div>
+              <div>
+                <p className='text-success'>{c.amountPaid} </p>
+                <p className='text-muted'>{c.date}</p>
+              </div>
+              <div>
+                <p className='text-primary'>{c.balance} </p>
+              </div>
+              <div>
+                <p>{c.status}</p>
+              </div>
+            </div>
+          )
+        })}
       </div>
     </div>
   )

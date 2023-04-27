@@ -152,9 +152,9 @@ export const paidCourses = [
 ]
 
 export const courses = [
-  'Product Management',
-  'UI/UX Design',
-  'Python Fullstack',
-  'Javascript Fullstack',
-  'Data Science',
+  { id: 1, name: 'Product Management' },
+  { id: 2, name: 'UI/UX Design' },
+  { id: 3, name: 'Python Fullstack' },
+  { id: 4, name: 'Javascript Fullstack' },
+  { id: 5, name: 'Data Science' },
 ]

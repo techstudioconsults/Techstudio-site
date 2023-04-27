@@ -1,14 +1,22 @@
-import React from 'react'
+import React, { useEffect, useCallback } from 'react'
 import { courses } from '../data'
-import { Link, Outlet } from 'react-router-dom'
+import {
+  Link,
+  Outlet,
+  useNavigate,
+  useParams,
+  useLocation,
+} from 'react-router-dom'
 
 const Paymenttab = () => {
-  const courseNav = courses.map((course, index) => {
+  const navigate = useNavigate()
+  const { courseID } = useParams()
+  const courseNav = courses.map((course) => {
     return (
-      <div className='mb-2' key={index}>
+      <div className='mb-2' key={course.id}>
         <div>
-          <Link className='d-block text-secondary' to={`courses/${index}`}>
-            {course}
+          <Link className='d-block text-secondary' to={`courses/${course.id}`}>
+            {course.name}
           </Link>
         </div>
       </div>
