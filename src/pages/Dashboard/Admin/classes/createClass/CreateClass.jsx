@@ -68,7 +68,7 @@ const colorStyles = {
 
 const schema = yup.object().shape({
   title: yup.string().required('title is required'),
-  // fee: yup.string().required('fee is required'),
+  fee: yup.string().required('fee is required'),
   description: yup.string().required('description is required'),
   tutors: yup
     .array()
@@ -141,6 +141,7 @@ const CreateClass = () => {
 
     formData.append(`title`, data.title)
     formData.append(`description`, data.description)
+    formData.append(`fee`, data.fee)
     formData.append(`preference`, data.preference)
     formData.append(`startDate`, new Date(data.startDate).toISOString())
     formData.append(`endDate`, new Date(data.endDate).toISOString())
@@ -299,7 +300,7 @@ const CreateClass = () => {
                     type='text'
                     className='form-control form-control-lg'
                     id='fee'
-                    // {...register('fee')}
+                    {...register('fee')}
                   />
                   <ErrorMessage
                     errors={errors}
@@ -507,8 +508,44 @@ const CreateClass = () => {
                 </div>
               </div>
             </div>
+            {/* Resource */}
+            <div className='mb-8 d-flex row'>
+              <div className='col-4'>
+                <label
+                  htmlFor='title'
+                  className={`col-form-label fs-lg ${style.labels} w-100`}
+                >
+                  Resources
+                </label>
+              </div>
+              <div className='col-8'>
+                <div className={`${style.inputs} w-100`}>
+                  <div>
+                    <Controller
+                      name='resources'
+                      control={control}
+                      render={({ field }) => {
+                        return (
+                          <>
+                            <Select
+                              styles={colorStyles}
+                              className='reactSelect my-2'
+                              name='resources'
+                              placeholder='Select a resource from the dropdown list'
+                              // options={resources}
+                              isMulti
+                              {...field}
+                            />
+                          </>
+                        )
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
             {/* file chooser */}
-            <section>
+            {/* <section>
               <div className='mb-8 align-items-center row'>
                 <div className='col-4'>
                   <label
@@ -536,7 +573,7 @@ const CreateClass = () => {
                   </div>
                 </div>
               </div>
-            </section>
+            </section> */}
             {/* CTA */}
             <div className='d-flex gap-10 justify-content-end my-8 row'>
               <div className={`w-100 text-end`}>

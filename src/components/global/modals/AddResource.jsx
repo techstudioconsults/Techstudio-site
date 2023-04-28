@@ -1,6 +1,5 @@
 import axios from 'axios'
-import React, { useRef, useState } from 'react'
-import { useForm } from 'react-hook-form'
+import React, { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { selectCurrentToken } from '../../../pages/Auth/api/authSlice'
@@ -11,24 +10,20 @@ import useToast from '../../../hooks/useToast'
 import ToastComponent from '../toast/ToastComponent'
 import Portal from '../POTAL/Portal'
 import { SaveSuccess } from '../..'
-import { ErrorMessage } from '@hookform/error-message'
-import * as yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
-// const schema = yup.object().shape({
-//   courseTitle: yup.string().oneOf([]).required(),
-//   file: yup.mixed().required('File is required'),
-// })
 // eslint-disable-next-line react/prop-types
 const AddAFile = () => {
   const [isLoading, setIsLoading] = useState(false)
+  const [isFilled, setIsFilled] = useState(false)
   const cancelButtonRef = useRef(null)
   const [errorMessage, setErrorMessage] = useState(null)
   const courses = useSelector(selectCourses)
   const token = useSelector(selectCurrentToken)
   const { toast } = useToast()
+  const [selectValue, setSelectValue] = useState(null)
+  const [fileValue, setFileValue] = useState(null)
 
   const credentials = {
     headers: {
@@ -45,30 +40,32 @@ const AddAFile = () => {
     )
   })
 
-  const {
-    // reset,
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitSuccessful },
-  } = useForm({
-    criteriaMode: 'all',
-    mode: 'onChange',
-    // resolver: yupResolver(schema),
-  })
+  const handleFileChange = (event) => {
+    setFileValue(event.target.files)
+  }
 
-  const submitResource = async (data) => {
+  const handleCourseChange = (event) => {
+    setSelectValue(event.target.value)
+  }
+
+  useEffect(() => {
+    if (fileValue && selectValue) {
+      setIsFilled(true)
+    }
+  }, [fileValue, selectValue])
+
+  const submitResource = async (e) => {
+    e.preventDefault()
     setIsLoading(true)
-    console.log(data)
-    const files = [...data.files]
     const formData = new FormData()
+    const files = [...fileValue]
     files.forEach((file) => formData.append(`files`, file))
-
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
         document.getElementById('save-success')
       )
       const res = await axios.patch(
-        `${baseUrl}/resource/${data.courseTitle}`,
+        `${baseUrl}/resource/${selectValue}`,
         formData,
         credentials
       )
@@ -77,6 +74,8 @@ const AddAFile = () => {
         setIsLoading(false)
         cancelButtonRef.current.click()
         modal.show()
+        setFileValue(null)
+        setSelectValue(null)
       }
     } catch (err) {
       setIsLoading(false)
@@ -108,7 +107,7 @@ const AddAFile = () => {
         <div className='modal-dialog modal-dialog-centered modal-fullscreen-md-down modal-lg '>
           <div className='modal-content'>
             <form
-              onSubmit={handleSubmit(submitResource)}
+              onSubmit={submitResource}
               className={['modal-body p-16'].join(' ')}
             >
               <h4 className='text-blue text-center fs-3xl fw-bold'>
@@ -128,32 +127,16 @@ const AddAFile = () => {
                   <div className='col-8'>
                     <div className={`${style.inputs} w-100`}>
                       <select
-                        // required
-                        {...register(`courseTitle`)}
+                        onChange={handleCourseChange}
                         className='form-select'
                         aria-label='Default select example'
                         defaultValue={`Open this select menu`}
                       >
-                        <option hidden value='placeholder'>
-                          Select a course
+                        <option value='' disabled selected>
+                          Select an option
                         </option>
                         {coursesTitle}
                       </select>
-                      <ErrorMessage
-                        errors={errors}
-                        name='courseTitle'
-                        render={({ messages }) => {
-                          return messages
-                            ? Object.entries(messages).map(
-                                ([type, message]) => (
-                                  <p className='fs-xs text-danger' key={type}>
-                                    {message}
-                                  </p>
-                                )
-                              )
-                            : null
-                        }}
-                      />
                     </div>
                   </div>
                 </div>
@@ -178,28 +161,12 @@ const AddAFile = () => {
                           }
                         >
                           <input
-                            // required
-                            {...register(`files`)}
+                            onChange={handleFileChange}
                             id='resource'
                             type='file'
                             multiple
                           />
                         </div>
-                        <ErrorMessage
-                          errors={errors}
-                          name='file'
-                          render={({ messages }) => {
-                            return messages
-                              ? Object.entries(messages).map(
-                                  ([type, message]) => (
-                                    <p className='fs-xs text-danger' key={type}>
-                                      {message}
-                                    </p>
-                                  )
-                                )
-                              : null
-                          }}
-                        />
                       </div>
                     </div>
                   </div>
@@ -208,7 +175,7 @@ const AddAFile = () => {
                 <div className='d-flex gap-10 justify-content-end my-8 row'>
                   <div className={`w-100 text-end`}>
                     <button
-                      disabled={isLoading}
+                      disabled={isLoading || !isFilled}
                       type='submit'
                       className='btn btn-primary w-25 me-10'
                     >

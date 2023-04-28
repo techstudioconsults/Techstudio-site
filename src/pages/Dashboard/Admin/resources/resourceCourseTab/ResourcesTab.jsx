@@ -26,11 +26,11 @@ const ResourceTab = () => {
 
   useEffect(() => {
     allResources.forEach((resource) => {
-      if (resource.id === location.state.courseID) {
+      if (resource.id === location?.state?.courseID) {
         setResources(resource)
       }
     })
-  }, [allResources, location.state.courseID])
+  }, [allResources, location?.state?.courseID])
 
   const fileDisplay = resources?.resources?.map((file) => {
     if (

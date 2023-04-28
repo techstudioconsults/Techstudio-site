@@ -112,6 +112,7 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
           <li className={['nav-item ', style.link, style.lessonLink].join(' ')}>
             <div className={`${!isLesson ? `d-block` : `d-none`}`}>
               <a
+                hidden={!classes?.ongoing?.length}
                 className={['nav-link', style.a].join(' ')}
                 id='lesson-tab'
                 data-bs-toggle='tab'
