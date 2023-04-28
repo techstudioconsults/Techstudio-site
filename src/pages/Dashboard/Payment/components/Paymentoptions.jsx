@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { courses, paidCourses } from '../data'
+import { HiOutlineEllipsisVertical } from 'react-icons/hi2'
 
 const Paymentoptions = () => {
   const { courseID } = useParams()
@@ -41,7 +42,7 @@ const Paymentoptions = () => {
           return (
             <div
               key={c.id}
-              className='d-flex justify-content-around align-items-center border border-2 border-secondary my-4'
+              className='d-flex justify-content-around align-items-center border border-3 border-secondary my-4 px-1'
             >
               <div>
                 <h6 className=''>{c.name} </h6>
@@ -59,6 +60,34 @@ const Paymentoptions = () => {
               </div>
               <div>
                 <p>{c.status}</p>
+              </div>
+              <div>
+                <div>
+                  <button
+                    className='dropdown-toggle bg-white'
+                    data-bs-toggle='dropdown'
+                    aria-expanded='false'
+                  >
+                    <HiOutlineEllipsisVertical className='text-secondary' />
+                  </button>
+                  <ul className='dropdown-menu dropdown-menu-end'>
+                    <li>
+                      <a className='dropdown-item' href='ww.com'>
+                        Add Payment Record
+                      </a>
+                    </li>
+                    <li>
+                      <a className='dropdown-item' href='www.com'>
+                        Edit Payment Record
+                      </a>
+                    </li>
+                    <li>
+                      <a className='dropdown-item' href='ww.com'>
+                        View Payment History
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           )
