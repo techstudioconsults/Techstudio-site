@@ -63,7 +63,6 @@ const AdminClassDisplayCard = ({ singleClass, isPrevious }) => {
   // }
 
   const showClassDetails = () => {
-    console.log(`details`)
     dispatch({ type: 'classes/setClassDetails', payload: singleClass })
   }
 

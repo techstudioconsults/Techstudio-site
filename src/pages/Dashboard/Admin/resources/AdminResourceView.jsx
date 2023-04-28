@@ -57,6 +57,7 @@ const AdminResourcesView = () => {
                 className={`input-group border rounded ${style.searchInput}`}
               >
                 <input
+                  disabled
                   type={`search`}
                   className='form-control border border-0 text-secondary h-100'
                   aria-describedby='search'

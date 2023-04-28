@@ -55,7 +55,7 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
         )
       })
     ) : (
-      <Feedback message={`you have zero ongoing classes at the moment`} />
+      <Feedback message={`No Class has been created yet!`} />
     )
 
     previousClasses = classes?.previous?.length ? (
@@ -69,7 +69,7 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
         )
       })
     ) : (
-      <Feedback message={`You have zero previous classes at the moment`} />
+      <Feedback message={`No Class has been created yet!`} />
     )
   }
 

@@ -50,6 +50,7 @@ const TeacherClassNotificationView = ({ mobile }) => {
             <p className={`text-dark text-wrap ${style.desc}`}>
               {details?.description}
             </p>
+            <p className='my-5 fs-2xl fw-bold text-danger'>{`N500,000`}</p>
           </div>
           <div
             className={`d-flex justify-content-between align-items-center mt-5`}
@@ -114,11 +115,11 @@ const TeacherClassNotificationView = ({ mobile }) => {
           </div>
         </div>
         <div className={[`d-flex gap-3 align-items-center `].join(' ')}>
-          <Link to={`/admin/class/:id/lesson/edit`}>
+          {/* <Link to={`/admin/class/:id/lesson/edit`}>
             <button className='fs-xs bg-primary text-white rounded rounded-lg px-3'>
               Reschedule A Lesson
             </button>
-          </Link>
+          </Link> */}
           {/* <button className='fs-sm fw-semibold bg-white text-primary rounded rounded-lg px-3 w-50 border border-primary'>
             Reschedule
           </button> */}

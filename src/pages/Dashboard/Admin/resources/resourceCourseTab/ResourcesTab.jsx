@@ -11,7 +11,7 @@ import { selectResources } from '../api/resourceSlice'
 
 const ResourceTab = () => {
   // const { studentBoard } = DASHBOARD_CONTENT
-  const [resources, setResources] = useState([])
+  const [resources, setResources] = useState(null)
   const allResources = useSelector(selectResources)
   const location = useLocation()
 
@@ -132,11 +132,11 @@ const ResourceTab = () => {
               `hide_scrollbar d-flex flex-column gap-5`,
             ].join(' ')}
           >
-            {/* {allResources.length ? ( */}
-            {fileDisplay}
-            {/* ) : (
+            {allResources?.length ? (
+              fileDisplay
+            ) : (
               <Feedback message={`No resources uploaded for this course`} />
-            )} */}
+            )}
           </div>
         </div>
         <div className='tab-pane fade' id='video' aria-labelledby='about-tab'>
@@ -146,11 +146,11 @@ const ResourceTab = () => {
               `hide_scrollbar d-flex flex-column gap-5`,
             ].join(' ')}
           >
-            {/* {allResources?.length ? ( */}
-            {videoDisplay}
-            {/* ) : (
+            {allResources?.length ? (
+              videoDisplay
+            ) : (
               <Feedback message={`No resources uploaded for this course`} />
-            )} */}
+            )}
           </div>
         </div>
         <div className='tab-pane fade' id='audio' aria-labelledby='album-tab'>
@@ -160,11 +160,11 @@ const ResourceTab = () => {
               `hide_scrollbar d-flex flex-column gap-5`,
             ].join(' ')}
           >
-            {/* {allResources?.length ? ( */}
-            {audioDisplay}
-            {/* ) : (
+            {allResources?.length ? (
+              audioDisplay
+            ) : (
               <Feedback message={`No resources uploaded for this course`} />
-            )} */}
+            )}
           </div>
         </div>
       </div>

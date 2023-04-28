@@ -32,7 +32,13 @@ const AdminClassView = () => {
   const feedback = courses.length ? (
     <TrackClassesTab courses={courses} />
   ) : (
-    <Feedback message={`Create a course in order to create a class`} />
+    <Feedback
+      // route={`/admin/class/${courseID}/create`}
+      route={`/admin/courses/create`}
+      btnName={`Create Course`}
+      // btnName={`Create Class`}
+      message={`No Course has been created yet!, create a course before you can create a class`}
+    />
   )
 
   return (
@@ -44,6 +50,7 @@ const AdminClassView = () => {
             {/* make this search input a stand alone component */}
             <div className={`input-group border rounded ${style.searchInput}`}>
               <input
+                disabled
                 type={`search`}
                 className='form-control border border-0 text-secondary h-100'
                 aria-describedby='search'

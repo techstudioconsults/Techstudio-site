@@ -45,11 +45,15 @@ const AdminCourseView = () => {
       )
     })
   ) : (
-    <Feedback message={`Course list is empty !`} />
+    <Feedback
+      route={`/admin/courses/create`}
+      btnName={`Create Course`}
+      message={`No Course has been created yet!`}
+    />
   )
 
   return (
-    <section className={style.courseView}>
+    <section className={`${style.courseView} h-100`}>
       <div className={style.dashboardDisplay}>
         <div className={style.header}>
           <h4 className={[style.title, `mb-0 fw-bold`].join(' ')}>Courses</h4>
@@ -57,6 +61,7 @@ const AdminCourseView = () => {
             {/* make this search input a stand alone component */}
             <div className={`input-group border rounded ${style.searchInput}`}>
               <input
+                disabled
                 type={`search`}
                 className='form-control border border-0 text-secondary h-100'
                 aria-describedby='search'

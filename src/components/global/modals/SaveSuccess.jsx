@@ -18,7 +18,7 @@ const Save = ({ content }) => {
         break
       case `resource`:
         // setRoute(`/admin/resources/${content?.courseID}`)
-        setRoute(`/admin/resources`)
+        setRoute(`/admin/resources/${content.courseID}`)
         break
 
       default:

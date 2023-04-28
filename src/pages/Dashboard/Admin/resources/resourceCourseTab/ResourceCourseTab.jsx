@@ -1,11 +1,13 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { Outlet, useLocation, useNavigate, useParams } from 'react-router'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import style from '../resourceCourseTab/resourceCourseTab.module.scss'
 import { useGetResourcesByCourseIDMutation } from '../api/resourceApiSlice'
+import { setResources } from '../api/resourceSlice'
 
 const ResourceCourseTab = ({ courses }) => {
+  const [resourcesLength, setResourceLength] = useState()
   const location = useLocation()
   let { resource } = useParams()
   const navigate = useNavigate()
@@ -26,7 +28,8 @@ const ResourceCourseTab = ({ courses }) => {
     let courseID = location?.state?.course?.id
 
     if (courseID) {
-      await getResourcesByCourseID(courseID).unwrap()
+      const res = await getResourcesByCourseID(courseID).unwrap()
+      setResourceLength(res.data.resources.length)
     }
   }, [getResourcesByCourseID, location?.state?.course?.id])
 
@@ -47,6 +50,7 @@ const ResourceCourseTab = ({ courses }) => {
         <NavLink
           state={{
             course: course,
+            resourcesLength,
           }}
           to={`/admin/resources/${course?.id}`}
           className={[

@@ -23,6 +23,7 @@ const DashboardNavbar = ({ isTDB }) => {
           {/* make this search input a stand alone component */}
           <div className={`input-group ${style.searchInput}`}>
             <input
+              disabled
               type={`search`}
               className='form-control border border-0 text-secondary h-100'
               aria-describedby='search'

@@ -18,7 +18,7 @@ import { Controller, useForm } from 'react-hook-form'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { useCallback, useEffect, useState } from 'react'
 import useToast from '../../../../../hooks/useToast'
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 import { selectCurrentToken } from '../../../../Auth/api/authSlice'
@@ -88,6 +88,7 @@ const CreateClass = () => {
   // const location = useLocation()
   const { toast } = useToast()
   const { courseID } = useParams()
+  const navigate = useNavigate()
   const [viewCoursesDetails] = useViewCoursesDetailsMutation()
 
   const credentials = {
@@ -105,8 +106,13 @@ const CreateClass = () => {
   }, [courseID, viewCoursesDetails])
 
   useEffect(() => {
-    getCourse()
-  }, [getCourse])
+    console.log(courseID)
+    if (courseID !== undefined) {
+      getCourse()
+    } else {
+      navigate(`/admin/courses/create`)
+    }
+  }, [courseID, getCourse, navigate])
 
   const findTutors = (status) => {
     const tutors = crudeTutors[status]?.map((tutor) => {

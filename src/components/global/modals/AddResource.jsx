@@ -92,7 +92,7 @@ const AddAFile = () => {
           content={{
             title: `New Resources Added Successfully!`,
             desc: `This resource has successfully being added. Kindly click continue to exit this page.`,
-            // courseID: courseID,
+            courseID: selectValue,
             action: `resource`,
           }}
         />
