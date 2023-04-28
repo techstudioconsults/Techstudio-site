@@ -5,7 +5,6 @@ import { AddResource, AvatarDropdown, Portal } from '../../../../components'
 import style from './adminResource.module.scss' //using courses view layout !important
 import 'react-loading-skeleton/dist/skeleton.css'
 import { Icon } from '@iconify/react'
-import TeacherClassNotificationView from '../../Teacher/components/teacherClassNotificationView/TeacherClassNotificationView'
 import { useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import Feedback from '../../../../components/global/feedbacks/Feedback'
@@ -94,7 +93,6 @@ const AdminResourcesView = () => {
           <div className='d-flex justify-content-end'>
             <AvatarDropdown />
           </div>
-          {/* <TeacherClassNotificationView mobile={false} /> */}
         </div>
       </section>
     </>

@@ -23,6 +23,26 @@ export const resourceApiSlice = apiSlice.injectEndpoints({
       },
     }),
 
+    getResourcesByCourseID: builder.mutation({
+      query: (courseID) => ({
+        url: `/resource/courses/${courseID}`,
+        method: 'GET',
+      }),
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled
+          console.log(data)
+          dispatch(
+            setResources({
+              resources: data.data.resources,
+            })
+          )
+        } catch (err) {
+          console.log(err)
+        }
+      },
+    }),
+
     addNewResource: builder.mutation({
       query: (credentials) => ({
         url: `/resource/${credentials.courseID}`,
@@ -42,6 +62,7 @@ export const resourceApiSlice = apiSlice.injectEndpoints({
 
 export const {
   useGetAllResourcesMutation,
+  useGetResourcesByCourseIDMutation,
   useAddNewResourceMutation,
   useDeleteResourceMutation,
 } = resourceApiSlice

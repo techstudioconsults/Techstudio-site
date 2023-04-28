@@ -11,7 +11,10 @@ import {
   useDeleteCourseMutation,
   useViewAllCoursesMutation,
 } from '../../../pages/Dashboard/Admin/courses/api/coursesApiSlice'
-import { useDeleteResourceMutation } from '../../../pages/Dashboard/Admin/resources/api/resourceApiSlice'
+import {
+  useDeleteResourceMutation,
+  useGetResourcesByCourseIDMutation,
+} from '../../../pages/Dashboard/Admin/resources/api/resourceApiSlice'
 
 const DeleteModal = ({ content }) => {
   const [isDeleted, setDeleted] = useState(false)
@@ -22,6 +25,7 @@ const DeleteModal = ({ content }) => {
   const [viewAllCourses] = useViewAllCoursesMutation()
   const [getClassByCourseID] = useGetClassByCourseIDMutation()
   const [getLessonByCourseID] = useGetLessonByCourseIDMutation()
+  const [getResourcesByCourseID] = useGetResourcesByCourseIDMutation()
   const dispatch = useDispatch()
 
   // async function closeModal() {
@@ -49,7 +53,7 @@ const DeleteModal = ({ content }) => {
         await getLessonByCourseID(content.courseID).unwrap()
         break
       case `delete-resource`:
-        // await viewAllCourses().unwrap()
+        await getResourcesByCourseID(content.courseID).unwrap()
         break
       default:
         break

@@ -137,7 +137,7 @@ const CreateClass = () => {
 
     console.log(data)
     console.log(new Date(data.endDate).toISOString())
-    const files = [...data.files]
+    // const files = [...data.files]
 
     formData.append(`title`, data.title)
     formData.append(`description`, data.description)
@@ -146,7 +146,7 @@ const CreateClass = () => {
     formData.append(`startDate`, new Date(data.startDate).toISOString())
     formData.append(`endDate`, new Date(data.endDate).toISOString())
     data.tutors.forEach((item) => formData.append('tutors[]', item.value))
-    files.forEach((item) => formData.append('files', item))
+    // files.forEach((item) => formData.append('files', item))
 
     // for (var pair of formData.entries()) {
     //   console.log(pair[0] + ', ' + pair[1])

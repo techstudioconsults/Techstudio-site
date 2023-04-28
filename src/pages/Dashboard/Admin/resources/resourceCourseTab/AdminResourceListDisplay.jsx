@@ -4,8 +4,10 @@ import React from 'react'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { DeleteModal, Portal } from '../../../../../components'
 import Feedback from '../../../../../components/global/feedbacks/Feedback'
+import { useLocation, useParams } from 'react-router'
 
-const AdminResourceListDisplay = ({ file, course, type }) => {
+const AdminResourceListDisplay = ({ file, course, type, format }) => {
+  const { resource } = useParams()
   const handleDeleteModal = () => {
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
@@ -18,13 +20,21 @@ const AdminResourceListDisplay = ({ file, course, type }) => {
   }
 
   const setIcon = () => {
-    switch (type) {
-      case `document`:
-        return `flat-color-icons:document`
-      case `video`:
+    switch (format) {
+      case `pdf`:
+        return `vscode-icons:file-type-pdf2`
+      case `mp4`:
         return `vscode-icons:file-type-video`
-      case `audio`:
+      case `mp3`:
         return `flat-color-icons:audio-file`
+      case `csv`:
+        return `vscode-icons:file-type-excel2`
+      case `docx`:
+        return `flat-color-icons:document`
+      case `txt`:
+        return `flat-color-icons:audio-file`
+      case `ppt`:
+        return `vscode-icons:file-type-powerpoint2`
       default:
         break
     }
@@ -41,6 +51,7 @@ const AdminResourceListDisplay = ({ file, course, type }) => {
                 title: `${`Are you sure you want to delete this Resource?`}`,
                 desc: `This Resource has successfully being deleted. Kindly click continue to exit this page.`,
                 resourceID: file?.id,
+                courseID: `${resource}`,
               }}
             />
           </Portal>
@@ -88,6 +99,7 @@ AdminResourceListDisplay.propTypes = {
   file: PropTypes.object,
   course: PropTypes.string,
   type: PropTypes.string,
+  format: PropTypes.string,
 }
 
 export default AdminResourceListDisplay

@@ -7,13 +7,16 @@ import AdminResourceListDisplay from './AdminResourceListDisplay'
 import { useLocation } from 'react-router-dom'
 import Feedback from '../../../../../components/global/feedbacks/Feedback'
 import { useSelector } from 'react-redux'
-import { selectAllResources } from '../api/resourceSlice'
+import { selectResources } from '../api/resourceSlice'
 
 const ResourceTab = () => {
   // const { studentBoard } = DASHBOARD_CONTENT
   const [resources, setResources] = useState([])
-  const allResources = useSelector(selectAllResources)
+  const allResources = useSelector(selectResources)
   const location = useLocation()
+
+  console.log(allResources)
+  console.log(resources)
 
   console.log(location)
 
@@ -25,14 +28,18 @@ const ResourceTab = () => {
   }
 
   useEffect(() => {
-    allResources.forEach((resource) => {
-      if (resource.id === location?.state?.courseID) {
-        setResources(resource)
+    allResources?.forEach((resource) => {
+      console.log(resource)
+      if (resource.id === location?.state?.course?.id) {
+        setResources((prevState) => {
+          return [...prevState, resource]
+        })
       }
     })
-  }, [allResources, location?.state?.courseID])
+  }, [allResources, location?.state?.course])
 
-  const fileDisplay = resources?.resources?.map((file) => {
+  const fileDisplay = allResources?.map((file) => {
+    let fileFormat = checkExtension(file.name)
     if (
       checkExtension(file.name) !== `mp4` &&
       checkExtension(file.name) !== `mp3`
@@ -42,31 +49,36 @@ const ResourceTab = () => {
           key={file.id}
           file={file}
           type={`document`}
+          format={fileFormat}
           // course={state?.courseTitle}
         />
       )
     }
   })
-  const videoDisplay = resources?.resources?.map((file) => {
+  const videoDisplay = allResources.map((file) => {
+    let fileFormat = checkExtension(file.name)
     if (checkExtension(file.name) === `mp4`) {
       return (
         <AdminResourceListDisplay
           key={file.id}
           file={file}
           type={`video`}
+          format={fileFormat}
           // course={state?.courseTitle}
         />
       )
     }
   })
 
-  const audioDisplay = resources?.resources?.map((file) => {
+  const audioDisplay = allResources.map((file) => {
+    let fileFormat = checkExtension(file.name)
     if (checkExtension(file.name) === `mp3`) {
       return (
         <AdminResourceListDisplay
           key={file.id}
           file={file}
           type={`audio`}
+          format={fileFormat}
           // course={state?.courseTitle}
         />
       )
@@ -120,11 +132,11 @@ const ResourceTab = () => {
               `hide_scrollbar d-flex flex-column gap-5`,
             ].join(' ')}
           >
-            {resources?.resources?.length ? (
-              fileDisplay
-            ) : (
+            {/* {allResources.length ? ( */}
+            {fileDisplay}
+            {/* ) : (
               <Feedback message={`No resources uploaded for this course`} />
-            )}
+            )} */}
           </div>
         </div>
         <div className='tab-pane fade' id='video' aria-labelledby='about-tab'>
@@ -134,11 +146,11 @@ const ResourceTab = () => {
               `hide_scrollbar d-flex flex-column gap-5`,
             ].join(' ')}
           >
-            {resources?.resources?.length ? (
-              videoDisplay
-            ) : (
+            {/* {allResources?.length ? ( */}
+            {videoDisplay}
+            {/* ) : (
               <Feedback message={`No resources uploaded for this course`} />
-            )}
+            )} */}
           </div>
         </div>
         <div className='tab-pane fade' id='audio' aria-labelledby='album-tab'>
@@ -148,11 +160,11 @@ const ResourceTab = () => {
               `hide_scrollbar d-flex flex-column gap-5`,
             ].join(' ')}
           >
-            {resources?.resources?.length ? (
-              audioDisplay
-            ) : (
+            {/* {allResources?.length ? ( */}
+            {audioDisplay}
+            {/* ) : (
               <Feedback message={`No resources uploaded for this course`} />
-            )}
+            )} */}
           </div>
         </div>
       </div>

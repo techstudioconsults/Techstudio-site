@@ -3,21 +3,14 @@ import { Outlet, useLocation, useNavigate, useParams } from 'react-router'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import style from '../resourceCourseTab/resourceCourseTab.module.scss'
-import { useGetAllResourcesMutation } from '../api/resourceApiSlice'
+import { useGetResourcesByCourseIDMutation } from '../api/resourceApiSlice'
 
 const ResourceCourseTab = ({ courses }) => {
   const location = useLocation()
-  let { courseID } = useParams()
+  let { resource } = useParams()
   const navigate = useNavigate()
-
-  const [getAllResource, resourceArgs] = useGetAllResourcesMutation()
-  const getResources = useCallback(async () => {
-    await getAllResource().unwrap()
-  }, [getAllResource])
-
-  useEffect(() => {
-    getResources()
-  }, [getResources])
+  const [getResourcesByCourseID, resourcesArgs] =
+    useGetResourcesByCourseIDMutation()
 
   // verifies if routeName is the one active (in browser input)
   const activeRoute = useCallback(
@@ -27,22 +20,33 @@ const ResourceCourseTab = ({ courses }) => {
     [location.pathname]
   )
 
-  useEffect(() => {
-    if (!courseID) {
-      navigate(`/admin/resources/${courses[0]?.id}`, {
-        state: { courseID: courses[0]?.id },
-      })
+  console.log(resource)
+
+  const getResources = useCallback(async () => {
+    let courseID = location?.state?.course?.id
+
+    if (courseID) {
+      await getResourcesByCourseID(courseID).unwrap()
     }
-    activeRoute(courseID)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [courseID, courses])
+  }, [getResourcesByCourseID, location?.state?.course?.id])
+
+  useEffect(() => {
+    if (!resource) {
+      navigate(`/admin/resources/${courses[0]?.id}`)
+    }
+    activeRoute(location?.state?.course?.id)
+  }, [activeRoute, courses, location?.state?.course?.id, navigate, resource])
+
+  useEffect(() => {
+    getResources()
+  }, [getResources])
 
   const coursesNav = courses?.map((course) => {
     return (
       <li key={course?.id} className={['nav-item', style.link].join(' ')}>
         <NavLink
           state={{
-            courseID: course?.id,
+            course: course,
           }}
           to={`/admin/resources/${course?.id}`}
           className={[

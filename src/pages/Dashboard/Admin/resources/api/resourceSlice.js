@@ -21,4 +21,5 @@ export const { setResources } = resourceSlice.actions
 
 export default resourceSlice.reducer
 
-export const selectAllResources = (state) => state.resources.resources
+// export const selectAllResources = (state) => state.resources.resources
+export const selectResources = (state) => state.resources.resources
