@@ -1,30 +1,36 @@
 import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useGetResourcesByCourseIDMutation } from '../../../pages/Dashboard/Admin/resources/api/resourceApiSlice'
 
 const Save = ({ content }) => {
   const [route, setRoute] = useState()
+  const [getResourcesByCourseID] = useGetResourcesByCourseIDMutation()
 
   useEffect(() => {
-    switch (content.action) {
-      case `course`:
-        setRoute(`/admin/courses`)
-        break
-      case `class`:
-        setRoute(`/admin/classes/${content.courseID}`)
-        break
-      case `lesson`:
-        setRoute(`/admin/classes/${content.courseID}`)
-        break
-      case `resource`:
-        // setRoute(`/admin/resources/${content?.courseID}`)
-        setRoute(`/admin/resources/${content.courseID}`)
-        break
+    async function getData() {
+      switch (content.action) {
+        case `course`:
+          setRoute(`/admin/courses`)
+          break
+        case `class`:
+          setRoute(`/admin/classes/${content.courseID}`)
+          break
+        case `lesson`:
+          setRoute(`/admin/classes/${content.courseID}`)
+          break
+        case `resource`:
+          // setRoute(`/admin/resources/${content?.courseID}`)
+          // setRoute(`/admin/resources/${content.courseID}`)
+          await getResourcesByCourseID(content.courseID).unwrap()
+          break
 
-      default:
-        break
+        default:
+          break
+      }
     }
-  }, [content.action, content.courseID])
+    getData()
+  }, [content.action, content.courseID, getResourcesByCourseID])
 
   return (
     <div

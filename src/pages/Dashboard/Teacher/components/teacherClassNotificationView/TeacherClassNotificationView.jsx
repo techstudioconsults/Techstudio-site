@@ -50,7 +50,9 @@ const TeacherClassNotificationView = ({ mobile }) => {
             <p className={`text-dark text-wrap ${style.desc}`}>
               {details?.description}
             </p>
-            <p className='my-5 fs-2xl fw-bold text-danger'>{`N500,000`}</p>
+            <p className='my-5 fs-2xl fw-bold text-danger'>{`N${
+              details?.fee || `500, 000`
+            }`}</p>
           </div>
           <div
             className={`d-flex justify-content-between align-items-center mt-5`}
