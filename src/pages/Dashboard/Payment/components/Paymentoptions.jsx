@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { courses, paidCourses } from '../data'
 import { HiOutlineEllipsisVertical } from 'react-icons/hi2'
+import AddPaymentModal from './AddPaymentModal'
+import FullPaymentHistory from './FullPaymentHistory'
 
 const Paymentoptions = () => {
   const { courseID } = useParams()
+  const [showPaymentModal, setShowPaymentModal] = useState(false)
+  const [showFullHistoryModal, setShowFullHistoryModal] = useState(false)
 
   return (
     <div>
+      {showPaymentModal && <AddPaymentModal />}
+      {showFullHistoryModal && <FullPaymentHistory />}
       <div className='mt-4 d-flex justify-content-end align-items-center gap-3'>
         <div>
           <select
@@ -37,6 +43,7 @@ const Paymentoptions = () => {
           </a>
         </div>
       </div>
+
       <div className='mt-5'>
         {paidCourses.map((c) => {
           return (
@@ -72,9 +79,13 @@ const Paymentoptions = () => {
                   </button>
                   <ul className='dropdown-menu dropdown-menu-end'>
                     <li>
-                      <a className='dropdown-item' href='ww.com'>
+                      <button
+                        onClick={() => setShowPaymentModal(true)}
+                        className='dropdown-item'
+                        href='ww.com'
+                      >
                         Add Payment Record
-                      </a>
+                      </button>
                     </li>
                     <li>
                       <a className='dropdown-item' href='www.com'>
@@ -82,9 +93,13 @@ const Paymentoptions = () => {
                       </a>
                     </li>
                     <li>
-                      <a className='dropdown-item' href='ww.com'>
+                      <button
+                        onClick={() => setShowFullHistoryModal(true)}
+                        className='dropdown-item'
+                        href='ww.com'
+                      >
                         View Payment History
-                      </a>
+                      </button>
                     </li>
                   </ul>
                 </div>
