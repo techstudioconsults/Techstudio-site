@@ -47,11 +47,11 @@ const TeacherClassNotificationView = ({ mobile }) => {
             <p className={[style.text, `text-secondary`].join(' ')}>
               {details?.tutors?.[0].name || details?.tutorName}
             </p>
-            <p className={`text-dark text-wrap ${style.desc}`}>
+            <p className={`text-dark text-wrap hide_scrollbar ${style.desc}`}>
               {details?.description}
             </p>
-            <p className='my-5 fs-2xl fw-bold text-danger'>{`N${
-              details?.fee || `500, 000`
+            <p className='fs-2xl fw-bold text-danger'>{`N${
+              details?.fee || `500,000`
             }`}</p>
           </div>
           <div
@@ -65,7 +65,7 @@ const TeacherClassNotificationView = ({ mobile }) => {
           <div
             className={`d-flex justify-content-between align-items-center mt-5`}
           >
-            <p className='fs-sm text-info'>Course:</p>
+            <p className='fs-sm text-info'>Course: {details?.courseTitle}</p>
             <p className='fs-sm text-white w-75'></p>
           </div>
           <div className={`d-flex gap-5 flex-wrap mt-5`}>

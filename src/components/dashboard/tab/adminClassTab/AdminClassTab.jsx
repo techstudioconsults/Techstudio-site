@@ -55,7 +55,11 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
         )
       })
     ) : (
-      <Feedback message={`No Class has been created yet!`} />
+      <Feedback
+        route={`/admin/class/${courseID}/create`}
+        btnName={`Create Class`}
+        message={`No Class has been created yet!`}
+      />
     )
 
     previousClasses = classes?.previous?.length ? (

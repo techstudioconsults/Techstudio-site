@@ -14,7 +14,7 @@ const Feedback = ({ message, route, btnName }) => {
         <div className='d-flex justify-content-center mt-10'>
           <Link to={route}>
             <button className='btn btn-primary fs-sm'>
-              {btnName || `Create`}
+              {btnName || `Create Classes`}
             </button>
           </Link>
         </div>

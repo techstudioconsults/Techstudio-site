@@ -14,15 +14,15 @@
     height: 100%;
     @include flex_column;
     justify-content: space-between;
+
     .header {
       position: relative;
       background-color: colors.$light-blue-II;
-      padding: fn.rem(40) fn.rem(20) fn.rem(20) fn.rem(43);
+      padding: fn.rem(40) fn.rem(20) fn.rem(20) fn.rem(40);
       border: 2px solid colors.$light;
       border-radius: fn.rem(20);
       border-bottom-left-radius: 0;
-      height: 12rem;
-      // overflow: scroll;
+      // height: 15rem;
 
       .avatar {
         position: absolute;
@@ -31,7 +31,6 @@
         transform: translate(-50%, -50%);
         border: 2px solid colors.$light;
         border-radius: 100%;
-        z-index: 999;
       }
 
       .title,
@@ -57,6 +56,10 @@
         line-height: fn.rem(18);
         font-size: fn.rem(13);
         word-wrap: break-word;
+        // border: 1px solid red;
+        height: 5rem;
+        padding-block: fn.rem(10);
+        overflow: auto;
       }
     }
 
