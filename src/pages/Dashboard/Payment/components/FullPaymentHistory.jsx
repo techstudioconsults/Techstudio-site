@@ -3,6 +3,8 @@
 import React, { useState } from 'react'
 import DownloadSuccessfulModal from './DownloadSuccessfulModal'
 // import DownloadModal from './DownloadModal'
+import downloadIcon from '../../../../assets/images/downloadIcon.png'
+import shareIcon from '../../../../assets/images/shareIcon.png'
 
 const FullPaymentHistory = (props) => {
   const [modalShow, setModalShow] = useState(false)
@@ -68,11 +70,13 @@ const FullPaymentHistory = (props) => {
           <div className='d-flex gap-2'>
             <button
               onClick={() => setModalShow(true)}
-              className='btn btn-primary px-4'
+              className='btn btn-primary px-4 d-flex gap-2'
             >
+              <img src={downloadIcon} alt='' />
               Download As PDF
             </button>
-            <button className='btn btn-primary bg-white text-primary px-4'>
+            <button className='btn btn-primary bg-white text-primary px-4 d-flex gap-2'>
+              <img src={shareIcon} alt='' />
               Share
             </button>
           </div>
