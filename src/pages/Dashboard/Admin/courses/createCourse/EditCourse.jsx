@@ -18,7 +18,7 @@ import { selectCurrentToken } from '../../../../Auth/api/authSlice'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { useCallback, useEffect, useState } from 'react'
 import useToast from '../../../../../hooks/useToast'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { ErrorMessage } from '@hookform/error-message'
@@ -100,6 +100,7 @@ const CreateCourse = () => {
   } = useLocation()
   const [getTutors] = useGetTutorsMutation()
   const token = useSelector(selectCurrentToken)
+  const navigate = useNavigate()
 
   const defaultValues = {
     title: course.title,
@@ -156,8 +157,6 @@ const CreateCourse = () => {
     },
   }
 
-  console.log(course)
-
   const findTutors = useCallback(async () => {
     const res = await getTutors().unwrap()
     const tutors = res?.data?.map((tutor) => {
@@ -172,6 +171,7 @@ const CreateCourse = () => {
 
   const onSubmit = async (data) => {
     setLoading(true)
+    console.log(data)
     const formData = new FormData()
     let onlineTutors
     let weekdayTutors
@@ -248,12 +248,70 @@ const CreateCourse = () => {
     }
   }
 
-  const handleCancelAction = (event) => {
-    event.stopPropagation()
-    let modal = bootstrap.Modal.getOrCreateInstance(
-      document.getElementById('cancel-modal')
-    )
-    modal.show()
+  // function objectsEqual(obj1, obj2, seen = new WeakMap()) {
+  //   const hasOwnProperty = Object.prototype.hasOwnProperty
+
+  //   if (obj1 === obj2) {
+  //     return true
+  //   }
+
+  //   if (Object.keys(obj1).length !== Object.keys(obj2).length) {
+  //     return false
+  //   }
+
+  //   if (
+  //     seen.has(obj1) &&
+  //     seen.has(obj2) &&
+  //     seen.get(obj1) === obj2 &&
+  //     seen.get(obj2) === obj1
+  //   ) {
+  //     return true
+  //   }
+
+  //   seen.set(obj1, obj2)
+  //   seen.set(obj2, obj1)
+
+  //   for (const [key, value] of Object.entries(obj1)) {
+  //     if (
+  //       key === 'files' ||
+  //       key === 'onlineTutors' ||
+  //       key === 'weekdayTutors' ||
+  //       key === 'weekendTutors'
+  //     )
+  //       continue
+  //     if (
+  //       !hasOwnProperty.call(obj2, key) ||
+  //       !objectsEqual(value, obj2[key], seen)
+  //     ) {
+  //       return false
+  //     }
+  //   }
+
+  //   return true
+  // }
+
+  function compareObjects(obj1, obj2) {
+    // Remove the 'files' property from both objects
+    const obj1WithoutFiles = { ...obj1 }
+    delete obj1WithoutFiles.files
+
+    const obj2WithoutFiles = { ...obj2 }
+    delete obj2WithoutFiles.files
+
+    // Compare the two objects without the 'files' property
+    return JSON.stringify(obj1WithoutFiles) === JSON.stringify(obj2WithoutFiles)
+  }
+
+  const handleCancelAction = (data) => {
+    if (compareObjects(data, defaultValues)) {
+      navigate(`/admin/courses`)
+    } else {
+      // event.stopPropagation()
+      let modal = bootstrap.Modal.getOrCreateInstance(
+        document.getElementById('cancel-modal')
+      )
+      modal.show()
+    }
   }
 
   return (
@@ -615,7 +673,8 @@ const CreateCourse = () => {
               </button>
               <button
                 type='button'
-                onClick={handleCancelAction}
+                // onClick={handleCancelAction}
+                onClick={handleSubmit(handleCancelAction)}
                 className='btn btn-outline-danger w-25 dont-delete-btn'
               >
                 Cancel

@@ -10,16 +10,16 @@ import {
   ToastComponent,
 } from '../../../../../components'
 import style from '../../courses/createCourse/createCourse.module.scss'
-import Select from 'react-select'
+import Select, { components } from 'react-select'
 import { Controller, useForm } from 'react-hook-form'
 // import { useGetTutorsMutation } from '../api/coursesApiSlice'
 // import axios from 'axios'
 // import { useSelector } from 'react-redux'
 // import { selectCurrentToken } from '../../../../Auth/api/authSlice'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import useToast from '../../../../../hooks/useToast'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import {
   useEditClassMutation,
   useViewCoursesDetailsMutation,
@@ -84,6 +84,7 @@ const schema = yup.object().shape({
 })
 
 const EditClass = () => {
+  const clearIndicatorRef = useRef()
   const [tutors, setTutors] = useState([])
   const [isSave, setSave] = useState(false)
   const [isLoading, setLoading] = useState(false)
@@ -94,6 +95,7 @@ const EditClass = () => {
   const classID = location.pathname.split(`/`)[3]
   const [viewCoursesDetails] = useViewCoursesDetailsMutation()
   const courseDetails = useSelector(selectCourseDetails)
+  const navigate = useNavigate()
   const credentials = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -113,16 +115,6 @@ const EditClass = () => {
         label: tutor.name,
       }
     }),
-  }
-
-  const findTutors = (status) => {
-    const tutors = courseDetails.tutors[status].map((tutor) => {
-      return {
-        value: tutor.tutorId,
-        label: `${tutor.firstName} ${tutor.lastName}`,
-      }
-    })
-    setTutors(tutors)
   }
 
   const getCourseByCourseID = useCallback(async () => {
@@ -146,18 +138,17 @@ const EditClass = () => {
     defaultValues,
   })
 
-  // const selectedTutors = watch('tutors')
-
-  // const handleTutorsChange = (selectedOptions) => {
-  //   setValue('tutors', '')
-  // }
-
-  // useEffect(() => {
-  //   if (!selectedTutors) {
-  //     setValue('tutors', null)
-  //   }
-  // }, [selectedTutors, setValue])
-
+  const findTutors = (status) => {
+    console.log(clearIndicatorRef.current)
+    // selectInputRef.current.state.selectValue = []
+    const tutors = courseDetails.tutors[status].map((tutor) => {
+      return {
+        value: tutor.tutorId,
+        label: `${tutor.firstName} ${tutor.lastName}`,
+      }
+    })
+    setTutors(tutors)
+  }
   // due to the error gotten from the response above...we went with the axios alternative
   const onSubmit = async (data) => {
     setLoading(true)
@@ -174,10 +165,6 @@ const EditClass = () => {
     formData.append(`endDate`, new Date(data.endDate).toISOString())
     data.tutors.forEach((item) => formData.append('tutors[]', item.value))
     files.forEach((item) => formData.append('files', item))
-
-    // for (var pair of formData.entries()) {
-    //   console.log(pair[0] + ', ' + pair[1])
-    // }
 
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
@@ -215,12 +202,28 @@ const EditClass = () => {
     }
   }
 
-  const handleCancelAction = (event) => {
-    event.stopPropagation()
-    let modal = bootstrap.Modal.getOrCreateInstance(
-      document.getElementById('cancel-modal')
-    )
-    modal.show()
+  function compareObjects(obj1, obj2) {
+    // Remove the 'files' property from both objects
+    const obj1WithoutFiles = { ...obj1 }
+    delete obj1WithoutFiles.files
+
+    const obj2WithoutFiles = { ...obj2 }
+    delete obj2WithoutFiles.files
+
+    // Compare the two objects without the 'files' property
+    return JSON.stringify(obj1WithoutFiles) === JSON.stringify(obj2WithoutFiles)
+  }
+
+  const handleCancelAction = (data) => {
+    if (compareObjects(data, defaultValues)) {
+      navigate(`/admin/classes/${state.courseId}`)
+    } else {
+      // event.stopPropagation()
+      let modal = bootstrap.Modal.getOrCreateInstance(
+        document.getElementById('cancel-modal')
+      )
+      modal.show()
+    }
   }
 
   return (
@@ -497,6 +500,16 @@ const EditClass = () => {
                           <>
                             <Select
                               {...field}
+                              isClearable
+                              // ref={selectInputRef}
+                              // components={{
+                              //   ClearIndicator: ({ innerProps }) => (
+                              //     <components.ClearIndicator
+                              //       {...innerProps}
+                              //       ref={clearIndicatorRef}
+                              //     />
+                              //   ),
+                              // }}
                               styles={colorStyles}
                               className='reactSelect my-2'
                               name='tutors'
@@ -575,7 +588,7 @@ const EditClass = () => {
                   </button>
                   <button
                     type='button'
-                    onClick={handleCancelAction}
+                    onClick={handleSubmit(handleCancelAction)}
                     className='btn btn-outline-danger w-25 dont-delete-btn'
                   >
                     Cancel

@@ -1,9 +1,11 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import useToast from '../../../../../hooks/useToast'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { useSignupStudentMutation } from '../../../../Auth/api/authApiSlice'
 import { Feedback, Portal, ToastComponent } from '../../../../../components'
+import { useGetAllTutorsMutation } from '../api/usersApiSlice'
 
 const validation = {
   required: 'This input is required.',
@@ -13,8 +15,9 @@ const validation = {
   },
 }
 
-const TutorRegistrationForm = () => {
+const TutorRegistrationForm = ({ cancelBtn }) => {
   const [signupStudent, { isLoading }] = useSignupStudentMutation()
+  const [getAllTutors] = useGetAllTutorsMutation()
   const [errorMessage, setErrorMessage] = useState(null)
   const { toast } = useToast()
 
@@ -41,7 +44,12 @@ const TutorRegistrationForm = () => {
       )
       const res = await signupStudent(formData).unwrap()
       console.log(res)
-      res.success ? modal.show() : null
+      // res.success ? modal.show() : null
+      if (res.success) {
+        cancelBtn.current.click()
+        getAllTutors().unwrap()
+        modal.show()
+      }
     } catch (err) {
       setErrorMessage(err.data.message)
       toast.show()
@@ -56,8 +64,8 @@ const TutorRegistrationForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <ToastComponent errorMessage={errorMessage} />
       <Portal wrapperId='react-portal-modal-container'>
-        <ToastComponent errorMessage={errorMessage} />
         <Feedback
           content={{
             title: `Registration Successfull!`,
@@ -84,9 +92,10 @@ const TutorRegistrationForm = () => {
           <div className='col-8'>
             <div className={` w-100`}>
               <input
+                required
                 placeholder='First name'
                 type='text'
-                className='form-control form-control-lg'
+                className='form-control form-control-lg fs-sm'
                 id='firstName'
                 {...register(`firstName`)}
               />
@@ -106,9 +115,10 @@ const TutorRegistrationForm = () => {
           <div className='col-8'>
             <div className={` w-100`}>
               <input
+                required
                 placeholder='Last name'
                 type='text'
-                className='form-control form-control-lg'
+                className='form-control form-control-lg fs-sm'
                 id='lastName'
                 {...register(`lastName`)}
               />
@@ -128,9 +138,10 @@ const TutorRegistrationForm = () => {
           <div className='col-8'>
             <div className={` w-100`}>
               <input
+                required
                 placeholder='Email Address'
                 type='text'
-                className='form-control form-control-lg'
+                className='form-control form-control-lg fs-sm'
                 id='email'
                 {...register(`email`)}
               />
@@ -150,10 +161,11 @@ const TutorRegistrationForm = () => {
           <div className='col-8'>
             <div className={` w-100`}>
               <input
+                required
                 type='tel'
                 pattern='[0-9]{11}'
                 placeholder='08100792853'
-                className='form-control form-control-lg'
+                className='form-control form-control-lg fs-sm'
                 id='phoneNumber'
                 {...register(`phoneNumber`)}
               />
@@ -173,11 +185,12 @@ const TutorRegistrationForm = () => {
           <div className='col-8'>
             <div className={` w-100`}>
               <select
-                className='form-select'
+                required
+                className='form-select fs-sm text-dark'
                 aria-label='Default select example'
                 {...register(`status`)}
               >
-                <option value='on site'>On Site</option>
+                <option value='on-site'>On Site</option>
                 <option value='remote'>Remote</option>
                 <option value='hybrid'>Hybrid</option>
               </select>

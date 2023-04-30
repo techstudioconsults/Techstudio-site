@@ -1,9 +1,11 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import useToast from '../../../../../hooks/useToast'
 import { useRegisterAdminMutation } from '../../../../Auth/api/authApiSlice'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { Feedback, Portal, ToastComponent } from '../../../../../components'
+import { useGetAllTutorsMutation } from '../api/usersApiSlice'
 
 const validation = {
   required: 'This input is required.',
@@ -13,8 +15,9 @@ const validation = {
   },
 }
 
-const AdminRegistrationForm = () => {
+const AdminRegistrationForm = ({ cancelBtn }) => {
   const [registerAdmin, { isLoading }] = useRegisterAdminMutation()
+  const [getAllTutors] = useGetAllTutorsMutation()
   const [errorMessage, setErrorMessage] = useState(null)
   const { toast } = useToast()
 
@@ -42,6 +45,11 @@ const AdminRegistrationForm = () => {
       const res = await registerAdmin(formData).unwrap()
       console.log(res)
       res.success ? modal.show() : null
+      if (res.success) {
+        cancelBtn.current.click()
+        modal.show()
+        getAllTutors().unwrap()
+      }
     } catch (err) {
       setErrorMessage(err.data.message)
       toast.show()
@@ -55,8 +63,8 @@ const AdminRegistrationForm = () => {
   }, [isSubmitSuccessful, reset])
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <ToastComponent errorMessage={errorMessage} />
       <Portal wrapperId='react-portal-modal-container'>
-        <ToastComponent errorMessage={errorMessage} />
         <Feedback
           content={{
             title: `Registration Successfull!`,
@@ -85,7 +93,7 @@ const AdminRegistrationForm = () => {
               <input
                 placeholder='First name'
                 type='text'
-                className='form-control form-control-lg'
+                className='form-control form-control-lg fs-sm'
                 id='firstName'
                 {...register('firstName', validation)}
               />
@@ -107,7 +115,7 @@ const AdminRegistrationForm = () => {
               <input
                 placeholder='Last name'
                 type='text'
-                className='form-control form-control-lg'
+                className='form-control form-control-lg fs-sm'
                 id='lastName'
                 {...register('lastName', validation)}
               />
@@ -129,7 +137,7 @@ const AdminRegistrationForm = () => {
               <input
                 placeholder='Email Address'
                 type='text'
-                className='form-control form-control-lg'
+                className='form-control form-control-lg fs-sm'
                 id='email'
                 {...register('email', validation)}
               />
@@ -152,7 +160,7 @@ const AdminRegistrationForm = () => {
                 placeholder='08012345678'
                 type='tel'
                 pattern='[0-9]{11}'
-                className='form-control form-control-lg'
+                className='form-control form-control-lg fs-sm'
                 id='phoneNumber'
                 {...register('phoneNumber', validation)}
               />

@@ -50,7 +50,7 @@ const TeacherClassNotificationView = ({ mobile }) => {
             <p className={`text-dark text-wrap hide_scrollbar ${style.desc}`}>
               {details?.description}
             </p>
-            <p className='fs-2xl fw-bold text-danger'>{`N${
+            <p className='mt-3 fs-2xl fw-bold text-danger'>{`N${
               details?.fee || `500,000`
             }`}</p>
           </div>
@@ -65,8 +65,10 @@ const TeacherClassNotificationView = ({ mobile }) => {
           <div
             className={`d-flex justify-content-between align-items-center mt-5`}
           >
-            <p className='fs-sm text-info'>Course: {details?.courseTitle}</p>
-            <p className='fs-sm text-white w-75'></p>
+            <p className='fs-sm text-info'>
+              Course: {details?.courseTitle || `not available on the API`}
+            </p>
+            {/* <p className='fs-sm text-white w-75'></p> */}
           </div>
           <div className={`d-flex gap-5 flex-wrap mt-5`}>
             <div className='flex-grow-1 d-flex align-items-start gap-3'>

@@ -90,7 +90,7 @@ const AdminUserListDisplay = () => {
                     <button
                       className={`text-danger btn btn-outline btn-sm fw-semibold`}
                     >
-                      Remote
+                      {tutor?.status}
                     </button>
                   </div>
                 </section>

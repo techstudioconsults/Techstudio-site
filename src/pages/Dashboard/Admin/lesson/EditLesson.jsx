@@ -20,7 +20,7 @@ import {
 } from '../../../../components'
 import { selectCurrentToken } from '../../../Auth/api/authSlice'
 import useToast from '../../../../hooks/useToast'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { ErrorMessage } from '@hookform/error-message'
 import { useGetClassByCourseIDMutation } from '../classes/api/classApiSlice'
 import { useViewCoursesDetailsMutation } from '../courses/api/coursesApiSlice'
@@ -81,12 +81,6 @@ const schema = yup.object().shape({
 
 const EditLesson = () => {
   const { state } = useLocation()
-  // const [tutors] = useState([
-  //   {
-  //     value: state.tutorId,
-  //     label: state.tutorName,
-  //   },
-  // ])
   const [classes, setClasses] = useState([])
   const [tutors, setTutors] = useState([])
   // const [resources] = useState([])
@@ -94,6 +88,7 @@ const EditLesson = () => {
   const [isLoading, setLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState(null)
   const { toast } = useToast()
+  const navigate = useNavigate()
   const lessonID = location.pathname.split(`/`)[3]
   const [getClassesByCourseID] = useGetClassByCourseIDMutation()
   const [viewCoursesDetails] = useViewCoursesDetailsMutation()
@@ -124,11 +119,6 @@ const EditLesson = () => {
       value: classItem.id,
       label: classItem.title,
     }
-    // return (
-    //   <option key={classItem.id} value={classItem.id}>
-    //     {classItem.title}
-    //   </option>
-    // )
   })
 
   const getTutors = (value) => {
@@ -143,22 +133,6 @@ const EditLesson = () => {
         })
         setTutors(tutorsList)
       }
-      // if (singleClass.id === value) {
-      //   Object?.keys(singleClass.resources)?.forEach((key) => {
-      //     singleClass.resources[key]?.map((resource) => {
-      //       console.log(`resource`)
-      //       setResources((prevState) => {
-      //         return [
-      //           ...prevState,
-      //           {
-      //             value: resource,
-      //             label: resource,
-      //           },
-      //         ]
-      //       })
-      //     })
-      //   })
-      // }
     })
   }
 
@@ -195,13 +169,6 @@ const EditLesson = () => {
       value: state.tutorId,
       label: state.tutorName,
     },
-
-    // tutor: tutors.map((tutor) => {
-    //   return {
-    //     value: tutor.value,
-    //     label: tutor.label,
-    //   }
-    // }),
     resources: state?.resources?.map((resource) => {
       return {
         value: resource,
@@ -209,6 +176,7 @@ const EditLesson = () => {
       }
     }),
   }
+  console.log(defaultValues)
 
   const {
     // reset,
@@ -268,12 +236,30 @@ const EditLesson = () => {
   }
   // ==============================================================
 
-  const handleCancelAction = (event) => {
-    event.stopPropagation()
-    let modal = bootstrap.Modal.getOrCreateInstance(
-      document.getElementById('cancel-modal')
-    )
-    modal.show()
+  function compareObjects(obj1, obj2) {
+    // Remove the 'files' property from both objects
+    const obj1WithoutFiles = { ...obj1 }
+    delete obj1WithoutFiles.files
+
+    const obj2WithoutFiles = { ...obj2 }
+    delete obj2WithoutFiles.files
+
+    // Compare the two objects without the 'files' property
+    return JSON.stringify(obj1WithoutFiles) === JSON.stringify(obj2WithoutFiles)
+  }
+
+  const handleCancelAction = (data) => {
+    if (compareObjects(data, defaultValues)) {
+      navigate(`/admin/classes/${state.courseId}`, {
+        state: { from: `lesson` },
+      })
+    } else {
+      // event.stopPropagation()
+      let modal = bootstrap.Modal.getOrCreateInstance(
+        document.getElementById('cancel-modal')
+      )
+      modal.show()
+    }
   }
 
   return (
@@ -592,7 +578,7 @@ const EditLesson = () => {
                   </button>
                   <button
                     type='button'
-                    onClick={handleCancelAction}
+                    onClick={handleSubmit(handleCancelAction)}
                     className='btn btn-outline-danger w-25 dont-delete-btn'
                   >
                     Cancel

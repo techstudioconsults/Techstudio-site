@@ -6,7 +6,7 @@ import StudentRegistrationForm from '../StudentRegistrationForm'
 import TutorRegistrationForm from '../TutorRegistrationForm'
 import AdminRegistrationForm from '../AdminRegistrationForm'
 
-const UserRegistrationFormTab = () => {
+const UserRegistrationFormTab = ({ cancelBtn }) => {
   return (
     <section className={style.UserRegistrationFormTab}>
       <ul className={['nav', style.tabList].join(' ')}>
@@ -54,7 +54,7 @@ const UserRegistrationFormTab = () => {
               `hide_scrollbar d-flex flex-column gap-5`,
             ].join(' ')}
           >
-            <StudentRegistrationForm />
+            <StudentRegistrationForm cancelBtn={cancelBtn} />
           </div>
         </div>
         <div className='tab-pane fade' id='tutor' aria-labelledby='about-tab'>
@@ -64,7 +64,7 @@ const UserRegistrationFormTab = () => {
               `hide_scrollbar d-flex flex-column gap-5`,
             ].join(' ')}
           >
-            <TutorRegistrationForm />
+            <TutorRegistrationForm cancelBtn={cancelBtn} />
           </div>
         </div>
         <div className='tab-pane fade' id='admin' aria-labelledby='album-tab'>
@@ -74,7 +74,7 @@ const UserRegistrationFormTab = () => {
               `hide_scrollbar d-flex flex-column gap-5`,
             ].join(' ')}
           >
-            <AdminRegistrationForm />
+            <AdminRegistrationForm cancelBtn={cancelBtn} />
           </div>
         </div>
       </div>
@@ -85,6 +85,7 @@ const UserRegistrationFormTab = () => {
 UserRegistrationFormTab.propTypes = {
   isTDB: PropTypes.bool,
   isADB: PropTypes.bool,
+  cancelBtn: PropTypes.node,
 }
 
 export default UserRegistrationFormTab

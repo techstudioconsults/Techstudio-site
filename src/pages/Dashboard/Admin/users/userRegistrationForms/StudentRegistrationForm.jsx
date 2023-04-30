@@ -1,11 +1,16 @@
+/* eslint-disable react/prop-types */
 import React, { useCallback, useEffect, useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import useToast from '../../../../../hooks/useToast'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { useViewAllCoursesMutation } from '../../courses/api/coursesApiSlice'
 import { useGetClassByCourseIDMutation } from '../../classes/api/classApiSlice'
 import { useSignupStudentMutation } from '../../../../Auth/api/authApiSlice'
 import { Feedback, Portal, ToastComponent } from '../../../../../components'
+import { useGetAllStudentsMutation } from '../api/usersApiSlice'
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { ErrorMessage } from '@hookform/error-message'
 
 const validation = {
   required: 'This input is required.',
@@ -15,10 +20,21 @@ const validation = {
   },
 }
 
-const StudentRegistrationForm = () => {
+// const schema = yup.object().shape({
+//   firstName: yup.string().required('first name is required'),
+//   lastName: yup.string().required('last name is required'),
+//   email: yup.string().required('email is required'),
+//   phoneNumber: yup.string().required('phone number is required'),
+//   // course: yup.string().required('course is required'),
+//   deposit: yup.string().required('deposit is required'),
+//   userRole: yup.string().required('use role is required'),
+// })
+
+const StudentRegistrationForm = ({ cancelBtn }) => {
   const [signupStudent, { isLoading }] = useSignupStudentMutation()
   const [viewAllCourse] = useViewAllCoursesMutation()
   const [getClassesByCourseID] = useGetClassByCourseIDMutation()
+  const [getAllStudents] = useGetAllStudentsMutation()
   const [courses, setCourses] = useState([])
   const [courseSelected, setCourseSelected] = useState()
   const [classes, setClasses] = useState([])
@@ -32,6 +48,8 @@ const StudentRegistrationForm = () => {
     formState: { errors, isSubmitSuccessful },
   } = useForm({
     criteriaMode: 'all',
+    mode: 'onChange',
+    // resolver: yupResolver(schema),
   })
 
   const getCourses = useCallback(async () => {
@@ -67,7 +85,12 @@ const StudentRegistrationForm = () => {
       )
       const res = await signupStudent(formData).unwrap()
       console.log(res)
-      res.success ? modal.show() : null
+      // res.success ? modal.show() : null
+      if (res.success) {
+        cancelBtn.current.click()
+        modal.show()
+        getAllStudents().unwrap()
+      }
     } catch (err) {
       console.log(err)
       setErrorMessage(err.data.message)
@@ -104,8 +127,8 @@ const StudentRegistrationForm = () => {
 
   return (
     <form onSubmit={handleSubmit(OnSubmit)}>
+      <ToastComponent errorMessage={errorMessage} />
       <Portal wrapperId='react-portal-modal-container'>
-        <ToastComponent errorMessage={errorMessage} />
         <Feedback
           content={{
             title: `Registration Successfull!`,
@@ -134,9 +157,22 @@ const StudentRegistrationForm = () => {
               <input
                 placeholder='First name'
                 type='text'
-                className='form-control form-control-lg'
+                className='form-control form-control-lg fs-sm'
                 id='firstName'
                 {...register('firstName', validation)}
+              />
+              <ErrorMessage
+                errors={errors}
+                name='firstName'
+                render={({ messages }) => {
+                  return messages
+                    ? Object.entries(messages).map(([type, message]) => (
+                        <p className='fs-xs text-danger' key={type}>
+                          {message}
+                        </p>
+                      ))
+                    : null
+                }}
               />
             </div>
           </div>
@@ -156,9 +192,22 @@ const StudentRegistrationForm = () => {
               <input
                 placeholder='Last name'
                 type='text'
-                className='form-control form-control-lg'
+                className='form-control form-control-lg fs-sm'
                 id='lastName'
                 {...register('lastName', validation)}
+              />
+              <ErrorMessage
+                errors={errors}
+                name='lastName'
+                render={({ messages }) => {
+                  return messages
+                    ? Object.entries(messages).map(([type, message]) => (
+                        <p className='fs-xs text-danger' key={type}>
+                          {message}
+                        </p>
+                      ))
+                    : null
+                }}
               />
             </div>
           </div>
@@ -178,9 +227,22 @@ const StudentRegistrationForm = () => {
               <input
                 placeholder='Email Address'
                 type='text'
-                className='form-control form-control-lg'
+                className='form-control form-control-lg fs-sm'
                 id='email'
                 {...register('email', validation)}
+              />
+              <ErrorMessage
+                errors={errors}
+                name='email'
+                render={({ messages }) => {
+                  return messages
+                    ? Object.entries(messages).map(([type, message]) => (
+                        <p className='fs-xs text-danger' key={type}>
+                          {message}
+                        </p>
+                      ))
+                    : null
+                }}
               />
             </div>
           </div>
@@ -201,9 +263,22 @@ const StudentRegistrationForm = () => {
                 type='tel'
                 pattern='[0-9]{11}'
                 placeholder='08012345678'
-                className='form-control form-control-lg'
+                className='form-control form-control-lg fs-sm'
                 id='phoneNumber'
                 {...register('phoneNumber', validation)}
+              />
+              <ErrorMessage
+                errors={errors}
+                name='phoneNumber'
+                render={({ messages }) => {
+                  return messages
+                    ? Object.entries(messages).map(([type, message]) => (
+                        <p className='fs-xs text-danger' key={type}>
+                          {message}
+                        </p>
+                      ))
+                    : null
+                }}
               />
             </div>
           </div>
@@ -221,13 +296,27 @@ const StudentRegistrationForm = () => {
           <div className='col-8'>
             <div className={` w-100`}>
               <select
+                placeholder='Select a course'
                 onChange={getClasses}
-                className='form-select'
+                className='form-select fs-sm'
                 aria-label='Default select example'
                 // {...register(`courses`, validation)}
               >
                 {coursesOption}
               </select>
+              <ErrorMessage
+                errors={errors}
+                name='course'
+                render={({ messages }) => {
+                  return messages
+                    ? Object.entries(messages).map(([type, message]) => (
+                        <p className='fs-xs text-danger' key={type}>
+                          {message}
+                        </p>
+                      ))
+                    : null
+                }}
+              />
             </div>
           </div>
         </div>
@@ -244,8 +333,8 @@ const StudentRegistrationForm = () => {
           <div className='col-8'>
             <div className={` w-100`}>
               <select
-                {...register(`schedule`, validation)}
-                className='form-select'
+                {...register(`schedule`)}
+                className='form-select fs-sm'
                 aria-label='Default select example'
               >
                 {classOption}
@@ -268,8 +357,22 @@ const StudentRegistrationForm = () => {
               <input
                 placeholder='300,000'
                 type='number'
-                className='form-control form-control-lg'
+                className='form-control form-control-lg fs-sm'
                 id='payment'
+                {...register('deposit', validation)}
+              />
+              <ErrorMessage
+                errors={errors}
+                name='deposit'
+                render={({ messages }) => {
+                  return messages
+                    ? Object.entries(messages).map(([type, message]) => (
+                        <p className='fs-xs text-danger' key={type}>
+                          {message}
+                        </p>
+                      ))
+                    : null
+                }}
               />
             </div>
           </div>
