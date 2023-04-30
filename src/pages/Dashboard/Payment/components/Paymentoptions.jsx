@@ -2,18 +2,23 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { courses, paidCourses } from '../data'
 import { HiOutlineEllipsisVertical } from 'react-icons/hi2'
+import { MdOutlineEditNote } from 'react-icons/md'
+import { GiHamburgerMenu } from 'react-icons/gi'
 import AddPaymentModal from './AddPaymentModal'
 import FullPaymentHistory from './FullPaymentHistory'
+import EditPaymentHistory from './EditPaymentHistory'
 
 const Paymentoptions = () => {
   const { courseID } = useParams()
   const [showPaymentModal, setShowPaymentModal] = useState(false)
   const [showFullHistoryModal, setShowFullHistoryModal] = useState(false)
+  const [showEdit, setShowEdit] = useState(false)
 
   return (
     <div>
       {showPaymentModal && <AddPaymentModal />}
       {showFullHistoryModal && <FullPaymentHistory />}
+      {showEdit && <EditPaymentHistory />}
       <div className='mt-4 d-flex justify-content-end align-items-center gap-3'>
         <div>
           <select
@@ -38,9 +43,7 @@ const Paymentoptions = () => {
           </select>
         </div>
         <div>
-          <a href='www.com' className='btn px-5 btn-primary fs-2'>
-            Download List
-          </a>
+          <button className='btn px-5 btn-primary fs-2'>Download List</button>
         </div>
       </div>
 
@@ -77,20 +80,25 @@ const Paymentoptions = () => {
                   >
                     <HiOutlineEllipsisVertical className='text-secondary' />
                   </button>
-                  <ul className='dropdown-menu dropdown-menu-end'>
+                  <ul className='dropdown-menu dropdown-menu-end dropdown-menu-sm'>
                     <li>
                       <button
                         onClick={() => setShowPaymentModal(true)}
                         className='dropdown-item'
                         href='ww.com'
                       >
-                        Add Payment Record
+                        <MdOutlineEditNote className='fs-1' /> Add Payment
+                        Record
                       </button>
                     </li>
                     <li>
-                      <a className='dropdown-item' href='www.com'>
-                        Edit Payment Record
-                      </a>
+                      <button
+                        onClick={() => setShowEdit(true)}
+                        className='dropdown-item'
+                        href='www.com'
+                      >
+                        <MdOutlineEditNote /> Edit Payment Record
+                      </button>
                     </li>
                     <li>
                       <button
@@ -98,7 +106,7 @@ const Paymentoptions = () => {
                         className='dropdown-item'
                         href='ww.com'
                       >
-                        View Payment History
+                        <GiHamburgerMenu className='' /> View Payment History
                       </button>
                     </li>
                   </ul>

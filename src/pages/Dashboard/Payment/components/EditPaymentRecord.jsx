@@ -1,13 +1,9 @@
-/** @format */
+import React from 'react'
+import PaymentRecordUpdatedModal from './PaymentRecordUpdatedModal'
 
-import React, { useState } from 'react'
-import CancelModal from './CancelModal'
-import PaymentRecordAddedModal from './PaymentRecordAddedModal'
-
-const AddPaymentModal = () => {
+const EditPaymentRecord = () => {
   const [showRecordUpdatedModal, setShowRecordUpdatedModal] = useState(false)
   const [showCancelModal, setShowCancelModal] = useState(false)
-
   return (
     <div
       style={{
@@ -19,15 +15,10 @@ const AddPaymentModal = () => {
       }}
       className=' position-absolute bg-white p-5 mx-auto rounded-3 shadow'
     >
-      {showRecordUpdatedModal && <PaymentRecordAddedModal />}
+      {showRecordUpdatedModal && <PaymentRecordUpdatedModal />}
       {showCancelModal && <CancelModal />}
       <h4 className='fw-bold fs-5 text-center pb-5 m-0'>Add Payment Record</h4>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault()
-        }}
-        className='d-flex flex-column gap-5'
-      >
+      <form className='d-flex flex-column gap-5'>
         <div className='d-flex justify-content-between align-items-center'>
           <label className=' fw-semibold' htmlFor='payment-method'>
             Payment Method
@@ -104,4 +95,4 @@ const AddPaymentModal = () => {
   )
 }
 
-export default AddPaymentModal
+export default EditPaymentRecord

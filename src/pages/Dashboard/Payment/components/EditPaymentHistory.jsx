@@ -1,14 +1,6 @@
-/** @format */
-
 import React, { useState } from 'react'
-import DownloadSuccessfulModal from './DownloadSuccessfulModal'
-// import DownloadModal from './DownloadModal'
-import downloadIcon from '../../../../assets/images/downloadIcon.png'
-import shareIcon from '../../../../assets/images/shareIcon.png'
 
-const FullPaymentHistory = (props) => {
-  const [modalShow, setModalShow] = useState(false)
-
+const EditPaymentHistory = () => {
   const data = [
     {
       id: 1,
@@ -51,7 +43,6 @@ const FullPaymentHistory = (props) => {
       comments: 'Cash payment received by Busola',
     },
   ]
-
   return (
     <div
       style={{
@@ -63,59 +54,29 @@ const FullPaymentHistory = (props) => {
       }}
       className='position-absolute bg-white p-5 mx-auto rounded-3 shadow'
     >
-      {modalShow && <DownloadSuccessfulModal />}
       <div className='px-5 pt-5 pb-2 flex-column gap-2'>
         <div className='d-flex justify-content-between align-items-center pb-3 w-100'>
-          <h4>Payment History</h4>
-          <div className='d-flex gap-2'>
-            <button
-              onClick={() => setModalShow(true)}
-              className='btn btn-primary px-4 d-flex gap-2'
-            >
-              <img src={downloadIcon} alt='' />
-              Download As PDF
-            </button>
-            <button className='btn btn-primary bg-white text-primary px-4 d-flex gap-2'>
-              <img src={shareIcon} alt='' />
-              Share
-            </button>
-          </div>
+          <h4>Edit Payment History</h4>
         </div>
-        <div className=' d-flex justify-content-between align-items-center p-2 w-100'>
-          <div>
-            <p className='fw-semibold m-0 fs-5'>John Doe</p>
-            <p className='text-secondary m-0'>Javascript Fullstack Jan 2023</p>
-          </div>
-          <div className='text-end'>
-            <p className='text-secondary m-0'>Course Fee</p>
-            <p className='fw-bold fs-3 m-0'>N500,000</p>
-          </div>
-          <div className='text-end'>
-            <p className='text-secondary m-0'>Payment Status</p>
-            <p className='text-success fw-bold fs-4 m-0'>Full</p>
-          </div>
+        <div className='d-flex gap-2'>
+          <p className='text-muted fs-4'>
+            Click on the Payment you will like to edit
+          </p>
         </div>
       </div>
       <div className='px-5 py-3'>
         <table
-          style={{
-            borderCollapse: 'separate',
-            // border: '8px solid black',
-            borderSpacing: '0 20px',
-          }}
+          //   style={{
+          //     borderCollapse: 'collapse',
+          //     borderSpacing: '10px 20px',
+          //   }}
           className='table'
         >
-          <tr className='mb-4'>
-            <th className='px-2 py-3 fw-semibold text-black'>Payment Method</th>
-            <th className='px-2 py-3 fw-semibold text-black'>Amount Paid</th>
-            <th className='px-2 py-3 fw-semibold text-black'>Balance</th>
-            <th className='px-2 py-3 fw-semibold text-black'>Comments</th>
-          </tr>
           <tbody className=''>
             {data.map((datum) => {
               return (
                 <tr key={datum.id} className='text-start'>
-                  <td className='px-2 py-3 fw-semibold text-primary'>
+                  <td className='px-2 py-3 fw-semibold text-dark'>
                     {datum.paymentMethod}
                   </td>
                   <td className='d-flex flex-column px-2 py-3'>
@@ -140,4 +101,4 @@ const FullPaymentHistory = (props) => {
   )
 }
 
-export default FullPaymentHistory
+export default EditPaymentHistory
