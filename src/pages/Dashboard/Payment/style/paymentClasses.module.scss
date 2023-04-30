@@ -96,3 +96,31 @@
 .test{
   background-color: colors.$bg-color ;
 }
+.text{
+  color: colors.$text-green;
+}
+.ellipsis{
+  display: none;
+}
+.box:hover{
+  .ellipsis{
+    display: block;
+  }
+}
+.icons{
+  height: 12.5px;
+  width: 14.3px;
+}
+.button {
+  display: flex;
+  width: 131px;
+  height: 40px;
+  padding: 8px 17px;
+  flex-direction: row;
+  align-items: center;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 2px solid #878789;
+  gap: 10px;
+  color: #878789;
+}

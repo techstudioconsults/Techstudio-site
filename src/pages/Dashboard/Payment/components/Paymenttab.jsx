@@ -7,6 +7,7 @@ import {
   useParams,
   useLocation,
 } from 'react-router-dom'
+import style from '../style/paymentClasses.module.scss'
 
 const Paymenttab = () => {
   const navigate = useNavigate()
@@ -15,7 +16,12 @@ const Paymenttab = () => {
     return (
       <div className='mb-2' key={course.id}>
         <div>
-          <Link className='d-block text-secondary' to={`courses/${course.id}`}>
+          <Link
+            className={[style.anchor, 'anchor d-block text-secondary'].join(
+              ' '
+            )}
+            to={`courses/${course.id}`}
+          >
             {course.name}
           </Link>
         </div>
