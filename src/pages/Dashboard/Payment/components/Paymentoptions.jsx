@@ -9,12 +9,14 @@ import AddPaymentModal from './AddPaymentModal'
 import FullPaymentHistory from './FullPaymentHistory'
 import EditPaymentHistory from './EditPaymentHistory'
 import style from '../style/paymentClasses.module.scss'
+import DownloadSuccessfulModal from './DownloadSuccessfulModal'
 
 const Paymentoptions = () => {
   const { courseID } = useParams()
   const [showPaymentModal, setShowPaymentModal] = useState(false)
   const [showFullHistoryModal, setShowFullHistoryModal] = useState(false)
   const [showEdit, setShowEdit] = useState(false)
+  const [showDownload, setShowDownload] = useState(false)
   const headings = ['Name', 'Total', 'Amount Paid', 'Balance', 'Status', ' ']
   const setStatus = (s) => {
     if (s === 'Full') {

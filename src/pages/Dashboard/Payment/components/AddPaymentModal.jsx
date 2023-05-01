@@ -19,7 +19,7 @@ const AddPaymentModal = () => {
         right: '0',
         top: '15vh',
       }}
-      className=' position-absolute  bg-white p-5 mx-auto w-50 h-100 rounded-3 shadow'
+      className=' position-absolute  bg-white p-5 mx-auto w-50 h-100 rounded-5 shadow'
     >
       {showRecordUpdatedModal && <PaymentRecordAddedModal />}
       {showCancelModal && <CancelModal />}

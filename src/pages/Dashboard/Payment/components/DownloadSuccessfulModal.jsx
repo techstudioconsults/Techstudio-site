@@ -4,13 +4,12 @@ const DownloadSuccessfulModal = () => {
   return (
     <div
       style={{
-        width: '90%',
-        maxWidth: '1000px',
         left: '0',
         right: '0',
-        top: '20vh',
+        top: '15vh',
+        zIndex: 1,
       }}
-      className='position-absolute bg-white p-5 mx-auto rounded-3 shadow'
+      className='position-absolute bg-white mx-auto rounded-4 d-flex justify-content-center align-items-center shadow h-75 w-100'
     >
       <div>
         <div className='text-center'>

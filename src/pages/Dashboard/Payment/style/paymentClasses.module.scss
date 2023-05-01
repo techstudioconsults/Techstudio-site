@@ -134,3 +134,14 @@ color: #878789;
   background-color: colors.$bg-color ;
   border-radius: 5px;
 }
+
+.editbox{
+      border: 1px solid  #ECEBEB;
+       cursor: 'pointer'
+}
+.editbtn {
+  display: block;
+}
+.editbox:hover{
+  border: 1.5px solid #0385FF;
+}

@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
-
+import style from '../style/paymentClasses.module.scss'
+import { MdOutlineEditNote } from 'react-icons/md'
+import { AiOutlineFolderAdd } from 'react-icons/ai'
+import EditPaymentRecord from './EditPaymentRecord'
 const EditPaymentHistory = () => {
   const data = [
     {
@@ -43,59 +46,65 @@ const EditPaymentHistory = () => {
       comments: 'Cash payment received by Busola',
     },
   ]
+  const [show, setShow] = useState(false)
   return (
     <div
       style={{
-        width: '90%',
-        maxWidth: '1000px',
+        // width: '90%',
+        // maxWidth: '1000px',
         left: '0',
         right: '0',
         top: '20vh',
       }}
-      className='position-absolute bg-white p-5 mx-auto rounded-3 shadow'
+      className='position-absolute bg-white p-5 mx-auto rounded-5 shadow w-75 h-75'
     >
+      {show && <EditPaymentRecord />}
       <div className='px-5 pt-5 pb-2 flex-column gap-2'>
         <div className='d-flex justify-content-between align-items-center pb-3 w-100'>
-          <h4>Edit Payment History</h4>
+          <h4 className='fw-bold'>Edit Payment History</h4>
+
+          <button className={[style.editbtn, 'btn btn-primary'].join(' ')}>
+            {' '}
+            <MdOutlineEditNote /> Proceed to Edit
+          </button>
         </div>
         <div className='d-flex gap-2'>
-          <p className='text-muted fs-4'>
+          <h5 className='text-muted fs-4'>
             Click on the Payment you will like to edit
-          </p>
+          </h5>
         </div>
       </div>
       <div className='px-5 py-3'>
-        <table
-          //   style={{
-          //     borderCollapse: 'collapse',
-          //     borderSpacing: '10px 20px',
-          //   }}
-          className='table'
-        >
-          <tbody className=''>
-            {data.map((datum) => {
-              return (
-                <tr key={datum.id} className='text-start'>
-                  <td className='px-2 py-3 fw-semibold text-dark'>
-                    {datum.paymentMethod}
-                  </td>
-                  <td className='d-flex flex-column px-2 py-3'>
-                    <p className='m-0 text-success fw-semibold'>
-                      {datum.amountPaid.price}
-                    </p>
-                    <p className='m-0'>{datum.amountPaid.date}</p>
-                  </td>
-                  <td className='p-0 px-2 py-3 text-danger fw-semibold'>
-                    {datum.balance}
-                  </td>
-                  <td className='p-0 px-2 py-3 text-secondary fst-italic'>
-                    {datum.comments}
-                  </td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
+        {data.map((t) => {
+          return (
+            <div
+              key={t.id}
+              className={[style.editbox, 'row my-4 px-3 '].join(' ')}
+            >
+              <div className='col-3'>
+                <h6>{t.paymentMethod}</h6>
+                <div className='d-flex align-items-center gap-3'>
+                  <AiOutlineFolderAdd
+                    style={{ color: '#0385FF', width: '20px' }}
+                  />
+                  <p>Transfer Reciept.pdf</p>
+                </div>
+              </div>
+              <div className='col-3'>
+                <h6 className={[style.text]}>{t.amountPaid.price} </h6>
+                <p className='fw-semibold text-muted'>
+                  Date: {t.amountPaid.date}{' '}
+                </p>
+              </div>
+              <div className='col-3'>
+                <h6 className='text-danger'>{t.balance}</h6>
+              </div>
+              <div className='col-3'>
+                <p className='text-muted'>{t.comments}</p>
+              </div>
+            </div>
+          )
+        })}
       </div>
     </div>
   )

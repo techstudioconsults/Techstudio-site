@@ -11,21 +11,31 @@ const PaymentRecordAddedModal = () => {
         top: '15vh',
         zIndex: 1,
       }}
-      className='position-absolute bg-white p-5 mx-auto rounded-3 shadow h-75 w-75'
+      className='position-absolute bg-white mx-auto rounded-5 d-flex justify-content-center align-items-center shadow h-75 w-100'
     >
       <div>
         <div className='text-center'>
-          <div className=' d-flex flex-column gap-3 mt-5 px-2 py-5'>
-            <h4 className='text-black fs-2 fw-bold m-0'>
+          <div className=' d-flex flex-column gap-3 px-2'>
+            <h4
+              style={{
+                fontWeight: '700',
+                fontSize: '29.8071px',
+                lineHeight: '154.38%',
+              }}
+              className='text-black fs-2 fw-bold m-0'
+            >
               New Payment Record
               <br />
               Added!
             </h4>
-            <p className='m-0 text-black'>
-              New payment record has been added for JOHN DOE. Kindly click
-              continue to exit.
+            <p className='m-0 text-black text-center fs-1 mt-2'>
+              New payment record has been added for JOHN <br /> DOE. Kindly
+              click continue to exit.
             </p>
-            <button className='w-100 btn bg-primary text-white mx-auto'>
+            <button
+              style={{ width: '260.98px' }}
+              className='btn bg-primary text-white mx-auto mt-3'
+            >
               Continue
             </button>
           </div>
