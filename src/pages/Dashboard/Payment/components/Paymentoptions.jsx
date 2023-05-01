@@ -90,7 +90,7 @@ const Paymentoptions = () => {
               key={c.id}
               className={[
                 style.box,
-                ' row d-flex align-items-center  border border-3 border-secondary my-4  ps-3 ',
+                ' row d-flex align-items-center  border border-1 border-secondary-subtle my-4  ps-3 ',
               ].join(' ')}
             >
               <div className='col-3 text-start'>

@@ -6,11 +6,11 @@
 .classView {
   background-image: url('../../../../assets/images/512\ 1.png');
   background-position: right;
-  // background-size: 30%;
   background-repeat: no-repeat;
   background-color: colors.$light;
   background-attachment: fixed;
   @include flex;
+  width: 110%;
 
   .dashboardDisplay {
     padding: fn.rem(20) fn.rem(10);
@@ -123,4 +123,14 @@
   border: 2px solid #878789;
   gap: 10px;
   color: #878789;
+}
+.navicon{
+  width: 14px;
+  height: 24px;
+color: #878789;
+}
+.special{
+  border: 1px dashed #0266F4;
+  background-color: colors.$bg-color ;
+  border-radius: 5px;
 }
