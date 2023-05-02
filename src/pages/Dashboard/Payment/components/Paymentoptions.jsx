@@ -4,16 +4,42 @@ import { courses, paidCourses } from '../data'
 import { HiOutlineEllipsisVertical } from 'react-icons/hi2'
 import { MdOutlineEditNote } from 'react-icons/md'
 import { GiHamburgerMenu } from 'react-icons/gi'
+import { GrFormPrevious, GrFormNext } from 'react-icons/gr'
 import AddPaymentModal from './AddPaymentModal'
 import FullPaymentHistory from './FullPaymentHistory'
 import EditPaymentHistory from './EditPaymentHistory'
+import style from '../style/paymentClasses.module.scss'
+import DownloadSuccessfulModal from './DownloadSuccessfulModal'
 
 const Paymentoptions = () => {
   const { courseID } = useParams()
   const [showPaymentModal, setShowPaymentModal] = useState(false)
   const [showFullHistoryModal, setShowFullHistoryModal] = useState(false)
   const [showEdit, setShowEdit] = useState(false)
-
+  const [showDownload, setShowDownload] = useState(false)
+  const headings = ['Name', 'Total', 'Amount Paid', 'Balance', 'Status', ' ']
+  const setStatus = (s) => {
+    if (s === 'Full') {
+      return 'text-danger'
+    } else {
+      return style.text
+    }
+  }
+  const setheading = (s) => {
+    if (s === 'Name') {
+      return 'col-3'
+    } else if (s === 'Total') {
+      return 'col-2 text-center'
+    } else if (s === 'Amount Paid') {
+      return 'col-3'
+    } else if (s === 'Balance') {
+      return 'col-2'
+    } else if (s === 'Status') {
+      return 'col-1'
+    } else {
+      return 'col-1'
+    }
+  }
   return (
     <div>
       {showPaymentModal && <AddPaymentModal />}
@@ -47,38 +73,55 @@ const Paymentoptions = () => {
         </div>
       </div>
 
+      <div className='row mt-5 ps-3 '>
+        {headings.map((m, index) => {
+          return (
+            <div key={index} className={setheading(m)}>
+              <div>
+                <h6> {m} </h6>
+              </div>
+            </div>
+          )
+        })}
+      </div>
+
       <div className='mt-5'>
         {paidCourses.map((c) => {
           return (
             <div
               key={c.id}
-              className='d-flex justify-content-around align-items-center border border-3 border-secondary my-4 px-1'
+              className={[
+                style.box,
+                ' row d-flex align-items-center  border border-1 border-secondary-subtle my-4  ps-3 ',
+              ].join(' ')}
             >
-              <div>
-                <h6 className=''>{c.name} </h6>
-                <p>{c.class} </p>
+              <div className='col-3 text-start'>
+                <h6 className='fw-bold fs-1'>{c.name} </h6>
+                <p className='text-muted'>{c.class} </p>
               </div>
-              <div>
+              <div className='col-2 text-center '>
                 <p>{c.total} </p>
               </div>
-              <div>
-                <p className='text-success'>{c.amountPaid} </p>
+              <div className='col-3 text-start'>
+                <p className={style.text}>{c.amountPaid} </p>
                 <p className='text-muted'>{c.date}</p>
               </div>
-              <div>
+              <div className='col-2 text-start'>
                 <p className='text-primary'>{c.balance} </p>
               </div>
-              <div>
-                <p>{c.status}</p>
+              <div className='col-1 text-start'>
+                <p className={setStatus(c.status)}>{c.status}</p>
               </div>
-              <div>
+              <div className='col-1 text-start'>
                 <div>
                   <button
                     className='dropdown-toggle bg-white'
                     data-bs-toggle='dropdown'
                     aria-expanded='false'
                   >
-                    <HiOutlineEllipsisVertical className='text-secondary' />
+                    <HiOutlineEllipsisVertical
+                      className={[style.ellipsis, `text-secondary`].join(' ')}
+                    />
                   </button>
                   <ul className='dropdown-menu dropdown-menu-end dropdown-menu-sm'>
                     <li>
@@ -87,8 +130,8 @@ const Paymentoptions = () => {
                         className='dropdown-item'
                         href='ww.com'
                       >
-                        <MdOutlineEditNote className='fs-1' /> Add Payment
-                        Record
+                        <MdOutlineEditNote className={style.icons} /> Add
+                        Payment Record
                       </button>
                     </li>
                     <li>
@@ -97,7 +140,8 @@ const Paymentoptions = () => {
                         className='dropdown-item'
                         href='www.com'
                       >
-                        <MdOutlineEditNote /> Edit Payment Record
+                        <MdOutlineEditNote className={style.icons} /> Edit
+                        Payment Record
                       </button>
                     </li>
                     <li>
@@ -106,7 +150,8 @@ const Paymentoptions = () => {
                         className='dropdown-item'
                         href='ww.com'
                       >
-                        <GiHamburgerMenu className='' /> View Payment History
+                        <GiHamburgerMenu className={style.icons} /> View Payment
+                        History
                       </button>
                     </li>
                   </ul>
@@ -115,6 +160,23 @@ const Paymentoptions = () => {
             </div>
           )
         })}
+        <div className='d-flex w-100 justify-content-between align-items-center mt-5 px-0'>
+          <div className=''>
+            <p className='text-muted'>10 Entries per page </p>
+          </div>
+          <div className=' text-center'>
+            <p className='text-muted'>Page 1 of 1</p>
+          </div>
+          <div className=' d-flex justify-content-end gap-4'>
+            <button className={[style.button]}>
+              {' '}
+              <GrFormPrevious /> Previous
+            </button>
+            <button className={[style.button]}>
+              Next <GrFormNext className='text-muted' />
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   )

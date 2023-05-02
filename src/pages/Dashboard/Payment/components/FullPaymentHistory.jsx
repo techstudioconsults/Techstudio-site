@@ -55,17 +55,17 @@ const FullPaymentHistory = (props) => {
   return (
     <div
       style={{
-        width: '90%',
-        maxWidth: '1000px',
+        // width: '90%',
+        // maxWidth: '1000px',
         left: '0',
         right: '0',
         top: '20vh',
       }}
-      className='position-absolute bg-white p-5 mx-auto rounded-3 shadow'
+      className='position-absolute bg-white p-5 mx-auto rounded-5 w-75 h-100 shadow'
     >
       {modalShow && <DownloadSuccessfulModal />}
       <div className='px-5 pt-5 pb-2 flex-column gap-2'>
-        <div className='d-flex justify-content-between align-items-center pb-3 w-100'>
+        <div className='d-flex justify-content-between align-items-center pb-3 w-100 '>
           <h4>Payment History</h4>
           <div className='d-flex gap-2'>
             <button
@@ -81,18 +81,21 @@ const FullPaymentHistory = (props) => {
             </button>
           </div>
         </div>
-        <div className=' d-flex justify-content-between align-items-center p-2 w-100'>
-          <div>
+        <div
+          style={{ backgroundColor: '#F3F9FF' }}
+          className='row d-flex justify-content-between align-items-center p-2 w-100'
+        >
+          <div className='col-4'>
             <p className='fw-semibold m-0 fs-5'>John Doe</p>
             <p className='text-secondary m-0'>Javascript Fullstack Jan 2023</p>
           </div>
-          <div className='text-end'>
+          <div className='col-4 text-end'>
             <p className='text-secondary m-0'>Course Fee</p>
             <p className='fw-bold fs-3 m-0'>N500,000</p>
           </div>
-          <div className='text-end'>
+          <div className='col-4 text-end'>
             <p className='text-secondary m-0'>Payment Status</p>
-            <p className='text-success fw-bold fs-4 m-0'>Full</p>
+            <p className='text-success fw-bold  m-0'>Full</p>
           </div>
         </div>
       </div>
