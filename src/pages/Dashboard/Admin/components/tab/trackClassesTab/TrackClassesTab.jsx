@@ -30,12 +30,12 @@ const TrackClassesTab = ({ courses }) => {
     }
   }, [courseID, getClassByCourseID, getLessonByCourseID])
 
-  useEffect(() => {
-    if (!courseID) {
-      redirect(`/admin/classes/${courses[0]?.id}`)
-    }
-    activeRoute(courseID)
-  }, [activeRoute, courseID, courses, redirect])
+  // useEffect(() => {
+  //   if (!courseID) {
+  //     redirect(`/admin/classes/${courses[0]?.id}`)
+  //   }
+  //   activeRoute(courseID)
+  // }, [activeRoute, courseID, courses, redirect])
 
   useEffect(() => {
     getClasses()
