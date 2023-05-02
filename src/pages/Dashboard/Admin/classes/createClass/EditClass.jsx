@@ -172,7 +172,7 @@ const EditClass = () => {
       )
       setSave(false)
       const res = await axios.patch(
-        `${baseUrl}/class/${classID}`,
+        `${baseUrl}/classes/${classID}`,
         formData,
         credentials
       )

@@ -26,6 +26,7 @@ import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { ErrorMessage } from '@hookform/error-message'
 import { useViewCoursesDetailsMutation } from '../../courses/api/coursesApiSlice'
+import { useGetResourcesByCourseIDMutation } from '../../resources/api/resourceApiSlice'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
@@ -80,8 +81,12 @@ const schema = yup.object().shape({
 })
 
 const CreateClass = () => {
-  const [tutors, setTutors] = useState([])
   const [crudeTutors, setCrudeTutors] = useState({})
+  const [tutors, setTutors] = useState([])
+
+  const [crudeResources, setCrudeResources] = useState([])
+  const [resources, setResources] = useState([])
+
   const [isLoading, setLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState(null)
   const token = useSelector(selectCurrentToken)
@@ -90,6 +95,7 @@ const CreateClass = () => {
   const { courseID } = useParams()
   const navigate = useNavigate()
   const [viewCoursesDetails] = useViewCoursesDetailsMutation()
+  const [getResourcesByCourseID] = useGetResourcesByCourseIDMutation()
 
   const credentials = {
     headers: {
@@ -105,14 +111,18 @@ const CreateClass = () => {
     }
   }, [courseID, viewCoursesDetails])
 
-  useEffect(() => {
-    console.log(courseID)
-    if (courseID !== undefined) {
-      getCourse()
-    } else {
-      navigate(`/admin/courses/create`)
+  const getResourceForClass = useCallback(async () => {
+    const res = await getResourcesByCourseID(courseID).unwrap()
+    if (res.success) {
+      console.log(res.data.resources)
+      setCrudeResources([
+        ...res.data.resources.audio,
+        ...res.data.resources.video,
+        ...res.data.resources.document,
+      ])
     }
-  }, [courseID, getCourse, navigate])
+  }, [courseID, getResourcesByCourseID])
+  console.log(crudeResources, resources)
 
   const findTutors = (status) => {
     const tutors = crudeTutors[status]?.map((tutor) => {
@@ -123,6 +133,28 @@ const CreateClass = () => {
     })
     setTutors(tutors)
   }
+
+  useEffect(() => {
+    getResourceForClass()
+  }, [getResourceForClass])
+
+  useEffect(() => {
+    if (courseID !== undefined) {
+      getCourse()
+    } else {
+      navigate(`/admin/courses/create`)
+    }
+  }, [courseID, getCourse, navigate])
+
+  useEffect(() => {
+    const resource = crudeResources?.map((resource) => {
+      return {
+        value: resource.id,
+        label: resource.name,
+      }
+    })
+    setResources(resource)
+  }, [crudeResources])
 
   const {
     // reset,
@@ -147,12 +179,31 @@ const CreateClass = () => {
 
     formData.append(`title`, data.title)
     formData.append(`description`, data.description)
-    formData.append(`fee`, data.fee)
+    formData.append(`fee`, parseInt(data.fee))
     formData.append(`preference`, data.preference)
     formData.append(`startDate`, new Date(data.startDate).toISOString())
     formData.append(`endDate`, new Date(data.endDate).toISOString())
     data.tutors.forEach((item) => formData.append('tutors[]', item.value))
-    // files.forEach((item) => formData.append('files', item))
+    data.resources?.forEach((item) =>
+      formData.append('resources[]', item.value || ``)
+    )
+
+    const formdata = {
+      title: data.title,
+      description: data.description,
+      fee: data.fee,
+      preference: data.preference,
+      startDate: new Date(data.startDate).toISOString(),
+      endDate: new Date(data.endDate).toISOString(),
+      tutors: data.tutors.map((tutor) => {
+        return tutor.value
+      }),
+      resources: data.resources.map((resource) => {
+        return resource.value
+      }),
+    }
+
+    console.log(formdata)
 
     // for (var pair of formData.entries()) {
     //   console.log(pair[0] + ', ' + pair[1])
@@ -164,8 +215,8 @@ const CreateClass = () => {
       )
 
       const res = await axios.post(
-        `${baseUrl}/class/${courseID}`,
-        formData,
+        `${baseUrl}/classes/${courseID}`,
+        formdata,
         credentials
       )
       console.log(res)
@@ -518,7 +569,7 @@ const CreateClass = () => {
             <div className='mb-8 d-flex row'>
               <div className='col-4'>
                 <label
-                  htmlFor='title'
+                  htmlFor='resources'
                   className={`col-form-label fs-lg ${style.labels} w-100`}
                 >
                   Resources
@@ -536,9 +587,9 @@ const CreateClass = () => {
                             <Select
                               styles={colorStyles}
                               className='reactSelect my-2'
-                              name='resources'
+                              name='resource'
                               placeholder='Select a resource from the dropdown list'
-                              // options={resources}
+                              options={resources}
                               isMulti
                               {...field}
                             />

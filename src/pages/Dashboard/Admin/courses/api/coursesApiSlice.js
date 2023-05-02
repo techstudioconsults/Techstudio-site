@@ -6,7 +6,7 @@ export const coursesApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     createCourse: builder.mutation({
       query: (credentials) => ({
-        url: '/course',
+        url: '/courses',
         method: 'POST',
         Headers: { 'Content-type': 'multipart/form-data' },
         body: { ...credentials },
@@ -25,7 +25,7 @@ export const coursesApiSlice = apiSlice.injectEndpoints({
 
     createClass: builder.mutation({
       query: (credentials) => ({
-        url: `/class/${credentials.courseID}`,
+        url: `/classes/${credentials.courseID}`,
         method: 'POST',
         Headers: { 'Content-type': 'multipart/form-data' },
         body: { ...credentials.body },
@@ -57,13 +57,13 @@ export const coursesApiSlice = apiSlice.injectEndpoints({
     // }),
     getTutors: builder.mutation({
       query: () => ({
-        url: '/course/tutors',
+        url: '/courses/tutors',
         method: 'GET',
       }),
     }),
     viewAllCourses: builder.mutation({
       query: () => ({
-        url: '/course',
+        url: '/courses',
         method: 'GET',
       }),
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
@@ -81,7 +81,7 @@ export const coursesApiSlice = apiSlice.injectEndpoints({
     }),
     viewCoursesDetails: builder.mutation({
       query: (courseID) => ({
-        url: `/course/${courseID}`,
+        url: `/courses/${courseID}`,
         method: 'GET',
       }),
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
@@ -100,7 +100,7 @@ export const coursesApiSlice = apiSlice.injectEndpoints({
     }),
     deleteCourse: builder.mutation({
       query: (courseID) => ({
-        url: `/course/${courseID}`,
+        url: `/courses/${courseID}`,
         method: 'DELETE',
       }),
     }),

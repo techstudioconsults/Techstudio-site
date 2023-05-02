@@ -89,6 +89,7 @@ const DeleteModal = ({ content }) => {
     handleDelete = async () => {
       setDeleted(false)
       const res = await deleteCourse(content.courseID).unwrap()
+      console.log(res)
       if (res.success) {
         setDeleted(true)
       }

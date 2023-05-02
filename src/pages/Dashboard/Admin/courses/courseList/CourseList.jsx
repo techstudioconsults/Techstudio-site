@@ -27,6 +27,7 @@ const CourseList = ({ course, showDetailsBox }) => {
   const setActiveCourse = useCallback(() => {
     location.search.includes(id) ? setActive(true) : setActive(false)
   }, [id, location.search])
+  console.log(id)
 
   const handleClick = async () => {
     const queryParams = new URLSearchParams(location.search)

@@ -221,7 +221,7 @@ const CreateCourse = () => {
       )
       setSave(false)
       const res = await axios.patch(
-        `${baseUrl}/course/${course.id}`,
+        `${baseUrl}/courses/${course.id}`,
         formData,
         credentials
       )

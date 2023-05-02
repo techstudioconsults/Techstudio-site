@@ -25,13 +25,17 @@ const ResourceCourseTab = ({ courses }) => {
   console.log(resource)
 
   const getResources = useCallback(async () => {
-    let courseID = location?.state?.course?.id
-
-    if (courseID) {
-      const res = await getResourcesByCourseID(courseID).unwrap()
+    if (resource) {
+      const res = await getResourcesByCourseID(resource).unwrap()
       setResourceLength(res.data.resources.length)
     }
-  }, [getResourcesByCourseID, location?.state?.course?.id])
+    // let courseID = location?.state?.course?.id
+
+    // if (courseID) {
+    //   const res = await getResourcesByCourseID(courseID).unwrap()
+    //   setResourceLength(res.data.resources.length)
+    // }
+  }, [getResourcesByCourseID, resource])
 
   useEffect(() => {
     if (!resource) {

@@ -107,8 +107,9 @@ const CreateCourse = () => {
 
   const findTutors = useCallback(async () => {
     const res = await getTutors().unwrap()
+    console.log(res)
     const tutors = res.data.map((tutor) => {
-      return { value: tutor.id, label: `${tutor.firstName} ${tutor.lastName}` }
+      return { value: tutor.id, label: `${tutor.fullName}` }
     })
     setTutors(tutors)
   }, [getTutors])
@@ -213,7 +214,7 @@ const CreateCourse = () => {
         document.getElementById('save-success')
       )
 
-      const res = await axios.post(`${baseUrl}/course`, formData, credentials)
+      const res = await axios.post(`${baseUrl}/courses`, formData, credentials)
       if (res.status === 201) {
         setLoading(false)
         modal.show()

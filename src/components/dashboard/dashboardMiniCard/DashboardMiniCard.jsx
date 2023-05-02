@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import style from './dashboardminiCard.module.scss'
 import { Icon } from '@iconify/react'
 
-const DashboardMiniCard = ({ card }) => {
+const DashboardMiniCard = ({ card, total }) => {
   return (
     <div className={[style.dashboardCard, `col-3`].join(' ')}>
       <div
@@ -26,7 +26,7 @@ const DashboardMiniCard = ({ card }) => {
       </div>
       <div className={style.content}>
         <h6 className={style.title}>{card.title}</h6>
-        <p className={style.total}>{card.total}</p>
+        <p className={style.total}>{total}</p>
       </div>
     </div>
   )
@@ -34,6 +34,7 @@ const DashboardMiniCard = ({ card }) => {
 
 DashboardMiniCard.propTypes = {
   card: PropTypes.object.isRequired,
+  total: PropTypes.number,
 }
 
 export default DashboardMiniCard

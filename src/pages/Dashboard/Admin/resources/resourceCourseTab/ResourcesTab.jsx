@@ -16,9 +16,6 @@ const ResourceTab = () => {
   const location = useLocation()
 
   console.log(allResources)
-  console.log(resources)
-
-  console.log(location)
 
   function checkExtension(str) {
     // Split the string by the dot character
@@ -27,63 +24,63 @@ const ResourceTab = () => {
     return extension
   }
 
-  useEffect(() => {
-    allResources?.forEach((resource) => {
-      console.log(resource)
-      if (resource.id === location?.state?.course?.id) {
-        setResources((prevState) => {
-          return [...prevState, resource]
-        })
-      }
-    })
-  }, [allResources, location?.state?.course])
+  // useEffect(() => {
+  //   allResources?.forEach((resource) => {
+  //     console.log(resource)
+  //     if (resource.id === location?.state?.course?.id) {
+  //       setResources((prevState) => {
+  //         return [...prevState, resource]
+  //       })
+  //     }
+  //   })
+  // }, [allResources, location?.state?.course])
 
-  const fileDisplay = allResources?.map((file) => {
-    let fileFormat = checkExtension(file.name)
-    if (
-      checkExtension(file.name) !== `mp4` &&
-      checkExtension(file.name) !== `mp3`
-    ) {
-      return (
-        <AdminResourceListDisplay
-          key={file.id}
-          file={file}
-          type={`document`}
-          format={fileFormat}
-          // course={state?.courseTitle}
-        />
-      )
-    }
-  })
-  const videoDisplay = allResources.map((file) => {
-    let fileFormat = checkExtension(file.name)
-    if (checkExtension(file.name) === `mp4`) {
-      return (
-        <AdminResourceListDisplay
-          key={file.id}
-          file={file}
-          type={`video`}
-          format={fileFormat}
-          // course={state?.courseTitle}
-        />
-      )
-    }
-  })
+  // const fileDisplay = allResources?.map((file) => {
+  //   let fileFormat = checkExtension(file.name)
+  //   if (
+  //     checkExtension(file.name) !== `mp4` &&
+  //     checkExtension(file.name) !== `mp3`
+  //   ) {
+  //     return (
+  //       <AdminResourceListDisplay
+  //         key={file.id}
+  //         file={file}
+  //         type={`document`}
+  //         format={fileFormat}
+  //         // course={state?.courseTitle}
+  //       />
+  //     )
+  //   }
+  // })
+  // const videoDisplay = allResources.map((file) => {
+  //   let fileFormat = checkExtension(file.name)
+  //   if (checkExtension(file.name) === `mp4`) {
+  //     return (
+  //       <AdminResourceListDisplay
+  //         key={file.id}
+  //         file={file}
+  //         type={`video`}
+  //         format={fileFormat}
+  //         // course={state?.courseTitle}
+  //       />
+  //     )
+  //   }
+  // })
 
-  const audioDisplay = allResources.map((file) => {
-    let fileFormat = checkExtension(file.name)
-    if (checkExtension(file.name) === `mp3`) {
-      return (
-        <AdminResourceListDisplay
-          key={file.id}
-          file={file}
-          type={`audio`}
-          format={fileFormat}
-          // course={state?.courseTitle}
-        />
-      )
-    }
-  })
+  // const audioDisplay = allResources.map((file) => {
+  //   let fileFormat = checkExtension(file.name)
+  //   if (checkExtension(file.name) === `mp3`) {
+  //     return (
+  //       <AdminResourceListDisplay
+  //         key={file.id}
+  //         file={file}
+  //         type={`audio`}
+  //         format={fileFormat}
+  //         // course={state?.courseTitle}
+  //       />
+  //     )
+  //   }
+  // })
 
   return (
     <section className={style.resourceTab}>
@@ -133,7 +130,7 @@ const ResourceTab = () => {
             ].join(' ')}
           >
             {allResources?.length ? (
-              fileDisplay
+              `fileDisplay`
             ) : (
               <Feedback message={`No resources uploaded for this course`} />
             )}
@@ -147,7 +144,7 @@ const ResourceTab = () => {
             ].join(' ')}
           >
             {allResources?.length ? (
-              videoDisplay
+              `videoDisplay`
             ) : (
               <Feedback message={`No resources uploaded for this course`} />
             )}
@@ -161,7 +158,7 @@ const ResourceTab = () => {
             ].join(' ')}
           >
             {allResources?.length ? (
-              audioDisplay
+              `audioDisplay`
             ) : (
               <Feedback message={`No resources uploaded for this course`} />
             )}

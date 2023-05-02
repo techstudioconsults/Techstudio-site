@@ -20,7 +20,7 @@ const TrackAnalysisLayout = () => {
             data-bs-toggle='modal'
             data-bs-target='#start-a-class'
           >
-            <p className='text-primary fs-sm fw-semibold'>Upload New file</p>
+            {/* <p className='text-primary fs-sm fw-semibold'>Upload New file</p> */}
           </div>
           <Portal wrapperId='react-portal-modal-container'>
             <AddAFile /> {/** portal */}

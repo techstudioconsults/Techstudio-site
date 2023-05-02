@@ -9,6 +9,8 @@ import Feedback from '../../../components/global/feedbacks/Feedback'
 import { DASHBOARD_CONTENT } from '../../../layout/Layout/dashboardLayout/content'
 import StudentDashboardSectionTwo from '../Student/components/StudentDashboardSectionTwo'
 import style from './adminDashboard.module.scss'
+import { useGetCardInfoMutation } from './api/dashboardApiSlice'
+import { selectCards } from './api/dashboardSlice'
 import AdminDashboardTab from './components/tab/AdminDashboardTab'
 import { useViewAllCoursesMutation } from './courses/api/coursesApiSlice'
 import { selectCourses } from './courses/api/coursesSlice'
@@ -17,15 +19,22 @@ const AdminDashboard = () => {
   const { adminDashboard } = DASHBOARD_CONTENT
 
   const [viewAllCourses] = useViewAllCoursesMutation()
+  const [getCardInfo] = useGetCardInfoMutation()
+
   const courses = useSelector(selectCourses)
+  const cards = useSelector(selectCards)
 
   const getCourses = useCallback(async () => {
     await viewAllCourses().unwrap()
   }, [viewAllCourses])
+  const getCards = useCallback(async () => {
+    await getCardInfo().unwrap()
+  }, [getCardInfo])
 
   useEffect(() => {
     getCourses()
-  }, [getCourses])
+    getCards()
+  }, [getCards, getCourses])
 
   const feedback = courses?.length ? (
     <AdminDashboardTab courses={courses} />
@@ -45,6 +54,7 @@ const AdminDashboard = () => {
             <div>
               <StudentDashboardSectionTwo
                 content={adminDashboard.taskSummary}
+                cardsAPI={cards}
               />
             </div>
           </div>

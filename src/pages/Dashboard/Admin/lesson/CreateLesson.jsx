@@ -258,7 +258,7 @@ const CreateLesson = () => {
       )
 
       const res = await axios.post(
-        `${baseUrl}/lesson/${classID}`,
+        `${baseUrl}/lessons/${classID}`,
         formData,
         credentials
       )

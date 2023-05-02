@@ -1,17 +1,33 @@
-import React from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { DASHBOARD_CONTENT } from '../../../layout/Layout/dashboardLayout/content'
 import style from './dashboardresource.module.scss'
 import './custom.css'
 import ResourceListDisplay from './ResourceListDisplay'
 import PropTypes from 'prop-types'
+import { useDashboardAllResourcesMutation } from '../../../pages/Dashboard/Admin/api/dashboardApiSlice'
+import { useParams } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { selectDashboardResources } from '../../../pages/Dashboard/Admin/api/dashboardSlice'
 
 const DashboardResource = () => {
-  const { studentBoard } = DASHBOARD_CONTENT
+  // const { studentBoard } = DASHBOARD_CONTENT
+  const dashborardResources = useSelector(selectDashboardResources)
+  const { courseID } = useParams()
 
-  const fileDisplay = studentBoard.resources.PDF.map((file) => {
+  const [dashboardAllResources] = useDashboardAllResourcesMutation()
+
+  const getResources = useCallback(async () => {
+    await dashboardAllResources(courseID).unwrap()
+  }, [courseID, dashboardAllResources])
+
+  useEffect(() => {
+    getResources()
+  }, [getResources])
+
+  const fileDisplay = dashborardResources?.document?.map((file) => {
     return <ResourceListDisplay key={file.id} file={file} isADB />
   })
-  const videoDisplay = studentBoard.resources.PDF.map((file) => {
+  const videoDisplay = dashborardResources?.video?.map((file) => {
     return <ResourceListDisplay key={file.id} file={file} isVideo />
   })
 

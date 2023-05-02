@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage'
 import { apiSlice } from './api/apiSlice'
 import { setupListeners } from '@reduxjs/toolkit/query'
 import authReducer from '../pages/Auth/api/authSlice'
+import dashboardReducer from '../pages/Dashboard/Admin/api/dashboardSlice'
 import coursesReducer from '../pages/Dashboard/Admin/courses/api/coursesSlice'
 import classesReducer from '../pages/Dashboard/Admin/classes/api/classSlice'
 import resourceReducer from '../pages/Dashboard/Admin/resources/api/resourceSlice'
@@ -24,6 +25,7 @@ export const store = configureStore({
     [apiSlice.reducerPath]: apiSlice.reducer,
     // auth: authReducer,
     auth: persistedReducer,
+    dashboard: dashboardReducer,
     courses: coursesReducer,
     classes: classesReducer,
     resources: resourceReducer,

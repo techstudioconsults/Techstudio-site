@@ -25,7 +25,7 @@ export const resourceApiSlice = apiSlice.injectEndpoints({
 
     getResourcesByCourseID: builder.mutation({
       query: (courseID) => ({
-        url: `/resource/courses/${courseID}`,
+        url: `/resources/courses/${courseID}`,
         method: 'GET',
       }),
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
