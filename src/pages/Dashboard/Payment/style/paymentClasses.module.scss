@@ -10,7 +10,7 @@
   background-color: colors.$light;
   background-attachment: fixed;
   @include flex;
-  width: 110%;
+  // width: 110%;
 
   .dashboardDisplay {
     padding: fn.rem(20) fn.rem(10);
@@ -21,7 +21,7 @@
     }
 
     @include breakpoint-up('xl') {
-      width: 65%;
+      width: 85%;
     }
 
     .header {
@@ -108,8 +108,8 @@
   }
 }
 .icons{
-  height: 12.5px;
-  width: 14.3px;
+  height: 13.5px;
+  width: 16.3px;
 }
 .button {
   display: flex;
