@@ -60,7 +60,7 @@ const UserTab = ({ courses }) => {
     setLoading(true)
     try {
       const res = await axios.get(
-        `${baseUrl}/users/tutors/download/${courseID}`,
+        `${baseUrl}/users/tutors/courses/${courseID}/download`,
         credentials
       )
       console.log(res.data)
@@ -99,7 +99,7 @@ const UserTab = ({ courses }) => {
     setLoading(true)
     try {
       const res = await axios.get(
-        `${baseUrl}/users/students/download/${courseID}`,
+        `${baseUrl}/users/students/courses/${courseID}/download`,
         credentials
       )
       console.log(res.data)

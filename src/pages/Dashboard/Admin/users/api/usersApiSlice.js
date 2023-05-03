@@ -62,7 +62,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
     }),
     getStudentsByCourseID: builder.mutation({
       query: (courseID) => ({
-        url: `/users/students/${courseID}`,
+        url: `/users/students/courses/${courseID}`,
         method: 'GET',
       }),
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
