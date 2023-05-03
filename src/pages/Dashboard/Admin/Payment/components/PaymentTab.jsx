@@ -3,24 +3,18 @@ import { Outlet, useLocation, useNavigate, useParams } from 'react-router'
 import { NavLink } from 'react-router-dom'
 import style from '../style/payment.module.scss'
 import PropTypes from 'prop-types'
-import {
-  useGetStudentPaymentRecordsByIDsMutation,
-  // useGetStudentPaymentRecordsMutation,
-} from '../api/paymentApiSlice'
-import { selectClasses } from '../../Admin/classes/api/classSlice'
+import { useGetStudentPaymentRecordsByIDsMutation } from '../api/paymentApiSlice'
 import { useSelector } from 'react-redux'
-// import { useGetStudentsByCourseIDMutation } from '../../Admin/users/api/usersApiSlice'
-// import SpinnerComponent from '../../../../components/global/skeletonLoader/SpinnerComponent'
+import { selectClasses } from '../../classes/api/classSlice'
 
 const PaymentTab = ({ courses }) => {
   const location = useLocation()
   const classes = useSelector(selectClasses)
   const [getStudentPaymentRecordsByIDs] =
     useGetStudentPaymentRecordsByIDsMutation()
-  // const [getStudentsByCourseID] = useGetStudentsByCourseIDMutation()
   let { courseID } = useParams()
   const redirect = useNavigate()
-  // verifies if routeName is the one active (in browser input)
+
   const activeRoute = useCallback(
     (routeName) => {
       return location.pathname.includes(routeName)

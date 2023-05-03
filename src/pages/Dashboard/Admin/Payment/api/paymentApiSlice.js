@@ -1,4 +1,4 @@
-import { apiSlice } from '../../../../app/api/apiSlice'
+import { apiSlice } from '../../../../../app/api/apiSlice'
 import { setStudentPaymentRecord } from './paymentSlice'
 
 export const dashboardApiSlice = apiSlice.injectEndpoints({

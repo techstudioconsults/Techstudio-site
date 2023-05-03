@@ -3,8 +3,8 @@
 import React, { useState } from 'react'
 import DownloadSuccessfulModal from './DownloadSuccessfulModal'
 // import DownloadModal from './DownloadModal'
-import downloadIcon from '../../../../assets/images/downloadIcon.png'
-import shareIcon from '../../../../assets/images/shareIcon.png'
+import downloadIcon from '../../../../../assets/images/downloadIcon.png'
+import shareIcon from '../../../../../assets/images/shareIcon.png'
 import style from '../style/paymentClasses.module.scss'
 
 const FullPaymentHistory = (props) => {

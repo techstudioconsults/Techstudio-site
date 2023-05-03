@@ -3,23 +3,25 @@
 @import '../../../../../scss/utils/breakpoints';
 @import '../../../../../scss/utils/mixins';
 
-.paymentView {
+.classView {
   background-image: url('../../../../../assets/images/512\ 1.png');
   background-position: right;
-  // background-size: 30%;
   background-repeat: no-repeat;
   background-color: colors.$light;
   background-attachment: fixed;
   @include flex;
+  // width: 110%;
 
   .dashboardDisplay {
     padding: fn.rem(20) fn.rem(10);
     width: 100%;
+
     @include breakpoint-up('md') {
       padding: fn.rem(32);
     }
+
     @include breakpoint-up('xl') {
-      width: 65%;
+      width: 85%;
     }
 
     .header {
@@ -27,6 +29,7 @@
       @include flex_align;
       justify-content: space-between;
     }
+
     .searchInput {
       width: fn.rem(644);
       height: fn.rem(36);
@@ -51,6 +54,7 @@
 
     .tableHeadTitle {
       flex: 2;
+
       p {
         color: colors.$deep-blue;
       }
@@ -58,11 +62,14 @@
 
     .tableHead {
       flex: 1;
+
       p {
         color: colors.$gray;
       }
+
       ul {
         height: 100%;
+
         li {
           font-size: fn.rem(12);
           padding-block: fn.rem(1);
@@ -84,4 +91,57 @@
       gap: fn.rem(85);
     }
   }
+}
+
+.test {
+  background-color: colors.$bg-color;
+}
+.text {
+  color: colors.$text-green;
+}
+.ellipsis {
+  display: none;
+}
+.box:hover {
+  .ellipsis {
+    display: block;
+  }
+}
+.icons {
+  height: 13.5px;
+  width: 16.3px;
+}
+.button {
+  display: flex;
+  width: 131px;
+  height: 40px;
+  padding: 8px 17px;
+  flex-direction: row;
+  align-items: center;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 2px solid #878789;
+  gap: 10px;
+  color: #878789;
+}
+.navicon {
+  width: 14px;
+  height: 24px;
+  color: #878789;
+}
+.special {
+  border: 1px dashed #0266f4;
+  background-color: colors.$bg-color;
+  border-radius: 5px;
+}
+
+.editbox {
+  border: 1px solid #ecebeb;
+  cursor: 'pointer';
+}
+.editbtn {
+  display: block;
+}
+.editbox:hover {
+  border: 1.5px solid #0385ff;
 }

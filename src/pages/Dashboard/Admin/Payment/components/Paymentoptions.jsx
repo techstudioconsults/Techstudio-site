@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { courses, paidCourses } from '../data'
 import { HiOutlineEllipsisVertical } from 'react-icons/hi2'
 import AddPaymentModal from './AddPaymentModal'
 import FullPaymentHistory from './FullPaymentHistory'
@@ -11,15 +10,15 @@ import style from '../style/paymentClasses.module.scss'
 import { useSelector } from 'react-redux'
 import { selectStudentsPaymentRecord } from '../api/paymentSlice'
 import { Icon } from '@iconify/react'
-import { selectClasses } from '../../Admin/classes/api/classSlice'
 import { useForm } from 'react-hook-form'
-import { selectCurrentToken } from '../../../Auth/api/authSlice'
 import axios from 'axios'
 import download from 'downloadjs'
-import Feedback from '../../../../components/global/feedbacks/Feedback'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
-import { Portal } from '../../../../components'
-import UserRegistrationFormModal from '../../Admin/users/userRegistrationForms/UserRegistrationFormModal'
+import { selectClasses } from '../../classes/api/classSlice'
+import { selectCurrentToken } from '../../../../Auth/api/authSlice'
+import Feedback from '../../../../../components/global/feedbacks/Feedback'
+import { Portal } from '../../../../../components'
+import UserRegistrationFormModal from '../../users/userRegistrationForms/UserRegistrationFormModal'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
@@ -30,7 +29,6 @@ const Paymentoptions = () => {
   const [showEdit, setShowEdit] = useState(false)
   const classes = useSelector(selectClasses)
   const token = useSelector(selectCurrentToken)
-  const [showDownload, setShowDownload] = useState(false)
   const studentPaymentDetails = useSelector(selectStudentsPaymentRecord)
 
   const credentials = {

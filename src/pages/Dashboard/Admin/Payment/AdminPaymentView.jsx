@@ -1,20 +1,18 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useEffect, useCallback } from 'react'
 import style from './style/paymentClasses.module.scss'
 import { Icon } from '@iconify/react'
-import { AvatarDropdown } from '../../../components'
-import coinImg from '../../../assets/images/amico.png'
-import PaymentTab from './components/PaymentTab'
-import { useViewAllCoursesMutation } from '../Admin/courses/api/coursesApiSlice'
+import coinImg from '../../../../assets/images/amico.png'
+import { useViewAllCoursesMutation } from '../courses/api/coursesApiSlice'
+import { useGetClassByCourseIDMutation } from '../classes/api/classApiSlice'
 import { useSelector } from 'react-redux'
+import { selectCourses } from '../courses/api/coursesSlice'
 import { useParams } from 'react-router-dom'
-import Feedback from '../../../components/global/feedbacks/Feedback'
-import { selectCourses } from '../Admin/courses/api/coursesSlice'
-import { useGetClassByCourseIDMutation } from '../Admin/classes/api/classApiSlice'
-import { selectClasses } from '../Admin/classes/api/classSlice'
+import Feedback from '../../../../components/global/feedbacks/Feedback'
+import { AvatarDropdown } from '../../../../components'
+import PaymentTab from './components/PaymentTab'
 
 const AdminPaymentView = () => {
-  // const courses = ['Fullstack development']
-  const [viewAllCourses, courseArgs] = useViewAllCoursesMutation()
+  const [viewAllCourses] = useViewAllCoursesMutation()
   const [getClassesByCourseID] = useGetClassByCourseIDMutation()
   const courses = useSelector(selectCourses)
   const { courseID } = useParams()
@@ -32,10 +30,8 @@ const AdminPaymentView = () => {
     <PaymentTab courses={courses} />
   ) : (
     <Feedback
-      // route={`/admin/class/${courseID}/create`}
       route={`/admin/courses/create`}
       btnName={`Create Course`}
-      // btnName={`Create Class`}
       message={`No Course has been created yet!, create a course before you can create a class`}
     />
   )

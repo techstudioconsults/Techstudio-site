@@ -9,7 +9,7 @@ import coursesReducer from '../pages/Dashboard/Admin/courses/api/coursesSlice'
 import classesReducer from '../pages/Dashboard/Admin/classes/api/classSlice'
 import resourceReducer from '../pages/Dashboard/Admin/resources/api/resourceSlice'
 import usersReducer from '../pages/Dashboard/Admin/users/api/usersSlice'
-import paymentReducer from '../pages/Dashboard/Payment/api/paymentSlice'
+import paymentReducer from '../pages/Dashboard/Admin/Payment/api/paymentSlice'
 import appReducer from './api/appSlice'
 
 const persistConfig = {
