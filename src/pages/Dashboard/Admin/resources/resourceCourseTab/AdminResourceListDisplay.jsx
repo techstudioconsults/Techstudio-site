@@ -14,6 +14,8 @@ const AdminResourceListDisplay = ({
   format,
 }) => {
   const { resource } = useParams()
+  const { courseID } = useParams()
+  console.log(resource, courseID)
   const handleDeleteModal = () => {
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
@@ -57,7 +59,7 @@ const AdminResourceListDisplay = ({
                 title: `${`Are you sure you want to delete this Resource?`}`,
                 desc: `This Resource has successfully being deleted. Kindly click continue to exit this page.`,
                 resourceID: file?.id,
-                courseID: `${resource}`,
+                courseID: `${resource || courseID}`,
               }}
             />
           </Portal>

@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useCallback, useEffect } from 'react'
 import { DASHBOARD_CONTENT } from '../../../layout/Layout/dashboardLayout/content'
 import style from './dashboardresource.module.scss'
@@ -9,6 +11,10 @@ import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { selectDashboardResources } from '../../../pages/Dashboard/Admin/api/dashboardSlice'
 import AdminResourceListDisplay from '../../../pages/Dashboard/Admin/resources/resourceCourseTab/AdminResourceListDisplay'
+import Feedback from '../../global/feedbacks/Feedback'
+import Portal from '../../global/POTAL/Portal'
+import { AddResource } from '../..'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 
 const DashboardResource = () => {
   // const { studentBoard } = DASHBOARD_CONTENT
@@ -30,6 +36,14 @@ const DashboardResource = () => {
     const parts = str.split('.')
     const extension = parts[parts.length - 1]
     return extension
+  }
+
+  const addResource = (event) => {
+    event.stopPropagation()
+    let modal = bootstrap.Modal.getOrCreateInstance(
+      document.getElementById('add-resource')
+    )
+    modal.show()
   }
 
   const fileDisplay = dashborardResources?.document?.map((file) => {
@@ -86,6 +100,9 @@ const DashboardResource = () => {
 
   return (
     <section className={style.resourceTab}>
+      <Portal wrapperId='react-portal-modal-container'>
+        <AddResource />
+      </Portal>
       <ul className={['nav', style.tabList].join(' ')}>
         <li className={['nav-item', style.link].join(' ')}>
           <a
@@ -126,17 +143,47 @@ const DashboardResource = () => {
           aria-labelledby='home-tab'
         >
           <div className={[style.listWrapper, `hide_scrollbar`].join(' ')}>
-            {fileDisplay}
+            {dashborardResources?.document?.length ? (
+              fileDisplay
+            ) : (
+              <div onClick={addResource}>
+                <Feedback
+                  fontSize={`sm`}
+                  btnName={`Add Resource`}
+                  message={`No resources uploaded for this course`}
+                />
+              </div>
+            )}
           </div>
         </div>
         <div className='tab-pane fade' id='video' aria-labelledby='about-tab'>
           <div className={[style.listWrapper, `hide_scrollbar`].join(' ')}>
-            {videoDisplay}
+            {dashborardResources?.video?.length ? (
+              videoDisplay
+            ) : (
+              <div onClick={addResource}>
+                <Feedback
+                  fontSize={`sm`}
+                  btnName={`Add Resource`}
+                  message={`No resources uploaded for this course`}
+                />
+              </div>
+            )}
           </div>
         </div>
         <div className='tab-pane fade' id='audio' aria-labelledby='album-tab'>
           <div className={[style.listWrapper, `hide_scrollbar`].join(' ')}>
-            {audioDisplay}
+            {dashborardResources?.audio?.length ? (
+              audioDisplay
+            ) : (
+              <div onClick={addResource}>
+                <Feedback
+                  fontSize={`sm`}
+                  btnName={`Add Resource`}
+                  message={`No resources uploaded for this course`}
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>

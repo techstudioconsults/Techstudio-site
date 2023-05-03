@@ -82,7 +82,7 @@ const CancelModal = ({ content }) => {
                 className={`btn btn-outline-danger w-50 cancel-btn`}
               >
                 {/* <Link className='text-danger' to={`/admin/courses`}> */}
-                Discard Changes
+                {content?.action === `create` ? `Go Back` : `Discard Changes`}
                 {/* </Link> */}
               </button>
             </div>

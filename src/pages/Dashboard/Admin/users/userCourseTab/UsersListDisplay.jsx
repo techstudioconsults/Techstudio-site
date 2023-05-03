@@ -3,25 +3,19 @@ import { Avatar } from '../../../../../components'
 import { useLocation } from 'react-router-dom'
 import { useCallback, useEffect } from 'react'
 import {
-  useGetAllStudentsMutation,
   useGetAllTutorsMutation,
-  useGetStudentsByCourseIDMutation,
   useGetTutorsByCourseIDMutation,
 } from '../api/usersApiSlice'
 import { useSelector } from 'react-redux'
-import { selectAllStudents, selectAllTutors } from '../api/usersSlice'
+import { selectAllTutors } from '../api/usersSlice'
 import SpinnerComponent from '../../../../../components/global/skeletonLoader/SpinnerComponent'
 
 const AdminUserListDisplay = () => {
   const [getAllTutors] = useGetAllTutorsMutation()
-  const [getAllStudents] = useGetAllStudentsMutation()
   const [getTutorsByCourseID, tutorsArgs] = useGetTutorsByCourseIDMutation()
-  const [getStudentsByCourseID, studentsArgs] =
-    useGetStudentsByCourseIDMutation()
   const location = useLocation()
   const courseId = location.pathname.split(`/`)[3]
   const allTutors = useSelector(selectAllTutors)
-  const allStudents = useSelector(selectAllStudents)
 
   const getTutors = useCallback(async () => {
     if (courseId === `all`) {
@@ -31,20 +25,9 @@ const AdminUserListDisplay = () => {
     }
   }, [courseId, getAllTutors, getTutorsByCourseID])
 
-  const getStudents = useCallback(async () => {
-    if (courseId === `all`) {
-      const res = await getAllStudents().unwrap()
-      console.log(res)
-    } else {
-      const res = await getStudentsByCourseID(courseId).unwrap()
-      console.log(res)
-    }
-  }, [courseId, getAllStudents, getStudentsByCourseID])
-
   useEffect(() => {
     getTutors()
-    getStudents()
-  }, [getStudents, getTutors])
+  }, [getTutors])
 
   return (
     <>
@@ -68,7 +51,7 @@ const AdminUserListDisplay = () => {
                 </section>
                 <section className='col col-3'>
                   <div>
-                    <p className='fs-sm text-secondary'>{tutor?.course}</p>
+                    <p className='fs-sm text-secondary'>{tutor?.course[0]}</p>
                   </div>
                 </section>
                 <section className='col col-3'>

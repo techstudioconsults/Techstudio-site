@@ -72,6 +72,7 @@ const AdminPaymentView = () => {
                   <select
                     className='form-select text-dark fs-sm'
                     aria-label='Default select example'
+                    disabled
                   >
                     <option selected>15 Feb, 2023 - 22 Feb, 2023</option>
                     <option value='1'>One</option>
@@ -83,6 +84,7 @@ const AdminPaymentView = () => {
                   <select
                     className='form-select text-dark fs-sm'
                     aria-label='Default select example'
+                    disabled
                   >
                     <option selected>All Courses</option>
                     <option value='1'>One</option>
@@ -95,6 +97,7 @@ const AdminPaymentView = () => {
                     <select
                       className='form-select text-dark fs-sm'
                       aria-label='Default select example'
+                      disabled
                     >
                       <option className='fs-5' selected>
                         <span className='text-danger'>January, 2023</span>

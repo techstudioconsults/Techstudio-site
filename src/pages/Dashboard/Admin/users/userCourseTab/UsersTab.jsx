@@ -163,6 +163,7 @@ const UserTab = ({ courses }) => {
           <div className={`d-flex align-items-center gap-10`}>
             <div>
               <select
+                disabled
                 className='form-select'
                 aria-label='Default select example'
                 defaultValue={`Class Month/ Year`}

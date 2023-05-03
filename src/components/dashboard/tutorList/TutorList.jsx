@@ -33,9 +33,9 @@ const TutorList = () => {
     <div className={style.tutorList}>
       <div className='d-flex justify-content-between mb-5'>
         <p className='fw-bold'>Tutors</p>
-        <Link to={`#`}>
+        {/* <Link to={`#`}>
           <p>View All</p>
-        </Link>
+        </Link> */}
       </div>
       <div
         className={`${style.listLayout} d-flex flex-column gap-3 overflow-auto hide_scrollbar`}

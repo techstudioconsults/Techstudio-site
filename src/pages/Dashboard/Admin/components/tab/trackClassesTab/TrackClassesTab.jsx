@@ -31,7 +31,9 @@ const TrackClassesTab = ({ courses }) => {
   }, [courseID, getClassByCourseID, getLessonByCourseID])
 
   useEffect(() => {
-    if (!courseID) {
+    if (courseID) {
+      redirect(`/admin/classes/${courseID}`)
+    } else {
       redirect(`/admin/classes/${courses[0]?.id}`)
     }
     activeRoute(courseID)
@@ -45,8 +47,8 @@ const TrackClassesTab = ({ courses }) => {
     return (
       <li key={course?.id} className={['nav-item', style.link].join(' ')}>
         <NavLink
-          onClick={() => getClasses(course.id)}
           to={`/admin/classes/${course?.id}`}
+          onClick={() => getClasses(course.id)}
           className={[
             'nav-link',
             style.a,

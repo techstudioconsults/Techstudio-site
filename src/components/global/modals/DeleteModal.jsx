@@ -15,6 +15,7 @@ import {
   useDeleteResourceMutation,
   useGetResourcesByCourseIDMutation,
 } from '../../../pages/Dashboard/Admin/resources/api/resourceApiSlice'
+import { useDashboardAllResourcesMutation } from '../../../pages/Dashboard/Admin/api/dashboardApiSlice'
 
 const DeleteModal = ({ content }) => {
   const [isDeleted, setDeleted] = useState(false)
@@ -26,6 +27,7 @@ const DeleteModal = ({ content }) => {
   const [getClassByCourseID] = useGetClassByCourseIDMutation()
   const [getLessonByCourseID] = useGetLessonByCourseIDMutation()
   const [getResourcesByCourseID] = useGetResourcesByCourseIDMutation()
+  const [dashboardAllResources] = useDashboardAllResourcesMutation()
   const dispatch = useDispatch()
 
   // async function closeModal() {
@@ -54,6 +56,7 @@ const DeleteModal = ({ content }) => {
         break
       case `delete-resource`:
         await getResourcesByCourseID(content.courseID).unwrap()
+        await dashboardAllResources(content.courseID).unwrap()
         break
       default:
         break
@@ -82,7 +85,7 @@ const DeleteModal = ({ content }) => {
     handleDelete = async () => {
       setDeleted(false)
       const res = await deleteResource(content.resourceID).unwrap()
-      console.log(res)
+
       if (res.success) {
         setDeleted(true)
       }

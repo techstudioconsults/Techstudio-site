@@ -26,7 +26,7 @@ const DashboardMiniCard = ({ card, total }) => {
       </div>
       <div className={style.content}>
         <h6 className={style.title}>{card.title}</h6>
-        <p className={style.total}>{total}</p>
+        <p className={style.total}>{total || 0}</p>
       </div>
     </div>
   )
