@@ -92,7 +92,7 @@ const Paymentoptions = () => {
               key={c.id}
               className={[
                 style.box,
-                ' row d-flex align-items-center  border border-1 border-secondary-subtle my-4  ps-3 ',
+                'row d-flex align-items-center  border border-1 border-secondary-subtle my-4  ps-3 ',
               ].join(' ')}
             >
               <div className='col-3 text-start'>
@@ -100,17 +100,21 @@ const Paymentoptions = () => {
                 <p className='text-muted'>{c.class} </p>
               </div>
               <div className='col-2 text-center '>
-                <p>{c.total} </p>
+                <p className='fw-semibold'>{c.total} </p>
               </div>
               <div className='col-3 text-start'>
-                <p className={style.text}>{c.amountPaid} </p>
+                <p className={[style.text, 'fw-semibold'].join(' ')}>
+                  {c.amountPaid}{' '}
+                </p>
                 <p className='text-muted'>{c.date}</p>
               </div>
               <div className='col-2 text-start'>
-                <p className='text-primary'>{c.balance} </p>
+                <p className='text-primary fw-semibold'>{c.balance} </p>
               </div>
-              <div className='col-1 text-start'>
-                <p className={setStatus(c.status)}>{c.status}</p>
+              <div className='col-1 text-start '>
+                <p className={[setStatus(c.status), 'fw-semibold'].join(' ')}>
+                  {c.status}
+                </p>
               </div>
               <div className='col-1 text-start'>
                 <div>

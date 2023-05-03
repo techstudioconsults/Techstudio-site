@@ -18,6 +18,7 @@ const AddPaymentModal = () => {
         left: '0',
         right: '0',
         top: '15vh',
+        zIndex: 1,
       }}
       className=' position-absolute  bg-white p-5 mx-auto w-50 h-100 rounded-5 shadow'
     >
