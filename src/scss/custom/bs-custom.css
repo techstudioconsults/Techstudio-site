@@ -4,6 +4,13 @@
   border-radius: 0 !important;
   border-bottom: 3px solid #0266f4;
 }
+.search-tab .active {
+  font-size: 1rem;
+  color: #1f2666;
+  background-color: transparent;
+  border-radius: 0 !important;
+  border-bottom: 2px solid #1f2666;
+}
 
 .dont-delete-btn:hover,
 .dont-delete-btn:active,

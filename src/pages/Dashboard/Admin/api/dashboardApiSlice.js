@@ -62,6 +62,13 @@ export const dashboardApiSlice = apiSlice.injectEndpoints({
         }
       },
     }),
+
+    dashboardSearch: builder.mutation({
+      query: (query) => ({
+        url: `/search?search=${query}`,
+        method: 'GET',
+      }),
+    }),
   }),
 })
 
@@ -69,4 +76,5 @@ export const {
   useGetCardInfoMutation,
   useDashboardAllResourcesMutation,
   useDashboardAllTutorsMutation,
+  useDashboardSearchMutation,
 } = dashboardApiSlice

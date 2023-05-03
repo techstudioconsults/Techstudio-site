@@ -54,7 +54,7 @@ export { default as AdminClassDisplayCard } from './global/cards/adminClassDispl
 export { default as LessonCard } from './global/cards/lessonCards/LessonCard'
 export { default as AddResource } from './global/modals/AddResource'
 export { default as ChangePassword } from './global/forms/changePassword/ChangePassword'
-
+export { default as SearchComponent } from './global/searchComponent/SearchComponent'
 // HOME
 export { default as Hero } from './home/hero'
 export { default as SectionTwo } from './home/sectionTwo'

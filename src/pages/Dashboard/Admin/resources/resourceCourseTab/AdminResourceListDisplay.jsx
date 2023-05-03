@@ -4,15 +4,9 @@ import React from 'react'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { DeleteModal, Portal } from '../../../../../components'
 import Feedback from '../../../../../components/global/feedbacks/Feedback'
-import { useLocation, useParams } from 'react-router'
+import { useParams } from 'react-router-dom'
 
-const AdminResourceListDisplay = ({
-  isDashboard,
-  file,
-  course,
-  type,
-  format,
-}) => {
+const AdminResourceListDisplay = ({ isDashboard, file, course, format }) => {
   const { resource } = useParams()
   const { courseID } = useParams()
   console.log(resource, courseID)
