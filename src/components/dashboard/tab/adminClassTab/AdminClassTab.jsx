@@ -35,7 +35,11 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
         return <LessonCard key={singleLesson.id} singleLesson={singleLesson} />
       })
     ) : (
-      <Feedback message={`You have zero ongoing lessons at the moment !`} />
+      <Feedback
+        route={`/admin/class/${courseID}/lesson/create`}
+        btnName={`Create Lesson`}
+        message={`You have zero ongoing lessons at the moment !`}
+      />
     )
     previousLessons = lessons?.previous?.length ? (
       lessons?.previous?.map((singleLesson) => {
@@ -73,7 +77,10 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
         )
       })
     ) : (
-      <Feedback message={`No Class has been created yet!`} />
+      <Feedback
+        btnName={`Create Class`}
+        message={`No Class has been created yet!`}
+      />
     )
   }
 
