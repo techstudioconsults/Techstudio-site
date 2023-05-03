@@ -2,14 +2,43 @@ import React, { useState, useEffect, useCallback } from 'react'
 import style from './style/paymentClasses.module.scss'
 import { Icon } from '@iconify/react'
 import { AvatarDropdown } from '../../../components'
-import { Link, useNavigate, useParams } from 'react-router-dom'
-import Feedback from '../../../../src/components/global/feedbacks/Feedback'
-import SpinnerComponent from '../../../../src/components/global/skeletonLoader/SpinnerComponent'
-import AdminDashboardTab from '../Admin/components/tab/AdminDashboardTab'
 import coinImg from '../../../assets/images/amico.png'
-import Paymenttab from './components/Paymenttab'
-const index = () => {
-  const courses = ['Fullstack development']
+import PaymentTab from './components/PaymentTab'
+import { useViewAllCoursesMutation } from '../Admin/courses/api/coursesApiSlice'
+import { useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
+import Feedback from '../../../components/global/feedbacks/Feedback'
+import { selectCourses } from '../Admin/courses/api/coursesSlice'
+import { useGetClassByCourseIDMutation } from '../Admin/classes/api/classApiSlice'
+import { selectClasses } from '../Admin/classes/api/classSlice'
+
+const AdminPaymentView = () => {
+  // const courses = ['Fullstack development']
+  const [viewAllCourses, courseArgs] = useViewAllCoursesMutation()
+  const [getClassesByCourseID] = useGetClassByCourseIDMutation()
+  const courses = useSelector(selectCourses)
+  const { courseID } = useParams()
+
+  const getCourses = useCallback(async () => {
+    await viewAllCourses().unwrap()
+    await getClassesByCourseID(courseID).unwrap()
+  }, [courseID, getClassesByCourseID, viewAllCourses])
+
+  useEffect(() => {
+    getCourses()
+  }, [getCourses])
+
+  const feedback = courses.length ? (
+    <PaymentTab courses={courses} />
+  ) : (
+    <Feedback
+      // route={`/admin/class/${courseID}/create`}
+      route={`/admin/courses/create`}
+      btnName={`Create Course`}
+      // btnName={`Create Class`}
+      message={`No Course has been created yet!, create a course before you can create a class`}
+    />
+  )
   return (
     <section>
       <section className={style.classView}>
@@ -41,7 +70,7 @@ const index = () => {
               <div className='mt-4 d-flex justify-content-end align-items-center gap-2 w-100'>
                 <div>
                   <select
-                    className='form-select text-dark'
+                    className='form-select text-dark fs-sm'
                     aria-label='Default select example'
                   >
                     <option selected>15 Feb, 2023 - 22 Feb, 2023</option>
@@ -52,7 +81,7 @@ const index = () => {
                 </div>
                 <div>
                   <select
-                    className='form-select text-dark'
+                    className='form-select text-dark fs-sm'
                     aria-label='Default select example'
                   >
                     <option selected>All Courses</option>
@@ -64,7 +93,7 @@ const index = () => {
                 <div>
                   <div>
                     <select
-                      className='form-select text-dark'
+                      className='form-select text-dark fs-sm'
                       aria-label='Default select example'
                     >
                       <option className='fs-5' selected>
@@ -78,7 +107,7 @@ const index = () => {
                 </div>
               </div>
             </div>
-            <div className='mt-5 ms-1 row d-flex h-50 justfify-content-between align-items-center gap-2 w-100'>
+            <div className='mt-5 ms-1 row d-flex h-50 justfify-content-between align-items-center gap-5 w-100'>
               <div
                 className={[
                   style.test,
@@ -119,9 +148,7 @@ const index = () => {
               </div>
             </div>
             {/* payment tab */}
-            <div>
-              <Paymenttab />
-            </div>
+            <div className='mt-10'>{feedback}</div>
           </div>
         </div>
         <div className={`${style.notification}`}>
@@ -135,4 +162,4 @@ const index = () => {
   )
 }
 
-export default index
+export default AdminPaymentView

@@ -8,6 +8,7 @@
 
 // 2. Include any default variable overrides here
 $primary: #0266f4;
+$success: #457a10;
 $secondary: #747474;
 $info: #b8dff2;
 $dark: #292929;
@@ -24,6 +25,7 @@ $font-weight-bolder: 900;
 
 $theme-colors: (
   'primary': $primary,
+  'success': $success,
   'info': $info,
   'dark': $dark,
   'danger': $danger,
@@ -42,7 +44,7 @@ $custom-colors: (
   'grey': #4a5568,
   'black': #000000,
   'lightBlue': #0385ff,
-  'light-blue-ii' : #F3F9FF,
+  'light-blue-ii': #f3f9ff,
 );
 
 // Merge the maps

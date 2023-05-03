@@ -1,0 +1,58 @@
+@use '../../../../scss/global/colors' as colors;
+@use '../../../../scss/utils/functions' as fn;
+@import '../../../../scss/utils/breakpoints';
+@import '../../../../scss/utils/mixins';
+
+.tab {
+  // margin-top: fn.rem(41);
+  width: 100%;
+  .hr {
+    filter: opacity(50%);
+  }
+
+  .tabList {
+    @include flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    max-width: 59rem;
+    // border-bottom: 1px solid colors.$light-grey;
+    margin: auto;
+    overflow-x: auto;
+    @include breakpoint-up('lg') {
+      margin: initial;
+    }
+
+    .link {
+      flex: 1;
+      .a {
+        width: fn.rem(300);
+        text-align: center;
+        color: colors.$secondary;
+        font-size: fn.rem(14);
+        font-weight: 400;
+        background-color: transparent;
+
+        @include breakpoint-up('lg') {
+          font-size: fn.rem(16);
+        }
+      }
+    }
+  }
+
+  .listWrapper {
+    @include flex_column;
+    gap: fn.rem(35);
+    overflow-y: auto;
+    @include breakpoint-up('lg') {
+      // @include flex;
+    }
+
+    .col1 {
+      flex: 2;
+    }
+
+    .col2 {
+      flex: 1;
+    }
+  }
+}

@@ -172,13 +172,13 @@ const App = () => {
                   }
                 />
               </Route>
-              {/* <Route path='/admin/payment' element={<Paymentpage />}>
-                <Route path='courses/:courseID' element={<PaymentOptions />} />
-              </Route> */}
-              {/* PAYMENT ROUTE */}
-              <Route path='/admin/payment' element={<AdminPaymentView />}>
+              <Route path='/admin/payment' element={<Paymentpage />}>
                 <Route path='courses/:courseID' element={<PaymentOptions />} />
               </Route>
+              {/* PAYMENT ROUTE */}
+              {/* <Route path='/admin/payment' element={<AdminPaymentView />}>
+                <Route path='courses/:courseID' element={<PaymentOptions />} />
+              </Route> */}
             </Route>
           </Route>
           {/* student routes */}

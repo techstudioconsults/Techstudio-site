@@ -1,44 +1,96 @@
-import React, { useEffect, useCallback } from 'react'
-import { courses } from '../data'
+import React, { useCallback, useEffect } from 'react'
+import { Outlet, useLocation, useNavigate, useParams } from 'react-router'
+import { NavLink } from 'react-router-dom'
+import style from '../style/payment.module.scss'
+import PropTypes from 'prop-types'
 import {
-  Link,
-  Outlet,
-  useNavigate,
-  useParams,
-  useLocation,
-} from 'react-router-dom'
-import style from '../style/paymentClasses.module.scss'
+  useGetStudentPaymentRecordsByIDsMutation,
+  // useGetStudentPaymentRecordsMutation,
+} from '../api/paymentApiSlice'
+import { selectClasses } from '../../Admin/classes/api/classSlice'
+import { useSelector } from 'react-redux'
+// import { useGetStudentsByCourseIDMutation } from '../../Admin/users/api/usersApiSlice'
+// import SpinnerComponent from '../../../../components/global/skeletonLoader/SpinnerComponent'
 
-const Paymenttab = () => {
-  const navigate = useNavigate()
-  const { courseID } = useParams()
-  const courseNav = courses.map((course) => {
+const PaymentTab = ({ courses }) => {
+  const location = useLocation()
+  const classes = useSelector(selectClasses)
+  const [getStudentPaymentRecordsByIDs] =
+    useGetStudentPaymentRecordsByIDsMutation()
+  // const [getStudentsByCourseID] = useGetStudentsByCourseIDMutation()
+  let { courseID } = useParams()
+  const redirect = useNavigate()
+  // verifies if routeName is the one active (in browser input)
+  const activeRoute = useCallback(
+    (routeName) => {
+      return location.pathname.includes(routeName)
+    },
+    [location.pathname]
+  )
+
+  console.log(classes, courseID)
+
+  const getStudentPaymentDetails = useCallback(async () => {
+    // if (courseID) {
+    await getStudentPaymentRecordsByIDs({
+      courseID: courseID,
+      status: null,
+      classID: null,
+    }).unwrap()
+    // await getStudentsByCourseID(courseID).unwrap()
+    // }
+  }, [courseID, getStudentPaymentRecordsByIDs])
+
+  useEffect(() => {
+    if (!courseID) {
+      redirect(`/admin/payment/courses/${courses[0]?.id}`)
+      getStudentPaymentDetails()
+    }
+    activeRoute(courseID)
+  }, [activeRoute, courseID, courses, getStudentPaymentDetails, redirect])
+
+  useEffect(() => {
+    getStudentPaymentDetails()
+  }, [courseID, getStudentPaymentDetails])
+
+  const coursesNav = courses?.map((course) => {
     return (
-      <div className='mb-2' key={course.id}>
-        <div>
-          <Link
-            className={[style.anchor, 'anchor d-block text-secondary'].join(
-              ' '
-            )}
-            to={`courses/${course.id}`}
-          >
-            {course.name}
-          </Link>
-        </div>
-      </div>
+      <li key={course?.id} className={['nav-item', style.link].join(' ')}>
+        <NavLink
+          onClick={getStudentPaymentDetails}
+          to={`/admin/payment/courses/${course?.id}`}
+          className={[
+            'nav-link',
+            style.a,
+            activeRoute(course.id)
+              ? `border border-primary border-top-0 border-start-0 border-end-0 rounded-0 border-3`
+              : null,
+          ].join(' ')}
+        >
+          {course?.title}
+        </NavLink>
+      </li>
     )
   })
 
   return (
-    <>
-      <div className='mt-5 border-bottom border-secondary d-flex align-items-center gap-4'>
-        {courseNav}
+    <section className={`${style.tab}`}>
+      <ul className={['nav hide_scrollbar', style.tabList].join(' ')}>
+        {coursesNav}
+        <hr className={`${style.hr} my-0`} />
+      </ul>
+
+      <div className='tab-content py-6' id='tabContent'>
+        {/* {classArgs?.isLoading ? <SpinnerComponent /> : <Outlet />} */}
+        {<Outlet />}
       </div>
-      <div className='mt-1'>
-        <Outlet />
-      </div>
-    </>
+    </section>
   )
 }
 
-export default Paymenttab
+PaymentTab.propTypes = {
+  courses: PropTypes.array,
+  // feedback: PropTypes.node,
+}
+
+export default PaymentTab
