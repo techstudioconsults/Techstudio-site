@@ -115,7 +115,7 @@ const Paymentoptions = () => {
               <div className='col-1 text-start'>
                 <div>
                   <button
-                    className='dropdown-toggle bg-white'
+                    className='dropdown-toggle dropdown-center bg-white'
                     data-bs-toggle='dropdown'
                     aria-expanded='false'
                   >
@@ -123,12 +123,11 @@ const Paymentoptions = () => {
                       className={[style.ellipsis, `text-secondary`].join(' ')}
                     />
                   </button>
-                  <ul className='dropdown-menu dropdown-menu-end dropdown-menu-sm'>
+                  <ul className='dropdown-menu dropdown-menu-end'>
                     <li>
                       <button
                         onClick={() => setShowPaymentModal(true)}
                         className='dropdown-item'
-                        href='ww.com'
                       >
                         <MdOutlineEditNote className={style.icons} /> Add
                         Payment Record
@@ -138,7 +137,6 @@ const Paymentoptions = () => {
                       <button
                         onClick={() => setShowEdit(true)}
                         className='dropdown-item'
-                        href='www.com'
                       >
                         <MdOutlineEditNote className={style.icons} /> Edit
                         Payment Record
@@ -148,7 +146,6 @@ const Paymentoptions = () => {
                       <button
                         onClick={() => setShowFullHistoryModal(true)}
                         className='dropdown-item'
-                        href='ww.com'
                       >
                         <GiHamburgerMenu className={style.icons} /> View Payment
                         History
@@ -160,7 +157,7 @@ const Paymentoptions = () => {
             </div>
           )
         })}
-        <div className='d-flex w-100 justify-content-between align-items-center mt-5 px-0'>
+        <div className='d-flex w-100 justify-content-between align-items-center mt-5 p-0'>
           <div className=''>
             <p className='text-muted'>10 Entries per page </p>
           </div>

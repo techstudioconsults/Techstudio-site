@@ -5,6 +5,7 @@ import DownloadSuccessfulModal from './DownloadSuccessfulModal'
 // import DownloadModal from './DownloadModal'
 import downloadIcon from '../../../../assets/images/downloadIcon.png'
 import shareIcon from '../../../../assets/images/shareIcon.png'
+import style from '../style/paymentClasses.module.scss'
 
 const FullPaymentHistory = (props) => {
   const [modalShow, setModalShow] = useState(false)
@@ -59,14 +60,14 @@ const FullPaymentHistory = (props) => {
         // maxWidth: '1000px',
         left: '0',
         right: '0',
-        top: '20vh',
+        top: '15vh',
       }}
       className='position-absolute bg-white p-5 mx-auto rounded-5 w-75 h-100 shadow'
     >
       {modalShow && <DownloadSuccessfulModal />}
       <div className='px-5 pt-5 pb-2 flex-column gap-2'>
-        <div className='d-flex justify-content-between align-items-center pb-3 w-100 '>
-          <h4>Payment History</h4>
+        <div className='d-flex justify-content-between align-items-center w-100 '>
+          <h4 className='fw-bold'>Payment History</h4>
           <div className='d-flex gap-2'>
             <button
               onClick={() => setModalShow(true)}
@@ -83,19 +84,19 @@ const FullPaymentHistory = (props) => {
         </div>
         <div
           style={{ backgroundColor: '#F3F9FF' }}
-          className='row d-flex justify-content-between align-items-center p-2 w-100'
+          className='row d-flex justify-content-between align-items-center p-3 mt-2 w-100'
         >
           <div className='col-4'>
-            <p className='fw-semibold m-0 fs-5'>John Doe</p>
-            <p className='text-secondary m-0'>Javascript Fullstack Jan 2023</p>
+            <h5 className='fw-semibold m-0 fs-5'>John Doe</h5>
+            <p className='text-secondary mt-1'>Javascript Fullstack Jan 2023</p>
           </div>
           <div className='col-4 text-end'>
             <p className='text-secondary m-0'>Course Fee</p>
-            <p className='fw-bold fs-3 m-0'>N500,000</p>
+            <h4 className='fw-bold fs-3 mt-1'>NGN 500,000</h4>
           </div>
           <div className='col-4 text-end'>
             <p className='text-secondary m-0'>Payment Status</p>
-            <p className='text-success fw-bold  m-0'>Full</p>
+            <h4 className={[style.text, 'fw-bold  mt-1'].join(' ')}>Full</h4>
           </div>
         </div>
       </div>
