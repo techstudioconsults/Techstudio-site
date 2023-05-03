@@ -46,7 +46,6 @@ import {
   AdminResourceView,
   ResourcesTab,
   Paymentpage,
-  PaymentTabs,
   PaymentOptions,
 } from './pages'
 
@@ -65,7 +64,7 @@ import TrackAnalysisLayout from './pages/Dashboard/Admin/components/tab/trackAna
 import OPTVerification from './pages/Auth/OTP/OTPVerification'
 import { selectUserType } from './app/api/appSlice'
 import StudentListDisplay from './pages/Dashboard/Admin/users/userCourseTab/StudentListDisplay'
-import AdminPaymentView from './pages/Dashboard/Admin/payment-resturctured/AdminPaymentView'
+// import AdminPaymentView from './pages/Dashboard/Admin/payment-resturctured/AdminPaymentView'
 
 const App = () => {
   const {
