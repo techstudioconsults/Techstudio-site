@@ -18,8 +18,14 @@ const validation = {
 const TutorRegistrationForm = ({ cancelBtn }) => {
   const [signupStudent, { isLoading }] = useSignupStudentMutation()
   const [getAllTutors] = useGetAllTutorsMutation()
+  const [passwordStatus, setPasswordStatus] = useState(`user`)
   const [errorMessage, setErrorMessage] = useState(null)
   const { toast } = useToast()
+
+  const handlePasswordChange = (e) => {
+    console.log(e.target.value)
+    setPasswordStatus(e.target.value)
+  }
 
   const {
     register,
@@ -197,8 +203,43 @@ const TutorRegistrationForm = ({ cancelBtn }) => {
             </div>
           </div>
         </div>
-
-        {/* password */}
+        {/* password input*/}
+        <div className='mb-8 d-flex row align-items-center'>
+          <div className='col-4'>
+            <label
+              htmlFor='phoneNumber'
+              className={`col-form-label fs-lg fw-bold text-blue w-100`}
+            >
+              Password
+            </label>
+          </div>
+          <div className='col-8'>
+            <div className={` w-100`}>
+              <input
+                disabled={passwordStatus === `user`}
+                placeholder='*******'
+                type='password'
+                className='form-control form-control-lg fs-sm'
+                id='password'
+                {...register('password')}
+              />
+              {/* <ErrorMessage
+                errors={errors}
+                name='password'
+                render={({ messages }) => {
+                  return messages
+                    ? Object.entries(messages).map(([type, message]) => (
+                        <p className='fs-xs text-danger' key={type}>
+                          {message}
+                        </p>
+                      ))
+                    : null
+                }}
+              /> */}
+            </div>
+          </div>
+        </div>
+        {/* password set*/}
         <div className='mb-8 d-flex row align-items-center'>
           <div className='col-12'>
             <label
@@ -213,11 +254,13 @@ const TutorRegistrationForm = ({ cancelBtn }) => {
             <div className={` w-100`}>
               <div className='form-check border rounded-2 p-3 ps-10 d-flex align-items-center gap-3 mb-3'>
                 <input
+                  defaultChecked
+                  onChange={handlePasswordChange}
                   className='form-check-input'
                   type='radio'
                   name='passwordRadio'
                   id='choosePassword'
-                  value='option1'
+                  value='user'
                 />
                 <label
                   className='form-check-label mt-1'
@@ -228,11 +271,12 @@ const TutorRegistrationForm = ({ cancelBtn }) => {
               </div>
               <div className='form-check border rounded-2 p-3 ps-10 d-flex align-items-center gap-3'>
                 <input
+                  onChange={handlePasswordChange}
                   className='form-check-input'
                   type='radio'
                   name='passwordRadio'
                   id='manualPassword'
-                  value='option2'
+                  value='admin'
                 />
                 <label className='form-check-label' htmlFor='manualPassword'>
                   Manually set password for the user.

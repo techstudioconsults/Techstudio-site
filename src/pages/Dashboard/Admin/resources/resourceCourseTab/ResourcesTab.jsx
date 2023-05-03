@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useEffect, useState } from 'react'
 import { DASHBOARD_CONTENT } from '../../../../../layout/Layout/dashboardLayout/content'
 import style from './resourceTab.module.scss'
@@ -8,6 +10,7 @@ import { useLocation } from 'react-router-dom'
 import Feedback from '../../../../../components/global/feedbacks/Feedback'
 import { useSelector } from 'react-redux'
 import { selectResources } from '../api/resourceSlice'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 
 const ResourceTab = () => {
   // const { studentBoard } = DASHBOARD_CONTENT
@@ -15,7 +18,13 @@ const ResourceTab = () => {
   const allResources = useSelector(selectResources)
   const location = useLocation()
 
-  console.log(allResources)
+  const addResource = (event) => {
+    event.stopPropagation()
+    let modal = bootstrap.Modal.getOrCreateInstance(
+      document.getElementById('add-resource')
+    )
+    modal.show()
+  }
 
   function checkExtension(str) {
     // Split the string by the dot character
@@ -132,7 +141,12 @@ const ResourceTab = () => {
             {allResources?.document?.length ? (
               fileDisplay
             ) : (
-              <Feedback message={`No resources uploaded for this course`} />
+              <div onClick={addResource}>
+                <Feedback
+                  btnName={`Add New Resources`}
+                  message={`No resources uploaded for this course`}
+                />
+              </div>
             )}
           </div>
         </div>
@@ -146,7 +160,12 @@ const ResourceTab = () => {
             {allResources?.video?.length ? (
               videoDisplay
             ) : (
-              <Feedback message={`No resources uploaded for this course`} />
+              <div onClick={addResource}>
+                <Feedback
+                  btnName={`Add New Resources`}
+                  message={`No resources uploaded for this course`}
+                />
+              </div>
             )}
           </div>
         </div>
@@ -160,7 +179,12 @@ const ResourceTab = () => {
             {allResources?.audio?.length ? (
               audioDisplay
             ) : (
-              <Feedback message={`No resources uploaded for this course`} />
+              <div onClick={addResource}>
+                <Feedback
+                  btnName={`Add New Resources`}
+                  message={`No resources uploaded for this course`}
+                />
+              </div>
             )}
           </div>
         </div>

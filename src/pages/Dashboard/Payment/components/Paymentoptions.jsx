@@ -1,26 +1,25 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { courses, paidCourses } from '../data'
 import { HiOutlineEllipsisVertical } from 'react-icons/hi2'
-import { MdOutlineEditNote } from 'react-icons/md'
-import { GiHamburgerMenu } from 'react-icons/gi'
-import { GrFormPrevious, GrFormNext } from 'react-icons/gr'
 import AddPaymentModal from './AddPaymentModal'
 import FullPaymentHistory from './FullPaymentHistory'
 import EditPaymentHistory from './EditPaymentHistory'
 import style from '../style/paymentClasses.module.scss'
-import DownloadSuccessfulModal from './DownloadSuccessfulModal'
 import { useSelector } from 'react-redux'
 import { selectStudentsPaymentRecord } from '../api/paymentSlice'
 import { Icon } from '@iconify/react'
-import { useGetClassByCourseIDMutation } from '../../Admin/classes/api/classApiSlice'
-import { useEffect } from 'react'
-import { useCallback } from 'react'
 import { selectClasses } from '../../Admin/classes/api/classSlice'
 import { useForm } from 'react-hook-form'
 import { selectCurrentToken } from '../../../Auth/api/authSlice'
 import axios from 'axios'
 import download from 'downloadjs'
+import Feedback from '../../../../components/global/feedbacks/Feedback'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+import { Portal } from '../../../../components'
+import UserRegistrationFormModal from '../../Admin/users/userRegistrationForms/UserRegistrationFormModal'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
@@ -32,7 +31,6 @@ const Paymentoptions = () => {
   const classes = useSelector(selectClasses)
   const token = useSelector(selectCurrentToken)
   const [showDownload, setShowDownload] = useState(false)
-  const [getClassesByCourseID] = useGetClassByCourseIDMutation()
   const studentPaymentDetails = useSelector(selectStudentsPaymentRecord)
 
   const credentials = {
@@ -112,6 +110,13 @@ const Paymentoptions = () => {
       // setErrorMessage(err.response.data.message)
       // toast.show()
     }
+  }
+
+  const showFormModal = () => {
+    let modal = bootstrap.Modal.getOrCreateInstance(
+      document.getElementById('user-form-modal')
+    )
+    modal.show()
   }
 
   const paidCourses = studentPaymentDetails.map((paidCourse) => {
@@ -200,6 +205,9 @@ const Paymentoptions = () => {
       {showPaymentModal && <AddPaymentModal />}
       {showFullHistoryModal && <FullPaymentHistory />}
       {showEdit && <EditPaymentHistory />}
+      <Portal wrapperId='react-portal-modal-container'>
+        <UserRegistrationFormModal />
+      </Portal>
       <form
         onSubmit={handleSubmit(handleDownload)}
         className='mt-4 d-flex justify-content-end align-items-center gap-3'
@@ -245,7 +253,16 @@ const Paymentoptions = () => {
       </div>
 
       <div className='mt-5'>
-        {paidCourses}
+        {studentPaymentDetails.length ? (
+          paidCourses
+        ) : (
+          <div onClick={showFormModal}>
+            <Feedback
+              btnName={`Register A Student`}
+              message={`No Registered Student`}
+            />
+          </div>
+        )}
         {/* <div className='d-flex w-100 justify-content-between align-items-center mt-5 p-0'>
           <div className=''>
             <p className='text-muted'>10 Entries per page </p>

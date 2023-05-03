@@ -32,14 +32,21 @@ const validation = {
 
 const StudentRegistrationForm = ({ cancelBtn }) => {
   const [signupStudent, { isLoading }] = useSignupStudentMutation()
+
   const [viewAllCourse] = useViewAllCoursesMutation()
   const [getClassesByCourseID] = useGetClassByCourseIDMutation()
   const [getAllStudents] = useGetAllStudentsMutation()
   const [courses, setCourses] = useState([])
+  const [passwordStatus, setPasswordStatus] = useState(`user`)
   const [courseSelected, setCourseSelected] = useState()
   const [classes, setClasses] = useState([])
   const [errorMessage, setErrorMessage] = useState(null)
   const { toast } = useToast()
+
+  const handlePasswordChange = (e) => {
+    console.log(e.target.value)
+    setPasswordStatus(e.target.value)
+  }
 
   const {
     register,
@@ -377,6 +384,89 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
                     : null
                 }}
               />
+            </div>
+          </div>
+        </div>
+
+        {/* password input*/}
+        <div className='mb-8 d-flex row align-items-center'>
+          <div className='col-4'>
+            <label
+              htmlFor='phoneNumber'
+              className={`col-form-label fs-lg fw-bold text-blue w-100`}
+            >
+              Password
+            </label>
+          </div>
+          <div className='col-8'>
+            <div className={` w-100`}>
+              <input
+                disabled={passwordStatus === `user`}
+                placeholder='*******'
+                type='password'
+                className='form-control form-control-lg fs-sm'
+                id='password'
+                {...register('password')}
+              />
+              <ErrorMessage
+                errors={errors}
+                name='password'
+                render={({ messages }) => {
+                  return messages
+                    ? Object.entries(messages).map(([type, message]) => (
+                        <p className='fs-xs text-danger' key={type}>
+                          {message}
+                        </p>
+                      ))
+                    : null
+                }}
+              />
+            </div>
+          </div>
+        </div>
+        {/* password set*/}
+        <div className='mb-8 d-flex row align-items-center'>
+          <div className='col-12'>
+            <label
+              htmlFor='password'
+              className={`col-form-label fs-lg fw-bold text-blue w-100`}
+            >
+              Password
+            </label>
+            <p>Choose your most preferred option.</p>
+          </div>
+          <div className='col-12 mt-5'>
+            <div className={` w-100`}>
+              <div className='form-check border rounded-2 p-3 ps-10 d-flex align-items-center gap-3 mb-3'>
+                <input
+                  defaultChecked
+                  onChange={handlePasswordChange}
+                  className='form-check-input'
+                  type='radio'
+                  name='passwordRadio'
+                  id='choosePassword'
+                  value='user'
+                />
+                <label
+                  className='form-check-label mt-1'
+                  htmlFor='choosePassword'
+                >
+                  User chooses password
+                </label>
+              </div>
+              <div className='form-check border rounded-2 p-3 ps-10 d-flex align-items-center gap-3'>
+                <input
+                  onChange={handlePasswordChange}
+                  className='form-check-input'
+                  type='radio'
+                  name='passwordRadio'
+                  id='manualPassword'
+                  value='admin'
+                />
+                <label className='form-check-label' htmlFor='manualPassword'>
+                  Manually set password for the user.
+                </label>
+              </div>
             </div>
           </div>
         </div>
