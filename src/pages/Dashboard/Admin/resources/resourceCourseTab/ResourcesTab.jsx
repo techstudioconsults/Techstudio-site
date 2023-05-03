@@ -35,52 +35,52 @@ const ResourceTab = () => {
   //   })
   // }, [allResources, location?.state?.course])
 
-  // const fileDisplay = allResources?.map((file) => {
-  //   let fileFormat = checkExtension(file.name)
-  //   if (
-  //     checkExtension(file.name) !== `mp4` &&
-  //     checkExtension(file.name) !== `mp3`
-  //   ) {
-  //     return (
-  //       <AdminResourceListDisplay
-  //         key={file.id}
-  //         file={file}
-  //         type={`document`}
-  //         format={fileFormat}
-  //         // course={state?.courseTitle}
-  //       />
-  //     )
-  //   }
-  // })
-  // const videoDisplay = allResources.map((file) => {
-  //   let fileFormat = checkExtension(file.name)
-  //   if (checkExtension(file.name) === `mp4`) {
-  //     return (
-  //       <AdminResourceListDisplay
-  //         key={file.id}
-  //         file={file}
-  //         type={`video`}
-  //         format={fileFormat}
-  //         // course={state?.courseTitle}
-  //       />
-  //     )
-  //   }
-  // })
+  const fileDisplay = allResources?.document?.map((file) => {
+    let fileFormat = checkExtension(file.name)
+    if (
+      checkExtension(file.name) !== `mp4` &&
+      checkExtension(file.name) !== `mp3`
+    ) {
+      return (
+        <AdminResourceListDisplay
+          key={file.id}
+          file={file}
+          type={`document`}
+          format={fileFormat}
+          // course={state?.courseTitle}
+        />
+      )
+    }
+  })
+  const videoDisplay = allResources?.video?.map((file) => {
+    let fileFormat = checkExtension(file.name)
+    if (checkExtension(file.name) === `mp4`) {
+      return (
+        <AdminResourceListDisplay
+          key={file.id}
+          file={file}
+          type={`video`}
+          format={fileFormat}
+          // course={state?.courseTitle}
+        />
+      )
+    }
+  })
 
-  // const audioDisplay = allResources.map((file) => {
-  //   let fileFormat = checkExtension(file.name)
-  //   if (checkExtension(file.name) === `mp3`) {
-  //     return (
-  //       <AdminResourceListDisplay
-  //         key={file.id}
-  //         file={file}
-  //         type={`audio`}
-  //         format={fileFormat}
-  //         // course={state?.courseTitle}
-  //       />
-  //     )
-  //   }
-  // })
+  const audioDisplay = allResources?.audio?.map((file) => {
+    let fileFormat = checkExtension(file.name)
+    if (checkExtension(file.name) === `mp3`) {
+      return (
+        <AdminResourceListDisplay
+          key={file.id}
+          file={file}
+          type={`audio`}
+          format={fileFormat}
+          // course={state?.courseTitle}
+        />
+      )
+    }
+  })
 
   return (
     <section className={style.resourceTab}>
@@ -129,8 +129,8 @@ const ResourceTab = () => {
               `hide_scrollbar d-flex flex-column gap-5`,
             ].join(' ')}
           >
-            {allResources?.length ? (
-              `fileDisplay`
+            {allResources?.document?.length ? (
+              fileDisplay
             ) : (
               <Feedback message={`No resources uploaded for this course`} />
             )}
@@ -143,8 +143,8 @@ const ResourceTab = () => {
               `hide_scrollbar d-flex flex-column gap-5`,
             ].join(' ')}
           >
-            {allResources?.length ? (
-              `videoDisplay`
+            {allResources?.video?.length ? (
+              videoDisplay
             ) : (
               <Feedback message={`No resources uploaded for this course`} />
             )}
@@ -157,8 +157,8 @@ const ResourceTab = () => {
               `hide_scrollbar d-flex flex-column gap-5`,
             ].join(' ')}
           >
-            {allResources?.length ? (
-              `audioDisplay`
+            {allResources?.audio?.length ? (
+              audioDisplay
             ) : (
               <Feedback message={`No resources uploaded for this course`} />
             )}

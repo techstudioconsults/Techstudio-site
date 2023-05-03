@@ -2,32 +2,33 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Icon } from '@iconify/react'
 import PropTypes from 'prop-types'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { AvatarStack, DeleteModal, Portal } from '../../../../../components'
 import { DASHBOARD_CONTENT } from '../../../../../layout/Layout/dashboardLayout/content'
 import style from '../adminCourse.module.scss'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { useViewCoursesDetailsMutation } from '../api/coursesApiSlice'
 import { useCallback, useEffect, useState } from 'react'
-import { useGetClassByCourseIDMutation } from '../../classes/api/classApiSlice'
+// import { useGetClassByCourseIDMutation } from '../../classes/api/classApiSlice'
 import { useDispatch } from 'react-redux'
 
 const CourseList = ({ course, showDetailsBox }) => {
   const navigate = useNavigate()
   const [showStatus, setShowStatus] = useState(true)
   const [active, setActive] = useState(false)
-  const [totalClasses, setTotalClasses] = useState([])
-  const { id, title, duration, tutors } = course
+  const { courseID } = useParams()
+  // const [totalClasses, setTotalClasses] = useState([])
+  const { id, title, duration, tutors, classCount } = course
+  console.log(id, courseID)
   const { imageList } = DASHBOARD_CONTENT
   const dispatch = useDispatch()
   const location = useLocation()
   const [viewCoursesDetails] = useViewCoursesDetailsMutation()
-  const [getClassByCourseID] = useGetClassByCourseIDMutation()
+  // const [getClassByCourseID] = useGetClassByCourseIDMutation()
 
   const setActiveCourse = useCallback(() => {
     location.search.includes(id) ? setActive(true) : setActive(false)
   }, [id, location.search])
-  console.log(id)
 
   const handleClick = async () => {
     const queryParams = new URLSearchParams(location.search)
@@ -51,7 +52,7 @@ const CourseList = ({ course, showDetailsBox }) => {
   const handleDeleteModal = () => {
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
-        document.getElementById(`${id}`)
+        document.getElementById(`del-${id}-modal`)
       )
       modal.show()
     } catch (err) {
@@ -66,14 +67,14 @@ const CourseList = ({ course, showDetailsBox }) => {
     setShowStatus(true)
   }
 
-  const getClasses = useCallback(async () => {
-    const res = await getClassByCourseID(id)
-    setTotalClasses(res.data.data.ongoing)
-  }, [getClassByCourseID, id])
+  // const getClasses = useCallback(async () => {
+  //   const res = await getClassByCourseID(id)
+  //   setTotalClasses(res.data.data.ongoing)
+  // }, [getClassByCourseID, id])
 
-  useEffect(() => {
-    getClasses()
-  }, [getClasses])
+  // useEffect(() => {
+  //   getClasses()
+  // }, [getClasses])
 
   useEffect(() => {
     setActiveCourse()
@@ -135,25 +136,19 @@ const CourseList = ({ course, showDetailsBox }) => {
               <div className={`${style.tableHead} h-100`}>
                 <ul className='d-flex flex-column align-items-start justify-content-between text-muted'>
                   <li>
-                    <span className='fw-bold'>
-                      {totalClasses?.length || `N/A`}
-                    </span>{' '}
+                    <span className='fw-bold'>{classCount?.onlineCount}</span>{' '}
                     <span hidden={showStatus} className='text-danger'>
                       (online)
                     </span>
                   </li>
                   <li>
-                    <span className='fw-bold'>
-                      {totalClasses?.length || `N/A`}
-                    </span>{' '}
+                    <span className='fw-bold'>{classCount?.weekdayCount}</span>{' '}
                     <span hidden={showStatus} className='text-danger'>
                       (weekday)
                     </span>
                   </li>
                   <li>
-                    <span className='fw-bold'>
-                      {totalClasses?.length || `N/A`}
-                    </span>{' '}
+                    <span className='fw-bold'>{classCount?.weekendCount}</span>{' '}
                     <span hidden={showStatus} className='text-danger'>
                       (weekend)
                     </span>

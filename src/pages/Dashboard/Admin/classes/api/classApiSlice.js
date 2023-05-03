@@ -24,7 +24,7 @@ export const coursesApiSlice = apiSlice.injectEndpoints({
 
     getLessonByCourseID: builder.mutation({
       query: (courseID) => ({
-        url: `/courses/${courseID}/lessons`,
+        url: `/lessons/course/${courseID}`,
         method: 'GET',
       }),
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
@@ -51,7 +51,7 @@ export const coursesApiSlice = apiSlice.injectEndpoints({
 
     deleteLesson: builder.mutation({
       query: (lessonID) => ({
-        url: `/lesson/${lessonID}`,
+        url: `/lessons/${lessonID}`,
         method: 'DELETE',
       }),
     }),

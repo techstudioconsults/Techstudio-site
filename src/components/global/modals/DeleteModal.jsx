@@ -78,9 +78,11 @@ const DeleteModal = ({ content }) => {
       }
     }
   } else if (content.action === `delete-resource`) {
+    console.log(content.resourceID)
     handleDelete = async () => {
       setDeleted(false)
       const res = await deleteResource(content.resourceID).unwrap()
+      console.log(res)
       if (res.success) {
         setDeleted(true)
       }
@@ -89,7 +91,7 @@ const DeleteModal = ({ content }) => {
     handleDelete = async () => {
       setDeleted(false)
       const res = await deleteCourse(content.courseID).unwrap()
-      console.log(res)
+      console.log(res, content.courseID)
       if (res.success) {
         setDeleted(true)
       }
@@ -103,12 +105,14 @@ const DeleteModal = ({ content }) => {
       className='modal fade delete-modal'
       id={
         content.action === `delete-class`
-          ? content.classID
+          ? `${content.classID}`
           : content.action === `delete-lesson`
-          ? content.lessonID
+          ? `${content.lessonID}`
           : content.action === `delete-resource`
-          ? content.resourceID
-          : content.courseID
+          ? `${content.resourceID}`
+          : content.action === `delete-course`
+          ? `del-${content.courseID}-modal`
+          : null
       }
       // id={
       //   content.action === `delete-class`

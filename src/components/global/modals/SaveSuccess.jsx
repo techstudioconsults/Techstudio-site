@@ -20,8 +20,8 @@ const Save = ({ content }) => {
           setRoute(`/admin/classes/${content.courseID}`)
           break
         case `resource`:
-          // setRoute(`/admin/resources/${content?.courseID}`)
-          // setRoute(`/admin/resources/${content.courseID}`)
+          console.log(content.courseID)
+          setRoute(`/admin/resources/${content?.courseID}`)
           await getResourcesByCourseID(content.courseID).unwrap()
           break
 

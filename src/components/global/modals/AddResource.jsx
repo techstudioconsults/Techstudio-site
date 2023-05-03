@@ -10,6 +10,7 @@ import useToast from '../../../hooks/useToast'
 import ToastComponent from '../toast/ToastComponent'
 import Portal from '../POTAL/Portal'
 import { SaveSuccess } from '../..'
+import { useParams } from 'react-router-dom'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
@@ -22,6 +23,8 @@ const AddAFile = () => {
   const courses = useSelector(selectCourses)
   const token = useSelector(selectCurrentToken)
   const { toast } = useToast()
+  const { resource } = useParams()
+  console.log(resource)
   const [selectValue, setSelectValue] = useState(null)
   const [fileValue, setFileValue] = useState(null)
 
@@ -65,7 +68,7 @@ const AddAFile = () => {
         document.getElementById('save-success')
       )
       const res = await axios.patch(
-        `${baseUrl}/resource/${selectValue}`,
+        `${baseUrl}/resources/${selectValue}`,
         formData,
         credentials
       )
@@ -74,8 +77,8 @@ const AddAFile = () => {
         setIsLoading(false)
         cancelButtonRef.current.click()
         modal.show()
-        setFileValue(null)
-        setSelectValue(null)
+        // setFileValue(null)
+        // setSelectValue(null)
       }
     } catch (err) {
       setIsLoading(false)

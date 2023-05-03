@@ -24,6 +24,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { ErrorMessage } from '@hookform/error-message'
 import { useGetClassByCourseIDMutation } from '../classes/api/classApiSlice'
 import { useViewCoursesDetailsMutation } from '../courses/api/coursesApiSlice'
+import { useGetResourcesByCourseIDMutation } from '../resources/api/resourceApiSlice'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
@@ -89,6 +90,7 @@ const CreateLesson = () => {
   const [errorMessage, setErrorMessage] = useState(null)
   const [getClassesByCourseID] = useGetClassByCourseIDMutation()
   const [viewCoursesDetails] = useViewCoursesDetailsMutation()
+  const [getResourcesByCourseID] = useGetResourcesByCourseIDMutation()
   const { toast } = useToast()
   const { courseID } = useParams()
 
@@ -170,7 +172,8 @@ const CreateLesson = () => {
   }
 
   const getResources = useCallback(async () => {
-    const res = await viewCoursesDetails(courseID).unwrap()
+    const res = await getResourcesByCourseID(courseID).unwrap()
+    console.log(res)
     if (res.success) {
       Object?.keys(res.data.resources)?.forEach((key) => {
         res.data.resources[key]?.map((resource) => {
@@ -179,15 +182,15 @@ const CreateLesson = () => {
             return [
               ...prevState,
               {
-                value: resource,
-                label: resource,
+                value: resource.id,
+                label: resource.name,
               },
             ]
           })
         })
       })
     }
-  }, [courseID, viewCoursesDetails])
+  }, [courseID, getResourcesByCourseID])
 
   useEffect(() => {
     getResources()
@@ -233,8 +236,6 @@ const CreateLesson = () => {
     console.log(data)
     setLoading(true)
     const formData = new FormData()
-
-    console.log(data)
     const files = [...data.files]
 
     formData.append(`topic`, data.topic)

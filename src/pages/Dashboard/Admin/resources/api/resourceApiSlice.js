@@ -45,7 +45,7 @@ export const resourceApiSlice = apiSlice.injectEndpoints({
 
     addNewResource: builder.mutation({
       query: (credentials) => ({
-        url: `/resource/${credentials.courseID}`,
+        url: `/resources/${credentials.courseID}`,
         method: 'PATCH',
         body: { ...credentials.body },
       }),
@@ -53,7 +53,7 @@ export const resourceApiSlice = apiSlice.injectEndpoints({
 
     deleteResource: builder.mutation({
       query: (resourceID) => ({
-        url: `/resource/${resourceID}`,
+        url: `/resources/${resourceID}`,
         method: 'DELETE',
       }),
     }),

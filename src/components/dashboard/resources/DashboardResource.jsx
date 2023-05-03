@@ -8,6 +8,7 @@ import { useDashboardAllResourcesMutation } from '../../../pages/Dashboard/Admin
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { selectDashboardResources } from '../../../pages/Dashboard/Admin/api/dashboardSlice'
+import AdminResourceListDisplay from '../../../pages/Dashboard/Admin/resources/resourceCourseTab/AdminResourceListDisplay'
 
 const DashboardResource = () => {
   // const { studentBoard } = DASHBOARD_CONTENT
@@ -24,11 +25,63 @@ const DashboardResource = () => {
     getResources()
   }, [getResources])
 
+  function checkExtension(str) {
+    // Split the string by the dot character
+    const parts = str.split('.')
+    const extension = parts[parts.length - 1]
+    return extension
+  }
+
   const fileDisplay = dashborardResources?.document?.map((file) => {
-    return <ResourceListDisplay key={file.id} file={file} isADB />
+    // return <ResourceListDisplay key={file.id} file={file} isADB />
+    let fileFormat = checkExtension(file.name)
+    if (
+      checkExtension(file.name) !== `mp4` &&
+      checkExtension(file.name) !== `mp3`
+    ) {
+      return (
+        <AdminResourceListDisplay
+          isDashboard
+          key={file.id}
+          file={file}
+          type={`document`}
+          format={fileFormat}
+          // course={state?.courseTitle}
+        />
+      )
+    }
   })
   const videoDisplay = dashborardResources?.video?.map((file) => {
-    return <ResourceListDisplay key={file.id} file={file} isVideo />
+    // return <ResourceListDisplay key={file.id} file={file} isVideo />
+    let fileFormat = checkExtension(file.name)
+    if (checkExtension(file.name) === `mp4`) {
+      return (
+        <AdminResourceListDisplay
+          isDashboard
+          key={file.id}
+          file={file}
+          type={`document`}
+          format={fileFormat}
+          // course={state?.courseTitle}
+        />
+      )
+    }
+  })
+  const audioDisplay = dashborardResources?.audio?.map((file) => {
+    // return <ResourceListDisplay key={file.id} file={file} isVideo />
+    let fileFormat = checkExtension(file.name)
+    if (checkExtension(file.name) === `mp3`) {
+      return (
+        <AdminResourceListDisplay
+          isDashboard
+          key={file.id}
+          file={file}
+          type={`audio`}
+          format={fileFormat}
+          // course={state?.courseTitle}
+        />
+      )
+    }
   })
 
   return (
@@ -41,7 +94,7 @@ const DashboardResource = () => {
             href='#PDF'
             id={1}
           >
-            PDF
+            DOCUMENTS
           </a>
         </li>
         <li className={['nav-item', style.link].join(' ')}>
@@ -83,7 +136,7 @@ const DashboardResource = () => {
         </div>
         <div className='tab-pane fade' id='audio' aria-labelledby='album-tab'>
           <div className={[style.listWrapper, `hide_scrollbar`].join(' ')}>
-            {fileDisplay}
+            {audioDisplay}
           </div>
         </div>
       </div>

@@ -24,6 +24,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { ErrorMessage } from '@hookform/error-message'
 import { useGetClassByCourseIDMutation } from '../classes/api/classApiSlice'
 import { useViewCoursesDetailsMutation } from '../courses/api/coursesApiSlice'
+import { useGetResourcesByCourseIDMutation } from '../resources/api/resourceApiSlice'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
@@ -92,6 +93,7 @@ const EditLesson = () => {
   const lessonID = location.pathname.split(`/`)[3]
   const [getClassesByCourseID] = useGetClassByCourseIDMutation()
   const [viewCoursesDetails] = useViewCoursesDetailsMutation()
+  const [getResourcesByCourseID] = useGetResourcesByCourseIDMutation()
 
   console.log(state)
 
@@ -137,7 +139,8 @@ const EditLesson = () => {
   }
 
   const getResources = useCallback(async () => {
-    const res = await viewCoursesDetails(state.courseId).unwrap()
+    const res = await getResourcesByCourseID(state.courseId).unwrap()
+    console.log(res)
     if (res.success) {
       Object?.keys(res.data.resources)?.forEach((key) => {
         res.data.resources[key]?.map((resource) => {
@@ -146,15 +149,15 @@ const EditLesson = () => {
             return [
               ...prevState,
               {
-                value: resource,
-                label: resource,
+                value: resource.id,
+                label: resource.name,
               },
             ]
           })
         })
       })
     }
-  }, [state.courseId, viewCoursesDetails])
+  }, [getResourcesByCourseID, state.courseId])
 
   useEffect(() => {
     getResources()
@@ -169,10 +172,14 @@ const EditLesson = () => {
       value: state.tutorId,
       label: state.tutorName,
     },
-    resources: state?.resources?.map((resource) => {
+    resources: [
+      ...state.resources.audio,
+      ...state.resources.video,
+      ...state.resources.document,
+    ].map((resource) => {
       return {
-        value: resource,
-        label: resource,
+        value: resource.id,
+        label: `${resource.name}`,
       }
     }),
   }
@@ -219,7 +226,7 @@ const EditLesson = () => {
         document.getElementById('save-success')
       )
       const res = await axios.patch(
-        `${baseUrl}/lesson/${lessonID}`,
+        `${baseUrl}/lessons/${lessonID}`,
         formData,
         credentials
       )

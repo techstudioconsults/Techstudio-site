@@ -66,7 +66,9 @@ const CourseDetails = ({ courseDetails, show }) => {
                     </div>
                   </td>
                   <td>
-                    <div className='text-white'>N/A</div>
+                    <div className='text-white'>
+                      {courseDetails?.classCount?.onlineCount}
+                    </div>
                   </td>
                   <td>
                     <AvatarStack
@@ -86,7 +88,9 @@ const CourseDetails = ({ courseDetails, show }) => {
                     </div>
                   </td>
                   <td>
-                    <div className='text-white'>N/A</div>
+                    <div className='text-white'>
+                      {courseDetails?.classCount?.weekdayCount}
+                    </div>
                   </td>
                   <td>
                     <AvatarStack
@@ -106,7 +110,9 @@ const CourseDetails = ({ courseDetails, show }) => {
                     </div>
                   </td>
                   <td>
-                    <div className='text-white'>N/A</div>
+                    <div className='text-white'>
+                      {courseDetails?.classCount?.weekendCount}
+                    </div>
                   </td>
                   <td>
                     <AvatarStack

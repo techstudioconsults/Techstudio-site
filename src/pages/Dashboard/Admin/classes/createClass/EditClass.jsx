@@ -31,6 +31,7 @@ import { selectCourseDetails } from '../../courses/api/coursesSlice'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { ErrorMessage } from '@hookform/error-message'
+import { useGetResourcesByCourseIDMutation } from '../../resources/api/resourceApiSlice'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
@@ -86,6 +87,8 @@ const schema = yup.object().shape({
 const EditClass = () => {
   const clearIndicatorRef = useRef()
   const [tutors, setTutors] = useState([])
+  const [crudeResources, setCrudeResources] = useState([])
+  const [resources, setResources] = useState([])
   const [isSave, setSave] = useState(false)
   const [isLoading, setLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState(null)
@@ -94,18 +97,49 @@ const EditClass = () => {
   const { toast } = useToast()
   const classID = location.pathname.split(`/`)[3]
   const [viewCoursesDetails] = useViewCoursesDetailsMutation()
+  const [getResourcesByCourseID] = useGetResourcesByCourseIDMutation()
   const courseDetails = useSelector(selectCourseDetails)
   const navigate = useNavigate()
   const credentials = {
     headers: {
       Authorization: `Bearer ${token}`,
-      'Content-Type': 'multipart/form-data',
+      // 'Content-Type': 'multipart/form-data',
     },
   }
+
+  const getResourceForClass = useCallback(async () => {
+    console.log(state)
+    const res = await getResourcesByCourseID(state.courseId).unwrap()
+    console.log(res)
+    if (res.success) {
+      console.log(res.data.resources)
+      setCrudeResources([
+        ...res.data.resources.audio,
+        ...res.data.resources.video,
+        ...res.data.resources.document,
+      ])
+    }
+  }, [getResourcesByCourseID, state])
+  console.log(crudeResources, resources)
+
+  useEffect(() => {
+    getResourceForClass()
+  }, [getResourceForClass])
+
+  useEffect(() => {
+    const resource = crudeResources?.map((resource) => {
+      return {
+        value: resource.id,
+        label: resource.name,
+      }
+    })
+    setResources(resource)
+  }, [crudeResources])
 
   const defaultValues = {
     title: state.title,
     description: state.description,
+    fee: state.fee,
     startDate: new Date(state.startDate).toLocaleDateString('en-CA'),
     endDate: new Date(state.endDate).toLocaleDateString('en-CA'),
     preference: state.preference,
@@ -113,6 +147,16 @@ const EditClass = () => {
       return {
         value: tutor.id,
         label: tutor.name,
+      }
+    }),
+    resources: [
+      ...state.resources.audio,
+      ...state.resources.video,
+      ...state.resources.document,
+    ].map((resource) => {
+      return {
+        value: resource.id,
+        label: `${resource.name}`,
       }
     }),
   }
@@ -152,19 +196,35 @@ const EditClass = () => {
   // due to the error gotten from the response above...we went with the axios alternative
   const onSubmit = async (data) => {
     setLoading(true)
-    const formData = new FormData()
+    // const formData = new FormData()
 
-    console.log(data)
-    console.log(new Date(data.endDate).toISOString())
-    const files = [...data.files]
+    // console.log(data)
+    // console.log(new Date(data.endDate).toISOString())
+    // const files = [...data.files]
 
-    formData.append(`title`, data.title)
-    formData.append(`description`, data.description)
-    formData.append(`preference`, data.preference)
-    formData.append(`startDate`, new Date(data.startDate).toISOString())
-    formData.append(`endDate`, new Date(data.endDate).toISOString())
-    data.tutors.forEach((item) => formData.append('tutors[]', item.value))
-    files.forEach((item) => formData.append('files', item))
+    // formData.append(`title`, data.title)
+    // formData.append(`description`, data.description)
+    // formData.append(`fee`, data.fee)
+    // formData.append(`preference`, data.preference)
+    // formData.append(`startDate`, new Date(data.startDate).toISOString())
+    // formData.append(`endDate`, new Date(data.endDate).toISOString())
+    // data.tutors.forEach((item) => formData.append('tutors[]', item.value))
+    // files.forEach((item) => formData.append('files', item))
+
+    const formdata = {
+      title: data.title,
+      description: data.description,
+      fee: data.fee,
+      preference: data.preference,
+      startDate: new Date(data.startDate).toISOString(),
+      endDate: new Date(data.endDate).toISOString(),
+      tutors: data.tutors.map((tutor) => {
+        return tutor.value
+      }),
+      resources: data?.resources?.map((resource) => {
+        return resource.value
+      }),
+    }
 
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
@@ -173,7 +233,7 @@ const EditClass = () => {
       setSave(false)
       const res = await axios.patch(
         `${baseUrl}/classes/${classID}`,
-        formData,
+        formdata,
         credentials
       )
       console.log(res)
@@ -261,7 +321,7 @@ const EditClass = () => {
             Fill in the fields below to create a new class under a course.
           </p>
         </div>
-        <form onSubmit={handleSaveModal} encType='multipart/form-data'>
+        <form onSubmit={handleSaveModal}>
           <div className='my-10 container'>
             {/* title */}
             <div className='mb-8 d-flex row'>
@@ -321,6 +381,40 @@ const EditClass = () => {
                   <ErrorMessage
                     errors={errors}
                     name='description'
+                    render={({ messages }) => {
+                      return messages
+                        ? Object.entries(messages).map(([type, message]) => (
+                            <p className='fs-xs text-danger' key={type}>
+                              {message}
+                            </p>
+                          ))
+                        : null
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className='mb-8 d-flex row'>
+              <div className='col-4'>
+                <label
+                  htmlFor='title'
+                  className={`col-form-label fs-lg ${style.labels} w-100`}
+                >
+                  Fee
+                </label>
+              </div>
+              <div className='col-8'>
+                <div className={`${style.inputs} w-100`}>
+                  <input
+                    placeholder='class fee'
+                    type='text'
+                    className='form-control form-control-lg'
+                    id='fee'
+                    {...register('fee')}
+                  />
+                  <ErrorMessage
+                    errors={errors}
+                    name='fee'
                     render={({ messages }) => {
                       return messages
                         ? Object.entries(messages).map(([type, message]) => (
@@ -539,8 +633,43 @@ const EditClass = () => {
                 </div>
               </div>
             </div>
+            <div className='mb-8 d-flex row'>
+              <div className='col-4'>
+                <label
+                  htmlFor='resources'
+                  className={`col-form-label fs-lg ${style.labels} w-100`}
+                >
+                  Resources
+                </label>
+              </div>
+              <div className='col-8'>
+                <div className={`${style.inputs} w-100`}>
+                  <div>
+                    <Controller
+                      name='resources'
+                      control={control}
+                      render={({ field }) => {
+                        return (
+                          <>
+                            <Select
+                              styles={colorStyles}
+                              className='reactSelect my-2'
+                              name='resource'
+                              placeholder='Select a resource from the dropdown list'
+                              options={resources}
+                              isMulti
+                              {...field}
+                            />
+                          </>
+                        )
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
             {/* file chooser */}
-            <section>
+            {/* <section>
               <div className='mb-8 align-items-center row'>
                 <div className='col-4'>
                   <label
@@ -568,7 +697,7 @@ const EditClass = () => {
                   </div>
                 </div>
               </div>
-            </section>
+            </section> */}
             {/* CTA */}
 
             <div>

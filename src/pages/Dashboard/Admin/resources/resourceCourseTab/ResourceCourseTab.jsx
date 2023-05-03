@@ -24,25 +24,25 @@ const ResourceCourseTab = ({ courses }) => {
 
   console.log(resource)
 
+  // useEffect(() => {
+  //   if (!resource) {
+  //     navigate(`/admin/resources/${courses[0]?.id}`)
+  //   }
+  //   activeRoute(location?.state?.course?.id)
+  // }, [activeRoute, courses, location?.state?.course?.id, navigate, resource])
+
   const getResources = useCallback(async () => {
+    // activeRoute(location?.state?.course?.id)
+    activeRoute(resource)
     if (resource) {
       const res = await getResourcesByCourseID(resource).unwrap()
       setResourceLength(res.data.resources.length)
-    }
-    // let courseID = location?.state?.course?.id
-
-    // if (courseID) {
-    //   const res = await getResourcesByCourseID(courseID).unwrap()
-    //   setResourceLength(res.data.resources.length)
-    // }
-  }, [getResourcesByCourseID, resource])
-
-  useEffect(() => {
-    if (!resource) {
+    } else {
+      // if (!resource) {
       navigate(`/admin/resources/${courses[0]?.id}`)
+      // }
     }
-    activeRoute(location?.state?.course?.id)
-  }, [activeRoute, courses, location?.state?.course?.id, navigate, resource])
+  }, [activeRoute, courses, getResourcesByCourseID, navigate, resource])
 
   useEffect(() => {
     getResources()

@@ -6,7 +6,13 @@ import { DeleteModal, Portal } from '../../../../../components'
 import Feedback from '../../../../../components/global/feedbacks/Feedback'
 import { useLocation, useParams } from 'react-router'
 
-const AdminResourceListDisplay = ({ file, course, type, format }) => {
+const AdminResourceListDisplay = ({
+  isDashboard,
+  file,
+  course,
+  type,
+  format,
+}) => {
   const { resource } = useParams()
   const handleDeleteModal = () => {
     try {
@@ -72,7 +78,7 @@ const AdminResourceListDisplay = ({ file, course, type, format }) => {
               </div>
             </div>
             <div>
-              <p className='fs-sm text-secondary'>
+              <p hidden={isDashboard} className='fs-sm text-secondary'>
                 File Size: {file?.fileSize}
               </p>
             </div>
@@ -97,6 +103,7 @@ const AdminResourceListDisplay = ({ file, course, type, format }) => {
 
 AdminResourceListDisplay.propTypes = {
   file: PropTypes.object,
+  isDashboard: PropTypes.bool,
   course: PropTypes.string,
   type: PropTypes.string,
   format: PropTypes.string,

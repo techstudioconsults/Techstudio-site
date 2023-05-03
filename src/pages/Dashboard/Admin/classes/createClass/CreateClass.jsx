@@ -100,7 +100,6 @@ const CreateClass = () => {
   const credentials = {
     headers: {
       Authorization: `Bearer ${token}`,
-      'Content-Type': 'multipart/form-data',
     },
   }
 
@@ -179,7 +178,7 @@ const CreateClass = () => {
 
     formData.append(`title`, data.title)
     formData.append(`description`, data.description)
-    formData.append(`fee`, parseInt(data.fee))
+    // formData.append(`fee`, parseInt(data.fee))
     formData.append(`preference`, data.preference)
     formData.append(`startDate`, new Date(data.startDate).toISOString())
     formData.append(`endDate`, new Date(data.endDate).toISOString())
@@ -198,7 +197,7 @@ const CreateClass = () => {
       tutors: data.tutors.map((tutor) => {
         return tutor.value
       }),
-      resources: data.resources.map((resource) => {
+      resources: data?.resources?.map((resource) => {
         return resource.value
       }),
     }
@@ -268,7 +267,7 @@ const CreateClass = () => {
             Fill in the fields below to create a new class under a course.
           </p>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} encType='multipart/form-data'>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className='my-10 container'>
             {/* title */}
             <div className='mb-8 d-flex row'>
