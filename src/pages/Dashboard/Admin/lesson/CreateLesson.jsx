@@ -85,7 +85,10 @@ const CreateLesson = () => {
   const [tutors, setTutors] = useState([])
   const [classes, setClasses] = useState([])
   const [classID, setClassID] = useState()
+
+  const [crudeResources, setCrudeResources] = useState([])
   const [resources, setResources] = useState([])
+
   const [isLoading, setLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState(null)
   const [getClassesByCourseID] = useGetClassByCourseIDMutation()
@@ -101,6 +104,33 @@ const CreateLesson = () => {
       'Content-Type': 'multipart/form-data',
     },
   }
+
+  const getResourceForClass = useCallback(async () => {
+    const res = await getResourcesByCourseID(courseID).unwrap()
+    if (res.success) {
+      console.log(res.data.resources)
+      setCrudeResources([
+        ...res.data.resources.audio,
+        ...res.data.resources.video,
+        ...res.data.resources.document,
+      ])
+    }
+  }, [courseID, getResourcesByCourseID])
+  console.log(crudeResources, resources)
+
+  useEffect(() => {
+    getResourceForClass()
+  }, [getResourceForClass])
+
+  useEffect(() => {
+    const resource = crudeResources?.map((resource) => {
+      return {
+        value: resource.id,
+        label: resource.name,
+      }
+    })
+    setResources(resource)
+  }, [crudeResources])
 
   const getClasses = useCallback(async () => {
     const res = await getClassesByCourseID(courseID).unwrap()
@@ -118,27 +148,7 @@ const CreateLesson = () => {
       value: classItem.id,
       label: classItem.title,
     }
-    // return (
-    //   <option key={classItem.id} value={classItem.id}>
-    //     {classItem.title}
-    //   </option>
-    // )
   })
-
-  // const getTutors = (e) => {
-  //   setClassID(e.target.value)
-  //   classes?.map((singleClass) => {
-  //     if (singleClass.id === e.target.value) {
-  //       const tutorsList = singleClass.tutors.map((tutor) => {
-  //         return {
-  //           value: tutor.id,
-  //           label: tutor.name,
-  //         }
-  //       })
-  //       setTutors(tutorsList)
-  //     }
-  //   })
-  // }
 
   const getTutors = (value) => {
     setClassID(value)
@@ -152,49 +162,33 @@ const CreateLesson = () => {
         })
         setTutors(tutorsList)
       }
-      // if (singleClass.id === value) {
-      //   Object?.keys(singleClass.resources)?.forEach((key) => {
-      //     singleClass.resources[key]?.map((resource) => {
-      //       console.log(`resource`)
-      //       setResources((prevState) => {
-      //         return [
-      //           ...prevState,
-      //           {
-      //             value: resource,
-      //             label: resource,
-      //           },
-      //         ]
-      //       })
-      //     })
-      //   })
-      // }
     })
   }
 
-  const getResources = useCallback(async () => {
-    const res = await getResourcesByCourseID(courseID).unwrap()
-    console.log(res)
-    if (res.success) {
-      Object?.keys(res.data.resources)?.forEach((key) => {
-        res.data.resources[key]?.map((resource) => {
-          console.log(resource)
-          setResources((prevState) => {
-            return [
-              ...prevState,
-              {
-                value: resource.id,
-                label: resource.name,
-              },
-            ]
-          })
-        })
-      })
-    }
-  }, [courseID, getResourcesByCourseID])
+  // const getResources = useCallback(async () => {
+  //   const res = await getResourcesByCourseID(courseID).unwrap()
+  //   console.log(res)
+  //   if (res.success) {
+  //     Object?.keys(res.data.resources)?.forEach((key) => {
+  //       res.data.resources[key]?.map((resource) => {
+  //         console.log(resource)
+  //         setResources((prevState) => {
+  //           return [
+  //             ...prevState,
+  //             {
+  //               value: resource.id,
+  //               label: resource.name,
+  //             },
+  //           ]
+  //         })
+  //       })
+  //     })
+  //   }
+  // }, [courseID, getResourcesByCourseID])
 
-  useEffect(() => {
-    getResources()
-  }, [getResources])
+  // useEffect(() => {
+  //   getResources()
+  // }, [getResources])
 
   // const allResources = useCallback(async () => {
   //   let resources = location?.state?.resources
