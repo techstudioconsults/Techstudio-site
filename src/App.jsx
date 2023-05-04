@@ -45,8 +45,8 @@ import {
   EditLesson,
   AdminResourceView,
   ResourcesTab,
-  PaymentOptions,
   AdminPaymentView,
+  PaymentOptions,
 } from './pages'
 
 import AdminClassView from './pages/Dashboard/Admin/classes/AdminClassView'
