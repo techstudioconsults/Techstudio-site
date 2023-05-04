@@ -46,7 +46,7 @@ import {
   AdminResourceView,
   ResourcesTab,
   AdminPaymentView,
-  PaymentOptions,
+  PaymentListView,
 } from './pages'
 
 import AdminClassView from './pages/Dashboard/Admin/classes/AdminClassView'
@@ -173,7 +173,7 @@ const App = () => {
               </Route>
               {/* PAYMENT ROUTE */}
               <Route path='/admin/payment' element={<AdminPaymentView />}>
-                <Route path='courses/:courseID' element={<PaymentOptions />} />
+                <Route path='courses/:courseID' element={<PaymentListView />} />
               </Route>
             </Route>
           </Route>
