@@ -52,7 +52,7 @@ const AddPaymentModal = ({ studentPayment }) => {
         document.getElementById('save-success')
       )
 
-      const res = await axios.post(
+      const res = await axios.patch(
         `${baseUrl}/payments/students/${studentPayment?.id}`,
         // `${baseUrl}/students/${studentID}}/deposit/${depositID}`,
         formData,
