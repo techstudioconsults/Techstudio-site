@@ -168,7 +168,7 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
                 placeholder='First name'
                 type='text'
                 className='form-control form-control-lg fs-sm'
-                id='firstName'
+                id='s-firstName'
                 {...register('firstName', validation)}
               />
               <ErrorMessage
@@ -203,7 +203,7 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
                 placeholder='Last name'
                 type='text'
                 className='form-control form-control-lg fs-sm'
-                id='lastName'
+                id='s-lastName'
                 {...register('lastName', validation)}
               />
               <ErrorMessage
@@ -238,7 +238,7 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
                 placeholder='Email Address'
                 type='text'
                 className='form-control form-control-lg fs-sm'
-                id='email'
+                id='s-email'
                 {...register('email', validation)}
               />
               <ErrorMessage
@@ -274,7 +274,7 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
                 pattern='[0-9]{11}'
                 placeholder='08012345678'
                 className='form-control form-control-lg fs-sm'
-                id='phoneNumber'
+                id='s-phoneNumber'
                 {...register('phoneNumber', validation)}
               />
               <ErrorMessage
@@ -405,7 +405,7 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
                 placeholder='*******'
                 type='password'
                 className='form-control form-control-lg fs-sm'
-                id='password'
+                id='s-password'
                 {...register('password')}
               />
               <ErrorMessage
@@ -444,7 +444,7 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
                   className='form-check-input'
                   type='radio'
                   name='passwordRadio'
-                  id='choosePassword'
+                  id='choosePassword-student'
                   value='user'
                 />
                 <label
@@ -460,7 +460,7 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
                   className='form-check-input'
                   type='radio'
                   name='passwordRadio'
-                  id='manualPassword'
+                  id='manualPassword-student'
                   value='admin'
                 />
                 <label className='form-check-label' htmlFor='manualPassword'>

@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const STATE = {
-  studentsPaymentRecord: [],
+  studentsPaymentRecord: [], //by courseID
+  singleStudentPaymentRecord: {},
 }
 
 const PAYMENT_SLICE = {
@@ -12,14 +13,21 @@ const PAYMENT_SLICE = {
       const { record } = action.payload
       state.studentsPaymentRecord = record
     },
+    // setSingleStudentPaymentRecord: (state, action) => {
+    //   const { record } = action.payload
+    //   state.singleStudentPaymentRecord = record
+    // },
   },
 }
 
 const paymentSlice = createSlice(PAYMENT_SLICE)
 
-export const { setStudentPaymentRecord } = paymentSlice.actions
+export const { setStudentPaymentRecord, setSingleStudentPaymentRecord } =
+  paymentSlice.actions
 
 export default paymentSlice.reducer
 
 export const selectStudentsPaymentRecord = (state) =>
   state.payment.studentsPaymentRecord
+export const selectSingleStudentsPaymentRecord = (state) =>
+  state.payment.singleStudentPaymentRecord

@@ -2,14 +2,9 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { HiOutlineEllipsisVertical } from 'react-icons/hi2'
-import AddPaymentModal from './AddPaymentModal'
-import FullPaymentHistory from './FullPaymentHistory'
-import EditPaymentHistory from './EditPaymentHistory'
 import style from '../style/paymentClasses.module.scss'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { selectStudentsPaymentRecord } from '../api/paymentSlice'
-import { Icon } from '@iconify/react'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
 import download from 'downloadjs'
@@ -19,17 +14,18 @@ import { selectCurrentToken } from '../../../../Auth/api/authSlice'
 import Feedback from '../../../../../components/global/feedbacks/Feedback'
 import { Portal } from '../../../../../components'
 import UserRegistrationFormModal from '../../users/userRegistrationForms/UserRegistrationFormModal'
+import PaymentDisplayCard from './PaymentDisplayCard'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
-const Paymentoptions = () => {
+const PaymentOptions = () => {
   const { courseID } = useParams()
-  const [showPaymentModal, setShowPaymentModal] = useState(false)
-  const [showFullHistoryModal, setShowFullHistoryModal] = useState(false)
-  const [showEdit, setShowEdit] = useState(false)
+  const [classType, setClassType] = useState(``)
+  const [statusType, setStatusType] = useState(``)
   const classes = useSelector(selectClasses)
   const token = useSelector(selectCurrentToken)
   const studentPaymentDetails = useSelector(selectStudentsPaymentRecord)
+  const dispatch = useDispatch()
 
   const credentials = {
     headers: {
@@ -39,13 +35,7 @@ const Paymentoptions = () => {
   }
 
   const headings = ['Name', 'Total', 'Amount Paid', 'Balance', 'Status', ' ']
-  const setStatus = (status) => {
-    if (status !== 'Full') {
-      return 'text-danger'
-    } else {
-      return style.text
-    }
-  }
+
   const setheading = (s) => {
     if (s === 'Name') {
       return 'col-3'
@@ -70,31 +60,42 @@ const Paymentoptions = () => {
     )
   })
 
-  const {
-    register,
-    reset,
-    handleSubmit,
-    formState: { errors, isSubmitSuccessful },
-  } = useForm({
+  const { handleSubmit } = useForm({
     criteriaMode: 'all',
     mode: 'onChange',
-    // resolver: yupResolver(schema),
   })
 
-  function formatDate(isoDate) {
-    const date = new Date(isoDate)
-    const day = date.getDate().toString().padStart(2, '0')
-    const month = (date.getMonth() + 1).toString().padStart(2, '0')
-    const year = date.getFullYear().toString()
-    const formattedDate = `${day}/${month}/${year}`
-    return formattedDate
+  const showFormModal = () => {
+    let modal = bootstrap.Modal.getOrCreateInstance(
+      document.getElementById('payment-modal')
+    )
+    modal.show()
   }
 
-  const handleDownload = async (data) => {
-    console.log(data)
+  const filterPayment = async () => {
     try {
       const res = await axios.get(
-        `${baseUrl}/payments/students/courses/${courseID}/download?status=${data.status}&classId=${data.class}`,
+        `${baseUrl}/payments/students/courses/${courseID}?status=${statusType}&classId=${classType}`,
+        credentials
+      )
+      if (res.data.success) {
+        dispatch({
+          type: `payment/setStudentPaymentRecord`,
+          payload: {
+            record: res.data.data,
+          },
+        })
+      }
+    } catch (err) {
+      // setLoading(false)
+      // setErrorMessage(err.response.data.message)
+      // toast.show()
+    }
+  }
+  const handleDownload = async () => {
+    try {
+      const res = await axios.get(
+        `${baseUrl}/payments/students/courses/${courseID}/download?status=${statusType}&classId=${classType}`,
         credentials
       )
       console.log(res.data)
@@ -110,99 +111,23 @@ const Paymentoptions = () => {
     }
   }
 
-  const showFormModal = () => {
-    let modal = bootstrap.Modal.getOrCreateInstance(
-      document.getElementById('user-form-modal')
-    )
-    modal.show()
+  const handleClassChange = (e) => {
+    setClassType(e.target.value)
+    // filterPayment()
+  }
+  const handleStatusChange = (e) => {
+    setStatusType(e.target.value)
+    // filterPayment()
   }
 
-  const paidCourses = studentPaymentDetails.map((paidCourse) => {
-    return (
-      <div
-        key={paidCourse?.id}
-        className={[
-          style.box,
-          ' row d-flex align-items-center  border border-1 border-secondary-subtle my-4  ps-3 ',
-        ].join(' ')}
-      >
-        <div className='col-3 text-start'>
-          <h6 className='fw-bold m-0'>{paidCourse?.fullName} </h6>
-          <p className='text-muted fs-sm'>{paidCourse?.schedule} </p>
-        </div>
-        <div className='col-2 text-center '>
-          <p className='fw-semibold'>N{paidCourse?.total}</p>
-        </div>
-        <div className='col-3 text-start'>
-          <p className={`${style.text} fw-semibold`}>
-            N{paidCourse?.amountPaid}
-          </p>
-          <p className='text-muted fs-sm'>
-            paid on {formatDate(paidCourse?.dateOfLastPayment)}
-          </p>
-        </div>
-        <div className='col-2 text-start'>
-          <p className='text-primary fw-semibold'>{paidCourse?.balance} </p>
-        </div>
-        <div className='col-1 text-start'>
-          <p className={`${setStatus(paidCourse?.status)} fw-semibold`}>
-            {paidCourse?.status}
-          </p>
-        </div>
-        <div className='col-1 text-start'>
-          <div>
-            <button
-              className='dropdown-toggle dropdown-center bg-white'
-              data-bs-toggle='dropdown'
-              aria-expanded='false'
-            >
-              <HiOutlineEllipsisVertical
-                className={[style.ellipsis, `text-secondary`].join(' ')}
-              />
-            </button>
-            <ul className='dropdown-menu dropdown-menu-end'>
-              <li>
-                <button
-                  onClick={() => setShowPaymentModal(true)}
-                  className='dropdown-item'
-                >
-                  <Icon width={`1.5rem`} icon='material-symbols:edit-note' />{' '}
-                  Add Payment Record
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => setShowEdit(true)}
-                  className='dropdown-item'
-                >
-                  <Icon width={`1.5rem`} icon='material-symbols:edit-note' />{' '}
-                  Edit Payment Record
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => setShowFullHistoryModal(true)}
-                  className='dropdown-item'
-                >
-                  <Icon
-                    width={`1.3rem`}
-                    icon='material-symbols:view-headline'
-                  />{' '}
-                  View Payment History
-                </button>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    )
+  console.log(studentPaymentDetails)
+
+  const paidCourses = studentPaymentDetails?.map((paymentDetail, index) => {
+    return <PaymentDisplayCard key={index} paymentDetail={paymentDetail} />
   })
 
   return (
     <div>
-      {showPaymentModal && <AddPaymentModal />}
-      {showFullHistoryModal && <FullPaymentHistory />}
-      {showEdit && <EditPaymentHistory />}
       <Portal wrapperId='react-portal-modal-container'>
         <UserRegistrationFormModal />
       </Portal>
@@ -214,7 +139,8 @@ const Paymentoptions = () => {
           <select
             className='form-select text-dark fs-sm'
             aria-label='Default select example'
-            {...register(`class`)}
+            // {...register(`class`)}
+            onChange={handleClassChange}
           >
             <option selected>Select a Class</option>
             {classesList}
@@ -224,11 +150,14 @@ const Paymentoptions = () => {
           <select
             className='form-select text-dark fs-sm'
             aria-label='Default select example'
-            {...register(`status`)}
+            onChange={handleStatusChange}
+            // {...register(`status`)}
           >
-            <option selected>All Status</option>
-            <option value={`full`}>Full</option>
-            <option value={`part`}>Part</option>
+            <option disabled selected>
+              All Status
+            </option>
+            <option value={`Full`}>Full</option>
+            <option value={`Part`}>Part</option>
           </select>
         </div>
         <div>
@@ -251,7 +180,7 @@ const Paymentoptions = () => {
       </div>
 
       <div className='mt-5'>
-        {studentPaymentDetails.length ? (
+        {studentPaymentDetails?.length ? (
           paidCourses
         ) : (
           <div onClick={showFormModal}>
@@ -283,4 +212,4 @@ const Paymentoptions = () => {
   )
 }
 
-export default Paymentoptions
+export default PaymentOptions

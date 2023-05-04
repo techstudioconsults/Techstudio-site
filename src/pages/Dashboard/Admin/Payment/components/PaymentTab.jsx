@@ -6,11 +6,14 @@ import PropTypes from 'prop-types'
 import { useGetStudentPaymentRecordsByIDsMutation } from '../api/paymentApiSlice'
 import { useSelector } from 'react-redux'
 import { selectClasses } from '../../classes/api/classSlice'
+import { useState } from 'react'
+import SpinnerComponent from '../../../../../components/global/skeletonLoader/SpinnerComponent'
 
 const PaymentTab = ({ courses }) => {
   const location = useLocation()
+  // const [studentPaymentDetails, setStudentPaymentDetails] = useState(null)
   const classes = useSelector(selectClasses)
-  const [getStudentPaymentRecordsByIDs] =
+  const [getStudentPaymentRecordsByIDs, studentLoading] =
     useGetStudentPaymentRecordsByIDsMutation()
   let { courseID } = useParams()
   const redirect = useNavigate()
@@ -22,23 +25,17 @@ const PaymentTab = ({ courses }) => {
     [location.pathname]
   )
 
-  console.log(classes, courseID)
-
   const getStudentPaymentDetails = useCallback(async () => {
-    // if (courseID) {
-    await getStudentPaymentRecordsByIDs({
-      courseID: courseID,
-      status: null,
-      classID: null,
-    }).unwrap()
-    // await getStudentsByCourseID(courseID).unwrap()
-    // }
+    if (courseID) {
+      await getStudentPaymentRecordsByIDs({
+        courseID: courseID,
+      }).unwrap()
+    }
   }, [courseID, getStudentPaymentRecordsByIDs])
 
   useEffect(() => {
     if (!courseID) {
       redirect(`/admin/payment/courses/${courses[0]?.id}`)
-      getStudentPaymentDetails()
     }
     activeRoute(courseID)
   }, [activeRoute, courseID, courses, getStudentPaymentDetails, redirect])
@@ -51,7 +48,6 @@ const PaymentTab = ({ courses }) => {
     return (
       <li key={course?.id} className={['nav-item', style.link].join(' ')}>
         <NavLink
-          onClick={getStudentPaymentDetails}
           to={`/admin/payment/courses/${course?.id}`}
           className={[
             'nav-link',
@@ -75,8 +71,7 @@ const PaymentTab = ({ courses }) => {
       </ul>
 
       <div className='tab-content py-6' id='tabContent'>
-        {/* {classArgs?.isLoading ? <SpinnerComponent /> : <Outlet />} */}
-        {<Outlet />}
+        {studentLoading?.isLoading ? <SpinnerComponent /> : <Outlet />}
       </div>
     </section>
   )

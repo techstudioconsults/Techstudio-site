@@ -130,6 +130,7 @@ const App = () => {
             <Route element={<DashboardLayout isADB />}>
               <Route path='/admin/dashboard' element={<AdminDashboard />}>
                 <Route path=':courseID' element={<TrackAnalysisLayout />} />
+                <Route path=':courseID/details' element={<ResourcesTab />} />
               </Route>
               <Route path='/admin/courses' element={<AdminCourseView />} />
               <Route path='/admin/courses/create' element={<CreateCourse />} />

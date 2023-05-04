@@ -1,11 +1,16 @@
 import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useGetResourcesByCourseIDMutation } from '../../../pages/Dashboard/Admin/resources/api/resourceApiSlice'
+import { useGetStudentPaymentRecordsByIDsMutation } from '../../../pages/Dashboard/Admin/Payment/api/paymentApiSlice'
 
 const Save = ({ content }) => {
+  const navigate = useNavigate()
+  const location = useLocation()
   const [route, setRoute] = useState()
   const [getResourcesByCourseID] = useGetResourcesByCourseIDMutation()
+  const [getStudentPaymentRecordsByIDs] =
+    useGetStudentPaymentRecordsByIDsMutation()
 
   useEffect(() => {
     async function getData() {
@@ -30,7 +35,14 @@ const Save = ({ content }) => {
       }
     }
     getData()
-  }, [content.action, content.courseID, getResourcesByCourseID])
+  }, [
+    content.action,
+    content.courseID,
+    getResourcesByCourseID,
+    getStudentPaymentRecordsByIDs,
+    location.pathname,
+    navigate,
+  ])
 
   return (
     <div

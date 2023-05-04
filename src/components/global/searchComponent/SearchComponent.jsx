@@ -12,6 +12,7 @@ import { useDashboardSearchMutation } from '../../../pages/Dashboard/Admin/api/d
 
 const SearchComponent = () => {
   const [query, setQuery] = useState(``)
+  const [queryResult, setQueryResult] = useState(``)
   const [dashboardSearch] = useDashboardSearchMutation()
 
   const handleChange = (e) => {
@@ -26,10 +27,115 @@ const SearchComponent = () => {
       modal.show()
       const res = await dashboardSearch(query).unwrap()
       console.log(res)
+      setQueryResult(res.data)
     } catch (err) {
       console.log(err)
     }
   }
+
+  console.log(queryResult)
+
+  const adminResult = queryResult?.admins?.map((course) => {
+    return (
+      <div key={course.id} className='d-flex align-items-center gap-3'>
+        <div className='bg-blue p-2 rounded rounded-2 text-white'>
+          <Icon width={`1.5rem`} icon={`ic:baseline-insert-drive-file`} />
+        </div>
+        <div>
+          <p className='fw-semibold'>{course.title}</p>
+          <p className='fs-sm fw-semibold text-secondary'>
+            Resources - Uploaded by Admin on {course.createdAt}
+          </p>
+        </div>
+      </div>
+    )
+  })
+  const classesResult = queryResult?.classes?.map((singleclass) => {
+    return (
+      <div key={singleclass.id} className='d-flex align-items-center gap-3'>
+        <div className='bg-blue p-2 rounded rounded-2 text-white'>
+          <Icon width={`1.5rem`} icon={`eos-icons:product-classes`} />
+        </div>
+        <div>
+          <p className='fw-semibold'>{singleclass.title}</p>
+          <p className='fs-sm fw-semibold text-secondary'>
+            Classes - Uploaded by Admin on {singleclass.createdAt}
+          </p>
+        </div>
+      </div>
+    )
+  })
+  const coursesResult = queryResult?.courses?.map((course) => {
+    return (
+      <div key={course.id} className='d-flex align-items-center gap-3'>
+        <div className='bg-blue p-2 rounded rounded-2 text-white'>
+          <Icon width={`1.5rem`} icon={`mdi:graduation-cap`} />
+        </div>
+        <div>
+          <p className='fw-semibold'>{course.title}</p>
+          <p className='fs-sm fw-semibold text-secondary'>
+            Courses - Uploaded by Admin on {course.createdAt}
+          </p>
+        </div>
+      </div>
+    )
+  })
+  const lessonsResult = queryResult?.lessons?.map((lesson) => {
+    return (
+      <div key={lesson.id} className='d-flex align-items-center gap-3'>
+        <div className='bg-blue p-2 rounded rounded-2 text-white'>
+          <Icon width={`1.5rem`} icon={`eos-icons:product-classes`} />
+        </div>
+        <div>
+          <p className='fw-semibold'>{lesson.title}</p>
+          <p className='fs-sm fw-semibold text-secondary'>
+            Resources - Uploaded by Admin on {lesson.createdAt}
+          </p>
+        </div>
+      </div>
+    )
+  })
+  const resourcesResult = queryResult?.resources?.map((resource) => {
+    return (
+      <div key={resource.id} className='d-flex align-items-center gap-3'>
+        <div className='bg-blue p-2 rounded rounded-2 text-white'>
+          <Icon width={`1.5rem`} icon={`ic:baseline-insert-drive-file`} />
+        </div>
+        <div>
+          <p className='fw-semibold'>{resource.title}</p>
+          <p className='fs-sm fw-semibold text-secondary'>
+            Resources - Uploaded by Admin on {resource.createdAt}
+          </p>
+        </div>
+      </div>
+    )
+  })
+  const studentsResult = queryResult?.students?.map((student) => {
+    return (
+      <div key={student.id} className='d-flex align-items-center gap-3'>
+        <div className='bg-blue p-2 rounded rounded-2 text-white'>
+          <Icon width={`1.5rem`} icon={`ic:baseline-insert-drive-file`} />
+        </div>
+        <div>
+          <p className='fw-semibold'>{student.fullName}</p>
+          <p className='fs-sm fw-semibold text-secondary'>{student.email}</p>
+        </div>
+      </div>
+    )
+  })
+  const tutorsResult = queryResult?.tutors?.map((tutor) => {
+    return (
+      <div key={tutor.id} className='d-flex align-items-center gap-3'>
+        <div className='bg-blue p-2 rounded rounded-2 text-white'>
+          <Icon width={`1.5rem`} icon={`ic:baseline-insert-drive-file`} />
+        </div>
+        <div>
+          <p className='fw-semibold'>{tutor.fullName}</p>
+          <p className='fs-sm fw-semibold text-secondary'>{tutor.status}</p>
+        </div>
+      </div>
+    )
+  })
 
   return (
     <div className={`input-group ${style.searchInput}`}>
@@ -61,7 +167,7 @@ const SearchComponent = () => {
         >
           <div className='modal-dialog modal-lg'>
             <div className='modal-content'>
-              <div className='modal-body p-2'>
+              <div className='modal-body p-2 px-5'>
                 <div className='d-flex align-items-center justify-content-between'>
                   <input
                     defaultValue={query}
@@ -153,55 +259,60 @@ const SearchComponent = () => {
                     id='allResult'
                     aria-labelledby='allResult-tab'
                   >
-                    <Feedback
+                    {adminResult}
+                    {/* <Feedback
                       fontSize={`sm`}
                       btnName={`Add Resource`}
                       message={`No resources uploaded for this course`}
-                    />
+                    /> */}
                   </div>
                   <div
                     className='tab-pane fade'
                     id='courses'
                     aria-labelledby='allResult-tab'
                   >
-                    <Feedback
+                    {coursesResult}
+                    {/* <Feedback
                       fontSize={`sm`}
                       btnName={`Add Resource`}
                       message={`No resources uploaded for this course`}
-                    />
+                    /> */}
                   </div>
                   <div
                     className='tab-pane fade'
                     id='classes'
                     aria-labelledby='allResult-tab'
                   >
-                    <Feedback
+                    {classesResult || lessonsResult}
+                    {/* <Feedback
                       fontSize={`sm`}
                       btnName={`Add Resource`}
                       message={`No resources uploaded for this course`}
-                    />
+                    /> */}
                   </div>
                   <div
                     className='tab-pane fade'
                     id='resources'
                     aria-labelledby='allResult-tab'
                   >
-                    <Feedback
+                    {resourcesResult}
+                    {/* <Feedback
                       fontSize={`sm`}
                       btnName={`Add Resource`}
                       message={`No resources uploaded for this course`}
-                    />
+                    /> */}
                   </div>
                   <div
                     className='tab-pane fade'
                     id='users'
                     aria-labelledby='allResult-tab'
                   >
-                    <Feedback
+                    {tutorsResult || studentsResult}
+                    {/* <Feedback
                       fontSize={`sm`}
                       btnName={`Add Resource`}
                       message={`No resources uploaded for this course`}
-                    />
+                    /> */}
                   </div>
                 </div>
               </div>

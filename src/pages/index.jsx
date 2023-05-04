@@ -34,4 +34,4 @@ export { default as AdminResourceView } from './Dashboard/Admin/resources/AdminR
 export { default as ResourcesTab } from './Dashboard/Admin/resources/resourceCourseTab/ResourcesTab'
 // export { default as UserRegistrationForm } from './Dashboard/Admin/users/userRegistrationForms/UserRegistrationForm'
 export { default as AdminPaymentView } from './Dashboard/Admin/Payment/AdminPaymentView'
-export { default as PaymentOptions } from './Dashboard/Admin/Payment/components/Paymentoptions'
+export { default as PaymentOptions } from './Dashboard/Admin/Payment/components/PaymentOptions'

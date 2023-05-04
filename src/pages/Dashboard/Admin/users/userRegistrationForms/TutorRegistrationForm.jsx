@@ -102,7 +102,7 @@ const TutorRegistrationForm = ({ cancelBtn }) => {
                 placeholder='First name'
                 type='text'
                 className='form-control form-control-lg fs-sm'
-                id='firstName'
+                id='t-firstName'
                 {...register(`firstName`)}
               />
             </div>
@@ -125,7 +125,7 @@ const TutorRegistrationForm = ({ cancelBtn }) => {
                 placeholder='Last name'
                 type='text'
                 className='form-control form-control-lg fs-sm'
-                id='lastName'
+                id='t-lastName'
                 {...register(`lastName`)}
               />
             </div>
@@ -148,7 +148,7 @@ const TutorRegistrationForm = ({ cancelBtn }) => {
                 placeholder='Email Address'
                 type='text'
                 className='form-control form-control-lg fs-sm'
-                id='email'
+                id='t-email'
                 {...register(`email`)}
               />
             </div>
@@ -172,7 +172,7 @@ const TutorRegistrationForm = ({ cancelBtn }) => {
                 pattern='[0-9]{11}'
                 placeholder='08100792853'
                 className='form-control form-control-lg fs-sm'
-                id='phoneNumber'
+                id='t-phoneNumber'
                 {...register(`phoneNumber`)}
               />
             </div>
@@ -220,7 +220,7 @@ const TutorRegistrationForm = ({ cancelBtn }) => {
                 placeholder='*******'
                 type='password'
                 className='form-control form-control-lg fs-sm'
-                id='password'
+                id='t-password'
                 {...register('password')}
               />
               {/* <ErrorMessage
@@ -259,7 +259,7 @@ const TutorRegistrationForm = ({ cancelBtn }) => {
                   className='form-check-input'
                   type='radio'
                   name='passwordRadio'
-                  id='choosePassword'
+                  id='choosePassword-tutor'
                   value='user'
                 />
                 <label
@@ -275,7 +275,7 @@ const TutorRegistrationForm = ({ cancelBtn }) => {
                   className='form-check-input'
                   type='radio'
                   name='passwordRadio'
-                  id='manualPassword'
+                  id='manualPassword-tutor'
                   value='admin'
                 />
                 <label className='form-check-label' htmlFor='manualPassword'>

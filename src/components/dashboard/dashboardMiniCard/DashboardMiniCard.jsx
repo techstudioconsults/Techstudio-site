@@ -1,11 +1,36 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react'
 import PropTypes from 'prop-types'
 import style from './dashboardminiCard.module.scss'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { Icon } from '@iconify/react'
+import CardDetailsModal from '../../../pages/Dashboard/Admin/components/cardDetailsModal/CardDetailsModal'
+import Portal from '../../global/POTAL/Portal'
 
-const DashboardMiniCard = ({ card, total }) => {
+const DashboardMiniCard = ({ card, total, modalNumber }) => {
+  const handleDetailModal = () => {
+    try {
+      let modal = bootstrap.Modal.getOrCreateInstance(
+        document.getElementById(`${modalNumber}`)
+      )
+      modal.show()
+    } catch (err) {
+      console.log(err)
+    }
+  }
   return (
-    <div className={[style.dashboardCard, `col-3`].join(' ')}>
+    <div
+      onClick={handleDetailModal}
+      className={[style.dashboardCard, `col-3`].join(' ')}
+    >
+      <Portal wrapperId='react-portal-modal-container'>
+        <CardDetailsModal
+          content={{
+            modalID: card.title,
+          }}
+        />
+      </Portal>
       <div
         style={{ backgroundColor: card.img.accent }}
         className={[style.icon].join(' ')}
@@ -35,6 +60,7 @@ const DashboardMiniCard = ({ card, total }) => {
 DashboardMiniCard.propTypes = {
   card: PropTypes.object.isRequired,
   total: PropTypes.number,
+  modalNumber: PropTypes.string,
 }
 
 export default DashboardMiniCard

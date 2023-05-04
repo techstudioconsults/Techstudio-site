@@ -216,7 +216,7 @@ const AdminRegistrationForm = ({ cancelBtn }) => {
                   className='form-check-input'
                   type='radio'
                   name='passwordRadio'
-                  id='choosePassword'
+                  id='choosePassword-admin'
                   value='user'
                 />
                 <label
@@ -232,7 +232,7 @@ const AdminRegistrationForm = ({ cancelBtn }) => {
                   className='form-check-input'
                   type='radio'
                   name='passwordRadio'
-                  id='manualPassword'
+                  id='manualPassword-admin'
                   value='admin'
                 />
                 <label className='form-check-label' htmlFor='manualPassword'>

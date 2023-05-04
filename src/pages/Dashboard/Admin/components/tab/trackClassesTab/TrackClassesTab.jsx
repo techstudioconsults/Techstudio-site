@@ -48,7 +48,7 @@ const TrackClassesTab = ({ courses }) => {
       <li key={course?.id} className={['nav-item', style.link].join(' ')}>
         <NavLink
           to={`/admin/classes/${course?.id}`}
-          onClick={() => getClasses(course.id)}
+          // onClick={() => getClasses(course.id)}
           className={[
             'nav-link',
             style.a,
