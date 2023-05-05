@@ -53,7 +53,7 @@ const AdminCourseView = () => {
     <Feedback
       route={`/admin/courses/create`}
       btnName={`Create Course`}
-      message={`No Course has been created yet!`}
+      message={`No Course Found`}
     />
   )
 

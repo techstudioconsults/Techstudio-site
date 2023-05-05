@@ -40,7 +40,11 @@ const AdminDashboard = () => {
   const feedback = courses?.length ? (
     <AdminDashboardTab courses={courses} />
   ) : (
-    <Feedback message={`Create a course in order to create a class`} />
+    <Feedback
+      route={`/admin/courses/create`}
+      btnName={`Create A Course`}
+      message={`No Course Found`}
+    />
   )
 
   return (

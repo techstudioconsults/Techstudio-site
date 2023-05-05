@@ -10,15 +10,17 @@ const Feedback = ({ message, route, btnName, fontSize, handleClick }) => {
         <img className='cc-img-fluid' src={img} alt={`done/empty`} />
       </div>
       <div>
-        <h5
-          className={`text-primary fs-${fontSize || `xl`} fw-700 text-center`}
+        <p
+          className={`text-primary fs-${
+            fontSize || `xl`
+          } fw-semibold text-center`}
         >
           {message}
-        </h5>
+        </p>
         <div
           className={`${
             btnName ? `d-flex` : `d-none`
-          } justify-content-center mt-10`}
+          } justify-content-center mt-5`}
         >
           <Link to={route}>
             <button className='btn btn-primary fs-sm'>{btnName}</button>

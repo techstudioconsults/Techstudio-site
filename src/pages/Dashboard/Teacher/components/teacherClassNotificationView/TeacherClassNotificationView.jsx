@@ -20,7 +20,7 @@ const color = {
 const TeacherClassNotificationView = ({ mobile }) => {
   const { imageList } = DASHBOARD_CONTENT
   const details = useSelector(selectDetails)
-  const showDetailsBox = useSelector(selectShowDetailBox)
+  // const showDetailsBox = useSelector(selectShowDetailBox)
 
   const convertDateToReadable = (date) => {
     let dateSet = new Date(date).toUTCString().split(' ')
@@ -29,11 +29,7 @@ const TeacherClassNotificationView = ({ mobile }) => {
 
   return (
     <div
-      className={[
-        style.notification,
-        mobile ? `m-0 p-8` : `p-10`,
-        showDetailsBox ? `d-block` : `d-none`,
-      ].join(' ')}
+      className={[style.notification, mobile ? `m-0 p-8` : `p-10`].join(' ')}
     >
       <div className={style.classSummary}>
         <div>

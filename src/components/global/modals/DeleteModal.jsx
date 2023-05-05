@@ -51,6 +51,7 @@ const DeleteModal = ({ content }) => {
         break
       case `delete-class`:
         await getClassByCourseID(content.courseID).unwrap()
+        content.close(true)
         break
       case `delete-lesson`:
         await getLessonByCourseID(content.courseID).unwrap()
