@@ -39,7 +39,7 @@ const CourseList = ({ course, showDetailsBox }) => {
       type: `app/setcourseDetailsLoading`,
       payload: true,
     })
-    showDetailsBox()
+    showDetailsBox(false)
     const res = await viewCoursesDetails(id).unwrap()
     if (res.success) {
       dispatch({
@@ -89,6 +89,7 @@ const CourseList = ({ course, showDetailsBox }) => {
             desc: `${title} Course has successfully being deleted. Kindly click continue to exit this page.`,
             courseID: id,
             action: `delete-course`,
+            close: showDetailsBox,
           }}
         />
       </Portal>

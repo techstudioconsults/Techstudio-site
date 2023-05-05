@@ -15,13 +15,15 @@ import Feedback from '../../global/feedbacks/Feedback'
 import Portal from '../../global/POTAL/Portal'
 import { AddResource } from '../..'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+import SpinnerComponent from '../../global/skeletonLoader/SpinnerComponent'
 
 const DashboardResource = () => {
   // const { studentBoard } = DASHBOARD_CONTENT
   const dashborardResources = useSelector(selectDashboardResources)
   const { courseID } = useParams()
 
-  const [dashboardAllResources] = useDashboardAllResourcesMutation()
+  const [dashboardAllResources, dashboardResourcesArgs] =
+    useDashboardAllResourcesMutation()
 
   const getResources = useCallback(async () => {
     await dashboardAllResources(courseID).unwrap()
@@ -136,57 +138,61 @@ const DashboardResource = () => {
         </li>
       </ul>
 
-      <div className='tab-content' id='tabContent'>
-        <div
-          className='tab-pane fade show active'
-          id='PDF'
-          aria-labelledby='home-tab'
-        >
-          <div className={[style.listWrapper, `hide_scrollbar`].join(' ')}>
-            {dashborardResources?.document?.length ? (
-              fileDisplay
-            ) : (
-              <div onClick={addResource}>
-                <Feedback
-                  fontSize={`sm`}
-                  btnName={`Add Resource`}
-                  message={`No resources uploaded for this course`}
-                />
-              </div>
-            )}
+      {dashboardResourcesArgs.isLoading ? (
+        <SpinnerComponent />
+      ) : (
+        <div className='tab-content' id='tabContent'>
+          <div
+            className='tab-pane fade show active'
+            id='PDF'
+            aria-labelledby='home-tab'
+          >
+            <div className={[style.listWrapper, `hide_scrollbar`].join(' ')}>
+              {dashborardResources?.document?.length ? (
+                fileDisplay
+              ) : (
+                <div onClick={addResource}>
+                  <Feedback
+                    fontSize={`sm`}
+                    btnName={`Add Resource`}
+                    message={`No resources uploaded for this course`}
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+          <div className='tab-pane fade' id='video' aria-labelledby='about-tab'>
+            <div className={[style.listWrapper, `hide_scrollbar`].join(' ')}>
+              {dashborardResources?.video?.length ? (
+                videoDisplay
+              ) : (
+                <div onClick={addResource}>
+                  <Feedback
+                    fontSize={`sm`}
+                    btnName={`Add Resource`}
+                    message={`No resources uploaded for this course`}
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+          <div className='tab-pane fade' id='audio' aria-labelledby='album-tab'>
+            <div className={[style.listWrapper, `hide_scrollbar`].join(' ')}>
+              {dashborardResources?.audio?.length ? (
+                audioDisplay
+              ) : (
+                <div onClick={addResource}>
+                  <Feedback
+                    fontSize={`sm`}
+                    btnName={`Add Resource`}
+                    message={`No resources uploaded for this course`}
+                  />
+                </div>
+              )}
+            </div>
           </div>
         </div>
-        <div className='tab-pane fade' id='video' aria-labelledby='about-tab'>
-          <div className={[style.listWrapper, `hide_scrollbar`].join(' ')}>
-            {dashborardResources?.video?.length ? (
-              videoDisplay
-            ) : (
-              <div onClick={addResource}>
-                <Feedback
-                  fontSize={`sm`}
-                  btnName={`Add Resource`}
-                  message={`No resources uploaded for this course`}
-                />
-              </div>
-            )}
-          </div>
-        </div>
-        <div className='tab-pane fade' id='audio' aria-labelledby='album-tab'>
-          <div className={[style.listWrapper, `hide_scrollbar`].join(' ')}>
-            {dashborardResources?.audio?.length ? (
-              audioDisplay
-            ) : (
-              <div onClick={addResource}>
-                <Feedback
-                  fontSize={`sm`}
-                  btnName={`Add Resource`}
-                  message={`No resources uploaded for this course`}
-                />
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
+      )}
     </section>
   )
 }

@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import { Icon } from '@iconify/react'
 import React from 'react'
 import style from '../../../components/dashboard/dashboardNavbar/dashboardnavbar.module.scss'
@@ -19,13 +17,19 @@ const SearchComponent = () => {
     setQuery(e.target.value)
   }
 
-  const handleSearchModal = async () => {
+  const handleSearchModal = async (event) => {
+    event.preventDefault()
+    let res
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
         document.getElementById(`search-modal`)
       )
-      modal.show()
-      const res = await dashboardSearch(query).unwrap()
+      if (modal.show()) {
+        res = await dashboardSearch(query).unwrap()
+      } else {
+        modal.show()
+        res = await dashboardSearch(query).unwrap()
+      }
       console.log(res)
       setQueryResult(res.data)
     } catch (err) {
@@ -59,7 +63,7 @@ const SearchComponent = () => {
         <div>
           <p className='fw-semibold'>{singleclass.title}</p>
           <p className='fs-sm fw-semibold text-secondary'>
-            Classes - Uploaded by Admin on {singleclass.createdAt}
+            Classes - Created by Admin on {singleclass.createdAt}
           </p>
         </div>
       </div>
@@ -74,7 +78,7 @@ const SearchComponent = () => {
         <div>
           <p className='fw-semibold'>{course.title}</p>
           <p className='fs-sm fw-semibold text-secondary'>
-            Courses - Uploaded by Admin on {course.createdAt}
+            Courses - Created by Admin on {course.createdAt}
           </p>
         </div>
       </div>
@@ -89,7 +93,7 @@ const SearchComponent = () => {
         <div>
           <p className='fw-semibold'>{lesson.title}</p>
           <p className='fs-sm fw-semibold text-secondary'>
-            Resources - Uploaded by Admin on {lesson.createdAt}
+            Lesson - Created by Admin on {lesson.createdAt}
           </p>
         </div>
       </div>
@@ -114,7 +118,7 @@ const SearchComponent = () => {
     return (
       <div key={student.id} className='d-flex align-items-center gap-3'>
         <div className='bg-blue p-2 rounded rounded-2 text-white'>
-          <Icon width={`1.5rem`} icon={`ic:baseline-insert-drive-file`} />
+          <Icon width={`1.5rem`} icon={`mdi:account-student`} />
         </div>
         <div>
           <p className='fw-semibold'>{student.fullName}</p>
@@ -127,7 +131,7 @@ const SearchComponent = () => {
     return (
       <div key={tutor.id} className='d-flex align-items-center gap-3'>
         <div className='bg-blue p-2 rounded rounded-2 text-white'>
-          <Icon width={`1.5rem`} icon={`ic:baseline-insert-drive-file`} />
+          <Icon width={`1.5rem`} icon={`la:chalkboard-teacher`} />
         </div>
         <div>
           <p className='fw-semibold'>{tutor.fullName}</p>
@@ -139,22 +143,25 @@ const SearchComponent = () => {
 
   return (
     <div className={`input-group ${style.searchInput}`}>
-      <>
+      <form
+        onSubmit={handleSearchModal}
+        className='d-flex align-items-center justify-content-between w-100'
+      >
         <input
+          onChange={handleChange}
           type={`search`}
-          className='form-control border border-0 text-secondary h-100'
+          className='form-control border border-0 text-blue h-100 fw-semibold'
           aria-describedby='search'
           placeholder='Search for courses, classes, students and more'
-          onChange={handleChange}
         />
-        <div
-          onClick={handleSearchModal}
+        <button
+          type='submit'
           className={`input-group-text bg-white border border-0 text-secondary h-100`}
           id='passwordHelpBlock'
         >
           <Icon width={`1.2rem`} icon={`ri:search-line`} />
-        </div>
-      </>
+        </button>
+      </form>
 
       <Portal wrapperId='react-portal-modal-container'>
         <div
@@ -168,88 +175,104 @@ const SearchComponent = () => {
           <div className='modal-dialog modal-lg'>
             <div className='modal-content'>
               <div className='modal-body p-2 px-5'>
-                <div className='d-flex align-items-center justify-content-between'>
+                <form
+                  onSubmit={handleSearchModal}
+                  className='d-flex align-items-center justify-content-between w-100'
+                >
                   <input
                     defaultValue={query}
+                    onChange={handleChange}
                     type={`search`}
                     className='form-control border border-0 text-blue h-100 fw-semibold'
                     aria-describedby='search'
                     placeholder='Search for courses, classes, students and more'
                   />
-                  <div
-                    onClick={handleSearchModal}
+                  <button
+                    type='submit'
                     className={`input-group-text bg-white border border-0 text-secondary h-100`}
                     id='passwordHelpBlock'
                   >
                     <Icon width={`1.2rem`} icon={`ri:search-line`} />
-                  </div>
-                </div>
+                  </button>
+                </form>
                 {/* search tab */}
                 <ul className={`nav ${searchStyle.nav} search-tab gap-5`}>
                   <li className='nav-item d-flex align-items-center '>
                     <a
-                      className='nav-link active text-secondary fs-sm'
+                      className='nav-link active text-secondary fs-sm d-flex align-items-center gap-2'
                       data-bs-toggle='tab'
                       href='#allResult'
                       id={1}
                     >
                       All Results{' '}
+                      <span
+                        className={`rounded-circle fs-xs ${searchStyle.tag}`}
+                      >
+                        {queryResult?.admins?.length}
+                      </span>
                     </a>
-                    <span className={`rounded-circle fs-xs ${searchStyle.tag}`}>
-                      0
-                    </span>
                   </li>
                   <li className='nav-item d-flex align-items-center '>
                     <a
-                      className='nav-link text-secondary fs-sm'
+                      className='nav-link text-secondary fs-sm d-flex align-items-center gap-2'
                       data-bs-toggle='tab'
                       href='#courses'
                       id={2}
                     >
                       Courses{' '}
+                      <span
+                        className={`rounded-circle fs-xs ${searchStyle.tag}`}
+                      >
+                        {queryResult?.courses?.length}
+                      </span>
                     </a>
-                    <span className={`rounded-circle fs-xs ${searchStyle.tag}`}>
-                      20
-                    </span>
                   </li>
                   <li className='nav-item d-flex align-items-center '>
                     <a
-                      className='nav-link text-secondary fs-sm'
+                      className='nav-link text-secondary fs-sm d-flex align-items-center gap-2'
                       data-bs-toggle='tab'
                       href='#classes'
                       id={3}
                     >
                       Classes{' '}
+                      <span
+                        className={`rounded-circle fs-xs ${searchStyle.tag}`}
+                      >
+                        {queryResult?.classes?.length +
+                          queryResult?.lessons?.length}
+                      </span>
                     </a>
-                    <span className={`rounded-circle fs-xs ${searchStyle.tag}`}>
-                      0
-                    </span>
                   </li>
                   <li className='nav-item d-flex align-items-center '>
                     <a
-                      className='nav-link text-secondary fs-sm'
+                      className='nav-link text-secondary fs-sm d-flex align-items-center gap-2'
                       data-bs-toggle='tab'
                       href='#resources'
                       id={1}
                     >
                       Resources
+                      <span
+                        className={`rounded-circle fs-xs ${searchStyle.tag}`}
+                      >
+                        {queryResult?.resources?.length}
+                      </span>
                     </a>
-                    <span className={`rounded-circle fs-xs ${searchStyle.tag}`}>
-                      0
-                    </span>
                   </li>
                   <li className='nav-item d-flex align-items-center '>
                     <a
-                      className='nav-link text-secondary fs-sm'
+                      className='nav-link text-secondary fs-sm d-flex align-items-center gap-2'
                       data-bs-toggle='tab'
                       href='#users'
                       id={1}
                     >
                       Users
+                      <span
+                        className={`rounded-circle fs-xs ${searchStyle.tag}`}
+                      >
+                        {queryResult?.tutors?.length +
+                          queryResult?.students?.length}
+                      </span>
                     </a>
-                    <span className={`rounded-circle fs-xs ${searchStyle.tag}`}>
-                      0
-                    </span>
                   </li>
                 </ul>
 
@@ -259,60 +282,77 @@ const SearchComponent = () => {
                     id='allResult'
                     aria-labelledby='allResult-tab'
                   >
-                    {adminResult}
-                    {/* <Feedback
-                      fontSize={`sm`}
-                      btnName={`Add Resource`}
-                      message={`No resources uploaded for this course`}
-                    /> */}
+                    {queryResult?.admins?.length ? (
+                      adminResult
+                    ) : (
+                      <Feedback
+                        fontSize={`sm`}
+                        // btnName={`Add Resource`}
+                        message={`No admin found`}
+                      />
+                    )}
                   </div>
                   <div
                     className='tab-pane fade'
                     id='courses'
                     aria-labelledby='allResult-tab'
                   >
-                    {coursesResult}
-                    {/* <Feedback
-                      fontSize={`sm`}
-                      btnName={`Add Resource`}
-                      message={`No resources uploaded for this course`}
-                    /> */}
+                    {queryResult?.courses?.length ? (
+                      coursesResult
+                    ) : (
+                      <Feedback
+                        fontSize={`sm`}
+                        // btnName={`Add Resource`}
+                        message={`No course found`}
+                      />
+                    )}
                   </div>
                   <div
                     className='tab-pane fade'
                     id='classes'
                     aria-labelledby='allResult-tab'
                   >
-                    {classesResult || lessonsResult}
-                    {/* <Feedback
-                      fontSize={`sm`}
-                      btnName={`Add Resource`}
-                      message={`No resources uploaded for this course`}
-                    /> */}
+                    {queryResult?.classes?.length ||
+                    queryResult?.lessons?.length ? (
+                      classesResult || lessonsResult
+                    ) : (
+                      <Feedback
+                        fontSize={`sm`}
+                        // btnName={`Add Resource`}
+                        message={`No class or lesson found`}
+                      />
+                    )}
                   </div>
                   <div
                     className='tab-pane fade'
                     id='resources'
                     aria-labelledby='allResult-tab'
                   >
-                    {resourcesResult}
-                    {/* <Feedback
-                      fontSize={`sm`}
-                      btnName={`Add Resource`}
-                      message={`No resources uploaded for this course`}
-                    /> */}
+                    {queryResult?.resources?.length ? (
+                      resourcesResult
+                    ) : (
+                      <Feedback
+                        fontSize={`sm`}
+                        // btnName={`Add Resource`}
+                        message={`No resource found`}
+                      />
+                    )}
                   </div>
                   <div
                     className='tab-pane fade'
                     id='users'
                     aria-labelledby='allResult-tab'
                   >
-                    {tutorsResult || studentsResult}
-                    {/* <Feedback
-                      fontSize={`sm`}
-                      btnName={`Add Resource`}
-                      message={`No resources uploaded for this course`}
-                    /> */}
+                    {queryResult?.tutors?.length ||
+                    queryResult?.students?.length ? (
+                      tutorsResult || studentsResult
+                    ) : (
+                      <Feedback
+                        fontSize={`sm`}
+                        // btnName={`Add Resource`}
+                        message={`No user found`}
+                      />
+                    )}
                   </div>
                 </div>
               </div>

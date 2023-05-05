@@ -25,7 +25,7 @@ const AdminDashboardTab = ({ courses }) => {
     return (
       <li key={course?.id} className={['nav-item', style.link].join(' ')}>
         <NavLink
-          state={{ tutors: course.tutors }}
+          // state={{ tutors: course.tutors }}
           to={`/admin/dashboard/${course?.id}`}
           className={[
             'nav-link',

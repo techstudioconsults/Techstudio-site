@@ -236,59 +236,20 @@ const CreateCourse = () => {
     }
   }
 
-  const handleSaveModal = (event) => {
-    event.preventDefault()
-    try {
-      let modal = bootstrap.Modal.getOrCreateInstance(
-        document.getElementById('save-modal')
-      )
-      modal.show()
-    } catch (err) {
-      console.log(err)
+  const handleSaveModal = (data) => {
+    if (compareObjects(data, defaultValues)) {
+      navigate(`/admin/courses`)
+    } else {
+      try {
+        let modal = bootstrap.Modal.getOrCreateInstance(
+          document.getElementById('save-modal')
+        )
+        modal.show()
+      } catch (err) {
+        console.log(err)
+      }
     }
   }
-
-  // function objectsEqual(obj1, obj2, seen = new WeakMap()) {
-  //   const hasOwnProperty = Object.prototype.hasOwnProperty
-
-  //   if (obj1 === obj2) {
-  //     return true
-  //   }
-
-  //   if (Object.keys(obj1).length !== Object.keys(obj2).length) {
-  //     return false
-  //   }
-
-  //   if (
-  //     seen.has(obj1) &&
-  //     seen.has(obj2) &&
-  //     seen.get(obj1) === obj2 &&
-  //     seen.get(obj2) === obj1
-  //   ) {
-  //     return true
-  //   }
-
-  //   seen.set(obj1, obj2)
-  //   seen.set(obj2, obj1)
-
-  //   for (const [key, value] of Object.entries(obj1)) {
-  //     if (
-  //       key === 'files' ||
-  //       key === 'onlineTutors' ||
-  //       key === 'weekdayTutors' ||
-  //       key === 'weekendTutors'
-  //     )
-  //       continue
-  //     if (
-  //       !hasOwnProperty.call(obj2, key) ||
-  //       !objectsEqual(value, obj2[key], seen)
-  //     ) {
-  //       return false
-  //     }
-  //   }
-
-  //   return true
-  // }
 
   function compareObjects(obj1, obj2) {
     // Remove the 'files' property from both objects
@@ -342,7 +303,10 @@ const CreateCourse = () => {
           </p>
         </div>
         <div className='my-10'>
-          <form onSubmit={handleSaveModal} encType='multipart/form-data'>
+          <form
+            onSubmit={handleSubmit(handleSaveModal)}
+            encType='multipart/form-data'
+          >
             {/* title */}
             <div className='mb-8 d-flex align-items-center '>
               <label

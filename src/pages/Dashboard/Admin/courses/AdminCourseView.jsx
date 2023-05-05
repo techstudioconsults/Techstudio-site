@@ -3,7 +3,11 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { AvatarDropdown, SkeletonLoader } from '../../../../components'
+import {
+  AvatarDropdown,
+  SearchComponent,
+  SkeletonLoader,
+} from '../../../../components'
 import style from './adminCourse.module.scss'
 import { useViewAllCoursesMutation } from './api/coursesApiSlice'
 import { selectCourseDetails, selectCourses } from './api/coursesSlice'
@@ -13,6 +17,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import { Icon } from '@iconify/react'
 import { Link } from 'react-router-dom'
 import Feedback from '../../../../components/global/feedbacks/Feedback'
+import SpinnerComponent from '../../../../components/global/skeletonLoader/SpinnerComponent'
 
 const AdminCourseView = () => {
   const [viewAllCourses, { isLoading }] = useViewAllCoursesMutation()
@@ -29,8 +34,8 @@ const AdminCourseView = () => {
     getCourses()
   }, [getCourses])
 
-  const showDetailsBox = () => {
-    notificationRef.current.hidden = false
+  const showDetailsBox = (status) => {
+    notificationRef.current.hidden = status
     setShowDetails(true)
   }
 
@@ -60,19 +65,7 @@ const AdminCourseView = () => {
           <div className='d-flex align-items-center gap-3'>
             {/* make this search input a stand alone component */}
             <div className={`input-group border rounded ${style.searchInput}`}>
-              <input
-                disabled
-                type={`search`}
-                className='form-control border border-0 text-secondary h-100'
-                aria-describedby='search'
-                placeholder='Search for courses, classes, students and more'
-              />
-              <div
-                className={`input-group-text bg-white border border-0 text-secondary h-100`}
-                id='passwordHelpBlock'
-              >
-                <Icon width={`1.2rem`} icon={`ri:search-line`} />
-              </div>
+              <SearchComponent />
             </div>
             <div>
               <Link to={`/admin/courses/create`}>
@@ -105,7 +98,7 @@ const AdminCourseView = () => {
             </div>
           </div>
           <div className='mt-5 d-flex flex-column gap-5'>
-            {isLoading ? <SkeletonLoader /> : courseList}
+            {isLoading ? <SpinnerComponent /> : courseList}
           </div>
         </div>
       </div>

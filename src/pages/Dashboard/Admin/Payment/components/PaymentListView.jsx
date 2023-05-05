@@ -60,7 +60,7 @@ const PaymentListView = () => {
     )
   })
 
-  const { handleSubmit } = useForm({
+  const { register, handleSubmit } = useForm({
     criteriaMode: 'all',
     mode: 'onChange',
   })
@@ -113,11 +113,11 @@ const PaymentListView = () => {
 
   const handleClassChange = (e) => {
     setClassType(e.target.value)
-    // filterPayment()
+    filterPayment()
   }
   const handleStatusChange = (e) => {
     setStatusType(e.target.value)
-    // filterPayment()
+    filterPayment()
   }
 
   console.log(studentPaymentDetails)
@@ -132,15 +132,15 @@ const PaymentListView = () => {
         <UserRegistrationFormModal />
       </Portal>
       <form
-        onSubmit={handleSubmit(handleDownload)}
+        // onSubmit={handleSubmit(handleDownload)}
         className='mt-4 d-flex justify-content-end align-items-center gap-3'
       >
         <div>
           <select
             className='form-select text-dark fs-sm'
             aria-label='Default select example'
-            // {...register(`class`)}
-            onChange={handleClassChange}
+            {...register(`class`)}
+            // onChange={handleClassChange}
           >
             <option selected>Select a Class</option>
             {classesList}
@@ -150,14 +150,12 @@ const PaymentListView = () => {
           <select
             className='form-select text-dark fs-sm'
             aria-label='Default select example'
-            onChange={handleStatusChange}
-            // {...register(`status`)}
+            // onChange={handleStatusChange}
+            {...register(`status`)}
           >
-            <option disabled selected>
-              All Status
-            </option>
-            <option value={`Full`}>Full</option>
-            <option value={`Part`}>Part</option>
+            <option selected>All Status</option>
+            <option value={`full`}>Full</option>
+            <option value={`part`}>Part</option>
           </select>
         </div>
         <div>

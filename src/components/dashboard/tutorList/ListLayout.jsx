@@ -10,7 +10,7 @@ const ListLayout = ({ tutor }) => {
         <Avatar />
         <div>
           <p className='fs-sm fw-bold'>{tutor.fullName}</p>
-          <p className='fs-sm text-muted'>Javacript & Python</p>
+          {/* <p className='fs-sm text-muted'>Javacript & Python</p> */}
         </div>
       </div>
       <div>

@@ -11,10 +11,26 @@ const StudentDashboardSectionTwo = ({ content, cardsAPI }) => {
   return (
     <div className={[style.cardGroup, `hide_scrollbar`].join(' ')}>
       {/* {cardDisplay} */}
-      <DashboardMiniCard card={cards[0]} total={cardsAPI.totalStudents} />
-      <DashboardMiniCard card={cards[1]} total={cardsAPI.totalTutors} />
-      <DashboardMiniCard card={cards[2]} total={cardsAPI.totalResources} />
-      <DashboardMiniCard card={cards[3]} total={cardsAPI.totalOutstanding} />
+      <DashboardMiniCard
+        card={cards[0]}
+        total={cardsAPI.totalStudents}
+        modalNumber={`student-detail-modal`}
+      />
+      <DashboardMiniCard
+        card={cards[1]}
+        total={cardsAPI.totalTutors}
+        modalNumber={`tutor-detail-modal`}
+      />
+      <DashboardMiniCard
+        card={cards[2]}
+        total={cardsAPI.totalResources}
+        modalNumber={`resources-detail-modal`}
+      />
+      <DashboardMiniCard
+        card={cards[3]}
+        total={cardsAPI.totalOutstanding}
+        modalNumber={`outstanding-detail-modal`}
+      />
     </div>
   )
 }

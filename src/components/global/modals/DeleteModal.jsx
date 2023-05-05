@@ -43,6 +43,7 @@ const DeleteModal = ({ content }) => {
     switch (content.action) {
       case `delete-course`:
         await viewAllCourses().unwrap()
+        content.close(true)
         dispatch({
           type: `courses/setCourseDetails`,
           payload: { courseDetails: null },
@@ -94,7 +95,6 @@ const DeleteModal = ({ content }) => {
     handleDelete = async () => {
       setDeleted(false)
       const res = await deleteCourse(content.courseID).unwrap()
-      console.log(res, content.courseID)
       if (res.success) {
         setDeleted(true)
       }

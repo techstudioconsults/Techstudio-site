@@ -12,9 +12,9 @@ const CourseDetails = ({ courseDetails, show }) => {
   // const { title, description, tutors, duration } = courseDetails
   const { imageList } = DASHBOARD_CONTENT
   const courseDetailsLoading = useSelector(selectCourseDetailsLoading)
-
+  // ${show ? style.show : null}
   return (
-    <div className={`${style.courseDetails} ${show ? style.show : null}`}>
+    <div className={`${style.courseDetails} `}>
       {courseDetailsLoading ? (
         <div className='h-100 d-flex align-items-center justify-content-center'>
           <SpinnerComponent color={`white`} />

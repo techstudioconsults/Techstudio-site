@@ -3,17 +3,26 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { Icon } from '@iconify/react'
 import React from 'react'
-import { NavLink, Outlet, useLocation } from 'react-router-dom'
+import {
+  Link,
+  NavLink,
+  Outlet,
+  Route,
+  Routes,
+  useLocation,
+} from 'react-router-dom'
 import { useCallback } from 'react'
 import style from '../tab/adminTab.module.scss'
 import { useEffect } from 'react'
 import { selectCourses } from '../../courses/api/coursesSlice'
 import { useSelector } from 'react-redux'
 import SpinnerComponent from '../../../../../components/global/skeletonLoader/SpinnerComponent'
+import ModalOutlet from './ModalOutlet'
 
 const CardDetailsModal = ({ content }) => {
   const location = useLocation()
   const courses = useSelector(selectCourses)
+  console.log(content)
 
   // verifies if routeName is the one active (in browser input)
   const activeRoute = useCallback(
@@ -23,25 +32,24 @@ const CardDetailsModal = ({ content }) => {
     [location.pathname]
   )
 
-  const coursesNav = courses?.map((course) => {
-    return (
-      <li key={course?.id} className={['nav-item', style.link].join(' ')}>
-        <NavLink
-          to={`/admin/dashboard/${course?.id}/details`}
-          //   onClick={() => getClasses(course.id)}
-          className={[
-            'nav-link',
-            style.a,
-            activeRoute(course.id)
-              ? `border border-primary border-top-0 border-start-0 border-end-0 rounded-0 border-3`
-              : null,
-          ].join(' ')}
-        >
-          {course?.title}
-        </NavLink>
-      </li>
-    )
-  })
+  // const coursesNav = courses?.map((course) => {
+  //   return (
+  //     <li key={course?.id} className={['nav-item', style.link].join(' ')}>
+  //       <NavLink
+  //         to={`/admin/dashboard/details`}
+  //         className={[
+  //           'nav-link',
+  //           style.a,
+  //           activeRoute(course.id)
+  //             ? `border border-primary border-top-0 border-start-0 border-end-0 rounded-0 border-3`
+  //             : null,
+  //         ].join(' ')}
+  //       >
+  //         {course?.title}
+  //       </NavLink>
+  //     </li>
+  //   )
+  // })
   return (
     <div
       className='modal fade'
@@ -94,15 +102,16 @@ const CardDetailsModal = ({ content }) => {
             <section>
               <ul className={['nav hide_scrollbar', style.tabList].join(' ')}>
                 {/* {coursesNav} */}
+                <Link to={`/admin/dashboard/modal`}>Route me</Link>
               </ul>
               <div className='tab-content py-6' id='tabContent'>
-                {
-                  // classArgs?.isLoading
-                  // ?
-                  // <SpinnerComponent />
-                  // :
-                  //   <Outlet />
-                }
+                {/* {classArgs?.isLoading ? <SpinnerComponent /> : <Outlet />} */}
+                <Routes>
+                  <Route
+                    path='/admin/dashboard/modal'
+                    element={<ModalOutlet />}
+                  />
+                </Routes>
               </div>
             </section>
           </div>

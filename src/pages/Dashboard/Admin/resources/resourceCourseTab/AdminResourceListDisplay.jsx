@@ -67,8 +67,18 @@ const AdminResourceListDisplay = ({ isDashboard, file, course, format }) => {
                 <Icon width={`2rem`} icon={setIcon()} />
               </div>
               <div>
-                <p className='fw-semibold text-blue'>{file?.name}</p>
-                <p className='fs-sm text-secondary'>
+                <p
+                  className={`fw-semibold text-blue ${
+                    isDashboard ? `fs-sm` : `fs-md`
+                  }`}
+                >
+                  {file?.name}
+                </p>
+                <p
+                  className={`text-secondary ${
+                    isDashboard ? `fs-xs` : `fs-sm`
+                  }`}
+                >
                   {new Date(file?.createdAt).toLocaleString()}
                 </p>
               </div>
@@ -84,7 +94,7 @@ const AdminResourceListDisplay = ({ isDashboard, file, course, format }) => {
             <div className='text-danger' style={{ cursor: `pointer` }}>
               <Icon
                 onClick={handleDeleteModal}
-                width={`1.5rem`}
+                width={`${isDashboard ? `1.2rem` : `1.5rem`}`}
                 icon={`mingcute:delete-2-line`}
               />
             </div>

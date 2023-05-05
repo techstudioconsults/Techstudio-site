@@ -14,11 +14,12 @@ import { selectCards } from './api/dashboardSlice'
 import AdminDashboardTab from './components/tab/AdminDashboardTab'
 import { useViewAllCoursesMutation } from './courses/api/coursesApiSlice'
 import { selectCourses } from './courses/api/coursesSlice'
+import SpinnerComponent from '../../../components/global/skeletonLoader/SpinnerComponent'
 
 const AdminDashboard = () => {
   const { adminDashboard } = DASHBOARD_CONTENT
 
-  const [viewAllCourses] = useViewAllCoursesMutation()
+  const [viewAllCourses, coursesArg] = useViewAllCoursesMutation()
   const [getCardInfo] = useGetCardInfoMutation()
 
   const courses = useSelector(selectCourses)
@@ -67,7 +68,7 @@ const AdminDashboard = () => {
             <CalendarApp />
           </div>
         </div>
-        <div>{feedback}</div>
+        <div>{coursesArg.isLoading ? <SpinnerComponent /> : feedback}</div>
       </div>
     </section>
   )

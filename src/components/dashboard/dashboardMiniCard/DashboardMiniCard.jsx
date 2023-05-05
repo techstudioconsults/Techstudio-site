@@ -20,18 +20,16 @@ const DashboardMiniCard = ({ card, total, modalNumber }) => {
     }
   }
   return (
-    <div
-      onClick={handleDetailModal}
-      className={[style.dashboardCard, `col-3`].join(' ')}
-    >
-      <Portal wrapperId='react-portal-modal-container'>
-        <CardDetailsModal
-          content={{
-            modalID: card.title,
-          }}
-        />
-      </Portal>
+    <div className={[style.dashboardCard, `col-3`].join(' ')}>
+      {/* <Portal wrapperId='react-portal-modal-container'> */}
+      <CardDetailsModal
+        content={{
+          modalID: modalNumber,
+        }}
+      />
+      {/* </Portal> */}
       <div
+        onClick={handleDetailModal}
         style={{ backgroundColor: card.img.accent }}
         className={[style.icon].join(' ')}
       >

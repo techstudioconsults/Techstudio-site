@@ -15,11 +15,13 @@ const Feedback = ({ message, route, btnName, fontSize, handleClick }) => {
         >
           {message}
         </h5>
-        <div className='d-flex justify-content-center mt-10'>
+        <div
+          className={`${
+            btnName ? `d-flex` : `d-none`
+          } justify-content-center mt-10`}
+        >
           <Link to={route}>
-            <button className='btn btn-primary fs-sm'>
-              {btnName || `Create Classes`}
-            </button>
+            <button className='btn btn-primary fs-sm'>{btnName}</button>
           </Link>
         </div>
       </div>
