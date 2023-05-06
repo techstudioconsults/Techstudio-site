@@ -1,30 +1,31 @@
 import { apiSlice } from '../../../../../app/api/apiSlice'
 import {
+  setRevenueInfo,
   setSingleStudentPaymentRecord,
   setStudentPaymentRecord,
 } from './paymentSlice'
 
 export const dashboardApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    // getRevenueInfo: builder.mutation({
-    //   query: () => ({
-    //     url: `/payments`,
-    //     method: 'GET',
-    //   }),
-    //   async onQueryStarted(arg, { dispatch, queryFulfilled }) {
-    //     try {
-    //       const { data } = await queryFulfilled
-
-    //       // dispatch(
-    //       //   setCards({
-    //       //     cards: data.data,
-    //       //   })
-    //       // )
-    //     } catch (err) {
-    //       console.log(err)
-    //     }
-    //   },
-    // }),
+    getRevenueInfo: builder.mutation({
+      query: () => ({
+        url: `/payments`,
+        method: 'GET',
+      }),
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled
+          console.log(data)
+          dispatch(
+            setRevenueInfo({
+              revenueInfo: data.data,
+            })
+          )
+        } catch (err) {
+          console.log(err)
+        }
+      },
+    }),
 
     // getStudentPaymentRecords: builder.mutation({
     //   query: () => ({
@@ -54,7 +55,6 @@ export const dashboardApiSlice = apiSlice.injectEndpoints({
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled
-          console.log(data)
           dispatch(
             setStudentPaymentRecord({
               record: data.data,
@@ -71,18 +71,18 @@ export const dashboardApiSlice = apiSlice.injectEndpoints({
         url: `/payments/students/${studentID}`,
         method: 'GET',
       }),
-      // async onQueryStarted(arg, { dispatch, queryFulfilled }) {
-      //   try {
-      //     const { data } = await queryFulfilled
-      //     dispatch(
-      //       setSingleStudentPaymentRecord({
-      //         record: data.data,
-      //       })
-      //     )
-      //   } catch (err) {
-      //     console.log(err)
-      //   }
-      // },
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled
+          dispatch(
+            setSingleStudentPaymentRecord({
+              record: data.data,
+            })
+          )
+        } catch (err) {
+          console.log(err)
+        }
+      },
     }),
 
     getStudentBalance: builder.mutation({

@@ -10,11 +10,15 @@ import { useParams } from 'react-router-dom'
 import Feedback from '../../../../components/global/feedbacks/Feedback'
 import { AvatarDropdown, SearchComponent } from '../../../../components'
 import PaymentTab from './components/PaymentTab'
+import { useGetRevenueInfoMutation } from './api/paymentApiSlice'
+import { selectRevenueInfo } from './api/paymentSlice'
 
 const AdminPaymentView = () => {
   const [viewAllCourses] = useViewAllCoursesMutation()
   const [getClassesByCourseID] = useGetClassByCourseIDMutation()
+  const [getRevenueInfo] = useGetRevenueInfoMutation()
   const courses = useSelector(selectCourses)
+  const revenueDetail = useSelector(selectRevenueInfo)
   const { courseID } = useParams()
 
   const getCourses = useCallback(async () => {
@@ -22,9 +26,14 @@ const AdminPaymentView = () => {
     await getClassesByCourseID(courseID).unwrap()
   }, [courseID, getClassesByCourseID, viewAllCourses])
 
+  const revenueInfo = useCallback(async () => {
+    await getRevenueInfo().unwrap()
+  }, [getRevenueInfo])
+
   useEffect(() => {
     getCourses()
-  }, [getCourses])
+    revenueInfo()
+  }, [getCourses, revenueInfo])
 
   const feedback = courses.length ? (
     <PaymentTab courses={courses} />
@@ -107,8 +116,8 @@ const AdminPaymentView = () => {
                     <div className='text-xs font-weight-bold text-primary mb-2'>
                       Total Revenue
                     </div>
-                    <div className='h4 mb-0 font-weight-bold text-gray-800'>
-                      NGN 1,350,234
+                    <div className='h4 mb-0 fw-semibold'>
+                      NGN {revenueDetail?.totalRevenue}
                     </div>
                   </div>
                   <div>
@@ -127,7 +136,9 @@ const AdminPaymentView = () => {
                     <div className='text-xs  text-primary mb-2'>
                       Total Outstanding
                     </div>
-                    <div className='h4 mb-0 text-dark'>NGN 1,350,234</div>
+                    <div className='h4 mb-0 fw-semibold'>
+                      NGN {revenueDetail?.totalOutstanding}
+                    </div>
                   </div>
                   <div>
                     <img src={coinImg} alt='coin' />

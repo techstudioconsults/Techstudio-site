@@ -9,8 +9,13 @@ import { HiOutlineEllipsisVertical } from 'react-icons/hi2'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { Icon } from '@iconify/react'
 import { Portal } from '../../../../../components'
+import { useGetSingleStudentPaymentRecordsMutation } from '../api/paymentApiSlice'
+import EditPaymentModal from './EditPaymentRecord'
 
 const PaymentDisplayCard = ({ paymentDetail }) => {
+  const [getSingleStudentPaymentRecords] =
+    useGetSingleStudentPaymentRecordsMutation()
+
   function formatDate(isoDate) {
     const date = new Date(isoDate)
     const day = date.getDate().toString().padStart(2, '0')
@@ -28,18 +33,29 @@ const PaymentDisplayCard = ({ paymentDetail }) => {
     }
   }
 
-  const showPaymentForm = (studentID) => {
+  const showAddPaymentForm = (studentID) => {
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
-        document.getElementById(`${studentID}-modal`)
+        document.getElementById(`add-${studentID}-modal`)
       )
       modal.show()
     } catch (err) {
       console.log(err)
     }
   }
-  const showPaymentHistoryForm = (studentID) => {
+  const showEditPaymentForm = (studentID) => {
     try {
+      let modal = bootstrap.Modal.getOrCreateInstance(
+        document.getElementById(`edit-${studentID}-modal`)
+      )
+      modal.show()
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  const showPaymentHistoryForm = async (studentID) => {
+    try {
+      await getSingleStudentPaymentRecords(studentID).unwrap()
       let modal = bootstrap.Modal.getOrCreateInstance(
         document.getElementById(`payment-modal-${studentID}`)
       )
@@ -62,6 +78,9 @@ const PaymentDisplayCard = ({ paymentDetail }) => {
       </Portal>
       <Portal>
         <FullPaymentHistoryModal studentPayment={paymentDetail} />
+      </Portal>
+      <Portal>
+        <EditPaymentModal studentPayment={paymentDetail} />
       </Portal>
 
       <div className='col-3 text-start'>
@@ -101,7 +120,7 @@ const PaymentDisplayCard = ({ paymentDetail }) => {
           <ul className='dropdown-menu dropdown-menu-end'>
             <li>
               <button
-                onClick={() => showPaymentForm(paymentDetail.id)}
+                onClick={() => showAddPaymentForm(paymentDetail.id)}
                 className='dropdown-item'
               >
                 <Icon width={`1.5rem`} icon='material-symbols:edit-note' /> Add
@@ -109,7 +128,10 @@ const PaymentDisplayCard = ({ paymentDetail }) => {
               </button>
             </li>
             <li>
-              <button className='dropdown-item'>
+              <button
+                onClick={() => showEditPaymentForm(paymentDetail.id)}
+                className='dropdown-item'
+              >
                 <Icon width={`1.5rem`} icon='material-symbols:edit-note' /> Edit
                 Payment Record
               </button>

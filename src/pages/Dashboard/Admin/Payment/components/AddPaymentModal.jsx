@@ -88,7 +88,7 @@ const AddPaymentModal = ({ studentPayment }) => {
       /> */}
       <div
         className='modal fade'
-        id={`${studentPayment?.id}-modal`}
+        id={`add-${studentPayment?.id}-modal`}
         data-bs-backdrop='static'
         data-bs-keyboard='false'
         tabIndex='-1'
