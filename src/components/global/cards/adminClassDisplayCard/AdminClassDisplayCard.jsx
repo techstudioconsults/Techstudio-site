@@ -1,69 +1,26 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Icon } from '@iconify/react'
-import React, { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import style from './adminClassDisplay.module.scss'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
-import { useGetTutorsMutation } from '../../../../pages/Dashboard/Admin/courses/api/coursesApiSlice'
 import { useDispatch } from 'react-redux'
 import Portal from '../../POTAL/Portal'
 import DeleteModal from '../../modals/DeleteModal'
 
-const weeks = [
-  { id: 1, week: `Monday` },
-  { id: 2, week: `Tuesday` },
-  { id: 3, week: `Wednesday` },
-  { id: 4, week: `Thursday` },
-  { id: 5, week: `Friday` },
-  { id: 6, week: `Saturday` },
-  { id: 7, week: `Sunday` },
-]
-
 const AdminClassDisplayCard = ({ singleClass, isPrevious }) => {
-  const [getTutors] = useGetTutorsMutation()
-  const [classTutors, setClassTutors] = useState([])
   const { courseID } = useParams()
   const dispatch = useDispatch()
-
-  // const findTutors = useCallback(async () => {
-  //   const res = await getTutors().unwrap()
-  //   const tutors = res.data.tutors.map((tutor) => {
-  //     return { value: tutor.id, label: `${tutor.firstName} ${tutor.lastName}` }
-  //   })
-  //   tutors.map((tutor) => {
-  //     singleClass.tutors.map((classTutorID) => {
-  //       tutor.value === classTutorID
-  //         ? setClassTutors((prevState) => {
-  //             return [...prevState, tutor]
-  //           })
-  //         : null
-  //     })
-  //   })
-  // }, [getTutors, singleClass.tutors])
-
-  // useEffect(() => {
-  //   findTutors()
-  // }, [findTutors])
 
   const convertDateToReadable = (date) => {
     let dateSet = new Date(date).toUTCString().split(' ')
     return `${dateSet[2]} ${dateSet[1]}, ${dateSet[3]}`
   }
 
-  // const convertWeekToReadable = (date) => {
-  //   let dateSet = new Date(date).toUTCString().split(',')
-  //   let weekData = weeks.filter((week) => {
-  //     if (week.week.includes(dateSet[0])) {
-  //       return week.week
-  //     }
-  //   })
-  //   return `${weekData[0].week}`
-  // }
-
   const showClassDetails = () => {
     dispatch({ type: 'classes/setClassDetails', payload: singleClass })
+    dispatch({ type: 'app/setClassDetailOpen', payload: false })
   }
 
   const handleDeleteModal = () => {

@@ -6,12 +6,14 @@ import LessonCard from '../../../global/cards/lessonCards/LessonCard'
 import { Link, useLocation, useParams } from 'react-router-dom'
 import Feedback from '../../../global/feedbacks/Feedback'
 import { Icon } from '@iconify/react'
+import { useDispatch } from 'react-redux'
 
 const ClassesTab = ({ classes, lessons, isTDB }) => {
   const onGoingTabRef = useRef(null)
   const lessonTabRef = useRef(null)
   const [isLesson, setLesson] = useState(false)
   const { courseID } = useParams()
+  const dispatch = useDispatch()
   const location = useLocation()
   let onGoingClasses
   let previousClasses
@@ -21,6 +23,7 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
   const toggleLesson = () => {
     try {
       onGoingTabRef.current.click()
+      dispatch({ type: 'app/setClassDetailOpen', payload: true })
       setLesson((prevState) => {
         return !prevState
       })
@@ -38,7 +41,7 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
       <Feedback
         route={`/admin/class/${courseID}/lesson/create`}
         btnName={`Create Lesson`}
-        message={`You have zero ongoing lessons at the moment !`}
+        message={`No Lesson Found.`}
       />
     )
     previousLessons = lessons?.previous?.length ? (
@@ -87,7 +90,8 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
   useEffect(() => {
     console.log(location)
     if (location?.state?.from?.includes(`lesson`)) {
-      lessonTabRef.current.click()
+      // lessonTabRef.current.click()
+      toggleLesson()
     }
   }, [location])
 

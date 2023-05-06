@@ -18,17 +18,6 @@ const UserTab = ({ courses }) => {
   const { courseID } = useParams()
   console.log(courseID)
   const dispatch = useDispatch()
-  // const [downloadAllTutors] = useDownloadAllTutorsMutation()
-
-  // const handleDownload = async () => {
-  //   const res = await downloadAllTutors().unwrap()
-  //   console.log(res.data instanceof Blob)
-  //   let blob
-  //   if (res.error.originalStatus === 200) {
-  //     blob = new Blob([res.data], { type: 'text/csv' })
-  //     download(blob, 'certificate.csv')
-  //   }
-  // }
 
   const credentials = {
     headers: {

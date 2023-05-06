@@ -108,7 +108,6 @@ const CreateLesson = () => {
   const getResourceForClass = useCallback(async () => {
     const res = await getResourcesByCourseID(courseID).unwrap()
     if (res.success) {
-      console.log(res.data.resources)
       setCrudeResources([
         ...res.data.resources.audio,
         ...res.data.resources.video,
@@ -116,7 +115,6 @@ const CreateLesson = () => {
       ])
     }
   }, [courseID, getResourcesByCourseID])
-  console.log(crudeResources, resources)
 
   useEffect(() => {
     getResourceForClass()
@@ -165,52 +163,6 @@ const CreateLesson = () => {
     })
   }
 
-  // const getResources = useCallback(async () => {
-  //   const res = await getResourcesByCourseID(courseID).unwrap()
-  //   console.log(res)
-  //   if (res.success) {
-  //     Object?.keys(res.data.resources)?.forEach((key) => {
-  //       res.data.resources[key]?.map((resource) => {
-  //         console.log(resource)
-  //         setResources((prevState) => {
-  //           return [
-  //             ...prevState,
-  //             {
-  //               value: resource.id,
-  //               label: resource.name,
-  //             },
-  //           ]
-  //         })
-  //       })
-  //     })
-  //   }
-  // }, [courseID, getResourcesByCourseID])
-
-  // useEffect(() => {
-  //   getResources()
-  // }, [getResources])
-
-  // const allResources = useCallback(async () => {
-  //   let resources = location?.state?.resources
-  //   Object?.keys(resources)?.forEach((key) => {
-  //     resources[key]?.map((res) => {
-  //       setResources((prevState) => {
-  //         return [
-  //           ...prevState,
-  //           {
-  //             value: res,
-  //             label: res,
-  //           },
-  //         ]
-  //       })
-  //     })
-  //   })
-  // }, [location?.state?.resources])
-
-  // useEffect(() => {
-  //   allResources()
-  // }, [allResources])
-
   const {
     // reset,
     register,
@@ -227,7 +179,6 @@ const CreateLesson = () => {
 
   // due to the error gotten from the RTK Query on files...we went with the axios alternative
   const onSubmit = async (data) => {
-    console.log(data)
     setLoading(true)
     const formData = new FormData()
     const files = [...data.files]
@@ -237,15 +188,11 @@ const CreateLesson = () => {
     formData.append(`date`, new Date(data.date).toISOString())
     formData.append(`time`, data.time)
     if (resources.length) {
-      data.resources.forEach((item) =>
+      data?.resources?.forEach((item) =>
         formData.append('resources[]', item.value)
       )
     }
     files.forEach((item) => formData.append('files', item))
-
-    // for (var pair of formData.entries()) {
-    //   console.log(pair[0] + ', ' + pair[1])
-    // }
 
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
@@ -257,7 +204,7 @@ const CreateLesson = () => {
         formData,
         credentials
       )
-      console.log(res)
+
       if (res.status === 201) {
         setLoading(false)
         modal.show()
@@ -395,29 +342,6 @@ const CreateLesson = () => {
                 </div>
               </div>
             </div>
-            {/* <div className='mb-8 d-flex row align-items-center'>
-              <div className='col-4'>
-                <label
-                  htmlFor='classes'
-                  className={`col-form-label fs-lg fw-bold text-blue w-100`}
-                >
-                  Classes
-                </label>
-              </div>
-              <div className='col-8'>
-                <div className={` w-100`}>
-                  <select
-                    // {...register(`class`)}
-                    className='form-select'
-                    aria-label='Default select example'
-                    onChange={getTutors}
-                  >
-                    <option hidden>select class</option>
-                    {classOption}
-                  </select>
-                </div>
-              </div>
-            </div> */}
             {/* tutors */}
             <div className='mb-8 row'>
               <div className='col-4'>

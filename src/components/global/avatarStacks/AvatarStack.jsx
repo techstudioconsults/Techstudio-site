@@ -38,7 +38,15 @@ const AvatarStack = ({ showImage, imageList, dontShowMore, tutors }) => {
           dontShowMore ? `d-none` : null,
         ].join(' ')}
       >
-        +{imageList?.length - imagesDisplay?.length} enrolled for the class
+        {imageList?.length > 3
+          ? `+${
+              imageList?.length - imagesDisplay?.length
+            } enrolled for the class`
+          : imageList?.length < 3 && imageList?.length !== 0
+          ? `${imageList?.length} student(s) enrolled for the class`
+          : imageList?.length === 0
+          ? `Students yet to register`
+          : ``}
       </p>
     </div>
   )

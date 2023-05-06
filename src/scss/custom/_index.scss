@@ -172,6 +172,14 @@ $font-sizes: (
   }
 }
 
+.cc-resource-hover {
+  transition: 0.3s ease;
+  cursor: pointer;
+  &:hover {
+    background-color: colors.$light-blue-II !important;
+  }
+}
+
 .cc-grow {
   transition: 0.3s ease;
   &:hover {

@@ -84,7 +84,7 @@ export const DASHBOARD_CONTENT = {
       id: 3,
       icon: `grommet-icons:resources`,
       title: `Resources`,
-      link: `/admin/resources`,
+      link: `/admin/resources/all`,
     },
     {
       id: 5,

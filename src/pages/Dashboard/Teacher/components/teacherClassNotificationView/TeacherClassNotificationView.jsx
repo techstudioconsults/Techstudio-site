@@ -1,26 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { DASHBOARD_CONTENT } from '../../../../../layout/Layout/dashboardLayout/content'
 import style from './classNotification.module.scss'
 import { Avatar, AvatarStack } from '../../../../../components'
-import { MdCalendarToday, MdOutlineComputer } from 'react-icons/md'
-import { AiOutlineClockCircle } from 'react-icons/ai'
 import { Icon } from '@iconify/react'
 import { useSelector } from 'react-redux'
-import {
-  selectDetails,
-  selectShowDetailBox,
-} from '../../../Admin/classes/api/classSlice'
-import { Link } from 'react-router-dom'
+import { selectDetails } from '../../../Admin/classes/api/classSlice'
 
 const color = {
   color: `#95A8B8`,
 }
 
 const TeacherClassNotificationView = ({ mobile }) => {
-  const { imageList } = DASHBOARD_CONTENT
   const details = useSelector(selectDetails)
-  // const showDetailsBox = useSelector(selectShowDetailBox)
 
   const convertDateToReadable = (date) => {
     let dateSet = new Date(date).toUTCString().split(' ')
@@ -46,23 +37,23 @@ const TeacherClassNotificationView = ({ mobile }) => {
             <p className={`text-dark text-wrap hide_scrollbar ${style.desc}`}>
               {details?.description}
             </p>
-            <p className='mt-3 fs-2xl fw-bold text-danger'>{`N${
-              details?.fee || `500,000`
-            }`}</p>
+            <p className='mt-3 fs-2xl fw-bold text-danger'>
+              {details.fee ? `N${details?.fee}` : ``}
+            </p>
           </div>
           <div
             className={`d-flex justify-content-between align-items-center mt-5`}
           >
             <p className='fs-sm text-info'>Students:</p>
             <div className='w-75'>
-              <AvatarStack imageList={imageList} />
+              <AvatarStack imageList={details.students} />
             </div>
           </div>
           <div
             className={`d-flex justify-content-between align-items-center mt-5`}
           >
             <p className='fs-sm text-info'>
-              Course: {details?.courseTitle || `not available on the API`}
+              Class: {details?.title || details?.classTitle}
             </p>
             {/* <p className='fs-sm text-white w-75'></p> */}
           </div>

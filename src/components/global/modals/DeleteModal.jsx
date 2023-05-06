@@ -13,6 +13,7 @@ import {
 } from '../../../pages/Dashboard/Admin/courses/api/coursesApiSlice'
 import {
   useDeleteResourceMutation,
+  useGetAllResourcesMutation,
   useGetResourcesByCourseIDMutation,
 } from '../../../pages/Dashboard/Admin/resources/api/resourceApiSlice'
 import { useDashboardAllResourcesMutation } from '../../../pages/Dashboard/Admin/api/dashboardApiSlice'
@@ -28,35 +29,33 @@ const DeleteModal = ({ content }) => {
   const [getLessonByCourseID] = useGetLessonByCourseIDMutation()
   const [getResourcesByCourseID] = useGetResourcesByCourseIDMutation()
   const [dashboardAllResources] = useDashboardAllResourcesMutation()
+  const [getAllResource] = useGetAllResourcesMutation()
   const dispatch = useDispatch()
-
-  // async function closeModal() {
-  //   const modal = document.querySelector('.delete-modal')
-  //   const backdrop = document.querySelector('.modal-backdrop')
-  //   modal.classList.remove('show')
-  //   backdrop.remove()
-  //   await viewAllCourses().unwrap()
-  // }
 
   const stopPropagation = async (event) => {
     event.stopPropagation()
     switch (content.action) {
       case `delete-course`:
         await viewAllCourses().unwrap()
-        content.close(true)
         dispatch({
           type: `courses/setCourseDetails`,
           payload: { courseDetails: null },
         })
+        dispatch({
+          type: `app/setCourseDetailOpen`,
+          payload: true,
+        })
         break
       case `delete-class`:
         await getClassByCourseID(content.courseID).unwrap()
-        content.close(true)
+        dispatch({ type: 'app/setClassDetailOpen', payload: true })
         break
       case `delete-lesson`:
         await getLessonByCourseID(content.courseID).unwrap()
+        dispatch({ type: 'app/setClassDetailOpen', payload: true })
         break
       case `delete-resource`:
+        await getAllResource().unwrap()
         await getResourcesByCourseID(content.courseID).unwrap()
         await dashboardAllResources(content.courseID).unwrap()
         break
@@ -83,7 +82,6 @@ const DeleteModal = ({ content }) => {
       }
     }
   } else if (content.action === `delete-resource`) {
-    console.log(content.resourceID)
     handleDelete = async () => {
       setDeleted(false)
       const res = await deleteResource(content.resourceID).unwrap()

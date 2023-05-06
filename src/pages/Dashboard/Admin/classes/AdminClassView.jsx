@@ -14,11 +14,13 @@ import { selectCourses } from '../courses/api/coursesSlice'
 import { useSelector } from 'react-redux'
 import Feedback from '../../../../components/global/feedbacks/Feedback'
 import SpinnerComponent from '../../../../components/global/skeletonLoader/SpinnerComponent'
+import { selectClassDetailOpen } from '../../../../app/api/appSlice'
 
 const AdminClassView = () => {
   const [viewAllCourses, courseArgs] = useViewAllCoursesMutation()
   const courses = useSelector(selectCourses)
   const { courseID } = useParams()
+  const classDetailOpen = useSelector(selectClassDetailOpen)
 
   const getCourses = useCallback(async () => {
     await viewAllCourses().unwrap()
@@ -39,7 +41,7 @@ const AdminClassView = () => {
   )
 
   return (
-    <section className={style.classView}>
+    <section className={`${style.classView}  h-100`}>
       <div className={style.dashboardDisplay}>
         <div className={style.header}>
           <h4 className={[style.title, `mb-0 fw-bold`].join(' ')}>Classes</h4>
@@ -66,7 +68,7 @@ const AdminClassView = () => {
           </div>
         </div>
       </div>
-      <div className={`${style.notification}`}>
+      <div hidden={classDetailOpen} className={`${style.notification}`}>
         <div className='d-flex justify-content-end'>
           <AvatarDropdown />
         </div>

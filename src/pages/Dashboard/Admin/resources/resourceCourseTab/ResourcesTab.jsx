@@ -33,17 +33,6 @@ const ResourceTab = () => {
     return extension
   }
 
-  // useEffect(() => {
-  //   allResources?.forEach((resource) => {
-  //     console.log(resource)
-  //     if (resource.id === location?.state?.course?.id) {
-  //       setResources((prevState) => {
-  //         return [...prevState, resource]
-  //       })
-  //     }
-  //   })
-  // }, [allResources, location?.state?.course])
-
   const fileDisplay = allResources?.document?.map((file) => {
     let fileFormat = checkExtension(file.name)
     if (

@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { useGetResourcesByCourseIDMutation } from '../../../pages/Dashboard/Admin/resources/api/resourceApiSlice'
+import {
+  useGetAllResourcesMutation,
+  useGetResourcesByCourseIDMutation,
+} from '../../../pages/Dashboard/Admin/resources/api/resourceApiSlice'
 import { useGetStudentPaymentRecordsByIDsMutation } from '../../../pages/Dashboard/Admin/Payment/api/paymentApiSlice'
 
 const Save = ({ content }) => {
@@ -25,7 +28,6 @@ const Save = ({ content }) => {
           setRoute(`/admin/classes/${content.courseID}`)
           break
         case `resource`:
-          console.log(content.courseID)
           setRoute(`/admin/resources/${content?.courseID}`)
           await getResourcesByCourseID(content.courseID).unwrap()
           break

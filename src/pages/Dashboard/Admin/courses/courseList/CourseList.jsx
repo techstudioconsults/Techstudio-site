@@ -12,19 +12,15 @@ import { useCallback, useEffect, useState } from 'react'
 // import { useGetClassByCourseIDMutation } from '../../classes/api/classApiSlice'
 import { useDispatch } from 'react-redux'
 
-const CourseList = ({ course, showDetailsBox }) => {
+const CourseList = ({ course }) => {
   const navigate = useNavigate()
   const [showStatus, setShowStatus] = useState(true)
   const [active, setActive] = useState(false)
-  const { courseID } = useParams()
-  // const [totalClasses, setTotalClasses] = useState([])
   const { id, title, duration, tutors, classCount } = course
-  console.log(id, courseID)
   const { imageList } = DASHBOARD_CONTENT
   const dispatch = useDispatch()
   const location = useLocation()
   const [viewCoursesDetails] = useViewCoursesDetailsMutation()
-  // const [getClassByCourseID] = useGetClassByCourseIDMutation()
 
   const setActiveCourse = useCallback(() => {
     location.search.includes(id) ? setActive(true) : setActive(false)
@@ -39,7 +35,11 @@ const CourseList = ({ course, showDetailsBox }) => {
       type: `app/setcourseDetailsLoading`,
       payload: true,
     })
-    showDetailsBox(false)
+    dispatch({
+      type: `app/setCourseDetailOpen`,
+      payload: false,
+    })
+
     const res = await viewCoursesDetails(id).unwrap()
     if (res.success) {
       dispatch({
@@ -67,15 +67,6 @@ const CourseList = ({ course, showDetailsBox }) => {
     setShowStatus(true)
   }
 
-  // const getClasses = useCallback(async () => {
-  //   const res = await getClassByCourseID(id)
-  //   setTotalClasses(res.data.data.ongoing)
-  // }, [getClassByCourseID, id])
-
-  // useEffect(() => {
-  //   getClasses()
-  // }, [getClasses])
-
   useEffect(() => {
     setActiveCourse()
   }, [setActiveCourse])
@@ -89,7 +80,6 @@ const CourseList = ({ course, showDetailsBox }) => {
             desc: `${title} Course has successfully being deleted. Kindly click continue to exit this page.`,
             courseID: id,
             action: `delete-course`,
-            close: showDetailsBox,
           }}
         />
       </Portal>
@@ -233,7 +223,6 @@ const CourseList = ({ course, showDetailsBox }) => {
 
 CourseList.propTypes = {
   course: PropTypes.object.isRequired,
-  showDetailsBox: PropTypes.func,
   isActive: PropTypes.bool,
 }
 

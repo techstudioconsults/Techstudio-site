@@ -3,6 +3,8 @@ import { createSlice } from '@reduxjs/toolkit'
 const STATE = {
   courseDetailsLoading: false,
   userType: `tutor`,
+  classDetailOpen: true,
+  courseDetailOpen: true,
 }
 
 const APP_SLICE = {
@@ -15,16 +17,28 @@ const APP_SLICE = {
     setUserType: (state, action) => {
       state.userType = action.payload
     },
+    setClassDetailOpen: (state, action) => {
+      state.classDetailOpen = action.payload
+    },
+    setCourseDetailOpen: (state, action) => {
+      state.classDetailOpen = action.payload
+    },
   },
 }
 
 const appSlice = createSlice(APP_SLICE)
 
-export const { setcourseDetailsLoading, setUserType } = appSlice.actions
+export const {
+  setcourseDetailsLoading,
+  setUserType,
+  setClassDetailOpen,
+  setCourseDetailOpen,
+} = appSlice.actions
 
 export default appSlice.reducer
 
 export const selectCourseDetailsLoading = (state) =>
   state.app.courseDetailsLoading
 export const selectUserType = (state) => state.app.userType
-// export const selectCurrentRefreshToken = (state) => state.app.refreshToken
+export const selectClassDetailOpen = (state) => state.app.classDetailOpen
+export const selectCourseDetailOpen = (state) => state.app.setCourseDetailOpen

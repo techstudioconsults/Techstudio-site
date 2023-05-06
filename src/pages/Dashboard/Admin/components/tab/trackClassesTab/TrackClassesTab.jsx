@@ -8,11 +8,13 @@ import {
   useGetLessonByCourseIDMutation,
 } from '../../../classes/api/classApiSlice'
 import SpinnerComponent from '../../../../../../components/global/skeletonLoader/SpinnerComponent'
+import { useDispatch } from 'react-redux'
 
 const TrackClassesTab = ({ courses }) => {
   const location = useLocation()
   const [getClassByCourseID, classArgs] = useGetClassByCourseIDMutation()
   const [getLessonByCourseID, lessonArgs] = useGetLessonByCourseIDMutation()
+  const dispatch = useDispatch()
 
   let { courseID } = useParams()
   const redirect = useNavigate()
@@ -41,7 +43,8 @@ const TrackClassesTab = ({ courses }) => {
 
   useEffect(() => {
     getClasses()
-  }, [courseID, getClasses])
+    dispatch({ type: 'app/setClassDetailOpen', payload: true })
+  }, [courseID, dispatch, getClasses])
 
   const coursesNav = courses?.map((course) => {
     return (

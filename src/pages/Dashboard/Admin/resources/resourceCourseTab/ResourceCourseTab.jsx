@@ -3,14 +3,19 @@ import { Outlet, useLocation, useNavigate, useParams } from 'react-router'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import style from '../resourceCourseTab/resourceCourseTab.module.scss'
-import { useGetResourcesByCourseIDMutation } from '../api/resourceApiSlice'
+import {
+  useGetAllResourcesMutation,
+  useGetResourcesByCourseIDMutation,
+} from '../api/resourceApiSlice'
 import { setResources } from '../api/resourceSlice'
+import SpinnerComponent from '../../../../../components/global/skeletonLoader/SpinnerComponent'
 
 const ResourceCourseTab = ({ courses }) => {
   const [resourcesLength, setResourceLength] = useState()
   const location = useLocation()
   let { resource } = useParams()
   const navigate = useNavigate()
+  const [getAllResources, allResourcesArgs] = useGetAllResourcesMutation()
   const [getResourcesByCourseID, resourcesArgs] =
     useGetResourcesByCourseIDMutation()
 
@@ -24,25 +29,17 @@ const ResourceCourseTab = ({ courses }) => {
 
   console.log(resource)
 
-  // useEffect(() => {
-  //   if (!resource) {
-  //     navigate(`/admin/resources/${courses[0]?.id}`)
-  //   }
-  //   activeRoute(location?.state?.course?.id)
-  // }, [activeRoute, courses, location?.state?.course?.id, navigate, resource])
-
   const getResources = useCallback(async () => {
     // activeRoute(location?.state?.course?.id)
     activeRoute(resource)
-    if (resource) {
+    if (resource !== `all`) {
       const res = await getResourcesByCourseID(resource).unwrap()
       setResourceLength(res.data.resources.length)
     } else {
-      // if (!resource) {
-      navigate(`/admin/resources/${courses[0]?.id}`)
-      // }
+      navigate(`/admin/resources/${`all`}`)
+      await getAllResources().unwrap()
     }
-  }, [activeRoute, courses, getResourcesByCourseID, navigate, resource])
+  }, [activeRoute, getAllResources, getResourcesByCourseID, navigate, resource])
 
   useEffect(() => {
     getResources()
@@ -74,11 +71,29 @@ const ResourceCourseTab = ({ courses }) => {
   return (
     <section className={`${style.tab}`}>
       <ul className={['nav hide_scrollbar', style.tabList].join(' ')}>
+        <li className={['nav-item', style.link].join(' ')}>
+          <NavLink
+            to={`/admin/resources/all`}
+            className={[
+              'nav-link',
+              style.a,
+              activeRoute(`all`)
+                ? `border border-primary border-top-0 border-start-0 border-end-0 rounded-0 border-3`
+                : null,
+            ].join(' ')}
+          >
+            All Resources
+          </NavLink>
+        </li>
         {coursesNav}
       </ul>
 
       <div className='tab-content py-6' id='tabContent'>
-        <Outlet />
+        {allResourcesArgs.isLoading || resourcesArgs.isLoading ? (
+          <SpinnerComponent />
+        ) : (
+          <Outlet />
+        )}
       </div>
     </section>
   )

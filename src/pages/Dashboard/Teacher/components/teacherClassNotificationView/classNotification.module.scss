@@ -4,9 +4,11 @@
 @import '../../../../../scss/utils/mixins';
 
 .notification {
+  border: 1px solid red;
   border-radius: fn.rem(8);
   background-color: colors.$deep-blue;
   color: colors.$light;
+  width: 100%;
   height: 100%;
   overflow: auto;
 

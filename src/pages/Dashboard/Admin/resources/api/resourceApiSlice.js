@@ -5,16 +5,32 @@ export const resourceApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getAllResources: builder.mutation({
       query: () => ({
-        url: `/resource`,
+        url: `/resources`,
         method: 'GET',
       }),
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled
-          console.log(data)
+          let resourcesFormatted = {
+            audio: [
+              ...data.data[0].resources.audio,
+              ...data.data[1].resources.audio,
+              ...data.data[2].resources.audio,
+            ],
+            video: [
+              ...data.data[0].resources.video,
+              ...data.data[1].resources.video,
+              ...data.data[2].resources.video,
+            ],
+            document: [
+              ...data.data[0].resources.document,
+              ...data.data[1].resources.document,
+              ...data.data[2].resources.document,
+            ],
+          }
           dispatch(
             setResources({
-              resources: data.data,
+              resources: resourcesFormatted,
             })
           )
         } catch (err) {
@@ -31,7 +47,6 @@ export const resourceApiSlice = apiSlice.injectEndpoints({
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled
-          console.log(data)
           dispatch(
             setResources({
               resources: data.data.resources,

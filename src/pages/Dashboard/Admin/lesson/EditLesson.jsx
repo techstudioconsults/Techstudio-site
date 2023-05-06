@@ -212,12 +212,10 @@ const EditLesson = () => {
     formData.append(`tutor`, data.tutor.value)
     formData.append(`date`, new Date(data.date).toISOString())
     formData.append(`time`, data.time)
-    if (resources.length) {
-      data.resources.forEach((item) =>
-        formData.append('resources[]', item.value)
-      )
+    if (resources?.length) {
+      data.resources.forEach((item) => formData.append('resources', item.value))
     }
-    files.forEach((item) => formData.append('files', item))
+    files?.forEach((item) => formData.append('files', item))
     for (var pair of formData.entries()) {
       console.log(pair[0] + ', ' + pair[1])
     }

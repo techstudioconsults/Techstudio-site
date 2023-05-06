@@ -10,23 +10,51 @@ import useToast from '../../../hooks/useToast'
 import ToastComponent from '../toast/ToastComponent'
 import Portal from '../POTAL/Portal'
 import { SaveSuccess } from '../..'
-import { useParams } from 'react-router-dom'
+import { Controller, useForm } from 'react-hook-form'
+import Select from 'react-select'
+import { ErrorMessage } from '@hookform/error-message'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
+
+const durationSelectInput = {
+  control: (styles) => ({
+    ...styles,
+    backgroundColor: 'white',
+    // fontSize: `14px`,
+  }),
+}
+
+const schema = yup.object().shape({
+  course: yup.object().required('Course is required'),
+  // file: yup.object().required('A file is required'),
+  // file: yup
+  //   .mixed()
+  //   .required('A file is required')
+  //   .test('fileFormat', 'Unsupported file format', (value) => {
+  //     console.log(value)
+  //     let files = [...value]
+  //     files.forEach((file) => {
+  //       console.log(file.type)
+  //       if (!value) return false // return false if value is undefined or null
+  //       return (
+  //         // file &&
+  //         ['image/jpeg', 'image/png', 'application/pdf'].includes(file.type)
+  //       )
+  //     })
+  //   }),
+})
 
 // eslint-disable-next-line react/prop-types
 const AddAFile = () => {
   const [isLoading, setIsLoading] = useState(false)
-  const [isFilled, setIsFilled] = useState(false)
   const cancelButtonRef = useRef(null)
   const [errorMessage, setErrorMessage] = useState(null)
   const courses = useSelector(selectCourses)
   const token = useSelector(selectCurrentToken)
   const { toast } = useToast()
-  const { resource } = useParams()
-  console.log(resource)
-  const [selectValue, setSelectValue] = useState(null)
-  const [fileValue, setFileValue] = useState(null)
+  // const [courseID, setCourseID] = useState(null)
 
   const credentials = {
     headers: {
@@ -35,40 +63,34 @@ const AddAFile = () => {
     },
   }
 
-  const coursesTitle = courses.map((course) => {
-    return (
-      <option key={course.id} value={course.id}>
-        {course.title}
-      </option>
-    )
+  const {
+    // reset,
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm({
+    criteriaMode: 'all',
+    mode: 'onChange',
+    resolver: yupResolver(schema),
   })
 
-  const handleFileChange = (event) => {
-    setFileValue(event.target.files)
-  }
+  const coursesTitle = courses.map((course) => {
+    return { value: course.id, label: course.title }
+  })
 
-  const handleCourseChange = (event) => {
-    setSelectValue(event.target.value)
-  }
-
-  useEffect(() => {
-    if (fileValue && selectValue) {
-      setIsFilled(true)
-    }
-  }, [fileValue, selectValue])
-
-  const submitResource = async (e) => {
-    e.preventDefault()
+  const submitResource = async (data) => {
+    // setCourseID(data.course.value)
     setIsLoading(true)
     const formData = new FormData()
-    const files = [...fileValue]
+    const files = [...data.file]
     files.forEach((file) => formData.append(`files`, file))
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
         document.getElementById('save-success')
       )
       const res = await axios.patch(
-        `${baseUrl}/resources/${selectValue}`,
+        `${baseUrl}/resources/${data.course.value}`,
         formData,
         credentials
       )
@@ -77,8 +99,6 @@ const AddAFile = () => {
         setIsLoading(false)
         cancelButtonRef.current.click()
         modal.show()
-        // setFileValue(null)
-        // setSelectValue(null)
       }
     } catch (err) {
       setIsLoading(false)
@@ -95,7 +115,8 @@ const AddAFile = () => {
           content={{
             title: `New Resources Added Successfully!`,
             desc: `This resource has successfully being added. Kindly click continue to exit this page.`,
-            courseID: selectValue,
+            courseID: `all`,
+            // courseID: courseID,
             action: `resource`,
           }}
         />
@@ -110,7 +131,7 @@ const AddAFile = () => {
         <div className='modal-dialog modal-dialog-centered modal-fullscreen-md-down modal-lg '>
           <div className='modal-content'>
             <form
-              onSubmit={submitResource}
+              onSubmit={handleSubmit(submitResource)}
               className={['modal-body p-16'].join(' ')}
             >
               <h4 className='text-blue text-center fs-3xl fw-bold'>
@@ -128,19 +149,35 @@ const AddAFile = () => {
                     </label>
                   </div>
                   <div className='col-8'>
-                    <div className={`${style.inputs} w-100`}>
-                      <select
-                        onChange={handleCourseChange}
-                        className='form-select'
-                        aria-label='Default select example'
-                        defaultValue={`Open this select menu`}
-                      >
-                        <option value='' disabled selected>
-                          Select an option
-                        </option>
-                        {coursesTitle}
-                      </select>
-                    </div>
+                    <Controller
+                      name='course'
+                      rules={{ required: true }}
+                      control={control}
+                      render={({ field }) => {
+                        return (
+                          <Select
+                            placeholder={`Select A Course`}
+                            isClearable
+                            styles={durationSelectInput}
+                            options={coursesTitle}
+                            {...field}
+                          />
+                        )
+                      }}
+                    />
+                    <ErrorMessage
+                      errors={errors}
+                      name='course'
+                      render={({ messages }) => {
+                        return messages
+                          ? Object.entries(messages).map(([type, message]) => (
+                              <p className='fs-xs text-danger' key={type}>
+                                {message}
+                              </p>
+                            ))
+                          : null
+                      }}
+                    />
                   </div>
                 </div>
 
@@ -163,13 +200,47 @@ const AddAFile = () => {
                             `d-flex align-items-center w-100 border border-1 p-5 rounded-2`)
                           }
                         >
+                          {/* <Controller
+                            name='file'
+                            control={control}
+                            render={({ field: { onChange, value } }) => {
+                              return (
+                                <input
+                                  accept=''
+                                  id='resource'
+                                  type='file'
+                                  multiple
+                                  onChange={(selectedOption) => {
+                                    console.log(selectedOption)
+                                  }}
+                                  value={value}
+                                />
+                              )
+                            }}
+                          /> */}
                           <input
-                            onChange={handleFileChange}
+                            required
                             id='resource'
                             type='file'
                             multiple
+                            {...register('file')}
                           />
                         </div>
+                        <ErrorMessage
+                          errors={errors}
+                          name='file'
+                          render={({ messages }) => {
+                            return messages
+                              ? Object.entries(messages).map(
+                                  ([type, message]) => (
+                                    <p className='fs-xs text-danger' key={type}>
+                                      {message}
+                                    </p>
+                                  )
+                                )
+                              : null
+                          }}
+                        />
                       </div>
                     </div>
                   </div>
@@ -178,7 +249,7 @@ const AddAFile = () => {
                 <div className='d-flex gap-10 justify-content-end my-8 row'>
                   <div className={`w-100 text-end`}>
                     <button
-                      disabled={isLoading || !isFilled}
+                      // disabled={isLoading || !isFilled}
                       type='submit'
                       className='btn btn-primary w-25 me-10'
                     >

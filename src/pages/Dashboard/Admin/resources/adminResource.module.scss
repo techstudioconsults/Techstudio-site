@@ -19,7 +19,8 @@
       padding: fn.rem(32);
     }
     @include breakpoint-up('xl') {
-      width: 65%;
+      // width: 65%;
+      width: 72.5%;
     }
 
     .header {

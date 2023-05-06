@@ -1,10 +1,14 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import { AddResource, AvatarDropdown, Portal } from '../../../../components'
+import {
+  AddResource,
+  AvatarDropdown,
+  Portal,
+  SearchComponent,
+} from '../../../../components'
 import style from './adminResource.module.scss' //using courses view layout !important
 import 'react-loading-skeleton/dist/skeleton.css'
-import { Icon } from '@iconify/react'
 import { useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import Feedback from '../../../../components/global/feedbacks/Feedback'
@@ -56,19 +60,7 @@ const AdminResourcesView = () => {
               <div
                 className={`input-group border rounded ${style.searchInput}`}
               >
-                <input
-                  disabled
-                  type={`search`}
-                  className='form-control border border-0 text-secondary h-100'
-                  aria-describedby='search'
-                  placeholder='Search for courses, classes, students and more'
-                />
-                <div
-                  className={`input-group-text bg-white border border-0 text-secondary h-100`}
-                  id='passwordHelpBlock'
-                >
-                  <Icon width={`1.2rem`} icon={`ri:search-line`} />
-                </div>
+                <SearchComponent />
               </div>
               <div>
                 <div>

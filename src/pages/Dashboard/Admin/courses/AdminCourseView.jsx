@@ -2,29 +2,25 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { useSelector } from 'react-redux'
-import {
-  AvatarDropdown,
-  SearchComponent,
-  SkeletonLoader,
-} from '../../../../components'
+import { useDispatch, useSelector } from 'react-redux'
+import { AvatarDropdown, SearchComponent } from '../../../../components'
 import style from './adminCourse.module.scss'
 import { useViewAllCoursesMutation } from './api/coursesApiSlice'
 import { selectCourseDetails, selectCourses } from './api/coursesSlice'
 import CourseDetails from './courseDetails/CourseDetails'
 import CourseList from './courseList/CourseList'
 import 'react-loading-skeleton/dist/skeleton.css'
-import { Icon } from '@iconify/react'
 import { Link } from 'react-router-dom'
 import Feedback from '../../../../components/global/feedbacks/Feedback'
 import SpinnerComponent from '../../../../components/global/skeletonLoader/SpinnerComponent'
+import { selectClassDetailOpen } from '../../../../app/api/appSlice'
 
 const AdminCourseView = () => {
   const [viewAllCourses, { isLoading }] = useViewAllCoursesMutation()
-  const [isShowDetails, setShowDetails] = useState(false)
   const courses = useSelector(selectCourses)
   const courseDetails = useSelector(selectCourseDetails)
-  const notificationRef = useRef(null)
+  const courseDetailOpen = useSelector(selectClassDetailOpen)
+  const dispatch = useDispatch()
 
   const getCourses = useCallback(async () => {
     await viewAllCourses().unwrap()
@@ -34,20 +30,9 @@ const AdminCourseView = () => {
     getCourses()
   }, [getCourses])
 
-  const showDetailsBox = (status) => {
-    notificationRef.current.hidden = status
-    setShowDetails(true)
-  }
-
   const courseList = courses.length ? ( // map the courses data to the courseslist component
     courses?.map((course) => {
-      return (
-        <CourseList
-          showDetailsBox={showDetailsBox}
-          key={course.id}
-          course={course}
-        />
-      )
+      return <CourseList key={course.id} course={course} />
     })
   ) : (
     <Feedback
@@ -56,6 +41,10 @@ const AdminCourseView = () => {
       message={`No Course Found`}
     />
   )
+
+  useEffect(() => {
+    dispatch({ type: 'app/setCourseDetailOpen', payload: true })
+  }, [dispatch])
 
   return (
     <section className={`${style.courseView} h-100`}>
@@ -102,11 +91,11 @@ const AdminCourseView = () => {
           </div>
         </div>
       </div>
-      <div hidden ref={notificationRef} className={style.notification}>
+      <div hidden={courseDetailOpen} className={style.notification}>
         <div className='d-flex justify-content-end'>
           <AvatarDropdown />
         </div>
-        <CourseDetails show={isShowDetails} courseDetails={courseDetails} />
+        <CourseDetails courseDetails={courseDetails} />
       </div>
     </section>
   )

@@ -9,30 +9,21 @@ import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import DeleteModal from '../../modals/DeleteModal'
 import Portal from '../../POTAL/Portal'
 import { useDispatch } from 'react-redux'
+import { useState } from 'react'
+import { useEffect } from 'react'
 // import style from './adminClassDisplay.module.scss'
 
 const LessonCard = ({ singleLesson }) => {
   const dispatch = useDispatch()
+  const [resources, setResources] = useState([])
   const convertDateToReadable = (date) => {
     let dateSet = new Date(date).toUTCString().split(' ')
     return `${dateSet[2]} ${dateSet[1]}, ${dateSet[3]}`
   }
 
-  // const convertWeekToReadable = (date) => {
-  //   let dateSet = new Date(date).toUTCString().split(',')
-  //   let weekData = weeks.filter((week) => {
-  //     if (week.week.includes(dateSet[0])) {
-  //       return week.week
-  //     }
-  //   })
-  //   return `${weekData[0].week}`
-  // }
-
-  console.log(singleLesson)
-
   const showLessonDetails = () => {
-    console.log(`details`)
     dispatch({ type: 'classes/setLessonDetails', payload: singleLesson })
+    dispatch({ type: 'app/setClassDetailOpen', payload: false })
   }
 
   const handleDeleteModal = () => {
@@ -45,6 +36,19 @@ const LessonCard = ({ singleLesson }) => {
       console.log(err)
     }
   }
+
+  useEffect(() => {
+    setResources([
+      ...singleLesson.externalResources.document,
+      ...singleLesson.externalResources.video,
+      ...singleLesson.externalResources.audio,
+    ])
+  }, [
+    singleLesson.externalResources.audio,
+    singleLesson.externalResources.document,
+    singleLesson.externalResources.video,
+  ])
+
   return (
     <>
       <Portal wrapperId='react-portal-modal-container'>
@@ -110,7 +114,7 @@ const LessonCard = ({ singleLesson }) => {
                   width={`1.3rem`}
                 />
               </span>
-              <span>{singleLesson.resources[0]}</span>
+              <span>{resources[0]?.slice(0, 20)}...</span>
             </div>
           </section>
         </section>
