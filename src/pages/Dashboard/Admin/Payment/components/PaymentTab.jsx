@@ -3,18 +3,13 @@ import { Outlet, useLocation, useNavigate, useParams } from 'react-router'
 import { NavLink } from 'react-router-dom'
 import style from '../style/payment.module.scss'
 import PropTypes from 'prop-types'
-import { useGetStudentPaymentRecordsByIDsMutation } from '../api/paymentApiSlice'
-import { useSelector } from 'react-redux'
-import { selectClasses } from '../../classes/api/classSlice'
-import { useState } from 'react'
+import { useGetStudentPaymentRecordsByCourseIDsMutation } from '../api/paymentApiSlice'
 import SpinnerComponent from '../../../../../components/global/skeletonLoader/SpinnerComponent'
 
 const PaymentTab = ({ courses }) => {
   const location = useLocation()
-  // const [studentPaymentDetails, setStudentPaymentDetails] = useState(null)
-  const classes = useSelector(selectClasses)
-  const [getStudentPaymentRecordsByIDs, studentLoading] =
-    useGetStudentPaymentRecordsByIDsMutation()
+  const [getStudentPaymentRecordsByCourseIDs, studentLoading] =
+    useGetStudentPaymentRecordsByCourseIDsMutation()
   let { courseID } = useParams()
   const redirect = useNavigate()
 
@@ -27,11 +22,9 @@ const PaymentTab = ({ courses }) => {
 
   const getStudentPaymentDetails = useCallback(async () => {
     if (courseID) {
-      await getStudentPaymentRecordsByIDs({
-        courseID: courseID,
-      }).unwrap()
+      await getStudentPaymentRecordsByCourseIDs(courseID).unwrap()
     }
-  }, [courseID, getStudentPaymentRecordsByIDs])
+  }, [courseID, getStudentPaymentRecordsByCourseIDs])
 
   useEffect(() => {
     if (!courseID) {

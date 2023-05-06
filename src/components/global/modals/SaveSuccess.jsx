@@ -1,19 +1,13 @@
 import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import {
-  useGetAllResourcesMutation,
-  useGetResourcesByCourseIDMutation,
-} from '../../../pages/Dashboard/Admin/resources/api/resourceApiSlice'
-import { useGetStudentPaymentRecordsByIDsMutation } from '../../../pages/Dashboard/Admin/Payment/api/paymentApiSlice'
+import { useGetResourcesByCourseIDMutation } from '../../../pages/Dashboard/Admin/resources/api/resourceApiSlice'
 
 const Save = ({ content }) => {
   const navigate = useNavigate()
   const location = useLocation()
   const [route, setRoute] = useState()
   const [getResourcesByCourseID] = useGetResourcesByCourseIDMutation()
-  const [getStudentPaymentRecordsByIDs] =
-    useGetStudentPaymentRecordsByIDsMutation()
 
   useEffect(() => {
     async function getData() {
@@ -29,7 +23,7 @@ const Save = ({ content }) => {
           break
         case `resource`:
           setRoute(`/admin/resources/${content?.courseID}`)
-          await getResourcesByCourseID(content.courseID).unwrap()
+          await getResourcesByCourseID(content?.courseID).unwrap()
           break
 
         default:
@@ -41,7 +35,6 @@ const Save = ({ content }) => {
     content.action,
     content.courseID,
     getResourcesByCourseID,
-    getStudentPaymentRecordsByIDs,
     location.pathname,
     navigate,
   ])
@@ -51,7 +44,7 @@ const Save = ({ content }) => {
       className='modal fade'
       data-bs-backdrop='static'
       data-bs-keyboard='false'
-      id='save-success'
+      id={'save-success'}
       tabIndex='-1'
       aria-labelledby='save-success'
     >

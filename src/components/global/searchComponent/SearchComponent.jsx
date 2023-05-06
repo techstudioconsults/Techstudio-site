@@ -211,7 +211,7 @@ const SearchComponent = () => {
         <button
           type='submit'
           className={`input-group-text bg-white border border-0 text-secondary h-100`}
-          id='passwordHelpBlock'
+          id='searchInputBlock'
         >
           <Icon width={`1.2rem`} icon={`ri:search-line`} />
         </button>
@@ -245,7 +245,7 @@ const SearchComponent = () => {
                     <button
                       type='submit'
                       className={`input-group-text bg-white border border-0 text-secondary h-100`}
-                      id='passwordHelpBlock'
+                      id='searchModalBlock'
                     >
                       <Icon width={`1.2rem`} icon={`ri:search-line`} />
                     </button>

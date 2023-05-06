@@ -32,26 +32,32 @@ const FeedbackCard = ({ title }) => {
       </header>
       {classByIDArgs.isLoading ? (
         <SpinnerComponent />
-      ) : (
+      ) : classes?.ongoing?.length ? (
         <>
           <div className={style.body}>
             <div className={style.imgWrapper}>
               <img src={img} alt='img' className='cc-img-fluid' />
             </div>
             <div className={style.message}>
-              <p>{classes?.ongoing?.[0].title}</p>
+              <p>{classes?.ongoing?.[0]?.title}</p>
               <div className='d-flex gap-5'>
-                <p className={style.date}>{classes?.ongoing?.[0].preference}</p>
+                <p className={style.date}>
+                  {classes?.ongoing?.[0]?.preference}
+                </p>
                 <p className={style.duration}>week 5</p>
               </div>
             </div>
           </div>
           <div className={style.footer}>
             <p className={style.name}>
-              {classes?.ongoing?.[0].tutors?.[0].name}
+              {classes?.ongoing?.[0].tutors?.[0]?.name}
             </p>
           </div>
         </>
+      ) : (
+        <h5 className='text-danger fw-semibold fs-xs text-center'>
+          There Are No Current Class At The Moment
+        </h5>
       )}
     </section>
   )

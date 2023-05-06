@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux'
 import { selectCourses } from '../courses/api/coursesSlice'
 import { useParams } from 'react-router-dom'
 import Feedback from '../../../../components/global/feedbacks/Feedback'
-import { AvatarDropdown } from '../../../../components'
+import { AvatarDropdown, SearchComponent } from '../../../../components'
 import PaymentTab from './components/PaymentTab'
 
 const AdminPaymentView = () => {
@@ -37,7 +37,7 @@ const AdminPaymentView = () => {
   )
   return (
     <section>
-      <section className={style.classView}>
+      <section className={style.paymentView}>
         <div className={style.dashboardDisplay}>
           <div className={style.header}>
             <h4 className={[style.title, `mb-0 fw-bold`].join(' ')}>Payment</h4>
@@ -46,18 +46,7 @@ const AdminPaymentView = () => {
               <div
                 className={`input-group border rounded ${style.searchInput}`}
               >
-                <input
-                  type={`search`}
-                  className='form-control border border-0 text-secondary h-100'
-                  aria-describedby='search'
-                  placeholder='Search for courses, classes, students and more'
-                />
-                <div
-                  className={`input-group-text bg-white border border-0 text-secondary h-100`}
-                  id='passwordHelpBlock'
-                >
-                  <Icon width={`1.2rem`} icon={`ri:search-line`} />
-                </div>
+                <SearchComponent />
               </div>
             </div>
           </div>

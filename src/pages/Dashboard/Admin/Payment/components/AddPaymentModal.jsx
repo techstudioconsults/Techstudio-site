@@ -12,6 +12,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { SaveSuccess } from '../../../../../components'
 import CancelModal from './CancelModal'
 import { useRef } from 'react'
+import SaveSuccessPayment from '../../../../../components/global/modals/SaveSuccessPayment'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
@@ -27,8 +28,6 @@ const AddPaymentModal = ({ studentPayment }) => {
     },
   }
 
-  console.log(studentPayment.fullName, studentPayment.id)
-
   const {
     // reset,
     register,
@@ -39,7 +38,6 @@ const AddPaymentModal = ({ studentPayment }) => {
     setLoading(true)
     const formData = new FormData()
     const files = [...data.files]
-    console.log(data)
 
     formData.append(`paymentMethod`, data.paymentMethod)
     formData.append(`paymentDate`, data.paymentDate)
@@ -49,7 +47,7 @@ const AddPaymentModal = ({ studentPayment }) => {
 
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
-        document.getElementById('save-success')
+        document.getElementById(`${studentPayment?.id}-save-success`)
       )
 
       const res = await axios.patch(
@@ -58,7 +56,6 @@ const AddPaymentModal = ({ studentPayment }) => {
         formData,
         credentials
       )
-      console.log(res)
       if (res.status === 200) {
         setLoading(false)
         modal.show()
@@ -72,13 +69,14 @@ const AddPaymentModal = ({ studentPayment }) => {
   }
   return (
     <>
-      <SaveSuccess
+      <SaveSuccessPayment
         content={{
           title: `New Payment Record Added!`,
           desc: `New payment record has been added for ${studentPayment?.fullName}.
           Kindly click continue to exit.`,
           courseID: courseID,
-          action: `add-new-payment-detail`,
+          studentID: studentPayment?.id,
+          action: `payment`,
         }}
       />
       {/* <CancelModal
@@ -124,7 +122,7 @@ const AddPaymentModal = ({ studentPayment }) => {
                   <select
                     {...register(`paymentMethod`)}
                     className='w-75 form-control'
-                    id='payment-method'
+                    id={`${studentPayment.id}-payment-method`}
                   >
                     <option value={`cash`}>Cash</option>
                     <option value={`pos`}>POS</option>
@@ -145,7 +143,7 @@ const AddPaymentModal = ({ studentPayment }) => {
                         }
                       >
                         <input
-                          id='resource'
+                          id={`${studentPayment.id}-resource`}
                           type='file'
                           multiple
                           {...register('files')}
@@ -160,7 +158,7 @@ const AddPaymentModal = ({ studentPayment }) => {
                   </label>
                   <input
                     className='w-75 form-control'
-                    id='amount-paid'
+                    id={`${studentPayment.id}-amount-paid`}
                     type='text'
                     {...register('amount')}
                   />
@@ -171,8 +169,9 @@ const AddPaymentModal = ({ studentPayment }) => {
                   </label>
                   <input
                     disabled
+                    defaultValue={studentPayment?.balance}
                     className='w-75 form-control'
-                    id='balance'
+                    id={`${studentPayment.id}-balance`}
                     type='text'
                     placeholder='100,000'
                   />
@@ -183,7 +182,7 @@ const AddPaymentModal = ({ studentPayment }) => {
                   </label>
                   <input
                     className='w-75 form-control'
-                    id='date'
+                    id={`${studentPayment.id}-date`}
                     type='date'
                     placeholder='MM/DD/YYYY'
                     {...register('paymentDate')}
@@ -197,7 +196,7 @@ const AddPaymentModal = ({ studentPayment }) => {
                     className='w-75 form-control'
                     style={{ resize: 'none' }}
                     name=''
-                    id='comments'
+                    id={`${studentPayment.id}-comment`}
                     cols='30'
                     rows='3'
                     {...register('comments')}

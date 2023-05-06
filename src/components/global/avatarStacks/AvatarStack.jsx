@@ -53,7 +53,7 @@ const AvatarStack = ({ showImage, imageList, dontShowMore, tutors }) => {
 }
 
 AvatarStack.propTypes = {
-  imageList: PropTypes.array.isRequired,
+  imageList: PropTypes.array,
   dontShowMore: PropTypes.bool,
   tutors: PropTypes.array,
   showImage: PropTypes.bool,

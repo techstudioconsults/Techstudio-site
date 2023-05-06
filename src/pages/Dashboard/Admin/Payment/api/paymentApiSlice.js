@@ -45,10 +45,10 @@ export const dashboardApiSlice = apiSlice.injectEndpoints({
     //     }
     //   },
     // }),
-    getStudentPaymentRecordsByIDs: builder.mutation({
+    getStudentPaymentRecordsByCourseIDs: builder.mutation({
       //by course ID
-      query: (credentials) => ({
-        url: `/payments/students/courses/${credentials.courseID}`,
+      query: (courseID) => ({
+        url: `/payments/students/courses/${courseID}`,
         method: 'GET',
       }),
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
@@ -111,5 +111,5 @@ export const {
   useGetRevenueInfoMutation,
   useGetStudentPaymentRecordsMutation,
   useGetSingleStudentPaymentRecordsMutation,
-  useGetStudentPaymentRecordsByIDsMutation,
+  useGetStudentPaymentRecordsByCourseIDsMutation,
 } = dashboardApiSlice

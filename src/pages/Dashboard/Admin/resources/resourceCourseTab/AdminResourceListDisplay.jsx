@@ -69,8 +69,6 @@ const AdminResourceListDisplay = ({ isDashboard, file, course, format }) => {
         setLoading(false)
         const blob = new Blob([res.data], { type: 'application/pdf' })
         download(blob, `${file?.name}`)
-        // const fileURL = URL.createObjectURL(blob)
-        // download(fileURL, `${file?.name}`)
       }
     } catch (err) {
       setLoading(false)

@@ -213,12 +213,14 @@ const EditLesson = () => {
     formData.append(`date`, new Date(data.date).toISOString())
     formData.append(`time`, data.time)
     if (resources?.length) {
-      data.resources.forEach((item) => formData.append('resources', item.value))
+      data?.resources?.forEach((item) =>
+        formData.append('resources', item.value)
+      )
     }
     files?.forEach((item) => formData.append('files', item))
-    for (var pair of formData.entries()) {
-      console.log(pair[0] + ', ' + pair[1])
-    }
+    // for (var pair of formData.entries()) {
+    //   console.log(pair[0] + ', ' + pair[1])
+    // }
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
         document.getElementById('save-success')

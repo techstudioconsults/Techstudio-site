@@ -3,7 +3,7 @@
 @import '../../../../../scss/utils/breakpoints';
 @import '../../../../../scss/utils/mixins';
 
-.classView {
+.paymentView {
   background-image: url('../../../../../assets/images/512\ 1.png');
   background-position: right;
   background-repeat: no-repeat;
@@ -21,7 +21,7 @@
     }
 
     @include breakpoint-up('xl') {
-      width: 85%;
+      width: 72.5%;
     }
 
     .header {

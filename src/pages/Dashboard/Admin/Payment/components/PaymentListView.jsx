@@ -15,6 +15,7 @@ import { Portal } from '../../../../../components'
 import UserRegistrationFormModal from '../../users/userRegistrationForms/UserRegistrationFormModal'
 import Feedback from '../../../../../components/global/feedbacks/Feedback'
 import PaymentDisplayCard from './PaymentDisplayCard'
+import { Icon } from '@iconify/react'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
@@ -72,10 +73,11 @@ const PaymentListView = () => {
     modal.show()
   }
 
-  const filterPayment = async () => {
+  const filterPayment = async (data) => {
+    console.log(data)
     try {
       const res = await axios.get(
-        `${baseUrl}/payments/students/courses/${courseID}?status=${statusType}&classId=${classType}`,
+        `${baseUrl}/payments/students/courses/${courseID}?status=${data.status}&classId=${data.class}`,
         credentials
       )
       if (res.data.success) {
@@ -92,17 +94,18 @@ const PaymentListView = () => {
       // toast.show()
     }
   }
-  const handleDownload = async () => {
+  const handleDownload = async (data) => {
+    console.log(data)
     try {
       const res = await axios.get(
-        `${baseUrl}/payments/students/courses/${courseID}/download?status=${statusType}&classId=${classType}`,
+        `${baseUrl}/payments/students/courses/${courseID}/download?status=${data.status}&classId=${data.class}`,
         credentials
       )
       console.log(res.data)
       if (res.status === 200) {
         // setLoading(false)
         const blob = new Blob([res.data], { type: 'text/csv' })
-        download(blob, 'certificate.csv')
+        download(blob, `Payment Details.csv`)
       }
     } catch (err) {
       // setLoading(false)
@@ -110,17 +113,6 @@ const PaymentListView = () => {
       // toast.show()
     }
   }
-
-  const handleClassChange = (e) => {
-    setClassType(e.target.value)
-    filterPayment()
-  }
-  const handleStatusChange = (e) => {
-    setStatusType(e.target.value)
-    filterPayment()
-  }
-
-  console.log(studentPaymentDetails)
 
   const paidCourses = studentPaymentDetails?.map((paymentDetail, index) => {
     return <PaymentDisplayCard key={index} paymentDetail={paymentDetail} />
@@ -131,39 +123,45 @@ const PaymentListView = () => {
       <Portal wrapperId='react-portal-modal-container'>
         <UserRegistrationFormModal />
       </Portal>
-      <form
-        // onSubmit={handleSubmit(handleDownload)}
-        className='mt-4 d-flex justify-content-end align-items-center gap-3'
-      >
+      <section className='mt-4 d-flex justify-content-end align-items-center gap-3'>
+        <form
+          onSubmit={handleSubmit(filterPayment)}
+          className='d-flex justify-content-end align-items-center gap-3'
+        >
+          <div>
+            <select
+              className='form-select text-dark fs-sm'
+              aria-label='Default select example'
+              {...register(`class`)}
+            >
+              <option selected>Select a Class</option>
+              {classesList}
+            </select>
+          </div>
+          <div>
+            <select
+              className='form-select text-dark fs-sm'
+              aria-label='Default select example'
+              {...register(`status`)}
+            >
+              <option selected>All Status</option>
+              <option value={`full`}>Full</option>
+              <option value={`part`}>Part</option>
+            </select>
+          </div>
+          <button type='submit'>
+            <Icon width={`1.5rem`} icon={`system-uicons:filtering`} />
+          </button>
+        </form>
         <div>
-          <select
-            className='form-select text-dark fs-sm'
-            aria-label='Default select example'
-            {...register(`class`)}
-            // onChange={handleClassChange}
+          <button
+            onClick={handleSubmit(handleDownload)}
+            className='btn px-5 btn-primary fs-2'
           >
-            <option selected>Select a Class</option>
-            {classesList}
-          </select>
-        </div>
-        <div>
-          <select
-            className='form-select text-dark fs-sm'
-            aria-label='Default select example'
-            // onChange={handleStatusChange}
-            {...register(`status`)}
-          >
-            <option selected>All Status</option>
-            <option value={`full`}>Full</option>
-            <option value={`part`}>Part</option>
-          </select>
-        </div>
-        <div>
-          <button type='submit' className='btn px-5 btn-primary fs-2'>
             Download List
           </button>
         </div>
-      </form>
+      </section>
 
       <div className='row mt-10 ps-3 '>
         {headings.map((m, index) => {
