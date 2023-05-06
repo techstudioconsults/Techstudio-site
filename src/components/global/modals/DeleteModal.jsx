@@ -55,9 +55,12 @@ const DeleteModal = ({ content }) => {
         dispatch({ type: 'app/setClassDetailOpen', payload: true })
         break
       case `delete-resource`:
-        await getAllResource().unwrap()
-        await getResourcesByCourseID(content.courseID).unwrap()
-        await dashboardAllResources(content.courseID).unwrap()
+        if (content.courseID !== `all`) {
+          await getResourcesByCourseID(content.courseID).unwrap()
+          await dashboardAllResources(content.courseID).unwrap()
+        } else {
+          await getAllResource().unwrap()
+        }
         break
       default:
         break

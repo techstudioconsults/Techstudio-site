@@ -145,8 +145,8 @@ const PaymentListView = () => {
               {...register(`status`)}
             >
               <option selected>All Status</option>
-              <option value={`full`}>Full</option>
-              <option value={`part`}>Part</option>
+              <option value={`Full`}>Full</option>
+              <option value={`Part`}>Part</option>
             </select>
           </div>
           <button type='submit'>

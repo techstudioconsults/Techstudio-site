@@ -67,6 +67,7 @@ const PaymentDisplayCard = ({ paymentDetail }) => {
 
   return (
     <div
+      onClick={() => console.log(paymentDetail)}
       key={paymentDetail?.id}
       className={[
         style.box,

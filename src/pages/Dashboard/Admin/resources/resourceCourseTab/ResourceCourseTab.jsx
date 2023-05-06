@@ -27,8 +27,6 @@ const ResourceCourseTab = ({ courses }) => {
     [location.pathname]
   )
 
-  console.log(resource)
-
   const getResources = useCallback(async () => {
     // activeRoute(location?.state?.course?.id)
     activeRoute(resource)

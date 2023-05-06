@@ -26,6 +26,8 @@ const ResourceTab = () => {
     modal.show()
   }
 
+  // console.log(all);
+
   function checkExtension(str) {
     // Split the string by the dot character
     const parts = str.split('.')

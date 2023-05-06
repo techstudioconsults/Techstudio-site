@@ -8,7 +8,6 @@ import { selectCourses } from '../../../pages/Dashboard/Admin/courses/api/course
 import style from './upload.module.scss'
 import useToast from '../../../hooks/useToast'
 import ToastComponent from '../toast/ToastComponent'
-import Portal from '../POTAL/Portal'
 import { SaveSuccess } from '../..'
 import { Controller, useForm } from 'react-hook-form'
 import Select from 'react-select'
@@ -54,7 +53,7 @@ const AddAFile = () => {
   const courses = useSelector(selectCourses)
   const token = useSelector(selectCurrentToken)
   const { toast } = useToast()
-  // const [courseID, setCourseID] = useState(null)
+  const [courseID, setCourseID] = useState(null)
 
   const credentials = {
     headers: {
@@ -80,7 +79,7 @@ const AddAFile = () => {
   })
 
   const submitResource = async (data) => {
-    // setCourseID(data.course.value)
+    setCourseID(data.course.value)
     setIsLoading(true)
     const formData = new FormData()
     const files = [...data.file]
@@ -94,7 +93,7 @@ const AddAFile = () => {
         formData,
         credentials
       )
-      console.log(res)
+
       if (res.data.success) {
         setIsLoading(false)
         cancelButtonRef.current.click()
@@ -110,18 +109,14 @@ const AddAFile = () => {
   return (
     <>
       <ToastComponent errorMessage={errorMessage} />
-      <Portal wrapperId='react-portal-modal-container'>
-        <SaveSuccess
-          content={{
-            title: `New Resources Added Successfully!`,
-            desc: `This resource has successfully being added. Kindly click continue to exit this page.`,
-            courseID: `all`,
-            // courseID: courseID,
-            action: `resource`,
-          }}
-        />
-      </Portal>
-
+      <SaveSuccess
+        content={{
+          title: `New Resources Added Successfully!`,
+          desc: `This resource has successfully being added. Kindly click continue to exit this page.`,
+          courseID: courseID,
+          action: `resource`,
+        }}
+      />
       <div
         className='modal fade'
         id='add-resource'

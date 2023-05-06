@@ -3,7 +3,8 @@ import style from '../style/paymentClasses.module.scss'
 import { MdOutlineEditNote } from 'react-icons/md'
 import { AiOutlineFolderAdd } from 'react-icons/ai'
 import EditPaymentRecord from './EditPaymentRecord'
-const EditPaymentHistory = () => {
+
+const EditPaymentHistoryModal = () => {
   const data = [
     {
       id: 1,
@@ -110,4 +111,4 @@ const EditPaymentHistory = () => {
   )
 }
 
-export default EditPaymentHistory
+export default EditPaymentHistoryModal
