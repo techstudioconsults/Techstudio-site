@@ -4,16 +4,17 @@ import style from '../../../components/dashboard/dashboardNavbar/dashboardnavbar
 import searchStyle from './search.module.scss'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import Portal from '../POTAL/Portal'
-import Feedback from '../feedbacks/Feedback'
 import { useState } from 'react'
 import { useDashboardSearchMutation } from '../../../pages/Dashboard/Admin/api/dashboardApiSlice'
 import { Link } from 'react-router-dom'
+import Feedback from '../feedbacks/Feedback'
+import SpinnerComponent from '../skeletonLoader/SpinnerComponent'
 
 const SearchComponent = () => {
   const [query, setQuery] = useState(``)
   const [hoverStyle, setHoverStyle] = useState(false)
   const [queryResult, setQueryResult] = useState(null)
-  const [dashboardSearch] = useDashboardSearchMutation()
+  const [dashboardSearch, { isLoading }] = useDashboardSearchMutation()
 
   const handleChange = (e) => {
     setQuery(e.target.value)
@@ -28,6 +29,7 @@ const SearchComponent = () => {
       )
       if (modal.show()) {
         res = await dashboardSearch(query).unwrap()
+        console.log(res)
       } else {
         modal.show()
         res = await dashboardSearch(query).unwrap()
@@ -46,7 +48,38 @@ const SearchComponent = () => {
     e.currentTarget.style.backgroundColor = `transparent`
   }
 
-  const adminResult = queryResult?.admins?.map((admin) => {
+  const allResult = queryResult?.allResult?.map((result) => {
+    return (
+      <Link className='d-block' key={result.id} to={`/admin/users`}>
+        <div
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          className={`d-flex align-items-center  p-3 justify-content-between ${
+            hoverStyle ? `bg-info` : null
+          }`}
+        >
+          <section className='d-flex align-items-center gap-3'>
+            <div className='bg-blue p-2 rounded rounded-2 text-white'>
+              <Icon width={`1.5rem`} icon={`ic:baseline-insert-drive-file`} />
+            </div>
+            <div>
+              <p className='fw-semibold'>{result.name}</p>
+              <p
+                className='fs-sm fw-semibold text-secondary'
+                style={{ letterSpacing: `1px` }}
+              >
+                {result.email ||
+                  `Created by Admin - ${new Date(
+                    result.createdAt
+                  ).toLocaleDateString('en-CA')}`}
+              </p>
+            </div>
+          </section>
+        </div>
+      </Link>
+    )
+  })
+  const adminResult = queryResult?.result?.admins?.map((admin) => {
     return (
       <Link className='d-block' key={admin.id} to={`/admin/users`}>
         <div
@@ -77,7 +110,7 @@ const SearchComponent = () => {
       </Link>
     )
   })
-  const coursesResult = queryResult?.courses?.map((course) => {
+  const coursesResult = queryResult?.result?.courses?.map((course) => {
     return (
       <Link className='d-block' key={course.id} to={`/admin/courses`}>
         <div
@@ -94,7 +127,7 @@ const SearchComponent = () => {
           <div>
             <p className='fw-semibold text-blue'>{course.title}</p>
             <p className='fs-sm fw-semibold text-secondary'>
-              Courses - Created by Admin on
+              Courses - Created by Admin on{` `}
               {new Date(course.createdAt).toLocaleDateString('en-CA')}
             </p>
           </div>
@@ -102,7 +135,7 @@ const SearchComponent = () => {
       </Link>
     )
   })
-  const classesResult = queryResult?.classes?.map((singleclass) => {
+  const classesResult = queryResult?.result?.classes?.map((singleclass) => {
     return (
       <Link className='d-block' key={singleclass.id} to={`/admin/classes`}>
         <div
@@ -126,7 +159,7 @@ const SearchComponent = () => {
       </Link>
     )
   })
-  const lessonsResult = queryResult?.lessons?.map((lesson) => {
+  const lessonsResult = queryResult?.result?.lessons?.map((lesson) => {
     return (
       <Link className='d-block' key={lesson.id} to={`/admin/classes`}>
         <div
@@ -152,7 +185,7 @@ const SearchComponent = () => {
       </Link>
     )
   })
-  const resourcesResult = queryResult?.resources?.map((resource) => {
+  const resourcesResult = queryResult?.result?.resources?.map((resource) => {
     return (
       <Link className='d-block' key={resource.id} to={`/admin/resources`}>
         <div
@@ -177,7 +210,7 @@ const SearchComponent = () => {
       </Link>
     )
   })
-  const studentsResult = queryResult?.students?.map((student) => {
+  const studentsResult = queryResult?.result?.students?.map((student) => {
     return (
       <Link key={student.id} to={`/admin/users`}>
         <div
@@ -199,7 +232,7 @@ const SearchComponent = () => {
       </Link>
     )
   })
-  const tutorsResult = queryResult?.tutors?.map((tutor) => {
+  const tutorsResult = queryResult?.result?.tutors?.map((tutor) => {
     return (
       <Link className='d-block' key={tutor.id} to={`/admin/users`}>
         <div
@@ -231,6 +264,16 @@ const SearchComponent = () => {
       </Link>
     )
   })
+
+  // const getClasses = () => {
+  //   if (!classesResult?.length && !lessonsResult?.length) {
+  //     return <Feedback />
+  //   } else if (classesResult?.length) {
+  //     return classesResult
+  //   } else if (lessonsResult?.length) {
+  //     return lessonsResult
+  //   }
+  // }
 
   return (
     <div className={`input-group ${style.searchInput}`}>
@@ -299,7 +342,7 @@ const SearchComponent = () => {
                         <span
                           className={`rounded-circle fs-xs ${searchStyle.tag}`}
                         >
-                          {0}
+                          {queryResult?.allResult?.length || 0}
                         </span>
                       </a>
                     </li>
@@ -313,7 +356,7 @@ const SearchComponent = () => {
                         <span
                           className={`rounded-circle fs-xs ${searchStyle.tag}`}
                         >
-                          {queryResult?.courses?.length || 0}
+                          {queryResult?.result?.courses?.length || 0}
                         </span>
                       </a>
                     </li>
@@ -327,8 +370,8 @@ const SearchComponent = () => {
                         <span
                           className={`rounded-circle fs-xs ${searchStyle.tag}`}
                         >
-                          {queryResult?.classes?.length +
-                            queryResult?.lessons?.length || 0}
+                          {queryResult?.result?.classes?.length +
+                            queryResult?.result?.lessons?.length || 0}
                         </span>
                       </a>
                     </li>
@@ -342,7 +385,7 @@ const SearchComponent = () => {
                         <span
                           className={`rounded-circle fs-xs ${searchStyle.tag}`}
                         >
-                          {queryResult?.resources?.length || 0}
+                          {queryResult?.result?.resources?.length || 0}
                         </span>
                       </a>
                     </li>
@@ -356,20 +399,39 @@ const SearchComponent = () => {
                         <span
                           className={`rounded-circle fs-xs ${searchStyle.tag}`}
                         >
-                          {queryResult?.tutors?.length +
-                            queryResult?.students?.length +
-                            queryResult?.admins?.length || 0}
+                          {queryResult?.result?.tutors?.length +
+                            queryResult?.result?.students?.length +
+                            queryResult?.result?.admins?.length || 0}
                         </span>
                       </a>
                     </li>
                   </ul>
                   <div className='tab-content my-10' id='tabContent'>
                     <div
+                      className='tab-pane fade active'
+                      id='allResult-search'
+                      aria-labelledby='class-tab-search'
+                    >
+                      {isLoading ? (
+                        <SpinnerComponent />
+                      ) : allResult?.length ? (
+                        allResult
+                      ) : (
+                        <Feedback message={`No Result Found`} />
+                      )}
+                    </div>
+                    <div
                       className='tab-pane fade'
                       id='courses-search'
                       aria-labelledby='class-tab-search'
                     >
-                      {coursesResult}
+                      {isLoading ? (
+                        <SpinnerComponent />
+                      ) : coursesResult?.length ? (
+                        coursesResult
+                      ) : (
+                        <Feedback message={`No Result Found`} />
+                      )}
                     </div>
                     <div
                       className='tab-pane fade'
@@ -384,7 +446,13 @@ const SearchComponent = () => {
                       id='resources-search'
                       aria-labelledby='class-tab-search'
                     >
-                      {resourcesResult}
+                      {isLoading ? (
+                        <SpinnerComponent />
+                      ) : resourcesResult?.length ? (
+                        resourcesResult
+                      ) : (
+                        <Feedback message={`No Result Found`} />
+                      )}
                     </div>
                     <div
                       className='tab-pane fade'
@@ -394,6 +462,9 @@ const SearchComponent = () => {
                       {studentsResult}
                       {tutorsResult}
                       {adminResult}
+                      {/* {studentsResult?.length ? studentsResult : <Feedback />}
+                      {tutorsResult?.length ? tutorsResult : <Feedback />}
+                      {adminResult?.length ? adminResult : <Feedback />} */}
                     </div>
                   </div>
                 </div>
