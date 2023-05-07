@@ -8,6 +8,7 @@ import {
 import { useSelector } from 'react-redux'
 import { selectAllStudents } from '../api/usersSlice'
 import SpinnerComponent from '../../../../../components/global/skeletonLoader/SpinnerComponent'
+import Feedback from '../../../../../components/global/feedbacks/Feedback'
 
 const StudentListDisplay = () => {
   const [getAllStudents] = useGetAllStudentsMutation()
@@ -36,7 +37,7 @@ const StudentListDisplay = () => {
       <section className='container d-flex flex-column gap-5'>
         {studentsArgs.isLoading ? (
           <SpinnerComponent />
-        ) : (
+        ) : allStudents?.length ? (
           allStudents?.map((student, index) => {
             return (
               <div
@@ -51,7 +52,7 @@ const StudentListDisplay = () => {
                   </div>
                 </section>
                 <section className='col col-3'>
-                  <div>
+                  <div hidden={courseId !== `all`}>
                     <p className='fs-sm text-secondary'>{student?.course}</p>
                   </div>
                 </section>
@@ -81,6 +82,8 @@ const StudentListDisplay = () => {
               </div>
             )
           })
+        ) : (
+          <Feedback message={`No Student Registered For This Course`} />
         )}
       </section>
     </>

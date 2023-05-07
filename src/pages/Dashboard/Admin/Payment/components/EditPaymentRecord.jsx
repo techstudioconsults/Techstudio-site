@@ -7,19 +7,24 @@ import { useForm } from 'react-hook-form'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import axios from 'axios'
 import { selectCurrentToken } from '../../../../Auth/api/authSlice'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { useRef } from 'react'
 import SaveSuccessPayment from '../../../../../components/global/modals/SaveSuccessPayment'
 import { CancelModal, Portal } from '../../../../../components'
+import NewToast from '../../../../../components/global/toast/NewToast'
+import { selectErrorMessage } from '../../../../../app/api/appSlice'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
 const EditPaymentModal = ({ studentPayment, deposit }) => {
   const closeRef = useRef(null)
+  // const [errorMessage, setErrorMessage] = useState(``)
   const [isLoading, setLoading] = useState(false)
   const token = useSelector(selectCurrentToken)
   const { courseID } = useParams()
+  const dispatch = useDispatch()
+  const errorText = useSelector(selectErrorMessage)
 
   const credentials = {
     headers: {
@@ -73,7 +78,12 @@ const EditPaymentModal = ({ studentPayment, deposit }) => {
         closeRef.current.click()
       }
     } catch (err) {
+      console.log(err.response.data.message)
       setLoading(false)
+      dispatch({
+        type: `app/setErrorMessage`,
+        payload: err.response.data.message,
+      })
       // setErrorMessage(err.response.data.message)
       // toast.show()
     }
@@ -123,19 +133,19 @@ const EditPaymentModal = ({ studentPayment, deposit }) => {
       >
         <div className='modal-dialog modal-lg'>
           <div className='modal-content  p-10 rounded rounded-5'>
-            {deposit.depositId}
-            <div className='modal-header'>
-              <h4 className='text-center fs-2xl ms-60 fw-bold'>
+            <div className='modal-header d-flex flex-column align-items-center justify-content-center'>
+              <h4 className='text-center fs-2xl  fw-bold'>
                 Edit Payment Record
               </h4>
               <button
                 type='button'
                 className='btn-close'
-                // onClick={(e) => e.stopPropagation()}
+                style={{ visibility: `collapse` }}
                 ref={closeRef}
                 data-bs-dismiss='modal'
                 aria-label='Close'
               ></button>
+              <NewToast errorText={errorText} />
             </div>
             <div className='modal-body'>
               <form
@@ -147,8 +157,9 @@ const EditPaymentModal = ({ studentPayment, deposit }) => {
                     <h5 className={`fs-lg`}>Payment Method</h5>
                   </label>
                   <select
+                    // required
                     {...register(`paymentMethod`)}
-                    className='w-75 form-control'
+                    className='w-75 form-control text-dark'
                     id={`${studentPayment?.id}-payment-method`}
                   >
                     <option value={`cash`}>Cash</option>
@@ -170,6 +181,7 @@ const EditPaymentModal = ({ studentPayment, deposit }) => {
                         }
                       >
                         <input
+                          // required
                           id={`${studentPayment?.id}-resource`}
                           type='file'
                           multiple
@@ -184,7 +196,8 @@ const EditPaymentModal = ({ studentPayment, deposit }) => {
                     <h5 className={`fs-lg`}>Amount Paid</h5>
                   </label>
                   <input
-                    className='w-75 form-control'
+                    // required
+                    className='w-75 form-control text-dark'
                     id={`${studentPayment?.id}-amount-paid`}
                     type='text'
                     {...register('amount')}
@@ -197,7 +210,7 @@ const EditPaymentModal = ({ studentPayment, deposit }) => {
                   <input
                     disabled
                     defaultValue={studentPayment?.balance}
-                    className='w-75 form-control'
+                    className='w-75 form-control text-dar'
                     id={`${studentPayment?.id}-balance`}
                     type='text'
                     placeholder='100,000'
@@ -208,7 +221,8 @@ const EditPaymentModal = ({ studentPayment, deposit }) => {
                     <h5 className={`fs-lg`}>Date</h5>
                   </label>
                   <input
-                    className='w-75 form-control'
+                    // required
+                    className='w-75 form-control text-dark'
                     id={`${studentPayment?.id}-date`}
                     type='date'
                     placeholder='MM/DD/YYYY'
@@ -220,7 +234,7 @@ const EditPaymentModal = ({ studentPayment, deposit }) => {
                     <h5 className={`fs-lg`}>Comments</h5>
                   </label>
                   <textarea
-                    className='w-75 form-control'
+                    className='w-75 form-control text-dark'
                     style={{ resize: 'none' }}
                     name=''
                     id={`${studentPayment?.id}-comment`}

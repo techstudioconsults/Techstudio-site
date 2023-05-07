@@ -2,7 +2,7 @@ import { Icon } from '@iconify/react'
 import PropTypes from 'prop-types'
 import React from 'react'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
-import { DeleteModal, Portal } from '../../../../../components'
+import { DeleteModal, Portal, ToastComponent } from '../../../../../components'
 import Feedback from '../../../../../components/global/feedbacks/Feedback'
 import { useParams } from 'react-router-dom'
 import { useState } from 'react'
@@ -10,12 +10,15 @@ import download from 'downloadjs'
 import { selectCurrentToken } from '../../../../Auth/api/authSlice'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
+import useToast from '../../../../../hooks/useToast'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
 const AdminResourceListDisplay = ({ isDashboard, file, course, format }) => {
+  const [errorMessage, setErrorMessage] = useState(null)
   const [isLoading, setLoading] = useState(false)
   const token = useSelector(selectCurrentToken)
+  const { toast } = useToast()
   const { resource } = useParams()
   const { courseID } = useParams()
 
@@ -57,7 +60,7 @@ const AdminResourceListDisplay = ({ isDashboard, file, course, format }) => {
     }
   }
 
-  const handleDownload = async (file) => {
+  const handleDownloadNotPdf = async (file) => {
     setLoading(true)
     try {
       const res = await axios.get(
@@ -67,14 +70,44 @@ const AdminResourceListDisplay = ({ isDashboard, file, course, format }) => {
       console.log(res)
       if (res.status === 200) {
         setLoading(false)
-        const blob = new Blob([res.data], { type: 'application/pdf' })
+        const blob = new Blob([res.data], { type: 'text/csv' })
         download(blob, `${file?.name}`)
       }
     } catch (err) {
       setLoading(false)
-      console.log(err.response.data.message)
-      // setErrorMessage(err.response.message)
-      // toast.show()
+      setErrorMessage(err.response.data.message)
+      toast.show()
+    }
+  }
+  const handleDownload = async (file) => {
+    if (file?.extName !== `pdf`) {
+      handleDownloadNotPdf(file)
+    } else {
+      setLoading(true)
+      try {
+        const response = await axios.get(
+          `${baseUrl}/resources/courses/${resource}/resources/${file?.id}/download`,
+          {
+            responseType: 'arraybuffer',
+            ...credentials,
+          }
+        )
+        if (response.status === 200) {
+          setLoading(false)
+          const blob = new Blob([response.data], { type: 'application/pdf' })
+          const url = URL.createObjectURL(blob)
+          const link = document.createElement('a')
+          link.href = url
+          link.setAttribute('download', `${file?.name}.pdf`)
+          document.body.appendChild(link)
+          link.click()
+          document.body.removeChild(link)
+        }
+      } catch (error) {
+        setLoading(false)
+        setErrorMessage(error.message)
+        toast.show()
+      }
     }
   }
 
@@ -82,6 +115,7 @@ const AdminResourceListDisplay = ({ isDashboard, file, course, format }) => {
     <>
       {file ? (
         <>
+          <ToastComponent errorMessage={errorMessage} />
           <Portal wrapperId='react-portal-modal-container'>
             <DeleteModal
               content={{
@@ -143,7 +177,7 @@ const AdminResourceListDisplay = ({ isDashboard, file, course, format }) => {
               <section className='col-1 d-flex align-items-center justify-content-between'>
                 <button
                   onClick={() => handleDownload(file)}
-                  hidden={isDashboard}
+                  hidden={isDashboard || resource === `all`}
                   className='text-blue bg-transparent'
                   style={{ cursor: `pointer` }}
                 >

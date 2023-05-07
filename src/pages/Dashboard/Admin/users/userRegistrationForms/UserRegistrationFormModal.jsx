@@ -11,10 +11,11 @@ const UserRegistrationFormModal = () => {
       tabIndex='-1'
       aria-labelledby='user-form-modal'
     >
-      <div className='modal-dialog modal-fullscreen-md-down modal-lg modal-dialog-scrollable'>
+      <div className='modal-dialog modal-fullscreen-md-down modal-lg modal-dialog-centered'>
         <div className='modal-content p-10'>
           <div className='d-flex justify-content-end'>
             <button
+              style={{ visibility: `collapse` }}
               ref={cancelButtonRef}
               type='button'
               className='btn-close p-2'
@@ -23,11 +24,11 @@ const UserRegistrationFormModal = () => {
             ></button>
           </div>
           <header className={`text-center`}>
-            <h2>Register A User</h2>
+            <h2 className='fs-2xl'>Register A User</h2>
             <p>Create an account for new students, tutors, or an admin.</p>
           </header>
           {/* tab section (tutors, student and admin) */}
-          <section className='mt-10 modal-body hide_scrollbar'>
+          <section className='mt-10 modal-body'>
             <UserRegistrationFormTab cancelBtn={cancelButtonRef} />
           </section>
         </div>

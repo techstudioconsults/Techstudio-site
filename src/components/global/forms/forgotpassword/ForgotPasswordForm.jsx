@@ -98,9 +98,9 @@ const ContactForm = () => {
       </div>
       <footer className={style.caption}>
         <p className={style.footerLink}>
-          Don’t have an account yet?{' '}
-          <Link to={`/register`} className={style.signupLink}>
-            Sign up here
+          Have an account?{' '}
+          <Link to={`/login`} className={style.signupLink}>
+            Sign in here
           </Link>
         </p>
       </footer>

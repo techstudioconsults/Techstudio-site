@@ -9,6 +9,7 @@ import {
 import { useSelector } from 'react-redux'
 import { selectAllTutors } from '../api/usersSlice'
 import SpinnerComponent from '../../../../../components/global/skeletonLoader/SpinnerComponent'
+import Feedback from '../../../../../components/global/feedbacks/Feedback'
 
 const AdminUserListDisplay = () => {
   const [getAllTutors] = useGetAllTutorsMutation()
@@ -34,7 +35,7 @@ const AdminUserListDisplay = () => {
       <section className='container d-flex flex-column gap-5'>
         {tutorsArgs.isLoading ? (
           <SpinnerComponent />
-        ) : (
+        ) : allTutors?.length ? (
           allTutors?.map((tutor, index) => {
             return (
               <div
@@ -50,7 +51,7 @@ const AdminUserListDisplay = () => {
                   </div>
                 </section>
                 <section className='col col-3'>
-                  <div>
+                  <div hidden={courseId !== `all`}>
                     <p className='fs-sm text-secondary'>{tutor?.course[0]}</p>
                   </div>
                 </section>
@@ -80,6 +81,8 @@ const AdminUserListDisplay = () => {
               </div>
             )
           })
+        ) : (
+          <Feedback message={`No Tutor Registered For This Course`} />
         )}
       </section>
     </>

@@ -137,6 +137,7 @@ const ContactForm = () => {
         <div className='d-flex justify-content-between align-items-center'>
           <div className='form-check d-flex align-items-center gap-2'>
             <input
+              disabled
               className='form-check-input'
               type='checkbox'
               value=''

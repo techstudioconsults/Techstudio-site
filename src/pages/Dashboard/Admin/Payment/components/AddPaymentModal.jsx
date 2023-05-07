@@ -7,19 +7,26 @@ import { useForm } from 'react-hook-form'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import axios from 'axios'
 import { selectCurrentToken } from '../../../../Auth/api/authSlice'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { useRef } from 'react'
 import SaveSuccessPayment from '../../../../../components/global/modals/SaveSuccessPayment'
-import { CancelModal, Portal } from '../../../../../components'
+import { CancelModal, Portal, ToastComponent } from '../../../../../components'
+import useToast from '../../../../../hooks/useToast'
+import NewToast from '../../../../../components/global/toast/NewToast'
+import { selectErrorMessage } from '../../../../../app/api/appSlice'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
 const AddPaymentModal = ({ studentPayment }) => {
   const closeRef = useRef(null)
   const [isLoading, setLoading] = useState(false)
+  const [errorMessage, setErrorMessage] = useState(``)
   const token = useSelector(selectCurrentToken)
   const { courseID } = useParams()
+  const { toast } = useToast()
+  const dispatch = useDispatch()
+  const errorText = useSelector(selectErrorMessage)
 
   const credentials = {
     headers: {
@@ -27,11 +34,7 @@ const AddPaymentModal = ({ studentPayment }) => {
     },
   }
 
-  const {
-    // reset,
-    register,
-    handleSubmit,
-  } = useForm()
+  const { reset, register, handleSubmit } = useForm()
 
   const onSubmit = async (data) => {
     setLoading(true)
@@ -56,14 +59,19 @@ const AddPaymentModal = ({ studentPayment }) => {
         credentials
       )
       if (res.status === 200) {
+        reset()
         setLoading(false)
         modal.show()
         closeRef.current.click()
       }
     } catch (err) {
       setLoading(false)
-      // setErrorMessage(err.response.data.message)
-      // toast.show()
+      dispatch({
+        type: `app/setErrorMessage`,
+        payload: err.response.data.message,
+      })
+      setErrorMessage(err.response.data.message)
+      toast.show()
     }
   }
 
@@ -111,18 +119,23 @@ const AddPaymentModal = ({ studentPayment }) => {
       >
         <div className='modal-dialog modal-lg'>
           <div className='modal-content  p-10 rounded rounded-5'>
-            <div className='modal-header'>
-              <h4 className='text-center fs-2xl ms-60 fw-bold'>
-                Add Payment Record
-              </h4>
-              <button
-                type='button'
-                className='btn-close'
-                // onClick={(e) => e.stopPropagation()}
-                ref={closeRef}
-                data-bs-dismiss='modal'
-                aria-label='Close'
-              ></button>
+            <div className='modal-header '>
+              <section className='d-flex flex-column align-items-center justify-content-center gap-1 w-100'>
+                <h4 className='text-center fs-2xl fw-bold'>
+                  Add Payment Record
+                </h4>
+                {/* =========================================== */}
+                <NewToast errorText={errorText} />
+                {/* =========================================== */}
+                <button
+                  type='button'
+                  className='btn-close'
+                  style={{ visibility: `collapse` }}
+                  ref={closeRef}
+                  data-bs-dismiss='modal'
+                  aria-label='Close'
+                ></button>
+              </section>
             </div>
             <div className='modal-body'>
               <form
@@ -136,9 +149,12 @@ const AddPaymentModal = ({ studentPayment }) => {
                   <select
                     {...register(`paymentMethod`)}
                     required
-                    className='w-75 form-control'
+                    className='w-75 form-control text-dark'
                     id={`${studentPayment.id}-payment-method`}
                   >
+                    <option value='' hidden>
+                      Select Payment Method
+                    </option>
                     <option value={`cash`}>Cash</option>
                     <option value={`pos`}>POS</option>
                     <option value={`transfer`}>Transfer</option>
@@ -158,6 +174,7 @@ const AddPaymentModal = ({ studentPayment }) => {
                         }
                       >
                         <input
+                          className='text-dark'
                           required
                           id={`${studentPayment.id}-resource`}
                           type='file'
@@ -174,7 +191,7 @@ const AddPaymentModal = ({ studentPayment }) => {
                   </label>
                   <input
                     required
-                    className='w-75 form-control'
+                    className='w-75 form-control text-dark'
                     id={`${studentPayment.id}-amount-paid`}
                     type='text'
                     {...register('amount')}
@@ -199,7 +216,7 @@ const AddPaymentModal = ({ studentPayment }) => {
                   </label>
                   <input
                     required
-                    className='w-75 form-control'
+                    className='w-75 form-control text-dark'
                     id={`${studentPayment.id}-date`}
                     type='date'
                     placeholder='MM/DD/YYYY'
@@ -211,7 +228,7 @@ const AddPaymentModal = ({ studentPayment }) => {
                     <h5 className={`fs-lg`}>Comments</h5>
                   </label>
                   <textarea
-                    className='w-75 form-control'
+                    className='w-75 form-control text-dark'
                     style={{ resize: 'none' }}
                     name=''
                     id={`${studentPayment.id}-comment`}
@@ -242,6 +259,7 @@ const AddPaymentModal = ({ studentPayment }) => {
                   >
                     Cancel
                   </button>
+                  <ToastComponent errorMessage={errorMessage} />
                 </div>
               </form>
             </div>

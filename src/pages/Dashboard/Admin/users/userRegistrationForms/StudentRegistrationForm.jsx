@@ -12,24 +12,6 @@ import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { ErrorMessage } from '@hookform/error-message'
 
-const validation = {
-  required: 'This input is required.',
-  minLength: {
-    value: 4,
-    message: 'This input must exceed 3 characters',
-  },
-}
-
-// const schema = yup.object().shape({
-//   firstName: yup.string().required('first name is required'),
-//   lastName: yup.string().required('last name is required'),
-//   email: yup.string().required('email is required'),
-//   phoneNumber: yup.string().required('phone number is required'),
-//   // course: yup.string().required('course is required'),
-//   deposit: yup.string().required('deposit is required'),
-//   userRole: yup.string().required('use role is required'),
-// })
-
 const StudentRegistrationForm = ({ cancelBtn }) => {
   const [signupStudent, { isLoading }] = useSignupStudentMutation()
 
@@ -52,7 +34,7 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
     register,
     reset,
     handleSubmit,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors },
   } = useForm({
     criteriaMode: 'all',
     mode: 'onChange',
@@ -77,7 +59,6 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
   }
 
   const OnSubmit = async (data) => {
-    console.log(data)
     const formData = {
       ...data,
       phoneNumber: parseInt(data.phoneNumber),
@@ -87,22 +68,19 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
       // not in the design
       paymentMethod: `transfer`,
     }
-    console.log(formData)
 
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
         document.getElementById('feedback')
       )
       const res = await signupStudent(formData).unwrap()
-      console.log(res)
-      // res.success ? modal.show() : null
       if (res.success) {
         cancelBtn.current.click()
         modal.show()
         getAllStudents().unwrap()
+        reset()
       }
     } catch (err) {
-      console.log(err)
       setErrorMessage(err.data.message)
       toast.show()
     }
@@ -117,8 +95,6 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
   useEffect(() => {
     getCourses()
   }, [getCourses])
-
-  // console.log(courses)
 
   const coursesOption = courses?.map((course) => {
     return (
@@ -151,7 +127,10 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
         <h5 className='fs-lg'>User’s Profile</h5>
         <p>Fill in the user’s details. All fields are required.</p>
       </header>
-      <div className='mt-10 container'>
+      <div
+        style={{ height: `25rem`, overflowY: `auto` }}
+        className='mt-10 container hide_scrollbar'
+      >
         {/* first name */}
         <div className='mb-8 d-flex row align-items-center'>
           <div className='col-4'>
@@ -165,11 +144,12 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
           <div className='col-8'>
             <div className={` w-100`}>
               <input
+                required
                 placeholder='First name'
                 type='text'
-                className='form-control form-control-lg fs-sm'
+                className='form-control form-control-lg fs-sm text-dark'
                 id='s-firstName'
-                {...register('firstName', validation)}
+                {...register('firstName')}
               />
               <ErrorMessage
                 errors={errors}
@@ -200,11 +180,12 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
           <div className='col-8'>
             <div className={` w-100`}>
               <input
+                required
                 placeholder='Last name'
                 type='text'
-                className='form-control form-control-lg fs-sm'
+                className='form-control form-control-lg fs-sm text-dark'
                 id='s-lastName'
-                {...register('lastName', validation)}
+                {...register('lastName')}
               />
               <ErrorMessage
                 errors={errors}
@@ -235,11 +216,12 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
           <div className='col-8'>
             <div className={` w-100`}>
               <input
+                required
                 placeholder='Email Address'
                 type='text'
-                className='form-control form-control-lg fs-sm'
+                className='form-control form-control-lg fs-sm text-dark'
                 id='s-email'
-                {...register('email', validation)}
+                {...register('email')}
               />
               <ErrorMessage
                 errors={errors}
@@ -270,12 +252,13 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
           <div className='col-8'>
             <div className={` w-100`}>
               <input
+                required
                 type='tel'
                 pattern='[0-9]{11}'
                 placeholder='08012345678'
-                className='form-control form-control-lg fs-sm'
+                className='form-control form-control-lg fs-sm text-dark'
                 id='s-phoneNumber'
-                {...register('phoneNumber', validation)}
+                {...register('phoneNumber')}
               />
               <ErrorMessage
                 errors={errors}
@@ -306,12 +289,16 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
           <div className='col-8'>
             <div className={` w-100`}>
               <select
+                required
                 placeholder='Select a course'
                 onChange={getClasses}
-                className='form-select fs-sm'
+                className='form-select fs-sm text-dark'
                 aria-label='Default select example'
-                // {...register(`courses`, validation)}
+                // {...register(`courses`)}
               >
+                <option value='' hidden>
+                  Select a Course
+                </option>
                 {coursesOption}
               </select>
               <ErrorMessage
@@ -343,10 +330,14 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
           <div className='col-8'>
             <div className={` w-100`}>
               <select
+                required
                 {...register(`schedule`)}
-                className='form-select fs-sm'
+                className='form-select fs-sm text-dark'
                 aria-label='Default select example'
               >
+                <option value='' hidden>
+                  Select A Class
+                </option>
                 {classOption}
               </select>
             </div>
@@ -365,11 +356,12 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
           <div className='col-8'>
             <div className={` w-100`}>
               <input
+                required
                 placeholder='300,000'
                 type='number'
-                className='form-control form-control-lg fs-sm'
+                className='form-control form-control-lg fs-sm text-dark'
                 id='payment'
-                {...register('deposit', validation)}
+                {...register('deposit')}
               />
               <ErrorMessage
                 errors={errors}
@@ -388,7 +380,8 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
           </div>
         </div>
 
-        {/* password input*/}
+        {/* password input
+        required*/}
         <div className='mb-8 d-flex row align-items-center'>
           <div className='col-4'>
             <label

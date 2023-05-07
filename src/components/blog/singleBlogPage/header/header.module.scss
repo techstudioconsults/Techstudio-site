@@ -27,6 +27,7 @@
       max-width: fn.rem(939);
 
       .title {
+        color: colors.$light;
         @include breakpoint-up('lg') {
         }
       }

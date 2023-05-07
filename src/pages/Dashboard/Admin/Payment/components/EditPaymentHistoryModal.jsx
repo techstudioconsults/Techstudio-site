@@ -12,6 +12,7 @@ import { Portal } from '../../../../../components'
 
 const EditPaymentHistoryModal = ({ studentPayment }) => {
   const closeBtn = useRef()
+  const [errorMessage, setErrorMessage] = useState(``)
   const [dontShowEditButton, setDontShowEditButton] = useState(true)
   const [depositID, setDepositID] = useState(true)
   const singleStudentPaymentRecord = useSelector(
@@ -45,6 +46,7 @@ const EditPaymentHistoryModal = ({ studentPayment }) => {
             />
           </Portal>
           <tr
+            style={{ cursor: `pointer` }}
             onClick={() => handleEditButton(deposit?.depositId)}
             key={deposit.depositId}
             className='text-start border border-top-0 border-bottom-1 border-start-0 border-end-0 align-items-center mb-3'
@@ -97,7 +99,7 @@ const EditPaymentHistoryModal = ({ studentPayment }) => {
                 <button
                   type='button'
                   className='btn-close'
-                  // onClick={(e) => e.stopPropagation()}
+                  style={{ visibility: `hidden` }}
                   ref={closeBtn}
                   data-bs-dismiss='modal'
                   aria-label='Close'

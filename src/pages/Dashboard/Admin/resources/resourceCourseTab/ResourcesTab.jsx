@@ -47,7 +47,6 @@ const ResourceTab = () => {
           file={file}
           type={`document`}
           format={fileFormat}
-          // course={state?.courseTitle}
         />
       )
     }
