@@ -63,7 +63,7 @@ const AddAFile = () => {
   }
 
   const {
-    // reset,
+    reset,
     register,
     handleSubmit,
     control,
@@ -95,6 +95,10 @@ const AddAFile = () => {
       )
 
       if (res.data.success) {
+        reset({
+          course: '',
+          file: '',
+        })
         setIsLoading(false)
         cancelButtonRef.current.click()
         modal.show()

@@ -1,12 +1,17 @@
 import PropTypes from 'prop-types'
-import { useGetStudentPaymentRecordsByCourseIDsMutation } from '../../../pages/Dashboard/Admin/Payment/api/paymentApiSlice'
+import {
+  useGetRevenueInfoMutation,
+  useGetStudentPaymentRecordsByCourseIDsMutation,
+} from '../../../pages/Dashboard/Admin/Payment/api/paymentApiSlice'
 
 const SaveSuccessPayment = ({ content }) => {
   const [getStudentPaymentRecordsByCourseIDs] =
     useGetStudentPaymentRecordsByCourseIDsMutation()
+  const [getRevenueInfo] = useGetRevenueInfoMutation()
 
   const handleClick = async () => {
     await getStudentPaymentRecordsByCourseIDs(content?.courseID).unwrap()
+    await getRevenueInfo(content?.courseID).unwrap()
   }
 
   return (

@@ -4,17 +4,51 @@ import style from '../style/paymentClasses.module.scss'
 import { Icon } from '@iconify/react'
 import { useSelector } from 'react-redux'
 import { selectSingleStudentsPaymentRecord } from '../api/paymentSlice'
+import { selectCurrentToken } from '../../../../Auth/api/authSlice'
+import axios from 'axios'
+import download from 'downloadjs'
+
+const baseUrl = process.env.REACT_APP_BASE_URL
 
 const FullPaymentHistoryModal = ({ studentPayment }) => {
-  // const [records, setRecords] = useState({})
+  const token = useSelector(selectCurrentToken)
   const singleStudentPaymentRecord = useSelector(
     selectSingleStudentsPaymentRecord
   )
 
+  const credentials = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'text/csv',
+    },
+  }
+
+  const handleDownload = async (studentID) => {
+    try {
+      const res = await axios.get(
+        `${baseUrl}/payments/students/${studentID}/download`,
+        credentials
+      )
+      console.log(res.data)
+      if (res.status === 200) {
+        // setLoading(false)
+        const blob = new Blob([res.data], { type: 'text/csv' })
+        download(blob, `Payment Details.csv`)
+      }
+    } catch (err) {
+      // setLoading(false)
+      // setErrorMessage(err.response.data.message)
+      // toast.show()
+    }
+  }
+
   const depositHistory = singleStudentPaymentRecord?.deposits?.map(
     (deposit) => {
       return (
-        <tr key={deposit.depositId} className='text-start'>
+        <tr
+          key={deposit.depositId}
+          className='text-start border border-top-1 border-bottom-1 border-start-0 border-end-0 align-items-center mb-3'
+        >
           <td className='px-2 py-3 fw-semibold text-primary'>
             <p className='text-primary'>{deposit?.paymentMethod}</p>
             <div>
@@ -133,7 +167,12 @@ const FullPaymentHistoryModal = ({ studentPayment }) => {
                 <div className='d-flex justify-content-between align-items-center w-100 '>
                   <h4 className='fw-bold'>Payment History</h4>
                   <div className='d-flex gap-2'>
-                    <button className='btn btn-primary px-4 d-flex gap-2'>
+                    <button
+                      onClick={() =>
+                        handleDownload(singleStudentPaymentRecord.id)
+                      }
+                      className='btn btn-primary px-4 d-flex gap-2'
+                    >
                       {/* <img src={null} alt='img' /> */}
                       <Icon
                         width={`1.5rem`}

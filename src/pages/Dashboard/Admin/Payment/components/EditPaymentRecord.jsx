@@ -13,10 +13,11 @@ import { SaveSuccess } from '../../../../../components'
 import CancelModal from './CancelModal'
 import { useRef } from 'react'
 import SaveSuccessPayment from '../../../../../components/global/modals/SaveSuccessPayment'
+import { useEffect } from 'react'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
-const EditPaymentModal = ({ studentPayment }) => {
+const EditPaymentModal = ({ studentPayment, deposit }) => {
   const closeRef = useRef(null)
   const [isLoading, setLoading] = useState(false)
   const token = useSelector(selectCurrentToken)
@@ -28,28 +29,12 @@ const EditPaymentModal = ({ studentPayment }) => {
     },
   }
 
-  console.log(studentPayment)
-
-  // const defaultValues = {
-  //   topic: state.topic,
-  //   date: new Date(state.date).toLocaleDateString('en-CA'),
-  //   time: state.time,
-  //   class: { label: state.classTitle, value: state.classId },
-  //   tutor: {
-  //     value: state.tutorId,
-  //     label: state.tutorName,
-  //   },
-  //   resources: [
-  //     ...state.resources.audio,
-  //     ...state.resources.video,
-  //     ...state.resources.document,
-  //   ].map((resource) => {
-  //     return {
-  //       value: resource.id,
-  //       label: `${resource.name}`,
-  //     }
-  //   }),
-  // }
+  const defaultValues = {
+    paymentMethod: deposit.paymentMethod,
+    paymentDate: new Date(deposit.dateOfPayment).toLocaleDateString('en-CA'),
+    amount: deposit.amount,
+    comments: deposit.comments,
+  }
   // console.log(defaultValues)
 
   const {
@@ -60,7 +45,7 @@ const EditPaymentModal = ({ studentPayment }) => {
     criteriaMode: 'all',
     mode: 'onChange',
     // resolver: yupResolver(schema),
-    // defaultValues,
+    defaultValues,
   })
 
   const onSubmit = async (data) => {
@@ -80,8 +65,7 @@ const EditPaymentModal = ({ studentPayment }) => {
       )
 
       const res = await axios.patch(
-        `${baseUrl}/payments/students/${studentPayment?.id}`,
-        // `${baseUrl}/students/${studentID}}/deposit/${depositID}`,
+        `${baseUrl}/payments/students/${studentPayment.id}/deposits/${deposit.depositId}`,
         formData,
         credentials
       )
@@ -117,7 +101,7 @@ const EditPaymentModal = ({ studentPayment }) => {
       /> */}
       <div
         className='modal fade'
-        id={`edit-${studentPayment?.id}-modal`}
+        id={`edit-${deposit?.depositId}-modal`}
         data-bs-backdrop='static'
         data-bs-keyboard='false'
         tabIndex='-1'
@@ -126,6 +110,7 @@ const EditPaymentModal = ({ studentPayment }) => {
       >
         <div className='modal-dialog modal-lg'>
           <div className='modal-content  p-10 rounded rounded-5'>
+            {deposit.depositId}
             <div className='modal-header'>
               <h4 className='text-center fs-2xl ms-60 fw-bold'>
                 Edit Payment Record
@@ -151,7 +136,7 @@ const EditPaymentModal = ({ studentPayment }) => {
                   <select
                     {...register(`paymentMethod`)}
                     className='w-75 form-control'
-                    id={`${studentPayment.id}-payment-method`}
+                    id={`${studentPayment?.id}-payment-method`}
                   >
                     <option value={`cash`}>Cash</option>
                     <option value={`pos`}>POS</option>
@@ -172,7 +157,7 @@ const EditPaymentModal = ({ studentPayment }) => {
                         }
                       >
                         <input
-                          id={`${studentPayment.id}-resource`}
+                          id={`${studentPayment?.id}-resource`}
                           type='file'
                           multiple
                           {...register('files')}
@@ -187,7 +172,7 @@ const EditPaymentModal = ({ studentPayment }) => {
                   </label>
                   <input
                     className='w-75 form-control'
-                    id={`${studentPayment.id}-amount-paid`}
+                    id={`${studentPayment?.id}-amount-paid`}
                     type='text'
                     {...register('amount')}
                   />
@@ -200,7 +185,7 @@ const EditPaymentModal = ({ studentPayment }) => {
                     disabled
                     defaultValue={studentPayment?.balance}
                     className='w-75 form-control'
-                    id={`${studentPayment.id}-balance`}
+                    id={`${studentPayment?.id}-balance`}
                     type='text'
                     placeholder='100,000'
                   />
@@ -211,7 +196,7 @@ const EditPaymentModal = ({ studentPayment }) => {
                   </label>
                   <input
                     className='w-75 form-control'
-                    id={`${studentPayment.id}-date`}
+                    id={`${studentPayment?.id}-date`}
                     type='date'
                     placeholder='MM/DD/YYYY'
                     {...register('paymentDate')}
@@ -225,7 +210,7 @@ const EditPaymentModal = ({ studentPayment }) => {
                     className='w-75 form-control'
                     style={{ resize: 'none' }}
                     name=''
-                    id={`${studentPayment.id}-comment`}
+                    id={`${studentPayment?.id}-comment`}
                     cols='30'
                     rows='3'
                     {...register('comments')}

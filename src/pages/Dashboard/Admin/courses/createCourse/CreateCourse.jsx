@@ -118,7 +118,7 @@ const CreateCourse = () => {
   }, [findTutors])
 
   const {
-    // reset,
+    reset,
     register,
     handleSubmit,
     control,
@@ -215,6 +215,7 @@ const CreateCourse = () => {
 
       const res = await axios.post(`${baseUrl}/courses`, formData, credentials)
       if (res.status === 201) {
+        reset()
         setLoading(false)
         modal.show()
       }

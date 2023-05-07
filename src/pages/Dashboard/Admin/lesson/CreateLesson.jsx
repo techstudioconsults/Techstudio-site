@@ -164,7 +164,7 @@ const CreateLesson = () => {
   }
 
   const {
-    // reset,
+    reset,
     register,
     handleSubmit,
     control,
@@ -206,6 +206,7 @@ const CreateLesson = () => {
       )
 
       if (res.status === 201) {
+        reset()
         setLoading(false)
         modal.show()
       }

@@ -121,6 +121,7 @@ const AddPaymentModal = ({ studentPayment }) => {
                   </label>
                   <select
                     {...register(`paymentMethod`)}
+                    required
                     className='w-75 form-control'
                     id={`${studentPayment.id}-payment-method`}
                   >
@@ -143,6 +144,7 @@ const AddPaymentModal = ({ studentPayment }) => {
                         }
                       >
                         <input
+                          required
                           id={`${studentPayment.id}-resource`}
                           type='file'
                           multiple
@@ -157,6 +159,7 @@ const AddPaymentModal = ({ studentPayment }) => {
                     <h5 className={`fs-lg`}>Amount Paid</h5>
                   </label>
                   <input
+                    required
                     className='w-75 form-control'
                     id={`${studentPayment.id}-amount-paid`}
                     type='text'
@@ -181,6 +184,7 @@ const AddPaymentModal = ({ studentPayment }) => {
                     <h5 className={`fs-lg`}>Date</h5>
                   </label>
                   <input
+                    required
                     className='w-75 form-control'
                     id={`${studentPayment.id}-date`}
                     type='date'

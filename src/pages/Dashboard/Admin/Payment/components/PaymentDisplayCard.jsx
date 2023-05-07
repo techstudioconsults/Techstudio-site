@@ -11,6 +11,7 @@ import { Icon } from '@iconify/react'
 import { Portal } from '../../../../../components'
 import { useGetSingleStudentPaymentRecordsMutation } from '../api/paymentApiSlice'
 import EditPaymentModal from './EditPaymentRecord'
+import EditPaymentHistoryModal from './EditPaymentHistoryModal'
 
 const PaymentDisplayCard = ({ paymentDetail }) => {
   const [getSingleStudentPaymentRecords] =
@@ -43,10 +44,11 @@ const PaymentDisplayCard = ({ paymentDetail }) => {
       console.log(err)
     }
   }
-  const showEditPaymentForm = (studentID) => {
+  const showEditPaymentModal = async (studentID) => {
     try {
+      await getSingleStudentPaymentRecords(studentID).unwrap()
       let modal = bootstrap.Modal.getOrCreateInstance(
-        document.getElementById(`edit-${studentID}-modal`)
+        document.getElementById(`payment-modal-${studentID}-edit`)
       )
       modal.show()
     } catch (err) {
@@ -67,7 +69,6 @@ const PaymentDisplayCard = ({ paymentDetail }) => {
 
   return (
     <div
-      onClick={() => console.log(paymentDetail)}
       key={paymentDetail?.id}
       className={[
         style.box,
@@ -81,7 +82,7 @@ const PaymentDisplayCard = ({ paymentDetail }) => {
         <FullPaymentHistoryModal studentPayment={paymentDetail} />
       </Portal>
       <Portal>
-        <EditPaymentModal studentPayment={paymentDetail} />
+        <EditPaymentHistoryModal studentPayment={paymentDetail} />
       </Portal>
 
       <div className='col-3 text-start'>
@@ -130,7 +131,7 @@ const PaymentDisplayCard = ({ paymentDetail }) => {
             </li>
             <li>
               <button
-                onClick={() => showEditPaymentForm(paymentDetail.id)}
+                onClick={() => showEditPaymentModal(paymentDetail.id)}
                 className='dropdown-item'
               >
                 <Icon width={`1.5rem`} icon='material-symbols:edit-note' /> Edit

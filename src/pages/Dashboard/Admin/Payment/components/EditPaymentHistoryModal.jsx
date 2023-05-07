@@ -1,113 +1,165 @@
-import React, { useState } from 'react'
-import style from '../style/paymentClasses.module.scss'
+/* eslint-disable react/prop-types */
+import React from 'react'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+import { Icon } from '@iconify/react'
+import { useSelector } from 'react-redux'
+import { selectSingleStudentsPaymentRecord } from '../api/paymentSlice'
 import { MdOutlineEditNote } from 'react-icons/md'
-import { AiOutlineFolderAdd } from 'react-icons/ai'
-import EditPaymentRecord from './EditPaymentRecord'
+import { useState } from 'react'
+import EditPaymentModal from './EditPaymentRecord'
+import { useRef } from 'react'
+import { Portal } from '../../../../../components'
 
-const EditPaymentHistoryModal = () => {
-  const data = [
-    {
-      id: 1,
-      paymentMethod: 'Bank Transfer',
-      amountPaid: {
-        price: 'N300,000',
-        date: '08/03/2023',
-      },
-      balance: 'N20000',
-      comments: 'Payment was received on 11/03/2023',
-    },
-    {
-      id: 2,
-      paymentMethod: 'POS Transaction',
-      amountPaid: {
-        price: 'N100,000',
-        date: '10/05/2023',
-      },
-      balance: 'N10000',
-      comments: 'No comment...',
-    },
-    {
-      id: 3,
-      paymentMethod: 'Bank Transfer',
-      amountPaid: {
-        price: 'N50,000',
-        date: '30/05/2023',
-      },
-      balance: 'N50,000',
-      comments: 'Payment was received on 11/03/2023',
-    },
-    {
-      id: 4,
-      paymentMethod: 'Cash Payment',
-      amountPaid: {
-        price: 'N50,000',
-        date: '08/06/2023',
-      },
-      balance: '-',
-      comments: 'Cash payment received by Busola',
-    },
-  ]
-  const [show, setShow] = useState(false)
-  return (
-    <div
-      style={{
-        // width: '90%',
-        // maxWidth: '1000px',
-        left: '0',
-        right: '0',
-        top: '20vh',
-      }}
-      className='position-absolute bg-white p-5 mx-auto rounded-5 shadow w-75 h-75'
-    >
-      {show && <EditPaymentRecord />}
-      <div className='px-5 pt-5 pb-2 flex-column gap-2'>
-        <div className='d-flex justify-content-between align-items-center pb-3 w-100'>
-          <h4 className='fw-bold'>Edit Payment History</h4>
+const EditPaymentHistoryModal = ({ studentPayment }) => {
+  const closeBtn = useRef()
+  const [dontShowEditButton, setDontShowEditButton] = useState(true)
+  const [depositID, setDepositID] = useState(true)
+  const singleStudentPaymentRecord = useSelector(
+    selectSingleStudentsPaymentRecord
+  )
 
-          <button className={[style.editbtn, 'btn btn-primary'].join(' ')}>
-            {' '}
-            <MdOutlineEditNote /> Proceed to Edit
-          </button>
-        </div>
-        <div className='d-flex gap-2'>
-          <h5 className='text-muted fs-4'>
-            Click on the Payment you will like to edit
-          </h5>
-        </div>
-      </div>
-      <div className='px-5 py-3'>
-        {data.map((t) => {
-          return (
-            <div
-              key={t.id}
-              className={[style.editbox, 'row my-4 px-3 '].join(' ')}
-            >
-              <div className='col-3'>
-                <h6>{t.paymentMethod}</h6>
-                <div className='d-flex align-items-center gap-3'>
-                  <AiOutlineFolderAdd
-                    style={{ color: '#0385FF', width: '20px' }}
+  const handleEditAction = async (depositID) => {
+    try {
+      closeBtn.current.click()
+      let modal = bootstrap.Modal.getOrCreateInstance(
+        document.getElementById(`edit-${depositID}-modal`)
+      )
+      modal.show()
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  const handleEditButton = (depositID) => {
+    setDepositID(depositID)
+    setDontShowEditButton(false)
+  }
+
+  const depositHistory = singleStudentPaymentRecord?.deposits?.map(
+    (deposit) => {
+      return (
+        <>
+          <Portal>
+            <EditPaymentModal
+              deposit={deposit}
+              studentPayment={singleStudentPaymentRecord}
+            />
+          </Portal>
+          <tr
+            onClick={() => handleEditButton(deposit?.depositId)}
+            key={deposit.depositId}
+            className='text-start border border-top-0 border-bottom-1 border-start-0 border-end-0 align-items-center mb-3'
+          >
+            <td className='px-2 py-3 fw-semibold text-primary'>
+              <p className='text-primary'>{deposit?.paymentMethod}</p>
+              <div>
+                <p className='fs-sm text-secondary fw-semibold'>
+                  <Icon
+                    width={`1.2rem`}
+                    className='me-2'
+                    icon={`material-symbols:create-new-folder-outline`}
                   />
-                  <p>Transfer Reciept.pdf</p>
-                </div>
-              </div>
-              <div className='col-3'>
-                <h6 className={[style.text]}>{t.amountPaid.price} </h6>
-                <p className='fw-semibold text-muted'>
-                  Date: {t.amountPaid.date}{' '}
+                  Transfer Receipt.pdf
                 </p>
               </div>
-              <div className='col-3'>
-                <h6 className='text-danger'>{t.balance}</h6>
-              </div>
-              <div className='col-3'>
-                <p className='text-muted'>{t.comments}</p>
+            </td>
+            <td className='d-flex flex-column px-2 py-3'>
+              <p className='m-0 text-success fw-semibold'>{deposit?.amount}</p>
+              <p className='m-0 fs-sm'>{deposit?.dateOfPayment}</p>
+            </td>
+            <td className='p-0 px-2 py-3 text-danger fw-semibold'>
+              <p>{deposit?.balance}</p>
+              {deposit?.depositId}
+            </td>
+            <td className='p-0 px-2 py-3 text-secondary fst-italic'>
+              {deposit?.comments || `...no comment`}
+              <p>on 11/03/2023</p>
+            </td>
+          </tr>
+        </>
+      )
+    }
+  )
+
+  return (
+    <>
+      <div
+        className='modal fade'
+        id={`payment-modal-${studentPayment?.id}-edit`}
+        // data-bs-backdrop='static'
+        data-bs-keyboard='false'
+        tabIndex='-1'
+        aria-labelledby='staticBackdropLabel'
+        aria-hidden='true'
+      >
+        <div className='modal-dialog modal-xl'>
+          <div className='modal-content p-5 rounded rounded-5'>
+            <div className='modal-header'>
+              <div className='px-5 pt-5 pb-2 flex-column gap-2 w-100'>
+                <button
+                  type='button'
+                  className='btn-close'
+                  // onClick={(e) => e.stopPropagation()}
+                  ref={closeBtn}
+                  data-bs-dismiss='modal'
+                  aria-label='Close'
+                ></button>
+                <div className='d-flex justify-content-between align-items-center'>
+                  <h4 className='fw-bold'>Edit Payment History</h4>
+
+                  <button
+                    onClick={() => handleEditAction(depositID)}
+                    hidden={dontShowEditButton}
+                    className={['btn btn-primary'].join(' ')}
+                  >
+                    <MdOutlineEditNote fontSize={`1.5rem`} className='mb-1' />{' '}
+                    Proceed to Edit
+                  </button>
+                </div>
+                <div className='d-flex gap-2'>
+                  <p
+                    className='text-secondary fs-lg'
+                    // style={{ letterSpacing: `1px` }}
+                  >
+                    Click on the Payment Record you will like to edit
+                  </p>
+                </div>
               </div>
             </div>
-          )
-        })}
+            <div className='modal-body'>
+              <div
+                className='px-5 py-3'
+                style={{ height: `30rem`, overflow: `auto` }}
+              >
+                <table
+                  style={{
+                    // borderCollapse: 'separate',
+                    // border: '8px solid black',
+                    borderSpacing: '0 20px',
+                  }}
+                  className='table'
+                >
+                  {/* <tr className='mb-4'>
+                    <th className='px-2 py-3 fw-semibold text-black'>
+                      Payment Method
+                    </th>
+                    <th className='px-2 py-3 fw-semibold text-black'>
+                      Amount Paid
+                    </th>
+                    <th className='px-2 py-3 fw-semibold text-black'>
+                      Balance
+                    </th>
+                    <th className='px-2 py-3 fw-semibold text-black'>
+                      Comments
+                    </th>
+                  </tr> */}
+                  <tbody className=''>{depositHistory}</tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

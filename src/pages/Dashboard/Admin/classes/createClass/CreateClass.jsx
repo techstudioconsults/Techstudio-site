@@ -156,7 +156,7 @@ const CreateClass = () => {
   }, [crudeResources])
 
   const {
-    // reset,
+    reset,
     register,
     handleSubmit,
     control,
@@ -172,8 +172,6 @@ const CreateClass = () => {
     setLoading(true)
     const formData = new FormData()
 
-    console.log(data)
-    console.log(new Date(data.endDate).toISOString())
     // const files = [...data.files]
 
     formData.append(`title`, data.title)
@@ -220,6 +218,7 @@ const CreateClass = () => {
       )
       console.log(res)
       if (res.status === 201) {
+        reset()
         setLoading(false)
         modal.show()
       }
