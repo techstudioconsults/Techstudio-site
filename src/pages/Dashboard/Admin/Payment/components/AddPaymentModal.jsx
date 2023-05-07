@@ -70,7 +70,7 @@ const AddPaymentModal = ({ studentPayment }) => {
   const handleCancelAction = (event) => {
     event.stopPropagation()
     let modal = bootstrap.Modal.getOrCreateInstance(
-      document.getElementById('cancel-modal')
+      document.getElementById(`${studentPayment.id}-cancel-modal`)
     )
     modal.show()
   }
@@ -94,6 +94,7 @@ const AddPaymentModal = ({ studentPayment }) => {
           content={{
             action: `add-payment`,
             routeAction: `payment`,
+            paymentID: studentPayment.id,
             courseID: courseID,
             close: closeRef,
           }}

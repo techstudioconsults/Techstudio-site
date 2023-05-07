@@ -68,7 +68,6 @@ const EditPaymentHistoryModal = ({ studentPayment }) => {
             </td>
             <td className='p-0 px-2 py-3 text-danger fw-semibold'>
               <p>{deposit?.balance}</p>
-              {deposit?.depositId}
             </td>
             <td className='p-0 px-2 py-3 text-secondary fst-italic'>
               {deposit?.comments || `...no comment`}

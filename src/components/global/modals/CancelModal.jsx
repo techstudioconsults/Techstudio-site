@@ -50,7 +50,11 @@ const CancelModal = ({ content }) => {
     <div
       onClick={stopPropagation}
       className='modal fade'
-      id='cancel-modal'
+      id={
+        content.routeAction === `payment`
+          ? `${content.paymentID}-cancel-modal`
+          : `cancel-modal`
+      }
       tabIndex='-1'
       aria-labelledby='cancel-modal'
       data-bs-backdrop='static'
