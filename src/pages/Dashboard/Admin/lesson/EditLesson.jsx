@@ -144,11 +144,9 @@ const EditLesson = () => {
 
   const getResources = useCallback(async () => {
     const res = await getResourcesByCourseID(state.courseId).unwrap()
-    console.log(res)
     if (res.success) {
       Object?.keys(res.data.resources)?.forEach((key) => {
         res.data.resources[key]?.map((resource) => {
-          console.log(resource)
           setResources((prevState) => {
             return [
               ...prevState,
@@ -195,7 +193,6 @@ const EditLesson = () => {
     setLoading(true)
     const formData = new FormData()
 
-    console.log(data)
     const files = [...data.files]
 
     formData.append(`topic`, data.topic)
@@ -218,7 +215,6 @@ const EditLesson = () => {
         formData,
         credentials
       )
-      console.log(res)
       if (res.status === 200) {
         setLoading(false)
         modal.show()
