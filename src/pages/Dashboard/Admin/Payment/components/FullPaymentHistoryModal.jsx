@@ -180,7 +180,10 @@ const FullPaymentHistoryModal = ({ studentPayment }) => {
                       />
                       Download As PDF
                     </button>
-                    <button className='btn btn-primary bg-white text-primary px-4 d-flex gap-2'>
+                    <button
+                      disabled
+                      className='btn btn-primary bg-white text-primary px-4 d-flex gap-2'
+                    >
                       {/* <img src={null} alt='img' /> */}
                       <Icon
                         width={`1.2rem`}
@@ -210,7 +213,15 @@ const FullPaymentHistoryModal = ({ studentPayment }) => {
                   </div>
                   <div className='col-4 text-end'>
                     <p className='text-secondary m-0'>Payment Status</p>
-                    <h4 className={[style.text, 'fw-bold  mt-1'].join(' ')}>
+                    <h4
+                      className={[
+                        style.text,
+                        singleStudentPaymentRecord?.status === `Part`
+                          ? `text-danger`
+                          : `text-success`,
+                        'fw-bold  mt-1',
+                      ].join(' ')}
+                    >
                       {singleStudentPaymentRecord?.status}
                     </h4>
                   </div>
