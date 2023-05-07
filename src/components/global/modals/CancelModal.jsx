@@ -10,10 +10,10 @@ const CancelModal = ({ content }) => {
     switch (action) {
       case `create`:
         return `Continue Creating`
-
       case `edit`:
         return `Continue Editing`
-
+      case `add-payment`:
+        return `Continue Adding`
       default:
         return `Continue`
     }
@@ -33,6 +33,9 @@ const CancelModal = ({ content }) => {
         navigate(`/admin/classes/${content.courseID}`, {
           state: { from: `lesson` },
         })
+        break
+      case `payment`:
+        content.close.current.click()
         break
       default:
         return `Continue`

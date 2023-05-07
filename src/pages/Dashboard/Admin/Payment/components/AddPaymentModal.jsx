@@ -8,11 +8,10 @@ import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import axios from 'axios'
 import { selectCurrentToken } from '../../../../Auth/api/authSlice'
 import { useSelector } from 'react-redux'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import { SaveSuccess } from '../../../../../components'
-import CancelModal from './CancelModal'
+import { useParams } from 'react-router-dom'
 import { useRef } from 'react'
 import SaveSuccessPayment from '../../../../../components/global/modals/SaveSuccessPayment'
+import { CancelModal, Portal } from '../../../../../components'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
@@ -67,25 +66,39 @@ const AddPaymentModal = ({ studentPayment }) => {
       // toast.show()
     }
   }
+
+  const handleCancelAction = (event) => {
+    event.stopPropagation()
+    let modal = bootstrap.Modal.getOrCreateInstance(
+      document.getElementById('cancel-modal')
+    )
+    modal.show()
+  }
+
   return (
     <>
-      <SaveSuccessPayment
-        content={{
-          title: `New Payment Record Added!`,
-          desc: `New payment record has been added for ${studentPayment?.fullName}.
+      <Portal>
+        <SaveSuccessPayment
+          content={{
+            title: `New Payment Record Added!`,
+            desc: `New payment record has been added for ${studentPayment?.fullName}.
           Kindly click continue to exit.`,
-          courseID: courseID,
-          studentID: studentPayment?.id,
-          action: `payment`,
-        }}
-      />
-      {/* <CancelModal
-        content={{
-          action: `create`,
-          routeAction: `class`,
-          courseID: courseID,
-        }}
-      /> */}
+            courseID: courseID,
+            studentID: studentPayment?.id,
+            action: `payment`,
+          }}
+        />
+      </Portal>
+      <Portal>
+        <CancelModal
+          content={{
+            action: `add-payment`,
+            routeAction: `payment`,
+            courseID: courseID,
+            close: closeRef,
+          }}
+        />
+      </Portal>
       <div
         className='modal fade'
         id={`add-${studentPayment?.id}-modal`}
@@ -221,7 +234,8 @@ const AddPaymentModal = ({ studentPayment }) => {
                   </button>
                   <button
                     type='button'
-                    data-bs-dismiss='modal'
+                    onClick={handleCancelAction}
+                    // data-bs-dismiss='modal'
                     style={{ width: '191px' }}
                     className='btn border border-danger px-5 text-danger'
                   >
