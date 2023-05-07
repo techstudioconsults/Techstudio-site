@@ -18,12 +18,11 @@ import {
 } from '../../../../components'
 import { selectCurrentToken } from '../../../Auth/api/authSlice'
 import useToast from '../../../../hooks/useToast'
-import { useLocation, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { ErrorMessage } from '@hookform/error-message'
 import { useGetClassByCourseIDMutation } from '../classes/api/classApiSlice'
-import { useViewCoursesDetailsMutation } from '../courses/api/coursesApiSlice'
 import { useGetResourcesByCourseIDMutation } from '../resources/api/resourceApiSlice'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
@@ -92,7 +91,6 @@ const CreateLesson = () => {
   const [isLoading, setLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState(null)
   const [getClassesByCourseID] = useGetClassByCourseIDMutation()
-  const [viewCoursesDetails] = useViewCoursesDetailsMutation()
   const [getResourcesByCourseID] = useGetResourcesByCourseIDMutation()
   const { toast } = useToast()
   const { courseID } = useParams()
@@ -150,6 +148,7 @@ const CreateLesson = () => {
 
   const getTutors = (value) => {
     setClassID(value)
+    // getResourceForClass()
     classes?.map((singleClass) => {
       if (singleClass.id === value) {
         const tutorsList = singleClass.tutors.map((tutor) => {

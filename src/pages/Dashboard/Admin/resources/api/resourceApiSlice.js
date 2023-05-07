@@ -1,5 +1,5 @@
 import { apiSlice } from '../../../../../app/api/apiSlice'
-import { setResources } from './resourceSlice'
+import { setClassResources, setResources } from './resourceSlice'
 
 export const resourceApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -52,6 +52,25 @@ export const resourceApiSlice = apiSlice.injectEndpoints({
       },
     }),
 
+    getResourcesByClassID: builder.mutation({
+      query: (classID) => ({
+        url: `/resources/classes/${classID}`,
+        method: 'GET',
+      }),
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled
+          dispatch(
+            setClassResources({
+              resources: data.data.resources,
+            })
+          )
+        } catch (err) {
+          console.log(err)
+        }
+      },
+    }),
+
     addNewResource: builder.mutation({
       query: (credentials) => ({
         url: `/resources/${credentials.courseID}`,
@@ -74,4 +93,5 @@ export const {
   useGetResourcesByCourseIDMutation,
   useAddNewResourceMutation,
   useDeleteResourceMutation,
+  useGetResourcesByClassIDMutation,
 } = resourceApiSlice

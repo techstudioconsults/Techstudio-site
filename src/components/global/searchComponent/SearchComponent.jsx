@@ -35,6 +35,7 @@ const SearchComponent = () => {
       setQueryResult(res.data)
     } catch (err) {
       console.log(err)
+      setQuery(``)
     }
   }
 
@@ -93,7 +94,8 @@ const SearchComponent = () => {
           <div>
             <p className='fw-semibold text-blue'>{course.title}</p>
             <p className='fs-sm fw-semibold text-secondary'>
-              Courses - Created by Admin on {course.createdAt}
+              Courses - Created by Admin on
+              {new Date(course.createdAt).toLocaleDateString('en-CA')}
             </p>
           </div>
         </div>
@@ -116,7 +118,8 @@ const SearchComponent = () => {
           <div>
             <p className='fw-semibold text-blue'>{singleclass.title}</p>
             <p className='fs-sm fw-semibold text-secondary'>
-              Classes - Created by Admin on {singleclass.createdAt}
+              Classes - Created by Admin on{' '}
+              {new Date(singleclass.createdAt).toLocaleDateString('en-CA')}
             </p>
           </div>
         </div>
@@ -140,7 +143,8 @@ const SearchComponent = () => {
           <div>
             <p className='fw-semibold text-blue'>{lesson.topic}</p>
             <p className='fs-sm fw-semibold text-secondary'>
-              Lesson - Created by Admin on {lesson.date}
+              Lesson - Created by Admin on{' '}
+              {new Date(lesson.date).toLocaleDateString('en-CA')}
               {/*this is not the original date created */}
             </p>
           </div>
@@ -165,7 +169,8 @@ const SearchComponent = () => {
           <div>
             <p className='fw-semibold'>{resource.title}</p>
             <p className='fs-sm fw-semibold text-secondary'>
-              Resources - Uploaded by Admin on {resource.createdAt}
+              Resources - Uploaded by Admin on
+              {new Date(resource.createdAt).toLocaleDateString('en-CA')}
             </p>
           </div>
         </div>
@@ -231,18 +236,18 @@ const SearchComponent = () => {
     <div className={`input-group ${style.searchInput}`}>
       <form
         onSubmit={handleSearchModal}
-        className='d-flex align-items-center justify-content-between w-100'
+        className='d-flex align-items-center justify-content-between w-100 rounded'
       >
         <input
           onChange={handleChange}
           type={`search`}
-          className='form-control border border-0 text-blue h-100 fw-semibold'
+          className='form-control border border-0 text-blue h-100 fw-semibold rounded rounded-0'
           aria-describedby='search'
           placeholder='Search for courses, classes, students and more'
         />
         <button
           type='submit'
-          className={`input-group-text bg-white border border-0 text-secondary h-100`}
+          className={`input-group-text bg-white border border-0 text-secondary h-100 rounded rounded-0`}
           id='searchInputBlock'
         >
           <Icon width={`1.2rem`} icon={`ri:search-line`} />

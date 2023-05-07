@@ -95,8 +95,6 @@ const EditLesson = () => {
   const [viewCoursesDetails] = useViewCoursesDetailsMutation()
   const [getResourcesByCourseID] = useGetResourcesByCourseIDMutation()
 
-  console.log(state)
-
   const token = useSelector(selectCurrentToken)
   const credentials = {
     headers: {
@@ -105,38 +103,44 @@ const EditLesson = () => {
     },
   }
 
+  const defaultValues = {
+    topic: state.topic,
+    date: new Date(state.date).toLocaleDateString('en-CA'),
+    time: state.time,
+    class: { label: state.classTitle, value: state.classId },
+    // tutor: tutors,
+    tutor: {
+      value: state.tutorId,
+      label: state.tutorName,
+    },
+    resources: [
+      ...state.resources.audio,
+      ...state.resources.video,
+      ...state.resources.document,
+    ].map((resource) => {
+      return {
+        value: resource.id,
+        label: `${resource.name}`,
+      }
+    }),
+  }
+
   const getClasses = useCallback(async () => {
     const res = await getClassesByCourseID(state.courseId).unwrap()
     if (res.success) {
-      setClasses(res.data.ongoing)
+      let tutorsList = res.data.ongoing?.map((singleClass) => {
+        if (singleClass.id === state.classId) {
+          return singleClass.tutors.map((tutor) => {
+            return {
+              value: tutor.id,
+              label: tutor.name,
+            }
+          })
+        }
+      })
+      setTutors(...tutorsList)
     }
-  }, [getClassesByCourseID, state.courseId])
-
-  useEffect(() => {
-    getClasses()
-  }, [getClasses])
-
-  const classOption = classes?.map((classItem) => {
-    return {
-      value: classItem.id,
-      label: classItem.title,
-    }
-  })
-
-  const getTutors = (value) => {
-    // setClassID(value)
-    classes?.map((singleClass) => {
-      if (singleClass.id === value) {
-        const tutorsList = singleClass.tutors.map((tutor) => {
-          return {
-            value: tutor.id,
-            label: tutor.name,
-          }
-        })
-        setTutors(tutorsList)
-      }
-    })
-  }
+  }, [getClassesByCourseID, state.classId, state.courseId])
 
   const getResources = useCallback(async () => {
     const res = await getResourcesByCourseID(state.courseId).unwrap()
@@ -159,31 +163,17 @@ const EditLesson = () => {
     }
   }, [getResourcesByCourseID, state.courseId])
 
-  useEffect(() => {
-    getResources()
-  }, [getResources])
+  const classOption = classes?.map((classItem) => {
+    return {
+      value: classItem.id,
+      label: classItem.title,
+    }
+  })
 
-  const defaultValues = {
-    topic: state.topic,
-    date: new Date(state.date).toLocaleDateString('en-CA'),
-    time: state.time,
-    class: { label: state.classTitle, value: state.classId },
-    tutor: {
-      value: state.tutorId,
-      label: state.tutorName,
-    },
-    resources: [
-      ...state.resources.audio,
-      ...state.resources.video,
-      ...state.resources.document,
-    ].map((resource) => {
-      return {
-        value: resource.id,
-        label: `${resource.name}`,
-      }
-    }),
-  }
-  console.log(defaultValues)
+  useEffect(() => {
+    getClasses()
+    getResources()
+  }, [getClasses, getResources])
 
   const {
     // reset,
@@ -214,13 +204,11 @@ const EditLesson = () => {
     formData.append(`time`, data.time)
     if (resources?.length) {
       data?.resources?.forEach((item) =>
-        formData.append('resources', item.value)
+        formData.append('resources[]', item.value)
       )
     }
     files?.forEach((item) => formData.append('files', item))
-    // for (var pair of formData.entries()) {
-    //   console.log(pair[0] + ', ' + pair[1])
-    // }
+
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
         document.getElementById('save-success')
@@ -350,20 +338,23 @@ const EditLesson = () => {
                     <Controller
                       name='class'
                       control={control}
-                      render={({ field: { onChange, value } }) => {
+                      render={({ field }) => {
+                        // render={({ field: { onChange, value } }) => {
                         return (
                           <>
                             <Select
+                              isDisabled={true}
                               styles={colorStyles}
                               className='reactSelect my-2'
                               name='class'
                               placeholder='select a class'
                               options={classOption}
-                              onChange={(selectedOption) => {
-                                onChange(selectedOption)
-                                getTutors(selectedOption.value)
-                              }}
-                              value={value}
+                              // onChange={(selectedOption) => {
+                              //   onChange(selectedOption)
+                              //   getTutors(selectedOption.value)
+                              // }}
+                              // value={value}
+                              {...field}
                             />
                           </>
                         )
