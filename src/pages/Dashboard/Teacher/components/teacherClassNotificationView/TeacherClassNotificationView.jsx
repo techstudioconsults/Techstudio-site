@@ -5,6 +5,7 @@ import { Avatar, AvatarStack } from '../../../../../components'
 import { Icon } from '@iconify/react'
 import { useSelector } from 'react-redux'
 import { selectDetails } from '../../../Admin/classes/api/classSlice'
+import useCurrency from '../../../../../hooks/useCurrency'
 
 const color = {
   color: `#95A8B8`,
@@ -12,6 +13,7 @@ const color = {
 
 const TeacherClassNotificationView = ({ mobile }) => {
   const details = useSelector(selectDetails)
+  const formatCurrency = useCurrency()
 
   const convertDateToReadable = (date) => {
     let dateSet = new Date(date).toUTCString().split(' ')
@@ -38,7 +40,7 @@ const TeacherClassNotificationView = ({ mobile }) => {
               {details?.description}
             </p>
             <p className='mt-3 fs-2xl fw-bold text-danger'>
-              {details.fee ? `N${details?.fee}` : ``}
+              {details.fee ? `${formatCurrency(details?.fee)}` : ``}
             </p>
           </div>
           <div

@@ -14,10 +14,12 @@ import SaveSuccessPayment from '../../../../../components/global/modals/SaveSucc
 import { CancelModal, Portal } from '../../../../../components'
 import NewToast from '../../../../../components/global/toast/NewToast'
 import { selectErrorMessage } from '../../../../../app/api/appSlice'
+import useCurrency from '../../../../../hooks/useCurrency'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
 const EditPaymentModal = ({ studentPayment, deposit }) => {
+  const currency = useCurrency()
   const closeRef = useRef(null)
   // const [errorMessage, setErrorMessage] = useState(``)
   const [isLoading, setLoading] = useState(false)
@@ -209,7 +211,7 @@ const EditPaymentModal = ({ studentPayment, deposit }) => {
                   </label>
                   <input
                     disabled
-                    defaultValue={studentPayment?.balance}
+                    defaultValue={currency(studentPayment?.balance)}
                     className='w-75 form-control text-dar'
                     id={`${studentPayment?.id}-balance`}
                     type='text'

@@ -13,6 +13,7 @@ import { useViewAllCoursesMutation } from '../courses/api/coursesApiSlice'
 import { selectCourses } from '../courses/api/coursesSlice'
 import UserRegistrationFormModal from './userRegistrationForms/UserRegistrationFormModal'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+import { useLocation } from 'react-router-dom'
 
 const AdminUsersView = () => {
   const [viewAllCourses] = useViewAllCoursesMutation()

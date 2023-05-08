@@ -1,6 +1,5 @@
 import React, { useEffect, useCallback } from 'react'
 import style from './style/paymentClasses.module.scss'
-import { Icon } from '@iconify/react'
 import coinImg from '../../../../assets/images/amico.png'
 import { useViewAllCoursesMutation } from '../courses/api/coursesApiSlice'
 import { useGetClassByCourseIDMutation } from '../classes/api/classApiSlice'
@@ -12,6 +11,7 @@ import { AvatarDropdown, SearchComponent } from '../../../../components'
 import PaymentTab from './components/PaymentTab'
 import { useGetRevenueInfoMutation } from './api/paymentApiSlice'
 import { selectRevenueInfo } from './api/paymentSlice'
+import useCurrency from '../../../../hooks/useCurrency'
 
 const AdminPaymentView = () => {
   const [viewAllCourses] = useViewAllCoursesMutation()
@@ -20,6 +20,7 @@ const AdminPaymentView = () => {
   const courses = useSelector(selectCourses)
   const revenueDetail = useSelector(selectRevenueInfo)
   const { courseID } = useParams()
+  const currency = useCurrency()
 
   const getCourses = useCallback(async () => {
     await viewAllCourses().unwrap()
@@ -117,7 +118,7 @@ const AdminPaymentView = () => {
                       Total Revenue
                     </div>
                     <div className='h4 mb-0 fw-semibold'>
-                      NGN {revenueDetail?.totalRevenue}
+                      {currency(revenueDetail?.totalRevenue)}
                     </div>
                   </div>
                   <div>
@@ -137,7 +138,7 @@ const AdminPaymentView = () => {
                       Total Outstanding
                     </div>
                     <div className='h4 mb-0 fw-semibold'>
-                      NGN {revenueDetail?.totalOutstanding}
+                      {currency(revenueDetail?.totalOutstanding)}
                     </div>
                   </div>
                   <div>

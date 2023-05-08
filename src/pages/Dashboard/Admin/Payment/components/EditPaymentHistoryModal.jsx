@@ -9,8 +9,10 @@ import { useState } from 'react'
 import EditPaymentModal from './EditPaymentRecord'
 import { useRef } from 'react'
 import { Portal } from '../../../../../components'
+import useCurrency from '../../../../../hooks/useCurrency'
 
 const EditPaymentHistoryModal = ({ studentPayment }) => {
+  const currency = useCurrency()
   const closeBtn = useRef()
   const [errorMessage, setErrorMessage] = useState(``)
   const [dontShowEditButton, setDontShowEditButton] = useState(true)
@@ -65,11 +67,13 @@ const EditPaymentHistoryModal = ({ studentPayment }) => {
               </div>
             </td>
             <td className='d-flex flex-column px-2 py-3'>
-              <p className='m-0 text-success fw-semibold'>{deposit?.amount}</p>
+              <p className='m-0 text-success fw-semibold'>
+                {currency(deposit?.amount)}
+              </p>
               <p className='m-0 fs-sm'>{deposit?.dateOfPayment}</p>
             </td>
             <td className='p-0 px-2 py-3 text-danger fw-semibold'>
-              <p>{deposit?.balance}</p>
+              <p>{currency(deposit?.balance)}</p>
             </td>
             <td className='p-0 px-2 py-3 text-secondary fst-italic'>
               {deposit?.comments || `...no comment`}

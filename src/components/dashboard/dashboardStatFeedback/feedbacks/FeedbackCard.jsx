@@ -28,7 +28,9 @@ const FeedbackCard = ({ title }) => {
     <section className={style.feedbackCard}>
       <header className={style.header}>
         <h5>{title}</h5>
-        <Link to={`/admin/classes`}>View All</Link>
+        <Link hidden={!classes?.ongoing?.length} to={`/admin/classes`}>
+          View All
+        </Link>
       </header>
       {classByIDArgs.isLoading ? (
         <SpinnerComponent />

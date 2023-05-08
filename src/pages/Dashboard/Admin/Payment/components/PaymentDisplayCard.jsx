@@ -12,8 +12,10 @@ import { Portal } from '../../../../../components'
 import { useGetSingleStudentPaymentRecordsMutation } from '../api/paymentApiSlice'
 import EditPaymentModal from './EditPaymentRecord'
 import EditPaymentHistoryModal from './EditPaymentHistoryModal'
+import useCurrency from '../../../../../hooks/useCurrency'
 
 const PaymentDisplayCard = ({ paymentDetail }) => {
+  const currency = useCurrency()
   const [getSingleStudentPaymentRecords] =
     useGetSingleStudentPaymentRecordsMutation()
 
@@ -90,18 +92,20 @@ const PaymentDisplayCard = ({ paymentDetail }) => {
         <p className='text-muted fs-sm'>{paymentDetail?.schedule} </p>
       </div>
       <div className='col-2 text-center '>
-        <p className='fw-semibold'>N{paymentDetail?.total}</p>
+        <p className='fw-semibold'>{currency(paymentDetail?.total)}</p>
       </div>
       <div className='col-3 text-start'>
         <p className={`${style.text} fw-semibold`}>
-          N{paymentDetail?.amountPaid}
+          {currency(paymentDetail?.amountPaid)}
         </p>
         <p className='text-muted fs-sm'>
           paid on {formatDate(paymentDetail?.dateOfLastPayment)}
         </p>
       </div>
       <div className='col-2 text-start'>
-        <p className='text-primary fw-semibold'>{paymentDetail?.balance} </p>
+        <p className='text-primary fw-semibold'>
+          {currency(paymentDetail?.balance)}
+        </p>
       </div>
       <div className='col-1 text-start'>
         <p className={`${setStatus(paymentDetail?.status)} fw-semibold`}>

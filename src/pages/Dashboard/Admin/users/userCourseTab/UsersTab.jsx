@@ -9,6 +9,8 @@ import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectCurrentToken } from '../../../../Auth/api/authSlice'
 import { useLocation, useParams } from 'react-router-dom'
+import { useRef } from 'react'
+import { useEffect } from 'react'
 const baseUrl = process.env.REACT_APP_BASE_URL
 
 const UserTab = ({ courses }) => {
@@ -16,8 +18,10 @@ const UserTab = ({ courses }) => {
   const [isLoading, setLoading] = useState()
   const token = useSelector(selectCurrentToken)
   const { courseID } = useParams()
-  console.log(courseID)
+  const { state } = useLocation()
   const dispatch = useDispatch()
+  const studentTabRef = useRef()
+  const tutorTabRef = useRef()
 
   const credentials = {
     headers: {
@@ -120,6 +124,16 @@ const UserTab = ({ courses }) => {
     dispatch({ type: `app/setUserType`, payload: `student` })
   }
 
+  useEffect(() => {
+    if (state) {
+      if (state?.location === `student`) {
+        studentTabRef.current.click()
+      } else {
+        tutorTabRef.current.click()
+      }
+    }
+  }, [state, state?.location])
+
   return (
     <section className={style.tab}>
       <div className='d-flex flex-column flex-md-row align-items-center justify-content-between gap-3'>
@@ -127,6 +141,7 @@ const UserTab = ({ courses }) => {
           <div id={`classTab`} className={`${style.tablistGroup}`}>
             <li className={['nav-item', style.link].join(' ')}>
               <a
+                ref={tutorTabRef}
                 className={['nav-link active', style.a].join(' ')}
                 id='ongoing-tab'
                 data-bs-toggle='tab'
@@ -138,6 +153,7 @@ const UserTab = ({ courses }) => {
             </li>
             <li className={['nav-item', style.link].join(' ')}>
               <a
+                ref={studentTabRef}
                 className={['nav-link', style.a].join(' ')}
                 id='previous-tab'
                 data-bs-toggle='tab'

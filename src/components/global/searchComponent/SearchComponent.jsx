@@ -9,12 +9,14 @@ import { useDashboardSearchMutation } from '../../../pages/Dashboard/Admin/api/d
 import { Link } from 'react-router-dom'
 import Feedback from '../feedbacks/Feedback'
 import SpinnerComponent from '../skeletonLoader/SpinnerComponent'
+import { useRef } from 'react'
 
 const SearchComponent = () => {
   const [query, setQuery] = useState(``)
   const [hoverStyle, setHoverStyle] = useState(false)
   const [queryResult, setQueryResult] = useState(null)
   const [dashboardSearch, { isLoading }] = useDashboardSearchMutation()
+  const allResultRef = useRef()
 
   const handleChange = (e) => {
     setQuery(e.target.value)
@@ -29,12 +31,13 @@ const SearchComponent = () => {
       )
       if (modal.show()) {
         res = await dashboardSearch(query).unwrap()
-        console.log(res)
       } else {
         modal.show()
         res = await dashboardSearch(query).unwrap()
       }
+      console.log(res.data)
       setQueryResult(res.data)
+      allResultRef.current.click()
     } catch (err) {
       console.log(err)
       setQuery(``)
@@ -68,10 +71,11 @@ const SearchComponent = () => {
                 className='fs-sm fw-semibold text-secondary'
                 style={{ letterSpacing: `1px` }}
               >
-                {result.email ||
-                  `Created by Admin - ${new Date(
-                    result.createdAt
-                  ).toLocaleDateString('en-CA')}`}
+                {result.type === `user`
+                  ? ``
+                  : `Created by Admin - ${new Date(
+                      result.createdAt
+                    ).toLocaleDateString('en-CA')}`}
               </p>
             </div>
           </section>
@@ -265,16 +269,6 @@ const SearchComponent = () => {
     )
   })
 
-  // const getClasses = () => {
-  //   if (!classesResult?.length && !lessonsResult?.length) {
-  //     return <Feedback />
-  //   } else if (classesResult?.length) {
-  //     return classesResult
-  //   } else if (lessonsResult?.length) {
-  //     return lessonsResult
-  //   }
-  // }
-
   return (
     <div className={`input-group ${style.searchInput}`}>
       <form
@@ -334,7 +328,8 @@ const SearchComponent = () => {
                   <ul className={`nav ${searchStyle.nav} search-tab gap-5`}>
                     <li className='nav-item d-flex align-items-center '>
                       <a
-                        className='nav-link active text-secondary fs-sm d-flex align-items-center gap-2'
+                        ref={allResultRef}
+                        className='nav-link text-secondary fs-sm d-flex align-items-center gap-2'
                         data-bs-toggle='tab'
                         href='#allResult-search'
                       >
@@ -408,7 +403,7 @@ const SearchComponent = () => {
                   </ul>
                   <div className='tab-content my-10' id='tabContent'>
                     <div
-                      className='tab-pane fade active'
+                      className='tab-pane fade'
                       id='allResult-search'
                       aria-labelledby='class-tab-search'
                     >

@@ -15,10 +15,12 @@ import { CancelModal, Portal, ToastComponent } from '../../../../../components'
 import useToast from '../../../../../hooks/useToast'
 import NewToast from '../../../../../components/global/toast/NewToast'
 import { selectErrorMessage } from '../../../../../app/api/appSlice'
+import useCurrency from '../../../../../hooks/useCurrency'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
 const AddPaymentModal = ({ studentPayment }) => {
+  const currency = useCurrency()
   const closeRef = useRef(null)
   const [isLoading, setLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState(``)
@@ -203,7 +205,7 @@ const AddPaymentModal = ({ studentPayment }) => {
                   </label>
                   <input
                     disabled
-                    defaultValue={studentPayment?.balance}
+                    defaultValue={currency(studentPayment?.balance)}
                     className='w-75 form-control'
                     id={`${studentPayment.id}-balance`}
                     type='text'

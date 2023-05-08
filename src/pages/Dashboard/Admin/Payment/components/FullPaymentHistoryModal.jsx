@@ -7,38 +7,54 @@ import { selectSingleStudentsPaymentRecord } from '../api/paymentSlice'
 import { selectCurrentToken } from '../../../../Auth/api/authSlice'
 import axios from 'axios'
 import download from 'downloadjs'
+import useCurrency from '../../../../../hooks/useCurrency'
+import { useState } from 'react'
+import useToast from '../../../../../hooks/useToast'
+import { ToastComponent } from '../../../../../components'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
 const FullPaymentHistoryModal = ({ studentPayment }) => {
+  const [isLoading, setLoading] = useState(false)
+  const [errorMessage, setErrorMessage] = useState(``)
+  const currency = useCurrency()
   const token = useSelector(selectCurrentToken)
   const singleStudentPaymentRecord = useSelector(
     selectSingleStudentsPaymentRecord
   )
+  const { toast } = useToast()
 
   const credentials = {
     headers: {
       Authorization: `Bearer ${token}`,
-      'Content-Type': 'text/csv',
     },
   }
 
   const handleDownload = async (studentID) => {
+    setLoading(true)
     try {
-      const res = await axios.get(
+      const response = await axios.get(
         `${baseUrl}/payments/students/${studentID}/download`,
-        credentials
+        {
+          responseType: 'arraybuffer',
+          ...credentials,
+        }
       )
-      console.log(res.data)
-      if (res.status === 200) {
-        // setLoading(false)
-        const blob = new Blob([res.data], { type: 'text/csv' })
-        download(blob, `Payment Details.csv`)
+      if (response.status === 200) {
+        setLoading(false)
+        const blob = new Blob([response.data], { type: 'application/pdf' })
+        const url = URL.createObjectURL(blob)
+        const link = document.createElement('a')
+        link.href = url
+        link.setAttribute('download', `Payment Details.pdf`)
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
       }
-    } catch (err) {
-      // setLoading(false)
-      // setErrorMessage(err.response.data.message)
-      // toast.show()
+    } catch (error) {
+      setLoading(false)
+      setErrorMessage(error.message)
+      toast.show()
     }
   }
 
@@ -87,15 +103,17 @@ const FullPaymentHistoryModal = ({ studentPayment }) => {
             </div>
           </td>
           <td className='d-flex flex-column px-2 py-3'>
-            <p className='m-0 text-success fw-semibold'>{deposit?.amount}</p>
+            <p className='m-0 text-success fw-semibold'>
+              {currency(deposit?.amount)}
+            </p>
             <p className='m-0 fs-sm'>{deposit?.dateOfPayment}</p>
           </td>
           <td className='p-0 px-2 py-3 text-danger fw-semibold'>
-            <p>{deposit?.balance}</p>
+            <p>{currency(deposit?.balance)}</p>
           </td>
           <td className='p-0 px-2 py-3 text-secondary fst-italic'>
             {deposit?.comments || `...no comment`}
-            <p>on 11/03/2023</p>
+            <p>on {deposit?.lastModified}</p>
           </td>
           <td className='p-0 px-2 py-3 text-secondary'>
             <div>
@@ -151,6 +169,7 @@ const FullPaymentHistoryModal = ({ studentPayment }) => {
 
   return (
     <>
+      <ToastComponent errorMessage={errorMessage} />
       <div
         className='modal fade'
         id={`payment-modal-${studentPayment.id}`}
@@ -175,10 +194,16 @@ const FullPaymentHistoryModal = ({ studentPayment }) => {
                     >
                       {/* <img src={null} alt='img' /> */}
                       <Icon
+                        hidden={isLoading}
                         width={`1.5rem`}
                         icon={`material-symbols:download-sharp`}
                       />
-                      Download As PDF
+                      <div
+                        hidden={!isLoading}
+                        className='spinner-border spinner-border-sm me-5 text-white'
+                        role='status'
+                      />
+                      {isLoading ? `Downloading...` : `Download As PDF`}
                     </button>
                     <button
                       disabled
@@ -208,7 +233,7 @@ const FullPaymentHistoryModal = ({ studentPayment }) => {
                   <div className='col-4 text-end'>
                     <p className='text-secondary m-0'>Course Fee</p>
                     <h4 className='fw-bold fs-3 mt-1'>
-                      NGN {singleStudentPaymentRecord?.total}
+                      {currency(singleStudentPaymentRecord?.total)}
                     </h4>
                   </div>
                   <div className='col-4 text-end'>
