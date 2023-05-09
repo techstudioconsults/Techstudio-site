@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import { Icon } from '@iconify/react'
 import React from 'react'
 import style from '../../../components/dashboard/dashboardNavbar/dashboardnavbar.module.scss'
@@ -6,17 +8,43 @@ import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import Portal from '../POTAL/Portal'
 import { useState } from 'react'
 import { useDashboardSearchMutation } from '../../../pages/Dashboard/Admin/api/dashboardApiSlice'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Feedback from '../feedbacks/Feedback'
 import SpinnerComponent from '../skeletonLoader/SpinnerComponent'
 import { useRef } from 'react'
 
 const SearchComponent = () => {
+  const navigate = useNavigate()
   const [query, setQuery] = useState(``)
-  const [hoverStyle, setHoverStyle] = useState(false)
+  const [hoverStyle] = useState(false)
   const [queryResult, setQueryResult] = useState(null)
   const [dashboardSearch, { isLoading }] = useDashboardSearchMutation()
   const allResultRef = useRef()
+  const closeRef = useRef()
+
+  function route(type, id) {
+    switch (type) {
+      case `course`:
+        navigate(`/admin/courses`)
+        break
+      case `class`:
+        navigate(`/admin/classes`)
+        break
+      case `lesson`:
+        navigate(`/admin/classes`)
+        break
+      case `resource`:
+        navigate(`/admin/resources/all`)
+        break
+      case `user`:
+        navigate(`/admin/users`)
+        break
+
+      default:
+        break
+    }
+    closeRef.current.click()
+  }
 
   const handleChange = (e) => {
     setQuery(e.target.value)
@@ -53,219 +81,218 @@ const SearchComponent = () => {
 
   const allResult = queryResult?.allResult?.map((result) => {
     return (
-      <Link className='d-block' key={result.id} to={`/admin/users`}>
-        <div
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          className={`d-flex align-items-center  p-3 justify-content-between ${
-            hoverStyle ? `bg-info` : null
-          }`}
-        >
-          <section className='d-flex align-items-center gap-3'>
-            <div className='bg-blue p-2 rounded rounded-2 text-white'>
-              <Icon width={`1.5rem`} icon={`ic:baseline-insert-drive-file`} />
-            </div>
-            <div>
-              <p className='fw-semibold'>{result.name}</p>
-              <p
-                className='fs-sm fw-semibold text-secondary'
-                style={{ letterSpacing: `1px` }}
-              >
-                {result.type === `user`
-                  ? ``
-                  : `Created by Admin - ${new Date(
-                      result.createdAt
-                    ).toLocaleDateString('en-CA')}`}
-              </p>
-            </div>
-          </section>
-        </div>
-      </Link>
-    )
-  })
-  const adminResult = queryResult?.result?.admins?.map((admin) => {
-    return (
-      <Link className='d-block' key={admin.id} to={`/admin/users`}>
-        <div
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          className={`d-flex align-items-center  p-3 justify-content-between ${
-            hoverStyle ? `bg-info` : null
-          }`}
-        >
-          <section className='d-flex align-items-center gap-3'>
-            <div className='bg-blue p-2 rounded rounded-2 text-white'>
-              <Icon width={`1.5rem`} icon={`ic:baseline-insert-drive-file`} />
-            </div>
-            <div>
-              <p className='fw-semibold'>{admin.fullName}</p>
-              <p
-                className='fs-sm fw-semibold text-secondary'
-                style={{ letterSpacing: `1px` }}
-              >
-                Email - {admin.email}
-              </p>
-            </div>
-          </section>
-          <div>
-            <p className='fs-sm text-blue fw-semibold'>ADMIN</p>
-          </div>
-        </div>
-      </Link>
-    )
-  })
-  const coursesResult = queryResult?.result?.courses?.map((course) => {
-    return (
-      <Link className='d-block' key={course.id} to={`/admin/courses`}>
-        <div
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          key={course.id}
-          className={`d-flex align-items-center gap-3 p-3 mt-1 ${
-            hoverStyle ? `bg-info` : null
-          }`}
-        >
-          <div className='bg-blue p-2 rounded rounded-2 text-white'>
-            <Icon width={`1.5rem`} icon={`mdi:graduation-cap`} />
-          </div>
-          <div>
-            <p className='fw-semibold text-blue'>{course.title}</p>
-            <p className='fs-sm fw-semibold text-secondary'>
-              Courses - Created by Admin on{` `}
-              {new Date(course.createdAt).toLocaleDateString('en-CA')}
-            </p>
-          </div>
-        </div>
-      </Link>
-    )
-  })
-  const classesResult = queryResult?.result?.classes?.map((singleclass) => {
-    return (
-      <Link className='d-block' key={singleclass.id} to={`/admin/classes`}>
-        <div
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          className={`d-flex align-items-center gap-3 p-3 mt-1 ${
-            hoverStyle ? `bg-info` : null
-          }`}
-        >
-          <div className='bg-blue p-2 rounded rounded-2 text-white'>
-            <Icon width={`1.5rem`} icon={`eos-icons:product-classes`} />
-          </div>
-          <div>
-            <p className='fw-semibold text-blue'>{singleclass.title}</p>
-            <p className='fs-sm fw-semibold text-secondary'>
-              Classes - Created by Admin on{' '}
-              {new Date(singleclass.createdAt).toLocaleDateString('en-CA')}
-            </p>
-          </div>
-        </div>
-      </Link>
-    )
-  })
-  const lessonsResult = queryResult?.result?.lessons?.map((lesson) => {
-    return (
-      <Link className='d-block' key={lesson.id} to={`/admin/classes`}>
-        <div
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          key={lesson.id}
-          className={`d-flex align-items-center gap-3 p-3 mt-1 ${
-            hoverStyle ? `bg-info` : null
-          }`}
-        >
-          <div className='bg-blue p-2 rounded rounded-2 text-white'>
-            <Icon width={`1.5rem`} icon={`eos-icons:product-classes`} />
-          </div>
-          <div>
-            <p className='fw-semibold text-blue'>{lesson.topic}</p>
-            <p className='fs-sm fw-semibold text-secondary'>
-              Lesson - Created by Admin on{' '}
-              {new Date(lesson.date).toLocaleDateString('en-CA')}
-              {/*this is not the original date created */}
-            </p>
-          </div>
-        </div>
-      </Link>
-    )
-  })
-  const resourcesResult = queryResult?.result?.resources?.map((resource) => {
-    return (
-      <Link className='d-block' key={resource.id} to={`/admin/resources`}>
-        <div
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          key={resource.id}
-          className={`d-flex align-items-center gap-3 p-3  mt-1 ${
-            hoverStyle ? `bg-info` : null
-          }`}
-        >
+      <div
+        key={result.id}
+        onClick={() => route(result.type, result.id)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className={`d-flex align-items-center  p-3 justify-content-between ${
+          hoverStyle ? `bg-info` : null
+        }`}
+      >
+        <section className='d-flex align-items-center gap-3'>
           <div className='bg-blue p-2 rounded rounded-2 text-white'>
             <Icon width={`1.5rem`} icon={`ic:baseline-insert-drive-file`} />
           </div>
           <div>
-            <p className='fw-semibold'>{resource.title}</p>
-            <p className='fs-sm fw-semibold text-secondary'>
-              Resources - Uploaded by Admin on
-              {new Date(resource.createdAt).toLocaleDateString('en-CA')}
+            <p className='fw-semibold'>{result.name}</p>
+            <p
+              className='fs-sm fw-semibold text-secondary'
+              style={{ letterSpacing: `1px` }}
+            >
+              <span className='fs-xs'>{result.type.toUpperCase()} - </span>
+              <span>
+                {result.type === `user`
+                  ? result.email
+                  : `Created by Admin - ${new Date(
+                      result.createdAt
+                    ).toLocaleDateString('en-CA')}`}
+              </span>
             </p>
           </div>
+        </section>
+      </div>
+    )
+  })
+  const adminResult = queryResult?.result?.admins?.map((admin) => {
+    return (
+      <div
+        key={admin.id}
+        onClick={() => route(`user`, admin.id)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className={`d-flex align-items-center  p-3 justify-content-between ${
+          hoverStyle ? `bg-info` : null
+        }`}
+      >
+        <section className='d-flex align-items-center gap-3'>
+          <div className='bg-blue p-2 rounded rounded-2 text-white'>
+            <Icon width={`1.5rem`} icon={`ic:baseline-insert-drive-file`} />
+          </div>
+          <div>
+            <p className='fw-semibold'>{admin.fullName}</p>
+            <p
+              className='fs-sm fw-semibold text-secondary'
+              style={{ letterSpacing: `1px` }}
+            >
+              <span className='fs-xs'>EMAIL</span> - {admin.email}
+            </p>
+          </div>
+        </section>
+        <div>
+          <p className='fs-sm text-blue fw-semibold'>ADMIN</p>
         </div>
-      </Link>
+      </div>
+    )
+  })
+  const coursesResult = queryResult?.result?.courses?.map((course) => {
+    return (
+      <div
+        key={course.id}
+        onClick={() => route(`course`, course.id)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className={`d-flex align-items-center gap-3 p-3 mt-1 ${
+          hoverStyle ? `bg-info` : null
+        }`}
+      >
+        <div className='bg-blue p-2 rounded rounded-2 text-white'>
+          <Icon width={`1.5rem`} icon={`mdi:graduation-cap`} />
+        </div>
+        <div>
+          <p className='fw-semibold text-blue'>{course.title}</p>
+          <p className='fs-sm fw-semibold text-secondary'>
+            <span className='fs-xs'>COURSE</span> - Created by Admin on{` `}
+            {new Date(course.createdAt).toLocaleDateString('en-CA')}
+          </p>
+        </div>
+      </div>
+    )
+  })
+  const classesResult = queryResult?.result?.classes?.map((singleclass) => {
+    return (
+      <div
+        onClick={() => route(`class`, singleclass.id)}
+        key={singleclass.id}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className={`d-flex align-items-center gap-3 p-3 mt-1 ${
+          hoverStyle ? `bg-info` : null
+        }`}
+      >
+        <div className='bg-blue p-2 rounded rounded-2 text-white'>
+          <Icon width={`1.5rem`} icon={`eos-icons:product-classes`} />
+        </div>
+        <div>
+          <p className='fw-semibold text-blue'>{singleclass.title}</p>
+          <p className='fs-sm fw-semibold text-secondary'>
+            <span className='fs-xs'>CLASS</span> - Created by Admin on{' '}
+            {new Date(singleclass.createdAt).toLocaleDateString('en-CA')}
+          </p>
+        </div>
+      </div>
+    )
+  })
+  const lessonsResult = queryResult?.result?.lessons?.map((lesson) => {
+    return (
+      <div
+        onClick={() => route(`lesson`, lesson.id)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        key={lesson.id}
+        className={`d-flex align-items-center gap-3 p-3 mt-1 ${
+          hoverStyle ? `bg-info` : null
+        }`}
+      >
+        <div className='bg-blue p-2 rounded rounded-2 text-white'>
+          <Icon width={`1.5rem`} icon={`eos-icons:product-classes`} />
+        </div>
+        <div>
+          <p className='fw-semibold text-blue'>{lesson.topic}</p>
+          <p className='fs-sm fw-semibold text-secondary'>
+            <span className='fs-xs'>LESSON</span> - Created by Admin on{' '}
+            {new Date(lesson.date).toLocaleDateString('en-CA')}
+            {/*this is not the original date created */}
+          </p>
+        </div>
+      </div>
+    )
+  })
+  const resourcesResult = queryResult?.result?.resources?.map((resource) => {
+    return (
+      <div
+        onClick={() => route(`resource`, resource.id)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        key={resource.id}
+        className={`d-flex align-items-center gap-3 p-3  mt-1 ${
+          hoverStyle ? `bg-info` : null
+        }`}
+      >
+        <div className='bg-blue p-2 rounded rounded-2 text-white'>
+          <Icon width={`1.5rem`} icon={`ic:baseline-insert-drive-file`} />
+        </div>
+        <div>
+          <p className='fw-semibold'>{resource.name}</p>
+          <p className='fs-sm fw-semibold text-secondary'>
+            <span className='fs-xs'>RESOURCE</span> - Uploaded by Admin on
+            {` `}
+            {new Date(resource.createdAt).toLocaleDateString('en-CA')}
+          </p>
+        </div>
+      </div>
     )
   })
   const studentsResult = queryResult?.result?.students?.map((student) => {
     return (
-      <Link key={student.id} to={`/admin/users`}>
-        <div
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          key={student.id}
-          className={`d-flex align-items-center gap-3 p-3 mt-1 ${
-            hoverStyle ? `bg-info` : null
-          }`}
-        >
-          <div className='bg-blue p-2 rounded rounded-2 text-white'>
-            <Icon width={`1.5rem`} icon={`mdi:account-student`} />
-          </div>
-          <div>
-            <p className='fw-semibold'>{student.fullName}</p>
-            <p className='fs-sm fw-semibold text-secondary'>{student.email}</p>
-          </div>
+      <div
+        onClick={() => route(`user`, student.id)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        key={student.id}
+        className={`d-flex align-items-center gap-3 p-3 mt-1 ${
+          hoverStyle ? `bg-info` : null
+        }`}
+      >
+        <div className='bg-blue p-2 rounded rounded-2 text-white'>
+          <Icon width={`1.5rem`} icon={`mdi:account-student`} />
         </div>
-      </Link>
+        <div>
+          <p className='fw-semibold'>{student.fullName}</p>
+          <p className='fs-sm fw-semibold text-secondary'>{student.email}</p>
+        </div>
+      </div>
     )
   })
   const tutorsResult = queryResult?.result?.tutors?.map((tutor) => {
     return (
-      <Link className='d-block' key={tutor.id} to={`/admin/users`}>
-        <div
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          key={tutor.id}
-          className={`d-flex align-items-center  p-3 justify-content-between mt-1 ${
-            hoverStyle ? `bg-info` : null
-          }`}
-        >
-          <section className='d-flex align-items-center gap-3 mt-1'>
-            <div className='bg-blue p-2 rounded rounded-2 text-white'>
-              <Icon width={`1.5rem`} icon={`ic:baseline-insert-drive-file`} />
-            </div>
-            <div>
-              <p className='fw-semibold'>{tutor.fullName}</p>
-              <p
-                className='fs-sm fw-semibold text-secondary'
-                style={{ letterSpacing: `1px` }}
-              >
-                Email - {tutor.email}
-              </p>
-            </div>
-          </section>
-          <div>
-            <p className='fs-sm text-blue fw-semibold'>{tutor.status}</p>
+      <div
+        onClick={() => route(`user`, tutor.id)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        key={tutor.id}
+        className={`d-flex align-items-center  p-3 justify-content-between mt-1 ${
+          hoverStyle ? `bg-info` : null
+        }`}
+      >
+        <section className='d-flex align-items-center gap-3 mt-1'>
+          <div className='bg-blue p-2 rounded rounded-2 text-white'>
+            <Icon width={`1.5rem`} icon={`ic:baseline-insert-drive-file`} />
           </div>
+          <div>
+            <p className='fw-semibold'>{tutor.fullName}</p>
+            <p
+              className='fs-sm fw-semibold text-secondary'
+              style={{ letterSpacing: `1px` }}
+            >
+              <span className='fs-xs'>EMAIL</span> - {tutor.email}
+            </p>
+          </div>
+        </section>
+        <div>
+          <p className='fs-sm text-blue fw-semibold'>{tutor.status}</p>
         </div>
-      </Link>
+      </div>
     )
   })
 
@@ -300,6 +327,14 @@ const SearchComponent = () => {
           aria-labelledby='search-modal-label'
           aria-hidden='true'
         >
+          <button
+            type='button'
+            className='btn-close'
+            style={{ visibility: `hidden` }}
+            ref={closeRef}
+            data-bs-dismiss='modal'
+            aria-label='Close'
+          ></button>
           <div className='modal-dialog modal-lg'>
             <div className='modal-content'>
               <div className='modal-body px-0'>

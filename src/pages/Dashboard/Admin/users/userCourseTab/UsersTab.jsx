@@ -124,15 +124,15 @@ const UserTab = ({ courses }) => {
     dispatch({ type: `app/setUserType`, payload: `student` })
   }
 
-  useEffect(() => {
-    if (state) {
-      if (state?.location === `student`) {
-        studentTabRef.current.click()
-      } else {
-        tutorTabRef.current.click()
-      }
-    }
-  }, [state, state?.location])
+  // useEffect(() => {
+  //   if (state) {
+  //     if (state?.location === `student`) {
+  //       studentTabRef.current.click()
+  //     } else {
+  //       tutorTabRef.current.click()
+  //     }
+  //   }
+  // }, [state, state?.location])
 
   return (
     <section className={style.tab}>
