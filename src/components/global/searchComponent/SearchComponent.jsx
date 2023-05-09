@@ -436,7 +436,11 @@ const SearchComponent = () => {
                       </a>
                     </li>
                   </ul>
-                  <div className='tab-content my-10' id='tabContent'>
+                  <div
+                    style={{ height: `30rem`, overflow: `auto` }}
+                    className='tab-content my-10'
+                    id='tabContent'
+                  >
                     <div
                       className='tab-pane fade'
                       id='allResult-search'

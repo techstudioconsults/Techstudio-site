@@ -9,11 +9,11 @@ import { useEffect } from 'react'
 import Feedback from '../../global/feedbacks/Feedback'
 import SpinnerComponent from '../../global/skeletonLoader/SpinnerComponent'
 import { useState } from 'react'
-import { useViewAllCoursesMutation } from '../../../pages/Dashboard/Admin/courses/api/coursesApiSlice'
 import { selectCurrentToken } from '../../../pages/Auth/api/authSlice'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
 import download from 'downloadjs'
+import { selectCourses } from '../../../pages/Dashboard/Admin/courses/api/coursesSlice'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
@@ -22,12 +22,11 @@ const TutorsCardDisplay = () => {
   const [isAll, setAll] = useState(true)
   const [courseID, setCourseID] = useState(`all`)
   const [tutors, setTutors] = useState([])
-  const [courses, setCourses] = useState([])
+  const courses = useSelector(selectCourses)
   const token = useSelector(selectCurrentToken)
   const [getAllTutors, tutorsArgs] = useGetAllTutorsMutation()
   const [getTutorsByCourseID, tutorByCourseIDArgs] =
     useGetTutorsByCourseIDMutation()
-  const [viewAllCourses] = useViewAllCoursesMutation()
 
   const credentials = {
     headers: {
@@ -35,11 +34,6 @@ const TutorsCardDisplay = () => {
       'Content-Type': 'text/csv',
     },
   }
-
-  const getCourses = useCallback(async () => {
-    const res = await viewAllCourses().unwrap()
-    setCourses(res.data)
-  }, [viewAllCourses])
 
   const getTutors = useCallback(async () => {
     setAll(true)
@@ -98,9 +92,9 @@ const TutorsCardDisplay = () => {
   }
 
   useEffect(() => {
-    getCourses()
+    // getCourses()
     getTutors()
-  }, [getCourses, getTutors])
+  }, [getTutors])
 
   const courseOption = courses.map((course) => {
     return (

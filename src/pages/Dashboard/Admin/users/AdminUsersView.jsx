@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import { AvatarDropdown, Portal } from '../../../../components'
+import { AvatarDropdown, Portal, SearchComponent } from '../../../../components'
 import style from './adminUsers.module.scss' //using courses view layout !important
 import 'react-loading-skeleton/dist/skeleton.css'
 import { Icon } from '@iconify/react'
@@ -48,18 +48,7 @@ const AdminUsersView = () => {
               <div
                 className={`input-group border rounded ${style.searchInput}`}
               >
-                <input
-                  type={`search`}
-                  className='form-control border border-0 text-secondary h-100'
-                  aria-describedby='search'
-                  placeholder='Search for courses, classes, students and more'
-                />
-                <div
-                  className={`input-group-text bg-white border border-0 text-secondary h-100`}
-                  id='passwordHelpBlock'
-                >
-                  <Icon width={`1.2rem`} icon={`ri:search-line`} />
-                </div>
+                <SearchComponent />
               </div>
               <div>
                 <div>

@@ -6,17 +6,6 @@ import style from './dashboardminiCard.module.scss'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { Icon } from '@iconify/react'
 const DashboardMiniCard = ({ card, total, modalNumber, route, location }) => {
-  // const locationPath = useLocation()
-  // const courses = useSelector(selectCourses)
-
-  // // verifies if routeName is the one active (in browser input)
-  // const activeRoute = useCallback(
-  //   (routeName) => {
-  //     return location.pathname.includes(routeName)
-  //   },
-  //   [location.pathname]
-  // )
-
   const handleDetailModal = () => {
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
@@ -58,7 +47,7 @@ const DashboardMiniCard = ({ card, total, modalNumber, route, location }) => {
 
 DashboardMiniCard.propTypes = {
   card: PropTypes.object.isRequired,
-  total: PropTypes.number,
+  total: PropTypes.string,
   modalNumber: PropTypes.string,
   route: PropTypes.string,
   location: PropTypes.string,

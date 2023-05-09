@@ -55,7 +55,7 @@ const StudentDashboardSectionTwo = ({ content, cardsAPI }) => {
         </Portal>
       </>
       <>
-        <Link to={`/admin/resources/all`}>
+        <Link className='text-dark' to={`/admin/resources/all`}>
           <DashboardMiniCard
             card={cards[2]}
             total={cardsAPI.totalResources}
