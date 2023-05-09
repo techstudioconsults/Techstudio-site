@@ -28,16 +28,20 @@ const SearchComponent = () => {
         navigate(`/admin/courses`)
         break
       case `class`:
-        navigate(`/admin/classes`)
+        navigate(`/admin/classes/${id}`)
         break
       case `lesson`:
-        navigate(`/admin/classes`)
+        navigate(`/admin/classes`, { state: id })
         break
       case `resource`:
         navigate(`/admin/resources/all`)
         break
       case `user`:
-        navigate(`/admin/users`)
+        if (id) {
+          navigate(`/admin/users`, { state: id })
+        } else {
+          navigate(`/admin/users`)
+        }
         break
 
       default:
@@ -80,19 +84,54 @@ const SearchComponent = () => {
   }
 
   const allResult = queryResult?.allResult?.map((result) => {
+    let icon
+    let getIcon = () => {
+      switch (result.type) {
+        case `course`:
+          icon = `mdi:graduation-cap`
+          break
+        case `class`:
+          icon = `eos-icons:product-classes`
+          break
+        case `lesson`:
+          icon = `eos-icons:product-classes`
+          break
+        case `resource`:
+          icon = `ic:baseline-insert-drive-file`
+          // icon = `mdi:resource-description-framework`
+          break
+        case `user`:
+          icon = `ph:user-fill`
+          break
+
+        default:
+          break
+      }
+    }
+
+    getIcon()
+
     return (
       <div
         key={result.id}
-        onClick={() => route(result.type, result.id)}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         className={`d-flex align-items-center  p-3 justify-content-between ${
           hoverStyle ? `bg-info` : null
         }`}
       >
-        <section className='d-flex align-items-center gap-3'>
+        <section
+          onClick={
+            result.type === `class`
+              ? () => route(`class`, result.id)
+              : result.type === `user`
+              ? () => route(`user`, `tutor`)
+              : () => route(result.type, result.id)
+          }
+          className='d-flex align-items-center gap-3'
+        >
           <div className='bg-blue p-2 rounded rounded-2 text-white'>
-            <Icon width={`1.5rem`} icon={`ic:baseline-insert-drive-file`} />
+            <Icon width={`1.5rem`} icon={icon} />
           </div>
           <div>
             <p className='fw-semibold'>{result.name}</p>
@@ -111,6 +150,11 @@ const SearchComponent = () => {
             </p>
           </div>
         </section>
+        <div hidden={!result.url}>
+          <a target='_blank' href={result.url} rel='noreferrer'>
+            View
+          </a>
+        </div>
       </div>
     )
   })
@@ -127,7 +171,7 @@ const SearchComponent = () => {
       >
         <section className='d-flex align-items-center gap-3'>
           <div className='bg-blue p-2 rounded rounded-2 text-white'>
-            <Icon width={`1.5rem`} icon={`ic:baseline-insert-drive-file`} />
+            <Icon width={`1.5rem`} icon={`wpf:administrator`} />
           </div>
           <div>
             <p className='fw-semibold'>{admin.fullName}</p>
@@ -172,7 +216,7 @@ const SearchComponent = () => {
   const classesResult = queryResult?.result?.classes?.map((singleclass) => {
     return (
       <div
-        onClick={() => route(`class`, singleclass.id)}
+        onClick={() => route(`class`, singleclass.courseId)}
         key={singleclass.id}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -196,7 +240,7 @@ const SearchComponent = () => {
   const lessonsResult = queryResult?.result?.lessons?.map((lesson) => {
     return (
       <div
-        onClick={() => route(`lesson`, lesson.id)}
+        onClick={() => route(`lesson`, lesson.courseId)}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         key={lesson.id}
@@ -221,32 +265,39 @@ const SearchComponent = () => {
   const resourcesResult = queryResult?.result?.resources?.map((resource) => {
     return (
       <div
-        onClick={() => route(`resource`, resource.id)}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         key={resource.id}
-        className={`d-flex align-items-center gap-3 p-3  mt-1 ${
+        className={`d-flex align-items-center justify-content-between p-3  mt-1 ${
           hoverStyle ? `bg-info` : null
         }`}
       >
-        <div className='bg-blue p-2 rounded rounded-2 text-white'>
-          <Icon width={`1.5rem`} icon={`ic:baseline-insert-drive-file`} />
+        <div
+          onClick={() => route(`resource`, resource.id)}
+          className='d-flex align-items-center gap-3'
+        >
+          <div className='bg-blue p-2 rounded rounded-2 text-white'>
+            <Icon width={`1.5rem`} icon={`ic:baseline-insert-drive-file`} />
+          </div>
+          <div>
+            <p className='fw-semibold'>{resource.name}</p>
+            <p className='fs-sm fw-semibold text-secondary'>
+              <span className='fs-xs'>RESOURCE</span> - Uploaded by Admin on
+              {` `}
+              {new Date(resource.createdAt).toLocaleDateString('en-CA')}
+            </p>
+          </div>
         </div>
-        <div>
-          <p className='fw-semibold'>{resource.name}</p>
-          <p className='fs-sm fw-semibold text-secondary'>
-            <span className='fs-xs'>RESOURCE</span> - Uploaded by Admin on
-            {` `}
-            {new Date(resource.createdAt).toLocaleDateString('en-CA')}
-          </p>
-        </div>
+        <a target='_blank' href={resource.url} rel='noreferrer'>
+          View
+        </a>
       </div>
     )
   })
   const studentsResult = queryResult?.result?.students?.map((student) => {
     return (
       <div
-        onClick={() => route(`user`, student.id)}
+        onClick={() => route(`user`, `student`)}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         key={student.id}
@@ -277,7 +328,7 @@ const SearchComponent = () => {
       >
         <section className='d-flex align-items-center gap-3 mt-1'>
           <div className='bg-blue p-2 rounded rounded-2 text-white'>
-            <Icon width={`1.5rem`} icon={`ic:baseline-insert-drive-file`} />
+            <Icon width={`1.5rem`} icon={`ph:chalkboard-teacher-fill`} />
           </div>
           <div>
             <p className='fw-semibold'>{tutor.fullName}</p>

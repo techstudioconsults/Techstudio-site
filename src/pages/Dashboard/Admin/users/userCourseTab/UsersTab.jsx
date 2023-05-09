@@ -8,7 +8,7 @@ import download from 'downloadjs'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectCurrentToken } from '../../../../Auth/api/authSlice'
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useRef } from 'react'
 import { useEffect } from 'react'
 const baseUrl = process.env.REACT_APP_BASE_URL
@@ -18,7 +18,8 @@ const UserTab = ({ courses }) => {
   const [isLoading, setLoading] = useState()
   const token = useSelector(selectCurrentToken)
   const { courseID } = useParams()
-  const { state } = useLocation()
+  const location = useLocation()
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const studentTabRef = useRef()
   const tutorTabRef = useRef()
@@ -124,15 +125,16 @@ const UserTab = ({ courses }) => {
     dispatch({ type: `app/setUserType`, payload: `student` })
   }
 
-  // useEffect(() => {
-  //   if (state) {
-  //     if (state?.location === `student`) {
-  //       studentTabRef.current.click()
-  //     } else {
-  //       tutorTabRef.current.click()
-  //     }
-  //   }
-  // }, [state, state?.location])
+  useEffect(() => {
+    if (!courseID) {
+      if (location.state === `student`) {
+        studentTabRef.current.click()
+      } else {
+        tutorTabRef.current.click()
+      }
+      navigate(`/admin/users/all`)
+    }
+  }, [courseID, location, navigate])
 
   return (
     <section className={style.tab}>

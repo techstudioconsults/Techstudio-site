@@ -11,19 +11,19 @@ import SpinnerComponent from '../../../../../../components/global/skeletonLoader
 import { useDispatch } from 'react-redux'
 
 const TrackClassesTab = ({ courses }) => {
-  const location = useLocation()
+  const { state, pathname } = useLocation()
   const [getClassByCourseID, classArgs] = useGetClassByCourseIDMutation()
   const [getLessonByCourseID, lessonArgs] = useGetLessonByCourseIDMutation()
   const dispatch = useDispatch()
 
   let { courseID } = useParams()
-  const redirect = useNavigate()
+  const navigate = useNavigate()
   // verifies if routeName is the one active (in browser input)
   const activeRoute = useCallback(
     (routeName) => {
-      return location.pathname.includes(routeName)
+      return pathname.includes(routeName)
     },
-    [location.pathname]
+    [pathname]
   )
   const getClasses = useCallback(async () => {
     if (courseID) {
@@ -33,13 +33,20 @@ const TrackClassesTab = ({ courses }) => {
   }, [courseID, getClassByCourseID, getLessonByCourseID])
 
   useEffect(() => {
+    let tab = document.getElementById(`view-lesson-tab`)
     if (courseID) {
-      redirect(`/admin/classes/${courseID}`)
+      navigate(`/admin/classes/${courseID}`)
     } else {
-      redirect(`/admin/classes/${courses[0]?.id}`)
+      if (state) {
+        navigate(`/admin/classes/${state}`)
+        console.log(tab)
+        // tab.click()
+      } else {
+        navigate(`/admin/classes/${courses[0]?.id}`)
+      }
     }
     activeRoute(courseID)
-  }, [activeRoute, courseID, courses, redirect])
+  }, [activeRoute, courseID, courses, navigate, state])
 
   useEffect(() => {
     getClasses()

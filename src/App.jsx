@@ -64,8 +64,6 @@ import TrackAnalysisLayout from './pages/Dashboard/Admin/components/tab/trackAna
 import OPTVerification from './pages/Auth/OTP/OTPVerification'
 import { selectUserType } from './app/api/appSlice'
 import StudentListDisplay from './pages/Dashboard/Admin/users/userCourseTab/StudentListDisplay'
-import UsersCourseTab from './pages/Dashboard/Admin/users/userCourseTab/UsersCourseTab'
-import ModalOutlet from './pages/Dashboard/Admin/components/cardDetailsModal/ModalOutlet'
 
 const App = () => {
   const {

@@ -7,7 +7,6 @@ import style from './resourceCourseTab.module.scss'
 const UsersCourseTab = ({ courses, type }) => {
   const location = useLocation()
   let { courseID } = useParams()
-  const redirect = useNavigate()
 
   const activeRoute = useCallback(
     (routeName) => {
@@ -17,16 +16,8 @@ const UsersCourseTab = ({ courses, type }) => {
   )
 
   useEffect(() => {
-    if (!courseID) {
-      redirect(`/admin/users/all`, {
-        state: {
-          type: type,
-          courseID: `all`,
-        },
-      })
-    }
     activeRoute(courseID)
-  }, [activeRoute, courseID, courses, redirect, type])
+  }, [activeRoute, courseID])
 
   const coursesNav = courses?.map((course) => {
     return (

@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import style from '../classesTab/classesTab.module.scss'
 import AdminClassDisplayCard from '../../../global/cards/adminClassDisplayCard/AdminClassDisplayCard'
 import LessonCard from '../../../global/cards/lessonCards/LessonCard'
-import { Link, useLocation, useParams } from 'react-router-dom'
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import Feedback from '../../../global/feedbacks/Feedback'
 import { Icon } from '@iconify/react'
 import { useDispatch } from 'react-redux'
@@ -14,7 +15,6 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
   const [isLesson, setLesson] = useState(false)
   const { courseID } = useParams()
   const dispatch = useDispatch()
-  const location = useLocation()
   let onGoingClasses
   let previousClasses
   let ongoingLessons
@@ -87,14 +87,6 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
     )
   }
 
-  useEffect(() => {
-    console.log(location)
-    if (location?.state?.from?.includes(`lesson`)) {
-      // lessonTabRef.current.click()
-      toggleLesson()
-    }
-  }, [location])
-
   return (
     <section className={style.tab}>
       <div className='d-flex flex-column flex-md-row align-items-center justify-content-between gap-3'>
@@ -129,7 +121,7 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
               <a
                 hidden={!classes?.ongoing?.length}
                 className={['nav-link', style.a].join(' ')}
-                id='lesson-tab'
+                id='view-lesson-tab'
                 data-bs-toggle='tab'
                 href='#ongoing'
                 onClick={toggleLesson}
