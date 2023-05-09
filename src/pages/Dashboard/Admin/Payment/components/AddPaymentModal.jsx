@@ -12,7 +12,7 @@ import { useParams } from 'react-router-dom'
 import { useRef } from 'react'
 import SaveSuccessPayment from '../../../../../components/global/modals/SaveSuccessPayment'
 import { CancelModal, Portal, ToastComponent } from '../../../../../components'
-import useToast from '../../../../../hooks/useToast'
+// import useToast from '../../../../../hooks/useToast'
 import NewToast from '../../../../../components/global/toast/NewToast'
 import { selectErrorMessage } from '../../../../../app/api/appSlice'
 import useCurrency from '../../../../../hooks/useCurrency'
@@ -26,7 +26,7 @@ const AddPaymentModal = ({ studentPayment }) => {
   const [errorMessage, setErrorMessage] = useState(``)
   const token = useSelector(selectCurrentToken)
   const { courseID } = useParams()
-  const { toast } = useToast()
+  // const { toast } = useToast()
   const dispatch = useDispatch()
   const errorText = useSelector(selectErrorMessage)
 
@@ -73,7 +73,7 @@ const AddPaymentModal = ({ studentPayment }) => {
         payload: err.response.data.message,
       })
       setErrorMessage(err.response.data.message)
-      toast.show()
+      // toast.show()
     }
   }
 

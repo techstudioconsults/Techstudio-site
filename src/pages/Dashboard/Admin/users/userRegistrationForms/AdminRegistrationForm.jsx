@@ -6,13 +6,17 @@ import { useRegisterAdminMutation } from '../../../../Auth/api/authApiSlice'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { Feedback, Portal, ToastComponent } from '../../../../../components'
 import { useGetAllTutorsMutation } from '../api/usersApiSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectErrorMessage } from '../../../../../app/api/appSlice'
+import NewToast from '../../../../../components/global/toast/NewToast'
 
 const AdminRegistrationForm = ({ cancelBtn }) => {
   const [registerAdmin, { isLoading }] = useRegisterAdminMutation()
   const [getAllTutors] = useGetAllTutorsMutation()
   const [passwordStatus, setPasswordStatus] = useState(`user`)
   const [errorMessage, setErrorMessage] = useState(null)
-  const { toast } = useToast()
+  const dispatch = useDispatch()
+  const errorText = useSelector(selectErrorMessage)
 
   const handlePasswordChange = (e) => {
     console.log(e.target.value)
@@ -43,8 +47,11 @@ const AdminRegistrationForm = ({ cancelBtn }) => {
         getAllTutors().unwrap()
       }
     } catch (err) {
+      dispatch({
+        type: `app/setErrorMessage`,
+        payload: err.data.message,
+      })
       setErrorMessage(err.data.message)
-      toast.show()
     }
   }
 
@@ -71,6 +78,9 @@ const AdminRegistrationForm = ({ cancelBtn }) => {
           <h5 className='fs-lg'>User’s Profile</h5>
           <p>Fill in the user’s details. All fields are required.</p>
         </header>
+        {/* =========================================== */}
+        <NewToast errorText={errorText} />
+        {/* =========================================== */}
         <div
           style={{ height: `25rem`, overflowY: `auto` }}
           className='mt-10 container hide_scrollbar'

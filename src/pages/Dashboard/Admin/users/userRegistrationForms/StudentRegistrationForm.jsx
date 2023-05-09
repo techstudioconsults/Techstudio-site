@@ -11,6 +11,9 @@ import { useGetAllStudentsMutation } from '../api/usersApiSlice'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { ErrorMessage } from '@hookform/error-message'
+import NewToast from '../../../../../components/global/toast/NewToast'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectErrorMessage } from '../../../../../app/api/appSlice'
 
 const StudentRegistrationForm = ({ cancelBtn }) => {
   const [signupStudent, { isLoading }] = useSignupStudentMutation()
@@ -23,7 +26,8 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
   const [courseSelected, setCourseSelected] = useState()
   const [classes, setClasses] = useState([])
   const [errorMessage, setErrorMessage] = useState(null)
-  const { toast } = useToast()
+  const errorText = useSelector(selectErrorMessage)
+  const dispatch = useDispatch()
 
   const handlePasswordChange = (e) => {
     console.log(e.target.value)
@@ -81,8 +85,11 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
         reset()
       }
     } catch (err) {
+      dispatch({
+        type: `app/setErrorMessage`,
+        payload: err.data.message,
+      })
       setErrorMessage(err.data.message)
-      toast.show()
     }
   }
 
@@ -113,13 +120,12 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
 
   return (
     <form onSubmit={handleSubmit(OnSubmit)}>
-      <ToastComponent errorMessage={errorMessage} />
       <Portal wrapperId='react-portal-modal-container'>
         <Feedback
           content={{
             title: `Registration Successfull!`,
             desc: ` Your details have been received and our Customer Care
-                Representative will contact you shortly.`,
+            Representative will contact you shortly.`,
           }}
         />
       </Portal>
@@ -127,6 +133,9 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
         <h5 className='fs-lg'>User’s Profile</h5>
         <p>Fill in the user’s details. All fields are required.</p>
       </header>
+      {/* =========================================== */}
+      <NewToast errorText={errorText} />
+      {/* =========================================== */}
       <div
         style={{ height: `25rem`, overflowY: `auto` }}
         className='mt-10 container hide_scrollbar'
