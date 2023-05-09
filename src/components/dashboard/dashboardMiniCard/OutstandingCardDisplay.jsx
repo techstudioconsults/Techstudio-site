@@ -82,7 +82,7 @@ const OutstandingCardDisplay = () => {
               filterStudents(course.id)
               setActiveTab(course.id)
             }}
-            className={`fs-lg px-4 text-secondary bg-transparent ${
+            className={`fs-lg text-secondary bg-transparent ${
               activeTab === course.id
                 ? 'border border-top-0 border-start-0 border-end-0 border-2 border-primary'
                 : 'bg-transparent'
@@ -90,7 +90,7 @@ const OutstandingCardDisplay = () => {
             key={course.id}
             value={course.id}
           >
-            {course.title}
+            <p style={{ width: `15rem` }}>{course.title}</p>
           </button>
         )
       })
@@ -138,8 +138,8 @@ const OutstandingCardDisplay = () => {
       </section>
       <section className='my-10'>
         <section
-          style={{ borderBottom: `1px solid #B8B8B860` }}
-          className='course-tab d-flex align-item-center gap-5'
+          style={{ borderBottom: `1px solid #B8B8B860`, overflow: `auto` }}
+          className='course-tab d-flex align-item-center w-100 hide_scrollbar'
         >
           {tab}
         </section>

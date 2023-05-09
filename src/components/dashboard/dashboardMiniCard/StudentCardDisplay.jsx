@@ -77,7 +77,7 @@ const StudentCardDisplay = () => {
             key={course.id}
             value={course.id}
           >
-            {course.title}
+            <p style={{ width: `15rem` }}>{course.title}</p>
           </button>
         )
       })
@@ -125,12 +125,12 @@ const StudentCardDisplay = () => {
       </section>
       <section className='my-10'>
         <section
-          style={{ borderBottom: `1px solid #B8B8B860` }}
-          className='course-tab d-flex align-item-center gap-5'
+          style={{ borderBottom: `1px solid #B8B8B860`, overflow: `auto` }}
+          className='course-tab d-flex align-item-center hide_scrollbar'
         >
           {tab}
         </section>
-        <section className='container d-flex flex-column gap-5 mt-10'>
+        <section className='container d-flex flex-column gap-5 mt-5'>
           <div className='row align-items-center  p-3'>
             <section className='col col-4'>
               <div className='d-flex gap-3'>
