@@ -8,15 +8,12 @@ import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { useDispatch } from 'react-redux'
 import Portal from '../../POTAL/Portal'
 import DeleteModal from '../../modals/DeleteModal'
-import ToastComponent from '../../toast/ToastComponent'
-import { useState } from 'react'
-import useToast from '../../../../hooks/useToast'
 
 const AdminClassDisplayCard = ({ singleClass, isPrevious }) => {
   const { courseID } = useParams()
   const dispatch = useDispatch()
-  const [errorMessage, setErrorMessage] = useState(null)
-  const { toast } = useToast()
+  // const [errorMessage, setErrorMessage] = useState(null)
+  // const { toast } = useToast()
 
   const convertDateToReadable = (date) => {
     let dateSet = new Date(date).toUTCString().split(' ')
@@ -29,26 +26,26 @@ const AdminClassDisplayCard = ({ singleClass, isPrevious }) => {
   }
 
   const handleDeleteModal = () => {
-    if (singleClass.students.length) {
-      setErrorMessage(
-        `Permisson Denied: Cannot delete a class with registered student`
+    // if (singleClass.students.length) {
+    //   setErrorMessage(
+    //     `Permisson Denied: Cannot delete a class with registered student`
+    //   )
+    //   toast.show()
+    // } else {
+    try {
+      let modal = bootstrap.Modal.getOrCreateInstance(
+        document.getElementById(`${singleClass.id}`)
       )
-      toast.show()
-    } else {
-      try {
-        let modal = bootstrap.Modal.getOrCreateInstance(
-          document.getElementById(`${singleClass.id}`)
-        )
-        modal.show()
-      } catch (err) {
-        console.log(err)
-      }
+      modal.show()
+    } catch (err) {
+      console.log(err)
     }
+    // }
   }
 
   return (
     <>
-      <ToastComponent errorMessage={errorMessage} />
+      {/* <ToastComponent errorMessage={errorMessage} /> */}
       <Portal wrapperId='react-portal-modal-container'>
         <DeleteModal
           content={{

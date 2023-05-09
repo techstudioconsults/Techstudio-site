@@ -74,7 +74,7 @@ const PaymentDisplayCard = ({ paymentDetail }) => {
       key={paymentDetail?.id}
       className={[
         style.box,
-        ' row d-flex align-items-center  border border-1 border-secondary-subtle my-4  ps-3 ',
+        ' row d-flex align-items-center  border border-1 border-secondary-subtle my-4  ps-5 py-2 ',
       ].join(' ')}
     >
       <Portal>
@@ -91,7 +91,7 @@ const PaymentDisplayCard = ({ paymentDetail }) => {
         <h6 className='fw-bold m-0'>{paymentDetail?.fullName} </h6>
         <p className='text-muted fs-sm'>{paymentDetail?.schedule} </p>
       </div>
-      <div className='col-2 text-center '>
+      <div className='col-2'>
         <p className='fw-semibold'>{currency(paymentDetail?.total)}</p>
       </div>
       <div className='col-3 text-start'>
@@ -112,16 +112,14 @@ const PaymentDisplayCard = ({ paymentDetail }) => {
           {paymentDetail?.status}
         </p>
       </div>
-      <div className='col-1 text-start'>
-        <div>
+      <div className='col-1'>
+        <div className='bg-dange'>
           <button
-            className='dropdown-toggle dropdown-center bg-white'
+            className='dropdown-toggle dropdown-center bg-white m-auto'
             data-bs-toggle='dropdown'
             aria-expanded='false'
           >
-            <HiOutlineEllipsisVertical
-              className={[style.ellipsis, `text-secondary`].join(' ')}
-            />
+            <HiOutlineEllipsisVertical className={[style.ellipsis].join(' ')} />
           </button>
           <ul className='dropdown-menu dropdown-menu-end'>
             <li>

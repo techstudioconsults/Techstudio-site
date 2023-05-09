@@ -141,7 +141,7 @@ const EditPaymentHistoryModal = ({ studentPayment }) => {
                     // border: '8px solid black',
                     borderSpacing: '0 20px',
                   }}
-                  className='table'
+                  className='table align-middle'
                 >
                   {/* <tr className='mb-4'>
                     <th className='px-2 py-3 fw-semibold text-black'>

@@ -69,6 +69,7 @@ const FullPaymentHistoryModal = ({ studentPayment }) => {
             <p className='text-primary'>{deposit?.paymentMethod}</p>
             <div>
               <button
+                disabled
                 className='dropdown-toggle dropdown-center bg-white'
                 data-bs-toggle='dropdown'
                 data-bs-offset='100,10'
@@ -141,7 +142,7 @@ const FullPaymentHistoryModal = ({ studentPayment }) => {
                 <li>
                   <div className='text-start'>
                     <p className='m-0 text-primary fs-sm'>
-                      Last Modified by {deposit?.lastModifier}
+                      Modified by {deposit?.lastModifier}
                     </p>
                     <p className='m-0 text-secondary fw-semibold fs-sm fst-italic'>
                       {deposit?.lastModified}
@@ -152,7 +153,7 @@ const FullPaymentHistoryModal = ({ studentPayment }) => {
                 <li>
                   <div className='text-start'>
                     <p className='m-0 text-primary fs-sm'>
-                      Last Modified by {deposit?.lastModifier}
+                      Modified by {deposit?.lastModifier}
                     </p>
                     <p className='m-0 text-secondary fw-semibold fs-sm fst-italic'>
                       {deposit?.lastModified}
@@ -262,7 +263,7 @@ const FullPaymentHistoryModal = ({ studentPayment }) => {
                     // border: '8px solid black',
                     borderSpacing: '0 20px',
                   }}
-                  className='table'
+                  className='table align-middle'
                 >
                   <tr className='mb-4'>
                     <th className='px-2 py-3 fw-semibold text-black'>

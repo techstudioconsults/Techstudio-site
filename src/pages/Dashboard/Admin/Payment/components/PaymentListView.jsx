@@ -11,22 +11,26 @@ import { useForm } from 'react-hook-form'
 import axios from 'axios'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import download from 'downloadjs'
-import { Portal } from '../../../../../components'
+import { Portal, ToastComponent } from '../../../../../components'
 import UserRegistrationFormModal from '../../users/userRegistrationForms/UserRegistrationFormModal'
 import Feedback from '../../../../../components/global/feedbacks/Feedback'
 import PaymentDisplayCard from './PaymentDisplayCard'
 import { Icon } from '@iconify/react'
+import useToast from '../../../../../hooks/useToast'
+import SpinnerComponent from '../../../../../components/global/skeletonLoader/SpinnerComponent'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
 const PaymentListView = () => {
   const { courseID } = useParams()
-  const [classType, setClassType] = useState(``)
-  const [statusType, setStatusType] = useState(``)
+  const [isLoading, setLoading] = useState(false)
+  const [isDownloadLoading, setDownloadLoading] = useState(false)
+  const [errorMessage, setErrorMessage] = useState(false)
   const classes = useSelector(selectClasses)
   const token = useSelector(selectCurrentToken)
   const studentPaymentDetails = useSelector(selectStudentsPaymentRecord)
   const dispatch = useDispatch()
+  const { toast } = useToast()
 
   const credentials = {
     headers: {
@@ -74,43 +78,88 @@ const PaymentListView = () => {
   }
 
   const filterPayment = async (data) => {
-    console.log(data)
-    try {
-      const res = await axios.get(
-        `${baseUrl}/payments/students/courses/${courseID}?status=${data.status}&classId=${data.class}`,
-        credentials
-      )
-      if (res.data.success) {
-        dispatch({
-          type: `payment/setStudentPaymentRecord`,
-          payload: {
-            record: res.data.data,
-          },
-        })
+    setLoading(true)
+    if (data.class === `all`) {
+      try {
+        const res = await axios.get(
+          `${baseUrl}/payments/students/courses/${courseID}`,
+          credentials
+        )
+
+        if (res.data.success) {
+          setLoading(false)
+          dispatch({
+            type: `payment/setStudentPaymentRecord`,
+            payload: {
+              record: res.data.data,
+            },
+          })
+        }
+      } catch (err) {
+        setLoading(false)
+        setErrorMessage(err.response.data.message)
+        toast.show()
       }
-    } catch (err) {
-      // setLoading(false)
-      // setErrorMessage(err.response.data.message)
-      // toast.show()
+    } else {
+      try {
+        const res = await axios.get(
+          `${baseUrl}/payments/students/courses/${courseID}?status=${data.status}&classId=${data.class}`,
+          credentials
+        )
+
+        if (res.data.success) {
+          setLoading(false)
+          dispatch({
+            type: `payment/setStudentPaymentRecord`,
+            payload: {
+              record: res.data.data,
+            },
+          })
+        }
+      } catch (err) {
+        setLoading(false)
+        setErrorMessage(err.response.data.message)
+        toast.show()
+      }
     }
   }
   const handleDownload = async (data) => {
     console.log(data)
-    try {
-      const res = await axios.get(
-        `${baseUrl}/payments/students/courses/${courseID}/download?status=${data.status}&classId=${data.class}`,
-        credentials
-      )
-      console.log(res.data)
-      if (res.status === 200) {
-        // setLoading(false)
-        const blob = new Blob([res.data], { type: 'text/csv' })
-        download(blob, `Payment Details.csv`)
+    setDownloadLoading(true)
+    if (data.class === `all`) {
+      try {
+        const res = await axios.get(
+          `${baseUrl}/payments/students/courses/${courseID}/download`,
+          credentials
+        )
+
+        if (res.status === 200) {
+          setDownloadLoading(false)
+          const blob = new Blob([res.data], { type: 'text/csv' })
+          download(blob, `Payment Details.csv`)
+        }
+      } catch (err) {
+        setDownloadLoading(false)
+        setErrorMessage(err.response.data.message)
+        toast.show()
       }
-    } catch (err) {
-      // setLoading(false)
-      // setErrorMessage(err.response.data.message)
-      // toast.show()
+    } else {
+      try {
+        const res = await axios.get(
+          `${baseUrl}/payments/students/courses/${courseID}/download?status=${data.status}&classId=${data.class}`,
+          credentials
+        )
+
+        if (res.status === 200) {
+          setDownloadLoading(false)
+          const blob = new Blob([res.data], { type: 'text/csv' })
+          download(blob, `Payment Details.csv`)
+        }
+      } catch (err) {
+        setDownloadLoading(false)
+        setErrorMessage(err.response.data.message)
+        toast.show()
+      }
     }
   }
 
@@ -120,10 +169,11 @@ const PaymentListView = () => {
 
   return (
     <div>
+      <ToastComponent errorMessage={errorMessage} />
       <Portal wrapperId='react-portal-modal-container'>
         <UserRegistrationFormModal />
       </Portal>
-      <section className='mt-4 d-flex justify-content-end align-items-center gap-3'>
+      <section className='mt-4 d-flex justify-content-between align-items-center gap-3'>
         <form
           onSubmit={handleSubmit(filterPayment)}
           className='d-flex justify-content-end align-items-center gap-3'
@@ -135,6 +185,7 @@ const PaymentListView = () => {
               {...register(`class`)}
             >
               <option selected>Select a Class</option>
+              <option value={`all`}>All</option>
               {classesList}
             </select>
           </div>
@@ -155,29 +206,40 @@ const PaymentListView = () => {
         </form>
         <div>
           <button
+            disabled={isDownloadLoading}
+            className='btn btn-primary'
             onClick={handleSubmit(handleDownload)}
-            className='btn px-5 btn-primary fs-2'
+            id='download-list'
           >
-            Download List
+            <div
+              hidden={!isDownloadLoading}
+              className='spinner-border spinner-border-sm me-5 text-white'
+              role='status'
+            />
+            {isDownloadLoading ? `Downloading...` : `Download List`}
           </button>
         </div>
       </section>
 
-      <div className='row mt-10 ps-3 '>
-        {headings.map((m, index) => {
-          return (
-            <div key={index} className={setheading(m)}>
-              <div>
-                <h6> {m} </h6>
+      <section className='container'>
+        <div className='row mt-10 ps-3 '>
+          {headings.map((m, index) => {
+            return (
+              <div key={index} className={setheading(m)}>
+                <div>
+                  <h6> {m} </h6>
+                </div>
               </div>
-            </div>
-          )
-        })}
-      </div>
+            )
+          })}
+        </div>
+      </section>
 
       <div className='mt-5'>
-        {studentPaymentDetails?.length ? (
-          paidCourses
+        {isLoading ? (
+          <SpinnerComponent />
+        ) : studentPaymentDetails?.length ? (
+          <section className='container'>{paidCourses}</section>
         ) : (
           <div onClick={showFormModal}>
             <Feedback

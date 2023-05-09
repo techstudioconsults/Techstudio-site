@@ -67,25 +67,31 @@ const ChangePassword = () => {
   const onSubmit = async (data) => {
     console.log(data)
     setLoading(true)
+    if (data.password === data.confirmPassword) {
+      try {
+        let modal = bootstrap.Modal.getOrCreateInstance(
+          document.getElementById('feedback')
+        )
 
-    try {
-      let modal = bootstrap.Modal.getOrCreateInstance(
-        document.getElementById('feedback')
-      )
+        const res = await axios.patch(
+          `${baseUrl}/auth/set-password`,
+          data,
+          credentials
+        )
 
-      const res = await axios.patch(
-        `${baseUrl}/auth/set-password`,
-        data,
-        credentials
-      )
-      console.log(res)
-      if (res.status === 201) {
+        if (res.status === 201) {
+          setLoading(false)
+          navigate(`/login`)
+          modal.show()
+        }
+      } catch (err) {
         setLoading(false)
-        modal.show()
+        setErrorMessage(err.response.data.message)
+        toast.show()
       }
-    } catch (err) {
+    } else {
       setLoading(false)
-      setErrorMessage(err.response.data.message)
+      setErrorMessage(`confirm Password must be the same as new Password`)
       toast.show()
     }
   }
@@ -161,7 +167,7 @@ const ChangePassword = () => {
                   className='form-control'
                   aria-describedby='newPasswordHelpblock'
                   placeholder='Confirm new password'
-                  //   {...register('confirmPassword', validation)}
+                  {...register('confirmPassword', validation)}
                 />
                 {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
                 <div
