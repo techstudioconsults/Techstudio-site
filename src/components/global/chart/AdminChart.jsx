@@ -1,43 +1,41 @@
-import React from 'react'
-import { Line } from 'react-chartjs-2'
+import React, { useEffect, useRef } from 'react'
+import Chart from 'chart.js/auto'
 
-const AdminChart = () => {
-  const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    datasets: [
-      {
-        label: 'Sales',
-        data: [12, 19, 3, 5, 2, 3, 15],
-        borderColor: 'rgba(255, 99, 132, 1)',
-        borderWidth: 1,
-      },
-      {
-        label: 'Expenses',
-        data: [5, 7, 2, 8, 6, 4, 12],
-        borderColor: 'rgba(54, 162, 235, 1)',
-        borderWidth: 1,
-      },
-    ],
-  }
+const LineChart = () => {
+  const chartRef = useRef()
 
-  const options = {
-    scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
-            stepSize: 5,
-            max: 20,
+  useEffect(() => {
+    const myChartRef = chartRef.current.getContext('2d')
+
+    new Chart(myChartRef, {
+      type: 'line',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'],
+        datasets: [
+          {
+            label: 'Users Engagement',
+            data: [60, -50, -30, 20, 10, 0, 30, -25, 50, 60],
+            fill: true,
+            borderColor: `#0266F4`,
           },
-          gridLines: {
-            display: true,
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          filler: {
+            propagate: false,
           },
         },
-      ],
-    },
-  }
+        interaction: {
+          intersect: false,
+        },
+      },
+    })
+  }, [])
 
-  return <Line data={data} options={options} />
+  return <canvas ref={chartRef} />
 }
 
-export default AdminChart
+export default LineChart

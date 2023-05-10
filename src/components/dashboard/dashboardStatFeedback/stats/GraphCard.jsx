@@ -12,8 +12,8 @@ const GraphCard = () => {
         </p>
       </div>
       <div className={style.imgWrapper}>
-        <img src={graph} alt='img' className='cc-img-fluid' />
-        {/* <AdminChart /> */}
+        {/* <img src={graph} alt='img' className='cc-img-fluid' /> */}
+        <AdminChart />
       </div>
     </section>
   )
