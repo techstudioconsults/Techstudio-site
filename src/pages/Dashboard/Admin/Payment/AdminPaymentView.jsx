@@ -31,6 +31,14 @@ const AdminPaymentView = () => {
     await getRevenueInfo().unwrap()
   }, [getRevenueInfo])
 
+  const courseOption = courses.map((course) => {
+    return (
+      <option key={course.id} value={course.id}>
+        {course.title}
+      </option>
+    )
+  })
+
   useEffect(() => {
     getCourses()
     revenueInfo()

@@ -8,7 +8,7 @@ import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import Portal from '../POTAL/Portal'
 import { useState } from 'react'
 import { useDashboardSearchMutation } from '../../../pages/Dashboard/Admin/api/dashboardApiSlice'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Feedback from '../feedbacks/Feedback'
 import SpinnerComponent from '../skeletonLoader/SpinnerComponent'
 import { useRef } from 'react'
@@ -86,7 +86,7 @@ const SearchComponent = () => {
   const allResult = queryResult?.allResult?.map((result) => {
     let icon
     let getIcon = () => {
-      switch (result.type) {
+      switch (result.role || result.type) {
         case `course`:
           icon = `mdi:graduation-cap`
           break
@@ -97,14 +97,21 @@ const SearchComponent = () => {
           icon = `eos-icons:product-classes`
           break
         case `resource`:
-          icon = `ic:baseline-insert-drive-file`
+          icon = `grommet-icons:resources`
           // icon = `mdi:resource-description-framework`
           break
-        case `user`:
-          icon = `ph:user-fill`
+        case `STUDENT`:
+          icon = `mdi:account-student`
+          break
+        case `TUTOR`:
+          icon = `ph:chalkboard-teacher-fill`
+          break
+        case `ADMIN`:
+          icon = `wpf:administrator`
           break
 
         default:
+          icon = `ph:user-fill`
           break
       }
     }
@@ -123,9 +130,11 @@ const SearchComponent = () => {
         <section
           onClick={
             result.type === `class`
-              ? () => route(`class`, result.id)
-              : result.type === `user`
-              ? () => route(`user`, `tutor`)
+              ? () => route(`class`, result.courseId)
+              : result.type === `lesson`
+              ? () => route(`lesson`, result.courseId)
+              : result.role === `STUDENT`
+              ? () => route(`user`, `student`)
               : () => route(result.type, result.id)
           }
           className='d-flex align-items-center gap-3'
@@ -139,7 +148,12 @@ const SearchComponent = () => {
               className='fs-sm fw-semibold text-secondary'
               style={{ letterSpacing: `1px` }}
             >
-              <span className='fs-xs'>{result.type.toUpperCase()} - </span>
+              <span className='fs-xs'>
+                {result.type === `user`
+                  ? result.role
+                  : result.type.toUpperCase()}{' '}
+                -{' '}
+              </span>
               <span>
                 {result.type === `user`
                   ? result.email
@@ -277,7 +291,7 @@ const SearchComponent = () => {
           className='d-flex align-items-center gap-3'
         >
           <div className='bg-blue p-2 rounded rounded-2 text-white'>
-            <Icon width={`1.5rem`} icon={`ic:baseline-insert-drive-file`} />
+            <Icon width={`1.5rem`} icon={`grommet-icons:resources`} />
           </div>
           <div>
             <p className='fw-semibold'>{resource.name}</p>
@@ -301,16 +315,26 @@ const SearchComponent = () => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         key={student.id}
-        className={`d-flex align-items-center gap-3 p-3 mt-1 ${
+        className={`d-flex align-items-center  p-3 justify-content-between mt-1 ${
           hoverStyle ? `bg-info` : null
         }`}
       >
-        <div className='bg-blue p-2 rounded rounded-2 text-white'>
-          <Icon width={`1.5rem`} icon={`mdi:account-student`} />
-        </div>
+        <section className='d-flex align-items-center gap-3 mt-1'>
+          <div className='bg-blue p-2 rounded rounded-2 text-white'>
+            <Icon width={`1.5rem`} icon={`mdi:account-student`} />
+          </div>
+          <div>
+            <p className='fw-semibold'>{student.fullName}</p>
+            <p
+              className='fs-sm fw-semibold text-secondary'
+              style={{ letterSpacing: `1px` }}
+            >
+              <span className='fs-xs'>EMAIL</span> - {student.email}
+            </p>
+          </div>
+        </section>
         <div>
-          <p className='fw-semibold'>{student.fullName}</p>
-          <p className='fs-sm fw-semibold text-secondary'>{student.email}</p>
+          <p className='fs-sm text-blue fw-semibold'>{`STUDENT`}</p>
         </div>
       </div>
     )
@@ -341,7 +365,7 @@ const SearchComponent = () => {
           </div>
         </section>
         <div>
-          <p className='fs-sm text-blue fw-semibold'>{tutor.status}</p>
+          <p className='fs-sm text-blue fw-semibold'>{`TUTOR`}</p>
         </div>
       </div>
     )
