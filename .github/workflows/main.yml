@@ -22,6 +22,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: cp -rf /var/www/config/* /var/www/config/.* /var/www/application/_work/Techstudio-site/Techstudio-site
     - run: npm install
     - run: |
         export NODE_OPTIONS="--max_old_space_size=4096"
