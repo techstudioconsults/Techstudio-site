@@ -1,11 +1,15 @@
 import React from 'react'
 import { DashboardRightDrawer } from '../../../layout'
-import Button from '../../global/Button'
 import CalendarOffCanvas from '../../global/offCanvas/CalendarOffCanvas'
 import style from './dashboardnavbar.module.scss'
 import PropTypes from 'prop-types'
+import { Link, useLocation } from 'react-router-dom'
+import SearchComponent from '../../global/searchComponent/SearchComponent'
 
 const DashboardNavbar = ({ isTDB }) => {
+  const location = useLocation()
+  const courseID = location.pathname.split(`/`)[3]
+
   return (
     <nav
       className={[
@@ -13,19 +17,39 @@ const DashboardNavbar = ({ isTDB }) => {
         style.nav,
       ].join(' ')}
     >
-      <h5 className='m-0 fw-bold text-blue d-none d-md-flex'>Dashboard</h5>
-      <div className={style.input}>
-        <input type='text' placeholder='Search for task and more' />
+      <div className={style.navbarCTA}>
+        <h5 className='m-0 fw-bolder text-blue d-none d-md-flex'>Dashboard</h5>
+        <div className='d-flex align-items-center gap-2'>
+          {/* make this search input a stand alone component */}
+          <SearchComponent />
+          <div
+            className={[isTDB ? `d-none d-md-flex gap-2` : `d-none`].join(' ')}
+          >
+            <Link to={`/admin/courses/create`}>
+              <button
+                style={{ height: `2.25rem`, width: `9.938rem` }}
+                className='btn btn-primary fs-sm'
+              >
+                Create Course
+              </button>
+            </Link>
+            {courseID ? (
+              <Link
+                to={`/admin/class/${courseID}/create`}
+                state={{ tutors: location?.state?.tutors }}
+              >
+                <button
+                  style={{ height: `2.25rem`, width: `10.063rem` }}
+                  className='btn btn-outline-primary fs-sm fw-semibold'
+                >
+                  Create Class
+                </button>
+              </Link>
+            ) : null}
+          </div>
+        </div>
       </div>
-      <div className={[isTDB ? `d-none d-md-block` : `d-none`].join(' ')}>
-        <Button
-          linkHref={`/`}
-          linkText='Create Class'
-          solidBtn
-          navBtn
-          height={`36`}
-        />
-      </div>
+
       <div className='d-lg-none'>
         <CalendarOffCanvas>
           <DashboardRightDrawer />

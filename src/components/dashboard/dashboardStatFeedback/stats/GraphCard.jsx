@@ -1,6 +1,7 @@
 import React from 'react'
 import style from './graph.module.scss'
 import graph from '../../../../assets/images/graph.png'
+import AdminChart from '../../../global/chart/AdminChart'
 
 const GraphCard = () => {
   return (
@@ -11,7 +12,8 @@ const GraphCard = () => {
         </p>
       </div>
       <div className={style.imgWrapper}>
-        <img src={graph} alt='img' className='cc-img-fluid' />
+        {/* <img src={graph} alt='img' className='cc-img-fluid' /> */}
+        <AdminChart />
       </div>
     </section>
   )

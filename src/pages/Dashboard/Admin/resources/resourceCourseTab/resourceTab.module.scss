@@ -1,0 +1,32 @@
+@use '../../../../../scss/global/colors' as colors;
+@use '../../../../../scss/utils/functions' as fn;
+@import '../../../../../scss/utils/breakpoints';
+@import '../../../../../scss/utils/mixins';
+
+.resourceTab {
+  .tabList {
+    width: 50%;
+    background-color: colors.$light-grey;
+    border-radius: fn.rem(4);
+    padding: fn.rem(5);
+    @include flex;
+    justify-content: space-between;
+    gap: fn.rem(10);
+
+    .link {
+      flex: 1;
+      .a {
+        text-align: center;
+        color: colors.$text-dark;
+        font-size: fn.rem(14);
+        font-weight: 600;
+      }
+    }
+  }
+
+  .listWrapper {
+    height: 75vh;
+    padding: fn.rem(16) 0;
+    overflow-y: auto;
+  }
+}

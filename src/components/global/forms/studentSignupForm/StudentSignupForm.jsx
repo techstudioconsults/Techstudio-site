@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
@@ -25,8 +25,9 @@ const ContactForm = () => {
 
   const {
     register,
+    reset,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful },
   } = useForm({
     criteriaMode: 'all',
   })
@@ -50,9 +51,16 @@ const ContactForm = () => {
     }
   }
 
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset()
+    }
+  }, [isSubmitSuccessful, reset])
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={[style.form].join(' ')}>
       <Portal wrapperId='react-portal-modal-container'>
+        <ToastComponent errorMessage={errorMessage} />
         <Feedback
           content={{
             title: `Registration Successfull!`,
@@ -251,20 +259,14 @@ const ContactForm = () => {
         </div>
       </div>
       <div className={style.btnContainer}>
-        <button
-          className={[style.noiseImage, isLoading ? style.gradient : null].join(
-            ' '
-          )}
-          type='submit'
-        >
+        <button type='submit'>
           <div
             hidden={!isLoading}
             className='spinner-border spinner-border-sm me-5 text-white'
             role='status'
           />
-          {isLoading ? `Chill, let me get the door...` : `Register`}
+          {isLoading ? `Please wait...` : `Register`}
         </button>
-        <ToastComponent errorMessage={errorMessage} />
       </div>
       <footer className={style.caption}>
         <p className={style.footerLink}>

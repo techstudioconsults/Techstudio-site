@@ -3,7 +3,7 @@
 @import '../../../scss/utils/breakpoints';
 @import '../../../scss/utils/mixins';
 
-.tab {
+.resourceTab {
   .tabList {
     background-color: colors.$light-grey;
     border-radius: fn.rem(4);
@@ -25,8 +25,8 @@
 
   .listWrapper {
     // border: 1px solid red;
+    height: fn.rem(340);
     padding: fn.rem(16) 0;
-    height: fn.rem(400);
     overflow-y: auto;
   }
 }

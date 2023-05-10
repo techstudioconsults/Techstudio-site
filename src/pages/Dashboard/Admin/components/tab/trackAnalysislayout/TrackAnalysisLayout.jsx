@@ -1,11 +1,11 @@
 import React from 'react'
 import {
   AddAFile,
-  ClassDetails,
   DashboardResource,
   FeedbackCard,
   GraphCard,
   Portal,
+  TutorList,
 } from '../../../../../../components'
 import style from './trackAnalysis.module.scss'
 
@@ -20,23 +20,23 @@ const TrackAnalysisLayout = () => {
             data-bs-toggle='modal'
             data-bs-target='#start-a-class'
           >
-            <p className='text-primary fs-sm fw-semibold'>Upload New file</p>
+            {/* <p className='text-primary fs-sm fw-semibold'>Upload New file</p> */}
           </div>
           <Portal wrapperId='react-portal-modal-container'>
             <AddAFile /> {/** portal */}
           </Portal>
         </div>
-        <DashboardResource isTDB />
+        <DashboardResource />
       </div>
       <div className={[style.col2].join(' ')}>
         <GraphCard />
         <FeedbackCard
-          title={`Your inbox`}
-          message={`I am having issues uploading assignment On XD sir, can I have it sent as…`}
+          title={`Classes`}
+          message={`Javascript Fullstack January 2023`}
         />
       </div>
       <div className={[style.col3, `bg-white p-5`].join(' ')}>
-        <ClassDetails isADB />
+        <TutorList />
       </div>
     </section>
   )

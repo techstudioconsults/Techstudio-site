@@ -9,7 +9,7 @@ const Footer = () => {
     <div className='bg-blue z-index-999'>
       <div className='container'>
         <footer className='py-20 px-3 px-xl-0 text-white'>
-          <div className='row'>
+          <div className='row m-0'>
             <div className='col-12 col-lg-3 mb-3'>
               <div>
                 <Link
@@ -24,7 +24,7 @@ const Footer = () => {
 
             <div className='col-12 col-lg-3 text-white my-12 my-lg-0'>
               <div>
-                <h5 className='fs-md fw-bolder py-2_5'>Courses</h5>
+                <p className='fs-md fw-bolder py-2_5'>Courses</p>
               </div>
               <ul className='nav flex-column fs-sm mt-5 gap-2 align-items-start'>
                 <li className='nav-item mb-2'>
@@ -100,7 +100,9 @@ const Footer = () => {
             <div className='col-12 col-lg-4 text-white fw-bolder'>
               <form>
                 <div>
-                  <h5 className='fs-md py-2_5'>Subscribe to our newsletter</h5>
+                  <h5 className='fs-md py-2_5 text-white'>
+                    Subscribe to our newsletter
+                  </h5>
                 </div>
 
                 <div className='input-group mb-3 bg-white rounded-3 p-1'>

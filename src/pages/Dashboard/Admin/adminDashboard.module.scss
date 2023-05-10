@@ -14,4 +14,33 @@
       padding: fn.rem(32);
     }
   }
+
+  .sectionTwoLayout {
+    @include flex;
+    gap: fn.rem(32);
+
+    .spanCol2 {
+      @include flex_column;
+      gap: fn.rem(50);
+      width: 100%;
+      @include breakpoint-up('xxl') {
+        width: 75%;
+      }
+      @include breakpoint-up('2xl') {
+        width: 80%;
+      }
+    }
+
+    .calendar {
+      width: 25%;
+      display: none;
+      @include breakpoint-up('xxl') {
+        @include flex_column;
+        gap: fn.rem(32);
+      }
+      @include breakpoint-up('2xl') {
+        width: 20%;
+      }
+    }
+  }
 }

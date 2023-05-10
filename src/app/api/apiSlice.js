@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-// import { setCredentials } from '../../pages/Auth/api/authSlice'
+import { setCredentials } from '../../pages/Auth/api/authSlice'
 
 const baseQuery = fetchBaseQuery({
   baseUrl: process.env.REACT_APP_BASE_URL,
@@ -26,20 +26,20 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
     console.log('sending refresh token')
 
     // send refresh token to get new access token
-    // const refreshResult = await baseQuery('/auth/refresh', api, extraOptions)
+    const refreshResult = await baseQuery('/auth/token', api, extraOptions)
 
-    // if (refreshResult?.data) {
-    //   // store the new token
-    //   api.dispatch(setCredentials({ ...refreshResult.data }))
+    if (refreshResult?.data) {
+      // store the new token
+      api.dispatch(setCredentials({ ...refreshResult.data }))
 
-    //   // retry original query with new access token
-    //   result = await baseQuery(args, api, extraOptions)
-    // } else {
-    //   if (refreshResult?.error?.status === 403) {
-    //     refreshResult.error.data.message = 'Your login has expired.'
-    //   }
-    //   return refreshResult
-    // }
+      // retry original query with new access token
+      result = await baseQuery(args, api, extraOptions)
+    } else {
+      if (refreshResult?.error?.status === 403) {
+        refreshResult.error.data.message = 'Your login has expired.'
+      }
+      return refreshResult
+    }
   }
 
   return result

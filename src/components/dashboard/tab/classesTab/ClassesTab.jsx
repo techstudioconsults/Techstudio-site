@@ -3,15 +3,16 @@ import PropTypes from 'prop-types'
 import { DASHBOARD_CONTENT } from '../../../../layout/Layout/dashboardLayout/content'
 import LiveClassDisplayCard from '../../../global/cards/liveClassDisplayCard/LiveClassDisplayCard'
 import style from './classesTab.module.scss'
-import StartAClass from '../../../global/modals/StartAClass'
 import ScheduleClassForm from '../../../global/forms/scheduleClassFom/ScheduleClassForm'
-import AssignmentOffcanvas from '../../../global/offCanvas/AssignmentOffcanvas'
 import { AiOutlinePlusCircle } from 'react-icons/ai'
 import AddAClassOffCanvas from '../../../global/offCanvas/AddAClassOffcanvas'
 import Portal from '../../../global/POTAL/Portal'
+import { useLocation } from 'react-router'
 
 const ClassesTab = ({ isTDB }) => {
   const { studentBoard } = DASHBOARD_CONTENT
+
+  const location = useLocation()
 
   const liveFileDisplay = isTDB
     ? studentBoard.resources.PDF.map((file, index) => {
@@ -54,14 +55,24 @@ const ClassesTab = ({ isTDB }) => {
             </a>
           </li>
         </ul>
+        {location.pathname}
         <div className={isTDB ? `d-block` : `d-none`}>
           <p
             data-bs-toggle='offcanvas'
             href='#addclass-offcanvas'
             aria-controls='addclass-offcanvas'
-            className='d-flex align-items-center gap-2 text-primary fs-sm fw-semibold'
+            // className='d-flex align-items-center gap-2 text-primary fw-semibold'
+            hidden
           >
-            <AiOutlinePlusCircle size={`1rem`} /> Add New Class
+            <AiOutlinePlusCircle size={`1rem`} /> New Lessons
+          </p>
+          <p
+            data-bs-toggle='offcanvas'
+            href='#addclass-offcanvas'
+            aria-controls='addclass-offcanvas'
+            className='d-flex align-items-center gap-2 text-primary fw-semibold'
+          >
+            View Lessons
           </p>
           <Portal>
             <AddAClassOffCanvas>

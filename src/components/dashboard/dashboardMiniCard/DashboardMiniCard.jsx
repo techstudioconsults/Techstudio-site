@@ -1,19 +1,45 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react'
 import PropTypes from 'prop-types'
 import style from './dashboardminiCard.module.scss'
-
-const DashboardMiniCard = ({ card }) => {
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+import { Icon } from '@iconify/react'
+const DashboardMiniCard = ({ card, total, modalNumber, route, location }) => {
+  const handleDetailModal = () => {
+    try {
+      let modal = bootstrap.Modal.getOrCreateInstance(
+        document.getElementById(`${modalNumber}`)
+      )
+      modal.show()
+    } catch (err) {
+      console.log(err)
+    }
+  }
   return (
     <div className={[style.dashboardCard, `col-3`].join(' ')}>
       <div
+        onClick={handleDetailModal}
         style={{ backgroundColor: card.img.accent }}
         className={[style.icon].join(' ')}
       >
-        <img src={card.img.src} alt='img' />
+        {card.img.src === `tabler:currency-naira` ? (
+          <img
+            alt='img-icon'
+            src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1682165589/techstudio/Group_126_wqmdjj.svg`}
+          />
+        ) : (
+          <Icon
+            icon={card.img.src}
+            width={`1.5rem`}
+            height={`1.5rem`}
+            color={card.img.color}
+          />
+        )}
       </div>
       <div className={style.content}>
         <h6 className={style.title}>{card.title}</h6>
-        <p className={style.total}>{card.total}</p>
+        <p className={`fs-xl ${style.total}`}>{total || 0}</p>
       </div>
     </div>
   )
@@ -21,6 +47,10 @@ const DashboardMiniCard = ({ card }) => {
 
 DashboardMiniCard.propTypes = {
   card: PropTypes.object.isRequired,
+  total: PropTypes.string,
+  modalNumber: PropTypes.string,
+  route: PropTypes.string,
+  location: PropTypes.string,
 }
 
 export default DashboardMiniCard

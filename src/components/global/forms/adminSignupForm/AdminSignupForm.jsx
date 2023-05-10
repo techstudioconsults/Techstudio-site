@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
 import style from '../signupForm/signupForm.module.scss'
@@ -23,11 +23,13 @@ const ContactForm = () => {
   const [errorMessage, setErrorMessage] = useState(null)
   const [registerAdmin, { isLoading }] = useRegisterAdminMutation()
   const { toast } = useToast()
+  const navigate = useNavigate()
 
   const {
     register,
+    reset,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful },
   } = useForm({
     criteriaMode: 'all',
   })
@@ -40,12 +42,22 @@ const ContactForm = () => {
       )
       const res = await registerAdmin(data).unwrap()
       console.log(res)
-      res.success ? modal.show() : null
+      if (res.success) {
+        modal.show()
+        // navigate(res.data.link)
+        navigate(`/change-password/${res.data.link.split(`/`)[4]}`)
+      }
     } catch (err) {
       setErrorMessage(err.data.message)
       toast.show()
     }
   }
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset()
+    }
+  }, [isSubmitSuccessful, reset])
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={[style.form].join(' ')}>
@@ -169,7 +181,7 @@ const ContactForm = () => {
         </div>
       </div>
 
-      <div className={style.secondRow}>
+      {/* <div className={style.secondRow}>
         <div className={style.paswword}>
           <label htmlFor='password' className='form-label'>
             Password
@@ -196,21 +208,16 @@ const ContactForm = () => {
             }}
           />
         </div>
-      </div>
+      </div> */}
 
       <div className={style.btnContainer}>
-        <button
-          className={[style.noiseImage, isLoading ? style.gradient : null].join(
-            ' '
-          )}
-          type='submit'
-        >
+        <button type='submit'>
           <div
             hidden={!isLoading}
             className='spinner-border spinner-border-sm me-5 text-white'
             role='status'
           />
-          {isLoading ? `Chill, let me get the keys...` : `Sign up`}
+          {isLoading ? `Please wait...` : `Sign up`}
         </button>
         <ToastComponent errorMessage={errorMessage} />
       </div>

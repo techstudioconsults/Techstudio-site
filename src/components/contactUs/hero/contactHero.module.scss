@@ -12,5 +12,14 @@
   .heroWrapper {
     text-align: center;
     padding-block: fn.rem(150);
+
+    .title {
+      color: colors.$light;
+    }
+    .subTitle {
+      width: 100%;
+      max-width: fn.rem(900);
+      margin: auto;
+    }
   }
 }

@@ -7,12 +7,14 @@
 .dashboardCard {
   width: 100%;
   min-width: fn.rem(218.64);
+  height: fn.rem(170);
   padding: fn.rem(20);
   @include flex;
+  align-items: center;
   gap: fn.rem(20);
   border-radius: fn.rem(4);
   background-color: colors.$base-bg;
-  box-shadow: 0px 4px 20px #6c757d0f;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
 
   .icon {
     width: fn.rem(44);
@@ -25,6 +27,7 @@
   .content {
     .title {
       font-size: fn.rem(12);
+      font-weight: 700;
       margin: 0;
     }
     .total {

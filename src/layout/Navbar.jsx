@@ -169,7 +169,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
           >
             <Button linkHref='/login' linkText='Log in' solidBtn navBtn />
             <Button
-              linkHref='/register'
+              linkHref='/student/register'
               linkText='Register'
               textBtn
               textColor={color ? `#000000` : `#ffffff`}

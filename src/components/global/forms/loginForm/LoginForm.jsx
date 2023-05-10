@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
 import style from '../signupForm/signupForm.module.scss'
@@ -7,8 +7,6 @@ import { ErrorMessage } from '@hookform/error-message'
 import { useForm } from 'react-hook-form'
 // RTK
 import { useLoginMutation } from '../../../../pages/Auth/api/authApiSlice.js'
-import { useDispatch } from 'react-redux'
-import { setCredentials } from '../../../../pages/Auth/api/authSlice'
 import usePersist from '../../../../hooks/usePersist'
 import ToastComponent from '../../toast/ToastComponent'
 import useToast from '../../../../hooks/useToast'
@@ -32,13 +30,13 @@ const ContactForm = () => {
   // hooks
   const [persist, setPersist] = usePersist()
   const navigate = useNavigate()
-  const dispatch = useDispatch()
   const { toast } = useToast()
 
   const {
     register,
+    reset,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful },
   } = useForm({
     criteriaMode: 'all',
   })
@@ -47,15 +45,19 @@ const ContactForm = () => {
   const onSubmit = async (data) => {
     try {
       const res = await login(data).unwrap()
-      res.success
-        ? dispatch(setCredentials({ accessToken: res.data.accessToken }))
-        : null
-      navigate(`/${res.data.role.toLowerCase()}/dashboard`)
+      console.log(res)
+      res.success ? navigate(`/${res.data.role.toLowerCase()}/dashboard`) : null
     } catch (err) {
       setErrorMessage(err.data.message)
       toast.show()
     }
   }
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset()
+    }
+  }, [isSubmitSuccessful, reset])
 
   const togglePasswordView = (e) => {
     e.stopPropagation()
@@ -135,6 +137,7 @@ const ContactForm = () => {
         <div className='d-flex justify-content-between align-items-center'>
           <div className='form-check d-flex align-items-center gap-2'>
             <input
+              disabled
               className='form-check-input'
               type='checkbox'
               value=''
@@ -149,33 +152,30 @@ const ContactForm = () => {
               Remember me
             </label>
           </div>
-          <p className={style.forgotpassword}>Forgot Password?</p>
+          <Link to={`/forgot-password`}>
+            <p className={style.forgotpassword}>Forgot Password?</p>
+          </Link>
         </div>
       </div>
       <div className={style.btnContainer}>
-        <button
-          className={[style.noiseImage, isLoading ? style.gradient : null].join(
-            ' '
-          )}
-          type='submit'
-        >
+        <button type='submit'>
           <div
             hidden={!isLoading}
             className='spinner-border spinner-border-sm me-5 text-white'
             role='status'
           />
-          {isLoading ? `Chill, let me get the door...` : `Login`}
+          {isLoading ? `Please Wait...` : `Login`}
         </button>
         <ToastComponent errorMessage={errorMessage} />
       </div>
-      <footer className={style.caption}>
+      {/* <footer className={style.caption}>
         <p className={style.footerLink}>
           Don’t have an account yet?{' '}
           <Link to={`/register`} className={style.signupLink}>
             Sign up here
           </Link>
         </p>
-      </footer>
+      </footer> */}
     </form>
   )
 }

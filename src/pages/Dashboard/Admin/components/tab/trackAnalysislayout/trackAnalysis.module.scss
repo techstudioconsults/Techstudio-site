@@ -4,14 +4,27 @@
 @import '../../../../../../scss/utils/mixins';
 
 .tracklayout {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  display: flex;
+  // grid-template-columns: repeat(1, 1fr);
   gap: fn.rem(16);
-  @include breakpoint-up('lg') {
-    grid-template-columns: repeat(3, 1fr);
+  // @include breakpoint-up('lg') {
+  //   grid-template-columns: repeat(3, 1fr);
+  // }
+
+  .col1 {
+    // height: 100%;
+    width: 35%;
   }
 
   .col2 {
+    // height: 100%;
+    width: 35%;
+    @include flex_column;
+    gap: fn.rem(16);
+  }
+  .col3 {
+    // height: 100%;
+    width: 30%;
     @include flex_column;
     gap: fn.rem(16);
   }

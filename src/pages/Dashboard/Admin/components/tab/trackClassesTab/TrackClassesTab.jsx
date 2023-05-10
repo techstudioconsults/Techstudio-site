@@ -1,118 +1,93 @@
-import React from 'react'
-import { ClassesTab } from '../../../../../../components'
-
+import React, { useCallback, useEffect } from 'react'
+import { Outlet, useLocation, useNavigate, useParams } from 'react-router'
+import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import style from '../adminTab.module.scss'
+import {
+  useGetClassByCourseIDMutation,
+  useGetLessonByCourseIDMutation,
+} from '../../../classes/api/classApiSlice'
+import SpinnerComponent from '../../../../../../components/global/skeletonLoader/SpinnerComponent'
+import { useDispatch } from 'react-redux'
 
-const TrackClassesTab = () => {
+const TrackClassesTab = ({ courses }) => {
+  const { state, pathname } = useLocation()
+  const [getClassByCourseID, classArgs] = useGetClassByCourseIDMutation()
+  const [getLessonByCourseID, lessonArgs] = useGetLessonByCourseIDMutation()
+  const dispatch = useDispatch()
+
+  let { courseID } = useParams()
+  const navigate = useNavigate()
+  // verifies if routeName is the one active (in browser input)
+  const activeRoute = useCallback(
+    (routeName) => {
+      return pathname.includes(routeName)
+    },
+    [pathname]
+  )
+  const getClasses = useCallback(async () => {
+    if (courseID) {
+      await getClassByCourseID(courseID).unwrap()
+      await getLessonByCourseID(courseID).unwrap()
+    }
+  }, [courseID, getClassByCourseID, getLessonByCourseID])
+
+  useEffect(() => {
+    let tab = document.getElementById(`view-lesson-tab`)
+    if (courseID) {
+      navigate(`/admin/classes/${courseID}`)
+    } else {
+      if (state) {
+        navigate(`/admin/classes/${state}`)
+        console.log(tab)
+        // tab.click()
+      } else {
+        navigate(`/admin/classes/${courses[0]?.id}`)
+      }
+    }
+    activeRoute(courseID)
+  }, [activeRoute, courseID, courses, navigate, state])
+
+  useEffect(() => {
+    getClasses()
+    dispatch({ type: 'app/setClassDetailOpen', payload: true })
+  }, [courseID, dispatch, getClasses])
+
+  const coursesNav = courses?.map((course) => {
+    return (
+      <li key={course?.id} className={['nav-item', style.link].join(' ')}>
+        <NavLink
+          to={`/admin/classes/${course?.id}`}
+          className={[
+            'nav-link',
+            style.a,
+            activeRoute(course.id)
+              ? `border border-primary border-top-0 border-start-0 border-end-0 rounded-0 border-3`
+              : null,
+          ].join(' ')}
+        >
+          {course?.title}
+        </NavLink>
+      </li>
+    )
+  })
+
   return (
-    <section className={style.tab}>
+    <section className={`${style.tab}`}>
       <ul className={['nav hide_scrollbar', style.tabList].join(' ')}>
-        <li className={['nav-item', style.link].join(' ')}>
-          <a
-            className={['nav-link active', style.a].join(' ')}
-            id='mobile-tab'
-            data-bs-toggle='tab'
-            href='#mobile'
-          >
-            Mobile Development
-          </a>
-        </li>
-        <li className={['nav-item', style.link].join(' ')}>
-          <a
-            className={['nav-link', style.a].join(' ')}
-            id='frontend-tab'
-            data-bs-toggle='tab'
-            href='#frontend'
-          >
-            Frontend
-          </a>
-        </li>
-        <li className={['nav-item', style.link].join(' ')}>
-          <a
-            className={['nav-link', style.a].join(' ')}
-            id='uiux-tab'
-            data-bs-toggle='tab'
-            href='#uiux'
-          >
-            UI/UX
-          </a>
-        </li>
-        <li className={['nav-item', style.link].join(' ')}>
-          <a
-            className={['nav-link', style.a].join(' ')}
-            id='full-stack-tab'
-            data-bs-toggle='tab'
-            href='#fullstack'
-          >
-            Full Stack
-          </a>
-        </li>
-        <li className={['nav-item', style.link].join(' ')}>
-          <a
-            className={['nav-link', style.a].join(' ')}
-            id='data-science-tab'
-            data-bs-toggle='tab'
-            href='#datascience'
-          >
-            Data Science
-          </a>
-        </li>
+        {coursesNav}
       </ul>
 
       <div className='tab-content py-6' id='tabContent'>
-        <div
-          className='tab-pane fade show active'
-          id='mobile'
-          role='tabpanel'
-          aria-labelledby='course-tab'
-        >
-          <div className={style.listWrapper}>
-            <ClassesTab isTDB />
-          </div>
-        </div>
-        <div
-          className='tab-pane fade'
-          id='frontend'
-          role='tabpanel'
-          aria-labelledby='discussion-tab'
-        >
-          <div className={style.listWrapper}>
-            <ClassesTab isTDB />
-          </div>
-        </div>
-        <div
-          className='tab-pane fade'
-          id='uiux'
-          role='tabpanel'
-          aria-labelledby='resource-tab'
-        >
-          <div className={[style.listWrapper].join(' ')}>
-            <ClassesTab isTDB />
-          </div>
-        </div>
-        <div
-          className='tab-pane fade'
-          id='fullstack'
-          role='tabpanel'
-          aria-labelledby='discussion-tab'
-        >
-          <div className={style.listWrapper}>
-            <ClassesTab isTDB />
-          </div>
-        </div>
-        <div
-          className='tab-pane fade'
-          id='datascience'
-          role='tabpanel'
-          aria-labelledby='discussion-tab'
-        >
-          <div className={style.listWrapper}>
-            <ClassesTab isTDB />
-          </div>
-        </div>
+        {classArgs.isLoading ? <SpinnerComponent /> : <Outlet />}
       </div>
     </section>
   )
+}
+
+TrackClassesTab.propTypes = {
+  courses: PropTypes.array,
+  // feedback: PropTypes.node,
 }
 
 export default TrackClassesTab
