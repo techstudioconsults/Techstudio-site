@@ -55,6 +55,7 @@ const SearchComponent = () => {
   }
 
   const handleSearchModal = async (event) => {
+    allResultRef.current.click()
     event.preventDefault()
     let res
     try {
@@ -69,7 +70,6 @@ const SearchComponent = () => {
       }
       console.log(res.data)
       setQueryResult(res.data)
-      allResultRef.current.click()
     } catch (err) {
       console.log(err)
       setQuery(``)

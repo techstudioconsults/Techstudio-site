@@ -14,7 +14,7 @@ const LineChart = () => {
         datasets: [
           {
             label: 'Users Engagement',
-            data: [60, -50, -30, 20, 10, 0, 30, -25, 50, 60],
+            data: [10, 50, 30, 20, -50, 0, -30, -25, 50, 60],
             fill: true,
             borderColor: `#0266F4`,
           },
