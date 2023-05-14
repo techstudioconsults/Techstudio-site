@@ -31,7 +31,6 @@ const ContactForm = () => {
   })
 
   const onSubmit = async (data) => {
-    console.log(data)
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
         document.getElementById('feedback')

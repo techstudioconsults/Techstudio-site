@@ -108,7 +108,7 @@ const Footer = () => {
                 <div className='input-group mb-3 bg-white rounded-3 p-1'>
                   <input
                     type='email'
-                    className='form-control py-2 fs-xs border-0'
+                    className='form-control py-2 fs-xs border-0 text-dark'
                     placeholder='Email Address'
                     aria-label='Email Address'
                     aria-describedby='button-addon2'

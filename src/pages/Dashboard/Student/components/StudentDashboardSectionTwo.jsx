@@ -22,6 +22,7 @@ const StudentDashboardSectionTwo = ({ content, cardsAPI }) => {
         <DashboardMiniCard
           card={cards[0]}
           total={cardsAPI.totalStudents}
+          // total={cardsAPI.totalStudents}
           modalNumber={`student-detail-modal`}
           route={`/admin/users/all`}
           location={`student`}
@@ -40,6 +41,7 @@ const StudentDashboardSectionTwo = ({ content, cardsAPI }) => {
         <DashboardMiniCard
           card={cards[1]}
           total={cardsAPI.totalTutors}
+          // total={cardsAPI.totalTutors}
           modalNumber={`tutor-detail-modal`}
           route={`/admin/users/all`}
           location={`tutor`}
@@ -59,6 +61,7 @@ const StudentDashboardSectionTwo = ({ content, cardsAPI }) => {
           <DashboardMiniCard
             card={cards[2]}
             total={cardsAPI.totalResources}
+            // total={cardsAPI.totalResources}
             modalNumber={`resources-detail-modal`}
             route={`/admin/resources/all`}
             location={`resource`}

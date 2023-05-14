@@ -217,8 +217,8 @@ const DeleteModal = ({ content }) => {
                 </button>
               </div>
             </div>
-            <div className='modal-footer'>
-              <p className='text-danger fs-sm'>{errorMessage}</p>
+            <div className='modal-footer justify-content-center'>
+              <p className='text-danger fs-xs fw-semibold'>{errorMessage}</p>
             </div>
           </div>
         </div>

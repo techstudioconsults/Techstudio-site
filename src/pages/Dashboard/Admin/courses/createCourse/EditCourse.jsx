@@ -171,7 +171,6 @@ const CreateCourse = () => {
 
   const onSubmit = async (data) => {
     setLoading(true)
-    console.log(data)
     const formData = new FormData()
     let onlineTutors
     let weekdayTutors

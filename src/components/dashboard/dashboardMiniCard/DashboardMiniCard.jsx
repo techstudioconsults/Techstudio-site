@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import style from './dashboardminiCard.module.scss'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { Icon } from '@iconify/react'
+// eslint-disable-next-line react/prop-types
 const DashboardMiniCard = ({ card, total, modalNumber, route, location }) => {
   const handleDetailModal = () => {
     try {
@@ -17,9 +18,12 @@ const DashboardMiniCard = ({ card, total, modalNumber, route, location }) => {
     }
   }
   return (
-    <div className={[style.dashboardCard, `col-3`].join(' ')}>
+    <div
+      style={{ cursor: `pointer` }}
+      onClick={handleDetailModal}
+      className={[style.dashboardCard, `col-3 cc-grow`].join(' ')}
+    >
       <div
-        onClick={handleDetailModal}
         style={{ backgroundColor: card.img.accent }}
         className={[style.icon].join(' ')}
       >
@@ -47,7 +51,7 @@ const DashboardMiniCard = ({ card, total, modalNumber, route, location }) => {
 
 DashboardMiniCard.propTypes = {
   card: PropTypes.object.isRequired,
-  total: PropTypes.string,
+  // total: PropTypes.number,
   modalNumber: PropTypes.string,
   route: PropTypes.string,
   location: PropTypes.string,

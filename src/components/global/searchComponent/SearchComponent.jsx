@@ -31,7 +31,7 @@ const SearchComponent = () => {
         navigate(`/admin/classes/${id}`)
         break
       case `lesson`:
-        navigate(`/admin/classes`, { state: id })
+        navigate(`/admin/classes/${id}`, { state: `lesson` })
         break
       case `resource`:
         navigate(`/admin/resources/all`)
@@ -68,7 +68,6 @@ const SearchComponent = () => {
         modal.show()
         res = await dashboardSearch(query).unwrap()
       }
-      console.log(res.data)
       setQueryResult(res.data)
     } catch (err) {
       console.log(err)
@@ -198,7 +197,7 @@ const SearchComponent = () => {
           </div>
         </section>
         <div>
-          <p className='fs-sm text-blue fw-semibold'>ADMIN</p>
+          <p className='fs-xs text-danger fw-semibold'>ADMIN</p>
         </div>
       </div>
     )
@@ -334,7 +333,7 @@ const SearchComponent = () => {
           </div>
         </section>
         <div>
-          <p className='fs-sm text-blue fw-semibold'>{`STUDENT`}</p>
+          <p className='fs-xs text-danger fw-semibold'>{`STUDENT`}</p>
         </div>
       </div>
     )
@@ -365,7 +364,7 @@ const SearchComponent = () => {
           </div>
         </section>
         <div>
-          <p className='fs-sm text-blue fw-semibold'>{`TUTOR`}</p>
+          <p className='fs-xs text-danger fw-semibold'>{`TUTOR`}</p>
         </div>
       </div>
     )
