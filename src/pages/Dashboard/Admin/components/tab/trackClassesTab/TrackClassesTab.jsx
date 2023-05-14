@@ -33,20 +33,12 @@ const TrackClassesTab = ({ courses }) => {
   }, [courseID, getClassByCourseID, getLessonByCourseID])
 
   useEffect(() => {
-    let tab = document.getElementById(`view-lesson-tab`)
-    if (courseID) {
-      navigate(`/admin/classes/${courseID}`)
-    } else {
-      if (state) {
-        navigate(`/admin/classes/${state}`)
-        console.log(tab)
-        // tab.click()
-      } else {
-        navigate(`/admin/classes/${courses[0]?.id}`)
-      }
+    if (!courseID) {
+      navigate(`/admin/classes/${courses[0]?.id}`)
     }
+
     activeRoute(courseID)
-  }, [activeRoute, courseID, courses, navigate, state])
+  }, [activeRoute, courseID, courses, navigate])
 
   useEffect(() => {
     getClasses()

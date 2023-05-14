@@ -15,7 +15,7 @@ const Save = ({ content }) => {
         navigate(`/admin/classes/${content.courseID}`)
         break
       case `lesson`:
-        navigate(`/admin/classes/${content.courseID}`)
+        navigate(`/admin/classes/${content.courseID}`, { state: `lesson` })
         break
       case `resource`:
         navigate(`/admin/resources/${content?.courseID}`)

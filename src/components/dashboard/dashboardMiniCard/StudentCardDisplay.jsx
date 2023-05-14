@@ -14,12 +14,12 @@ import { selectCourses } from '../../../pages/Dashboard/Admin/courses/api/course
 const baseUrl = process.env.REACT_APP_BASE_URL
 
 const StudentCardDisplay = () => {
+  const courses = useSelector(selectCourses)
   const [isLoading, setLoading] = useState(false)
   const [ID, setID] = useState(false)
   const [activeTab, setActiveTab] = useState(null)
   const [tab, setTab] = useState([])
   const [students, setStudents] = useState([])
-  const courses = useSelector(selectCourses)
   const token = useSelector(selectCurrentToken)
   const [getStudentsByCourseID, studentsrByCourseIDArgs] =
     useGetStudentsByCourseIDMutation()
@@ -47,7 +47,6 @@ const StudentCardDisplay = () => {
         `${baseUrl}/users/students/courses/${ID}/download`,
         credentials
       )
-      console.log(res.data)
       if (res.status === 200) {
         setLoading(false)
         const blob = new Blob([res.data], { type: 'text/csv' })
@@ -60,7 +59,15 @@ const StudentCardDisplay = () => {
     }
   }
 
+  const init = useCallback(() => {
+    if (!activeTab && courses[0]?.id) {
+      setActiveTab(courses[0]?.id)
+      filterStudents(courses[0]?.id)
+    }
+  }, [activeTab, courses, filterStudents])
+
   useEffect(() => {
+    init()
     setTab(
       courses.map((course) => {
         return (
@@ -82,7 +89,7 @@ const StudentCardDisplay = () => {
         )
       })
     )
-  }, [courses, filterStudents, activeTab])
+  }, [courses, filterStudents, activeTab, init])
 
   return (
     <>
@@ -123,7 +130,7 @@ const StudentCardDisplay = () => {
           </div>
         </div>
       </section>
-      <section className='my-10'>
+      <section className='mt-10'>
         <section
           style={{ borderBottom: `1px solid #B8B8B860`, overflow: `auto` }}
           className='course-tab d-flex align-item-center hide_scrollbar'
@@ -155,49 +162,56 @@ const StudentCardDisplay = () => {
               </div>
             </section>
           </div>
-          {studentsrByCourseIDArgs?.isLoading ? (
-            <SpinnerComponent />
-          ) : students?.length ? (
-            students?.map((student, index) => {
-              return (
-                <div
-                  key={index}
-                  className='row align-items-center border border-1 p-3'
-                >
-                  <section className='col col-4'>
-                    <div className='d-flex gap-3'>
-                      <div>
-                        <p className='fw-bold text-blue'>{student?.fullName}</p>
+          <section
+            style={{ height: `25rem`, overflow: `auto` }}
+            className='container d-flex flex-column gap-5'
+          >
+            {studentsrByCourseIDArgs?.isLoading ? (
+              <SpinnerComponent />
+            ) : students?.length ? (
+              students?.map((student, index) => {
+                return (
+                  <div
+                    key={index}
+                    className='row align-items-center border border-1 p-3'
+                  >
+                    <section className='col col-4'>
+                      <div className='d-flex gap-3'>
+                        <div>
+                          <p className='fw-bold text-blue'>
+                            {student?.fullName}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  </section>
-                  <section className='col col-3'>
-                    <div>
-                      <p className='fs-sm fw-semibold text-secondary'>
-                        {student?.schedule}
-                      </p>
-                    </div>
-                  </section>
-                  <section className='col col-3'>
-                    <div>
-                      <p className='fs-sm fw-semibold text-primary '>
-                        {student?.email}
-                      </p>
-                    </div>
-                  </section>
-                  <section className='col col-2'>
-                    <div>
-                      <p className='fs-sm text-danger fw-semibold'>
-                        {student?.phoneNumber}
-                      </p>
-                    </div>
-                  </section>
-                </div>
-              )
-            })
-          ) : (
-            <Feedback message={`No Students Registered For This Course`} />
-          )}
+                    </section>
+                    <section className='col col-3'>
+                      <div>
+                        <p className='fs-sm fw-semibold text-secondary'>
+                          {student?.schedule}
+                        </p>
+                      </div>
+                    </section>
+                    <section className='col col-3'>
+                      <div>
+                        <p className='fs-sm fw-semibold text-primary '>
+                          {student?.email}
+                        </p>
+                      </div>
+                    </section>
+                    <section className='col col-2'>
+                      <div>
+                        <p className='fs-sm text-danger fw-semibold'>
+                          {student?.phoneNumber}
+                        </p>
+                      </div>
+                    </section>
+                  </div>
+                )
+              })
+            ) : (
+              <Feedback message={`No Students Registered For This Course`} />
+            )}
+          </section>
         </section>
       </section>
     </>

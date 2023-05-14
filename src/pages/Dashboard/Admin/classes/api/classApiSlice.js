@@ -30,7 +30,7 @@ export const coursesApiSlice = apiSlice.injectEndpoints({
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled
-          console.log(data)
+
           dispatch(
             setLessons({
               lessons: data.data,

@@ -62,7 +62,7 @@ const AdminPaymentView = () => {
             <div className='d-flex align-items-center gap-4'>
               {/* make this search input a stand alone component */}
               <div
-                className={`input-group border rounded ${style.searchInput}`}
+                className={`input-group border rounded overflow-hidden ${style.searchInput}`}
               >
                 <SearchComponent />
               </div>

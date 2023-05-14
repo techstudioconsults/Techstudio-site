@@ -53,7 +53,9 @@ const AdminCourseView = () => {
           <h4 className={[style.title, `mb-0 fw-bold`].join(' ')}>Courses</h4>
           <div className='d-flex align-items-center gap-3'>
             {/* make this search input a stand alone component */}
-            <div className={`input-group border rounded ${style.searchInput}`}>
+            <div
+              className={`input-group border rounded overflow-hidden ${style.searchInput}`}
+            >
               <SearchComponent />
             </div>
             <div>

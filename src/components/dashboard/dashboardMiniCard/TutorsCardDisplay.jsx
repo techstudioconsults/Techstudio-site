@@ -104,8 +104,6 @@ const TutorsCardDisplay = () => {
     )
   })
 
-  console.log(courseID)
-
   return (
     <>
       <section>
@@ -162,9 +160,9 @@ const TutorsCardDisplay = () => {
           </div>
         </div>
       </section>
-      <section className='my-10'>
-        <section className='container d-flex flex-column gap-5'>
-          <div className='row align-items-center  px-2 py-1'>
+      <section className='mt-10'>
+        <section>
+          <div className='row align-items-center px-5'>
             <section className='col col-3'>
               <div className='d-flex gap-3'>
                 <div>
@@ -193,54 +191,64 @@ const TutorsCardDisplay = () => {
               </div>
             </section>
           </div>
-          {tutorsArgs.isLoading || tutorByCourseIDArgs.isLoading ? (
-            <SpinnerComponent />
-          ) : tutors?.length ? (
-            tutors?.map((tutor, index) => {
-              return (
-                <div
-                  key={index}
-                  className='row align-items-center border border-1 px-2 py-1'
-                >
-                  <section className='col col-3'>
-                    <div className='d-flex gap-3'>
-                      <div>
-                        <p className='fw-bold text-blue'>{tutor?.fullName}</p>
+          <section
+            style={{ height: `30rem`, overflow: `auto` }}
+            className='container d-flex flex-column gap-5 mt-5'
+          >
+            {tutorsArgs.isLoading || tutorByCourseIDArgs.isLoading ? (
+              <SpinnerComponent />
+            ) : tutors?.length ? (
+              tutors?.map((tutor, index) => {
+                return (
+                  <div
+                    key={index}
+                    className='row align-items-center border border-1 px-2 py-1'
+                  >
+                    <section className='col col-3'>
+                      <div className='d-flex gap-3'>
+                        <div>
+                          <p className='fw-bold text-blue'>{tutor?.fullName}</p>
+                        </div>
                       </div>
-                    </div>
-                  </section>
-                  <section className='col col-3'>
-                    <div>
-                      <p className='fs-sm text-secondary'>{tutor?.course[0]}</p>
-                    </div>
-                  </section>
-                  <section className='col col-3'>
-                    <div>
-                      <p className='fs-sm text-primary '>{tutor?.email}</p>
-                    </div>
-                  </section>
-                  <section className='col col-2'>
-                    <div>
-                      <p className='fs-sm text-primary '>
-                        {tutor?.phoneNumber}
-                      </p>
-                    </div>
-                  </section>
-                  <section className='col col-1'>
-                    <div className='text-danger' style={{ cursor: `pointer` }}>
-                      <button
-                        className={`text-danger btn btn-outline btn-sm  fs-sm`}
+                    </section>
+                    <section className='col col-3'>
+                      <div>
+                        <p className='fs-sm text-secondary'>
+                          {tutor?.course[0]}
+                        </p>
+                      </div>
+                    </section>
+                    <section className='col col-3'>
+                      <div>
+                        <p className='fs-sm text-primary '>{tutor?.email}</p>
+                      </div>
+                    </section>
+                    <section className='col col-2'>
+                      <div>
+                        <p className='fs-sm text-primary '>
+                          {tutor?.phoneNumber}
+                        </p>
+                      </div>
+                    </section>
+                    <section className='col col-1'>
+                      <div
+                        className='text-danger'
+                        style={{ cursor: `pointer` }}
                       >
-                        {tutor?.status}
-                      </button>
-                    </div>
-                  </section>
-                </div>
-              )
-            })
-          ) : (
-            <Feedback message={`No Tutor Registered For This Course`} />
-          )}
+                        <button
+                          className={`text-danger btn btn-outline btn-sm  fs-sm`}
+                        >
+                          {tutor?.status}
+                        </button>
+                      </div>
+                    </section>
+                  </div>
+                )
+              })
+            ) : (
+              <Feedback message={`No Tutor Registered For This Course`} />
+            )}
+          </section>
         </section>
       </section>
     </>

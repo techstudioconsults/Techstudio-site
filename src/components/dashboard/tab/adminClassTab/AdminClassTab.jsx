@@ -10,11 +10,14 @@ import { Icon } from '@iconify/react'
 import { useDispatch } from 'react-redux'
 
 const ClassesTab = ({ classes, lessons, isTDB }) => {
+  const location = useLocation()
+  const navigate = useNavigate()
   const onGoingTabRef = useRef(null)
   const lessonTabRef = useRef(null)
   const [isLesson, setLesson] = useState(false)
   const { courseID } = useParams()
   const dispatch = useDispatch()
+
   let onGoingClasses
   let previousClasses
   let ongoingLessons
@@ -87,6 +90,12 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
     )
   }
 
+  useEffect(() => {
+    if (location.state === `lesson`) {
+      lessonTabRef.current.click()
+    }
+  }, [location.state])
+
   return (
     <section className={style.tab}>
       <div className='d-flex flex-column flex-md-row align-items-center justify-content-between gap-3'>
@@ -119,6 +128,7 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
           <li className={['nav-item ', style.link, style.lessonLink].join(' ')}>
             <div className={`${!isLesson ? `d-block` : `d-none`}`}>
               <a
+                ref={lessonTabRef}
                 hidden={!classes?.ongoing?.length}
                 className={['nav-link', style.a].join(' ')}
                 id='view-lesson-tab'
@@ -131,7 +141,6 @@ const ClassesTab = ({ classes, lessons, isTDB }) => {
             </div>
             <div className={`d-flex ${isLesson ? `d-block` : `d-none`}`}>
               <a
-                ref={lessonTabRef}
                 className={['nav-link', style.lessonBtn, style.a].join(' ')}
                 id='lesson-tab'
                 data-bs-toggle='tab'

@@ -47,7 +47,6 @@ const OutstandingCardDisplay = () => {
     async (courseID) => {
       setID(courseID)
       const res = await getStudentPaymentRecordsByCourseIDs(courseID).unwrap()
-      console.log(res)
       setStudents(res.data)
     },
     [getStudentPaymentRecordsByCourseIDs]
@@ -60,7 +59,6 @@ const OutstandingCardDisplay = () => {
         `${baseUrl}/payments/students/courses/${ID}/download`,
         credentials
       )
-      console.log(res.data)
       if (res.status === 200) {
         setLoading(false)
         const blob = new Blob([res.data], { type: 'text/csv' })
@@ -73,7 +71,15 @@ const OutstandingCardDisplay = () => {
     }
   }
 
+  const init = useCallback(() => {
+    if (!activeTab && courses[0]?.id) {
+      setActiveTab(courses[0]?.id)
+      filterStudents(courses[0]?.id)
+    }
+  }, [activeTab, courses, filterStudents])
+
   useEffect(() => {
+    init()
     setTab(
       courses.map((course) => {
         return (
@@ -95,13 +101,13 @@ const OutstandingCardDisplay = () => {
         )
       })
     )
-  }, [courses, filterStudents, activeTab])
+  }, [courses, filterStudents, activeTab, init])
 
   return (
     <>
       <section>
         <div className='d-flex flex-column flex-md-row align-items-center justify-content-between gap-3'>
-          <p className='fs-2xl text-blue fw-bold'>{`Enrolled Students`}</p>
+          <p className='fs-2xl text-blue fw-bold'>{`Outstanding Fees`}</p>
           <div>
             <div className={`d-flex align-items-center gap-3`}>
               <div>
@@ -136,7 +142,7 @@ const OutstandingCardDisplay = () => {
           </div>
         </div>
       </section>
-      <section className='my-10'>
+      <section className='mt-10'>
         <section
           style={{ borderBottom: `1px solid #B8B8B860`, overflow: `auto` }}
           className='course-tab d-flex align-item-center w-100 hide_scrollbar'
@@ -168,45 +174,52 @@ const OutstandingCardDisplay = () => {
               </div>
             </section>
           </div>
-          {paymentArgs?.isLoading ? (
-            <SpinnerComponent />
-          ) : students?.length ? (
-            students?.map((paymentDetail, index) => {
-              return (
-                <section
-                  key={index}
-                  className='row p-3 align-items-center border'
-                >
-                  <div className='col-3 text-start col-4'>
-                    <h6 className='fw-bold m-0'>{paymentDetail?.fullName} </h6>
-                    <p className='text-muted fs-sm fw-semibold'>
-                      {paymentDetail?.schedule}{' '}
-                    </p>
-                  </div>
-                  <div className='col-2 col-3'>
-                    <p className='fw-semibold'>
-                      {currency(paymentDetail?.total)}
-                    </p>
-                  </div>
-                  <div className='col-3 text-start col-3'>
-                    <p className={`fw-semibold text-success`}>
-                      {currency(paymentDetail?.amountPaid)}
-                    </p>
-                    <p className='text-muted fs-sm fw-semibold'>
-                      paid on {formatDate(paymentDetail?.dateOfLastPayment)}
-                    </p>
-                  </div>
-                  <div className='col-2 text-start col-2'>
-                    <p className='text-danger fw-semibold'>
-                      {currency(paymentDetail?.balance)}
-                    </p>
-                  </div>
-                </section>
-              )
-            })
-          ) : (
-            <Feedback message={`No Students Registered For This Course`} />
-          )}
+          <section
+            style={{ height: `25rem`, overflow: `auto` }}
+            className='container d-flex flex-column gap-5'
+          >
+            {paymentArgs?.isLoading ? (
+              <SpinnerComponent />
+            ) : students?.length ? (
+              students?.map((paymentDetail, index) => {
+                return (
+                  <section
+                    key={index}
+                    className='row p-3 align-items-center border'
+                  >
+                    <div className='col-3 text-start col-4'>
+                      <h6 className='fw-bold m-0'>
+                        {paymentDetail?.fullName}{' '}
+                      </h6>
+                      <p className='text-muted fs-sm fw-semibold'>
+                        {paymentDetail?.schedule}{' '}
+                      </p>
+                    </div>
+                    <div className='col-2 col-3'>
+                      <p className='fw-semibold'>
+                        {currency(paymentDetail?.total)}
+                      </p>
+                    </div>
+                    <div className='col-3 text-start col-3'>
+                      <p className={`fw-semibold text-success`}>
+                        {currency(paymentDetail?.amountPaid)}
+                      </p>
+                      <p className='text-muted fs-sm fw-semibold'>
+                        paid on {formatDate(paymentDetail?.dateOfLastPayment)}
+                      </p>
+                    </div>
+                    <div className='col-2 text-start col-2'>
+                      <p className='text-danger fw-semibold'>
+                        {currency(paymentDetail?.balance)}
+                      </p>
+                    </div>
+                  </section>
+                )
+              })
+            ) : (
+              <Feedback message={`No Students Registered For This Course`} />
+            )}
+          </section>
         </section>
       </section>
     </>
