@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import style from './sectionFour.module.scss'
-import sectionFourImg from '../../../assets/images/home-img5.webp'
-import { Container } from '../../../layout'
-import Button from '../../global/Button'
+import sectionFourImg from '../../../../../assets/images/home-img5.webp'
+import { Container } from '../../../../../layout'
+import Button from '../../../../../components/global/Button'
 
-const index = ({ content }) => {
+const SectionFour = ({ content }) => {
   const { header } = content
   return (
     <section className={style.sectionFour}>
@@ -40,8 +40,8 @@ const index = ({ content }) => {
   )
 }
 
-index.propTypes = {
+SectionFour.propTypes = {
   content: PropTypes.object.isRequired,
 }
 
-export default index
+export default SectionFour

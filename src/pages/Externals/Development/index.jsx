@@ -7,17 +7,17 @@ import {
   CourseSectionTwo,
   SectionSix,
 } from '../../../components'
-import { HOME_CONTENT } from '../Home/content'
+// import { HOME_CONTENT } from '../Home/content'
 
 const index = ({ content }) => {
-  const { sectionSix } = HOME_CONTENT
+  // const { sectionSix } = HOME_CONTENT
   const { hero, sectionTwo, sectionFour } = content
   return (
     <ExternalLayout>
       <Navbar bg={`transparent`} setTextColorBlack />
       <CourseHero content={hero} />
       <CourseSectionTwo content={sectionTwo} />
-      <SectionSix content={sectionSix} />
+      {/* <SectionSix content={sectionSix} /> */}
       <CourseSectionFour content={sectionFour} />
     </ExternalLayout>
   )

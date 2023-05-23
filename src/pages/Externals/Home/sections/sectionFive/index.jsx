@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import sectionFiveImg from '../../../assets/images/home-img6.webp'
+import sectionFiveImg from '../../../../../assets/images/home-img6.webp'
 import style from './sectionFive.module.scss'
-import ShortStepper from '../../global/steppers/ShortStepper'
-import { Container } from '../../../layout'
+import ShortStepper from '../../../../../components/global/steppers/ShortStepper'
+import { Container } from '../../../../../layout'
 
-const index = ({ content }) => {
+const SectionFive = ({ content }) => {
   const { lists } = content
   return (
     <Container>
@@ -25,8 +25,8 @@ const index = ({ content }) => {
   )
 }
 
-index.propTypes = {
+SectionFive.propTypes = {
   content: PropTypes.object.isRequired,
 }
 
-export default index
+export default SectionFive

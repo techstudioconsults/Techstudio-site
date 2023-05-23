@@ -1,12 +1,12 @@
-@use '../../../scss/global/colors' as colors;
-@use '../../../scss/utils/functions' as fn;
-@import '../../../scss/utils/breakpoints';
-@import '../../../scss/utils/mixins';
+@use '../../../../../scss/global/colors' as colors;
+@use '../../../../../scss/utils/functions' as fn;
+@import '../../../../../scss/utils/breakpoints';
+@import '../../../../../scss/utils/mixins';
 
 .sectionTwo {
   margin-block: fn.rem(64);
   @include breakpoint-up('xl') {
-    background: url(../../../assets//images//home-sec1.webp) no-repeat left
+    background: url(../../../../../assets//images//home-sec1.webp) no-repeat left
       bottom;
     background-position: -10%;
   }

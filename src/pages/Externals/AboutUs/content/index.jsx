@@ -85,7 +85,7 @@ export const ABOUT_CONTENT = {
 
     cards: [
       {
-        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1662125043/portfolio/Screenshot_2022-09-02_142242_ftjlc9.png`,
+        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1661800091/portfolio/Screenshot_2022-08-29_200750_otlmoz.png`,
         name: `John Boyega`,
         job: `co-founder & CEO`,
       },

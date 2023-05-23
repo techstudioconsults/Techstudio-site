@@ -1,15 +1,13 @@
 import React from 'react'
-import {
-  Hero,
-  SectionSix,
-  SectionFive,
-  SectionFour,
-  SectionThree,
-  SectionTwo,
-} from '../../../components'
 
 import { ExternalLayout, Navbar } from '../../../layout'
 import { HOME_CONTENT } from './content'
+import Hero from './sections/hero'
+import SectionTwo from './sections/sectionTwo'
+import SectionThree from './sections/sectionThree'
+import SectionFour from './sections/sectionFour'
+import SectionFive from './sections/sectionFive'
+import SectionSix from './sections/sectionSix'
 
 const Home = () => {
   const {

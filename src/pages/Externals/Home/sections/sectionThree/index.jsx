@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import style from './sectioniThree.module.scss'
-import { Profile, TestimonialBanner } from '../..'
-import { Container } from '../../../layout'
+import { Container } from '../../../../../layout'
+import { Profile, TestimonialBanner } from '../../../../../components'
 
-const index = ({ content }) => {
+const SectionThree = ({ content }) => {
   const { body } = content
   return (
     <section className={style.sectionThree}>
@@ -29,8 +29,8 @@ const index = ({ content }) => {
   )
 }
 
-index.propTypes = {
+SectionThree.propTypes = {
   content: PropTypes.object.isRequired,
 }
 
-export default index
+export default SectionThree

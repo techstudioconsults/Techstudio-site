@@ -49,7 +49,7 @@ const index = () => {
         </article>
       </Container>
       <SingleBlogSectionThree />
-      <SectionSix content={sectionSix} />
+      {/* <SectionSix content={sectionSix} /> */}
     </ExternalLayout>
   )
 }
