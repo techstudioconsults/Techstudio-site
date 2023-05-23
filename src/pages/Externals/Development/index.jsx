@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ExternalLayout, Navbar } from '../../layout'
+import { ExternalLayout, Navbar } from '../../../layout'
 import {
   CourseHero,
   CourseSectionFour,
   CourseSectionTwo,
   SectionSix,
-} from '../../components'
+} from '../../../components'
 import { HOME_CONTENT } from '../Home/content'
 
 const index = ({ content }) => {

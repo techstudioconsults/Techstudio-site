@@ -1,4 +1,4 @@
-import img from '../../../assets/images/nigeria.webp'
+import img from '../../../../assets/images/nigeria.webp'
 export const CONTACT_CONTENT = {
   hero: {
     title: `We'd love to hear from you`,

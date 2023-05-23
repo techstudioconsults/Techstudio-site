@@ -6,9 +6,9 @@ import {
   SectionFour,
   SectionThree,
   SectionTwo,
-} from '../../components'
+} from '../../../components'
 
-import { ExternalLayout, Navbar } from '../../layout'
+import { ExternalLayout, Navbar } from '../../../layout'
 import { HOME_CONTENT } from './content'
 
 const Home = () => {

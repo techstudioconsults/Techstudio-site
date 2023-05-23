@@ -1,8 +1,8 @@
-import img1 from '../../../assets/images/intro-img1.webp'
-import img2 from '../../../assets/images/intro-img2.webp'
-import img3 from '../../../assets/images/intro-img3.webp'
-import img4 from '../../../assets/images/intro-img4.webp'
-import img5 from '../../../assets/images/intro-img5.webp'
+import img1 from '../../../../assets/images/intro-img1.webp'
+import img2 from '../../../../assets/images/intro-img2.webp'
+import img3 from '../../../../assets/images/intro-img3.webp'
+import img4 from '../../../../assets/images/intro-img4.webp'
+import img5 from '../../../../assets/images/intro-img5.webp'
 
 export const INTRO_CONTENT = {
   price: [

@@ -5,9 +5,9 @@ import {
   AboutSectionThree,
   // AboutSectionTwo,
   SectionSix,
-} from '../../components'
+} from '../../../components'
 
-import { ExternalLayout, Navbar } from '../../layout'
+import { ExternalLayout, Navbar } from '../../../layout'
 import { HOME_CONTENT } from '../Home/content'
 import { ABOUT_CONTENT } from './content'
 

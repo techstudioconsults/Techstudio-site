@@ -5,8 +5,8 @@ import {
   EmployersSectionFour,
   EmployersSectionTwo,
   JobRequirementModal,
-} from '../../components'
-import { ExternalLayout, Navbar } from '../../layout'
+} from '../../../components'
+import { ExternalLayout, Navbar } from '../../../layout'
 import { EMPLOPYERS_CONTENT } from './content'
 
 const index = () => {

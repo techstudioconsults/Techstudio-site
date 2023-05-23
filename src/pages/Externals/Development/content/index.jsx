@@ -1,11 +1,11 @@
-import frontendImg from '../../../assets/images/frontend.webp'
-import fullstack from '../../../assets/images/fullstack.webp'
-import uiux from '../../../assets/images/uiux.webp'
-import datascience from '../../../assets/images/datascience.webp'
-import mobile from '../../../assets/images/android.webp'
-import numberOne from '../../../assets/images/numberOne.webp'
-import numberTwo from '../../../assets/images/numberTwo.webp'
-import numberThree from '../../../assets/images/numberThree.webp'
+import frontendImg from '../../../../assets/images/frontend.webp'
+import fullstack from '../../../../assets/images/fullstack.webp'
+import uiux from '../../../../assets/images/uiux.webp'
+import datascience from '../../../../assets/images/datascience.webp'
+import mobile from '../../../../assets/images/android.webp'
+import numberOne from '../../../../assets/images/numberOne.webp'
+import numberTwo from '../../../../assets/images/numberTwo.webp'
+import numberThree from '../../../../assets/images/numberThree.webp'
 
 // this data would also be used in the intro page.
 

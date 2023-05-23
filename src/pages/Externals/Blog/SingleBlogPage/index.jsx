@@ -1,6 +1,10 @@
 import React from 'react'
-import { Header, SectionSix, SingleBlogSectionThree } from '../../../components'
-import { Container, ExternalLayout, Navbar } from '../../../layout'
+import {
+  Header,
+  SectionSix,
+  SingleBlogSectionThree,
+} from '../../../../components'
+import { Container, ExternalLayout, Navbar } from '../../../../layout'
 import { HOME_CONTENT } from '../../Home/content'
 
 const index = () => {

@@ -4,8 +4,8 @@ import {
   BlogSectionThree,
   BlogSectionTwo,
   SectionThree,
-} from '../../components'
-import { ExternalLayout, Navbar } from '../../layout'
+} from '../../../components'
+import { ExternalLayout, Navbar } from '../../../layout'
 
 import { HOME_CONTENT } from '../Home/content'
 import { BLOG_CONTENT } from './content'

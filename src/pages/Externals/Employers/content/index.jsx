@@ -1,11 +1,11 @@
-import img2 from '../../../assets/images/working.webp'
-import img3 from '../../../assets/images/Businessman.webp'
-import img4 from '../../../assets/images/intro-img4.webp'
-import icon1 from '../../../assets/icons/noun_coding_3152169.webp'
-import icon2 from '../../../assets/icons/noun_data_science.webp'
-import icon3 from '../../../assets/icons/noun_Designer_1469595.webp'
-import icon4 from '../../../assets/icons/calc.webp'
-import icon5 from '../../../assets/icons/noun_Ui.webp'
+import img2 from '../../../../assets/images/working.webp'
+import img3 from '../../../../assets/images/Businessman.webp'
+import img4 from '../../../../assets/images/intro-img4.webp'
+import icon1 from '../../../../assets/icons/noun_coding_3152169.webp'
+import icon2 from '../../../../assets/icons/noun_data_science.webp'
+import icon3 from '../../../../assets/icons/noun_Designer_1469595.webp'
+import icon4 from '../../../../assets/icons/calc.webp'
+import icon5 from '../../../../assets/icons/noun_Ui.webp'
 
 export const EMPLOPYERS_CONTENT = {
   hero: {

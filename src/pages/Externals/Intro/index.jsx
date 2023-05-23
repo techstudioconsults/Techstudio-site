@@ -1,6 +1,6 @@
 import React from 'react'
-import { IntroBody, IntroHeader } from '../../components'
-import MinimalFooter from '../../layout/MinimalFooter'
+import { IntroBody, IntroHeader } from '../../../components'
+import MinimalFooter from '../../../layout/MinimalFooter'
 
 const index = () => {
   return (

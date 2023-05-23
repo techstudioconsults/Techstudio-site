@@ -1,7 +1,7 @@
 // REACT DEFAULTS
 import React from 'react'
 import { Suspense } from 'react'
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 
 // COMPONENTS
 import {
@@ -12,45 +12,9 @@ import {
   Payment,
 } from './components'
 import { DashboardLayout } from './layout'
-import {
-  AboutUs,
-  AdminDashboard,
-  Blog,
-  ContactUs,
-  Development,
-  // Employers,
-  HomePage,
-  Intro,
-  Messages,
-  PageNotFound,
-  SignIn,
-  Register,
-  SingleBlogPage,
-  SingleCourseView,
-  SingleCourseViewLive,
-  StudentCalssesView,
-  StudentDashboard,
-  StudentDashboardIntro,
-  Tasks,
-  TeacherClassView,
-  TeacherDashboard,
-  AdminSignup,
-  ForgotPassword,
-  AdminCourseView,
-  CreateCourse,
-  EditCourse,
-  CreateClass,
-  EditClass,
-  CreateLesson,
-  EditLesson,
-  AdminResourceView,
-  ResourcesTab,
-  AdminPaymentView,
-  PaymentListView,
-} from './pages'
 
 import AdminClassView from './pages/Dashboard/Admin/classes/AdminClassView'
-import { DEVELOPMENT_CONTENT } from './pages/Development/content'
+import { DEVELOPMENT_CONTENT } from './pages/Externals/Development/content'
 import RequireAuth from './hooks/RequireAuth'
 import { ROLES } from './config/role'
 import {
@@ -64,6 +28,41 @@ import TrackAnalysisLayout from './pages/Dashboard/Admin/components/tab/trackAna
 import OPTVerification from './pages/Auth/OTP/OTPVerification'
 import { selectUserType } from './app/api/appSlice'
 import StudentListDisplay from './pages/Dashboard/Admin/users/userCourseTab/StudentListDisplay'
+import {
+  AboutUs,
+  AdminCourseView,
+  AdminDashboard,
+  AdminPaymentView,
+  AdminResourceView,
+  AdminSignup,
+  Blog,
+  ContactUs,
+  CreateClass,
+  CreateCourse,
+  CreateLesson,
+  Development,
+  EditClass,
+  EditCourse,
+  EditLesson,
+  ForgotPassword,
+  HomePage,
+  Intro,
+  Messages,
+  PageNotFound,
+  PaymentListView,
+  Register,
+  ResourcesTab,
+  SignIn,
+  SingleBlogPage,
+  SingleCourseView,
+  SingleCourseViewLive,
+  StudentCalssesView,
+  StudentDashboard,
+  StudentDashboardIntro,
+  Tasks,
+  TeacherClassView,
+  TeacherDashboard,
+} from './pages'
 
 const App = () => {
   const {

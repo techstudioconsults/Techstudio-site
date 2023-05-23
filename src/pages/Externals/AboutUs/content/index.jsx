@@ -1,13 +1,13 @@
-import img2 from '../../../assets/images/about-img2.webp'
-import img3 from '../../../assets/images/about-img3.webp'
-import img4 from '../../../assets/images/about-img4.webp'
-import img5 from '../../../assets/images/about-img5.webp'
-import icon1 from '../../../assets/icons/clock.png'
-import icon2 from '../../../assets/icons/Insurance.png'
-import icon3 from '../../../assets/icons/money-bag.png'
-import icon4 from '../../../assets/icons/noun_colleague_3249817.png'
-import icon5 from '../../../assets/icons/noun_Learning_2531760.png'
-import icon6 from '../../../assets/icons/noun_workspace_799121.png'
+import img2 from '../../../../assets/images/about-img2.webp'
+import img3 from '../../../../assets/images/about-img3.webp'
+import img4 from '../../../../assets/images/about-img4.webp'
+import img5 from '../../../../assets/images/about-img5.webp'
+import icon1 from '../../../../assets/icons/clock.png'
+import icon2 from '../../../../assets/icons/Insurance.png'
+import icon3 from '../../../../assets/icons/money-bag.png'
+import icon4 from '../../../../assets/icons/noun_colleague_3249817.png'
+import icon5 from '../../../../assets/icons/noun_Learning_2531760.png'
+import icon6 from '../../../../assets/icons/noun_workspace_799121.png'
 
 export const ABOUT_CONTENT = {
   hero: {

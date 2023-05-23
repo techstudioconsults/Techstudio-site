@@ -1,6 +1,6 @@
-import img2 from '../../../assets/images/home-img2.webp'
-import img3 from '../../../assets/images/home-img3.webp'
-import img4 from '../../../assets/images/home-img4.webp'
+import img2 from '../../../../assets/images/home-img2.webp'
+import img3 from '../../../../assets/images/home-img3.webp'
+import img4 from '../../../../assets/images/home-img4.webp'
 
 export const HOME_CONTENT = {
   hero: {

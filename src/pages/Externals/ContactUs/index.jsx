@@ -1,6 +1,6 @@
 import React from 'react'
-import { ContactHero, ContactSectionTwo } from '../../components'
-import { ExternalLayout, Navbar } from '../../layout'
+import { ContactHero, ContactSectionTwo } from '../../../components'
+import { ExternalLayout, Navbar } from '../../../layout'
 import { CONTACT_CONTENT } from './content'
 
 const index = () => {
