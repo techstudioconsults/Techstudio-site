@@ -156,6 +156,15 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
                 'nav-link fw-semibold',
                 color ? `text-black` : `text-white`,
               ].join(' ')}
+              to='/faq'
+            >
+              FAQ
+            </Link>
+            <Link
+              className={[
+                'nav-link fw-semibold',
+                color ? `text-black` : `text-white`,
+              ].join(' ')}
               to='/contact'
             >
               Contact Us
