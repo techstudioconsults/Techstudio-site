@@ -3,15 +3,15 @@ import {
   BlogHero,
   BlogSectionThree,
   BlogSectionTwo,
-  SectionThree,
+  // SectionThree,
 } from '../../../components'
 import { ExternalLayout, Navbar } from '../../../layout'
 
-import { HOME_CONTENT } from '../Home/content'
+// import { HOME_CONTENT } from '../Home/content'
 import { BLOG_CONTENT } from './content'
 
 const Home = () => {
-  const { sectionThree } = HOME_CONTENT
+  // const { sectionThree } = HOME_CONTENT
   const { hero, sectionThree_blog } = BLOG_CONTENT
   return (
     <ExternalLayout>
@@ -19,7 +19,7 @@ const Home = () => {
       <BlogHero content={hero} />
       <BlogSectionTwo />
       <BlogSectionThree content={sectionThree_blog} />
-      <SectionThree content={sectionThree} />
+      {/* <SectionThree content={sectionThree} /> */}
     </ExternalLayout>
   )
 }

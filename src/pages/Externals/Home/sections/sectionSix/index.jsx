@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import BannerII from '../../global/banners/BannerII'
-import Button from '../../global/Button'
+import BannerII from '../../../../../components/global/banners/BannerII'
+import Button from '../../../../../components/global/Button'
 import style from './sectionSix.module.scss'
-import { Container } from '../../../layout'
+import { Container } from '../../../../../layout'
 
-const index = ({ content }) => {
+const SectionSix = ({ content }) => {
   const { header } = content
   return (
     <section className={style.sectionSix}>
@@ -30,8 +30,8 @@ const index = ({ content }) => {
   )
 }
 
-index.propTypes = {
+SectionSix.propTypes = {
   content: PropTypes.object.isRequired,
 }
 
-export default index
+export default SectionSix

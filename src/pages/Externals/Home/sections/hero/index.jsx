@@ -1,11 +1,11 @@
 import React from 'react'
 import style from './hero.module.scss'
-import heroImg from '../../../assets/images/heroImg.webp'
-import { Container } from '../../../layout'
-import Button from '../../global/Button'
+import heroImg from '../../../../../assets/images/heroImg.webp'
+import { Container } from '../../../../../layout'
+import Button from '../../../../../components/global/Button'
 import PropTypes from 'prop-types'
 
-const index = ({ content }) => {
+const Hero = ({ content }) => {
   const { title, description } = content
   return (
     <header className={style.hero}>
@@ -39,8 +39,8 @@ const index = ({ content }) => {
   )
 }
 
-index.propTypes = {
+Hero.propTypes = {
   content: PropTypes.object.isRequired,
 }
 
-export default index
+export default Hero

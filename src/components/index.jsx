@@ -56,12 +56,12 @@ export { default as AddResource } from './global/modals/AddResource'
 export { default as ChangePassword } from './global/forms/changePassword/ChangePassword'
 export { default as SearchComponent } from './global/searchComponent/SearchComponent'
 // HOME
-export { default as Hero } from './home/hero'
-export { default as SectionTwo } from './home/sectionTwo'
-export { default as SectionThree } from './home/sectionThree'
-export { default as SectionFour } from './home/sectionFour'
-export { default as SectionFive } from './home/sectionFive'
-export { default as SectionSix } from './home/sectionSix'
+// export { default as Hero } from './home/hero'
+// export { default as SectionTwo } from './home/sectionTwo'
+// export { default as SectionThree } from './home/sectionThree'
+// export { default as SectionFour } from './home/sectionFour'
+// export { default as SectionFive } from './home/sectionFive'
+// export { default as SectionSix } from './home/sectionSix'
 
 // ABOUT
 export { default as AboutHero } from './aboutUs/hero'

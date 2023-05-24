@@ -1,11 +1,11 @@
 import React from 'react'
 import style from './sectionTwo.module.scss'
 import PropTypes from 'prop-types'
-import sectionTwoImg from '../../../assets/images/home-sec1.webp'
-import { Container } from '../../../layout'
-import { SectionTwoCard } from '../..'
+import sectionTwoImg from '../../../../../assets/images/home-sec1.webp'
+import { Container } from '../../../../../layout'
+import { SectionTwoCard } from '../../../../../components'
 
-const index = ({ content }) => {
+const SectionTwo = ({ content }) => {
   const { header, cards } = content
 
   const cardsDisplay = cards.map((card) => {
@@ -30,8 +30,8 @@ const index = ({ content }) => {
   )
 }
 
-index.propTypes = {
+SectionTwo.propTypes = {
   content: PropTypes.object.isRequired,
 }
 
-export default index
+export default SectionTwo
