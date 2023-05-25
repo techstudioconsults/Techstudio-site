@@ -1,0 +1,41 @@
+@use '../../../scss/global/colors' as colors;
+@use '../../../scss/utils/functions' as fn;
+@import '../../../scss/utils/breakpoints';
+@import '../../../scss/utils/mixins';
+// *{
+//     padding: 0;
+//     margin: 0;
+//     box-sizing: border-box;
+// }
+.GalleryIndex{
+    width: 100%;
+    max-width: 1440px;
+    margin: 5rem auto;
+
+    &Contents{
+        width: 100%;
+        margin: 0 auto;
+        &First{
+
+            &Inner{
+                width: 90%;
+                display: grid;
+                grid-template-columns: repeat(2,auto);
+                justify-content: center;
+                align-items: center;
+                margin: 0 auto;
+                column-gap: 8rem;
+            }
+        }
+        &Second{
+            width: 100%;
+            display: flex;
+        }
+
+    }
+    .GalleryImg{
+        width: 100%;
+        height: 20rem;
+        object-fit: cover;
+    }
+}

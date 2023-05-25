@@ -9,6 +9,13 @@ import icon4 from '../../../../assets/icons/noun_colleague_3249817.png'
 import icon5 from '../../../../assets/icons/noun_Learning_2531760.png'
 import icon6 from '../../../../assets/icons/noun_workspace_799121.png'
 
+import AboutSec4Img01 from '../../../../assets/images/AboutSec4Img01.png'
+import AboutSec4Img02 from '../../../../assets/images/AboutSec4Img02.png'
+import AboutSec4Img03 from '../../../../assets/images/AboutSec4Img03.png'
+import AboutSec4Img04 from '../../../../assets/images/AboutSec4Img04.png'
+import AboutSec4Img05 from '../../../../assets/images/AboutSec4Img05.png'
+import AboutSec4Img06 from '../../../../assets/images/AboutSec4Img06.png'
+
 export const ABOUT_CONTENT = {
   hero: {
     caption: `KNOW US MORE`,
@@ -85,32 +92,32 @@ export const ABOUT_CONTENT = {
 
     cards: [
       {
-        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1661800091/portfolio/Screenshot_2022-08-29_200750_otlmoz.png`,
+        img: AboutSec4Img01,
         name: `John Boyega`,
         job: `co-founder & CEO`,
       },
       {
-        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1662125043/portfolio/Screenshot_2022-09-02_142242_ftjlc9.png`,
+        img: AboutSec4Img02,
         name: `John Boyega`,
         job: `co-founder & CEO`,
       },
       {
-        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1662125043/portfolio/Screenshot_2022-09-02_142242_ftjlc9.png`,
+        img: AboutSec4Img03,
         name: `John Boyega`,
         job: `co-founder & CEO`,
       },
       {
-        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1662125043/portfolio/Screenshot_2022-09-02_142242_ftjlc9.png`,
+        img: AboutSec4Img04,
         name: `John Boyega`,
         job: `co-founder & CEO`,
       },
       {
-        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1662125043/portfolio/Screenshot_2022-09-02_142242_ftjlc9.png`,
+        img: AboutSec4Img05,
         name: `John Boyega`,
         job: `co-founder & CEO`,
       },
       {
-        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1662125043/portfolio/Screenshot_2022-09-02_142242_ftjlc9.png`,
+        img: AboutSec4Img06,
         name: `John Boyega`,
         job: `co-founder & CEO`,
       },
