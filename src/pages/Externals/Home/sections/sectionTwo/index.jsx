@@ -14,8 +14,12 @@ const SectionTwo = ({ content }) => {
 
   return (
     <section className={style.sectionTwo}>
-      <Container>
-        <h2 className={style.title}>{header.title}</h2>
+      <Container className={style.headerContainer}>
+        <p className={style.headerTitle}>{header.title}</p>
+        <div className={style.descriptionContainer}>
+          <h2 className={style.title}>{header.title2}</h2>
+          <p className={style.headerDescription}>{header.description}</p>
+        </div>
       </Container>
       <Container paddingBlock={0}>
         <div className={style.body}>

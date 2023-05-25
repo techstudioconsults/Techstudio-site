@@ -6,16 +6,28 @@
 .sectionTwo {
   margin-block: fn.rem(64);
   @include breakpoint-up('xl') {
-    background: url(../../../../../assets//images//home-sec1.webp) no-repeat left
-      bottom;
-    background-position: -10%;
+    // background: url(../../../../../assets//images//home-sec1.webp) no-repeat left
+      // bottom;
+    // background-position: -10%;
   }
+  .headerDescription{
+    text-align: center;
 
+  }
+  .headerTitle{
+    text-align: center;
+  }
+  .descriptionContainer{
+    max-width: 50%;
+    margin: 0 auto;
+    // background-color: red;
+  }
   .title {
     text-align: center;
-    font-weight: 800;
+    font-weight: 600;
+    font-size: 2em;
     @include breakpoint-up('xl') {
-      text-align: initial;
+      text-align: center;
     }
   }
 

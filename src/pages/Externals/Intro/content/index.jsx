@@ -18,7 +18,7 @@ export const INTRO_CONTENT = {
     {
       id: 2,
       img: img4,
-      course: `Data Science`,
+      course: `Graphics Design`,
       desc: `You’ll participate in a wide-range of projects where you’ll gain hands-on experience with the fundamentals of development. This program is designed to equip professionals with the competencies required to enable you sail through the tech space and take you through a hands-on learning experience to build platforms.`,
       time: `10 Weeks`,
       date: `Starting August 2021`,
@@ -27,7 +27,7 @@ export const INTRO_CONTENT = {
     {
       id: 3,
       img: img5,
-      course: `Mobile Development`,
+      course: `Android Development`,
       desc: `You’ll participate in a wide-range of projects where you’ll gain hands-on experience with the fundamentals of development. This program is designed to equip professionals with the competencies required to enable you sail through the tech space and take you through a hands-on learning experience to build platforms.`,
       time: `10 Weeks`,
       date: `Starting August 2021`,
@@ -46,6 +46,15 @@ export const INTRO_CONTENT = {
       id: 5,
       img: img3,
       course: `Front End Development`,
+      desc: `You’ll participate in a wide-range of projects where you’ll gain hands-on experience with the fundamentals of development. This program is designed to equip professionals with the competencies required to enable you sail through the tech space and take you through a hands-on learning experience to build platforms.`,
+      time: `10 Weeks`,
+      date: `Starting August 2021`,
+      price: `N200,000.00`,
+    },
+    {
+      id: 6,
+      img: img3,
+      course: `Back End Development`,
       desc: `You’ll participate in a wide-range of projects where you’ll gain hands-on experience with the fundamentals of development. This program is designed to equip professionals with the competencies required to enable you sail through the tech space and take you through a hands-on learning experience to build platforms.`,
       time: `10 Weeks`,
       date: `Starting August 2021`,

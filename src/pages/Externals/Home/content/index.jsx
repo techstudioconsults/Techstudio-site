@@ -10,7 +10,11 @@ export const HOME_CONTENT = {
 
   sectionTwo: {
     header: {
-      title: [`Why choose Techstudio?`],
+      title: [`Why Techstudio?`],
+      title2: [`We Are Customer-Centric`],
+      description: [
+        `Lorem ipsum dolor sit amet consectetur Urna adipiscing risus faucibus ut vulputate malesuada eget In leo commodo auctor facilisi`,
+      ],
     },
     cards: [
       {

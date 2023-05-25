@@ -18,9 +18,9 @@ const IntroHeader = () => {
     <div className={style.introHeader}>
       <Container>
         <section className={style.introHeaderWapper}>
-          <Link to={`/`} className={style.imgContainer}>
+          {/* <Link to={`/`} className={style.imgContainer}>
             <img src={logo} alt='logo' />
-          </Link>
+          </Link> */}
           <div className={style.text}>
             <h2 className={style.title}>Our Learning Tracks</h2>
             <p className={style.subTitle}>
@@ -46,7 +46,7 @@ const IntroHeader = () => {
                 index === 1 ? style.active : null,
               ].join(' ')}
             >
-              Data Science
+              Graphics Design
             </button>
             <button
               onClick={handleClick}
@@ -56,7 +56,7 @@ const IntroHeader = () => {
                 index === 2 ? style.active : null,
               ].join(' ')}
             >
-              Mobile Development
+              Android Development
             </button>
             <button
               onClick={handleClick}
@@ -77,6 +77,16 @@ const IntroHeader = () => {
               ].join(' ')}
             >
               Front End Development
+            </button>
+            <button
+              onClick={handleClick}
+              name={5}
+              className={[
+                style.courseBtn,
+                index === 5 ? style.active : null,
+              ].join(' ')}
+            >
+              Back End Development
             </button>
           </div>
         </section>
