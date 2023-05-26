@@ -1,0 +1,127 @@
+@use '../../../../../scss/global/colors' as colors;
+@use '../../../../../scss/utils/functions' as fn;
+@import '../../../../../scss/utils/breakpoints';
+@import '../../../../../scss/utils/mixins';
+
+.aboutSectionTwo {
+  display: none;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+
+  //   background: url(../../../assets/images/about-img6.webp) no-repeat left bottom;
+  //   background-size: contain;
+
+  // .imgGroup {
+  //   border: 1px solid red;
+  //   margin-top: -50px;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   width: 100%;
+  //   position: relative;
+
+  //   .img {
+  //     width: 100%;
+  //     position: absolute;
+  //     //   max-width: fn.rem(308);
+  //     @include breakpoint-up('lg') {
+  //       //   height: fn.rem(204);
+  //     }
+
+  //     &:nth-child(1) {
+  //       left: 0;
+  //       top: 190px;
+  //     }
+
+  //     &:nth-child(2) {
+  //       left: 30px;
+  //       top: 0;
+
+  //       width: 390px;
+  //       height: 254px;
+  //     }
+
+  //     &:nth-child(3) {
+  //       left: 229px;
+  //       top: 250px;
+
+  //       width: 326px;
+  //       height: 248px;
+  //     }
+
+  //     &:nth-child(4) {
+  //       left: 574px;
+  //       top: 180px;
+
+  //       width: 311px;
+  //       height: 235px;
+  //     }
+
+  //     &:nth-child(5) {
+  //       left: 904px;
+  //       top: 260px;
+
+  //       width: 308px;
+  //       height: 204px;
+  //     }
+
+  //     img {
+  //       width: 100%;
+  //       height: 100%;
+  //       object-fit: cover;
+  //     }
+  //   }
+  // }
+
+  margin-top: -50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+
+  .imgContainer {
+    position: absolute;
+
+    &:nth-child(1) {
+      left: 0;
+      top: 190px;
+
+      width: 96px;
+      height: 97px;
+    }
+
+    &:nth-child(2) {
+      left: 30px;
+      top: 0;
+
+      width: 390px;
+      height: 254px;
+    }
+
+    &:nth-child(3) {
+      left: 229px;
+      top: 250px;
+
+      width: 326px;
+      height: 248px;
+    }
+
+    &:nth-child(4) {
+      left: 574px;
+      top: 180px;
+
+      width: 311px;
+      height: 235px;
+    }
+
+    &:nth-child(5) {
+      left: 904px;
+      top: 260px;
+
+      width: 308px;
+      height: 204px;
+    }
+  }
+}

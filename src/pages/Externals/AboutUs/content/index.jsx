@@ -9,6 +9,13 @@ import icon4 from '../../../../assets/icons/noun_colleague_3249817.png'
 import icon5 from '../../../../assets/icons/noun_Learning_2531760.png'
 import icon6 from '../../../../assets/icons/noun_workspace_799121.png'
 
+import AboutSec4Img01 from '../../../../assets/images/AboutSec4Img01.png'
+import AboutSec4Img02 from '../../../../assets/images/AboutSec4Img02.png'
+import AboutSec4Img03 from '../../../../assets/images/AboutSec4Img03.png'
+import AboutSec4Img04 from '../../../../assets/images/AboutSec4Img04.png'
+import AboutSec4Img05 from '../../../../assets/images/AboutSec4Img05.png'
+import AboutSec4Img06 from '../../../../assets/images/AboutSec4Img06.png'
+
 export const ABOUT_CONTENT = {
   hero: {
     caption: `KNOW US MORE`,
@@ -81,38 +88,39 @@ export const ABOUT_CONTENT = {
   sectionFour: {
     header: {
       title: `Meet the team`,
+      subTitle: `Lorem ipsum dolor sit amet consectetur. Urna adipiscing risus faucibus ut vulputate malesuada eget. In leo commodo auctor facilisi. Le nisl justo in eu volutpat eu in. Sit urna nulla mi dee.`,
     },
 
     cards: [
       {
-        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1661800091/portfolio/Screenshot_2022-08-29_200750_otlmoz.png`,
-        name: `John Boyega`,
-        job: `co-founder & CEO`,
+        img: AboutSec4Img01,
+        name: `Wasiu Yusuf`,
+        job: `COO`,
       },
       {
-        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1662125043/portfolio/Screenshot_2022-09-02_142242_ftjlc9.png`,
-        name: `John Boyega`,
-        job: `co-founder & CEO`,
+        img: AboutSec4Img02,
+        name: `Tosin Sanya`,
+        job: `HR/ Admin Lead`,
       },
       {
-        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1662125043/portfolio/Screenshot_2022-09-02_142242_ftjlc9.png`,
-        name: `John Boyega`,
-        job: `co-founder & CEO`,
+        img: AboutSec4Img03,
+        name: `Hafeez Kekere-Ekun`,
+        job: `Product Lead`,
       },
       {
-        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1662125043/portfolio/Screenshot_2022-09-02_142242_ftjlc9.png`,
-        name: `John Boyega`,
-        job: `co-founder & CEO`,
+        img: AboutSec4Img04,
+        name: `Hussein Oyelaja`,
+        job: `Marketing Lead`,
       },
       {
-        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1662125043/portfolio/Screenshot_2022-09-02_142242_ftjlc9.png`,
-        name: `John Boyega`,
-        job: `co-founder & CEO`,
+        img: AboutSec4Img05,
+        name: `Adebusola Adebowale`,
+        job: `Sales & Marketing`,
       },
       {
-        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1662125043/portfolio/Screenshot_2022-09-02_142242_ftjlc9.png`,
-        name: `John Boyega`,
-        job: `co-founder & CEO`,
+        img: AboutSec4Img06,
+        name: `Patrick Blessing`,
+        job: `Sales & Marketing`,
       },
     ],
   },

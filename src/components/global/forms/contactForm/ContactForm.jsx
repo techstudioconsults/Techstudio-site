@@ -115,6 +115,32 @@ const ContactForm = () => {
           }}
         />
       </div>
+      <div>
+        <label htmlFor='email' className='form-label fw-semibold'>
+          Subject
+        </label>
+        <input
+          type='email'
+          id='fullName'
+          className='form-control'
+          aria-describedby='passwordHelpBlock'
+          placeholder='example@example.com'
+          {...register('fullName', validation)}
+        />
+        <ErrorMessage
+          errors={errors}
+          name='email'
+          render={({ messages }) => {
+            return messages
+              ? Object.entries(messages).map(([type, message]) => (
+                  <p className='fs-xs text-danger' key={type}>
+                    {message}
+                  </p>
+                ))
+              : null
+          }}
+        />
+      </div>
       {/* <div>
         <label htmlFor='subject' className='form-label fw-semibold'>
           Subject
