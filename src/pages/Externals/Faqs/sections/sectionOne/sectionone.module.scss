@@ -1,0 +1,34 @@
+@use '../../../../../scss/global/colors' as colors;
+@use '../../../../../scss/utils/functions' as fn;
+@import '../../../../../scss/utils/breakpoints';
+@import '../../../../../scss/utils/mixins';
+
+.headerContainer {
+  background-color: darkblue;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: fn.rem(130);
+  padding-bottom: fn.rem(50);
+  // width: 80%;
+  @include breakpoint-down('lg') {
+    }
+
+  .subtitle {
+    // width: 100%;
+    margin: 0 auto;
+    font-size: fn.em(44);
+    font-weight: 700;
+    color: white;
+    line-height: fn.rem(50);
+    @include breakpoint-down('lg') {
+      text-align: center;
+    }
+
+  }
+  .subtitleTwo {
+    color: white;
+    font-size: fn.rem(27);
+    font-weight: 400;
+    padding-top: 10px;
+  }
+}

@@ -62,6 +62,7 @@ import {
   Tasks,
   TeacherClassView,
   TeacherDashboard,
+  Faq,
 } from './pages'
 
 const App = () => {
@@ -83,6 +84,7 @@ const App = () => {
         {/* public routes */}
         <Route index path='/' element={<HomePage />} />
         <Route path='/tracks' element={<Intro />} />
+        <Route path='/faq' element={<Faq />} />
         <Route path='/student/register' element={<Register />} />
         <Route path='/login' element={<SignIn />} />
         <Route path='/forgot-password' element={<ForgotPassword />} />

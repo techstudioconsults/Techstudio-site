@@ -1,0 +1,29 @@
+@use '../../../../../scss/global/colors' as colors;
+@use '../../../../../scss/utils/functions' as fn;
+@import '../../../../../scss/utils/breakpoints';
+@import '../../../../../scss/utils/mixins';
+
+.accordionContainer {
+  width: 100%;
+  margin: 0 auto;
+
+  .accordionItem {
+    // width: fn.rem(1232);
+    margin: 0 auto;
+    //   padding: 10px;
+    border: none;
+    box-shadow: none;
+    @include breakpoint-up('xs') {
+      //   width: 0%;
+    }
+  }
+
+  .accordionButton {
+    background-color: white !important ;
+    color: black;
+    box-shadow: none;
+  }
+  .accordionBody {
+    color: blue;
+  }
+}
