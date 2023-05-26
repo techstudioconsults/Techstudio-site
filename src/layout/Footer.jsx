@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Link } from 'react-router-dom'
 import techimage from '../assets/icons/logo.png'
 import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa'
@@ -13,20 +12,26 @@ const Footer = () => {
             <div className='col-12 col-lg-3 mb-3'>
               <div>
                 <Link
-                  className='d-flex gap-2 text-white justify-content-start'
+                  className='d-flex gap-3 text-white justify-content-start'
                   to='/'
                 >
                   <img src={techimage} alt='logo' />
                   <span className='fw-bold'>Techstudio Academy</span>
                 </Link>
               </div>
+              <ul className='nav flex-column fs-sm mt-5 gap-1 align-items-start'>
+                <li className='nav-item mb-2'>
+                  <p className='text-light fs-xxl cc-link-hover'>
+                    1,Ogunlesi Street, Awoyorkun Bus Stop,Onipanu Lagos
+                  </p>
+                </li>
+              </ul>
             </div>
-
             <div className='col-12 col-lg-3 text-white my-12 my-lg-0'>
               <div>
                 <p className='fs-md fw-bolder py-2_5'>Courses</p>
               </div>
-              <ul className='nav flex-column fs-sm mt-5 gap-2 align-items-start'>
+              <ul className='nav flex-column fs-sm mt-5 gap-3 align-items-start'>
                 <li className='nav-item mb-2'>
                   <Link
                     className='text-white cc-link-hover'

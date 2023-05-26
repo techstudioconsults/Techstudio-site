@@ -63,7 +63,10 @@ const SectionSeven = ({ data }) => {
 
   return (
     <Container>
-      <section ref={carousel} className={`${style.carousel} d-flex gap-20`}>
+      <section
+        ref={carousel}
+        className={`${style.carousel} d-flex flex-column flex-lg-row gap-20`}
+      >
         {/* <article className={style.controls}>
         <button onClick={handlePreviousBtn} className={style.previousBtn}>
           prev
@@ -76,7 +79,7 @@ const SectionSeven = ({ data }) => {
         </button>
       </article> */}
         <article className={style.quoteContainer}>
-          <img src={image} alt='img' />
+          <img src={image} alt='img' className='img-fluid' />
         </article>
         <section className='d-flex flex-column justify-content-between'>
           <section className=''>
@@ -88,22 +91,22 @@ const SectionSeven = ({ data }) => {
               <p className=''>{description}</p>
             </div>
           </section>
-          <section className='d-flex flex-column gap-5 w-50 my-10'>
-            <div className='d-flex gap-10 justify-content-between'>
+          <section className='d-flex flex-column gap-5 my-10'>
+            <div className='d-flex gap-52'>
               <span>
                 <Icon className='me-2' icon={`ion:location-outline`} />
                 <span>location</span>
               </span>
               <span>{location}</span>
             </div>
-            <div className='d-flex gap-10 justify-content-between'>
+            <div className='d-flex gap-52'>
               <span>
                 <Icon className='me-2' icon={`fluent-mdl2:date-time`} />
                 <span>Start Date</span>
               </span>
               <span>{date}</span>
             </div>
-            <div className='d-flex gap-10 justify-content-between'>
+            <div className='d-flex gap-52'>
               <span>
                 <Icon className='me-2' icon={`game-icons:duration`} />
                 <span>Duration</span>

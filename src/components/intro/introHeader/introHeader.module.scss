@@ -21,14 +21,18 @@
     }
 
     .text {
+      margin-top: fn.rem(70);
       .title {
-        font-weight: 800;
+        font-weight: 600;
+        font-size: fn.rem(24);
+
         color: colors.$deep-blue;
-        margin-bottom: fn.rem(19);
+        margin-bottom: fn.rem(8);
       }
 
       .subTitle {
         font-size: fn.rem(14);
+        margin-top: 0;
         color: colors.$dark-gray;
       }
     }
