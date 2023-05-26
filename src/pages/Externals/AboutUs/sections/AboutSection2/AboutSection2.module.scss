@@ -6,8 +6,9 @@
 .aboutSectionTwo {
   display: none;
   width: 100%;
-  height: 80vh;
+  height: 90vh;
   display: flex;
+  background-color: red;
 
   //   background: url(../../../assets/images/about-img6.webp) no-repeat left bottom;
   //   background-size: contain;
@@ -85,40 +86,45 @@
     position: absolute;
 
     &:nth-child(1) {
-      left: 0;
-      top: 190px;
+      // left: 0;
+      // top: 190px;
+      transform: translate(-36rem,-15rem);
 
       width: 96px;
       height: 97px;
     }
 
     &:nth-child(2) {
-      left: 30px;
-      top: 0;
+      // left: 30px;
+      // top: 0;
+      transform: translate(-13rem,40%);
 
       width: 390px;
       height: 254px;
     }
 
     &:nth-child(3) {
-      left: 229px;
-      top: 250px;
+      // left: 229px;
+      // top: 250px;
+      transform: translate(8rem,1%);
 
       width: 326px;
       height: 248px;
     }
 
     &:nth-child(4) {
-      left: 574px;
-      top: 180px;
+      // left: 774px;
+      // top: 180px;
+      transform: translate(28rem,50%);
 
       width: 311px;
       height: 235px;
     }
 
     &:nth-child(5) {
-      left: 904px;
-      top: 260px;
+      // left: 904px;
+      // top: 260px;
+
 
       width: 308px;
       height: 204px;

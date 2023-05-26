@@ -19,7 +19,9 @@ const AboutSection2 = ({ content }) => {
       {/* <section className={style.aboutSectionTwo}>
         <div className={style.imgGroup}>{imgDisplay}</div>
       </section> */}
-      <section className={style.aboutSectionTwo}>{imgDisplay}</section>
+      <section className={style.aboutSectionTwo}>
+        {imgDisplay}
+      </section>
     </Container>
   )
 }
