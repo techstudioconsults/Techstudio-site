@@ -8,20 +8,22 @@ import { Container } from '../../../../../layout'
 const SectionFive = ({ content }) => {
   const { lists } = content
   return (
-    <Container>
-      <section className={style.sectionFive}>
-        <div className={style.stepperList}>
-          <ShortStepper lists={lists} />
-        </div>
-        <div className={style.sectionFiveImg}>
-          <img
-            src={sectionFiveImg}
-            alt='sectionFive-img'
-            className='img-fluid'
-          />
-        </div>
-      </section>
-    </Container>
+    <section className={style.sectionFive}>
+      <Container>
+        <section className={style.sectionFive}>
+          <div className={style.stepperList}>
+            <ShortStepper lists={lists} />
+          </div>
+          <div className={style.sectionFiveImg}>
+            <img
+              src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1684971336/techstudio/Property_1_Frame_1000002406_ohrkxt.png`}
+              alt='sectionFive-img'
+              className='img-fluid'
+            />
+          </div>
+        </section>
+      </Container>
+    </section>
   )
 }
 

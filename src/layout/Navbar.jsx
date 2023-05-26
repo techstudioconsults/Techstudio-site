@@ -43,9 +43,13 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
         <Link className='navbar-brand' to='/'>
           <div className='d-flex align-items-center gap-2'>
             <div className={style.navImgContainer}>
-              <img className='logo' src={techimage} alt='logo' />
+              <img
+                className='logo'
+                src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1684888535/techstudio/logo_white_text_new_1_yo2rsg.png`}
+                alt='logo'
+              />
             </div>
-            <span
+            {/* <span
               className={[
                 'fw-bold',
                 style.logoText,
@@ -53,7 +57,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
               ].join(' ')}
             >
               Techstudio Academy
-            </span>
+            </span> */}
           </div>
         </Link>
 

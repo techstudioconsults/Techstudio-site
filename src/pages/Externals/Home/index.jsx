@@ -8,6 +8,7 @@ import SectionThree from './sections/sectionThree'
 import SectionFour from './sections/sectionFour'
 import SectionFive from './sections/sectionFive'
 import SectionSix from './sections/sectionSix'
+import SectionSeven from './sections/sectionSeven'
 
 const Home = () => {
   const {
@@ -17,6 +18,7 @@ const Home = () => {
     sectionFour,
     sectionFive,
     sectionSix,
+    sectionSeven,
   } = HOME_CONTENT
   return (
     <ExternalLayout>
@@ -26,6 +28,7 @@ const Home = () => {
       <SectionThree content={sectionThree} />
       <SectionFour content={sectionFour} />
       <SectionFive content={sectionFive} />
+      <SectionSeven data={sectionSeven.upcomingClasses} />
       <SectionSix content={sectionSix} />
     </ExternalLayout>
   )

@@ -2,34 +2,50 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import style from './sectioniThree.module.scss'
 import { Container } from '../../../../../layout'
-import { Profile, TestimonialBanner } from '../../../../../components'
+import { CoursesCarousel } from '../../../../../components'
+// import { Profile, TestimonialBanner } from '../../../../../components'
 
 const SectionThree = ({ content }) => {
-  const { body } = content
+  const { header } = content
   return (
     <section className={style.sectionThree}>
       <div className={style.banner}>
         <Container>
-          <TestimonialBanner>
-            <div className='text-white text-center d-flex flex-column align-items-lg-center gap-10 py-10 p-lg-20'>
-              <p
-                className={[
-                  'text-start text-lg-center lh-lg',
-                  style.message,
-                ].join(' ')}
-              >
-                {body.message}
-              </p>
-              <Profile content={body.profile} />
-            </div>
-          </TestimonialBanner>
+          <section className='d-flex flex-column justify-content-center align-items-center'>
+            <p className={style.title}>{header.title}</p>
+            <h2 className={style.subTitle}>{header.topic}</h2>
+            <p className={style.desc}>{header.description}</p>
+          </section>
+          <section className='my-20'>
+            <CoursesCarousel />
+          </section>
         </Container>
       </div>
     </section>
   )
 }
 
+export const SectionThreeCard = ({ content }) => {
+  return (
+    <div className={`d-flex flex-column align-items-center`}>
+      <div className={style.cardImg}>
+        <img src={content.image} alt='card-img' className='img-fluid' />
+      </div>
+      <div className={`text-center`}>
+        <h3 className='fs-xl mt-5'>{content.title}</h3>
+        <p className='fs-sm'>{content.description}</p>
+      </div>
+      <button className='btn btn-outline-primary px-10 border border-2 border-primary mt-5'>
+        View Course
+      </button>
+    </div>
+  )
+}
+
 SectionThree.propTypes = {
+  content: PropTypes.object.isRequired,
+}
+SectionThreeCard.propTypes = {
   content: PropTypes.object.isRequired,
 }
 

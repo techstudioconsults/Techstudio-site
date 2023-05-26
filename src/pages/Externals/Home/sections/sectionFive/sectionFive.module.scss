@@ -4,6 +4,7 @@
 @import '../../../../../scss/utils/mixins';
 
 .sectionFive {
+  background-color: colors.$light-blue-II;
   @include breakpoint-up('lg') {
     @include flex;
     @include flex_align;
