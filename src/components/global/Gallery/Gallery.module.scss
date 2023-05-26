@@ -20,11 +20,30 @@
             &Inner{
                 width: 90%;
                 display: grid;
-                grid-template-columns: repeat(2,auto);
+                grid-template-columns: 1fr;
                 justify-content: center;
                 align-items: center;
-                margin: 0 auto;
+                margin: 0 auto 3rem;
                 column-gap: 8rem;
+                text-align: center;
+
+                .galleryHeader{
+                    font-size: 14px;
+                    color: #0266F4;
+                }
+                .gallerySubheader{
+                    font-size: 35px;
+                }
+                .galleryText{
+                    font-size: 16px;
+                }
+
+                @include breakpoint-up('lg') {
+                    width: 90%;
+                    display: grid;
+                    grid-template-columns: repeat(2,auto);
+                    text-align: start;
+                }
             }
         }
         &Second{

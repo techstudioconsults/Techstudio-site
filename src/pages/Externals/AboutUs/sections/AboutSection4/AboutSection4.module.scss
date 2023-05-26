@@ -4,8 +4,24 @@
 @import '../../../../../scss/utils/mixins';
 
 .aboutSectionFour {
+  &Content{
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    font: 35px;
+
+    @include breakpoint-up('lg') {
+      width: fn.rem(600);
+    }
+
+    .subtitle{
+      font-size: 16px;
+    }
+
+  }
   .title {
     font-weight: 800;
+    font-size: fn.rem(35);
   }
   .teamCardGroup {
     display: grid;

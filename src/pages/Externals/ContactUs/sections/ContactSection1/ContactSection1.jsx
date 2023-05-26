@@ -22,11 +22,14 @@ const ContactSection1 = ({ content }) => {
           </div>
           <div className={style.addressWrapper}>
             <div className={style.flag}>
-              <img src={address.img} alt='flag' />
+              <img src={address.img} alt='flag' className={style.flag} />
             </div>
             <div className={style.address}>
               <h6>{address.state}</h6>
               <p className={style.address}>{address.address}</p>
+              <h6 className={style.whatsapp}>{address.whatsapp}</h6>
+              <p>{address.busola}</p>
+              <p>{address.blessing}</p>
             </div>
           </div>
           <div>

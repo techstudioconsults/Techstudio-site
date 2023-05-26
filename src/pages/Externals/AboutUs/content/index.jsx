@@ -88,38 +88,39 @@ export const ABOUT_CONTENT = {
   sectionFour: {
     header: {
       title: `Meet the team`,
+      subTitle: `Lorem ipsum dolor sit amet consectetur. Urna adipiscing risus faucibus ut vulputate malesuada eget. In leo commodo auctor facilisi. Le nisl justo in eu volutpat eu in. Sit urna nulla mi dee.`,
     },
 
     cards: [
       {
         img: AboutSec4Img01,
-        name: `John Boyega`,
-        job: `co-founder & CEO`,
+        name: `Wasiu Yusuf`,
+        job: `COO`,
       },
       {
         img: AboutSec4Img02,
-        name: `John Boyega`,
-        job: `co-founder & CEO`,
+        name: `Tosin Sanya`,
+        job: `HR/ Admin Lead`,
       },
       {
         img: AboutSec4Img03,
-        name: `John Boyega`,
-        job: `co-founder & CEO`,
+        name: `Hafeez Kekere-Ekun`,
+        job: `Product Lead`,
       },
       {
         img: AboutSec4Img04,
-        name: `John Boyega`,
-        job: `co-founder & CEO`,
+        name: `Hussein Oyelaja`,
+        job: `Marketing Lead`,
       },
       {
         img: AboutSec4Img05,
-        name: `John Boyega`,
-        job: `co-founder & CEO`,
+        name: `Adebusola Adebowale`,
+        job: `Sales & Marketing`,
       },
       {
         img: AboutSec4Img06,
-        name: `John Boyega`,
-        job: `co-founder & CEO`,
+        name: `Patrick Blessing`,
+        job: `Sales & Marketing`,
       },
     ],
   },

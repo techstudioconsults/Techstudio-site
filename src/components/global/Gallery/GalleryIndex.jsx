@@ -16,10 +16,10 @@ const GalleryIndex = () => {
                 <div className={style.GalleryIndexContentsFirst}>
                     <div className={style.GalleryIndexContentsFirstInner}>
                         <div>
-                            <h6>What to expect</h6>
-                            <h3>Our Gallery</h3>
+                            <h6 className={style.galleryHeader}>What to expect</h6>
+                            <h3 className={style.gallerySubheader}>Our Gallery</h3>
                         </div>
-                        <p>
+                        <p className={style.galleryText}>
                             Lorem ipsum dolor sit amet consectetur. Urna adipiscing risus faucibus ut vulputate malesuada eget. In leo commodo auctor facilisi. Le nisl justo in eu volutpat eu in. Sit urna nulla mi duis egestas feugiat felis molestie. Lorem ipsum dolor sit amet consectetur. Urna adipiscing risus faucibus ut vulputate malesuada eget.
                         </p>
                     </div>
@@ -31,6 +31,25 @@ const GalleryIndex = () => {
                     slidesPerView={5}
                     onSlideChange={() => console.log('slide change')}
                     onSwiper={(swiper) => console.log(swiper)}
+                    breakpoints={
+                        {
+                            320: {
+                                slidesPerView: 1
+                            },
+                            375: {
+                                slidesPerView: 1
+                            },
+                            480: {
+                                slidesPerView: 2
+                            },
+                            768: {
+                                slidesPerView: 3
+                            },
+                            1024: {
+                                slidesPerView: 4
+                            },
+                        }
+                    }
                 >
                     <SwiperSlide><img src={GalleryImg01} alt="" className={style.GalleryImg} /></SwiperSlide>
                     <SwiperSlide><img src={GalleryImg02} alt="" className={style.GalleryImg} /></SwiperSlide>

@@ -14,6 +14,10 @@ export const CONTACT_CONTENT = {
       img: img,
       state: `Lagos, Nigeria`,
       address: `1 Ogunlesi Street, Off Awoyokun, Onipanu, Lagos.`,
+      whatsapp:`Call or Whatsapp`,
+      busola: `Busola: 08113800161`,
+      blessing: `Busola: 08126051769`,
+      // email:`info@techstudioacademy.com`,
       // Speak to our staff; Call 08113800161or 08126051769 Email: info@techstudioacademy.com IG: @techstudioacademy Twitter: @techstudio1 Facebook: Techstudioacademy
     },
   },

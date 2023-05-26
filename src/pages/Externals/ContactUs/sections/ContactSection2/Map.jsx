@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
+import style from './ContactSection2.module.scss'
 import GoogleMapReact from 'google-map-react'
 // import './map.css'
 import { Icon } from '@iconify/react'
@@ -22,7 +23,7 @@ const Map = ({ location }) => {
   }
 
   return (
-    <div style={{ height: '100%', width: '100%' }}>
+    <div className={style.mapContainer} >
       <GoogleMapReact
         bootstrapURLKeys={{ key: `AIzaSyA5aU7vSwabkvdjPeiSQ-ooJRnwPEoWAcI` }}
         defaultCenter={defaultProps.center}
