@@ -84,19 +84,40 @@ const Footer = () => {
                 </h5>
               </div>
               <div>
-                <h5 className='fs-md fw-bolder py-2_5'>
+                <h5 className='fs-md fw-semibold py-2_5'>
                   <Link className='text-white d-block cc-link-hover' to='/blog'>
                     Blog
                   </Link>
                 </h5>
               </div>
               <div>
-                <h5 className='fs-md fw-bolder py-2_5'>
+                <h5 className='fs-md fw-semibold py-2_5'>
+                  <Link className='text-white d-block cc-link-hover' to='#'>
+                    Partnership
+                  </Link>
+                </h5>
+              </div>
+              <div>
+                <h5 className='fs-md fw-semibold py-2_5'>
+                  <Link className='text-white d-block cc-link-hover' to='/faq'>
+                    FAQs
+                  </Link>
+                </h5>
+              </div>
+              <div>
+                <h5 className='fs-md fw-semibold py-2_5'>
+                  <Link className='text-white d-block cc-link-hover' to='#'>
+                    Privacy Policy
+                  </Link>
+                </h5>
+              </div>
+              <div>
+                <h5 className='fs-md fw-semibold py-2_5'>
                   <Link
                     className='text-white d-block cc-link-hover'
                     to='/contact'
                   >
-                    Contact
+                    Contact Us
                   </Link>
                 </h5>
               </div>

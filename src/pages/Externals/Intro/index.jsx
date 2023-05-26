@@ -6,7 +6,7 @@ import { Footer, Navbar } from '../../../layout'
 const index = () => {
   return (
     <main>
-      <Navbar bg={`transparent`} />
+      <Navbar bg={`transparent`} setTextColorBlack />
       <IntroHeader />
       <IntroBody />
       <Footer />
