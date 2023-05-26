@@ -4,7 +4,10 @@
 @import '../../../../../scss/utils/mixins';
 
 .headerContainer {
-  background-color: darkblue;
+  // background-color: darkblue;
+  background-image: url(../../../../../assets/images/Frame-1000002342.png);
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0 auto;
   text-align: center;
   padding-top: fn.rem(130);
@@ -16,7 +19,7 @@
 
   .subtitle {
     margin: 0 auto;
-    font-size: fn.em(37);
+    font-size: fn.em(44);
     font-weight: 700;
     color: white;
     line-height: fn.rem(50);
@@ -28,9 +31,10 @@
   }
   .subtitleTwo {
     color: white;
-    font-size: fn.rem(20);
+    font-size: fn.rem(27);
     font-weight: 400;
-    padding-top: 10px;
+    padding-top: 20px;
+    line-height: fn.rem(48);
     @include breakpoint-down('lg') {
       font-size: fn.em(18);
       padding-bottom: fn.rem(20);
