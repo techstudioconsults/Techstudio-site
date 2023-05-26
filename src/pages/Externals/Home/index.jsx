@@ -8,6 +8,7 @@ import SectionThree from './sections/sectionThree'
 import SectionFour from './sections/sectionFour'
 import SectionFive from './sections/sectionFive'
 import SectionSix from './sections/sectionSix'
+import GalleryIndex from '../../../components/global/Gallery/GalleryIndex'
 
 const Home = () => {
   const {
@@ -27,6 +28,7 @@ const Home = () => {
       <SectionFour content={sectionFour} />
       <SectionFive content={sectionFive} />
       <SectionSix content={sectionSix} />
+      <GalleryIndex />
     </ExternalLayout>
   )
 }
