@@ -10,7 +10,7 @@ const index = () => {
       <p className={style.subtitleTwo}>
         You have questions? We are here to help
       </p>
-      <SearchComponent className={style.searchbar} />
+      <input type='text' placeholder='Search' className={style.searchBar} />
     </main>
   )
 }

@@ -8,13 +8,12 @@
   margin: 0 auto;
 
   .accordionItem {
-    // width: fn.rem(1232);
     margin: 0 auto;
-    //   padding: 10px;
+    font-weight: 400;
+    // font-size: fn.rem(27);
     border: none;
     box-shadow: none;
     @include breakpoint-up('xs') {
-      //   width: 0%;
     }
   }
 
@@ -25,5 +24,18 @@
   }
   .accordionBody {
     color: blue;
+  }
+}
+.carouselNumber {
+  font-size: fn.rem(24);
+}
+.contactLink {
+  text-align: center;
+  padding-bottom: fn.rem(100);
+//   font-size: fn.em(27);
+  font-weight: 600;
+  span a {
+    display: inline;
+    color: rgba(31, 38, 102, 1);
   }
 }

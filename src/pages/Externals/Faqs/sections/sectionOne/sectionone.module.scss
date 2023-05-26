@@ -9,26 +9,40 @@
   text-align: center;
   padding-top: fn.rem(130);
   padding-bottom: fn.rem(50);
-  // width: 80%;
-  @include breakpoint-down('lg') {
-    }
+  @include breakpoint-down('sm') {
+    padding-top: fn.rem(80);
+    padding-bottom: fn.rem(20);
+  }
 
   .subtitle {
-    // width: 100%;
     margin: 0 auto;
-    font-size: fn.em(44);
+    font-size: fn.em(37);
     font-weight: 700;
     color: white;
     line-height: fn.rem(50);
-    @include breakpoint-down('lg') {
+    letter-spacing: fn.rem(0.5);
+    @include breakpoint-down('sm') {
       text-align: center;
+      font-size: fn.em(24);
     }
-
   }
   .subtitleTwo {
     color: white;
-    font-size: fn.rem(27);
+    font-size: fn.rem(20);
     font-weight: 400;
     padding-top: 10px;
+    @include breakpoint-down('lg') {
+      font-size: fn.em(18);
+      padding-bottom: fn.rem(20);
+    }
+  }
+  .searchBar {
+    max-width: fn.rem(780);
+    width: 80%;
+    border-radius: fn.rem(12);
+    padding: fn.rem(20) fn.rem(26);
+    margin-top: fn.rem(20);
+    outline: none;
+    border: none;
   }
 }
