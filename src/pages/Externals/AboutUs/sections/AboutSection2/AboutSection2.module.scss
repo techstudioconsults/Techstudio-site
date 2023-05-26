@@ -5,120 +5,157 @@
 
 .aboutSectionTwo {
   display: none;
-  width: 100%;
-  height: 90vh;
-  display: flex;
-  background-color: red;
-
-  //   background: url(../../../assets/images/about-img6.webp) no-repeat left bottom;
-  //   background-size: contain;
-
-  // .imgGroup {
-  //   border: 1px solid red;
-  //   margin-top: -50px;
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: center;
-  //   width: 100%;
-  //   position: relative;
-
-  //   .img {
-  //     width: 100%;
-  //     position: absolute;
-  //     //   max-width: fn.rem(308);
-  //     @include breakpoint-up('lg') {
-  //       //   height: fn.rem(204);
-  //     }
-
-  //     &:nth-child(1) {
-  //       left: 0;
-  //       top: 190px;
-  //     }
-
-  //     &:nth-child(2) {
-  //       left: 30px;
-  //       top: 0;
-
-  //       width: 390px;
-  //       height: 254px;
-  //     }
-
-  //     &:nth-child(3) {
-  //       left: 229px;
-  //       top: 250px;
-
-  //       width: 326px;
-  //       height: 248px;
-  //     }
-
-  //     &:nth-child(4) {
-  //       left: 574px;
-  //       top: 180px;
-
-  //       width: 311px;
-  //       height: 235px;
-  //     }
-
-  //     &:nth-child(5) {
-  //       left: 904px;
-  //       top: 260px;
-
-  //       width: 308px;
-  //       height: 204px;
-  //     }
-
-  //     img {
-  //       width: 100%;
-  //       height: 100%;
-  //       object-fit: cover;
-  //     }
-  //   }
-  // }
-
+  width: 90%;
+  // height: 80vh;
+  height: auto;
+  margin: 0 auto 3rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  position: relative;
   margin-top: -50px;
-  display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  position: relative;
+  column-gap: 1.5rem;
+  row-gap: 1.5rem;
 
+
+  //  @include breakpoint-up('sm') {
+  //     grid-template-columns: repeat(2,1fr);
+  //   }
+   @include breakpoint-up('sm') {
+      width: 100%;
+      grid-template-columns: repeat(2,1fr);
+    }
+
+   @include breakpoint-up('xl') {
+      width: 100%;
+      height: fn.rem(492);
+      display: flex;
+      flex-direction: row;
+    }
+
+  // &Inner{
+  //   width: 100%;
+  //   height: fn.rem(492);
+  //   // position: relative;
+  // }
+
+  .pattern01{
+    display: none;
+
+     @include breakpoint-up('xl') {
+      display: block;
+      transform: translate(-50%,-50%);
+      position: absolute;
+      left: 6%;
+      top: 34%;
+      width: 8%;
+    }
+    // z-index: -1;
+  }
+  .pattern02{
+    display: none;
+
+    @include breakpoint-up('xl') {
+      display: block;
+      transform: translate(-50%,-50%);
+      position: absolute;
+      right: -2.5%;
+      bottom: -4%;
+      width: 8%;
+    }
+  }
+  .mainImg{
+      width: 100%;
+      // height: 25rem;
+      height: 30vh;
+      object-fit: cover;
+      border-radius: 7px;
+
+      @include breakpoint-up('lg') {
+      width: 100%;
+      // height: fn.rem(492);
+      height: 50vh;
+    }
+
+      @include breakpoint-up('xl') {
+      width: 100%;
+      height: auto;
+      // height: fn.rem(492);
+    }
+      @include breakpoint-up('sm') {
+      width: 100%;
+
+    }
+  }
   .imgContainer {
-    position: absolute;
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+    // border-radius: 10px;
+
+    @include breakpoint-up('lg') {
+      width: 100%;
+      // height: fn.rem(492);
+      height: 50vh;
+    }
+    @include breakpoint-up('xl') {
+      width: 100%;
+      // height: fn.rem(492);
+      height: auto;
+    }
 
     &:nth-child(1) {
-      // left: 0;
-      // top: 190px;
-      transform: translate(-36rem,-15rem);
+      width: 100%;
+      // height: 100%;
+      // object-fit: contain;
 
-      width: 96px;
-      height: 97px;
+      @include breakpoint-up('xl') {
+         transform: translate(15%,-60%);
+         position: relative;
+         width: 336px;
+         height: 225px;
+         z-index: 2;
+
+      }
     }
 
     &:nth-child(2) {
-      // left: 30px;
-      // top: 0;
-      transform: translate(-13rem,40%);
+      width: 100%;
+      // height: 100%;
+      // object-fit: cover;
 
-      width: 390px;
-      height: 254px;
+      @include breakpoint-up('xl') {
+        transform: translate(-20%,40%);
+        width: 390px;
+        height: 254px;
+
+      }
     }
 
     &:nth-child(3) {
-      // left: 229px;
-      // top: 250px;
-      transform: translate(8rem,1%);
+      width: 100%;
+      //  height: 100%;
+      // object-fit: cover;
 
-      width: 326px;
-      height: 248px;
+      @include breakpoint-up('xl') {
+        transform: translate(-15%,5%);
+        width: 326px;
+        height: 248px;
+      }
     }
 
     &:nth-child(4) {
-      // left: 774px;
-      // top: 180px;
-      transform: translate(28rem,50%);
+      width: 100%;
+      //  height: 100%;
+      object-fit: cover;
 
-      width: 311px;
-      height: 235px;
+      @include breakpoint-up('xl') {
+        transform: translate(-8%,55%);
+        width: 311px;
+        height: 235px;
+        z-index: 2;
+      }
     }
 
     &:nth-child(5) {
