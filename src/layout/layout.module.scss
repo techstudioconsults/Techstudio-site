@@ -11,8 +11,8 @@
     height: 100%;
   }
   @include breakpoint-up('lg') {
-    width: fn.rem(40);
-    height: fn.rem(40);
+    width: fn.rem(120);
+    height: fn.rem(36);
   }
 }
 

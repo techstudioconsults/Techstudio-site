@@ -7,7 +7,7 @@ const index = () => {
   const { accordions } = FAQ_CONTENT
   return (
     <ExternalLayout>
-      <Navbar bg={`transparent`} setTextColorwhite />
+      <Navbar bg={`transparent`} />
       <SectionOne />
       <SectionTwo content={accordions} />
     </ExternalLayout>
