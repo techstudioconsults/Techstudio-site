@@ -7,7 +7,7 @@ import AboutSection4 from './sections/AboutSection4/AboutSection4'
 import { ExternalLayout, Navbar } from '../../../layout'
 // import { HOME_CONTENT } from '../Home/content'
 import { ABOUT_CONTENT } from './content/index'
-import GalleryIndex from '../../../components/global/Gallery/GalleryIndex'
+import GalleryIndex from '../../../components/global/carousel/Gallery/GalleryIndex'
 
 const index = () => {
   const { hero, sectionTwo, sectionThree, sectionFour } = ABOUT_CONTENT
