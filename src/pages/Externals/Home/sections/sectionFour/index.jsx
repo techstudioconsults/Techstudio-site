@@ -48,7 +48,7 @@ const SectionFour = ({ content }) => {
               {articleOne.description}
             </div>
           </section>
-          <div className='container my-10 text-center'>
+          <div className='container my-20 text-center'>
             <div className='row align-items-center justify-content-center justify-content-lg-between gap-10'>
               <img
                 className={`${style.brand} col-5 col-lg-2`}

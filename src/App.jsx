@@ -63,6 +63,7 @@ import {
   TeacherClassView,
   TeacherDashboard,
   Faq,
+  Employers,
 } from './pages'
 
 const App = () => {
@@ -93,7 +94,7 @@ const App = () => {
         <Route path='/admin/register' element={<AdminSignup />} />
         {/* <Route path='/student/signup' element={<StudentSignup />} /> */}
         <Route path='/payment' element={<Payment />} />
-        {/* <Route path='/employers' element={<Employers />} /> */}
+        <Route path='/employers' element={<Employers />} />
         <Route path='/payment/accounts' element={<Accounts />} />
         <Route path='/about-us' element={<AboutUs />} />
         <Route path='/blog' element={<Blog />} />

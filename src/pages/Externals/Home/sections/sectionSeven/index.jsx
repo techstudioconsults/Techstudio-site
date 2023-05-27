@@ -92,21 +92,21 @@ const SectionSeven = ({ data }) => {
             </div>
           </section>
           <section className='d-flex flex-column gap-5 my-10'>
-            <div className='d-flex gap-52'>
+            <div className='d-flex gap-10 gap-lg-52'>
               <span>
                 <Icon className='me-2' icon={`ion:location-outline`} />
                 <span>location</span>
               </span>
               <span>{location}</span>
             </div>
-            <div className='d-flex gap-52'>
+            <div className='d-flex gap-10 gap-lg-52'>
               <span>
                 <Icon className='me-2' icon={`fluent-mdl2:date-time`} />
                 <span>Start Date</span>
               </span>
               <span>{date}</span>
             </div>
-            <div className='d-flex gap-52'>
+            <div className='d-flex gap-10 gap-lg-52'>
               <span>
                 <Icon className='me-2' icon={`game-icons:duration`} />
                 <span>Duration</span>
