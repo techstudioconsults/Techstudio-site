@@ -1,13 +1,19 @@
-import img2 from '../../../../assets/images/about-img2.webp'
-import img3 from '../../../../assets/images/about-img3.webp'
-import img4 from '../../../../assets/images/about-img4.webp'
-import img5 from '../../../../assets/images/about-img5.webp'
+// import img2 from '../../../../assets/images/about-img2.webp'
+// import img3 from '../../../../assets/images/about-img3.webp'
+// import img4 from '../../../../assets/images/about-img4.webp'
+// import img5 from '../../../../assets/images/about-img5.webp'
+
 import icon1 from '../../../../assets/icons/clock.png'
 import icon2 from '../../../../assets/icons/Insurance.png'
 import icon3 from '../../../../assets/icons/money-bag.png'
 import icon4 from '../../../../assets/icons/noun_colleague_3249817.png'
 import icon5 from '../../../../assets/icons/noun_Learning_2531760.png'
 import icon6 from '../../../../assets/icons/noun_workspace_799121.png'
+
+import AboutSec2Img01 from '../../../../assets/images/AboutSec2Img01.png'
+import AboutSec2Img02 from '../../../../assets/images/AboutSec2Img02.png'
+import AboutSec2Img03 from '../../../../assets/images/AboutSec2Img03.png'
+import AboutSec2Img04 from '../../../../assets/images/AboutSec2Img04.png'
 
 import AboutSec4Img01 from '../../../../assets/images/AboutSec4Img01.png'
 import AboutSec4Img02 from '../../../../assets/images/AboutSec4Img02.png'
@@ -29,19 +35,19 @@ export const ABOUT_CONTENT = {
     images: [
       {
         id: 1,
-        src: img2,
+        src: AboutSec2Img01,
       },
       {
         id: 2,
-        src: img3,
+        src: AboutSec2Img02,
       },
       {
         id: 3,
-        src: img4,
+        src: AboutSec2Img03,
       },
       {
         id: 4,
-        src: img5,
+        src: AboutSec2Img04,
       },
     ],
   },

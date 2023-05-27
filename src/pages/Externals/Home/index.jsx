@@ -8,8 +8,8 @@ import SectionThree from './sections/sectionThree'
 import SectionFour from './sections/sectionFour'
 import SectionFive from './sections/sectionFive'
 import SectionSix from './sections/sectionSix'
-import SectionSeven from './sections/sectionSeven'
 import GalleryIndex from '../../../components/global/Gallery/GalleryIndex'
+import SectionSeven from './sections/sectionSeven'
 
 const Home = () => {
   const {
@@ -32,6 +32,7 @@ const Home = () => {
       <SectionSeven data={sectionSeven.upcomingClasses} />
       <GalleryIndex />
       <SectionSix content={sectionSix} />
+      <GalleryIndex />
     </ExternalLayout>
   )
 }

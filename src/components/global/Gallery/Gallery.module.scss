@@ -7,10 +7,15 @@
 //     margin: 0;
 //     box-sizing: border-box;
 // }
+.container{
+    width: 100%;
+    // background-color: red;
+}
 .GalleryIndex{
     width: 100%;
     max-width: 1440px;
     margin: 5rem auto;
+    // background-color: red;
 
     &Contents{
         width: 100%;
@@ -47,8 +52,11 @@
             }
         }
         &Second{
-            width: 100%;
+            max-width: 1440px;
+            width: 100vw;
             display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
     }
