@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import { HiOutlineMenuAlt4 } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
-import techimage from '../assets/icons/logo.png'
+import techimage from '../assets/images/logo_white_text_new 2.png'
 import { FaChevronDown } from 'react-icons/fa'
 import { Button } from '../components'
 import style from './layout.module.scss'
@@ -49,15 +49,6 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
                 alt='logo'
               />
             </div>
-            {/* <span
-              className={[
-                'fw-bold',
-                style.logoText,
-                color ? `text-black` : `text-white`,
-              ].join(' ')}
-            >
-              Techstudio Academy
-            </span> */}
           </div>
         </Link>
 

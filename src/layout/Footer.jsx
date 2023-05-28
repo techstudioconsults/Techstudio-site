@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import techimage from '../assets/icons/logo.png'
+import techimage from '../assets/images/logo_white_text_new 2.png'
 import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa'
 
 const Footer = () => {
@@ -16,12 +16,11 @@ const Footer = () => {
                   to='/'
                 >
                   <img src={techimage} alt='logo' />
-                  <span className='fw-bold'>Techstudio Academy</span>
                 </Link>
               </div>
               <ul className='nav flex-column fs-sm mt-5 gap-1 align-items-start'>
                 <li className='nav-item mb-2'>
-                  <p className='text-light fs-xxl cc-link-hover'>
+                  <p className='text-light fs-xxl '>
                     1,Ogunlesi Street, Awoyorkun Bus Stop,Onipanu Lagos
                   </p>
                 </li>

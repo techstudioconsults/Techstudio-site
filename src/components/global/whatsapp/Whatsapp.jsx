@@ -8,7 +8,7 @@ const WhatsAppIcon = () => {
       href='https://api.whatsapp.com/send?phone=123456789' // Replace with your desired WhatsApp link
       target='_blank'
       rel='noopener noreferrer'
-      className={`${styles.whatsappIcon} fs-3xl`}
+      className={`${styles.whatsappIcon}`}
     >
       <div
         className={`${styles.wrapper} rounded rounded-circle d-flex align-items-center justify-content-center`}

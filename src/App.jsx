@@ -10,7 +10,6 @@ import {
   ChangePassword,
   Loading,
   Payment,
-  Whatsapp,
 } from './components'
 import { DashboardLayout } from './layout'
 
@@ -82,7 +81,6 @@ const App = () => {
 
   return (
     <Suspense fallback={<Loading text='LOADING...' />}>
-      <Whatsapp />
       <Routes>
         {/* public routes */}
         <Route index path='/' element={<HomePage />} />
