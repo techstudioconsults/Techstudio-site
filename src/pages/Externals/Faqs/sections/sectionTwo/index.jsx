@@ -2,12 +2,23 @@ import React from 'react'
 import style from './sectionTwo.module.scss'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+
 const index = ({ content }) => {
-  // const[activeIndex, setActiveIndex] = useState(0)
-  return (
-    <section className='container pt-5'>
+  const [startIndex, setStartindex] = useState(0)
+
+  const handleNextClick = () => {
+    setStartindex(startIndex + 7)
+  }
+  const handlePreviousClick = () => {
+    setStartindex(startIndex - 7)
+  }
+
+  const renderAccordions = () => {
+    const endIndex = startIndex + 7
+    const slicedData = content.slice(startIndex, endIndex)
+    return (
       <div className='pb-5'>
-        {content.map((each, index) => {
+        {slicedData.map((each, index) => {
           return (
             <div
               className={`accordion ${style.accordionContainer}`}
@@ -43,15 +54,21 @@ const index = ({ content }) => {
           )
         })}
       </div>
+    )
+  }
+
+  return (
+    <section className='container pt-5'>
+      <div>{renderAccordions()}</div>
       <div
         className={`d-flex mx-auto gap-4 justify-content-center pb-5 mb-5 ${style.carouselNumber}`}
       >
-        <p>&lt;</p>
+        <button onClick={handlePreviousClick}>&lt;</button>
         <p>1</p>
         <p>2</p>
         <p>3</p>
         <p>4</p>
-        <p>&gt;</p>
+        <button onClick={handleNextClick}>&gt;</button>
       </div>
       <div className={style.contactLink}>
         Can&apos;t find the answer you are looking for?

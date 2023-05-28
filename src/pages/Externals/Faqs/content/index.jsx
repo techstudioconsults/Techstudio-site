@@ -1,84 +1,84 @@
 export const FAQ_CONTENT = {
   accordions: [
     {
-      id: `a`,
+      id: `a1`,
       question: `Tell me what the Python Full stack program is about?`,
       answer: `Tell me what the Python Full stack program is about blaaa blaah booh `,
     },
     {
-      id: `b`,
+      id: `a2`,
       question: `Tell me what the JavaScript Fullstack program is about?`,
       answer: `Tell me what the Python Full stack program is about? `,
     },
     {
-      id: `c`,
+      id: `a3`,
       question: `What is the difference between Python FullStack and JavaScript FullStack?`,
       answer: `Tell me what the Python Full stack program is about? `,
     },
     {
-      id: `d`,
+      id: `a4`,
       question: `Is coding the same as programming?`,
       answer: `Tell me what the Python Full stack program is about? `,
     },
     {
-      id: `e`,
+      id: `a5`,
       question: `Tell me what the Python Full stack program is about?`,
       answer: `Tell me what the Python Full stack program is about? `,
     },
     {
-      name: `f`,
+      name: `a7`,
       question: `Tell me what the Python Full stack program is about?`,
       answer: `Tell me what the Python Full stack program is about? `,
     },
     {
-      id: `g`,
+      id: `a8`,
+      question: `Tell me what the Python Full stack program is about bbbbbbb?`,
+      answer: `Tell me what the Python Full stack program is about? `,
+    },
+    {
+      id: `h`,
+      question: `Tell me what the Python Full stack program is about ayyyyyyy?`,
+      answer: `Tell me what the Python Full stack program is about? `,
+    },
+    {
+      id: `i`,
       question: `Tell me what the Python Full stack program is about?`,
       answer: `Tell me what the Python Full stack program is about? `,
     },
-    // {
-    //   id: `h`,
-    //   question: `Tell me what the Python Full stack program is about?`,
-    //   answer: `Tell me what the Python Full stack program is about? `,
-    // },
-    // {
-    //   id: `i`,
-    //   question: `Tell me what the Python Full stack program is about?`,
-    //   answer: `Tell me what the Python Full stack program is about? `,
-    // },
-    // {
-    //   id: `j`,
-    //   question: `Tell me what the Python Full stack program is about?`,
-    //   answer: `Tell me what the Python Full stack program is about? `,
-    // },
-    // {
-    //   id: `k`,
-    //   question: `Tell me what the Python Full stack program is about?`,
-    //   answer: `Tell me what the Python Full stack program is about? `,
-    // },
-    // {
-    //   id: `l`,
-    //   question: `Tell me what the Python Full stack program is about?`,
-    //   answer: `Tell me what the Python Full stack program is about? `,
-    // },
-    // {
-    //   id: `m`,
-    //   question: `Tell me what the Python Full stack program is about?`,
-    //   answer: `Tell me what the Python Full stack program is about? `,
-    // },
-    // {
-    //   id: `n`,
-    //   question: `Tell me what the Python Full stack program is about?`,
-    //   answer: `Tell me what the Python Full stack program is about? `,
-    // },
-    // {
-    //   id: `o`,
-    //   question: `Tell me what the Python Full stack program is about?`,
-    //   answer: `Tell me what the Python Full stack program is about? `,
-    // },
-    // {
-    //   id: `p`,
-    //   question: `Tell me what the Python Full stack program is about?`,
-    //   answer: `Tell me what the Python Full stack program is about? `,
-    // },
+    {
+      id: `j`,
+      question: `Tell me what the Python Full stack program is about?`,
+      answer: `Tell me what the Python Full stack program is about? `,
+    },
+    {
+      id: `k`,
+      question: `Tell me what the Python Full stack program is about?`,
+      answer: `Tell me what the Python Full stack program is about? `,
+    },
+    {
+      id: `l`,
+      question: `Tell me what the Python Full stack program is about?`,
+      answer: `Tell me what the Python Full stack program is about? `,
+    },
+    {
+      id: `m`,
+      question: `Tell me what the Python Full stack program is about?`,
+      answer: `Tell me what the Python Full stack program is about? `,
+    },
+    {
+      id: `n`,
+      question: `Tell me what the Python Full stack program is about?`,
+      answer: `Tell me what the Python Full stack program is about? `,
+    },
+    {
+      id: `o`,
+      question: `Tell me what the Python Full stack program is about?`,
+      answer: `Tell me what the Python Full stack program is about? `,
+    },
+    {
+      id: `p`,
+      question: `Tell me what the Python Full stack program is about?`,
+      answer: `Tell me what the Python Full stack program is about? `,
+    },
   ],
 }
