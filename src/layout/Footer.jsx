@@ -1,7 +1,6 @@
 import React from 'react'
-
 import { Link } from 'react-router-dom'
-import techimage from '../assets/icons/logo.png'
+import techimage from '../assets/images/logo_white_text_new 2.png'
 import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa'
 
 const Footer = () => {
@@ -13,21 +12,26 @@ const Footer = () => {
             <div className='col-12 col-lg-3 mb-3'>
               <div>
                 <Link
-                  className='d-flex gap-2 text-white justify-content-start'
+                  className='d-flex gap-3 text-white justify-content-start'
                   to='/'
                 >
                   <img src={techimage} alt='logo' />
-                  <span className='fw-bold'>Techstudio Academy</span>
                 </Link>
               </div>
+              <ul className='nav flex-column fs-sm mt-5 gap-1 align-items-start'>
+                <li className='nav-item mb-2'>
+                  <p className='text-light fs-xxl '>
+                    1,Ogunlesi Street, Awoyorkun Bus Stop,Onipanu Lagos
+                  </p>
+                </li>
+              </ul>
             </div>
-
             <div className='col-12 col-lg-3 text-white my-12 my-lg-0'>
               <div>
                 <p className='fs-md fw-bolder py-2_5'>Courses</p>
               </div>
-              <ul className='nav flex-column fs-sm mt-5 gap-2 align-items-start'>
-                <li className='nav-item mb-2'>
+              <ul className='nav flex-column fs-sm  gap-3 align-items-start'>
+                <li className='nav-item mb-0'>
                   <Link
                     className='text-white cc-link-hover'
                     to='/course/frontend'
@@ -35,28 +39,28 @@ const Footer = () => {
                     Front End Development
                   </Link>
                 </li>
-                <li className='nav-item mb-2'>
+                <li className='nav-item mb-0'>
                   <Link
                     className='text-white cc-link-hover '
                     to='/course/mobile'
                   >
-                    Android Development
+                    Mobile Development
                   </Link>
                 </li>
-                <li className='nav-item mb-2'>
+                <li className='nav-item mb-0'>
                   <Link className='text-white cc-link-hover ' to='/course/uiux'>
                     UI/UX Design
                   </Link>
                 </li>
-                <li className='nav-item mb-2'>
+                <li className='nav-item mb-0'>
                   <Link
                     className='text-white cc-link-hover'
                     to='/course/fullstack'
                   >
-                    Full Stack development
+                    Fullstack development
                   </Link>
                 </li>
-                <li className='nav-item mb-2'>
+                <li className='nav-item mb-0'>
                   <Link
                     className='text-white cc-link-hover'
                     to='/course/data-science'
@@ -69,7 +73,7 @@ const Footer = () => {
 
             <div className='col-12 col-lg-2 my-12 my-lg-0'>
               <div>
-                <h5 className='fs-md fw-bolder py-2_5'>
+                <h5 className='fs-md fw-bolder pt-2_5'>
                   <Link
                     className='text-white d-block cc-link-hover'
                     to='/about-us'
@@ -79,19 +83,40 @@ const Footer = () => {
                 </h5>
               </div>
               <div>
-                <h5 className='fs-md fw-bolder py-2_5'>
+                <h5 className='fs-md fw-semibold pt-2_5'>
                   <Link className='text-white d-block cc-link-hover' to='/blog'>
                     Blog
                   </Link>
                 </h5>
               </div>
               <div>
-                <h5 className='fs-md fw-bolder py-2_5'>
+                <h5 className='fs-md fw-semibold pt-2_5'>
+                  <Link className='text-white d-block cc-link-hover' to='#'>
+                    Partnership
+                  </Link>
+                </h5>
+              </div>
+              <div>
+                <h5 className='fs-md fw-semibold pt-2_5'>
+                  <Link className='text-white d-block cc-link-hover' to='/faq'>
+                    FAQs
+                  </Link>
+                </h5>
+              </div>
+              <div>
+                <h5 className='fs-md fw-semibold pt-2_5'>
+                  <Link className='text-white d-block cc-link-hover' to='#'>
+                    Privacy Policy
+                  </Link>
+                </h5>
+              </div>
+              <div>
+                <h5 className='fs-md fw-semibold pt-2_5'>
                   <Link
                     className='text-white d-block cc-link-hover'
                     to='/contact'
                   >
-                    Contact
+                    Contact Us
                   </Link>
                 </h5>
               </div>
@@ -126,7 +151,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className='d-flex flex-column align-items-center  flex-lg-row justify-content-between py-4 my-4 border-top gap-5'>
+          <div className='d-flex flex-column align-items-center  flex-lg-row justify-content-between pt-4 my-4 border-top gap-5'>
             <p>&copy; {new Date().getFullYear()} TechStudio Academy</p>
             <ul className='list-unstyled d-flex gap-10'>
               <li className=''>

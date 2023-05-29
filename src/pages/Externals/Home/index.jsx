@@ -1,15 +1,16 @@
 import React from 'react'
-import {
-  Hero,
-  SectionSix,
-  SectionFive,
-  SectionFour,
-  SectionThree,
-  SectionTwo,
-} from '../../../components'
 
 import { ExternalLayout, Navbar } from '../../../layout'
 import { HOME_CONTENT } from './content'
+import Hero from './sections/hero'
+import SectionTwo from './sections/sectionTwo'
+import SectionThree from './sections/sectionThree'
+import SectionFour from './sections/sectionFour'
+import SectionFive from './sections/sectionFive'
+import SectionSix from './sections/sectionSix'
+import GalleryIndex from '../../../components/global/carousel/Gallery/GalleryIndex'
+import SectionSeven from './sections/sectionSeven'
+// import { Whatsapp } from '../../../components'
 
 const Home = () => {
   const {
@@ -19,6 +20,7 @@ const Home = () => {
     sectionFour,
     sectionFive,
     sectionSix,
+    sectionSeven,
   } = HOME_CONTENT
   return (
     <ExternalLayout>
@@ -28,6 +30,8 @@ const Home = () => {
       <SectionThree content={sectionThree} />
       <SectionFour content={sectionFour} />
       <SectionFive content={sectionFive} />
+      <GalleryIndex />
+      <SectionSeven data={sectionSeven.upcomingClasses} />
       <SectionSix content={sectionSix} />
     </ExternalLayout>
   )
