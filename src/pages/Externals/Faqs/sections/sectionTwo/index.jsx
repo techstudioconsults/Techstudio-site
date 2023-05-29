@@ -1,83 +1,122 @@
-import React from 'react'
-import style from './sectionTwo.module.scss'
-import { useState } from 'react'
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/prop-types */
+import React, { useEffect, useCallback, useState, useMemo } from 'react'
+import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectFAQ } from '../../../../../app/api/appSlice'
 import { Link } from 'react-router-dom'
 
-const index = ({ content }) => {
-  const [startIndex, setStartindex] = useState(0)
+const Accordion = () => {
+  const dispatch = useDispatch()
+  const faq = useSelector(selectFAQ)
+  const [currentPage, setCurrentPage] = useState(1)
 
-  const handleNextClick = () => {
-    setStartindex(startIndex + 7)
-  }
-  const handlePreviousClick = () => {
-    setStartindex(startIndex - 7)
-  }
+  const getFAQ = useCallback(async () => {
+    const res = await axios.get(
+      `https://api.techstudio.academy/api/v1/external/faq?page=${currentPage}`
+    )
+    dispatch({ type: `app/setFAQ`, payload: res.data.data })
+    console.log(res.data.data)
+  }, [currentPage, dispatch])
 
-  const renderAccordions = () => {
-    const endIndex = startIndex + 7
-    const slicedData = content.slice(startIndex, endIndex)
+  const style = useMemo(() => {
+    const baseStyle = {
+      fontSize: `20px`,
+    }
+
+    if (window.innerWidth <= 767) {
+      baseStyle.fontSize = `12px`
+    }
+
+    return baseStyle
+  }, [])
+
+  useEffect(() => {
+    getFAQ()
+  }, [getFAQ])
+
+  const displayFAQ = faq?.data?.map((faq) => {
     return (
-      <div className='pb-5'>
-        {slicedData.map((each, index) => {
-          return (
-            <div
-              className={`accordion ${style.accordionContainer}`}
-              id='accordionExample'
-              key={index}
-            >
-              <div
-                className={`accordion-item px-3 py-4 ${style.accordionItem}`}
-              >
-                <h2 className='accordion-header'>
-                  <button
-                    className={`accordion-button ${style.accordionButton}`}
-                    type='button'
-                    data-bs-toggle='collapse'
-                    data-bs-target={`#${each.id}`}
-                    aria-expanded='true'
-                    aria-controls='collapseOne'
-                  >
-                    {each.question}
-                  </button>
-                </h2>
-                <div
-                  id={`${each.id}`}
-                  className='accordion-collapse collapse'
-                  data-bs-parent='#accordionExample'
-                >
-                  <div className={`accordion-body ${style.accordionBody}`}>
-                    {each.answer}
-                  </div>
-                </div>
-              </div>
-            </div>
-          )
-        })}
+      <div key={faq?.id} className='accordion-item border border-0 py-5'>
+        <h2 className='accordion-header' id='headingTwo'>
+          <button
+            style={style}
+            className='accordion-button collapsed text-dark'
+            type='button'
+            data-bs-toggle='collapse'
+            data-bs-target={`#a-${faq.id.toString()}-accordion`}
+            aria-expanded='false'
+            aria-controls={`a-${faq.id.toString()}-accordion`}
+          >
+            {faq?.question}
+          </button>
+        </h2>
+        <div
+          id={`a-${faq.id.toString()}-accordion`}
+          className='accordion-collapse collapse'
+          aria-labelledby='headingTwo'
+          data-bs-parent='#accordionExample'
+        >
+          <div style={style} className='accordion-body text-dark'>
+            {faq?.answer}
+          </div>
+        </div>
       </div>
     )
+  })
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page)
   }
+
+  const pagination = (
+    <div className='pagination d-flex justify-content-center my-20 gap-3'>
+      <button
+        className='bg-transparent'
+        disabled={currentPage === 1}
+        onClick={() => handlePageChange(currentPage - 1)}
+      >
+        {'<'}
+      </button>
+      {[1, 2, 3, 4].map((page) => (
+        <button
+          key={page}
+          className={
+            currentPage === page
+              ? 'active bg-blue text-white px-4 rounded rounded-2'
+              : 'bg-transparent'
+          }
+          onClick={() => handlePageChange(page)}
+        >
+          {page}
+        </button>
+      ))}
+      <button
+        className='bg-transparent'
+        disabled={currentPage === 4}
+        onClick={() => handlePageChange(currentPage + 1)}
+      >
+        {'>'}
+      </button>
+    </div>
+  )
 
   return (
     <section className='container pt-5'>
-      <div>{renderAccordions()}</div>
-      <div
-        className={`d-flex mx-auto gap-4 justify-content-center pb-5 mb-5 ${style.carouselNumber}`}
-      >
-        <button onClick={handlePreviousClick}>&lt;</button>
-        <p>1</p>
-        <p>2</p>
-        <p>3</p>
-        <p>4</p>
-        <button onClick={handleNextClick}>&gt;</button>
+      <div className='accordion mt-20' id='accordionExample'>
+        {displayFAQ}
       </div>
-      <div className={style.contactLink}>
-        Can&apos;t find the answer you are looking for?
-        <span>
-          <a href='/contact'> Send us a message here</a>
-        </span>
+      {pagination}
+      <div className='d-flex flex-column flex-lg-row justify-content-center align-items-center mb-10 gap-1'>
+        <p className='d-inline fw-semibold'>
+          Can’t find the answer you are looking for?
+        </p>{' '}
+        <Link className='fw-semibold' to={`/contact`}>
+          Send us a message here
+        </Link>
       </div>
     </section>
   )
 }
 
-export default index
+export default Accordion

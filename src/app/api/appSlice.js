@@ -6,6 +6,7 @@ const STATE = {
   classDetailOpen: true,
   courseDetailOpen: true,
   errorMessage: ``,
+  faq: {},
 }
 
 const APP_SLICE = {
@@ -27,6 +28,9 @@ const APP_SLICE = {
     setErrorMessage: (state, action) => {
       state.errorMessage = action.payload
     },
+    setFAQ: (state, action) => {
+      state.faq = action.payload
+    },
   },
 }
 
@@ -38,6 +42,7 @@ export const {
   setClassDetailOpen,
   setCourseDetailOpen,
   setErrorMessage,
+  setFAQ,
 } = appSlice.actions
 
 export default appSlice.reducer
@@ -48,3 +53,4 @@ export const selectUserType = (state) => state.app.userType
 export const selectClassDetailOpen = (state) => state.app.classDetailOpen
 export const selectCourseDetailOpen = (state) => state.app.setCourseDetailOpen
 export const selectErrorMessage = (state) => state.app.errorMessage
+export const selectFAQ = (state) => state.app.faq
