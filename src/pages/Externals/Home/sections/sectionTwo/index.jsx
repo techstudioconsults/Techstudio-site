@@ -1,9 +1,9 @@
 import React from 'react'
 import style from './sectionTwo.module.scss'
 import PropTypes from 'prop-types'
-import sectionTwoImg from '../../../../../assets/images/home-sec1.webp'
 import { Container } from '../../../../../layout'
 import { SectionTwoCard } from '../../../../../components'
+import { Link } from 'react-router-dom'
 
 const SectionTwo = ({ content }) => {
   const { header, cards } = content
@@ -14,15 +14,21 @@ const SectionTwo = ({ content }) => {
 
   return (
     <section className={style.sectionTwo}>
-      <Container>
-        <h2 className={style.title}>{header.title}</h2>
+      <Container className={style.headerContainer}>
+        <p className={style.headerTitle}>{header.title}</p>
+        <div className={style.descriptionContainer}>
+          <h2 className={style.title}>{header.title2}</h2>
+          <p className={style.headerDescription}>
+            {header.description}
+            <Link className='d-inline' to={`/about-us`}>
+              {' '}
+              Read More
+            </Link>
+          </p>
+        </div>
       </Container>
       <Container paddingBlock={0}>
         <div className={style.body}>
-          <div className={style.sectionTwoImg}>
-            {/* visibility is none */}
-            <img src={sectionTwoImg} alt='section-img' />
-          </div>
           <div className={style.cardGroup}>{cardsDisplay}</div>
         </div>
       </Container>

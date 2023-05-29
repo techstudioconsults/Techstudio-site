@@ -7,7 +7,7 @@ import { Container } from '../../../../../layout'
 const AboutSection3 = ({ content }) => {
   const { header, cards } = content
   const cardsDisplay = cards.map((card) => {
-    return <AboutSectionThreeCard key={card.title} content={card} />
+    return <AboutSectionThreeCard isAbout key={card.title} content={card} />
   })
   return (
     <section className={style.aboutSectionThree}>

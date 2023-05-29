@@ -4,8 +4,28 @@
 @import '../../../../../scss/utils/mixins';
 
 .sectionFour {
+  .testimonial {
+    max-width: fn.rem(600);
+    margin: 0 auto;
+  }
+
+  .description {
+    width: 100%;
+    // width: 50%;
+    @include breakpoint-up('lg') {
+      width: 50%;
+    }
+  }
+
+  .brand {
+    width: fn.rem(100);
+    @include breakpoint-up('lg') {
+      width: fit-content;
+    }
+  }
 
   .sectionFourWrapper {
+    margin-top: fn.rem(100);
     @include breakpoint-up('lg') {
       @include flex;
       @include flex_align;
@@ -20,19 +40,19 @@
       @include breakpoint-up('lg') {
         display: block;
       }
-
     }
 
     .sectionFourTextGroup {
-      // flex: 2;
       @include breakpoint-up('lg') {
         width: 60%;
       }
 
       .sectionFourText {
+        text-align: center;
         margin-bottom: fn.rem(32);
 
         @include breakpoint-up('lg') {
+          text-align: start;
           margin-right: fn.rem(50);
         }
 
@@ -47,7 +67,7 @@
         }
 
         .title {
-          font-weight: 800;
+          font-weight: 600;
           margin: fn.rem(16) 0 fn.rem(24);
         }
 
@@ -62,6 +82,10 @@
 
     .btnContainer {
       @include flex;
+      justify-content: center;
+      @include breakpoint-up('lg') {
+        justify-content: flex-start;
+      }
     }
   }
 }

@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import { HiOutlineMenuAlt4 } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
-import techimage from '../assets/icons/logo.png'
 import { FaChevronDown } from 'react-icons/fa'
 import { Button } from '../components'
 import style from './layout.module.scss'
@@ -43,17 +42,16 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
         <Link className='navbar-brand' to='/'>
           <div className='d-flex align-items-center gap-2'>
             <div className={style.navImgContainer}>
-              <img className='logo' src={techimage} alt='logo' />
+              <img
+                className='logo'
+                src={
+                  color
+                    ? `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684888559/techstudio/logo_black_text_new_1_frkqnn.png`
+                    : `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684888535/techstudio/logo_white_text_new_1_yo2rsg.png`
+                }
+                alt='logo'
+              />
             </div>
-            <span
-              className={[
-                'fw-bold',
-                style.logoText,
-                color ? `text-black` : `text-white`,
-              ].join(' ')}
-            >
-              Techstudio Academy
-            </span>
           </div>
         </Link>
 

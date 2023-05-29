@@ -62,7 +62,10 @@ import {
   Tasks,
   TeacherClassView,
   TeacherDashboard,
+  Faq,
+  Employers,
 } from './pages'
+import JobRequirementModal from './pages/Externals/Employers/jobRequirement/JobRequirementModal'
 
 const App = () => {
   const {
@@ -83,6 +86,7 @@ const App = () => {
         {/* public routes */}
         <Route index path='/' element={<HomePage />} />
         <Route path='/tracks' element={<Intro />} />
+        <Route path='/faq' element={<Faq />} />
         <Route path='/student/register' element={<Register />} />
         <Route path='/login' element={<SignIn />} />
         <Route path='/forgot-password' element={<ForgotPassword />} />
@@ -91,7 +95,11 @@ const App = () => {
         <Route path='/admin/register' element={<AdminSignup />} />
         {/* <Route path='/student/signup' element={<StudentSignup />} /> */}
         <Route path='/payment' element={<Payment />} />
-        {/* <Route path='/employers' element={<Employers />} /> */}
+        <Route path='/employers' element={<Employers />} />
+        <Route
+          path='/employers/detailedform'
+          element={<JobRequirementModal />}
+        />
         <Route path='/payment/accounts' element={<Accounts />} />
         <Route path='/about-us' element={<AboutUs />} />
         <Route path='/blog' element={<Blog />} />

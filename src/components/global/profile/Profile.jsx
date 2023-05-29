@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useEffect, useMemo } from 'react'
 import PropTypes from 'prop-types'
 
 const Profile = ({ content }) => {
-  const style = {
-    height: `6rem`,
-    width: `6rem`,
-  }
   const { name, job } = content
+
+  const style = useMemo(() => {
+    const baseStyle = {
+      height: '5.5rem',
+      width: '5.5rem',
+    }
+
+    if (window.innerWidth <= 767) {
+      baseStyle.height = '3rem'
+      baseStyle.width = '3rem'
+    }
+
+    return baseStyle
+  }, [])
 
   return (
     <div className='d-flex gap-5 align-items-center'>

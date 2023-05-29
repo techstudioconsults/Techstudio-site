@@ -33,8 +33,8 @@ const IntroCard = ({ course }) => {
           <h5 className={style.price}>{course.price}</h5>
           <Button
             width={`10`}
-            linkText='Enroll'
-            linkHref='/payment'
+            linkText='View Full Details'
+            linkHref={course.path}
             solidBtn
             navBtn
           />

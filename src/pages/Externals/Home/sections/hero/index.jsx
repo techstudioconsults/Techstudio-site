@@ -20,7 +20,7 @@ const Hero = ({ content }) => {
                 solidBtn
                 linkHref='/tracks'
                 // linkHref='/student/signup'
-                linkText='Take a course'
+                linkText='Explore Courses'
               />
               <Button
                 width={`11`}

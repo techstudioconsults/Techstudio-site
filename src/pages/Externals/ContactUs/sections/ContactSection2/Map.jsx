@@ -23,7 +23,7 @@ const Map = ({ location }) => {
   }
 
   return (
-    <div className={style.mapContainer} >
+    <div className={style.mapContainer}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: `AIzaSyA5aU7vSwabkvdjPeiSQ-ooJRnwPEoWAcI` }}
         defaultCenter={defaultProps.center}

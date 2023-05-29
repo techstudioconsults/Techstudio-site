@@ -4,7 +4,9 @@
 @import '../../../scss/utils/mixins';
 
 .employersSectionFour {
-  padding: fn.rem(158) 0 fn.rem(84);
+  @include breakpoint-up('lg') {
+    padding: fn.rem(158) 0 fn.rem(84);
+  }
   background-color: colors.$light-blue-II;
   .sectionFourWrapper {
     @include flex_column;

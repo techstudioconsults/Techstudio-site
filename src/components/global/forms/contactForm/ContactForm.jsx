@@ -31,6 +31,7 @@ const ContactForm = () => {
   })
 
   const onSubmit = async (data) => {
+    console.log(data)
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
         document.getElementById('feedback')
@@ -120,12 +121,12 @@ const ContactForm = () => {
           Subject
         </label>
         <input
-          type='email'
-          id='fullName'
+          type='text'
+          id='subject'
           className='form-control'
           aria-describedby='passwordHelpBlock'
-          placeholder='example@example.com'
-          {...register('fullName', validation)}
+          placeholder='subject title'
+          {...register('subject', validation)}
         />
         <ErrorMessage
           errors={errors}

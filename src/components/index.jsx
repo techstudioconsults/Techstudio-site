@@ -55,6 +55,8 @@ export { default as LessonCard } from './global/cards/lessonCards/LessonCard'
 export { default as AddResource } from './global/modals/AddResource'
 export { default as ChangePassword } from './global/forms/changePassword/ChangePassword'
 export { default as SearchComponent } from './global/searchComponent/SearchComponent'
+export { default as CoursesCarousel } from './global/carousel/courses/coursesCarousel'
+export { default as Whatsapp } from './global/whatsapp/Whatsapp'
 // HOME
 // export { default as Hero } from './home/hero'
 // export { default as SectionTwo } from './home/sectionTwo'

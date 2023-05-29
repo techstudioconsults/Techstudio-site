@@ -59,32 +59,32 @@ export const ABOUT_CONTENT = {
     },
     cards: [
       {
-        icon: icon1,
+        icon: `mdi:clock-outline`,
         title: `Flexibility`,
         desc: `We offer weekdays, weekends, and online classes which enable you to learn at your own pace and convenience.`,
       },
       {
-        icon: icon6,
+        icon: `mdi:table-chair`,
         title: `Condusive Environment`,
         desc: `We have provided an exquisite learning environment so you may have ease of learning.`,
       },
       {
-        icon: icon3,
+        icon: `healthicons:money-bag-outline`,
         title: `Affordable tuition fees`,
         desc: `We have initiated all of our programs to be affordable, and our payment method can be paid in three installments. Terms & conditions applied.`,
       },
       {
-        icon: icon5,
+        icon: `lucide:network`,
         title: `Learning & Development`,
         desc: `We have in place modern learning facilities and technologies to ease your learning. Also ensure you engage in projects to develop your skills.`,
       },
       {
-        icon: icon4,
+        icon: `carbon:partnership`,
         title: `Great Colleaggues`,
         desc: `Your contemporaries will be great and inquisitive minds like you. Willing to learn and effect real change. Also, you’ll have the opportunity to network among your peers.`,
       },
       {
-        icon: icon2,
+        icon: `la:certificate`,
         title: `Certificates`,
         desc: `You’ll receive a valuable certificate of participation at the end of the program.`,
       },

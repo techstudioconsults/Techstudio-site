@@ -14,7 +14,6 @@ const index = ({ content }) => {
       <Container paddingBlock={0}>
         <div className={style.headerText}>
           <h2 className={style.title}>{content.header.title}</h2>
-          <p className={style.subTitle}>{content.header.subTitle}</p>
         </div>
         <div className={style.sectionTwoWrapper}>
           <div className={style.cardGroup}>{cardDisplay}</div>

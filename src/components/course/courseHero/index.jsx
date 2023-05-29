@@ -2,6 +2,7 @@ import React from 'react'
 import style from './courseHero.module.scss'
 import { Container } from '../../../layout'
 import PropTypes from 'prop-types'
+import Button from '../../global/Button'
 
 const index = ({ content }) => {
   const { title, subTitle, img } = content
@@ -12,6 +13,15 @@ const index = ({ content }) => {
           <div className={style.heroText}>
             <h1 className={style.title}>{title}</h1>
             <p className={style.description}>{subTitle}</p>
+            <div className='w-25 mt-10'>
+              <Button
+                linkHref='/student/register'
+                linkText='Enroll Now'
+                solidBtn
+                navBtn
+                width={`10`}
+              />
+            </div>
           </div>
           <div className={style.heroImg}>
             <img src={img} alt='hero-img' />

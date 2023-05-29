@@ -7,11 +7,14 @@
   background-color: colors.$grey-bg;
   padding: fn.rem(86) 0 fn.rem(107);
   .headerText {
+    text-align: center;
     line-height: fn.rem(36);
     margin-block-end: fn.rem(72);
     color: colors.$deep-blue;
 
     .title {
+      font-size: fn.rem(32);
+      font-weight: 700;
       margin: 0;
     }
   }

@@ -15,7 +15,7 @@ export const EMPLOPYERS_CONTENT = {
 
   sectionTwo: {
     header: {
-      title: `How Techstudio works`,
+      title: `How Techstudio works for employers`,
       subTitle: `for employers`,
     },
     cards: [

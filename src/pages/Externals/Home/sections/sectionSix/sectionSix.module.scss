@@ -10,7 +10,14 @@
     background-color: transparent;
   }
 
+  .description {
+    @include breakpoint-up('xl') {
+      width: 50%;
+    }
+  }
+
   .btnContainer {
     @include flex;
+    margin-top: fn.rem(30);
   }
 }

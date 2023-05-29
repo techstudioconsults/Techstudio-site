@@ -24,8 +24,16 @@ const AboutSection2 = ({ content }) => {
       <section className={style.aboutSectionTwo}>
         {imgDisplay}
         <div className={style.aboutSectionTwoInner}>
-          <img src={AboutSection2Pattern01} alt="" className={style.pattern01} />
-          <img src={AboutSection2Pattern02} alt="" className={style.pattern02} />
+          <img
+            src={AboutSection2Pattern01}
+            alt=''
+            className={style.pattern01}
+          />
+          <img
+            src={AboutSection2Pattern02}
+            alt=''
+            className={style.pattern02}
+          />
         </div>
       </section>
     </Container>

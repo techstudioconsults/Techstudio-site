@@ -11,9 +11,16 @@
   max-width: fn.rem(600);
   margin: 0 auto;
 
-  @include breakpoint-up('lg') {
-    align-items: flex-start;
-    text-align: initial;
+  .cardImg {
+    width: fn.rem(218);
+    height: fn.rem(164);
+
+    img {
+      width: 100%;
+      height: 100%;
+      // object-fit: contain;
+      // object-fit: co;
+    }
   }
 
   .cardText {

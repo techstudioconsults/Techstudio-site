@@ -14,6 +14,7 @@ import ScrollToTop from './components/global/scroll-to-top/ScrollToTop'
 import { BrowserRouter } from 'react-router-dom'
 // import { PersistGate } from 'redux-persist/integration/react'
 import { store } from './app/store'
+import { Whatsapp } from './components'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
@@ -23,6 +24,7 @@ root.render(
     <BrowserRouter>
       <AppProvider>
         <ScrollToTop />
+        <Whatsapp />
         <App />
       </AppProvider>
     </BrowserRouter>

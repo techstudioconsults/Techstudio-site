@@ -8,7 +8,9 @@ import SectionThree from './sections/sectionThree'
 import SectionFour from './sections/sectionFour'
 import SectionFive from './sections/sectionFive'
 import SectionSix from './sections/sectionSix'
-import GalleryIndex from '../../../components/global/Gallery/GalleryIndex'
+import GalleryIndex from '../../../components/global/carousel/Gallery/GalleryIndex'
+import SectionSeven from './sections/sectionSeven'
+// import { Whatsapp } from '../../../components'
 
 const Home = () => {
   const {
@@ -18,6 +20,7 @@ const Home = () => {
     sectionFour,
     sectionFive,
     sectionSix,
+    sectionSeven,
   } = HOME_CONTENT
   return (
     <ExternalLayout>
@@ -27,6 +30,8 @@ const Home = () => {
       <SectionThree content={sectionThree} />
       <SectionFour content={sectionFour} />
       <SectionFive content={sectionFive} />
+      <GalleryIndex />
+      <SectionSeven data={sectionSeven.upcomingClasses} />
       <SectionSix content={sectionSix} />
       {/* <GalleryIndex /> */}
     </ExternalLayout>

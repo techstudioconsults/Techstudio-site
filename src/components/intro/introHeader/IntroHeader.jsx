@@ -18,16 +18,18 @@ const IntroHeader = () => {
     <div className={style.introHeader}>
       <Container>
         <section className={style.introHeaderWapper}>
-          <Link to={`/`} className={style.imgContainer}>
+          {/* <Link to={`/`} className={style.imgContainer}>
             <img src={logo} alt='logo' />
-          </Link>
+          </Link> */}
           <div className={style.text}>
             <h2 className={style.title}>Our Learning Tracks</h2>
             <p className={style.subTitle}>
               Select any of our courses to get started on your tech journey
             </p>
           </div>
-          <div className={style.btnGroup}>
+          <div
+            className={`${style.btnGroup} d-flex flex-column flex-lg-row gap-3 gap-lg-5`}
+          >
             <button
               onClick={handleClick}
               name={0}
@@ -46,7 +48,7 @@ const IntroHeader = () => {
                 index === 1 ? style.active : null,
               ].join(' ')}
             >
-              Data Science
+              Fullstack Development
             </button>
             <button
               onClick={handleClick}
@@ -56,7 +58,7 @@ const IntroHeader = () => {
                 index === 2 ? style.active : null,
               ].join(' ')}
             >
-              Mobile Development
+              Data Science
             </button>
             <button
               onClick={handleClick}
@@ -66,7 +68,7 @@ const IntroHeader = () => {
                 index === 3 ? style.active : null,
               ].join(' ')}
             >
-              Fullstack
+              Frontend Development
             </button>
             <button
               onClick={handleClick}
@@ -76,7 +78,7 @@ const IntroHeader = () => {
                 index === 4 ? style.active : null,
               ].join(' ')}
             >
-              Front End Development
+              Mobile Development
             </button>
           </div>
         </section>
