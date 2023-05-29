@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import { HiOutlineMenuAlt4 } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
-import techimage from '../assets/images/logo_white_text_new 2.png'
 import { FaChevronDown } from 'react-icons/fa'
 import { Button } from '../components'
 import style from './layout.module.scss'
@@ -45,7 +44,11 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
             <div className={style.navImgContainer}>
               <img
                 className='logo'
-                src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1684888535/techstudio/logo_white_text_new_1_yo2rsg.png`}
+                src={
+                  color
+                    ? `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684888559/techstudio/logo_black_text_new_1_frkqnn.png`
+                    : `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684888535/techstudio/logo_white_text_new_1_yo2rsg.png`
+                }
                 alt='logo'
               />
             </div>

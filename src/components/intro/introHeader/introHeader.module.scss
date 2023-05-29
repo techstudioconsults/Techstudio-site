@@ -38,12 +38,8 @@
     }
 
     .btnGroup {
-      @include flex;
-      @include flex_align;
-      flex-wrap: wrap;
-      gap: fn.rem(25);
-
       .courseBtn {
+        width: 100%;
         padding-block: fn.rem(12);
         padding-inline: fn.rem(27);
         border-radius: fn.rem(6);

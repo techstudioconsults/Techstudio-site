@@ -44,7 +44,7 @@ const Footer = () => {
                     className='text-white cc-link-hover '
                     to='/course/mobile'
                   >
-                    Android Development
+                    Mobile Development
                   </Link>
                 </li>
                 <li className='nav-item mb-0'>
@@ -57,7 +57,7 @@ const Footer = () => {
                     className='text-white cc-link-hover'
                     to='/course/fullstack'
                   >
-                    Full Stack development
+                    Fullstack development
                   </Link>
                 </li>
                 <li className='nav-item mb-0'>
@@ -152,7 +152,7 @@ const Footer = () => {
           </div>
 
           <div className='d-flex flex-column align-items-center  flex-lg-row justify-content-between pt-4 my-4 border-top gap-5'>
-            <p>&copt; {new Date().getFullYear()} TechStudio Academy</p>
+            <p>&copy; {new Date().getFullYear()} TechStudio Academy</p>
             <ul className='list-unstyled d-flex gap-10'>
               <li className=''>
                 <a

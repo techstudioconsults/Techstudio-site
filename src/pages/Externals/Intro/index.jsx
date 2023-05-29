@@ -1,6 +1,5 @@
 import React from 'react'
 import { IntroBody, IntroHeader } from '../../../components'
-import MinimalFooter from '../../../layout/MinimalFooter'
 import { Footer, Navbar } from '../../../layout'
 
 const index = () => {

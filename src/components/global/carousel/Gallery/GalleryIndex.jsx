@@ -29,7 +29,7 @@ const GalleryIndex = () => {
         <Container>
           <div className={style.GalleryIndexContentsFirstInner}>
             <div>
-              <h6 className={style.galleryHeader}>What to expect</h6>
+              <h6 className={style.galleryHeader}>WHAT TO EXPECT</h6>
               <h3 className={style.gallerySubheader}>Our Gallery</h3>
             </div>
             <p className={style.galleryText}>

@@ -134,7 +134,7 @@ const ContactForm = () => {
           />
         </div>
         <div className='d-flex justify-content-between align-items-center'>
-          <div className='form-check d-flex align-items-center gap-2'>
+          {/* <div className='form-check d-flex align-items-center gap-2'>
             <input
               disabled
               className='form-check-input'
@@ -150,7 +150,7 @@ const ContactForm = () => {
             >
               Remember me
             </label>
-          </div>
+          </div> */}
           <Link to={`/forgot-password`}>
             <p className={style.forgotpassword}>Forgot Password?</p>
           </Link>

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import style from './sectionSeven.module.scss'
 import { Icon } from '@iconify/react'
 import { Container } from '../../../../../layout'
+import { Link } from 'react-router-dom'
 
 const SectionSeven = ({ data }) => {
   const [index, setIndex] = useState(0)
@@ -58,7 +59,7 @@ const SectionSeven = ({ data }) => {
           className={`${style.text} d-flex flex-column justify-content-between`}
         >
           <section className=''>
-            <p className='fs-sm text-primary text-uppercase'>
+            <p className='fs-sm fw-semibold text-primary text-uppercase'>
               upcoming classes
             </p>
             <div>
@@ -89,10 +90,12 @@ const SectionSeven = ({ data }) => {
               <span>{duration}</span>
             </div>
           </section>
-          <section>
-            <button className='btn btn-primary px-10'>Enroll Now</button>
+          <section className='d-flex'>
+            <Link to={`/student/register`}>
+              <button className='btn btn-primary px-10'>Enroll Now</button>
+            </Link>
           </section>
-          <div className='d-flex justify-content-end'>
+          <div className='mt-5 mt-lg-0 d-flex justify-content-between justify-content-lg-end'>
             <button
               onClick={handlePreviousBtn}
               className={`btn text fw-bold text-primary ${

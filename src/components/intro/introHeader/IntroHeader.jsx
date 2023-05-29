@@ -27,7 +27,9 @@ const IntroHeader = () => {
               Select any of our courses to get started on your tech journey
             </p>
           </div>
-          <div className={style.btnGroup}>
+          <div
+            className={`${style.btnGroup} d-flex flex-column flex-lg-row gap-3 gap-lg-5`}
+          >
             <button
               onClick={handleClick}
               name={0}
@@ -46,7 +48,7 @@ const IntroHeader = () => {
                 index === 1 ? style.active : null,
               ].join(' ')}
             >
-              Graphics Design
+              Fullstack Development
             </button>
             <button
               onClick={handleClick}
@@ -56,7 +58,7 @@ const IntroHeader = () => {
                 index === 2 ? style.active : null,
               ].join(' ')}
             >
-              Android Development
+              Data Science
             </button>
             <button
               onClick={handleClick}
@@ -66,7 +68,7 @@ const IntroHeader = () => {
                 index === 3 ? style.active : null,
               ].join(' ')}
             >
-              Fullstack
+              Frontend Development
             </button>
             <button
               onClick={handleClick}
@@ -76,17 +78,7 @@ const IntroHeader = () => {
                 index === 4 ? style.active : null,
               ].join(' ')}
             >
-              Front End Development
-            </button>
-            <button
-              onClick={handleClick}
-              name={5}
-              className={[
-                style.courseBtn,
-                index === 5 ? style.active : null,
-              ].join(' ')}
-            >
-              Back End Development
+              Mobile Development
             </button>
           </div>
         </section>

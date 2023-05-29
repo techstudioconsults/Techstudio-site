@@ -14,7 +14,7 @@ const SectionSix = ({ content }) => {
           <div className='ms-3 ms-lg-40 text-white py-20 py-xl-0'>
             <span>{header.caption}</span>
             <h4 className='mt-5 fw-bold text-white fs-3xl'>{header.title}</h4>
-            <p className='w-50'>{header.description}</p>
+            <p className={style.description}>{header.description}</p>
             <div className={style.btnContainer}>
               <Button
                 linkHref='/register'

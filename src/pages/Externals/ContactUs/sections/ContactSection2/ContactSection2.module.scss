@@ -3,14 +3,13 @@
 @import '../../../../../scss/utils/breakpoints';
 @import '../../../../../scss/utils/mixins';
 
-.mapContainer{
-    width: 100%;
-    height: fn.rem(312);
-    margin: 0 auto;
+.mapContainer {
+  width: 100%;
+  height: fn.rem(312);
+  margin: 0 auto;
 
-    @include breakpoint-up('lg'){
-        width: fn.rem(1439);
-        height: fn.rem(312);
-        margin: 0 auto;
-    }
+  @include breakpoint-up('lg') {
+    // height: fn.rem(312);
+    margin: 0 auto;
+  }
 }

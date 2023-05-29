@@ -5,7 +5,7 @@ import { Icon } from '@iconify/react'
 const WhatsAppIcon = () => {
   return (
     <a
-      href='https://api.whatsapp.com/send?phone=123456789' // Replace with your desired WhatsApp link
+      href='https://api.whatsapp.com/send?phone=08113800161' // Replace with your desired WhatsApp link
       target='_blank'
       rel='noopener noreferrer'
       className={`${styles.whatsappIcon}`}

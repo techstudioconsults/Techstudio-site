@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import ContactForm from '../../../../../components/global/forms/contactForm/ContactForm'
 import style from './ContactSection1.module.scss'
 import { MdEmail } from 'react-icons/md'
+import { Icon } from '@iconify/react'
 
 const ContactSection1 = ({ content }) => {
   const { header, address } = content
@@ -28,8 +29,35 @@ const ContactSection1 = ({ content }) => {
               <h6>{address.state}</h6>
               <p className={style.address}>{address.address}</p>
               <h6 className={style.whatsapp}>{address.whatsapp}</h6>
-              <p>{address.busola}</p>
-              <p>{address.blessing}</p>
+              <p>
+                <span className='fw-semibold'>
+                  <Icon className='fs-xl mb-1' icon={`logos:whatsapp-icon`} />{' '}
+                  Miss Busola:
+                </span>
+                <a
+                  className='d-inline text-dark'
+                  href={`https://wa.me/${address.busola}`}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  {' '}
+                  {address.busola}
+                </a>
+              </p>
+
+              <p>
+                <span className='fw-semibold'>
+                  <Icon className='fs-xl mb-1' icon={`gg:phone`} /> Miss
+                  Blessing:
+                </span>
+                <a
+                  className='d-inline text-dark'
+                  href={`tel:${address.blessing}`}
+                >
+                  {' '}
+                  {address.blessing}
+                </a>
+              </p>
             </div>
           </div>
           <div>

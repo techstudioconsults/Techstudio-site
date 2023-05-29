@@ -34,7 +34,7 @@ const IntroCard = ({ course }) => {
           <Button
             width={`10`}
             linkText='View Full Details'
-            linkHref='/payment'
+            linkHref={course.path}
             solidBtn
             navBtn
           />

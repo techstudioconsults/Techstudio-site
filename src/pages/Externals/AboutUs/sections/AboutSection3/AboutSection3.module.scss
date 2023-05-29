@@ -12,7 +12,7 @@
     margin-block-end: fn.rem(55);
     .title {
       width: fit-content;
-      font-weight: 700;
+      font-weight: 600;
       margin: 0 auto;
       @include breakpoint-up('xl') {
         font-size: fn.rem(32);

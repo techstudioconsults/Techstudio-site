@@ -37,9 +37,7 @@ const SectionFour = ({ content }) => {
               <p className={`text-primary fs-sm fw-semibold`}>
                 {articleOne.title}
               </p>
-              <p className={`fs-2xl fs-lg-3xl fw-semibold`}>
-                {articleOne.topic}
-              </p>
+              <p className={`fs-3xl fw-semibold`}>{articleOne.topic}</p>
             </div>
             <div
               className={`fs-sm text-center text-lg-start ${style.description}`}
@@ -106,8 +104,8 @@ const SectionFour = ({ content }) => {
             </div>
             <div className={style.btnContainer}>
               <Button
-                linkHref='/about-us'
-                linkText='KNOW US MORE'
+                linkHref='/student/register'
+                linkText='Get Started'
                 solidBtn
                 navBtn
                 width={`11`}

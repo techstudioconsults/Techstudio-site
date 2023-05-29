@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import style from './sectioniThree.module.scss'
 import { Container } from '../../../../../layout'
 import { CoursesCarousel } from '../../../../../components'
+import { Link } from 'react-router-dom'
 // import { Profile, TestimonialBanner } from '../../../../../components'
 
 const SectionThree = ({ content }) => {
@@ -35,12 +36,14 @@ export const SectionThreeCard = ({ content }) => {
         <h3 className='fs-xl mt-5'>{content.title}</h3>
         <p className='fs-sm'>{content.description}</p>
       </div>
-      <button
-        style={{ border: `2px solid #0266f4` }}
-        className='btn btn-outline-primary px-10 mt-5 fw-semibold'
-      >
-        View Course
-      </button>
+      <Link to={content.path}>
+        <button
+          style={{ border: `2px solid #0266f4` }}
+          className='btn btn-outline-primary px-10 mt-5 fw-semibold'
+        >
+          View Course
+        </button>
+      </Link>
     </div>
   )
 }

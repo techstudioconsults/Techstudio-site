@@ -65,6 +65,7 @@ import {
   Faq,
   Employers,
 } from './pages'
+import JobRequirementModal from './pages/Externals/Employers/jobRequirement/JobRequirementModal'
 
 const App = () => {
   const {
@@ -95,6 +96,10 @@ const App = () => {
         {/* <Route path='/student/signup' element={<StudentSignup />} /> */}
         <Route path='/payment' element={<Payment />} />
         <Route path='/employers' element={<Employers />} />
+        <Route
+          path='/employers/detailedform'
+          element={<JobRequirementModal />}
+        />
         <Route path='/payment/accounts' element={<Accounts />} />
         <Route path='/about-us' element={<AboutUs />} />
         <Route path='/blog' element={<Blog />} />
