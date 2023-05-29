@@ -25,7 +25,6 @@ const index = () => {
       <ContactHero content={hero} />
       <ContactSection1 content={location} />
       <section className='mt-10'>
-      <section>
         <Map location={mapLocation} />
       </section>
       {/* <ContactHero content={hero} /> */}
