@@ -43,7 +43,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
           <div className='d-flex align-items-center gap-2'>
             <div className={style.navImgContainer}>
               <img
-                className='logo'
+                className={['logo', style.responsiveLogo].join(' ')}
                 src={
                   color
                     ? `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684888559/techstudio/logo_black_text_new_1_frkqnn.png`

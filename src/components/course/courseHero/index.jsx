@@ -13,7 +13,7 @@ const index = ({ content }) => {
           <div className={style.heroText}>
             <h1 className={style.title}>{title}</h1>
             <p className={style.description}>{subTitle}</p>
-            <div className='w-25 mt-10'>
+            <div className='mt-10 d-flex justify-content-center justify-content-lg-start'>
               <Button
                 linkHref='/student/register'
                 linkText='Enroll Now'
