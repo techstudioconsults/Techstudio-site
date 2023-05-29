@@ -24,7 +24,7 @@ const index = () => {
       <Navbar bg={`transparent`} keepColor />
       <ContactHero content={hero} />
       <ContactSection1 content={location} />
-      <section style={{ height: '50vh' }}>
+      <section>
         <Map location={mapLocation} />
       </section>
       {/* <ContactHero content={hero} /> */}

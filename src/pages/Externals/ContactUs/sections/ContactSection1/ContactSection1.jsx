@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import ContactForm from '../../../../../components/global/forms/contactForm/ContactForm'
 import style from './ContactSection1.module.scss'
 import { MdEmail } from 'react-icons/md'
+import ContactSection1Modal from './ContactSection1Modal'
 
 const ContactSection1 = ({ content }) => {
   const { header, address } = content
@@ -14,6 +15,7 @@ const ContactSection1 = ({ content }) => {
       <section className={style.ContactSection1}>
         <div className={style.form}>
           <ContactForm />
+          <ContactSection1Modal/>
         </div>
         <div className={style.locationWrapper}>
           <div className={style.location}>

@@ -12,7 +12,7 @@ import { Container } from '../../../layout'
 
 const GalleryIndex = () => {
     return (
-        <div className={style.container}>
+        // <div className={`container${style.container}`}>
             <div className={style.GalleryIndex}>
                 <div className={style.GalleryIndexContents}>
                     <div className={style.GalleryIndexContentsFirst}>
@@ -64,7 +64,7 @@ const GalleryIndex = () => {
                     </Swiper>
                 </div>
             </div>
-        </div>
+        // </div>
 
     )
 }

@@ -9,7 +9,7 @@
     margin: 0 auto;
 
     @include breakpoint-up('lg'){
-        width: fn.rem(1439);
+        // width: fn.rem(1439);
         height: fn.rem(312);
         margin: 0 auto;
     }

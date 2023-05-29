@@ -28,7 +28,7 @@ const Home = () => {
       <SectionFour content={sectionFour} />
       <SectionFive content={sectionFive} />
       <SectionSix content={sectionSix} />
-      <GalleryIndex />
+      {/* <GalleryIndex /> */}
     </ExternalLayout>
   )
 }

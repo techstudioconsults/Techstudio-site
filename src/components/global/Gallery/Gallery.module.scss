@@ -13,9 +13,15 @@
 }
 .GalleryIndex{
     width: 100%;
-    max-width: 1440px;
+    // max-width: 1440px;
     margin: 5rem auto;
     // background-color: red;
+
+     @include breakpoint-up('lg'){
+        // width: fn.rem(1439);
+        // height: fn.rem(312);
+        margin: 0 auto;
+    }
 
     &Contents{
         width: 100%;
