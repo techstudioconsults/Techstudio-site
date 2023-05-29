@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import style from './Gallery.module.scss'
@@ -11,6 +11,18 @@ import GalleryImg06 from '../../../../assets/images/GelleryImg06.png'
 import { Container } from '../../../../layout'
 
 const GalleryIndex = () => {
+  const swiperRef = React.useRef(null)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (swiperRef.current && swiperRef.current.swiper) {
+        swiperRef.current.swiper.slideNext()
+      }
+    }, 4000)
+
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <div className={style.GalleryIndex}>
       <div className={style.GalleryIndexContents}>
@@ -33,11 +45,11 @@ const GalleryIndex = () => {
 
         <div>
           <Swiper
+            ref={swiperRef}
+            loop={true}
             className={style.GalleryIndexContentsSecond}
             spaceBetween={0}
             slidesPerView={5}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
             breakpoints={{
               320: {
                 slidesPerView: 1,

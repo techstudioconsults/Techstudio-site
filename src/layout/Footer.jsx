@@ -30,8 +30,8 @@ const Footer = () => {
               <div>
                 <p className='fs-md fw-bolder py-2_5'>Courses</p>
               </div>
-              <ul className='nav flex-column fs-sm mt-5 gap-3 align-items-start'>
-                <li className='nav-item mb-2'>
+              <ul className='nav flex-column fs-sm  gap-3 align-items-start'>
+                <li className='nav-item mb-0'>
                   <Link
                     className='text-white cc-link-hover'
                     to='/course/frontend'
@@ -39,7 +39,7 @@ const Footer = () => {
                     Front End Development
                   </Link>
                 </li>
-                <li className='nav-item mb-2'>
+                <li className='nav-item mb-0'>
                   <Link
                     className='text-white cc-link-hover '
                     to='/course/mobile'
@@ -47,12 +47,12 @@ const Footer = () => {
                     Android Development
                   </Link>
                 </li>
-                <li className='nav-item mb-2'>
+                <li className='nav-item mb-0'>
                   <Link className='text-white cc-link-hover ' to='/course/uiux'>
                     UI/UX Design
                   </Link>
                 </li>
-                <li className='nav-item mb-2'>
+                <li className='nav-item mb-0'>
                   <Link
                     className='text-white cc-link-hover'
                     to='/course/fullstack'
@@ -60,7 +60,7 @@ const Footer = () => {
                     Full Stack development
                   </Link>
                 </li>
-                <li className='nav-item mb-2'>
+                <li className='nav-item mb-0'>
                   <Link
                     className='text-white cc-link-hover'
                     to='/course/data-science'
@@ -73,7 +73,7 @@ const Footer = () => {
 
             <div className='col-12 col-lg-2 my-12 my-lg-0'>
               <div>
-                <h5 className='fs-md fw-bolder py-2_5'>
+                <h5 className='fs-md fw-bolder pt-2_5'>
                   <Link
                     className='text-white d-block cc-link-hover'
                     to='/about-us'
@@ -83,35 +83,35 @@ const Footer = () => {
                 </h5>
               </div>
               <div>
-                <h5 className='fs-md fw-semibold py-2_5'>
+                <h5 className='fs-md fw-semibold pt-2_5'>
                   <Link className='text-white d-block cc-link-hover' to='/blog'>
                     Blog
                   </Link>
                 </h5>
               </div>
               <div>
-                <h5 className='fs-md fw-semibold py-2_5'>
+                <h5 className='fs-md fw-semibold pt-2_5'>
                   <Link className='text-white d-block cc-link-hover' to='#'>
                     Partnership
                   </Link>
                 </h5>
               </div>
               <div>
-                <h5 className='fs-md fw-semibold py-2_5'>
+                <h5 className='fs-md fw-semibold pt-2_5'>
                   <Link className='text-white d-block cc-link-hover' to='/faq'>
                     FAQs
                   </Link>
                 </h5>
               </div>
               <div>
-                <h5 className='fs-md fw-semibold py-2_5'>
+                <h5 className='fs-md fw-semibold pt-2_5'>
                   <Link className='text-white d-block cc-link-hover' to='#'>
                     Privacy Policy
                   </Link>
                 </h5>
               </div>
               <div>
-                <h5 className='fs-md fw-semibold py-2_5'>
+                <h5 className='fs-md fw-semibold pt-2_5'>
                   <Link
                     className='text-white d-block cc-link-hover'
                     to='/contact'
@@ -151,8 +151,8 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className='d-flex flex-column align-items-center  flex-lg-row justify-content-between py-4 my-4 border-top gap-5'>
-            <p>&copy; {new Date().getFullYear()} TechStudio Academy</p>
+          <div className='d-flex flex-column align-items-center  flex-lg-row justify-content-between pt-4 my-4 border-top gap-5'>
+            <p>&copt; {new Date().getFullYear()} TechStudio Academy</p>
             <ul className='list-unstyled d-flex gap-10'>
               <li className=''>
                 <a

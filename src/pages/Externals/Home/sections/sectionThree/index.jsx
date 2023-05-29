@@ -35,7 +35,10 @@ export const SectionThreeCard = ({ content }) => {
         <h3 className='fs-xl mt-5'>{content.title}</h3>
         <p className='fs-sm'>{content.description}</p>
       </div>
-      <button className='btn btn-outline-primary px-10 border border-2 border-primary mt-5'>
+      <button
+        style={{ border: `2px solid #0266f4` }}
+        className='btn btn-outline-primary px-10 mt-5 fw-semibold'
+      >
         View Course
       </button>
     </div>

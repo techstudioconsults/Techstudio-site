@@ -3,6 +3,7 @@ import style from './sectionTwo.module.scss'
 import PropTypes from 'prop-types'
 import { Container } from '../../../../../layout'
 import { SectionTwoCard } from '../../../../../components'
+import { Link } from 'react-router-dom'
 
 const SectionTwo = ({ content }) => {
   const { header, cards } = content
@@ -17,7 +18,13 @@ const SectionTwo = ({ content }) => {
         <p className={style.headerTitle}>{header.title}</p>
         <div className={style.descriptionContainer}>
           <h2 className={style.title}>{header.title2}</h2>
-          <p className={style.headerDescription}>{header.description}</p>
+          <p className={style.headerDescription}>
+            {header.description}
+            <Link className='d-inline' to={`/about-us`}>
+              {' '}
+              Read More
+            </Link>
+          </p>
         </div>
       </Container>
       <Container paddingBlock={0}>

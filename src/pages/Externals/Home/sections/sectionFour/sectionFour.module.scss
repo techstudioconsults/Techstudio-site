@@ -43,15 +43,16 @@
     }
 
     .sectionFourTextGroup {
-      // flex: 2;
       @include breakpoint-up('lg') {
         width: 60%;
       }
 
       .sectionFourText {
+        text-align: center;
         margin-bottom: fn.rem(32);
 
         @include breakpoint-up('lg') {
+          text-align: start;
           margin-right: fn.rem(50);
         }
 
@@ -81,6 +82,10 @@
 
     .btnContainer {
       @include flex;
+      justify-content: center;
+      @include breakpoint-up('lg') {
+        justify-content: flex-start;
+      }
     }
   }
 }

@@ -7,26 +7,30 @@
   margin-block: fn.rem(64);
   @include breakpoint-up('xl') {
     // background: url(../../../../../assets//images//home-sec1.webp) no-repeat left
-      // bottom;
+    // bottom;
     // background-position: -10%;
   }
-  .headerDescription{
-    text-align: center;
-
-  }
-  .headerTitle{
+  .headerDescription {
     text-align: center;
   }
-  .descriptionContainer{
-    max-width: 50%;
+  .headerTitle {
+    font-weight: 600;
+    text-align: center;
+    color: colors.$blue;
+  }
+  .descriptionContainer {
+    width: 100%;
     margin: 0 auto;
-    // background-color: red;
+    @include breakpoint-up('xl') {
+      max-width: 50%;
+    }
   }
   .title {
     text-align: center;
     font-weight: 600;
-    font-size: 2em;
+    font-size: fn.rem(24);
     @include breakpoint-up('xl') {
+      font-size: fn.rem(32);
       text-align: center;
     }
   }

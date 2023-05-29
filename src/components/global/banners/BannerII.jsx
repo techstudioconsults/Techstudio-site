@@ -17,7 +17,10 @@ const BannerII = ({ children }) => {
         alt='img'
       />
       {children}
-      <div className='position-absolute bottom-0 end-0 me-32 d-none d-lg-block'>
+      <div
+        style={{ bottom: `-6px` }}
+        className='position-absolute end-0 me-32 d-none d-lg-block'
+      >
         <img
           src='https://res.cloudinary.com/kingsleysolomon/image/upload/v1667476100/samples/techstudio/Icons%20and%20Images/Icons%20and%20Images/Tech%20Studio%20images/Image_134_ext3we.png'
           alt='img'

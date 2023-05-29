@@ -34,38 +34,11 @@ const SectionSeven = ({ data }) => {
     })
   }, [checkpage])
 
-  //   const isCarouselInView = (element) => {
-  //     var bounding = element.getBoundingClientRect()
-  //     return (
-  //       bounding.top >= 0 &&
-  //       bounding.left >= 0 &&
-  //       bounding.bottom <=
-  //         (window.innerHeight || document.documentElement.clientHeight) &&
-  //       bounding.right <=
-  //         (window.innerWidth || document.documentElement.clientWidth)
-  //     )
-  //   }
-
-  // useEffect(() => {
-  //   // there is a bug in this code.
-  //   // window.addEventListener(
-  //   //   'scroll',
-  //   //   function (event) {
-  //   // if (isCarouselInView(carousel.current)) {
-  //   setInterval(() => {
-  //     handleNextBtn()
-  //   }, 7000)
-  //   // }
-  //   //   },
-  //   //   false
-  //   // )
-  // }, [handleNextBtn])
-
   return (
     <Container>
       <section
         ref={carousel}
-        className={`${style.carousel} d-flex flex-column flex-lg-row gap-20`}
+        className={`${style.carousel} d-flex flex-column flex-lg-row gap-20 gap-lg-40`}
       >
         {/* <article className={style.controls}>
         <button onClick={handlePreviousBtn} className={style.previousBtn}>
@@ -81,7 +54,9 @@ const SectionSeven = ({ data }) => {
         <article className={style.quoteContainer}>
           <img src={image} alt='img' className='img-fluid' />
         </article>
-        <section className='d-flex flex-column justify-content-between'>
+        <section
+          className={`${style.text} d-flex flex-column justify-content-between`}
+        >
           <section className=''>
             <p className='fs-sm text-primary text-uppercase'>
               upcoming classes
@@ -120,13 +95,15 @@ const SectionSeven = ({ data }) => {
           <div className='d-flex justify-content-end'>
             <button
               onClick={handlePreviousBtn}
-              className='btn text fw-bold text-primary'
+              className={`btn text fw-bold text-primary ${
+                index ? `d-block` : `d-none`
+              }`}
             >
               {`<<`} Previous
             </button>
             <button
               onClick={handleNextBtn}
-              className='btn text fw-bold text-primary'
+              className={`btn text fw-bold text-primary`}
             >
               Next {`>>`}
             </button>

@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import style from './sectionFour.module.scss'
-import sectionFourImg from '../../../../../assets/images/home-img5.webp'
 import { Container } from '../../../../../layout'
 import Button from '../../../../../components/global/Button'
 import { Profile, TestimonialBanner } from '../../../../../components'

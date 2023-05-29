@@ -23,5 +23,6 @@
   @include breakpoint-up('lg') {
     width: 70px;
     height: 70px;
+    font-size: fn.rem(30);
   }
 }

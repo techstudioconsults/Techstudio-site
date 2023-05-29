@@ -20,7 +20,10 @@
   .subTitle {
     text-align: center;
     font-weight: 600;
-    font-size: fn.rem(32);
+    font-size: fn.rem(24);
+    @include breakpoint-up('xl') {
+      font-size: fn.rem(32);
+    }
   }
   .desc {
     text-align: center;
