@@ -38,7 +38,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
         backgroundColor: bg,
       }}
     >
-      <div className='container-xxl py-3'>
+      <div className='container-xxl py-6'>
         <Link className='navbar-brand' to='/'>
           <div className='d-flex align-items-center gap-2'>
             <div className={style.navImgContainer}>
@@ -69,7 +69,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
 
         <div
           className={[
-            'collapse navbar-collapse d-lg-flex justify-content-between ms-lg-10 ms-xl-24',
+            'collapse navbar-collapse d-lg-flex justify-content-between ms-lg-10 ms-xl-40',
             color ? style.navbarDropdownLight : style.navbarDropdown,
           ].join(' ')}
           id='navbarNavAltMarkup'

@@ -9,19 +9,10 @@ import GalleryImg04 from '../../../../assets/images/GelleryImg04.png'
 import GalleryImg05 from '../../../../assets/images/GelleryImg05.png'
 import GalleryImg06 from '../../../../assets/images/GelleryImg06.png'
 import { Container } from '../../../../layout'
+import { Autoplay } from 'swiper'
 
 const GalleryIndex = () => {
   const swiperRef = React.useRef(null)
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (swiperRef.current && swiperRef.current.swiper) {
-        swiperRef.current.swiper.slideNext()
-      }
-    }, 4000)
-
-    return () => clearInterval(interval)
-  }, [])
 
   return (
     <div className={style.GalleryIndex}>
@@ -46,10 +37,14 @@ const GalleryIndex = () => {
         <div>
           <Swiper
             ref={swiperRef}
-            loop={true}
             className={style.GalleryIndexContentsSecond}
             spaceBetween={0}
             slidesPerView={5}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            modules={[Autoplay]}
             breakpoints={{
               320: {
                 slidesPerView: 1,

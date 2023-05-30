@@ -7,9 +7,9 @@ import { Container } from '../../../../../layout'
 const SectionFive = ({ content }) => {
   const { lists } = content
   return (
-    <section className={style.sectionFive}>
+    <section className={`${style.sectionFive}`}>
       <Container>
-        <section className={style.sectionFive}>
+        <section className={`${style.sectionFive} my-4`}>
           <div className={style.stepperList}>
             <ShortStepper lists={lists} />
           </div>

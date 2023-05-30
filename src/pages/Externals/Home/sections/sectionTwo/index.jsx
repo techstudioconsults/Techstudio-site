@@ -14,7 +14,7 @@ const SectionTwo = ({ content }) => {
 
   return (
     <section className={style.sectionTwo}>
-      <Container className={style.headerContainer}>
+      <Container paddingBlock={0} className={style.headerContainer}>
         <p className={style.headerTitle}>{header.title}</p>
         <div className={style.descriptionContainer}>
           <h2 className={style.title}>{header.title2}</h2>
@@ -28,7 +28,7 @@ const SectionTwo = ({ content }) => {
         </div>
       </Container>
       <Container paddingBlock={0}>
-        <div className={style.body}>
+        <div className={`${style.body} my-20`}>
           <div className={style.cardGroup}>{cardsDisplay}</div>
         </div>
       </Container>

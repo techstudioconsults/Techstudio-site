@@ -17,6 +17,8 @@
     font-weight: 600;
     text-align: center;
     color: colors.$blue;
+    text-transform: uppercase;
+    margin-block: fn.rem(10);
   }
   .descriptionContainer {
     width: 100%;

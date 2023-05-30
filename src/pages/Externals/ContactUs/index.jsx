@@ -28,9 +28,6 @@ const index = () => {
       <section className='mt-10'>
         <Map location={mapLocation} />
       </section>
-      <ContactSection3/>
-      {/* <ContactHero content={hero} /> */}
-      {/* <ContactSectionTwo content={location} /> */}
     </ExternalLayout>
   )
 }

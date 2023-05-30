@@ -12,7 +12,7 @@
     font-weight: 600;
     font-size: fn.rem(14);
     color: colors.$blue;
-    margin-bottom: fn.rem(33);
+    // margin-bottom: fn.rem(33);
     @include breakpoint-up('xl') {
       text-align: initial;
     }

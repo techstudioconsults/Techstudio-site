@@ -29,15 +29,17 @@ const SectionFour = ({ content }) => {
   })
 
   return (
-    <section className={style.sectionFour}>
+    <section className={`${style.sectionFour} mb-20`}>
       <Container>
         <section>
-          <section className='d-flex flex-column justify-content-between flex-lg-row'>
+          <section className='d-flex flex-column align-items-center justify-content-between flex-lg-row mt-12'>
             <div className={`text-center text-lg-start`}>
               <p className={`text-primary fs-sm fw-semibold`}>
                 {articleOne.title}
               </p>
-              <p className={`fs-3xl fw-semibold`}>{articleOne.topic}</p>
+              <p className={`fs-3xl text-blue fw-semibold`}>
+                {articleOne.topic}
+              </p>
             </div>
             <div
               className={`fs-sm text-center text-lg-start ${style.description}`}
@@ -45,7 +47,7 @@ const SectionFour = ({ content }) => {
               {articleOne.description}
             </div>
           </section>
-          <div className='container my-20 text-center'>
+          <div className='container mt-12 mb-32 text-center'>
             <div className='row align-items-center justify-content-center justify-content-lg-between gap-10'>
               <img
                 className={`${style.brand} col-5 col-lg-2`}

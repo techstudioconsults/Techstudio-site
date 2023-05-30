@@ -63,7 +63,7 @@ const SectionSeven = ({ data }) => {
               upcoming classes
             </p>
             <div>
-              <h4 className='fs-3xl fw-semibold'>{title}</h4>
+              <h4 className='fs-3xl my-5 fw-semibold'>{title}</h4>
               <p className=''>{description}</p>
             </div>
           </section>

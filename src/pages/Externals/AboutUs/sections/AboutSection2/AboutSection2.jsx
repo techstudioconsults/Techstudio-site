@@ -17,10 +17,7 @@ const AboutSection2 = ({ content }) => {
   })
 
   return (
-    <Container>
-      {/* <section className={style.aboutSectionTwo}>
-        <div className={style.imgGroup}>{imgDisplay}</div>
-      </section> */}
+    <Container paddingBlock={0}>
       <section className={style.aboutSectionTwo}>
         {imgDisplay}
         <div className={style.aboutSectionTwoInner}>

@@ -7,8 +7,7 @@ import { useContactUsMutation } from '../../../../pages/Auth/api/authApiSlice'
 import style from './contactForm.module.scss'
 import ToastComponent from '../../toast/ToastComponent'
 import Portal from '../../POTAL/Portal'
-import Feedback from '../../modals/Feedback'
-import ContactFormModal from './ContactFormModal'
+import ContactUsFeedback from '../../../../pages/Externals/ContactUs/sections/ContactSection3/ContactSection3'
 
 const validation = {
   required: 'This input is required.',
@@ -33,9 +32,10 @@ const ContactForm = () => {
 
   const onSubmit = async (data) => {
     console.log(data)
+    let modal
     try {
-      let modal = bootstrap.Modal.getOrCreateInstance(
-        document.getElementById('ContactFeedback')
+      modal = bootstrap.Modal.getOrCreateInstance(
+        document.getElementById('contactUsfeedback')
       )
       const res = await contactUs(data).unwrap()
       console.log(res)
@@ -57,13 +57,7 @@ const ContactForm = () => {
       className={[style.form, `cc-shadow`].join(' ')}
     >
       <Portal wrapperId='react-portal-modal-container'>
-        <Feedback
-          content={{
-            title: `Message sent successfully`,
-            desc: ` Your message has been received and our Customer Care
-                Representative will contact you shortly.`,
-          }}
-        />
+        <ContactUsFeedback />
       </Portal>
       <div>
         <label htmlFor='fullName' className='form-label fw-semibold'>
@@ -181,8 +175,10 @@ const ContactForm = () => {
       </div>
 
       <div className={style.btnContainer}>
-        <button type='submit' data-toggle="modal"
-          data-target="#ContactFeedback"
+        <button
+          type='submit'
+          data-toggle='modal'
+          data-target='#ContactFeedback'
         >
           <div
             hidden={!isLoading}

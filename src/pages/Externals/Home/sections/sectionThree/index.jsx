@@ -17,7 +17,7 @@ const SectionThree = ({ content }) => {
             <h2 className={style.subTitle}>{header.topic}</h2>
             <p className={style.desc}>{header.description}</p>
           </section>
-          <section className='my-20'>
+          <section className='mt-14 mb-8'>
             <CoursesCarousel />
           </section>
         </Container>
