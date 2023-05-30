@@ -63,11 +63,12 @@ top-notch portfolio that woos employers. `,
         description: `Lorem ipsum dolor sit amet consectetur. Urna adipiscing risus faucibus ut vulputate malesuada eget. In leo commodo auctor facilisi. Leo nisl justo in eu volutpat eu in. `,
         path: `/course/fullstack`,
       },
-      // {
-      //   image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684925236/techstudio/Group_1000002405_kxyzfg.png`,
-      //   title: `Front-End Web Development`,
-      //   description: `Lorem ipsum dolor sit amet consectetur. Urna adipiscing risus faucibus ut vulputate malesuada eget. In leo commodo auctor facilisi. Leo nisl justo in eu volutpat eu in. `,
-      // },
+      {
+        image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684925236/techstudio/Group_1000002405_kxyzfg.png`,
+        title: `Data Science Web Development`,
+        description: `Lorem ipsum dolor sit amet consectetur. Urna adipiscing risus faucibus ut vulputate malesuada eget. In leo commodo auctor facilisi. Leo nisl justo in eu volutpat eu in. `,
+        path: '/course/data-science',
+      },
       // {
       //   image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684925233/techstudio/Group_1000002405_2_lrrjky.png`,
       //   title: `Product Design (UI/UX)`,

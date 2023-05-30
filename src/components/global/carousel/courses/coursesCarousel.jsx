@@ -2,8 +2,14 @@ import { SectionThreeCard } from '../../../../pages/Externals/Home/sections/sect
 import React, { useState } from 'react'
 import { HOME_CONTENT } from '../../../../pages/Externals/Home/content'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/swiper.min.css'
+// import 'swiper/swiper.min.css'
 import { Icon } from '@iconify/react'
+// Import Swiper styles
+import './styles.css'
+import 'swiper/css/pagination'
+
+// import required modules
+import { Pagination } from 'swiper'
 
 const Carousel = () => {
   const { sectionThree } = HOME_CONTENT
@@ -30,7 +36,7 @@ const Carousel = () => {
   }
 
   const cardDisplay = sectionThree.cards.map((card, index) => (
-    <SwiperSlide key={index}>
+    <SwiperSlide className='pb-10' key={index}>
       <SectionThreeCard content={card} />
     </SwiperSlide>
   ))
@@ -63,8 +69,9 @@ const Carousel = () => {
             },
           }}
           pagination={{
-            clickable: true,
+            dynamicBullets: true,
           }}
+          modules={[Pagination]}
           onSlideChange={handleSlideChange}
         >
           {cardDisplay}

@@ -11,7 +11,7 @@ const SectionFour = ({ content }) => {
 
   const testimonials = body.testimonials.map((testimonial, index) => {
     return (
-      <SwiperSlide key={index}>
+      <SwiperSlide className='pb-10' key={index}>
         <div
           className={`text-white text-center d-flex flex-column align-items-lg-center ${style.testimonial}`}
         >

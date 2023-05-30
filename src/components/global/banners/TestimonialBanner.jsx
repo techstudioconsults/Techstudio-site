@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Swiper } from 'swiper/react'
 import 'swiper/swiper.min.css'
+import 'swiper/css/pagination'
+import { Pagination } from 'swiper'
 
 const TestimonialBanner = ({ children, title }) => {
   const swiperRef = React.useRef(null)
@@ -33,8 +35,9 @@ const TestimonialBanner = ({ children, title }) => {
         spaceBetween={300}
         slidesPerView={1}
         pagination={{
-          clickable: true,
+          dynamicBullets: true,
         }}
+        modules={[Pagination]}
         // onSlideChange={handleSlideChange}
       >
         {children}
