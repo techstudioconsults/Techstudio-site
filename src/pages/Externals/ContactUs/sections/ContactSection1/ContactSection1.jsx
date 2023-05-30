@@ -5,7 +5,6 @@ import ContactForm from '../../../../../components/global/forms/contactForm/Cont
 import style from './ContactSection1.module.scss'
 import { MdEmail } from 'react-icons/md'
 import { Icon } from '@iconify/react'
-import ContactSection1Modal from './ContactSection1Modal'
 
 const ContactSection1 = ({ content }) => {
   const { header, address } = content
@@ -16,7 +15,6 @@ const ContactSection1 = ({ content }) => {
       <section className={style.ContactSection1}>
         <div className={style.form}>
           <ContactForm />
-          <ContactSection1Modal/>
         </div>
         <div className={style.locationWrapper}>
           <div className={style.location}>
@@ -33,8 +31,8 @@ const ContactSection1 = ({ content }) => {
               <h6 className={style.whatsapp}>{address.whatsapp}</h6>
               <p>
                 <span className='fw-semibold'>
-                  <Icon className='fs-xl mb-1' icon={`logos:whatsapp-icon`} />{' '}
-                  Miss Busola:
+                  {/* <Icon className='fs-xl mb-1' icon={`logos:whatsapp-icon`} />{' '} */}
+                  Busola:
                 </span>
                 <a
                   className='d-inline text-dark'
@@ -49,7 +47,7 @@ const ContactSection1 = ({ content }) => {
 
               <p>
                 <span className='fw-semibold'>
-                  <Icon className='fs-xl mb-1' icon={`gg:phone`} /> Miss
+                  {/* <Icon className='fs-xl mb-1' icon={`gg:phone`} /> */}
                   Blessing:
                 </span>
                 <a

@@ -8,7 +8,6 @@ import GalleryImg03 from '../../../assets/images/GelleryImg03.png'
 import GalleryImg04 from '../../../assets/images/GelleryImg04.png'
 import GalleryImg05 from '../../../assets/images/GelleryImg05.png'
 import GalleryImg06 from '../../../assets/images/GelleryImg06.png'
-import { Container } from '../../../layout'
 
 const GalleryIndex = () => {
     return (
@@ -33,6 +32,7 @@ const GalleryIndex = () => {
                         slidesPerView={5}
                         onSlideChange={() => console.log('slide change')}
                         onSwiper={(swiper) => console.log(swiper)}
+                        // loop={true}
                         breakpoints={
                             {
                                 320: {
@@ -50,6 +50,9 @@ const GalleryIndex = () => {
                                 1024: {
                                     slidesPerView: 4
                                 },
+                                1440: {
+                                    slidesPerView: 5
+                                },
                             }
                         }
                     >
@@ -59,8 +62,6 @@ const GalleryIndex = () => {
                         <SwiperSlide><img src={GalleryImg04} alt="" className={style.GalleryImg} /></SwiperSlide>
                         <SwiperSlide><img src={GalleryImg05} alt="" className={style.GalleryImg} /></SwiperSlide>
                         <SwiperSlide><img src={GalleryImg06} alt="" className={style.GalleryImg} /></SwiperSlide>
-                        ...
-
                     </Swiper>
                 </div>
             </div>
