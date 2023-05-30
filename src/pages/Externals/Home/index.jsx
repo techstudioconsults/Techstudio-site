@@ -33,6 +33,7 @@ const Home = () => {
       <GalleryIndex />
       <SectionSeven data={sectionSeven.upcomingClasses} />
       <SectionSix content={sectionSix} />
+      {/* <GalleryIndex /> */}
     </ExternalLayout>
   )
 }

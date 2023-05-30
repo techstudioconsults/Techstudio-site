@@ -1,3 +1,5 @@
+import HomeSection3Img01 from '../../../../assets/images/HomeSection3Img01.png'
+
 export const HOME_CONTENT = {
   hero: {
     title: [`Unlock Your Tech Potential With Us Today`],
@@ -46,19 +48,19 @@ top-notch portfolio that woos employers. `,
     //carosel
     cards: [
       {
-        image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684925236/techstudio/Group_1000002405_kxyzfg.png`,
+        image: HomeSection3Img01,
         title: `Front-End Web Development`,
         description: `Lorem ipsum dolor sit amet consectetur. Urna adipiscing risus faucibus ut vulputate malesuada eget. In leo commodo auctor facilisi. Leo nisl justo in eu volutpat eu in. `,
         path: `/course/frontend`,
       },
       {
-        image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684925233/techstudio/Group_1000002405_2_lrrjky.png`,
+        image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684925241/techstudio/Group_1000002405_1_t8atm0.png`,
         title: `Product Design (UI/UX)`,
         description: `Lorem ipsum dolor sit amet consectetur. Urna adipiscing risus faucibus ut vulputate malesuada eget. In leo commodo auctor facilisi. Leo nisl justo in eu volutpat eu in. `,
         path: `/course/uiux`,
       },
       {
-        image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684925241/techstudio/Group_1000002405_1_t8atm0.png`,
+        image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684925233/techstudio/Group_1000002405_2_lrrjky.png`,
         title: `Fullstack Web Development`,
         description: `Lorem ipsum dolor sit amet consectetur. Urna adipiscing risus faucibus ut vulputate malesuada eget. In leo commodo auctor facilisi. Leo nisl justo in eu volutpat eu in. `,
         path: `/course/fullstack`,

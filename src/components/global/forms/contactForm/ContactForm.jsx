@@ -8,6 +8,7 @@ import style from './contactForm.module.scss'
 import ToastComponent from '../../toast/ToastComponent'
 import Portal from '../../POTAL/Portal'
 import Feedback from '../../modals/Feedback'
+import ContactFormModal from './ContactFormModal'
 
 const validation = {
   required: 'This input is required.',
@@ -34,7 +35,7 @@ const ContactForm = () => {
     console.log(data)
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
-        document.getElementById('feedback')
+        document.getElementById('ContactFeedback')
       )
       const res = await contactUs(data).unwrap()
       console.log(res)
@@ -178,8 +179,11 @@ const ContactForm = () => {
           }}
         />
       </div>
+
       <div className={style.btnContainer}>
-        <button type='submit'>
+        <button type='submit' data-toggle="modal"
+          data-target="#ContactFeedback"
+        >
           <div
             hidden={!isLoading}
             className='spinner-border spinner-border-sm me-5 text-white'

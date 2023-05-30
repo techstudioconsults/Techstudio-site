@@ -5,6 +5,7 @@ import { CONTACT_CONTENT } from './content'
 import Map from './sections/ContactSection2/Map'
 import ContactHero from './sections/ContactHero/ContactHero'
 import ContactSection1 from './sections/ContactSection1/ContactSection1'
+import ContactSection3 from '../ContactUs/sections/ContactSection3/ContactSection3'
 
 const index = () => {
   const { hero, location } = CONTACT_CONTENT
@@ -27,6 +28,7 @@ const index = () => {
       <section className='mt-10'>
         <Map location={mapLocation} />
       </section>
+      <ContactSection3/>
       {/* <ContactHero content={hero} /> */}
       {/* <ContactSectionTwo content={location} /> */}
     </ExternalLayout>

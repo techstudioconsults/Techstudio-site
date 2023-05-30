@@ -31,8 +31,8 @@ const ContactSection1 = ({ content }) => {
               <h6 className={style.whatsapp}>{address.whatsapp}</h6>
               <p>
                 <span className='fw-semibold'>
-                  <Icon className='fs-xl mb-1' icon={`logos:whatsapp-icon`} />{' '}
-                  Miss Busola:
+                  {/* <Icon className='fs-xl mb-1' icon={`logos:whatsapp-icon`} />{' '} */}
+                  Busola:
                 </span>
                 <a
                   className='d-inline text-dark'
@@ -47,7 +47,7 @@ const ContactSection1 = ({ content }) => {
 
               <p>
                 <span className='fw-semibold'>
-                  <Icon className='fs-xl mb-1' icon={`gg:phone`} /> Miss
+                  {/* <Icon className='fs-xl mb-1' icon={`gg:phone`} /> */}
                   Blessing:
                 </span>
                 <a
