@@ -63,7 +63,7 @@ const ContactSection1 = ({ content }) => {
           <div>
             <div className={style.info}>
               <MdEmail size={`1.5rem`} className={style.icon} />
-              <p className={style.email}>info@techstudioacademy.com</p>
+              <a href={`mailto:${address.email}`} className={style.email}>{address.email}</a>
             </div>
             {/* <div className={style.info}>
               <MdEmail size={`1.5rem`} className={style.icon} />

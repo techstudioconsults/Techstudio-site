@@ -12,11 +12,17 @@
     justify-content: center;
     align-items: center;
 }
-.modalContent{
+.modalContainer{
+    width: 100%;
+}
+// .modalContainerContent{
+
+// }
+.modalContain{
     padding: 2rem 1.5rem;
-    width: fn.rem(614);
-    display: flex;
-    justify-content: center;
+    width: fn.rem(714);
+    // width: 100%;
+
 }
 .modalFooter{
     border-top: none;
@@ -35,6 +41,8 @@
     background: #0266F4;
     border: none;
     width: fn.rem(273);
+    color: #fff;
+    border-radius: fn.rem(4);
 }
 .btnClose:hover{
     background: #0266F4;
