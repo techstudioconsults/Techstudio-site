@@ -4,7 +4,6 @@
 @import '../../../../../scss/utils/mixins';
 
 .headerContainer {
-  // background-color: darkblue;
   background-image: url(../../../../../assets/images/Frame-1000002342.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -40,11 +39,24 @@
       padding-bottom: fn.rem(20);
     }
   }
-  .searchBar {
+  .searchIcon{
+    position: absolute;
+    bottom: fn.rem(16);
+    left: fn.rem(25);
+    font-size: fn.rem(25);
+    // padding-right: fn.rem(10);
+  }
+  .searchContainer{
+    position: relative;
     max-width: fn.rem(780);
     width: 80%;
+    margin: 0 auto;
+  }
+  .searchBar {
+    // max-width: fn.rem(780);
+    width: 95%;
     border-radius: fn.rem(12);
-    padding: fn.rem(20) fn.rem(26);
+    padding: fn.rem(20) fn.rem(35);
     margin-top: fn.rem(20);
     outline: none;
     border: none;

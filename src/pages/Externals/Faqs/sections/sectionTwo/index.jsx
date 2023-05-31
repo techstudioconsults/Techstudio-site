@@ -10,13 +10,16 @@ const Accordion = () => {
   const dispatch = useDispatch()
   const faq = useSelector(selectFAQ)
   const [currentPage, setCurrentPage] = useState(1)
+  const [loading, setLoading] = useState(false)
 
   const getFAQ = useCallback(async () => {
+    setLoading(true)
     const res = await axios.get(
       `https://api.techstudio.academy/api/v1/external/faq?page=${currentPage}`
     )
     dispatch({ type: `app/setFAQ`, payload: res.data.data })
     console.log(res.data.data)
+    setLoading(false)
   }, [currentPage, dispatch])
 
   const style = useMemo(() => {
@@ -35,6 +38,15 @@ const Accordion = () => {
     getFAQ()
   }, [getFAQ])
 
+  if (loading === true) {
+    return (
+      <div className='d-flex justify-content-center '>
+        <div className='spinner-border text-primary m-5 ' role='status'>
+          <span className='visually-hidden  '>Loading...</span>
+        </div>
+      </div>
+    )
+  }
   const displayFAQ = faq?.data?.map((faq) => {
     return (
       <div key={faq?.id} className='accordion-item border border-0 py-5'>

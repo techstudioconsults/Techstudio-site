@@ -4,6 +4,7 @@ import style from './sectionone.module.scss'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
 import { useForm } from 'react-hook-form'
+import { Icon } from '@iconify/react'
 
 const index = () => {
   const dispatch = useDispatch()
@@ -32,12 +33,15 @@ const index = () => {
         You have questions? We are here to help
       </p>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input
-          type='text'
-          placeholder='Search'
-          className={`${style.searchBar} py-7`}
-          {...register('search')}
-        />
+        <div className={style.searchContainer}>
+          <Icon icon='iconamoon:search-thin' className={style.searchIcon} />
+          <input
+            type='text'
+            placeholder='Search for a question...'
+            className={`${style.searchBar} py-7`}
+            {...register('search')}
+          />
+        </div>
       </form>
     </main>
   )
