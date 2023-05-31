@@ -19,7 +19,7 @@ const AboutSection3 = ({ content }) => {
           ].join(' ')}
         >
           <h2 className={style.title}>{header.title}</h2>
-          <p className={style.subTitle}>{header.subTitle}</p>
+          <p className={`${style.subTitle} px-5`}>{header.subTitle}</p>
         </div>
         <div className={style.cardGroup}>{cardsDisplay}</div>
       </Container>

@@ -20,7 +20,7 @@ const index = ({ content }) => {
         <Container>
           <BannerII>
             <div className='ms-3 ms-lg-40 text-white py-20 py-xl-0'>
-              <span>Want to start a career as a Frontend Web Developer?</span>
+              <span>Want to start a career in {hero.title} ?</span>
               <h3 className='mt-7 fw-bold text-white'>
                 Get started with Techstudio
               </h3>

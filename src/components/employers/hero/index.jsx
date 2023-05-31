@@ -7,7 +7,7 @@ import style from './employersHero.module.scss'
 
 const index = ({ content }) => {
   return (
-    <header className={style.employerHero}>
+    <header className={`${style.employerHero}`}>
       <Container paddingBlock={0}>
         <div className={style.heroWrapper}>
           <div className={style.heroText}>

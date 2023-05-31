@@ -19,9 +19,12 @@ const SectionTwo = ({ content }) => {
         <div className={style.descriptionContainer}>
           <h2 className={style.title}>{header.title2}</h2>
           <p className={style.headerDescription}>
-            {header.description}
-            <Link className='d-inline' to={`/about-us`}>
-              {' '}
+            {header.description}.{' '}
+            <Link
+              style={{ textDecoration: `underline` }}
+              className='d-inline'
+              to={`/about-us`}
+            >
               Read More
             </Link>
           </p>

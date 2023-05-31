@@ -27,8 +27,9 @@
   }
   .cardGroup {
     display: grid;
-    grid-gap: fn.rem(50);
-    margin-block: fn.rem(60);
+    grid-column-gap: fn.rem(70);
+    grid-row-gap: fn.rem(20);
+    margin-block-start: fn.rem(60);
     grid-template-columns: repeat(1, 1fr);
     @include breakpoint-up('lg') {
       grid-template-columns: repeat(3, 1fr);

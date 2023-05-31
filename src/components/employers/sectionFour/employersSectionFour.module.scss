@@ -5,7 +5,7 @@
 
 .employersSectionFour {
   @include breakpoint-up('lg') {
-    padding: fn.rem(158) 0 fn.rem(84);
+    padding: fn.rem(58) 0;
   }
   background-color: colors.$light-blue-II;
   .sectionFourWrapper {
@@ -13,6 +13,7 @@
     gap: fn.rem(120);
     @include breakpoint-up('lg') {
       @include flex;
+      align-items: center;
     }
 
     .text {

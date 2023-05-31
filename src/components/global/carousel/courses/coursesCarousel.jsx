@@ -36,7 +36,7 @@ const Carousel = () => {
   }
 
   const cardDisplay = sectionThree.cards.map((card, index) => (
-    <SwiperSlide className='pb-10' key={index}>
+    <SwiperSlide className='pb-16' key={index}>
       <SectionThreeCard content={card} />
     </SwiperSlide>
   ))
@@ -47,7 +47,7 @@ const Carousel = () => {
   return (
     <div className='carousel-container'>
       <section className='d-flex align-items-center'>
-        <div className='d-none d-lg-block'>
+        <div style={{ width: `8rem` }} className='d-none d-lg-block'>
           <Icon
             className={`${
               isFirstSlide ? `d-none` : `d-block`
