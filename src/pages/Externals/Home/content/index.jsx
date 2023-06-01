@@ -98,6 +98,7 @@ technologies for learning.`,
         `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684892210/techstudio/Access_Bank_-_png_0_xybewj.png`,
         `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684892218/techstudio/PwC_-_png_dawz1t.png`,
         `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684892209/techstudio/Amazon_Web_Services_-_png_tdbti3.png`,
+        `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685615040/techstudio/image_2_awsu96.png`,
       ],
     },
 

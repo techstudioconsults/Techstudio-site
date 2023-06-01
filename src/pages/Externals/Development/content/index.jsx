@@ -95,7 +95,7 @@ export const DEVELOPMENT_CONTENT = {
     hero: {
       title: `User Interface & user experience Design`,
       subTitle: `Learn to design and deliver digital products that serve clients’ needs and solve users’ problems. Understand the fundamental techniques and tools of design like problem definition, user research, prototyping, testing, and more.`,
-      img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685537841/techstudio/Group_1000002400_2_spaemu.png`,
+      img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685614814/techstudio/Group_1000002400_3_ilwypv.png`,
     },
 
     sectionTwo: {
@@ -215,7 +215,7 @@ export const DEVELOPMENT_CONTENT = {
     hero: {
       title: `Data Science Immersive With Python`,
       subTitle: `Get your hands dirty working with complex data. Dive into the Python programming language, understand data analysis and statistical modeling using Python, after which you move into machine learning and algorithms.`,
-      img: datascience,
+      img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685614714/techstudio/Group_1000002400_n3wtma.png`,
     },
 
     sectionTwo: {

@@ -84,6 +84,12 @@ const SectionFour = ({ content }) => {
                 src={articleOne.companies[5]}
                 alt='logo'
               />
+
+              <img
+                className={`${style.brand} col-5 col-lg-2`}
+                src={articleOne.companies[6]}
+                alt='logo'
+              />
             </div>
           </div>
         </section>

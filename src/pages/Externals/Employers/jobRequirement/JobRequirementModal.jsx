@@ -41,7 +41,7 @@ const JobRequirementModal = () => {
           <div className='modal-body hide_scrollbar px-5'>
             <JobRequirementForm />
           </div>
-          <div className='modal-footer mb-10'>
+          <div className='modal-footer mb-10 px-5'>
             <button type='button' className='btn btn-primary px-10'>
               SUBMIT
             </button>
