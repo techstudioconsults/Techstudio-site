@@ -82,13 +82,13 @@ const Footer = () => {
                   </Link>
                 </h5>
               </div>
-              <div>
+              {/* <div>
                 <h5 className='fs-md fw-semibold pt-2_5'>
-                  <Link className='text-white d-block cc-link-hover' to='/blog'>
+                  <Link className='text-mute  d-block cc-link-hover' to='#'>
                     Blog
                   </Link>
                 </h5>
-              </div>
+              </div> */}
               <div>
                 <h5 className='fs-md fw-semibold pt-2_5'>
                   <Link className='text-white d-block cc-link-hover' to='#'>
@@ -132,6 +132,7 @@ const Footer = () => {
 
                 <div className='input-group mb-3 bg-white rounded-3 p-1'>
                   <input
+                    disabled
                     type='email'
                     className='form-control py-2 fs-xs border-0 text-dark'
                     placeholder='Email Address'
@@ -139,6 +140,7 @@ const Footer = () => {
                     aria-describedby='button-addon2'
                   />
                   <button
+                    disabled
                     className='btn btn-primary fs-xs'
                     type='button'
                     id='button-addon2'

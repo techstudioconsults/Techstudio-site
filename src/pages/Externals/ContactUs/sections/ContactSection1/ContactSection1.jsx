@@ -3,7 +3,6 @@ import { Container } from '../../../../../layout'
 import PropTypes from 'prop-types'
 import ContactForm from '../../../../../components/global/forms/contactForm/ContactForm'
 import style from './ContactSection1.module.scss'
-import { MdEmail } from 'react-icons/md'
 import { Icon } from '@iconify/react'
 
 const ContactSection1 = ({ content }) => {
@@ -61,8 +60,10 @@ const ContactSection1 = ({ content }) => {
             </div>
           </div>
           <div>
-            <div className={style.info}>
-              <MdEmail size={`1.5rem`} className={style.icon} />
+            <div className={`${style.info} d-flex  align-items-center`}>
+              <div>
+                <Icon className='fs-xl' icon={`ic:baseline-email`} />
+              </div>
               <a href={`mailto:${address.email}`} className={style.email}>
                 {address.email}
               </a>

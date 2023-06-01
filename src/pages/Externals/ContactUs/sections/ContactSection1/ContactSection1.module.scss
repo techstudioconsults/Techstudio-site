@@ -62,6 +62,10 @@
       .email {
         color: colors.$deep-blue;
         font-weight: 600;
+        font-size: fn.rem(14);
+        @include breakpoint-up('lg') {
+          font-size: fn.rem(16);
+        }
       }
     }
   }

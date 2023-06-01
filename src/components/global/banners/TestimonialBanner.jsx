@@ -26,9 +26,7 @@ const TestimonialBanner = ({ children, title }) => {
         alt='img'
       />
 
-      <p className='fs-xl fs-lg-2xl fw-semibold text-center text-white'>
-        {title}
-      </p>
+      <p className='fs-2xl fw-semibold text-center text-white'>{title}</p>
       <Swiper
         ref={swiperRef}
         loop={true}

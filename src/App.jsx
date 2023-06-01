@@ -102,8 +102,8 @@ const App = () => {
         />
         <Route path='/payment/accounts' element={<Accounts />} />
         <Route path='/about-us' element={<AboutUs />} />
-        <Route path='/blog' element={<Blog />} />
-        <Route path='/blog/:id' element={<SingleBlogPage />} />
+        {/* <Route path='/blog' element={<Blog />} />
+        <Route path='/blog/:id' element={<SingleBlogPage />} /> */}
         <Route path='/contact' element={<ContactUs />} />
         <Route
           path='/course/frontend'

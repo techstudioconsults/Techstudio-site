@@ -21,7 +21,7 @@ const GalleryIndex = () => {
           <div className={style.GalleryIndexContentsFirstInner}>
             <div>
               <h6 className={style.galleryHeader}>WHAT TO EXPECT</h6>
-              <h3 className={style.gallerySubheader}>Our Gallery</h3>
+              <h3 className={`${style.gallerySubheader} mb-0`}>Our Gallery</h3>
             </div>
             <p className={style.galleryText}>
               Lorem ipsum dolor sit amet consectetur. Urna adipiscing risus

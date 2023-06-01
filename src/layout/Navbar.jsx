@@ -122,20 +122,20 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
                     Fullstack
                   </Link>
                 </li>
-                <li className='my-2'>
+                {/* <li className='my-2'>
                   <Link
                     className='dropdown-item fs-sm fw-semibold py-2'
                     to='/course/mobile'
                   >
                     Mobile Development
                   </Link>
-                </li>
+                </li> */}
                 <li className='my-2'>
                   <Link
                     className='dropdown-item fs-sm fw-semibold py-2'
                     to='/course/uiux'
                   >
-                    UI/UX
+                    Product Design
                   </Link>
                 </li>
               </ul>

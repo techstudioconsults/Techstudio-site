@@ -40,8 +40,8 @@ const Accordion = () => {
 
   if (loading === true) {
     return (
-      <div className='d-flex justify-content-center '>
-        <div className='spinner-border text-primary m-5 ' role='status'>
+      <div className='d-flex justify-content-center my-60'>
+        <div className='spinner-border text-primary m-5' role='status'>
           <span className='visually-hidden  '>Loading...</span>
         </div>
       </div>
@@ -49,7 +49,10 @@ const Accordion = () => {
   }
   const displayFAQ = faq?.data?.map((faq) => {
     return (
-      <div key={faq?.id} className='accordion-item border border-0 py-5'>
+      <div
+        key={faq?.id}
+        className='accordion-item border border-0 py-2 py-lg-5'
+      >
         <h2 className='accordion-header' id='headingTwo'>
           <button
             style={style}
@@ -115,7 +118,7 @@ const Accordion = () => {
 
   return (
     <section className='container pt-5'>
-      <div className='accordion mt-20' id='accordionExample'>
+      <div className='accordion mt-5 mt-lg-20' id='accordionExample'>
         {displayFAQ}
       </div>
       {pagination}

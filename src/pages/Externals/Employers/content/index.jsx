@@ -1,11 +1,11 @@
 import img2 from '../../../../assets/images/working.webp'
 import img3 from '../../../../assets/images/Businessman.webp'
 import img4 from '../../../../assets/images/intro-img4.webp'
-import icon1 from '../../../../assets/icons/noun_coding_3152169.webp'
-import icon2 from '../../../../assets/icons/noun_data_science.webp'
-import icon3 from '../../../../assets/icons/noun_Designer_1469595.webp'
-import icon4 from '../../../../assets/icons/calc.webp'
-import icon5 from '../../../../assets/icons/noun_Ui.webp'
+// import icon1 from '../../../../assets/icons/noun_coding_3152169.webp'
+// import icon2 from '../../../../assets/icons/noun_data_science.webp'
+// import icon3 from '../../../../assets/icons/noun_Designer_1469595.webp'
+// import icon4 from '../../../../assets/icons/calc.webp'
+// import icon5 from '../../../../assets/icons/noun_Ui.webp'
 
 export const EMPLOPYERS_CONTENT = {
   hero: {
@@ -44,27 +44,27 @@ export const EMPLOPYERS_CONTENT = {
 
     cards: [
       {
-        icon: icon1,
+        icon: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685596098/techstudio/Vector_2_zwa8kh.png`,
         title: `Software Engineers`,
         desc: `Learn the user experience, client management, technical, and practical skills you need to launch a career as a user experience (UX) or user interface (UI) designer.`,
       },
       {
-        icon: icon2,
+        icon: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685596098/techstudio/Vector_5_xe0ppo.png`,
         title: `Front-end Developers`,
         desc: `Learn the user experience, client management, technical, and practical skills you need to launch a career as a user experience (UX) or user interface (UI) designer.`,
       },
       {
-        icon: icon3,
+        icon: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685596098/techstudio/Vector_4_zsv0pp.png`,
         title: `UI/UX Designers`,
         desc: `Learn the user experience, client management, technical, and practical skills you need to launch a career as a user experience (UX) or user interface (UI) designer.`,
       },
       {
-        icon: icon4,
+        icon: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685596098/techstudio/Vector_3_rehhme.png`,
         title: `Back-end Developers`,
         desc: `Learn the user experience, client management, technical, and practical skills you need to launch a career as a user experience (UX) or user interface (UI) designer.`,
       },
       {
-        icon: icon5,
+        icon: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685596098/techstudio/Vector_6_ycikhf.png`,
         title: `Graphics Designers`,
         desc: `Learn the user experience, client management, technical, and practical skills you need to launch a career as a user experience (UX) or user interface (UI) designer.`,
       },

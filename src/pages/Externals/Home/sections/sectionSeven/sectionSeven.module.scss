@@ -6,9 +6,20 @@
 .carousel {
   .quoteContainer {
     flex: 1;
+    @include breakpoint-up('lg') {
+      img {
+        width: fn.rem(416);
+      }
+    }
   }
 
   .text {
     flex: 2;
+  }
+}
+
+.classInfo {
+  @include breakpoint-up('lg') {
+    width: 50%;
   }
 }

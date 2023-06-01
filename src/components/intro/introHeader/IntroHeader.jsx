@@ -70,7 +70,7 @@ const IntroHeader = () => {
             >
               Frontend Development
             </button>
-            <button
+            {/* <button
               onClick={handleClick}
               name={4}
               className={[
@@ -79,7 +79,7 @@ const IntroHeader = () => {
               ].join(' ')}
             >
               Mobile Development
-            </button>
+            </button> */}
           </div>
         </section>
       </Container>

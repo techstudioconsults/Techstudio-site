@@ -14,7 +14,8 @@ export const DEVELOPMENT_CONTENT = {
     hero: {
       title: `Frontend Web Development`,
       subTitle: `Let’s help you become a professional frontend web developer. You’ll learn all you need to know to become a Frontend Developer and build interesting portfolios while learning the fundmentals of HTML, CSS, JavaScript and React.`,
-      img: frontendImg,
+      // img: frontendImg,
+      img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685537841/techstudio/Group_1000002400_ocntit.png`,
     },
 
     sectionTwo: {
@@ -94,7 +95,7 @@ export const DEVELOPMENT_CONTENT = {
     hero: {
       title: `User Interface & user experience Design`,
       subTitle: `Learn to design and deliver digital products that serve clients’ needs and solve users’ problems. Understand the fundamental techniques and tools of design like problem definition, user research, prototyping, testing, and more.`,
-      img: uiux,
+      img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685537841/techstudio/Group_1000002400_2_spaemu.png`,
     },
 
     sectionTwo: {
@@ -159,7 +160,7 @@ export const DEVELOPMENT_CONTENT = {
     hero: {
       title: `Fullstack Web Development`,
       subTitle: `Let’s help you become a professional frontend web developer. You’ll learn all you need to know to become a Frontend Developer and build interesting portfolios while learning the fundmentals of HTML, CSS, JavaScript and React.`,
-      img: fullstack,
+      img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685537841/techstudio/Group_1000002400_1_rcex13.png`,
     },
 
     sectionTwo: {

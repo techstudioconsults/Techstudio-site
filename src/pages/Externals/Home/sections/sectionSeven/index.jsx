@@ -41,19 +41,8 @@ const SectionSeven = ({ data }) => {
         ref={carousel}
         className={`${style.carousel} d-flex flex-column flex-lg-row gap-20 gap-lg-40`}
       >
-        {/* <article className={style.controls}>
-        <button onClick={handlePreviousBtn} className={style.previousBtn}>
-          prev
-        </button>
-        <div className={style.imgContainer}>
-          <img src={img} alt='avatar' />
-        </div>
-        <button onClick={handleNextBtn} className={style.nextBtn}>
-          next
-        </button>
-      </article> */}
         <article className={style.quoteContainer}>
-          <img src={image} alt='img' className='img-fluid' />
+          <img src={image} alt='img' className='cc-img-fluid' />
         </article>
         <section
           className={`${style.text} d-flex flex-column justify-content-between`}
@@ -67,22 +56,24 @@ const SectionSeven = ({ data }) => {
               <p className=''>{description}</p>
             </div>
           </section>
-          <section className='d-flex flex-column gap-5 my-10'>
-            <div className='d-flex gap-10 gap-lg-52'>
+          <section
+            className={`${style.classInfo} d-flex flex-column gap-3 my-10`}
+          >
+            <div className='d-flex justify-content-between'>
               <span>
                 <Icon className='me-2' icon={`ion:location-outline`} />
                 <span>location</span>
               </span>
               <span>{location}</span>
             </div>
-            <div className='d-flex gap-10 gap-lg-52'>
+            <div className='d-flex  justify-content-between'>
               <span>
                 <Icon className='me-2' icon={`fluent-mdl2:date-time`} />
                 <span>Start Date</span>
               </span>
               <span>{date}</span>
             </div>
-            <div className='d-flex gap-10 gap-lg-52'>
+            <div className='d-flex justify-content-between'>
               <span>
                 <Icon className='me-2' icon={`game-icons:duration`} />
                 <span>Duration</span>
@@ -95,12 +86,15 @@ const SectionSeven = ({ data }) => {
               <button className='btn btn-primary px-10'>Enroll Now</button>
             </Link>
           </section>
-          <div className='mt-5 mt-lg-0 d-flex justify-content-between justify-content-lg-end'>
+          <div
+            className={`mt-5 mt-lg-0 d-flex ${
+              index ? `justify-content-between` : `justify-content-end`
+            }  justify-content-lg-end`}
+          >
             <button
               onClick={handlePreviousBtn}
-              className={`btn text fw-bold text-primary ${
-                index ? `d-block` : `d-none`
-              }`}
+              className={`btn text fw-bold text-primary
+              ${index ? `d-block` : `d-none`}`}
             >
               {`<<`} Previous
             </button>

@@ -74,7 +74,7 @@
         .subTitle {
           margin-bottom: fn.rem(52);
           @include breakpoint-up('lg') {
-            margin-right: fn.rem(50);
+            // margin-right: fn.rem(50);
           }
         }
       }

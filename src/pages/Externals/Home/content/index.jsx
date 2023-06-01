@@ -26,15 +26,15 @@ technologies for learning.`,
       {
         image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684889285/techstudio/Group_1000002453_kuik1j.png`,
         title: `Experienced Tutors`,
-        description: `We offer you the best support - either while you’re
-learning or after you’ve graduated. Our support team
-provides students with guidance and tips on building a
-top-notch portfolio that woos employers. `,
+        description: `Our tutors are highly skilled professionals that are chosen based on industry experience and teaching ability. Our support team provides students with guidance and tips on building a top-notch portfolio that woos employers.`,
       },
       {
         image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684889307/techstudio/Group_1000002454_rjp3kc.png`,
         title: `Career Support`,
-        description: `Our tutors are highly skilled professionals that are chosen based on industry experience and teaching ability. Our support team provides students with guidance and tips on building a top-notch portfolio that woos employers.`,
+        description: `We offer you the best support - either while you’re
+        learning or after you’ve graduated. Our support team
+        provides students with guidance and tips on building a
+        top-notch portfolio that woos employers. `,
       },
     ],
   },
@@ -71,12 +71,12 @@ top-notch portfolio that woos employers. `,
         description: `Lorem ipsum dolor sit amet consectetur. Urna adipiscing risus faucibus ut vulputate malesuada eget. In leo commodo auctor facilisi. Leo nisl justo in eu volutpat eu in. `,
         path: '/course/data-science',
       },
-      {
-        image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685525999/techstudio/Group_1000002405_6_befhxh.png`,
-        title: `Mobile Developement`,
-        description: `Lorem ipsum dolor sit amet consectetur. Urna adipiscing risus faucibus ut vulputate malesuada eget. In leo commodo auctor facilisi. Leo nisl justo in eu volutpat eu in. `,
-        path: `/course/mobile`,
-      },
+      // {
+      //   image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685525999/techstudio/Group_1000002405_6_befhxh.png`,
+      //   title: `Mobile Developement`,
+      //   description: `Lorem ipsum dolor sit amet consectetur. Urna adipiscing risus faucibus ut vulputate malesuada eget. In leo commodo auctor facilisi. Leo nisl justo in eu volutpat eu in. `,
+      //   path: `/course/mobile`,
+      // },
       {
         image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685525999/techstudio/Group_1000002405_7_kbbkbk.png`,
         title: `Javascript Web Development`,
