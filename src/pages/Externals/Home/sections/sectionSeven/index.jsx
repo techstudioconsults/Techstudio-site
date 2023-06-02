@@ -46,12 +46,12 @@ const SectionSeven = ({ data }) => {
       if (page < 0) {
         return classes.length - 1
       }
-      if (page > classes.length - 1) {
+      if (page > classes.length - 1 || page > data.length - 1) {
         return 0
       }
       return page
     },
-    [classes.length]
+    [classes.length, data.length]
   )
 
   const handlePreviousBtn = () => {
