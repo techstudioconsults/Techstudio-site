@@ -42,7 +42,6 @@ const ContactForm = () => {
       res.success ? modal.show() : null
     } catch (err) {
       setErrorMessage(err.data.message)
-      modal.show()
       toast.show()
     }
   }
@@ -122,7 +121,7 @@ const ContactForm = () => {
           className='form-control text-dark'
           aria-describedby='passwordHelpBlock'
           placeholder='subject title'
-          {...register('subject', validation)}
+          // {...register('subject', validation)}
         />
         <ErrorMessage
           errors={errors}
