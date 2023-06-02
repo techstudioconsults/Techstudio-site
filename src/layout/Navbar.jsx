@@ -2,13 +2,15 @@ import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import { HiOutlineMenuAlt4 } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
-import techimage from '../assets/icons/logo.png'
 import { FaChevronDown } from 'react-icons/fa'
 import { Button } from '../components'
 import style from './layout.module.scss'
+// import { useSelector } from 'react-redux'
+// import { selectCoursesExternal } from '../app/api/appSlice'
 
 const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
   const [color, setColor] = useState(setTextColorBlack)
+  // const courses = useSelector(selectCoursesExternal)
   const navEl = useRef()
 
   useEffect(() => {
@@ -31,6 +33,18 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
     }
   }, [keepColor])
 
+  // const dropdownLinks = courses.map((course) => {
+  //   return (
+  //     <li key={course.id} className='my-2'>
+  //       <Link
+  //         className='dropdown-item fs-sm fw-semibold py-2'
+  //         to='/course/frontend'
+  //       >
+  //         {course.title}
+  //       </Link>
+  //     </li>
+  //   )
+  // })
   return (
     <nav
       ref={navEl}
@@ -39,21 +53,20 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
         backgroundColor: bg,
       }}
     >
-      <div className='container-xxl py-3'>
+      <div className='container-xxl py-6'>
         <Link className='navbar-brand' to='/'>
           <div className='d-flex align-items-center gap-2'>
             <div className={style.navImgContainer}>
-              <img className='logo' src={techimage} alt='logo' />
+              <img
+                className={['logo', style.responsiveLogo].join(' ')}
+                src={
+                  color
+                    ? `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684888559/techstudio/logo_black_text_new_1_frkqnn.png`
+                    : `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684888535/techstudio/logo_white_text_new_1_yo2rsg.png`
+                }
+                alt='logo'
+              />
             </div>
-            <span
-              className={[
-                'fw-bold',
-                style.logoText,
-                color ? `text-black` : `text-white`,
-              ].join(' ')}
-            >
-              Techstudio Academy
-            </span>
           </div>
         </Link>
 
@@ -71,7 +84,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
 
         <div
           className={[
-            'collapse navbar-collapse d-lg-flex justify-content-between ms-lg-10 ms-xl-24',
+            'collapse navbar-collapse d-lg-flex justify-content-between ms-lg-10 ms-xl-40',
             color ? style.navbarDropdownLight : style.navbarDropdown,
           ].join(' ')}
           id='navbarNavAltMarkup'
@@ -101,11 +114,19 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
               </div>
               <ul className='dropdown-menu mt-8'>
                 <li className='my-2'>
+                  <li className='my-2'>
+                    <Link
+                      className='dropdown-item fs-sm fw-semibold py-2'
+                      to='/course/product-design'
+                    >
+                      Product Design
+                    </Link>
+                  </li>
                   <Link
                     className='dropdown-item fs-sm fw-semibold py-2'
                     to='/course/frontend'
                   >
-                    Frontend
+                    Frontend Development
                   </Link>
                 </li>
                 <li className='my-2'>
@@ -121,25 +142,17 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
                     className='dropdown-item fs-sm fw-semibold py-2'
                     to='/course/fullstack'
                   >
-                    Fullstack
+                    Fullstack Development
                   </Link>
                 </li>
-                <li className='my-2'>
+                {/* <li className='my-2'>
                   <Link
                     className='dropdown-item fs-sm fw-semibold py-2'
                     to='/course/mobile'
                   >
                     Mobile Development
                   </Link>
-                </li>
-                <li className='my-2'>
-                  <Link
-                    className='dropdown-item fs-sm fw-semibold py-2'
-                    to='/course/uiux'
-                  >
-                    UI/UX
-                  </Link>
-                </li>
+                </li> */}
               </ul>
             </div>
             <Link
@@ -150,6 +163,15 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
               to='/employers'
             >
               Employers
+            </Link>
+            <Link
+              className={[
+                'nav-link fw-semibold',
+                color ? `text-black` : `text-white`,
+              ].join(' ')}
+              to='/faq'
+            >
+              FAQ
             </Link>
             <Link
               className={[

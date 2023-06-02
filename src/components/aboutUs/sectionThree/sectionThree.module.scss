@@ -4,10 +4,13 @@
 @import '../../../scss/utils/mixins';
 
 .aboutSectionThree {
-  padding: fn.rem(66) 0 fn.rem(182);
+  @include breakpoint-up('xl') {
+    padding: fn.rem(50) 0 fn.rem(45);
+  }
+
   .header {
+    margin-block-end: fn.rem(60);
     text-align: center;
-    margin-block-end: fn.rem(55);
     .title {
       width: fit-content;
       font-weight: 700;
@@ -26,7 +29,8 @@
   .cardGroup {
     display: grid;
     grid-gap: fn.rem(50);
-    margin-block: fn.rem(60);
+    grid-row-gap: fn.rem(100);
+    margin-block: fn.rem(70);
     grid-template-columns: repeat(1, 1fr);
     @include breakpoint-up('lg') {
       grid-template-columns: repeat(3, 1fr);

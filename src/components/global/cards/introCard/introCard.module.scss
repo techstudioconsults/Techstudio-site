@@ -4,7 +4,7 @@
 @import '../../../../scss/utils/mixins';
 
 .introCard {
-  max-width: fn.rem(1021);
+  max-width: fn.rem(1240.34);
   background-color: colors.$base-bg;
   padding: fn.rem(16);
   border: 1px solid #c4cdd5;
@@ -20,6 +20,7 @@
 
   .imgContainer {
     @include breakpoint-up('sm') {
+      flex: 1;
       max-width: fn.rem(290);
       margin: 0 auto;
       img {
@@ -35,6 +36,7 @@
   }
 
   .introCardText {
+    flex: 2;
     .title {
       margin-bottom: fn.rem(19);
       font-weight: 700;

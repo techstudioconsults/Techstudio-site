@@ -1,7 +1,7 @@
 // REACT DEFAULTS
 import React from 'react'
 import { Suspense } from 'react'
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 
 // COMPONENTS
 import {
@@ -12,45 +12,9 @@ import {
   Payment,
 } from './components'
 import { DashboardLayout } from './layout'
-import {
-  AboutUs,
-  AdminDashboard,
-  Blog,
-  ContactUs,
-  Development,
-  // Employers,
-  HomePage,
-  Intro,
-  Messages,
-  PageNotFound,
-  SignIn,
-  Register,
-  SingleBlogPage,
-  SingleCourseView,
-  SingleCourseViewLive,
-  StudentCalssesView,
-  StudentDashboard,
-  StudentDashboardIntro,
-  Tasks,
-  TeacherClassView,
-  TeacherDashboard,
-  AdminSignup,
-  ForgotPassword,
-  AdminCourseView,
-  CreateCourse,
-  EditCourse,
-  CreateClass,
-  EditClass,
-  CreateLesson,
-  EditLesson,
-  AdminResourceView,
-  ResourcesTab,
-  AdminPaymentView,
-  PaymentListView,
-} from './pages'
 
 import AdminClassView from './pages/Dashboard/Admin/classes/AdminClassView'
-import { DEVELOPMENT_CONTENT } from './pages/Development/content'
+import { DEVELOPMENT_CONTENT } from './pages/Externals/Development/content'
 import RequireAuth from './hooks/RequireAuth'
 import { ROLES } from './config/role'
 import {
@@ -64,6 +28,44 @@ import TrackAnalysisLayout from './pages/Dashboard/Admin/components/tab/trackAna
 import OPTVerification from './pages/Auth/OTP/OTPVerification'
 import { selectUserType } from './app/api/appSlice'
 import StudentListDisplay from './pages/Dashboard/Admin/users/userCourseTab/StudentListDisplay'
+import {
+  AboutUs,
+  AdminCourseView,
+  AdminDashboard,
+  AdminPaymentView,
+  AdminResourceView,
+  AdminSignup,
+  Blog,
+  ContactUs,
+  CreateClass,
+  CreateCourse,
+  CreateLesson,
+  Development,
+  EditClass,
+  EditCourse,
+  EditLesson,
+  ForgotPassword,
+  HomePage,
+  Intro,
+  Messages,
+  PageNotFound,
+  PaymentListView,
+  Register,
+  ResourcesTab,
+  SignIn,
+  SingleBlogPage,
+  SingleCourseView,
+  SingleCourseViewLive,
+  StudentCalssesView,
+  StudentDashboard,
+  StudentDashboardIntro,
+  Tasks,
+  TeacherClassView,
+  TeacherDashboard,
+  Faq,
+  Employers,
+} from './pages'
+import JobRequirementModal from './pages/Externals/Employers/jobRequirement/JobRequirementModal'
 
 const App = () => {
   const {
@@ -84,6 +86,7 @@ const App = () => {
         {/* public routes */}
         <Route index path='/' element={<HomePage />} />
         <Route path='/tracks' element={<Intro />} />
+        <Route path='/faq' element={<Faq />} />
         <Route path='/student/register' element={<Register />} />
         <Route path='/login' element={<SignIn />} />
         <Route path='/forgot-password' element={<ForgotPassword />} />
@@ -92,32 +95,53 @@ const App = () => {
         <Route path='/admin/register' element={<AdminSignup />} />
         {/* <Route path='/student/signup' element={<StudentSignup />} /> */}
         <Route path='/payment' element={<Payment />} />
-        {/* <Route path='/employers' element={<Employers />} /> */}
+        <Route path='/employers' element={<Employers />} />
+        <Route
+          path='/employers/detailedform'
+          element={<JobRequirementModal />}
+        />
         <Route path='/payment/accounts' element={<Accounts />} />
         <Route path='/about-us' element={<AboutUs />} />
-        <Route path='/blog' element={<Blog />} />
-        <Route path='/blog/:id' element={<SingleBlogPage />} />
+        {/* <Route path='/blog' element={<Blog />} />
+        <Route path='/blog/:id' element={<SingleBlogPage />} /> */}
         <Route path='/contact' element={<ContactUs />} />
         <Route
           path='/course/frontend'
-          element={<Development content={frontendDevelopment} />}
+          element={
+            <Development
+              content={frontendDevelopment}
+              job={`Frontend Web Developer`}
+            />
+          }
         />
         <Route
           path='/course/fullstack'
-          element={<Development content={fullStackDevelopment} />}
+          element={
+            <Development
+              content={fullStackDevelopment}
+              job={`Fullstack Web Developer`}
+            />
+          }
         />
         <Route
-          path='/course/uiux'
-          element={<Development content={UIUXDevelopment} />}
+          path='/course/product-design'
+          element={
+            <Development content={UIUXDevelopment} job={`Product Designer`} />
+          }
         />
         <Route
           path='/course/data-science'
-          element={<Development content={datascience} />}
+          element={<Development content={datascience} job={`Data Scientist`} />}
         />
-        <Route
+        {/* <Route
           path='/course/mobile'
-          element={<Development content={mobileDevelopment} />}
-        />
+          element={
+            <Development
+              content={mobileDevelopment}
+              job={`Frontend Developer`}
+            />
+          }
+        /> */}
 
         {/* protected Routes */}
         {/* <Route element={<PersistLogin />}> */}

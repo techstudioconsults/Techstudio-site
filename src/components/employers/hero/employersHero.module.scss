@@ -8,7 +8,9 @@
   // border: 1px solid red;
   height: 50%;
   margin-block: fn.rem(100);
+  margin-block-start: fn.rem(150);
   @include breakpoint-up('lg') {
+    height: fn.rem(550);
     background: url(../../../assets/images/bgEmployer.webp) no-repeat right;
     background-size: 50%;
     padding-block: fn.rem(100);

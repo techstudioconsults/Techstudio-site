@@ -7,7 +7,7 @@ import { useContactUsMutation } from '../../../../pages/Auth/api/authApiSlice'
 import style from './contactForm.module.scss'
 import ToastComponent from '../../toast/ToastComponent'
 import Portal from '../../POTAL/Portal'
-import Feedback from '../../modals/Feedback'
+import ContactUsFeedback from '../../../../pages/Externals/ContactUs/sections/ContactSection3/ContactSection3'
 
 const validation = {
   required: 'This input is required.',
@@ -31,15 +31,18 @@ const ContactForm = () => {
   })
 
   const onSubmit = async (data) => {
+    console.log(data)
+    let modal
     try {
-      let modal = bootstrap.Modal.getOrCreateInstance(
-        document.getElementById('feedback')
+      modal = bootstrap.Modal.getOrCreateInstance(
+        document.getElementById('contactUsfeedback')
       )
       const res = await contactUs(data).unwrap()
       console.log(res)
       res.success ? modal.show() : null
     } catch (err) {
       setErrorMessage(err.data.message)
+      modal.show()
       toast.show()
     }
   }
@@ -55,13 +58,7 @@ const ContactForm = () => {
       className={[style.form, `cc-shadow`].join(' ')}
     >
       <Portal wrapperId='react-portal-modal-container'>
-        <Feedback
-          content={{
-            title: `Message sent successfully`,
-            desc: ` Your message has been received and our Customer Care
-                Representative will contact you shortly.`,
-          }}
-        />
+        <ContactUsFeedback />
       </Portal>
       <div>
         <label htmlFor='fullName' className='form-label fw-semibold'>
@@ -70,7 +67,7 @@ const ContactForm = () => {
         <input
           type='text'
           id='fullName'
-          className='form-control'
+          className='form-control text-dark'
           aria-describedby='passwordHelpBlock'
           placeholder='Full name'
           {...register('fullName', validation)}
@@ -96,10 +93,36 @@ const ContactForm = () => {
         <input
           type='email'
           id='email'
-          className='form-control'
+          className='form-control text-dark'
           aria-describedby='passwordHelpBlock'
           placeholder='example@example.com'
           {...register('email', validation)}
+        />
+        <ErrorMessage
+          errors={errors}
+          name='email'
+          render={({ messages }) => {
+            return messages
+              ? Object.entries(messages).map(([type, message]) => (
+                  <p className='fs-xs text-danger' key={type}>
+                    {message}
+                  </p>
+                ))
+              : null
+          }}
+        />
+      </div>
+      <div>
+        <label htmlFor='email' className='form-label fw-semibold'>
+          Subject
+        </label>
+        <input
+          type='text'
+          id='subject'
+          className='form-control text-dark'
+          aria-describedby='passwordHelpBlock'
+          placeholder='subject title'
+          {...register('subject', validation)}
         />
         <ErrorMessage
           errors={errors}
@@ -131,7 +154,7 @@ const ContactForm = () => {
           Message or Questions
         </label>
         <textarea
-          className='form-control'
+          className='form-control text-dark'
           id='message'
           rows='3'
           placeholder='Type your message, questions or inquiries here'
@@ -151,8 +174,13 @@ const ContactForm = () => {
           }}
         />
       </div>
+
       <div className={style.btnContainer}>
-        <button type='submit'>
+        <button
+          type='submit'
+          data-toggle='modal'
+          data-target='#ContactFeedback'
+        >
           <div
             hidden={!isLoading}
             className='spinner-border spinner-border-sm me-5 text-white'

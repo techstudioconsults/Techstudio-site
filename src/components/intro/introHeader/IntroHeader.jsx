@@ -1,10 +1,12 @@
 import React from 'react'
 import { Container } from '../../../layout'
-import logo from '../../../assets/icons/logo.png'
+// import logo from '../../../assets/icons/logo.png'
 import style from './introHeader.module.scss'
 import { useContext } from 'react'
 import AppContext from '../../../contexts/AppProvider'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
+// import { useDispatch, useSelector } from 'react-redux'
+// import { selectCoursesExternal } from '../../../app/api/appSlice'
 
 const IntroHeader = () => {
   const { index, getCourseDetails } = useContext(AppContext)
@@ -14,20 +16,33 @@ const IntroHeader = () => {
     getCourseDetails(name)
   }
 
+  // const tags = courses.map((course) => {
+  //   return (
+  //     <button
+  //       id={course.id}
+  //       key={course.id}
+  //       onClick={handleClick}
+  //       name={courses.id}
+  //       className={[style.courseBtn].join(' ')}
+  //     >
+  //       {course.title}
+  //     </button>
+  //   )
+  // })
+
   return (
     <div className={style.introHeader}>
       <Container>
         <section className={style.introHeaderWapper}>
-          <Link to={`/`} className={style.imgContainer}>
-            <img src={logo} alt='logo' />
-          </Link>
           <div className={style.text}>
             <h2 className={style.title}>Our Learning Tracks</h2>
             <p className={style.subTitle}>
               Select any of our courses to get started on your tech journey
             </p>
           </div>
-          <div className={style.btnGroup}>
+          <div
+            className={`${style.btnGroup} d-flex flex-column flex-lg-row gap-3 gap-lg-5`}
+          >
             <button
               onClick={handleClick}
               name={0}
@@ -36,7 +51,7 @@ const IntroHeader = () => {
                 index === 0 ? style.active : null,
               ].join(' ')}
             >
-              UI/UX Design
+              Product Design
             </button>
             <button
               onClick={handleClick}
@@ -46,7 +61,7 @@ const IntroHeader = () => {
                 index === 1 ? style.active : null,
               ].join(' ')}
             >
-              Data Science
+              Fullstack Development
             </button>
             <button
               onClick={handleClick}
@@ -56,7 +71,7 @@ const IntroHeader = () => {
                 index === 2 ? style.active : null,
               ].join(' ')}
             >
-              Mobile Development
+              Data Science
             </button>
             <button
               onClick={handleClick}
@@ -66,17 +81,7 @@ const IntroHeader = () => {
                 index === 3 ? style.active : null,
               ].join(' ')}
             >
-              Fullstack
-            </button>
-            <button
-              onClick={handleClick}
-              name={4}
-              className={[
-                style.courseBtn,
-                index === 4 ? style.active : null,
-              ].join(' ')}
-            >
-              Front End Development
+              Frontend Development
             </button>
           </div>
         </section>

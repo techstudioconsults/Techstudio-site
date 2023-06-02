@@ -6,7 +6,7 @@ const index = ({ cardDetails }) => {
   return (
     <div className={style.sectionTwoCard}>
       <div className={style.cardImg}>
-        <img src={cardDetails.image} alt='card-img' className='img-fluid' />
+        <img src={cardDetails.image} alt='card-img' className='img-flui' />
       </div>
       <div className={style.cardText}>
         <h3>{cardDetails.title}</h3>
