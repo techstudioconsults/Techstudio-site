@@ -42,6 +42,7 @@ const ContactForm = () => {
       res.success ? modal.show() : null
     } catch (err) {
       setErrorMessage(err.data.message)
+      modal.show()
       toast.show()
     }
   }
@@ -66,7 +67,7 @@ const ContactForm = () => {
         <input
           type='text'
           id='fullName'
-          className='form-control'
+          className='form-control text-dark'
           aria-describedby='passwordHelpBlock'
           placeholder='Full name'
           {...register('fullName', validation)}
@@ -92,7 +93,7 @@ const ContactForm = () => {
         <input
           type='email'
           id='email'
-          className='form-control'
+          className='form-control text-dark'
           aria-describedby='passwordHelpBlock'
           placeholder='example@example.com'
           {...register('email', validation)}
@@ -118,7 +119,7 @@ const ContactForm = () => {
         <input
           type='text'
           id='subject'
-          className='form-control'
+          className='form-control text-dark'
           aria-describedby='passwordHelpBlock'
           placeholder='subject title'
           {...register('subject', validation)}
@@ -153,7 +154,7 @@ const ContactForm = () => {
           Message or Questions
         </label>
         <textarea
-          className='form-control'
+          className='form-control text-dark'
           id='message'
           rows='3'
           placeholder='Type your message, questions or inquiries here'

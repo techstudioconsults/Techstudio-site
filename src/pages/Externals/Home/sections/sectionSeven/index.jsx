@@ -5,23 +5,53 @@ import style from './sectionSeven.module.scss'
 import { Icon } from '@iconify/react'
 import { Container } from '../../../../../layout'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 const SectionSeven = ({ data }) => {
   const [index, setIndex] = useState(0)
+  const [classes, setClasses] = useState([])
   const carousel = useRef()
-  const { image, title, description, location, date, duration } = data[index]
+  const { image } = data[index]
+
+  const convertDateToReadable = (date) => {
+    let dateSet = new Date(date).toUTCString().split(' ')
+    return `${dateSet[2]} ${dateSet[1]}, ${dateSet[3]}`
+  }
+
+  function calculateWeeks(startDate, endDate) {
+    const start = new Date(startDate)
+    const end = new Date(endDate)
+
+    // Calculate the time difference in milliseconds
+    const timeDiff = end.getTime() - start.getTime()
+    // Calculate the number of weeks
+    const weeks = Math.ceil(timeDiff / (1000 * 3600 * 24 * 7))
+    return weeks
+  }
+
+  const getUpcomingClasses = useCallback(async () => {
+    const res = await axios.get(
+      `https://api.techstudio.academy/api/v1/external/classes`
+    )
+    setClasses(res.data.data)
+    console.log(res.data.data)
+  }, [])
+
+  useEffect(() => {
+    getUpcomingClasses()
+  }, [getUpcomingClasses])
 
   const checkpage = useCallback(
     (page) => {
       if (page < 0) {
-        return data.length - 1
+        return classes.length - 1
       }
-      if (page > data.length - 1) {
+      if (page > classes.length - 1) {
         return 0
       }
       return page
     },
-    [data.length]
+    [classes.length]
   )
 
   const handlePreviousBtn = () => {
@@ -52,8 +82,10 @@ const SectionSeven = ({ data }) => {
               upcoming classes
             </p>
             <div>
-              <h4 className='fs-3xl my-5 fw-semibold'>{title}</h4>
-              <p className=''>{description}</p>
+              <h4 className='fs-2xl fs-3xl my-5 fw-semibold'>
+                {classes[index]?.courseTitle}
+              </h4>
+              <p className=''>{classes[index]?.description}</p>
             </div>
           </section>
           <section
@@ -62,23 +94,29 @@ const SectionSeven = ({ data }) => {
             <div className='d-flex justify-content-between'>
               <span>
                 <Icon className='me-2' icon={`ion:location-outline`} />
-                <span>location</span>
+                <span>Preference</span>
               </span>
-              <span>{location}</span>
+              <span>{classes[index]?.preference}</span>
             </div>
             <div className='d-flex  justify-content-between'>
               <span>
                 <Icon className='me-2' icon={`fluent-mdl2:date-time`} />
                 <span>Start Date</span>
               </span>
-              <span>{date}</span>
+              <span>{convertDateToReadable(classes[index]?.startDate)}</span>
             </div>
             <div className='d-flex justify-content-between'>
               <span>
                 <Icon className='me-2' icon={`game-icons:duration`} />
                 <span>Duration</span>
               </span>
-              <span>{duration}</span>
+              <span>
+                {calculateWeeks(
+                  classes[index]?.startDate,
+                  classes[index]?.endDate
+                )}{' '}
+                weeks
+              </span>
             </div>
           </section>
           <section className='d-flex'>

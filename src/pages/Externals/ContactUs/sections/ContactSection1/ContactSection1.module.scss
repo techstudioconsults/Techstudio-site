@@ -5,10 +5,12 @@
 
 .ContactSection1 {
   @include flex_column;
-  gap: fn.rem(109);
+  flex-direction: column-reverse;
+  gap: fn.rem(50);
   @include breakpoint-up('lg') {
     @include flex;
     align-items: center;
+    gap: fn.rem(109);
     // @include flex_align;
   }
 

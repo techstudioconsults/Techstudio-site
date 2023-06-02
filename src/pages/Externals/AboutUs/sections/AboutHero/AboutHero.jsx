@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import style from './AboutHero.module.scss'
-import heroImg from '../../../../../assets/images/AboutHeroImg.png'
+// import heroImg from '../../../../../assets/images/AboutHeroImg.png'
 import { Container } from '../../../../../layout'
 
 const AboutHero = ({ content }) => {
@@ -19,7 +19,11 @@ const AboutHero = ({ content }) => {
           <p className={style.description}>{description3}</p>
         </section>
         <section className={style.aboutHeroImg}>
-          <img src={heroImg} alt='hero-mg' className='img-fluid' />
+          <img
+            src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1685692477/techstudio/Group_1000002342_wtjpod.png`}
+            alt='hero-mg'
+            className='img-fluid'
+          />
         </section>
       </header>
     </Container>

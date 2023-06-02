@@ -11,7 +11,7 @@ export const HOME_CONTENT = {
       title: [`Why Techstudio?`],
       title2: [`We Are Customer-Centric`],
       description: [
-        `Lorem ipsum dolor sit amet consectetur Urna adipiscing risus faucibus ut vulputate malesuada eget In leo commodo auctor facilisi`,
+        `We give priority to our students by offering top-notch Educational service to ensure they acquire the value needed to excel in their chosen tech field.`,
       ],
     },
     cards: [
@@ -43,32 +43,32 @@ technologies for learning.`,
     header: {
       title: `WHAT WE OFFER`,
       topic: `Certified Tech Training Courses`,
-      description: `Lorem ipsum dolor sit amet consectetur. Urna adipiscing risus faucibus ut vulputate malesuada eget. In leo commodo auctor facilisi. Leo nisl justo in eu volutpat eu in. Sit urna nulla mi duis egestas feugiat felis molestie. `,
+      description: `Explore our extensive selection of highly sought-after beginner-friendly tech courses, meticulously designed to empower and inspire learners at every step of their educational journey.`,
     },
     //carosel
     cards: [
       {
         image: HomeSection3Img01,
         title: `Front-End Web Development`,
-        description: `Lorem ipsum dolor sit amet consectetur. Urna adipiscing risus faucibus ut vulputate malesuada eget. In leo commodo auctor facilisi. Leo nisl justo in eu volutpat eu in. `,
+        description: `Tech Studio Academy’s Frontend Web Development course is a career-changing program designed to transform participating students to job-ready frontend developers. `,
         path: `/course/frontend`,
       },
       {
         image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685525554/techstudio/Group_1000002405_3_zearyb.png`,
         title: `Product Design (UI/UX)`,
-        description: `Lorem ipsum dolor sit amet consectetur. Urna adipiscing risus faucibus ut vulputate malesuada eget. In leo commodo auctor facilisi. Leo nisl justo in eu volutpat eu in. `,
+        description: `Learn to design and deliver digital products that serve clients' needs and solve users' problems. Understand the fundamentals and tools of design like problem definition, user research, prototyping, and more.`,
         path: `/course/uiux`,
       },
       {
         image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685525554/techstudio/Group_1000002405_4_xogzah.png`,
         title: `Fullstack Web Development`,
-        description: `Lorem ipsum dolor sit amet consectetur. Urna adipiscing risus faucibus ut vulputate malesuada eget. In leo commodo auctor facilisi. Leo nisl justo in eu volutpat eu in. `,
+        description: `We teach the important skills required to jumpstart your career as a web developer. With 24 intense weeks of on-campus training, you learn to think and build like software developers. `,
         path: `/course/fullstack`,
       },
       {
         image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685525999/techstudio/Group_1000002405_5_s48vic.png`,
         title: `Data Science`,
-        description: `Lorem ipsum dolor sit amet consectetur. Urna adipiscing risus faucibus ut vulputate malesuada eget. In leo commodo auctor facilisi. Leo nisl justo in eu volutpat eu in. `,
+        description: `Learn to build predictive models, understand data visualisation and pattern recognition. You'll learn to use leading methods to wrangle large data sets to forecast trends, generate information and strategy. `,
         path: '/course/data-science',
       },
       // {
@@ -90,7 +90,7 @@ technologies for learning.`,
     articleOne: {
       title: `LIFE AFTER TRAINING`,
       topic: `Where Our Graduates Work`,
-      description: `Lorem ipsum dolor sit amet consectetur. Urna adipiscing risus faucibus ut vulputate malesuada eget. In leo commodo auctor facilisi. Leo nisl justo in eu volutpat eu in. Sit urna nulla mi duis egestas feugiat felis molestie.`,
+      description: `Our talented graduates flourish in leading companies across the globe, making significant contributions to both their personal growth and the organizations they serve. They work in industries ranging from Information technology to Telecommunication, and more.`,
       companies: [
         `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684892217/techstudio/Stutern_-_png_0_kuvmd7.png`,
         `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684892215/techstudio/image_1_ptssae.png`,
@@ -167,7 +167,8 @@ technologies for learning.`,
     header: {
       caption: `Need help choosing a course?`,
       title: `Talk To An Expert`,
-      description: `Lorem ipsum dolor sit amet consectetur. Aliquam quis non ornare nunc fermentum. Risus erat ac egestas nam pharetra tincidunt facilisis volutpat. `,
+      description: `Are you indecisive about what course to choose?
+Would you like to talk to a Tech expert over any tech related issue? We have professionals in place who are ready and willing to be of help.`,
     },
   },
 

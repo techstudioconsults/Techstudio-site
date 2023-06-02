@@ -8,7 +8,7 @@
     flex: 1;
     @include breakpoint-up('lg') {
       img {
-        width: fn.rem(416);
+        width: fn.rem(500);
       }
     }
   }

@@ -20,6 +20,7 @@
 
   .imgContainer {
     @include breakpoint-up('sm') {
+      flex: 1;
       max-width: fn.rem(290);
       margin: 0 auto;
       img {
@@ -35,6 +36,7 @@
   }
 
   .introCardText {
+    flex: 2;
     .title {
       margin-bottom: fn.rem(19);
       font-weight: 700;

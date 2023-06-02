@@ -94,7 +94,7 @@ export const ABOUT_CONTENT = {
   sectionFour: {
     header: {
       title: `Meet the team`,
-      subTitle: `Lorem ipsum dolor sit amet consectetur. Urna adipiscing risus faucibus ut vulputate malesuada eget. In leo commodo auctor facilisi. Le nisl justo in eu volutpat eu in. Sit urna nulla mi dee.`,
+      subTitle: `Our team comprises a dynamic group of young and vibrant professionals who possess an unwavering commitment to go the extra mile in delivering exceptional service.`,
     },
 
     cards: [

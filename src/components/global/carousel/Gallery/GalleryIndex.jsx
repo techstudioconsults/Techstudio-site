@@ -21,15 +21,13 @@ const GalleryIndex = () => {
           <div className={style.GalleryIndexContentsFirstInner}>
             <div>
               <h6 className={style.galleryHeader}>WHAT TO EXPECT</h6>
-              <h3 className={`${style.gallerySubheader} mb-0`}>Our Gallery</h3>
+              <h3 className={`${style.gallerySubheader} mb-0`}>Our Facility</h3>
             </div>
             <p className={style.galleryText}>
-              Lorem ipsum dolor sit amet consectetur. Urna adipiscing risus
-              faucibus ut vulputate malesuada eget. In leo commodo auctor
-              facilisi. Le nisl justo in eu volutpat eu in. Sit urna nulla mi
-              duis egestas feugiat felis molestie. Lorem ipsum dolor sit amet
-              consectetur. Urna adipiscing risus faucibus ut vulputate malesuada
-              eget.
+              We have put in place a very comfortable, and conducive learning
+              facilities where you have access to resources. We have also
+              invested in unlimited internet to ensure our students don’t have
+              hinderance in their learning process.
             </p>
           </div>
         </Container>

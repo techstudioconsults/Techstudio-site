@@ -28,7 +28,9 @@ const SectionThree = ({ content }) => {
 
 export const SectionThreeCard = ({ content }) => {
   return (
-    <div className={`d-flex flex-column align-items-center`}>
+    <div
+      className={`${style.sectionThreeCard} d-flex flex-column align-items-center justify-content-between`}
+    >
       <div className={style.cardImg}>
         <img src={content.image} alt='card-img' className='img-fluid' />
       </div>
@@ -36,10 +38,10 @@ export const SectionThreeCard = ({ content }) => {
         <h3 className='fs-xl mt-5'>{content.title}</h3>
         <p className='fs-sm'>{content.description}</p>
       </div>
-      <Link to={content.path}>
+      <Link className='mt-5' to={content.path}>
         <button
           style={{ border: `2px solid #0266f4` }}
-          className='btn btn-outline-primary px-10 mt-5 fw-semibold'
+          className='btn btn-outline-primary px-10 fw-semibold'
         >
           View Course
         </button>

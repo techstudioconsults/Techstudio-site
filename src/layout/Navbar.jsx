@@ -5,9 +5,12 @@ import { Link } from 'react-router-dom'
 import { FaChevronDown } from 'react-icons/fa'
 import { Button } from '../components'
 import style from './layout.module.scss'
+// import { useSelector } from 'react-redux'
+// import { selectCoursesExternal } from '../app/api/appSlice'
 
 const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
   const [color, setColor] = useState(setTextColorBlack)
+  // const courses = useSelector(selectCoursesExternal)
   const navEl = useRef()
 
   useEffect(() => {
@@ -30,6 +33,18 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
     }
   }, [keepColor])
 
+  // const dropdownLinks = courses.map((course) => {
+  //   return (
+  //     <li key={course.id} className='my-2'>
+  //       <Link
+  //         className='dropdown-item fs-sm fw-semibold py-2'
+  //         to='/course/frontend'
+  //       >
+  //         {course.title}
+  //       </Link>
+  //     </li>
+  //   )
+  // })
   return (
     <nav
       ref={navEl}
@@ -99,6 +114,14 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
               </div>
               <ul className='dropdown-menu mt-8'>
                 <li className='my-2'>
+                  <li className='my-2'>
+                    <Link
+                      className='dropdown-item fs-sm fw-semibold py-2'
+                      to='/course/uiux'
+                    >
+                      Product Design
+                    </Link>
+                  </li>
                   <Link
                     className='dropdown-item fs-sm fw-semibold py-2'
                     to='/course/frontend'
@@ -130,14 +153,6 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
                     Mobile Development
                   </Link>
                 </li> */}
-                <li className='my-2'>
-                  <Link
-                    className='dropdown-item fs-sm fw-semibold py-2'
-                    to='/course/uiux'
-                  >
-                    Product Design
-                  </Link>
-                </li>
               </ul>
             </div>
             <Link

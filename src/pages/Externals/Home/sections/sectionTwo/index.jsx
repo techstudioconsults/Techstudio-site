@@ -18,8 +18,8 @@ const SectionTwo = ({ content }) => {
         <p className={style.headerTitle}>{header.title}</p>
         <div className={style.descriptionContainer}>
           <h2 className={style.title}>{header.title2}</h2>
-          <p className={style.headerDescription}>
-            {header.description}.{' '}
+          <p className={style.headerDescription}>{header.description}. </p>
+          <div className='text-center'>
             <Link
               style={{ textDecoration: `underline` }}
               className='d-inline'
@@ -27,7 +27,7 @@ const SectionTwo = ({ content }) => {
             >
               Read More
             </Link>
-          </p>
+          </div>
         </div>
       </Container>
       <Container paddingBlock={0}>

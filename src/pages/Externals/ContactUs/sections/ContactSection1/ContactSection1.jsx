@@ -27,7 +27,7 @@ const ContactSection1 = ({ content }) => {
             <div className={style.address}>
               <h6>{address.state}</h6>
               <p className={style.address}>{address.address}</p>
-              <h6 className={style.whatsapp}>{address.whatsapp}</h6>
+              <h6 className={style.whatsapp}>{`Call`}</h6>
               <p>
                 <span className='fw-semibold'>
                   {/* <Icon className='fs-xl mb-1' icon={`logos:whatsapp-icon`} />{' '} */}
@@ -35,9 +35,7 @@ const ContactSection1 = ({ content }) => {
                 </span>
                 <a
                   className='d-inline text-dark'
-                  href={`https://wa.me/${address.busola}`}
-                  target='_blank'
-                  rel='noopener noreferrer'
+                  href={`tel:${address.busola}`}
                 >
                   {' '}
                   {address.busola}
@@ -60,8 +58,8 @@ const ContactSection1 = ({ content }) => {
             </div>
           </div>
           <div>
-            <div className={`${style.info} d-flex  align-items-center`}>
-              <div>
+            <div className={`${style.info} d-flex align-items-center`}>
+              <div className='mb-1'>
                 <Icon className='fs-xl' icon={`ic:baseline-email`} />
               </div>
               <a href={`mailto:${address.email}`} className={style.email}>

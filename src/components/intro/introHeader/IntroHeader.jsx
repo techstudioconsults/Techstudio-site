@@ -1,10 +1,12 @@
 import React from 'react'
 import { Container } from '../../../layout'
-import logo from '../../../assets/icons/logo.png'
+// import logo from '../../../assets/icons/logo.png'
 import style from './introHeader.module.scss'
 import { useContext } from 'react'
 import AppContext from '../../../contexts/AppProvider'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
+// import { useDispatch, useSelector } from 'react-redux'
+// import { selectCoursesExternal } from '../../../app/api/appSlice'
 
 const IntroHeader = () => {
   const { index, getCourseDetails } = useContext(AppContext)
@@ -14,13 +16,24 @@ const IntroHeader = () => {
     getCourseDetails(name)
   }
 
+  // const tags = courses.map((course) => {
+  //   return (
+  //     <button
+  //       id={course.id}
+  //       key={course.id}
+  //       onClick={handleClick}
+  //       name={courses.id}
+  //       className={[style.courseBtn].join(' ')}
+  //     >
+  //       {course.title}
+  //     </button>
+  //   )
+  // })
+
   return (
     <div className={style.introHeader}>
       <Container>
         <section className={style.introHeaderWapper}>
-          {/* <Link to={`/`} className={style.imgContainer}>
-            <img src={logo} alt='logo' />
-          </Link> */}
           <div className={style.text}>
             <h2 className={style.title}>Our Learning Tracks</h2>
             <p className={style.subTitle}>
@@ -38,7 +51,7 @@ const IntroHeader = () => {
                 index === 0 ? style.active : null,
               ].join(' ')}
             >
-              UI/UX Design
+              Product Design
             </button>
             <button
               onClick={handleClick}
@@ -70,16 +83,6 @@ const IntroHeader = () => {
             >
               Frontend Development
             </button>
-            {/* <button
-              onClick={handleClick}
-              name={4}
-              className={[
-                style.courseBtn,
-                index === 4 ? style.active : null,
-              ].join(' ')}
-            >
-              Mobile Development
-            </button> */}
           </div>
         </section>
       </Container>
