@@ -28,7 +28,7 @@ const Footer = () => {
             </div>
             <div className='col-12 col-lg-3 text-white my-12 my-lg-0'>
               <div>
-                <p className='fs-md fw-bolder py-2_5'>Courses</p>
+                <p className='fs-md fw-bolder pb-2_5'>Courses</p>
               </div>
               <ul className='nav flex-column fs-sm  gap-3 align-items-start'>
                 <li className='nav-item mb-0'>
@@ -76,7 +76,7 @@ const Footer = () => {
 
             <div className='col-12 col-lg-2 my-12 my-lg-0'>
               <div>
-                <h5 className='fs-md fw-bolder pt-2_5'>
+                <h5 className='fs-md'>
                   <Link
                     className='text-white d-block cc-link-hover'
                     to='/about-us'
@@ -128,7 +128,7 @@ const Footer = () => {
             <div className='col-12 col-lg-4 text-white fw-bolder'>
               <form>
                 <div>
-                  <h5 className='fs-md py-2_5 text-white'>
+                  <h5 className='fs-md pb-2_5 text-white'>
                     Subscribe to our newsletter
                   </h5>
                 </div>
