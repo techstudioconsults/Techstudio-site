@@ -9,7 +9,7 @@ import {
   CourseSectionTwo,
 } from '../../../components'
 
-const index = ({ content }) => {
+const index = ({ content, job }) => {
   const { hero, sectionTwo, sectionFour } = content
   return (
     <ExternalLayout>
@@ -20,7 +20,7 @@ const index = ({ content }) => {
         <Container>
           <BannerII>
             <div className='ms-3 ms-lg-40 text-white py-20 py-xl-0'>
-              <span>Want to start a career in {hero.title} ?</span>
+              <span>Want to start a career as a {job} ?</span>
               <h3 className='mt-7 fw-bold text-white fs-2xl'>
                 Get started with Techstudio
               </h3>
@@ -44,6 +44,7 @@ const index = ({ content }) => {
 
 index.propTypes = {
   content: PropTypes.object.isRequired,
+  job: PropTypes.string,
 }
 
 export default index

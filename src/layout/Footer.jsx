@@ -36,20 +36,23 @@ const Footer = () => {
                     className='text-white cc-link-hover'
                     to='/course/frontend'
                   >
-                    Front End Development
+                    Frontend Development
                   </Link>
                 </li>
-                <li className='nav-item mb-0'>
+                {/* <li className='nav-item mb-0'>
                   <Link
                     className='text-white cc-link-hover '
                     to='/course/mobile'
                   >
                     Mobile Development
                   </Link>
-                </li>
+                </li> */}
                 <li className='nav-item mb-0'>
-                  <Link className='text-white cc-link-hover ' to='/course/uiux'>
-                    UI/UX Design
+                  <Link
+                    className='text-white cc-link-hover '
+                    to='/course/product-design'
+                  >
+                    Product Design
                   </Link>
                 </li>
                 <li className='nav-item mb-0'>

@@ -107,24 +107,41 @@ const App = () => {
         <Route path='/contact' element={<ContactUs />} />
         <Route
           path='/course/frontend'
-          element={<Development content={frontendDevelopment} />}
+          element={
+            <Development
+              content={frontendDevelopment}
+              job={`Frontend Web Developer`}
+            />
+          }
         />
         <Route
           path='/course/fullstack'
-          element={<Development content={fullStackDevelopment} />}
+          element={
+            <Development
+              content={fullStackDevelopment}
+              job={`Fullstack Web Developer`}
+            />
+          }
         />
         <Route
-          path='/course/uiux'
-          element={<Development content={UIUXDevelopment} />}
+          path='/course/product-design'
+          element={
+            <Development content={UIUXDevelopment} job={`Product Designer`} />
+          }
         />
         <Route
           path='/course/data-science'
-          element={<Development content={datascience} />}
+          element={<Development content={datascience} job={`Data Scientist`} />}
         />
-        <Route
+        {/* <Route
           path='/course/mobile'
-          element={<Development content={mobileDevelopment} />}
-        />
+          element={
+            <Development
+              content={mobileDevelopment}
+              job={`Frontend Developer`}
+            />
+          }
+        /> */}
 
         {/* protected Routes */}
         {/* <Route element={<PersistLogin />}> */}

@@ -107,30 +107,30 @@ technologies for learning.`,
 
       testimonials: [
         {
-          message: `I have been trying to figure out a way to kickstart my career in tech to no avail. I tried self tutorial, still nothing. When I tried techstudio 10 weeks training, my story changed for better`,
+          message: `I came into Tech Studio Academy with practically no prior knowledge in software development. However, within a few weeks, I was able to grasp the crux of software development and also master the soft skills required for being a software developer. So far so good, the skills acquired have given me a mind-blowing push in my career as a software developer.`,
 
           profile: {
-            image: `img4`,
-            name: `Ajose Brown`,
-            job: `Product Designer, Smartace`,
+            image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685702158/techstudio/joseph_avatar_a0tgts.jpg`,
+            name: `JOSEPH DARAMOLA`,
+            job: `Frontend Developer`,
           },
         },
         {
-          message: `I have been trying to figure out a way to kickstart my career in tech to no avail. I tried self tutorial, still nothing. When I tried techstudio 10 weeks training, my story changed for better`,
+          message: `Tech Studio Academy has been one of the big push I needed to get in the real world space. I had an immense learning that was really different from the self learning I started with. The learning was fun and there were some internship job opportunities that were presented to us. I got my first gig immediately after the program. Thank you Tech Studio for that push I needed.`,
 
           profile: {
-            image: `img4`,
-            name: `Sherif Sorunke`,
-            job: `Product Designer, Smartace`,
+            image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685702351/techstudio/peter_avatar_ygytz0.jpg`,
+            name: `PETER EDEAWE`,
+            job: `Software Developer`,
           },
         },
         {
-          message: `I have been trying to figure out a way to kickstart my career in tech to no avail. I tried self tutorial, still nothing. When I tried techstudio 10 weeks training, my story changed for better`,
+          message: `I bless the day the Instagram algorithm pop up Tech Studio Academy to my news feed. I read through their curriculum and other details about the Bootcamp and I told myself this is the opportunity I've been waiting for. I wasn't disappointed, the environment was well ventilated and conducive, with competent instructors. Here I am today at OT&T Consulting, fulfilling my dreams thanks to Tech Studio Academy.`,
 
           profile: {
-            image: `img4`,
-            name: `Kingsley Solomon`,
-            job: `Product Designer, Smartace`,
+            image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685702254/techstudio/rilwan_avatar_wjpq8j.jpg`,
+            name: `RILWAN AJIBOLA`,
+            job: `Software Developer`,
           },
         },
       ],

@@ -117,7 +117,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
                   <li className='my-2'>
                     <Link
                       className='dropdown-item fs-sm fw-semibold py-2'
-                      to='/course/uiux'
+                      to='/course/product-design'
                     >
                       Product Design
                     </Link>
@@ -126,7 +126,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
                     className='dropdown-item fs-sm fw-semibold py-2'
                     to='/course/frontend'
                   >
-                    Frontend
+                    Frontend Development
                   </Link>
                 </li>
                 <li className='my-2'>
@@ -142,7 +142,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
                     className='dropdown-item fs-sm fw-semibold py-2'
                     to='/course/fullstack'
                   >
-                    Fullstack
+                    Fullstack Development
                   </Link>
                 </li>
                 {/* <li className='my-2'>
