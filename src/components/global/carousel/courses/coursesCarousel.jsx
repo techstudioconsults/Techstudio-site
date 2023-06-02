@@ -60,6 +60,10 @@ const Carousel = () => {
           ref={swiperRef}
           spaceBetween={50}
           slidesPerView={1}
+          pagination={{
+            clickable: true,
+            dynamicBullets: true,
+          }}
           breakpoints={{
             640: {
               slidesPerView: 2,
@@ -67,9 +71,6 @@ const Carousel = () => {
             768: {
               slidesPerView: 3,
             },
-          }}
-          pagination={{
-            dynamicBullets: true,
           }}
           modules={[Pagination]}
           onSlideChange={handleSlideChange}
