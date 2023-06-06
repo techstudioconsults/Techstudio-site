@@ -85,7 +85,7 @@ const App = () => {
       <Routes>
         {/* public routes */}
         <Route index path='/' element={<HomePage />} />
-        <Route path='/tracks' element={<Intro />} />
+        <Route path='/our-courses' element={<Intro />} />
         <Route path='/faq' element={<Faq />} />
         <Route path='/student/register' element={<Register />} />
         <Route path='/login' element={<SignIn />} />

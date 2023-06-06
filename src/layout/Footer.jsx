@@ -21,7 +21,7 @@ const Footer = () => {
               <ul className='nav flex-column fs-sm mt-5 gap-1 align-items-start'>
                 <li className='nav-item mb-2'>
                   <p className='text-light fs-xxl '>
-                    1,Ogunlesi Street, Awoyorkun Bus Stop,Onipanu Lagos
+                    1,Ogunlesi Street, Awoyokun Bus Stop,Onipanu Lagos
                   </p>
                 </li>
               </ul>
@@ -60,7 +60,7 @@ const Footer = () => {
                     className='text-white cc-link-hover'
                     to='/course/fullstack'
                   >
-                    Fullstack development
+                    Fullstack Development
                   </Link>
                 </li>
                 <li className='nav-item mb-0'>

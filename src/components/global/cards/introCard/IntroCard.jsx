@@ -103,22 +103,106 @@ const IntroCard = ({ course }) => {
         <h5 className={style.title}>{course.course}</h5>
         <p className={style.desc}>{course.desc}</p>
 
-        <div className={style.timeDate}>
-          <div className={style.time}>
-            <span className={style.icon}>
-              <img src={calendar} alt='calendar' />
-            </span>
-            <span>Starting {convertDateToReadable(time)}</span>
+        {/* onliine */}
+        <section className='my-3'>
+          <p className='fs-xs text-danger fw-semibold'>Online</p>
+          <div className={`${style.timeDate} my-0 gap-4 gap-lg-8`}>
+            <div className={style.time}>
+              <span className={style.icon}>
+                <img src={calendar} alt='calendar' />
+              </span>
+              <span>
+                {`${course.online.date}` ||
+                  `starting ${convertDateToReadable(time)}`}
+              </span>
+            </div>
+            <div className={style?.date}>
+              <span className={style.icon}>
+                <img src={clock} alt='clock' />
+              </span>
+              <span>
+                {course.online.time === `N/A`
+                  ? `N/A`
+                  : `${course.online.time} Weeks` || `${duration} Weeks`}
+              </span>
+            </div>
+            <div className={style?.date}>
+              <p className='mb-0 fw-bold fs-xl'>
+                {course.online.price
+                  ? formatCurrency(course.online.price)
+                  : `N/A` || formatCurrency(fee)}
+              </p>
+            </div>
           </div>
-          <div className={style?.date}>
-            <span className={style.icon}>
-              <img src={clock} alt='clock' />
-            </span>
-            <span>{duration} Weeks</span>
+        </section>
+        {/* weekday */}
+        <section className='my-3'>
+          <p className='fs-xs text-danger fw-semibold'>Weekday</p>
+          <div className={`${style.timeDate} my-0 gap-4 gap-lg-8`}>
+            <div className={style.time}>
+              <span className={style.icon}>
+                <img src={calendar} alt='calendar' />
+              </span>
+              <span>
+                {`${course.weekday.date}` ||
+                  `starting ${convertDateToReadable(time)}`}
+              </span>
+            </div>
+            <div className={style?.date}>
+              <span className={style.icon}>
+                <img src={clock} alt='clock' />
+              </span>
+              <span>
+                {course.weekday.time === `N/A`
+                  ? `N/A`
+                  : `${course.weekday.time} Weeks` || `${duration} Weeks`}
+              </span>
+            </div>
+            <div className={style?.date}>
+              <p className='mb-0 fw-bold fs-xl'>
+                {course.weekday.price
+                  ? formatCurrency(course.weekday.price)
+                  : `N/A` || formatCurrency(fee)}
+              </p>
+            </div>
           </div>
-        </div>
-        <div className={style.priceButton}>
-          <h5 className={style.price}>{formatCurrency(fee)}</h5>
+        </section>
+        {/* weekend */}
+        <section className='my-3'>
+          <p className='fs-xs text-danger fw-semibold'>Weekend</p>
+          <div className={`${style.timeDate} my-0 gap-4 gap-lg-8`}>
+            <div className={style.time}>
+              <span className={style.icon}>
+                <img src={calendar} alt='calendar' />
+              </span>
+              <span>
+                {`${course.weekend.date}` ||
+                  `starting ${convertDateToReadable(time)}`}
+              </span>
+            </div>
+            <div className={style?.date}>
+              <span className={style.icon}>
+                <img src={clock} alt='clock' />
+              </span>
+              <span>
+                {course.weekend.time === `N/A`
+                  ? `N/A`
+                  : `${course.weekend.time} Weeks` || `${duration} Weeks`}
+              </span>
+            </div>
+            <div className={style?.date}>
+              <p className='mb-0 fw-bold fs-xl'>
+                {course.weekend.price
+                  ? formatCurrency(course.weekend.price)
+                  : `N/A` || formatCurrency(fee)}
+              </p>
+            </div>
+          </div>
+        </section>
+        <div className={`${style.priceButton} justify-content-end`}>
+          {/* <h5 className={style.price}>
+            {formatCurrency(course.price) || formatCurrency(fee)}
+          </h5> */}
           <Button
             width={`10`}
             linkText='View Full Details'

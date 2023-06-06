@@ -35,7 +35,7 @@ const IntroHeader = () => {
       <Container>
         <section className={style.introHeaderWapper}>
           <div className={style.text}>
-            <h2 className={style.title}>Our Learning Tracks</h2>
+            <h2 className={style.title}>Our Courses</h2>
             <p className={style.subTitle}>
               Select any of our courses to get started on your tech journey
             </p>

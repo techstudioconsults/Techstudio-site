@@ -105,7 +105,7 @@ export const DEVELOPMENT_CONTENT = {
       cards: [
         {
           img: numberOne,
-          text: `We teach the important skills required to jumpstart your career as a product designer. With 10 straight weeks of training, you learn to think, build and solve complex UI/UX challenges.`,
+          text: `We teach the important skills required to jumpstart your career as a product designer. With 12 straight weeks of training, you learn to think, build and solve complex UI/UX challenges.`,
         },
         {
           img: numberTwo,
@@ -170,7 +170,7 @@ export const DEVELOPMENT_CONTENT = {
       cards: [
         {
           img: numberOne,
-          text: `In 12 weeks, you’ll be a professional full-stack developer, able to build real-time interactive and dynamic applications. We teach fullstack JavaScript because growing in popularity every day and it’s here to stay.`,
+          text: `In 24 weeks, you’ll be a professional full-stack developer, able to build real-time interactive and dynamic applications. We teach fullstack JavaScript because growing in popularity every day and it’s here to stay.`,
         },
         {
           img: numberTwo,
@@ -225,7 +225,7 @@ export const DEVELOPMENT_CONTENT = {
       cards: [
         {
           img: numberOne,
-          text: `You learn the skills needed to skyrocket your career as a data analyst/scientist. You have 10 straight weeks of training to predict trends and generate informed predictive models.`,
+          text: `You learn the skills needed to skyrocket your career as a data analyst/scientist. You have 12 straight weeks of training to predict trends and generate informed predictive models.`,
         },
         {
           img: numberTwo,

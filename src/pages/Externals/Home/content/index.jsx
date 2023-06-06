@@ -11,7 +11,7 @@ export const HOME_CONTENT = {
       title: [`Why Techstudio?`],
       title2: [`We Are Customer-Centric`],
       description: [
-        `We give priority to our students by offering top-notch Educational service to ensure they acquire the value needed to excel in their chosen tech field.`,
+        `We give our students an all round experience by providing extra value to ensure you excel in your chosen course.`,
       ],
     },
     cards: [
@@ -25,7 +25,7 @@ technologies for learning.`,
       },
       {
         image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684889285/techstudio/Group_1000002453_kuik1j.png`,
-        title: `Experienced Tutors`,
+        title: `Experienced Tutor`,
         description: `Our tutors are highly skilled professionals that are chosen based on industry experience and teaching ability. Our support team provides students with guidance and tips on building a top-notch portfolio that woos employers.`,
       },
       {
