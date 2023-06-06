@@ -32,7 +32,7 @@ const index = () => {
               </h3>
               <div className='w-50'>
                 <Button
-                  linkHref='/tracks'
+                  linkHref='/our-courses'
                   linkText='Explore Courses'
                   solidBtn
                   navBtn

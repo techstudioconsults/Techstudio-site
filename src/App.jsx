@@ -95,7 +95,7 @@ const App = () => {
         <Route path='/admin/register' element={<AdminSignup />} />
         {/* <Route path='/student/signup' element={<StudentSignup />} /> */}
         <Route path='/payment' element={<Payment />} />
-        <Route path='/employers' element={<Employers />} />
+        {/* <Route path='/employers' element={<Employers />} /> */}
         <Route
           path='/employers/detailedform'
           element={<JobRequirementModal />}
@@ -105,7 +105,7 @@ const App = () => {
         {/* <Route path='/blog' element={<Blog />} />
         <Route path='/blog/:id' element={<SingleBlogPage />} /> */}
         <Route path='/contact' element={<ContactUs />} />
-        <Route
+        {/* <Route
           path='/course/frontend'
           element={
             <Development
@@ -113,7 +113,7 @@ const App = () => {
               job={`Frontend Web Developer`}
             />
           }
-        />
+        /> */}
         <Route
           path='/course/fullstack'
           element={

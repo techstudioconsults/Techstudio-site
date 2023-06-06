@@ -74,6 +74,7 @@ const IntroHeader = () => {
               Data Science
             </button>
             <button
+              disabled
               onClick={handleClick}
               name={3}
               className={[

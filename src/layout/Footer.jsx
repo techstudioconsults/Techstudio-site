@@ -92,13 +92,16 @@ const Footer = () => {
                   </Link>
                 </h5>
               </div> */}
-              <div>
+              {/* <div>
                 <h5 className='fs-md fw-semibold pt-2_5'>
-                  <Link className='text-white d-block cc-link-hover' to='#'>
+                  <Link
+                    className='text-white d-block cc-link-hover'
+                    to='/employers'
+                  >
                     Partnership
                   </Link>
                 </h5>
-              </div>
+              </div> */}
               <div>
                 <h5 className='fs-md fw-semibold pt-2_5'>
                   <Link className='text-white d-block cc-link-hover' to='/faq'>

@@ -13,9 +13,9 @@ export const INTRO_CONTENT = {
         price: `0`,
       },
       weekday: {
-        time: `N/A`,
-        date: `N/A`,
-        price: `0`,
+        time: `12`,
+        date: `July 3, 2023`,
+        price: `250000`,
       },
       weekend: {
         time: `12`,
@@ -36,7 +36,7 @@ export const INTRO_CONTENT = {
       },
       weekday: {
         time: `24`,
-        date: `July 1, 2023`,
+        date: `July 3, 2023`,
         price: `500000`,
       },
       weekend: {
@@ -57,9 +57,9 @@ export const INTRO_CONTENT = {
         price: `0`,
       },
       weekday: {
-        time: `N/A`,
-        date: `N/A`,
-        price: `0`,
+        time: `12`,
+        date: `July 3, 2023`,
+        price: `250000`,
       },
       weekend: {
         time: `12`,
