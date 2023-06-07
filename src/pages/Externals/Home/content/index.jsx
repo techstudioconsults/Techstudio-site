@@ -3,7 +3,7 @@ import HomeSection3Img01 from '../../../../assets/images/HomeSection3Img01.png'
 export const HOME_CONTENT = {
   hero: {
     title: [`Unlock Your Tech Potential With Us Today`],
-    description: `Transform Your Career and Become a Skilled Tech Professional by Enrolling with Tech Studio Academy.`,
+    description: `Transform Your Career and Become a Skilled Tech Professional by Enrolling with techStudio Academy.`,
   },
 
   sectionTwo: {
@@ -11,7 +11,7 @@ export const HOME_CONTENT = {
       title: [`Why Techstudio?`],
       title2: [`We Are Customer-Centric`],
       description: [
-        `We give priority to our students by offering top-notch Educational service to ensure they acquire the value needed to excel in their chosen tech field.`,
+        `We give our students an all round experience by providing extra value to ensure you excel in your chosen course.`,
       ],
     },
     cards: [
@@ -25,7 +25,7 @@ technologies for learning.`,
       },
       {
         image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684889285/techstudio/Group_1000002453_kuik1j.png`,
-        title: `Experienced Tutors`,
+        title: `Experienced Tutor`,
         description: `Our tutors are highly skilled professionals that are chosen based on industry experience and teaching ability. Our support team provides students with guidance and tips on building a top-notch portfolio that woos employers.`,
       },
       {
@@ -47,12 +47,12 @@ technologies for learning.`,
     },
     //carosel
     cards: [
-      {
-        image: HomeSection3Img01,
-        title: `Front-End Web Development`,
-        description: `Tech Studio Academy’s Frontend Web Development course is a career-changing program designed to transform participating students to job-ready frontend developers. `,
-        path: `/course/frontend`,
-      },
+      // {
+      //   image: HomeSection3Img01,
+      //   title: `Front-End Web Development`,
+      //   description: `TechStudio Academy’s Frontend Web Development course is a career-changing program designed to transform participating students to job-ready frontend developers. `,
+      //   path: `/course/frontend`,
+      // },
       {
         image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685525554/techstudio/Group_1000002405_3_zearyb.png`,
         title: `Product Design (UI/UX)`,
@@ -107,7 +107,7 @@ technologies for learning.`,
 
       testimonials: [
         {
-          message: `I came into Tech Studio Academy with practically no prior knowledge in software development. However, within a few weeks, I was able to grasp the crux of software development and also master the soft skills required for being a software developer. So far so good, the skills acquired have given me a mind-blowing push in my career as a software developer.`,
+          message: `I came into techStudio Academy with practically no prior knowledge in software development. However, within a few weeks, I was able to grasp the crux of software development and also master the soft skills required for being a software developer. So far so good, the skills acquired have given me a mind-blowing push in my career as a software developer.`,
 
           profile: {
             image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685702158/techstudio/joseph_avatar_a0tgts.jpg`,
@@ -116,7 +116,7 @@ technologies for learning.`,
           },
         },
         {
-          message: `Tech Studio Academy has been one of the big push I needed to get in the real world space. I had an immense learning that was really different from the self learning I started with. The learning was fun and there were some internship job opportunities that were presented to us. I got my first gig immediately after the program. Thank you Tech Studio for that push I needed.`,
+          message: `TechStudio Academy has been one of the big push I needed to get in the real world space. I had an immense learning that was really different from the self learning I started with. The learning was fun and there were some internship job opportunities that were presented to us. I got my first gig immediately after the program. Thank you TechStudio for that push I needed.`,
 
           profile: {
             image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685702351/techstudio/peter_avatar_ygytz0.jpg`,
@@ -125,7 +125,7 @@ technologies for learning.`,
           },
         },
         {
-          message: `I bless the day the Instagram algorithm pop up Tech Studio Academy to my news feed. I read through their curriculum and other details about the Bootcamp and I told myself this is the opportunity I've been waiting for. I wasn't disappointed, the environment was well ventilated and conducive, with competent instructors. Here I am today at OT&T Consulting, fulfilling my dreams thanks to Tech Studio Academy.`,
+          message: `I bless the day the Instagram algorithm pop up TechStudio Academy to my news feed. I read through their curriculum and other details about the Bootcamp and I told myself this is the opportunity I've been waiting for. I wasn't disappointed, the environment was well ventilated and conducive, with competent instructors. Here I am today at OT&T Consulting, fulfilling my dreams thanks to TechStudio Academy.`,
 
           profile: {
             image: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685702254/techstudio/rilwan_avatar_wjpq8j.jpg`,
@@ -148,7 +148,7 @@ technologies for learning.`,
       {
         id: 1,
         title: `Apply`,
-        desc: `At Tech Studio we offer a variety of courses designed to build your skills and professionally improve you. All you have to do is apply.`,
+        desc: `At TechStudio we offer a variety of courses designed to build your skills and professionally improve you. All you have to do is apply.`,
       },
       {
         id: 2,

@@ -25,8 +25,8 @@ import AboutSec4Img06 from '../../../../assets/images/AboutSec4Img06.png'
 export const ABOUT_CONTENT = {
   hero: {
     caption: `KNOW US MORE`,
-    title: `About Techstudio`,
-    description1: `Tech Studio Academy is a tech training company based in Lagos, Nigeria, founded in 2017 with the objective of providing cost-effective and high-quality tech education to aspiring young people in the country.`,
+    title: `About TechStudio`,
+    description1: `TechStudio Academy is a tech training company based in Lagos, Nigeria, founded in 2017 with the objective of providing cost-effective and high-quality tech education to aspiring young people in the country.`,
     description2: ` Over the past four years, the academy has trained over 1000 students through both online and in-person classes, and has helped them achieve their career goals in the tech industry. Our instructors are carefully selected based on both industry experience and teaching ability, ensuring that our students receive the best possible education.`,
     description3: `We envision becoming a leading and preferred technology training provider in Nigeria, responding to the needs of the industry. Our mission is to provide high-quality and affordable technology training that meets the needs of our students.`,
   },
@@ -80,7 +80,7 @@ export const ABOUT_CONTENT = {
       },
       {
         icon: `carbon:partnership`,
-        title: `Great Colleaggues`,
+        title: `Great colleagues`,
         desc: `Your contemporaries will be great and inquisitive minds like you. Willing to learn and effect real change. Also, you’ll have the opportunity to network among your peers.`,
       },
       {

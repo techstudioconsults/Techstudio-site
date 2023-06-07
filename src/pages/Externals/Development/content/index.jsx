@@ -13,7 +13,7 @@ export const DEVELOPMENT_CONTENT = {
   frontendDevelopment: {
     hero: {
       title: `Frontend Web Development`,
-      subTitle: `Let’s help you become a professional frontend web developer. You’ll learn all you need to know to become a Frontend Developer and build interesting portfolios while learning the fundmentals of HTML, CSS, JavaScript and React.`,
+      subTitle: `Let’s help you become a professional frontend web developer. You’ll learn all you need to know to become a Frontend Developer and build interesting portfolios while learning the fundamentals of HTML, CSS, JavaScript and React.`,
       // img: frontendImg,
       img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685537841/techstudio/Group_1000002400_ocntit.png`,
     },
@@ -93,8 +93,8 @@ export const DEVELOPMENT_CONTENT = {
   },
   UIUXDevelopment: {
     hero: {
-      title: `User Interface & user experience Design`,
-      subTitle: `Learn to design and deliver digital products that serve clients’ needs and solve users’ problems. Understand the fundamental techniques and tools of design like problem definition, user research, prototyping, testing, and more.`,
+      title: `User Interface & User Experience design`,
+      subTitle: `Learn to design and deliver digital products that serve clients’ needs and solve users problems. Understand the fundamental techniques and tools of design like problem definition, user research, prototyping, testing and more. `,
       img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685614814/techstudio/Group_1000002400_3_ilwypv.png`,
     },
 
@@ -105,15 +105,15 @@ export const DEVELOPMENT_CONTENT = {
       cards: [
         {
           img: numberOne,
-          text: `We teach the important skills required to jumpstart your career as a product designer. With 10 straight weeks of training, you learn to think, build and solve complex UI/UX challenges.`,
+          text: `We teach the important skills required to jumpstart your career as a product designer. With 12 straight weeks of training, you learn to think, build and solve complex UI/UX challenges.`,
         },
         {
           img: numberTwo,
-          text: `You move from understanding the core principles of effective design to applying tactics like wireframing, low- and high-fidelity prototyping, usability testing, and user interface design to build a portfolio of intuitive digital products.`,
+          text: `We move from understanding the core principles of effective design to applying tactics like wireframing, low and high-fidelity prototyping, usability testing and user interface design to build a portfolio of intuitive digital products. `,
         },
         {
           img: numberThree,
-          text: `You’ll learn the fundamentals of working as a team; sharpen your communication skills and collaborate with web development teams to build, change, maintain, and successfully execute cross-functional UI/UX projects.`,
+          text: `You’ll learn the fundamentals of working as a team; sharpen your communication skills and collaborate with web development teams to build, change, maintain and successfully execute cross-functional UI/UX projects.`,
         },
       ],
     },
@@ -159,7 +159,7 @@ export const DEVELOPMENT_CONTENT = {
   fullStackDevelopment: {
     hero: {
       title: `Fullstack Web Development`,
-      subTitle: `Let’s help you become a professional frontend web developer. You’ll learn all you need to know to become a Frontend Developer and build interesting portfolios while learning the fundmentals of HTML, CSS, JavaScript and React.`,
+      subTitle: `Let’s help you become a professional Fullstack web developer. You’ll learn all you need to know to become a Fullstack Developer and build interesting portfolios while learning the fundmentals of HTML, CSS, JavaScript, React, Mongo DB, Express and hosting on Vercel.`,
       img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685537841/techstudio/Group_1000002400_1_rcex13.png`,
     },
 
@@ -170,7 +170,7 @@ export const DEVELOPMENT_CONTENT = {
       cards: [
         {
           img: numberOne,
-          text: `In 12 weeks, you’ll be a professional full-stack developer, able to build real-time interactive and dynamic applications. We teach fullstack JavaScript because growing in popularity every day and it’s here to stay.`,
+          text: `In 24 weeks, you’ll be a professional Fullstack developer, able to build real-time interactive and dynamic applications. We teach Fullstack JavaScript because growing in popularity every day and it’s here to stay.`,
         },
         {
           img: numberTwo,
@@ -214,7 +214,7 @@ export const DEVELOPMENT_CONTENT = {
   datascience: {
     hero: {
       title: `Data Science Immersive With Python`,
-      subTitle: `Get your hands dirty working with complex data. Dive into the Python programming language, understand data analysis and statistical modeling using Python, after which you move into machine learning and algorithms.`,
+      subTitle: `Get your hands dirty working with Excel and complex data. Dive into the Python programming language, understand data analysis and statistical modeling using Python, after which you move into machine learning and algorithms.`,
       img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685614714/techstudio/Group_1000002400_n3wtma.png`,
     },
 
@@ -225,7 +225,7 @@ export const DEVELOPMENT_CONTENT = {
       cards: [
         {
           img: numberOne,
-          text: `You learn the skills needed to skyrocket your career as a data analyst/scientist. You have 10 straight weeks of training to predict trends and generate informed predictive models.`,
+          text: `You will learn the skills needed to skyrocket your career as a data analyst/scientist. You'll have 12 straight weeks of training to predict trends and generate informed predictive models.`,
         },
         {
           img: numberTwo,

@@ -10,12 +10,12 @@ import img4 from '../../../../assets/images/intro-img4.webp'
 export const EMPLOPYERS_CONTENT = {
   hero: {
     title: [`Find the best talents to grow your team`],
-    description: `Techstudio is relied upon by a good amount of great companies for finding competent talents. We mould our talents to fit into their needed positions and your company culture.`,
+    description: `TechStudio is relied upon by a good amount of great companies for finding competent talents. We mould our talents to fit into their needed positions and your company culture.`,
   },
 
   sectionTwo: {
     header: {
-      title: `How Techstudio works for employers`,
+      title: `How TechStudio works for employers`,
       subTitle: `for employers`,
     },
     cards: [

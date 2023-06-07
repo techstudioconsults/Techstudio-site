@@ -32,7 +32,7 @@
     color: white;
     font-size: fn.rem(27);
     font-weight: 400;
-    padding-top: 20px;
+    margin-block: 20px;
     line-height: fn.rem(48);
     @include breakpoint-down('lg') {
       font-size: fn.em(18);

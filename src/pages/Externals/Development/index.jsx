@@ -22,7 +22,7 @@ const index = ({ content, job }) => {
             <div className='ms-3 ms-lg-40 text-white py-20 py-xl-0'>
               <span>Want to start a career as a {job} ?</span>
               <h3 className='mt-7 fw-bold text-white fs-2xl'>
-                Get started with Techstudio
+                Get started with TechStudio
               </h3>
               <div className='w-50'>
                 <Button

@@ -27,7 +27,7 @@ const ContactSection1 = ({ content }) => {
             <div className={style.address}>
               <h6>{address.state}</h6>
               <p className={style.address}>{address.address}</p>
-              <h6 className={style.whatsapp}>{`Call`}</h6>
+              <h6 className={style.whatsapp}>{`Call or Whatsapp`}</h6>
               <p>
                 <span className='fw-semibold'>
                   {/* <Icon className='fs-xl mb-1' icon={`logos:whatsapp-icon`} />{' '} */}

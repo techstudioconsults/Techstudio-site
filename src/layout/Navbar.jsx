@@ -122,12 +122,12 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
                       Product Design
                     </Link>
                   </li>
-                  <Link
+                  {/* <Link
                     className='dropdown-item fs-sm fw-semibold py-2'
                     to='/course/frontend'
                   >
                     Frontend Development
-                  </Link>
+                  </Link> */}
                 </li>
                 <li className='my-2'>
                   <Link
@@ -155,7 +155,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
                 </li> */}
               </ul>
             </div>
-            <Link
+            {/* <Link
               className={[
                 'nav-link fw-semibold',
                 color ? `text-black` : `text-white`,
@@ -163,7 +163,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
               to='/employers'
             >
               Employers
-            </Link>
+            </Link> */}
             <Link
               className={[
                 'nav-link fw-semibold',

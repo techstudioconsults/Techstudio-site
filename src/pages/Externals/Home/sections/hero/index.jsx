@@ -18,7 +18,7 @@ const Hero = ({ content }) => {
               <Button
                 width={`11`}
                 solidBtn
-                linkHref='/tracks'
+                linkHref='/our-courses'
                 // linkHref='/student/signup'
                 linkText='Explore Courses'
               />
