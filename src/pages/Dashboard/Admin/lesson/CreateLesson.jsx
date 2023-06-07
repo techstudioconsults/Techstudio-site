@@ -25,7 +25,7 @@ import { ErrorMessage } from '@hookform/error-message'
 import { useGetClassByCourseIDMutation } from '../classes/api/classApiSlice'
 import { useGetResourcesByCourseIDMutation } from '../resources/api/resourceApiSlice'
 
-const baseUrl = process.env.REACT_APP_BASE_URL
+const baseUrl = import.meta.env.VITE_BASE_URL
 
 const colorStyles = {
   control: (styles) => ({

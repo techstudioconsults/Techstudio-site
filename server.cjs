@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+/* eslint-disable no-undef */
 const express = require('express')
 const path = require('path')
 const app = express()

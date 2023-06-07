@@ -20,10 +20,7 @@ import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import useToast from '../../../../../hooks/useToast'
 import { useLocation, useNavigate } from 'react-router-dom'
-import {
-  useEditClassMutation,
-  useViewCoursesDetailsMutation,
-} from '../../courses/api/coursesApiSlice'
+import { useViewCoursesDetailsMutation } from '../../courses/api/coursesApiSlice'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 import { selectCurrentToken } from '../../../../Auth/api/authSlice'
@@ -33,7 +30,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { ErrorMessage } from '@hookform/error-message'
 import { useGetResourcesByCourseIDMutation } from '../../resources/api/resourceApiSlice'
 
-const baseUrl = process.env.REACT_APP_BASE_URL
+const baseUrl = import.meta.env.VITE_BASE_URL
 
 const colorStyles = {
   control: (styles) => ({

@@ -1,33 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- HTML Meta Tags -->
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/public/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#5D21E6" />
     <meta
       name="description"
       content="Techstudio offers graduates a path to a fulfilling career in the world of tech"
     />
     <title>TechStudio Academy</title>
-    <link rel="manifest" href="manifest.json" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="./android-chrome-192x192.png"
+      href="./public/android-chrome-192x192.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="./favicon-32x32.png"
+      href="./public/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="./favicon-16x16.png"
+      href="./public/favicon-16x16.png"
     />
     <!-- <link rel="manifest" href="./site.webmanifest" /> -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -74,19 +72,19 @@
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="./android-chrome-192x192.png"
+      href="./public/android-chrome-192x192.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="./favicon-32x32.png"
+      href="./public/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="./favicon-16x16.png"
+      href="./public/favicon-16x16.png"
     />
 
     <!-- GOOGLE FONTS OPEN SANS -->
@@ -94,14 +92,12 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-      <!-- bootstrap  -->
+    <!-- bootstrap  -->
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-
-    <title>TechStudio Academy</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
   <script>
     if (`serviceWorker` in navigator) {
@@ -112,14 +108,14 @@
             console.log(
               `ServiceWorker registration successful with scope: `,
               registration.scope
-            )
+            );
           },
           function (err) {
             // registration failed :(
-            console.log(`ServiceWorker registration failed: `, err)
+            console.log(`ServiceWorker registration failed: `, err);
           }
-        )
-      })
+        );
+      });
     }
   </script>
 </html>

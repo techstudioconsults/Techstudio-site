@@ -22,9 +22,34 @@
   ],
   "plugins": [
     "react",
+    "eslint-plugin-css-modules",
     "jest"
   ],
   "rules": {
+    "react/react-in-jsx-scope": [
+      0,
+      "off"
+    ],
+    "react/display-name": [
+      "off"
+    ],
+    "react/prop-types": [
+      0,
+      "off"
+    ],
+    "react/no-unescaped-entities": [
+      "off"
+    ],
+    "no-console": [
+      "error",
+      {
+        "allow": [
+          "warn",
+          "error",
+          "log"
+        ]
+      }
+    ],
     "no-unused-vars": [
       1,
       {
@@ -35,7 +60,6 @@
     "react-hooks/rules-of-hooks": "warn",
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off"
   },
   "settings": {

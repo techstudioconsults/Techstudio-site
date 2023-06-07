@@ -26,7 +26,7 @@ import { useGetClassByCourseIDMutation } from '../classes/api/classApiSlice'
 import { useViewCoursesDetailsMutation } from '../courses/api/coursesApiSlice'
 import { useGetResourcesByCourseIDMutation } from '../resources/api/resourceApiSlice'
 
-const baseUrl = process.env.REACT_APP_BASE_URL
+const baseUrl = import.meta.env.VITE_BASE_URL
 
 const colorStyles = {
   control: (styles) => ({

@@ -1,14 +1,14 @@
 import React from 'react'
 import {
   Header,
-  SectionSix,
+  // SectionSix,
   SingleBlogSectionThree,
 } from '../../../../components'
 import { Container, ExternalLayout, Navbar } from '../../../../layout'
-import { HOME_CONTENT } from '../../Home/content'
+// import { HOME_CONTENT } from '../../Home/content'
 
 const index = () => {
-  const { sectionSix } = HOME_CONTENT
+  // const { sectionSix } = HOME_CONTENT
   return (
     <ExternalLayout>
       <Navbar bg={`transparent`} keepColor />
