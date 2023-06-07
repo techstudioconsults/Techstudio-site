@@ -4,7 +4,7 @@
 @import '../../../../../scss/utils/mixins';
 
 .aboutSectionFour {
-  &Content{
+  &Content {
     width: 90%;
     margin: 0 auto;
     text-align: center;
@@ -14,10 +14,9 @@
       width: fn.rem(600);
     }
 
-    .subtitle{
+    .subtitle {
       font-size: 16px;
     }
-
   }
   .title {
     font-weight: 600;

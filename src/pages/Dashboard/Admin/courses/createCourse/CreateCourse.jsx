@@ -22,7 +22,7 @@ import { ErrorMessage } from '@hookform/error-message'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 
-const baseUrl = process.env.REACT_APP_BASE_URL
+const baseUrl = import.meta.env.VITE_BASE_URL
 
 // input validation
 

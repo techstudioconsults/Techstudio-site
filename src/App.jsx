@@ -35,7 +35,6 @@ import {
   AdminPaymentView,
   AdminResourceView,
   AdminSignup,
-  Blog,
   ContactUs,
   CreateClass,
   CreateCourse,
@@ -53,7 +52,6 @@ import {
   Register,
   ResourcesTab,
   SignIn,
-  SingleBlogPage,
   SingleCourseView,
   SingleCourseViewLive,
   StudentCalssesView,
@@ -63,18 +61,12 @@ import {
   TeacherClassView,
   TeacherDashboard,
   Faq,
-  Employers,
 } from './pages'
 import JobRequirementModal from './pages/Externals/Employers/jobRequirement/JobRequirementModal'
 
 const App = () => {
-  const {
-    frontendDevelopment,
-    fullStackDevelopment,
-    datascience,
-    mobileDevelopment,
-    UIUXDevelopment,
-  } = DEVELOPMENT_CONTENT
+  const { fullStackDevelopment, datascience, UIUXDevelopment } =
+    DEVELOPMENT_CONTENT
 
   const classes = useSelector(selectClasses)
   const lessons = useSelector(selectLessons)
