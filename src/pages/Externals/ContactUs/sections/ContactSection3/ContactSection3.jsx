@@ -1,6 +1,6 @@
 import React from 'react'
 import style from './ContactSection3.module.scss'
-import contactModalIcon from '../../../../../assets/images/ContactModalImage.png'
+// import contactModalIcon from '../../../../../assets/images/ContactModalImage.png'
 
 const ContactUsFeedback = () => {
   return (
@@ -28,7 +28,10 @@ const ContactUsFeedback = () => {
             <div
               className={`modal-header d-flex justify-content-center ${style.modalHeader}`}
             >
-              <img src={contactModalIcon} alt='' />
+              <img
+                src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218519/techstudio-web-app/assets/images/ContactModalImage_e6jwqj.png`}
+                alt=''
+              />
             </div>
             <div className={`modal-body text-center ${style.modalBody}`}>
               <h5 className={style.innerHeader}>Message Sent Successfully!</h5>

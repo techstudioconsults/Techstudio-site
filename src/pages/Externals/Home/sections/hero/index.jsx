@@ -1,6 +1,6 @@
 import React from 'react'
 import style from './hero.module.scss'
-import heroImg from '../../../../../assets/images/heroImg.webp'
+// import heroImg from '../../../../../assets/images/heroImg.webp'
 import { Container } from '../../../../../layout'
 import Button from '../../../../../components/global/Button'
 import PropTypes from 'prop-types'

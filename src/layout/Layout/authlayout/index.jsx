@@ -1,6 +1,6 @@
 import React from 'react'
 import style from './authLayout.module.scss'
-import authImg from '../../../assets/images/authImg.webp'
+// import authImg from '../../../assets/images/authImg.webp'
 import logo from '../../../assets/icons/logo.png'
 import { PropTypes } from 'prop-types'
 import { Link } from 'react-router-dom'

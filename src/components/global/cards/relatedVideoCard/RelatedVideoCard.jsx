@@ -1,6 +1,6 @@
 import React from 'react'
 import style from './relatedVideoCard.module.scss'
-import video from '../../../../assets/video/video.mp4'
+// import video from '../../../../assets/video/video.mp4'
 import clock from '../../../../assets/icons/alarm-clock-II.png'
 
 const RelatedVideoCard = () => {
@@ -8,7 +8,10 @@ const RelatedVideoCard = () => {
     <section className={style.videoCard}>
       <div>
         <video height='94' width='163' controls className={style.videoFeed}>
-          <source src={video} type='video/mp4' />
+          <source
+            src={`https://res.cloudinary.com/dkszgtapy/video/upload/v1686218532/techstudio-web-app/assets/video/video_arycwv.mp4`}
+            type='video/mp4'
+          />
           <track
             src='captions_en.vtt'
             kind='captions'

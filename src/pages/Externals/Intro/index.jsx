@@ -1,7 +1,8 @@
 import React, { useEffect, useCallback } from 'react'
-import { IntroBody, IntroHeader } from '../../../components'
 import { Footer, Navbar } from '../../../layout'
-import { useDispatch, useSelector } from 'react-redux'
+import IntroHeader from './sections/introHeader/IntroHeader'
+import IntroBody from './sections/introBody/IntroBody'
+import { useDispatch } from 'react-redux'
 import axios from 'axios'
 
 const Intro = () => {

@@ -57,44 +57,6 @@ export { default as ChangePassword } from './global/forms/changePassword/ChangeP
 export { default as SearchComponent } from './global/searchComponent/SearchComponent'
 export { default as CoursesCarousel } from './global/carousel/courses/coursesCarousel'
 export { default as Whatsapp } from './global/whatsapp/Whatsapp'
-// HOME
-// export { default as Hero } from './home/hero'
-// export { default as SectionTwo } from './home/sectionTwo'
-// export { default as SectionThree } from './home/sectionThree'
-// export { default as SectionFour } from './home/sectionFour'
-// export { default as SectionFive } from './home/sectionFive'
-// export { default as SectionSix } from './home/sectionSix'
-
-// ABOUT
-export { default as AboutHero } from './aboutUs/hero'
-export { default as AboutSectionTwo } from './aboutUs/sectionTwo'
-export { default as AboutSectionThree } from './aboutUs/sectionThree'
-export { default as AboutSectionFour } from './aboutUs/sectionFour'
-
-// BLOG
-export { default as BlogHero } from './blog/hero/BlogHero'
-export { default as BlogSectionTwo } from './blog/sectionTwo'
-export { default as BlogSectionThree } from './blog/sectionThree'
-export { default as Header } from './blog/singleBlogPage/header/Header'
-export { default as SingleBlogSectionThree } from './blog/singleBlogPage/sectionThree/SingleBlogSectionThree'
-
-//CONTACT
-export { default as ContactHero } from './contactUs/hero/ContactHero'
-export { default as ContactSectionTwo } from './contactUs/sectionTwo/ContactSectionTwo'
-
-//COURSES
-export { default as CourseHero } from './course/courseHero'
-export { default as CourseSectionTwo } from './course/sectionTwo/CourseSectionTwo'
-export { default as CourseSectionFour } from './course/sectionFour/CourseSectionFour'
-
-// intro
-export { default as IntroHeader } from './intro/introHeader/IntroHeader'
-export { default as IntroBody } from './intro/introBody/IntroBody'
-
-// EMPLOYERS
-export { default as EmployersHero } from './employers/hero'
-export { default as EmployersSectionTwo } from './employers/sectionTwo'
-export { default as EmployersSectionFour } from './employers/sectionFour'
 
 // DASHBOARD
 export { default as DashboardNavbar } from './dashboard/dashboardNavbar/DashboardNavbar'

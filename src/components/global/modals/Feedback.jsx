@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import { MdClose } from 'react-icons/md'
-import feedback from '../../../assets/images/feedback.webp'
+// import feedback from '../../../assets/images/feedback.webp'
 
 const Feedback = ({ content }) => {
   return (
@@ -25,7 +25,10 @@ const Feedback = ({ content }) => {
             ].join(' ')}
           >
             <div>
-              <img src={feedback} alt='feedback' />
+              <img
+                src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218520/techstudio-web-app/assets/images/feedback_gt11fy.webp`}
+                alt='feedback'
+              />
             </div>
             <div className=''>
               <h4 className='fw-bold text-blue pt-5'>{content.title}</h4>

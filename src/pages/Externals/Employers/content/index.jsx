@@ -1,6 +1,6 @@
-import img2 from '../../../../assets/images/working.webp'
-import img3 from '../../../../assets/images/Businessman.webp'
-import img4 from '../../../../assets/images/intro-img4.webp'
+// import img2 from '../../../../assets/images/working.webp'
+// import img3 from '../../../../assets/images/Businessman.webp'
+// import img4 from '../../../../assets/images/intro-img4.webp'
 // import icon1 from '../../../../assets/icons/noun_coding_3152169.webp'
 // import icon2 from '../../../../assets/icons/noun_data_science.webp'
 // import icon3 from '../../../../assets/icons/noun_Designer_1469595.webp'
@@ -20,17 +20,17 @@ export const EMPLOPYERS_CONTENT = {
     },
     cards: [
       {
-        image: img2,
+        image: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686385249/techstudio-web-app/assets/images/Illustration_arwvve.png`,
         title: `Post a job`,
         description: `Create an account and a befitting profile to attract job offers with ease. Your profile shows employers what makes you the right fit.`,
       },
       {
-        image: img3,
+        image: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686385251/techstudio-web-app/assets/images/Illustration_1_wy4b6o.png`,
         title: `Review & shortlist`,
         description: `Create a position on Hired and specify the skills and experience you’re looking for.`,
       },
       {
-        image: img4,
+        image: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686385250/techstudio-web-app/assets/images/Illustration_2_clzbwp.png`,
         title: `Interview & hire`,
         description: `Create an account and a befitting profile to attract job offers with ease. Your profile shows employers what makes you the right fit.`,
       },

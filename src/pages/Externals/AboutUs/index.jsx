@@ -1,5 +1,5 @@
 import React from 'react'
-import AboutHero from '../AboutUs/sections/AboutHero/AboutHero'
+import AboutHero from './sections/AboutHero/AboutHero'
 import AboutSection2 from './sections/AboutSection2/AboutSection2'
 import AboutSection3 from './sections/AboutSection3/AboutSection3'
 import AboutSection4 from './sections/AboutSection4/AboutSection4'

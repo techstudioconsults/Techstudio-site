@@ -1,0 +1,66 @@
+@use '../../../../../scss/global/colors' as colors;
+@use '../../../../../scss/utils/functions' as fn;
+@import '../../../../../scss/utils/breakpoints';
+@import '../../../../../scss/utils/mixins';
+
+.introHeader {
+  .introHeaderWapper {
+    @include flex_column;
+    gap: fn.rem(57);
+
+    .imgContainer {
+      width: fn.rem(40);
+      height: fn.rem(40);
+      justify-content: flex-start;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .text {
+      margin-top: fn.rem(70);
+      .title {
+        font-weight: 600;
+        font-size: fn.rem(24);
+
+        color: colors.$deep-blue;
+        margin-bottom: fn.rem(8);
+      }
+
+      .subTitle {
+        font-size: fn.rem(14);
+        margin-top: 0;
+        color: colors.$dark-gray;
+      }
+    }
+
+    .btnGroup {
+      .courseBtn {
+        width: 100%;
+        padding-block: fn.rem(12);
+        padding-inline: fn.rem(27);
+        border-radius: fn.rem(6);
+        font-size: fn.rem(14);
+        transition: all 0.5s ease;
+
+        &:hover {
+          background-color: colors.$deep-blue;
+          color: colors.$light;
+        }
+        &:focus,
+        &:active {
+          background-color: colors.$deep-blue;
+          color: colors.$light;
+        }
+      }
+
+      .active {
+        background-color: colors.$deep-blue;
+        color: colors.$light;
+      }
+    }
+  }
+}

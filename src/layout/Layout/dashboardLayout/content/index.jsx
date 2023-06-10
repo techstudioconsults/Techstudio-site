@@ -7,8 +7,8 @@
 // import img3Light from '../../../../assets/icons/message-gray.png'
 // import checklistGrey from '../../../../assets/icons/checklist-grey.png'
 // import checklistLight from '../../../../assets/icons/checklist-light.png'
-import teacherImg4 from '../../../../assets/images/teacher.webp'
-import studentImg4 from '../../../../assets/images/db-banner.-img.webp'
+// import teacherImg4 from '../../../../assets/images/teacher.webp'
+// import studentImg4 from '../../../../assets/images/db-banner.-img.webp'
 // import img5 from '../../../../assets/icons/Icon-awesome-folder.png'
 // import img6 from '../../../../assets/icons/Icon-awesome-tasks.png'
 // import img7 from '../../../../assets/icons/Icon-awesome-folder-plus.png'
@@ -114,7 +114,7 @@ export const DASHBOARD_CONTENT = {
   studentBoard: {
     banner: {
       header: {
-        img: studentImg4,
+        img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218525/techstudio-web-app/assets/images/intro-img3_p2sdv6.webp`,
         title: `Hello Tomiwa!`,
         desc: `You can be the best you can on this platform. Learn anytime and boost your skills`,
       },
@@ -242,7 +242,7 @@ export const DASHBOARD_CONTENT = {
   teacherDashboard: {
     banner: {
       header: {
-        img: teacherImg4,
+        img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218527/techstudio-web-app/assets/images/teacher_f4hm2d.webp`,
         title: `Hello Rafiu!`,
         desc: `Welcome to your techstudio dashboard. Time to pass knowledge down to Your students.`,
       },

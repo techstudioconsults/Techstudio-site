@@ -1,7 +1,7 @@
 import React from 'react'
 import { MdOutlineSlideshow, MdOutlineVideocam } from 'react-icons/md'
 import { BsRecordCircle } from 'react-icons/bs'
-import noise from '../../../../../assets/video/white-noise.gif'
+// import noise from '../../../../../assets/video/white-noise.gif'
 import {
   Avatar,
   CalendarOffCanvas,
@@ -29,7 +29,11 @@ const SingleCourseViewLive = () => {
         </div>
         <section className={style.frame}>
           <div className={style.videoframe}>
-            <img src={noise} alt='static' className='cc-img-fluid' />
+            <img
+              src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218529/techstudio-web-app/assets/video/white-noise_oy3hyr.gif`}
+              alt='static'
+              className='cc-img-fluid'
+            />
           </div>
           <div className={style.controlFrame}>
             <div className={style.action}>
