@@ -120,6 +120,11 @@
   }
 }
 
+.tableView {
+  border: 1px solid red;
+  background-color: green !important;
+}
+
 .courseDetails.show {
   // animation: showDetails 1s forwards;
 }

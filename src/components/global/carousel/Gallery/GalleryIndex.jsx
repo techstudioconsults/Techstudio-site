@@ -62,22 +62,46 @@ const GalleryIndex = () => {
             }}
           >
             <SwiperSlide>
-              <img src={GalleryImg01} alt='' className={style.GalleryImg} />
+              <img
+                src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218521/techstudio-web-app/assets/images/GelleryImg01_kkaqwh.png`}
+                alt=''
+                className={style.GalleryImg}
+              />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={GalleryImg02} alt='' className={style.GalleryImg} />
+              <img
+                src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218521/techstudio-web-app/assets/images/GelleryImg02_a55pne.png`}
+                alt=''
+                className={style.GalleryImg}
+              />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={GalleryImg03} alt='' className={style.GalleryImg} />
+              <img
+                src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218521/techstudio-web-app/assets/images/GelleryImg03_ymo87m.png`}
+                alt=''
+                className={style.GalleryImg}
+              />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={GalleryImg04} alt='' className={style.GalleryImg} />
+              <img
+                src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218521/techstudio-web-app/assets/images/GelleryImg04_rlaxcb.png`}
+                alt=''
+                className={style.GalleryImg}
+              />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={GalleryImg05} alt='' className={style.GalleryImg} />
+              <img
+                src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218522/techstudio-web-app/assets/images/GelleryImg05_xpe6gt.png`}
+                alt=''
+                className={style.GalleryImg}
+              />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={GalleryImg06} alt='' className={style.GalleryImg} />
+              <img
+                src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218522/techstudio-web-app/assets/images/GelleryImg06_ywrbbv.png`}
+                alt=''
+                className={style.GalleryImg}
+              />
             </SwiperSlide>
           </Swiper>
         </div>

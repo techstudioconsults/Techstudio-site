@@ -1,26 +1,9 @@
-// import img2 from '../../../../assets/images/about-img2.webp'
-// import img3 from '../../../../assets/images/about-img3.webp'
-// import img4 from '../../../../assets/images/about-img4.webp'
-// import img5 from '../../../../assets/images/about-img5.webp'
-
-import icon1 from '../../../../assets/icons/clock.png'
-import icon2 from '../../../../assets/icons/Insurance.png'
-import icon3 from '../../../../assets/icons/money-bag.png'
-import icon4 from '../../../../assets/icons/noun_colleague_3249817.png'
-import icon5 from '../../../../assets/icons/noun_Learning_2531760.png'
-import icon6 from '../../../../assets/icons/noun_workspace_799121.png'
-
-import AboutSec2Img01 from '../../../../assets/images/AboutSec2Img01.png'
-import AboutSec2Img02 from '../../../../assets/images/AboutSec2Img02.png'
-import AboutSec2Img03 from '../../../../assets/images/AboutSec2Img03.png'
-import AboutSec2Img04 from '../../../../assets/images/AboutSec2Img04.png'
-
-import AboutSec4Img01 from '../../../../assets/images/AboutSec4Img01.png'
-import AboutSec4Img02 from '../../../../assets/images/AboutSec4Img02.png'
-import AboutSec4Img03 from '../../../../assets/images/AboutSec4Img03.png'
-import AboutSec4Img04 from '../../../../assets/images/AboutSec4Img04.png'
-import AboutSec4Img05 from '../../../../assets/images/AboutSec4Img05.png'
-import AboutSec4Img06 from '../../../../assets/images/AboutSec4Img06.png'
+// import AboutSec4Img01 from '../../../../assets/images/AboutSec4Img01.png'
+// import AboutSec4Img02 from '../../../../assets/images/AboutSec4Img02.png'
+// import AboutSec4Img03 from '../../../../assets/images/AboutSec4Img03.png'
+// import AboutSec4Img04 from '../../../../assets/images/AboutSec4Img04.png'
+// import AboutSec4Img05 from '../../../../assets/images/AboutSec4Img05.png'
+// import AboutSec4Img06 from '../../../../assets/images/AboutSec4Img06.png'
 
 export const ABOUT_CONTENT = {
   hero: {
@@ -35,19 +18,19 @@ export const ABOUT_CONTENT = {
     images: [
       {
         id: 1,
-        src: AboutSec2Img01,
+        src: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218514/techstudio-web-app/assets/images/AboutSec2Img01_xgsvqw.png`,
       },
       {
         id: 2,
-        src: AboutSec2Img02,
+        src: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218514/techstudio-web-app/assets/images/AboutSec2Img02_xgx6e6.png`,
       },
       {
         id: 3,
-        src: AboutSec2Img03,
+        src: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218514/techstudio-web-app/assets/images/AboutSec2Img03_mshd9b.png`,
       },
       {
         id: 4,
-        src: AboutSec2Img04,
+        src: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218515/techstudio-web-app/assets/images/AboutSec2Img04_w6nju2.png`,
       },
     ],
   },
@@ -99,32 +82,32 @@ export const ABOUT_CONTENT = {
 
     cards: [
       {
-        img: AboutSec4Img01,
+        img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218515/techstudio-web-app/assets/images/AboutSec4Img01_w8mdxw.png`,
         name: `Wasiu Yusuf`,
         job: `COO`,
       },
       {
-        img: AboutSec4Img02,
+        img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218515/techstudio-web-app/assets/images/AboutSec4Img02_vsdms5.png`,
         name: `Tosin Sanya`,
         job: `HR/ Admin Lead`,
       },
       {
-        img: AboutSec4Img03,
+        img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218515/techstudio-web-app/assets/images/AboutSec4Img03_paaukf.png`,
         name: `Hafeez Kekere-Ekun`,
         job: `Product Lead`,
       },
       {
-        img: AboutSec4Img04,
+        img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218515/techstudio-web-app/assets/images/AboutSec4Img04_df6elh.png`,
         name: `Hussein Oyelaja`,
         job: `Marketing Lead`,
       },
       {
-        img: AboutSec4Img05,
+        img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218516/techstudio-web-app/assets/images/AboutSec4Img05_brhhpr.png`,
         name: `Adebusola Adebowale`,
         job: `Sales & Marketing`,
       },
       {
-        img: AboutSec4Img06,
+        img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218516/techstudio-web-app/assets/images/AboutSec4Img06_vd64w5.png`,
         name: `Patrick Blessing`,
         job: `Sales & Marketing`,
       },

@@ -99,7 +99,7 @@ const SectionFour = ({ content }) => {
         <div className={style.sectionFourWrapper}>
           <div className={style.sectionFourImg}>
             <img
-              src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1684971187/techstudio/Group_1000002320_pve1ql.png`}
+              src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218826/techstudio-web-app/assets/images/Group_1000002320_pve1ql_lqi4vr.png`}
               alt='section-four'
               className='img-fluid'
             />

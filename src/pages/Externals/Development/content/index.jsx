@@ -1,12 +1,3 @@
-import frontendImg from '../../../../assets/images/frontend.webp'
-import fullstack from '../../../../assets/images/fullstack.webp'
-import uiux from '../../../../assets/images/uiux.webp'
-import datascience from '../../../../assets/images/datascience.webp'
-import mobile from '../../../../assets/images/android.webp'
-import numberOne from '../../../../assets/images/numberOne.webp'
-import numberTwo from '../../../../assets/images/numberTwo.webp'
-import numberThree from '../../../../assets/images/numberThree.webp'
-
 // this data would also be used in the intro page.
 
 export const DEVELOPMENT_CONTENT = {
@@ -15,7 +6,7 @@ export const DEVELOPMENT_CONTENT = {
       title: `Frontend Web Development`,
       subTitle: `Let’s help you become a professional frontend web developer. You’ll learn all you need to know to become a Frontend Developer and build interesting portfolios while learning the fundamentals of HTML, CSS, JavaScript and React.`,
       // img: frontendImg,
-      img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685537841/techstudio/Group_1000002400_ocntit.png`,
+      img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218833/techstudio-web-app/assets/images/Group_1000002400_ocntit_pqduyw.png`,
     },
 
     sectionTwo: {
@@ -24,15 +15,15 @@ export const DEVELOPMENT_CONTENT = {
       },
       cards: [
         {
-          img: numberOne,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218526/techstudio-web-app/assets/images/numberOne_iorpb9.webp`,
           text: `We teach the important skills required to jumpstart your career as a web developer. With 5 straight weeks of web training, you learn to think and build like frontend developers.`,
         },
         {
-          img: numberTwo,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218526/techstudio-web-app/assets/images/numberTwo_tjclgg.webp`,
           text: `You move from understanding web basics to launching Single Page Applications (SPAs). You’ll be taught to build smart SPAs using vanilla JavaScript that interacts with user inputs.`,
         },
         {
-          img: numberThree,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218526/techstudio-web-app/assets/images/numberThree_ludnkx.webp`,
           text: `And finally, you’ll learn the fundamentals of working as a team; collaborate with other group members of the class to build, change, maintain, and secure an application. Track your team development process using Version Control Systems.`,
         },
       ],
@@ -95,7 +86,7 @@ export const DEVELOPMENT_CONTENT = {
     hero: {
       title: `User Interface & User Experience design`,
       subTitle: `Learn to design and deliver digital products that serve clients’ needs and solve users problems. Understand the fundamental techniques and tools of design like problem definition, user research, prototyping, testing and more. `,
-      img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685614814/techstudio/Group_1000002400_3_ilwypv.png`,
+      img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218830/techstudio-web-app/assets/images/Group_1000002400_3_ilwypv_jyi2ku.png`,
     },
 
     sectionTwo: {
@@ -104,15 +95,15 @@ export const DEVELOPMENT_CONTENT = {
       },
       cards: [
         {
-          img: numberOne,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218526/techstudio-web-app/assets/images/numberOne_iorpb9.webp`,
           text: `We teach the important skills required to jumpstart your career as a product designer. With 12 straight weeks of training, you learn to think, build and solve complex UI/UX challenges.`,
         },
         {
-          img: numberTwo,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218526/techstudio-web-app/assets/images/numberTwo_tjclgg.webp`,
           text: `We move from understanding the core principles of effective design to applying tactics like wireframing, low and high-fidelity prototyping, usability testing and user interface design to build a portfolio of intuitive digital products. `,
         },
         {
-          img: numberThree,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218526/techstudio-web-app/assets/images/numberThree_ludnkx.webp`,
           text: `You’ll learn the fundamentals of working as a team; sharpen your communication skills and collaborate with web development teams to build, change, maintain and successfully execute cross-functional UI/UX projects.`,
         },
       ],
@@ -160,7 +151,7 @@ export const DEVELOPMENT_CONTENT = {
     hero: {
       title: `Fullstack Web Development`,
       subTitle: `Let’s help you become a professional Fullstack web developer. You’ll learn all you need to know to become a Fullstack Developer and build interesting portfolios while learning the fundmentals of HTML, CSS, JavaScript, React, Mongo DB, Express and hosting on Vercel.`,
-      img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685537841/techstudio/Group_1000002400_1_rcex13.png`,
+      img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218829/techstudio-web-app/assets/images/Group_1000002400_1_rcex13_xjnzf0.png`,
     },
 
     sectionTwo: {
@@ -169,15 +160,15 @@ export const DEVELOPMENT_CONTENT = {
       },
       cards: [
         {
-          img: numberOne,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218526/techstudio-web-app/assets/images/numberOne_iorpb9.webp`,
           text: `In 24 weeks, you’ll be a professional Fullstack developer, able to build real-time interactive and dynamic applications. We teach Fullstack JavaScript because growing in popularity every day and it’s here to stay.`,
         },
         {
-          img: numberTwo,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218526/techstudio-web-app/assets/images/numberTwo_tjclgg.webp`,
           text: `You’ll get your hands dirty by building real life websites,APIs, and data-driven apps to gain confidence and sharpen yours skills. You’ll also collaborate with classmates on a range of projects to add to your portfolio.`,
         },
         {
-          img: numberThree,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218526/techstudio-web-app/assets/images/numberThree_ludnkx.webp`,
           text: `You graduate with a valued portfolio required to launch your career. All our students receive career guidance and mentorship with the support of our career counselors through every step of their job search.`,
         },
       ],
@@ -215,7 +206,7 @@ export const DEVELOPMENT_CONTENT = {
     hero: {
       title: `Data Science Immersive With Python`,
       subTitle: `Get your hands dirty working with Excel and complex data. Dive into the Python programming language, understand data analysis and statistical modeling using Python, after which you move into machine learning and algorithms.`,
-      img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685614714/techstudio/Group_1000002400_n3wtma.png`,
+      img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218833/techstudio-web-app/assets/images/Group_1000002400_n3wtma_oldi2o.png`,
     },
 
     sectionTwo: {
@@ -224,15 +215,15 @@ export const DEVELOPMENT_CONTENT = {
       },
       cards: [
         {
-          img: numberOne,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218526/techstudio-web-app/assets/images/numberOne_iorpb9.webp`,
           text: `You will learn the skills needed to skyrocket your career as a data analyst/scientist. You'll have 12 straight weeks of training to predict trends and generate informed predictive models.`,
         },
         {
-          img: numberTwo,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218526/techstudio-web-app/assets/images/numberTwo_tjclgg.webp`,
           text: `You’ll learn the fundamentals of the Python programming language and it’s usage in analysing complex data. You’ll build and refine machine learning models to predict patterns from data sets and complete hands-on exercises to reinforce the newly learned skills.`,
         },
         {
-          img: numberThree,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218526/techstudio-web-app/assets/images/numberThree_ludnkx.webp`,
           text: `You’ll learn the fundamentals of being a true data analyst; you work with a team, sharpen your communication skills and collaborate with members through real-world projects.`,
         },
       ],
@@ -276,69 +267,69 @@ export const DEVELOPMENT_CONTENT = {
       ],
     },
   },
-  mobileDevelopment: {
-    hero: {
-      title: `Mobile Development (IOS & Android)`,
-      subTitle: `Whether you want to pursue a career as a Mobile App Developer, a Freelancer, or an Entrepreneur, this program prepares you adequately for that.`,
-      img: mobile,
-    },
+  // mobileDevelopment: {
+  //   hero: {
+  //     title: `Mobile Development (IOS & Android)`,
+  //     subTitle: `Whether you want to pursue a career as a Mobile App Developer, a Freelancer, or an Entrepreneur, this program prepares you adequately for that.`,
+  //     img: mobile,
+  //   },
 
-    sectionTwo: {
-      header: {
-        title: `Our process`,
-      },
-      cards: [
-        {
-          img: numberOne,
-          text: `In this foundational Mobile App Development course, you’ll learn the fundamentals of Dart, including object-oriented programming (OOP) - a concept that can be applied beyond Mobile App Development.`,
-        },
-        {
-          img: numberTwo,
-          text: `In this foundational Mobile App Development course, you’ll learn the fundamentals of Dart, including object-oriented programming (OOP) - a concept that can be applied beyond Mobile App Development.`,
-        },
-        {
-          img: numberThree,
-          text: `You’ll go through each process in the app development lifecycle so as to build a fully functional mobile app that can be deployed on both the Android and iOS platforms.`,
-        },
-      ],
-    },
+  //   sectionTwo: {
+  //     header: {
+  //       title: `Our process`,
+  //     },
+  //     cards: [
+  //       {
+  //         img: numberOne,
+  //         text: `In this foundational Mobile App Development course, you’ll learn the fundamentals of Dart, including object-oriented programming (OOP) - a concept that can be applied beyond Mobile App Development.`,
+  //       },
+  //       {
+  //         img: numberTwo,
+  //         text: `In this foundational Mobile App Development course, you’ll learn the fundamentals of Dart, including object-oriented programming (OOP) - a concept that can be applied beyond Mobile App Development.`,
+  //       },
+  //       {
+  //         img: numberThree,
+  //         text: `You’ll go through each process in the app development lifecycle so as to build a fully functional mobile app that can be deployed on both the Android and iOS platforms.`,
+  //       },
+  //     ],
+  //   },
 
-    sectionFour: {
-      header: {
-        title: `What you will learn`,
-      },
-      list: [
-        {
-          id: 1,
-          title: `Fundamentals`,
-          desc: `The first weeks of this bootcamp is to help you appreciate the fundamentals of mobile app development using Dart and Flutter. You’ll be comfortable writing pure Dart codes. You’ll also be introduced to Object Oriented Programming (OOP) in Dart to encapsulate both data and functionality. You’ll create, access, and modify objects to have a strong foundation for OOP.`,
-        },
-        {
-          id: 2,
-          title: `Version Control`,
-          desc: `You’ll learn to use the Git version control system, collaborate with other team members and push your projects to GitHub using Git`,
-        },
-        {
-          id: 3,
-          title: `Introduction to Flutter`,
-          desc: `After mastering the fundamentals of Dart, the focus shifts towards Flutter. You’ll learn about widgets and its importance to creating hybrid mobile applications. You’ll learn when different types of widgets and when to use them. You’ll be introduced to design concepts and common design patterns across different mobile devices.`,
-        },
-        {
-          id: 4,
-          title: `Routing and Navigation`,
-          desc: `You’ll learn what routing is and why it’s one of the core concepts of mobile application development. You’ll learn how to navigate from one page to the other, how to use named routes and using push and pop methods.`,
-        },
-        {
-          id: 5,
-          title: `FireBase Integration`,
-          desc: `Modern mobile applications need querying real-time data for interactivity. You’ll spend considerable time learning Flutter integration with FireBase. You’ll be exposed to querying the database to perform the CRUD functions - Create, Read, Update and Delete resources.`,
-        },
-        {
-          id: 6,
-          title: `Production Deployment`,
-          desc: `You’ll be taught how to deploy your production ready mobile app to the Android and iOS app stores to be accessed by everyone in the mobile community.`,
-        },
-      ],
-    },
-  },
+  //   sectionFour: {
+  //     header: {
+  //       title: `What you will learn`,
+  //     },
+  //     list: [
+  //       {
+  //         id: 1,
+  //         title: `Fundamentals`,
+  //         desc: `The first weeks of this bootcamp is to help you appreciate the fundamentals of mobile app development using Dart and Flutter. You’ll be comfortable writing pure Dart codes. You’ll also be introduced to Object Oriented Programming (OOP) in Dart to encapsulate both data and functionality. You’ll create, access, and modify objects to have a strong foundation for OOP.`,
+  //       },
+  //       {
+  //         id: 2,
+  //         title: `Version Control`,
+  //         desc: `You’ll learn to use the Git version control system, collaborate with other team members and push your projects to GitHub using Git`,
+  //       },
+  //       {
+  //         id: 3,
+  //         title: `Introduction to Flutter`,
+  //         desc: `After mastering the fundamentals of Dart, the focus shifts towards Flutter. You’ll learn about widgets and its importance to creating hybrid mobile applications. You’ll learn when different types of widgets and when to use them. You’ll be introduced to design concepts and common design patterns across different mobile devices.`,
+  //       },
+  //       {
+  //         id: 4,
+  //         title: `Routing and Navigation`,
+  //         desc: `You’ll learn what routing is and why it’s one of the core concepts of mobile application development. You’ll learn how to navigate from one page to the other, how to use named routes and using push and pop methods.`,
+  //       },
+  //       {
+  //         id: 5,
+  //         title: `FireBase Integration`,
+  //         desc: `Modern mobile applications need querying real-time data for interactivity. You’ll spend considerable time learning Flutter integration with FireBase. You’ll be exposed to querying the database to perform the CRUD functions - Create, Read, Update and Delete resources.`,
+  //       },
+  //       {
+  //         id: 6,
+  //         title: `Production Deployment`,
+  //         desc: `You’ll be taught how to deploy your production ready mobile app to the Android and iOS app stores to be accessed by everyone in the mobile community.`,
+  //       },
+  //     ],
+  //   },
+  // },
 }

@@ -31,7 +31,10 @@ const Hero = ({ content }) => {
             </div>
           </div>
           <div className={style.heroImg}>
-            <img src={heroImg} alt='hero-img' />
+            <img
+              src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218523/techstudio-web-app/assets/images/heroImg_x9cptk.webp`}
+              alt='hero-img'
+            />
           </div>
         </section>
       </Container>

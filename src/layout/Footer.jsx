@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import techimage from '../assets/images/logo_white_text_new 2.png'
 import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa'
 
 const Footer = () => {
@@ -15,7 +14,10 @@ const Footer = () => {
                   className='d-flex gap-3 text-white justify-content-start'
                   to='/'
                 >
-                  <img src={techimage} alt='logo' />
+                  <img
+                    src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218525/techstudio-web-app/assets/images/logo_white_text_new_2_fmjlzq.png`}
+                    alt='logo'
+                  />
                 </Link>
               </div>
               <ul className='nav flex-column fs-sm mt-5 gap-1 align-items-start'>

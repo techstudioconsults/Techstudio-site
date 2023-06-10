@@ -13,7 +13,7 @@ const BannerII = ({ children }) => {
     >
       <img
         className='position-absolute top-0 start-0 translate-middle m-5 d-none d-lg-block'
-        src='https://res.cloudinary.com/kingsleysolomon/image/upload/v1667476114/samples/techstudio/Icons%20and%20Images/Icons%20and%20Images/Tech%20Studio%20images/Repeat_Grid_38_ipl0tv.png'
+        src='https://res.cloudinary.com/dkszgtapy/image/upload/v1686218527/techstudio-web-app/assets/images/repeatGrid_iwd5xz.webp'
         alt='img'
       />
       {children}
@@ -22,13 +22,13 @@ const BannerII = ({ children }) => {
         className='position-absolute end-0 me-32 d-none d-lg-block'
       >
         <img
-          src='https://res.cloudinary.com/kingsleysolomon/image/upload/v1667476100/samples/techstudio/Icons%20and%20Images/Icons%20and%20Images/Tech%20Studio%20images/Image_134_ext3we.png'
+          src='https://res.cloudinary.com/dkszgtapy/image/upload/v1686220354/techstudio-web-app/assets/images/Image_134_ext3we_yxqfpf.png'
           alt='img'
         />
       </div>
       <img
         className='position-absolute top-100 start-100 translate-middle d-none d-xxl-block'
-        src='https://res.cloudinary.com/kingsleysolomon/image/upload/v1667476113/samples/techstudio/Icons%20and%20Images/Icons%20and%20Images/Tech%20Studio%20images/Rectangle_7475_gijnxw.png'
+        src='https://res.cloudinary.com/dkszgtapy/image/upload/v1686218516/techstudio-web-app/assets/images/AboutSection2Pattern02_mnthqw.png'
         alt='img'
       />
     </div>

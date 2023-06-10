@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { NavLink, useLocation } from 'react-router-dom'
-import logo from '../../assets/icons/logo.png'
 import style from './dashboardLeftSideNav.module.scss'
 import { Icon } from '@iconify/react'
 import { DASHBOARD_CONTENT } from '../Layout/dashboardLayout/content'
@@ -128,7 +127,11 @@ const DashboardSideNav = () => {
     <div className={style.dashboardSideNav}>
       <div className={style.logoDiv}>
         <NavLink to={`/`} className={style.imgLogoContainer}>
-          <img src={logo} alt='logo' className='cc-img-fluid' />
+          <img
+            src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218509/techstudio-web-app/assets/icons/logo_n9icvi.png`}
+            alt='logo'
+            className='cc-img-fluid'
+          />
         </NavLink>
       </div>
       {/* link nav */}

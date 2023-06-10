@@ -28,7 +28,7 @@ const CourseDetails = ({ courseDetails, show }) => {
             <p className={style.text}>{courseDetails?.description}</p>
           </div>
           <div>
-            <table className='table table-borderless table-lg align-middle'>
+            <table className={` table table-borderless table-lg align-middle`}>
               <thead className='text-white'>
                 <tr>
                   <th scope='col'></th>
@@ -55,7 +55,7 @@ const CourseDetails = ({ courseDetails, show }) => {
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className='bg-transparent'>
                 <tr>
                   <th scope='row' className='fw-light text-info'>
                     Online:

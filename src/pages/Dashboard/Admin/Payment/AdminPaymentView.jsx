@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback } from 'react'
 import style from './style/paymentClasses.module.scss'
-import coinImg from '../../../../assets/images/amico.png'
+// import coinImg from '../../../../assets/images/amico.png'
 import { useViewAllCoursesMutation } from '../courses/api/coursesApiSlice'
 import { useGetClassByCourseIDMutation } from '../classes/api/classApiSlice'
 import { useSelector } from 'react-redux'
@@ -130,7 +130,10 @@ const AdminPaymentView = () => {
                     </div>
                   </div>
                   <div>
-                    <img src={coinImg} alt='coin' />
+                    <img
+                      src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218516/techstudio-web-app/assets/images/amico_myhyzl.png`}
+                      alt='coin'
+                    />
                   </div>
                 </div>
               </div>
@@ -150,7 +153,10 @@ const AdminPaymentView = () => {
                     </div>
                   </div>
                   <div>
-                    <img src={coinImg} alt='coin' />
+                    <img
+                      src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218516/techstudio-web-app/assets/images/amico_myhyzl.png`}
+                      alt='coin'
+                    />
                   </div>
                 </div>
               </div>

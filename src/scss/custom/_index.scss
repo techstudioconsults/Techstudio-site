@@ -121,6 +121,8 @@ $font-sizes: (
   '24': '24px',
 );
 
+$table-bg: transparent; //dont touch or modify.
+
 // 3. Include remainder of required Bootstrap stylesheets
 @import '../../../node_modules/bootstrap/scss/variables';
 

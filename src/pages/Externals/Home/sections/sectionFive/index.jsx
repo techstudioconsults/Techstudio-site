@@ -15,7 +15,7 @@ const SectionFive = ({ content }) => {
           </div>
           <div className={style.sectionFiveImg}>
             <img
-              src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1684971336/techstudio/Property_1_Frame_1000002406_ohrkxt.png`}
+              src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218816/techstudio-web-app/assets/images/Property_1_Frame_1000002406_ohrkxt_mqmtup.png`}
               alt='sectionFive-img'
               className='img-fluid'
             />

@@ -13,7 +13,11 @@ const index = ({ children }) => {
         <img src={logo} alt='logo' />
       </Link>
       <div className={style.imgContainer}>
-        <img src={authImg} alt='auth-img' className='cc-img-fluid' />
+        <img
+          src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218517/techstudio-web-app/assets/images/authImg_uy00im.webp`}
+          alt='auth-img'
+          className='cc-img-fluid'
+        />
       </div>
       <div className={style.children}>
         <div className={style.childrenWrapper}>

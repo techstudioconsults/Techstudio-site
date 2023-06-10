@@ -61,8 +61,8 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
                 className={['logo', style.responsiveLogo].join(' ')}
                 src={
                   color
-                    ? `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684888559/techstudio/logo_black_text_new_1_frkqnn.png`
-                    : `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684888535/techstudio/logo_white_text_new_1_yo2rsg.png`
+                    ? `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218815/techstudio-web-app/assets/images/logo_black_text_new_1_frkqnn_xdlflg.png`
+                    : `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218525/techstudio-web-app/assets/images/logo_white_text_new_2_fmjlzq.png`
                 }
                 alt='logo'
               />
@@ -114,14 +114,13 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
               </div>
               <ul className='dropdown-menu mt-8'>
                 <li className='my-2'>
-                  <li className='my-2'>
-                    <Link
-                      className='dropdown-item fs-sm fw-semibold py-2'
-                      to='/course/product-design'
-                    >
-                      Product Design
-                    </Link>
-                  </li>
+                  <Link
+                    className='dropdown-item fs-sm fw-semibold py-2'
+                    to='/course/product-design'
+                  >
+                    Product Design
+                  </Link>
+
                   {/* <Link
                     className='dropdown-item fs-sm fw-semibold py-2'
                     to='/course/frontend'
