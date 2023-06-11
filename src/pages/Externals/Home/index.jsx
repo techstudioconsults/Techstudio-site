@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 
 import { ExternalLayout, Navbar } from '../../../layout'
 import { HOME_CONTENT } from './content'
@@ -10,6 +10,7 @@ import SectionFive from './sections/sectionFive'
 import SectionSix from './sections/sectionSix'
 import GalleryIndex from '../../../components/global/carousel/Gallery/GalleryIndex'
 import SectionSeven from './sections/sectionSeven'
+
 // import { Whatsapp } from '../../../components'
 
 const Home = () => {
@@ -22,19 +23,24 @@ const Home = () => {
     sectionSix,
     sectionSeven,
   } = HOME_CONTENT
+
   return (
-    <ExternalLayout>
-      <Navbar bg={`transparent`} keepColor />
-      <Hero content={hero} />
-      <SectionTwo content={sectionTwo} />
-      <SectionThree content={sectionThree} />
-      <SectionFour content={sectionFour} />
-      <SectionFive content={sectionFive} />
-      <GalleryIndex />
-      <SectionSeven data={sectionSeven.upcomingClasses} />
-      <SectionSix content={sectionSix} />
-      {/* <GalleryIndex /> */}
-    </ExternalLayout>
+    <div>
+      <ExternalLayout>
+        <Navbar bg={`transparent`} keepColor />
+        {/* <GalleryIndex /> */}
+        <>
+          <Hero content={hero} />
+          <SectionTwo content={sectionTwo} />
+          <SectionThree content={sectionThree} />
+          <SectionFour content={sectionFour} />
+          <SectionFive content={sectionFive} />
+          <GalleryIndex />
+          <SectionSeven data={sectionSeven.upcomingClasses} />
+          <SectionSix content={sectionSix} />
+        </>
+      </ExternalLayout>
+    </div>
   )
 }
 

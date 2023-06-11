@@ -95,8 +95,89 @@
     <!-- bootstrap  -->
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
   </head>
+  <style>
+    .preloader {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .icon {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      z-index: 999;
+    }
+
+    .marker {
+      background-color: #1f2666;
+      height: 2em;
+      width: 2em;
+      border-radius: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      -webkit-transform: translateX(-50%) translateY(-50%);
+    }
+
+    .marker:before {
+      position: absolute;
+      content: '';
+      height: 2em;
+      width: 2em;
+      left: 0;
+      top: 0;
+      background-color: transparent;
+      border-radius: 50%;
+      box-shadow: 0px 0px 10px 30px #0266f450;
+      -webkit-animation: active 2s infinite ease-in-out;
+      animation: active 2s infinite ease-in-out;
+    }
+
+    @-webkit-keyframes active {
+      0% {
+        -webkit-transform: scale(0.1);
+        opacity: 1;
+      }
+
+      70% {
+        -webkit-transform: scale(1.5);
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes active {
+      0% {
+        transform: scale(0.1);
+        opacity: 1;
+      }
+
+      70% {
+        transform: scale(1);
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="preloader">
+        <div class="marker">
+          <img
+            class="icon"
+            src="/src/assets/icons/logo.png"
+            alt="pre-loader"
+          />
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
   <script>
@@ -108,14 +189,14 @@
             console.log(
               `ServiceWorker registration successful with scope: `,
               registration.scope
-            );
+            )
           },
           function (err) {
             // registration failed :(
-            console.log(`ServiceWorker registration failed: `, err);
+            console.log(`ServiceWorker registration failed: `, err)
           }
-        );
-      });
+        )
+      })
     }
   </script>
 </html>
