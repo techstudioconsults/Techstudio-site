@@ -1,6 +1,6 @@
 import React from 'react'
-import { MdOutlineSlideshow, MdOutlineVideocam } from 'react-icons/md'
-import { BsRecordCircle } from 'react-icons/bs'
+// import { MdOutlineSlideshow, MdOutlineVideocam } from 'react-icons/md'
+// import { BsRecordCircle } from 'react-icons/bs'
 // import noise from '../../../../../assets/video/white-noise.gif'
 import {
   Avatar,
@@ -8,8 +8,9 @@ import {
   ChatDisplay,
 } from '../../../../../components'
 import style from './liveCourse.module.scss'
-import { HiOutlineMicrophone } from 'react-icons/hi'
-import { CgScreen } from 'react-icons/cg'
+// import { HiOutlineMicrophone } from 'react-icons/hi'
+// import { CgScreen } from 'react-icons/cg'
+import { Icon } from '@iconify/react'
 
 const SingleCourseViewLive = () => {
   return (
@@ -38,34 +39,35 @@ const SingleCourseViewLive = () => {
           <div className={style.controlFrame}>
             <div className={style.action}>
               <div className={[style.icon].join(' ')}>
-                <MdOutlineVideocam className={style.i} />
+                <Icon icon={`mdi:videocam-outline`} className={style.i} />
                 {/* <MdVideocam  className={style.i} /> */}
               </div>
               <p>Cam</p>
             </div>
             <div className={style.action}>
               <div className={[style.icon].join(' ')}>
-                <MdOutlineSlideshow className={style.i} />
+                <Icon
+                  icon={`material-symbols:slideshow-outline`}
+                  className={style.i}
+                />
               </div>
               <p>Slides</p>
             </div>
             <div className={style.action}>
               <div className={[style.icon].join(' ')}>
-                <BsRecordCircle color='red' className={[style.i].join(' ')} />
                 {/* <MdVideocam  className={style.i} /> */}
               </div>
               <p>Rec</p>
             </div>
             <div className={style.action}>
               <div className={[style.icon].join(' ')}>
-                <HiOutlineMicrophone className={style.i} />
-                {/* <MdVideocam  className={style.i} /> */}
+                <Icon icon={`bytesize:microphone`} className={style.i} />
               </div>
               <p>Mic</p>
             </div>
             <div className={style.action}>
               <div className={[style.icon].join(' ')}>
-                <CgScreen className={style.i} />
+                <Icon icon={`gg:screen`} className={style.i} />
                 {/* <MdVideocam size={`2rem`} /> */}
               </div>
               <p>Share</p>

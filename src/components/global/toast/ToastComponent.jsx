@@ -1,5 +1,5 @@
+import { Icon } from '@iconify/react'
 import PropTypes from 'prop-types'
-import { MdClose, MdError } from 'react-icons/md'
 
 const ToastComponent = ({
   bgColor = `#800000`,
@@ -18,7 +18,11 @@ const ToastComponent = ({
         <div className='d-flex'>
           <div className='toast-body text-white'>
             <span className='me-5'>
-              <MdError size={`1.5rem`} className='text-white' />
+              <Icon
+                icon={`material-symbols:error-outline`}
+                width={`1.5rem`}
+                className='text-white'
+              />
             </span>
             <span className='text-white'>{errorMessage}</span>
           </div>
@@ -27,7 +31,11 @@ const ToastComponent = ({
             data-bs-dismiss='toast'
             aria-label='Close'
           >
-            <MdClose size={`1.5rem`} className='text-white' />
+            <Icon
+              icon={`material-symbols:close`}
+              width={`1.5rem`}
+              className='text-white'
+            />
           </div>
         </div>
       </div>

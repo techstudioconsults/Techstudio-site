@@ -4,10 +4,10 @@ import { DASHBOARD_CONTENT } from '../../../../layout/Layout/dashboardLayout/con
 import LiveClassDisplayCard from '../../../global/cards/liveClassDisplayCard/LiveClassDisplayCard'
 import style from './classesTab.module.scss'
 import ScheduleClassForm from '../../../global/forms/scheduleClassFom/ScheduleClassForm'
-import { AiOutlinePlusCircle } from 'react-icons/ai'
 import AddAClassOffCanvas from '../../../global/offCanvas/AddAClassOffcanvas'
 import Portal from '../../../global/POTAL/Portal'
 import { useLocation } from 'react-router'
+import { Icon } from '@iconify/react'
 
 const ClassesTab = ({ isTDB }) => {
   const { studentBoard } = DASHBOARD_CONTENT
@@ -64,7 +64,7 @@ const ClassesTab = ({ isTDB }) => {
             // className='d-flex align-items-center gap-2 text-primary fw-semibold'
             hidden
           >
-            <AiOutlinePlusCircle size={`1rem`} /> New Lessons
+            <Icon icon={`mdi:plus-circle-outline`} width={`1rem`} /> New Lessons
           </p>
           <p
             data-bs-toggle='offcanvas'

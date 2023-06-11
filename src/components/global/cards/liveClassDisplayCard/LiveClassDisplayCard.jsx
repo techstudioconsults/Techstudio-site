@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import clock from '../../../../assets/icons/clock.png'
 import style from './liveClass.module.scss'
-import { CgAttachment } from 'react-icons/cg'
 import { AssignmentOffcanvas, Avatar, Portal } from '../../../../components'
 import { Link } from 'react-router-dom'
+import { Icon } from '@iconify/react'
 
 const LiveClassDisplayCard = ({ isTDB, isRecordedFile }) => {
   return (
@@ -85,7 +85,7 @@ const LiveClassDisplayCard = ({ isTDB, isRecordedFile }) => {
                 <div className={style.attachment}>
                   <form className={style.attachmentForm}>
                     <div className={style.iconText}>
-                      <CgAttachment />
+                      <Icon icon={`gg:attachment`} />
                       <p>Browse files or drag and drop here</p>
                     </div>
                     <button type='submit'>Add</button>

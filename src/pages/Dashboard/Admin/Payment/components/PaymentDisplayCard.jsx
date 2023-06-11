@@ -5,7 +5,6 @@ import React from 'react'
 import AddPaymentModal from './AddPaymentModal'
 import FullPaymentHistoryModal from './FullPaymentHistoryModal'
 import style from '../style/paymentClasses.module.scss'
-import { HiOutlineEllipsisVertical } from 'react-icons/hi2'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { Icon } from '@iconify/react'
 import { Portal } from '../../../../../components'
@@ -119,7 +118,10 @@ const PaymentDisplayCard = ({ paymentDetail }) => {
             data-bs-toggle='dropdown'
             aria-expanded='false'
           >
-            <HiOutlineEllipsisVertical className={[style.ellipsis].join(' ')} />
+            <Icon
+              icon={`mdi:ellipsis-vertical`}
+              className={[style.ellipsis].join(' ')}
+            />
           </button>
           <ul className='dropdown-menu dropdown-menu-end'>
             <li>

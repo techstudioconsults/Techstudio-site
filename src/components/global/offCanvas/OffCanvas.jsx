@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { MdClose } from 'react-icons/md'
+import { Icon } from '@iconify/react'
 
 const offCanvas = ({ children, text }) => {
   return (
@@ -22,7 +22,8 @@ const offCanvas = ({ children, text }) => {
       >
         <div className='p-3'>
           <div className='d-flex align-items-center justify-content-end'>
-            <MdClose
+            <Icon
+              icon={`material-symbols:close`}
               color='black'
               className='fw-bolder fs-2xl'
               data-bs-dismiss='offcanvas'

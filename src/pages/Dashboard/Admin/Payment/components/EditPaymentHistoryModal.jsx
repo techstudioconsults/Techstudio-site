@@ -4,7 +4,6 @@ import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { Icon } from '@iconify/react'
 import { useSelector } from 'react-redux'
 import { selectSingleStudentsPaymentRecord } from '../api/paymentSlice'
-import { MdOutlineEditNote } from 'react-icons/md'
 import { useState } from 'react'
 import EditPaymentModal from './EditPaymentRecord'
 import { useRef } from 'react'
@@ -116,7 +115,11 @@ const EditPaymentHistoryModal = ({ studentPayment }) => {
                     hidden={dontShowEditButton}
                     className={['btn btn-primary'].join(' ')}
                   >
-                    <MdOutlineEditNote fontSize={`1.5rem`} className='mb-1' />{' '}
+                    <Icon
+                      icon={`material-symbols:edit-note`}
+                      fontSize={`1.5rem`}
+                      className='mb-1'
+                    />{' '}
                     Proceed to Edit
                   </button>
                 </div>

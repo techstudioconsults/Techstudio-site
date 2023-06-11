@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { MdAdd } from 'react-icons/md'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 import style from './jobform.module.scss'
+import { Icon } from '@iconify/react'
 
 const JobRequirementForm = () => {
   const [jobDescription, setJobDescription] = useState('')
@@ -116,7 +116,7 @@ const JobRequirementForm = () => {
               placeholder='Add new skill'
             />
             <div className='p-2'>
-              <MdAdd size={`2rem`} className='' />
+              <Icon icon={`material-symbols:add`} width={`2rem`} className='' />
             </div>
             <div>{/* display */}</div>
           </div>
@@ -138,7 +138,7 @@ const JobRequirementForm = () => {
               placeholder='Add new tool'
             />
             <div className='p-2'>
-              <MdAdd size={`2rem`} className='' />
+              <Icon icon={`material-symbols:add`} width={`2rem`} className='' />
             </div>
             <div>{/* display */}</div>
           </div>

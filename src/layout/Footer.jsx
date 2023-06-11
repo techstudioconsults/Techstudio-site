@@ -1,6 +1,6 @@
+import { Icon } from '@iconify/react'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa'
 
 const Footer = () => {
   return (
@@ -170,7 +170,7 @@ const Footer = () => {
                   href='https://twitter.com/TechStudioAcdmy'
                   className='text-white cc-link-hover'
                 >
-                  <FaTwitter className='fs-xl' />
+                  <Icon icon={`fa:twitter`} className='fs-xl' />
                 </a>
               </li>
               <li className=''>
@@ -179,7 +179,7 @@ const Footer = () => {
                   href='https://facebook.com/techstudioacademy'
                   className='text-white cc-link-hover '
                 >
-                  <FaFacebookF className='fs-xl' />
+                  <Icon icon={`fa:facebook`} className='fs-xl' />
                 </a>
               </li>
               <li className=''>
@@ -188,7 +188,7 @@ const Footer = () => {
                   href='https://instagram.com/techstudioacademy'
                   className='text-white cc-link-hover '
                 >
-                  <FaInstagram className='fs-xl' />
+                  <Icon icon={`fa:instagram`} className='fs-xl' />
                 </a>
               </li>
             </ul>

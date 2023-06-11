@@ -1,11 +1,11 @@
 import React from 'react'
-import { MdLogout } from 'react-icons/md'
 import { useSelector } from 'react-redux'
 // import useToast from '../../../../hooks/useToast'
 import { useSendLogoutMutation } from '../../../../pages/Auth/api/authApiSlice'
 import { selectCurrentRefreshToken } from '../../../../pages/Auth/api/authSlice'
 // import ToastComponent from '../../toast/ToastComponent'
 import Avatar from '../Avatar'
+import { Icon } from '@iconify/react'
 
 const AvatarDropdown = () => {
   // const [errorMessage, setErrorMessage] = useState(null)
@@ -43,7 +43,7 @@ const AvatarDropdown = () => {
             onClick={logout}
             className='dropdown-item text-danger fs-sm fw-bold'
           >
-            <MdLogout size={`1.5rem`} /> Logout
+            <Icon icon={`material-symbols:logout`} width={`1.5rem`} /> Logout
             {/* <ToastComponent errorMessage={errorMessage} /> */}
           </div>
         </li>

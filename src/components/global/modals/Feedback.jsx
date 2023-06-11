@@ -1,5 +1,5 @@
+import { Icon } from '@iconify/react'
 import PropTypes from 'prop-types'
-import { MdClose } from 'react-icons/md'
 // import feedback from '../../../assets/images/feedback.webp'
 
 const Feedback = ({ content }) => {
@@ -13,8 +13,9 @@ const Feedback = ({ content }) => {
       <div className='modal-dialog modal-dialog-centered modal-fullscreen-md-down modal-lg px-lg-20'>
         <div className='modal-content'>
           <div className='modal-header d-flex justify-content-end'>
-            <MdClose
-              size={`1.5rem`}
+            <Icon
+              icon={`material-symbols:close`}
+              width={`1.5rem`}
               data-bs-dismiss='modal'
               aria-label='Close'
             />

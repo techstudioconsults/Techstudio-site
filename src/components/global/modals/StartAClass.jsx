@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { AiOutlinePlusCircle } from 'react-icons/ai'
+import { Icon } from '@iconify/react'
 
 const StartAClass = ({ children, title }) => {
   return (
     <section>
       <div type='button' data-bs-toggle='modal' data-bs-target='#start-a-class'>
         <p className='d-flex align-items-center gap-2 text-primary fs-sm fw-semibold'>
-          <AiOutlinePlusCircle size={`1rem`} /> Add New Class
+          <Icon icon={`mdi:plus-circle-outline`} width={`1rem`} /> Add New Class
         </p>
       </div>
       <div

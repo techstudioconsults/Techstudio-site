@@ -11,8 +11,8 @@ import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import ToastComponent from '../../toast/ToastComponent'
 import useToast from '../../../../hooks/useToast'
 import { Authlayout } from '../../../../layout'
-import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import axios from 'axios'
+import { Icon } from '@iconify/react'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
@@ -142,7 +142,11 @@ const ChangePassword = () => {
                   className={['input-group-text', style.showPassword].join(' ')}
                   id='passwordHelpBlock'
                 >
-                  {isOldShow ? <FaEyeSlash /> : <FaEye />}
+                  {isOldShow ? (
+                    <Icon icon={`ph:eye-slash-thin`} />
+                  ) : (
+                    <Icon icon={`ph:eye`} />
+                  )}
                 </div>
               </div>
               <ErrorMessage
@@ -175,7 +179,11 @@ const ChangePassword = () => {
                   className={['input-group-text', style.showPassword].join(' ')}
                   id='passwordHelpBlock'
                 >
-                  {isNewShow ? <FaEyeSlash /> : <FaEye />}
+                  {isNewShow ? (
+                    <Icon icon={`ph:eye-slash-thin`} />
+                  ) : (
+                    <Icon icon={`ph:eye`} />
+                  )}
                 </div>
               </div>
               <ErrorMessage

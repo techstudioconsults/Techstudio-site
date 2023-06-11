@@ -1,8 +1,8 @@
 import React from 'react'
-import { MdClose } from 'react-icons/md'
 // import PropTypes from 'prop-types'
 // import fileUpload from '../../../assets/images/fileUpload.webp'
 import style from './upload.module.scss'
+import { Icon } from '@iconify/react'
 
 // eslint-disable-next-line react/prop-types
 const AddAFile = () => {
@@ -16,8 +16,9 @@ const AddAFile = () => {
       <div className='modal-dialog modal-dialog-centered modal-fullscreen-md-down modal-lg'>
         <div className='modal-content'>
           <div className='modal-header d-flex justify-content-end'>
-            <MdClose
-              size={`1.5rem`}
+            <Icon
+              icon={`material-symbols:close`}
+              width={`1.5rem`}
               data-bs-dismiss='modal'
               aria-label='Close'
             />

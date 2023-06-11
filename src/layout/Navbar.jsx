@@ -1,10 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
-import { HiOutlineMenuAlt4 } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
-import { FaChevronDown } from 'react-icons/fa'
 import { Button } from '../components'
 import style from './layout.module.scss'
+import { Icon } from '@iconify/react'
 // import { useSelector } from 'react-redux'
 // import { selectCoursesExternal } from '../app/api/appSlice'
 
@@ -70,7 +69,8 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
           </div>
         </Link>
 
-        <HiOutlineMenuAlt4
+        <Icon
+          icon={`heroicons-solid:menu-alt-4`}
           data-bs-toggle='collapse'
           data-bs-target='#navbarNavAltMarkup'
           aria-controls='navbarNavAltMarkup'
@@ -110,7 +110,10 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
                 aria-expanded='false'
               >
                 Courses
-                <FaChevronDown className='ms-2 fs-sm fw-semibold' />
+                <Icon
+                  icon={`mdi:chevron-down`}
+                  className='ms-2 fs-sm fw-semibold'
+                />
               </div>
               <ul className='dropdown-menu mt-8'>
                 <li className='my-2'>

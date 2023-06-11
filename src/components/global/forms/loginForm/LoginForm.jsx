@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useEffect, useState } from 'react'
-import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
 import style from '../signupForm/signupForm.module.scss'
 import { ErrorMessage } from '@hookform/error-message'
@@ -10,6 +9,7 @@ import { useLoginMutation } from '../../../../pages/Auth/api/authApiSlice.js'
 import usePersist from '../../../../hooks/usePersist'
 import ToastComponent from '../../toast/ToastComponent'
 import useToast from '../../../../hooks/useToast'
+import { Icon } from '@iconify/react'
 
 const validation = {
   required: 'This input is required.',
@@ -116,7 +116,11 @@ const ContactForm = () => {
               className={['input-group-text', style.showPassword].join(' ')}
               id='passwordHelpBlock'
             >
-              {isShow ? <FaEyeSlash /> : <FaEye />}
+              {isShow ? (
+                <Icon icon={`ph:eye-slash-thin`} />
+              ) : (
+                <Icon icon={`ph:eye`} />
+              )}
             </div>
           </div>
           <ErrorMessage
