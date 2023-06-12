@@ -1,8 +1,6 @@
 // REACT DEFAULTS
 import { PropTypes } from 'prop-types'
 
-import logo from '@/assets/icons/logo.png'
-
 // STYLES
 import styles from './loading.module.scss'
 
@@ -12,7 +10,7 @@ const Loading = ({ text }) => {
       {text ? (
         <h4 className={styles.loading__text}>{text}</h4>
       ) : (
-        <img className={styles.Loading__img} alt='logo' src={logo} />
+        <img className={styles.Loading__img} alt='logo' src={null} />
       )}
     </section>
   )
