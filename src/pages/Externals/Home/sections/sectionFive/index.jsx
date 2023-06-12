@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import style from './sectionFive.module.scss'
+
 import ShortStepper from '../../../../../components/global/steppers/ShortStepper'
 import { Container } from '../../../../../layout'
+
+import style from './sectionFive.module.scss'
 
 // Note: Never import/require the *.min.js files from the npm package.
 

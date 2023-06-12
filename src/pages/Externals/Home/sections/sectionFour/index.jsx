@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import style from './sectionFour.module.scss'
-import { Container } from '../../../../../layout'
-import Button from '../../../../../components/global/Button'
-import { Profile, TestimonialBanner } from '../../../../../components'
 import { SwiperSlide } from 'swiper/react'
+
+import { Profile, TestimonialBanner } from '../../../../../components'
+import Button from '../../../../../components/global/Button'
+import { Container } from '../../../../../layout'
+
+import style from './sectionFour.module.scss'
 
 const SectionFour = ({ content }) => {
   const { articleOne, header, body } = content

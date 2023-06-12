@@ -1,9 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import style from './sectioniThree.module.scss'
-import { Container } from '../../../../../layout'
-import { CoursesCarousel } from '../../../../../components'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+
+import { CoursesCarousel } from '../../../../../components'
+import { Container } from '../../../../../layout'
+
+import style from './sectioniThree.module.scss'
 // import { Profile, TestimonialBanner } from '../../../../../components'
 
 const SectionThree = ({ content }) => {

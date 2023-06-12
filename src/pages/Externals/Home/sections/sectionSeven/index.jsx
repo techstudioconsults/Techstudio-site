@@ -1,11 +1,13 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { Icon } from '@iconify/react'
+import axios from 'axios'
 import PropTypes from 'prop-types'
+
+import { Container } from '../../../../../layout'
+
 // STYLE
 import style from './sectionSeven.module.scss'
-import { Icon } from '@iconify/react'
-import { Container } from '../../../../../layout'
-import { Link } from 'react-router-dom'
-import axios from 'axios'
 
 const SectionSeven = ({ data }) => {
   const [index, setIndex] = useState(0)
