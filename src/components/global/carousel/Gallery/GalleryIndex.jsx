@@ -63,44 +63,56 @@ const GalleryIndex = () => {
           >
             <SwiperSlide>
               <img
-                src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218521/techstudio-web-app/assets/images/GelleryImg01_kkaqwh.png`}
-                alt=''
-                className={style.GalleryImg}
+                alt='card-img'
+                data-sizes='auto'
+                className={`${style.GalleryImg} lazyload`}
+                src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686218521/techstudio-web-app/assets/images/GelleryImg01_kkaqwh.webp`}
+                data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_1000/v1686218521/techstudio-web-app/assets/images/GelleryImg01_kkaqwh.webp`}
               />
             </SwiperSlide>
             <SwiperSlide>
               <img
-                src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218521/techstudio-web-app/assets/images/GelleryImg02_a55pne.png`}
-                alt=''
-                className={style.GalleryImg}
+                alt='card-img'
+                data-sizes='auto'
+                className={`${style.GalleryImg} lazyload`}
+                src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686218521/techstudio-web-app/assets/images/GelleryImg02_a55pne.webp`}
+                data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_1000/v1686218521/techstudio-web-app/assets/images/GelleryImg02_a55pne.webp`}
               />
             </SwiperSlide>
             <SwiperSlide>
               <img
-                src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218521/techstudio-web-app/assets/images/GelleryImg03_ymo87m.png`}
-                alt=''
-                className={style.GalleryImg}
+                alt='card-img'
+                data-sizes='auto'
+                className={`${style.GalleryImg} lazyload`}
+                src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686218521/techstudio-web-app/assets/images/GelleryImg03_ymo87m.webp`}
+                data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_1000/v1686218521/techstudio-web-app/assets/images/GelleryImg03_ymo87m.webp`}
               />
             </SwiperSlide>
             <SwiperSlide>
               <img
-                src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218521/techstudio-web-app/assets/images/GelleryImg04_rlaxcb.png`}
-                alt=''
-                className={style.GalleryImg}
+                alt='card-img'
+                data-sizes='auto'
+                className={`${style.GalleryImg} lazyload`}
+                src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686218521/techstudio-web-app/assets/images/GelleryImg04_rlaxcb.webp`}
+                data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_1000/v1686218521/techstudio-web-app/assets/images/GelleryImg04_rlaxcb.webp`}
               />
             </SwiperSlide>
             <SwiperSlide>
               <img
-                src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218522/techstudio-web-app/assets/images/GelleryImg05_xpe6gt.png`}
-                alt=''
-                className={style.GalleryImg}
+                alt='card-img'
+                data-sizes='auto'
+                className={`${style.GalleryImg} lazyload`}
+                src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686218522/techstudio-web-app/assets/images/GelleryImg05_xpe6gt.webp`}
+                data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_1000/v1686218522/techstudio-web-app/assets/images/GelleryImg05_xpe6gt.webp`}
               />
             </SwiperSlide>
             <SwiperSlide>
               <img
-                src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218522/techstudio-web-app/assets/images/GelleryImg06_ywrbbv.png`}
-                alt=''
-                className={style.GalleryImg}
+                alt='card-img'
+                data-sizes='auto'
+                className={`${style.GalleryImg} lazyload`}
+                src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686218522/techstudio-web-app/assets/images/GelleryImg06_ywrbbv.webp`}
+                data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_1000/v1686218522/techstudio-web-app/assets/images/GelleryImg06_ywrbbv.webp`}
               />
             </SwiperSlide>
           </Swiper>

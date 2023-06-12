@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
-import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import { Button } from '../components'
-import style from './layout.module.scss'
 import { Icon } from '@iconify/react'
+import PropTypes from 'prop-types'
+
+import { Button } from '../components'
+
+import style from './layout.module.scss'
 // import { useSelector } from 'react-redux'
 // import { selectCoursesExternal } from '../app/api/appSlice'
 

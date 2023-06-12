@@ -1,19 +1,20 @@
-import { Icon } from '@iconify/react'
 import React from 'react'
+import { useCallback } from 'react'
+import { useEffect } from 'react'
+import { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { Icon } from '@iconify/react'
+import axios from 'axios'
+import download from 'downloadjs'
+
+import { selectCurrentToken } from '../../../pages/Auth/api/authSlice'
+import { selectCourses } from '../../../pages/Dashboard/Admin/courses/api/coursesSlice'
 import {
   useGetAllTutorsMutation,
   useGetTutorsByCourseIDMutation,
 } from '../../../pages/Dashboard/Admin/users/api/usersApiSlice'
-import { useCallback } from 'react'
-import { useEffect } from 'react'
 import Feedback from '../../global/feedbacks/Feedback'
 import SpinnerComponent from '../../global/skeletonLoader/SpinnerComponent'
-import { useState } from 'react'
-import { selectCurrentToken } from '../../../pages/Auth/api/authSlice'
-import { useSelector } from 'react-redux'
-import axios from 'axios'
-import download from 'downloadjs'
-import { selectCourses } from '../../../pages/Dashboard/Admin/courses/api/coursesSlice'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 

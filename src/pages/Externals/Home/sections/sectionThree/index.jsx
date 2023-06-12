@@ -32,7 +32,14 @@ export const SectionThreeCard = ({ content }) => {
       className={`${style.sectionThreeCard} d-flex flex-column align-items-center justify-content-between`}
     >
       <div className={style.cardImg}>
-        <img src={content.image} alt='card-img' className='img-fluid' />
+        {/* <img src={content.image} alt='card-img' className='img-fluid' /> */}
+        <img
+          alt='card-img'
+          data-sizes='auto'
+          src={content.imageLow}
+          data-src={content.image}
+          className='lazyload img-fluid'
+        />
       </div>
       <div className={`text-center`}>
         <h3 className='fs-xl mt-5'>{content.title}</h3>

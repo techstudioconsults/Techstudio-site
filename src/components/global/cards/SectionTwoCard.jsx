@@ -6,7 +6,14 @@ const index = ({ cardDetails }) => {
   return (
     <div className={style.sectionTwoCard}>
       <div className={style.cardImg}>
-        <img src={cardDetails.image} alt='card-img' className='img-flui' />
+        <img
+          alt='card-img'
+          data-sizes='auto'
+          src={cardDetails.imageLow}
+          data-src={cardDetails.image}
+          className='lazyload'
+        />
+        {/* <img src={cardDetails.image} alt='card-img' className='img-flui' /> */}
       </div>
       <div className={style.cardText}>
         <h3>{cardDetails.title}</h3>

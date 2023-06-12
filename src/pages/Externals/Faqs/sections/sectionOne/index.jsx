@@ -1,10 +1,11 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useState } from 'react'
-import style from './sectionone.module.scss'
-import { useDispatch } from 'react-redux'
-import axios from 'axios'
 import { useForm } from 'react-hook-form'
+import { useDispatch } from 'react-redux'
 import { Icon } from '@iconify/react'
+import axios from 'axios'
+
+import style from './sectionone.module.scss'
 
 const index = () => {
   const dispatch = useDispatch()

@@ -1,15 +1,16 @@
 import React, { useCallback, useEffect, useState } from 'react'
 
-import { ExternalLayout, Navbar } from '../../../layout'
-import { HOME_CONTENT } from './content'
-import Hero from './sections/hero'
-import SectionTwo from './sections/sectionTwo'
-import SectionThree from './sections/sectionThree'
-import SectionFour from './sections/sectionFour'
-import SectionFive from './sections/sectionFive'
-import SectionSix from './sections/sectionSix'
 import GalleryIndex from '../../../components/global/carousel/Gallery/GalleryIndex'
+import { ExternalLayout, Navbar } from '../../../layout'
+
+import Hero from './sections/hero'
+import SectionFive from './sections/sectionFive'
+import SectionFour from './sections/sectionFour'
 import SectionSeven from './sections/sectionSeven'
+import SectionSix from './sections/sectionSix'
+import SectionThree from './sections/sectionThree'
+import SectionTwo from './sections/sectionTwo'
+import { HOME_CONTENT } from './content'
 
 // import { Whatsapp } from '../../../components'
 

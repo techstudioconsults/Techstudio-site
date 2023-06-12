@@ -49,46 +49,59 @@ const SectionFour = ({ content }) => {
           </section>
           <div className='container mt-12 mb-32 text-center'>
             <div className='row align-items-center justify-content-center justify-content-lg-between gap-10'>
-              <img
+              {/* <img
                 className={`${style.brand} col-5 col-lg-2`}
                 src={articleOne.companies[0]}
                 alt='logo'
-              />
-
+              /> */}
               <img
-                className={`${style.brand} col-5 col-lg-2`}
+                alt='card-img'
+                data-sizes='auto'
+                className={`${style.brand} col-5 col-lg-2 lazyload`}
+                src={articleOne.companies[0]}
+                data-src={articleOne.companies[0]}
+              />
+              <img
+                alt='card-img'
+                data-sizes='auto'
+                className={`${style.brand} col-5 col-lg-2 lazyload`}
                 src={articleOne.companies[1]}
-                alt='logo'
+                data-src={articleOne.companies[1]}
               />
-
               <img
-                className={`${style.brand} col-5 col-lg-2`}
+                alt='card-img'
+                data-sizes='auto'
+                className={`${style.brand} col-5 col-lg-2 lazyload`}
                 src={articleOne.companies[2]}
-                alt='logo'
+                data-src={articleOne.companies[2]}
               />
-
               <img
-                className={`${style.brand} col-5 col-lg-2`}
+                alt='card-img'
+                data-sizes='auto'
+                className={`${style.brand} col-5 col-lg-2 lazyload`}
                 src={articleOne.companies[3]}
-                alt='logo'
+                data-src={articleOne.companies[3]}
               />
-
               <img
-                className={`${style.brand} col-5 col-lg-2`}
+                alt='card-img'
+                data-sizes='auto'
+                className={`${style.brand} col-5 col-lg-2 lazyload`}
                 src={articleOne.companies[4]}
-                alt='logo'
+                data-src={articleOne.companies[4]}
               />
-
               <img
-                className={`${style.brand} col-5 col-lg-2`}
+                alt='card-img'
+                data-sizes='auto'
+                className={`${style.brand} col-5 col-lg-2 lazyload`}
                 src={articleOne.companies[5]}
-                alt='logo'
+                data-src={articleOne.companies[5]}
               />
-
               <img
-                className={`${style.brand} col-5 col-lg-2`}
+                alt='card-img'
+                data-sizes='auto'
+                className={`${style.brand} col-5 col-lg-2 lazyload`}
                 src={articleOne.companies[6]}
-                alt='logo'
+                data-src={articleOne.companies[6]}
               />
             </div>
           </div>
@@ -99,9 +112,11 @@ const SectionFour = ({ content }) => {
         <div className={style.sectionFourWrapper}>
           <div className={style.sectionFourImg}>
             <img
-              src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218826/techstudio-web-app/assets/images/Group_1000002320_pve1ql_lqi4vr.png`}
-              alt='section-four'
-              className='img-fluid'
+              alt='card-img'
+              data-sizes='auto'
+              className={`lazyload`}
+              src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686218826/techstudio-web-app/assets/images/Group_1000002320_pve1ql_lqi4vr.webp`}
+              data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_425/v1686218826/techstudio-web-app/assets/images/Group_1000002320_pve1ql_lqi4vr.webp`}
             />
           </div>
           <div className={style.sectionFourTextGroup}>

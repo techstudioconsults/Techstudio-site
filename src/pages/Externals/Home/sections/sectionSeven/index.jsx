@@ -73,6 +73,13 @@ const SectionSeven = ({ data }) => {
       >
         <article className={style.quoteContainer}>
           <img src={image} alt='img' className='cc-img-fluid' />
+          {/* <img
+            alt='card-img'
+            data-sizes='auto'
+            className={`lazyload cc-img-fluid`}
+            // src={image}
+            data-src={image}
+          /> */}
         </article>
         <section
           className={`${style.text} d-flex flex-column justify-content-between`}
