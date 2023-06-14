@@ -1,14 +1,15 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useDispatch, useSelector } from 'react-redux'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+
+import { selectErrorMessage } from '../../../../../app/api/appSlice'
+import { Feedback, Portal, ToastComponent } from '../../../../../components'
+import NewToast from '../../../../../components/global/toast/NewToast'
 import useToast from '../../../../../hooks/useToast'
 import { useRegisterAdminMutation } from '../../../../Auth/api/authApiSlice'
-import * as bootstrap from 'bootstrap/dist/js/bootstrap'
-import { Feedback, Portal, ToastComponent } from '../../../../../components'
 import { useGetAllTutorsMutation } from '../api/usersApiSlice'
-import { useDispatch, useSelector } from 'react-redux'
-import { selectErrorMessage } from '../../../../../app/api/appSlice'
-import NewToast from '../../../../../components/global/toast/NewToast'
 
 const AdminRegistrationForm = ({ cancelBtn }) => {
   const [registerAdmin, { isLoading }] = useRegisterAdminMutation()

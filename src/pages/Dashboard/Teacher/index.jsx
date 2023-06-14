@@ -1,9 +1,12 @@
 import React from 'react'
+
 import { Button, DashboardBanner, DashboardNavbar } from '../../../components'
 import { DashboardRightDrawer } from '../../../layout'
 import { DASHBOARD_CONTENT } from '../../../layout/Layout/dashboardLayout/content'
+
 import StudentDashboardSectionThree from './components/StudentDashboardSectionThree'
 import StudentDashboardSectionTwo from './components/StudentDashboardSectionTwo'
+
 import style from './teacherDashboard.module.scss'
 
 const index = () => {

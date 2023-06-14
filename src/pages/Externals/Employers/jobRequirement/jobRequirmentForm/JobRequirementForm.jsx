@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { MdAdd } from 'react-icons/md'
 import ReactQuill from 'react-quill'
+
 import 'react-quill/dist/quill.snow.css'
 import style from './jobform.module.scss'
 

@@ -3,7 +3,6 @@ import { useCallback } from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { Icon } from '@iconify/react'
 import axios from 'axios'
 import download from 'downloadjs'
 

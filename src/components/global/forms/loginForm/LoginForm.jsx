@@ -1,15 +1,17 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import style from '../signupForm/signupForm.module.scss'
-import { ErrorMessage } from '@hookform/error-message'
 import { useForm } from 'react-hook-form'
+import { Link, useNavigate } from 'react-router-dom'
+import { ErrorMessage } from '@hookform/error-message'
+import { Icon } from '@iconify/react'
+
+import usePersist from '../../../../hooks/usePersist'
+import useToast from '../../../../hooks/useToast'
 // RTK
 import { useLoginMutation } from '../../../../pages/Auth/api/authApiSlice.js'
-import usePersist from '../../../../hooks/usePersist'
 import ToastComponent from '../../toast/ToastComponent'
-import useToast from '../../../../hooks/useToast'
-import { Icon } from '@iconify/react'
+
+import style from '../signupForm/signupForm.module.scss'
 
 const validation = {
   required: 'This input is required.',

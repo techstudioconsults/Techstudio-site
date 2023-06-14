@@ -1,4 +1,5 @@
 import React from 'react'
+
 import style from './ContactSection3.module.scss'
 // import contactModalIcon from '../../../../../assets/images/ContactModalImage.png'
 

@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import ReactQuill from 'react-quill'
+import { Icon } from '@iconify/react'
+
 import 'react-quill/dist/quill.snow.css'
 import style from './jobform.module.scss'
-import { Icon } from '@iconify/react'
 
 const JobRequirementForm = () => {
   const [jobDescription, setJobDescription] = useState('')

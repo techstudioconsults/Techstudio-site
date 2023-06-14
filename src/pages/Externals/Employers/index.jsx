@@ -1,8 +1,10 @@
 import React from 'react'
+
 import { ExternalLayout, Navbar } from '../../../layout'
+
 import EmployersHero from './sections/hero/EmployerHero'
-import EmployersSectionTwo from './sections/sectionTwo'
 import EmployersSectionFour from './sections/sectionFour'
+import EmployersSectionTwo from './sections/sectionTwo'
 import { EMPLOPYERS_CONTENT } from './content'
 
 const index = () => {

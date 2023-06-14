@@ -1,16 +1,18 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
-import style from '../style/paymentClasses.module.scss'
-import { Icon } from '@iconify/react'
+import { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { selectSingleStudentsPaymentRecord } from '../api/paymentSlice'
-import { selectCurrentToken } from '../../../../Auth/api/authSlice'
+import { Icon } from '@iconify/react'
 import axios from 'axios'
 import download from 'downloadjs'
-import useCurrency from '../../../../../hooks/useCurrency'
-import { useState } from 'react'
-import useToast from '../../../../../hooks/useToast'
+
 import { ToastComponent } from '../../../../../components'
+import useCurrency from '../../../../../hooks/useCurrency'
+import useToast from '../../../../../hooks/useToast'
+import { selectCurrentToken } from '../../../../Auth/api/authSlice'
+import { selectSingleStudentsPaymentRecord } from '../api/paymentSlice'
+
+import style from '../style/paymentClasses.module.scss'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 

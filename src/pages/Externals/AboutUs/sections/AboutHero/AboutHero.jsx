@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import style from './AboutHero.module.scss'
+
 // import heroImg from '../../../../../assets/images/AboutHeroImg.png'
 import { Container } from '../../../../../layout'
+
+import style from './AboutHero.module.scss'
 
 const AboutHero = ({ content }) => {
   const { caption, title, description1, description2, description3 } = content

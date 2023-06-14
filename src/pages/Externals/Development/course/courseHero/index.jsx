@@ -1,8 +1,10 @@
 import React from 'react'
-import style from './courseHero.module.scss'
 import PropTypes from 'prop-types'
-import { Container } from '../../../../../layout'
+
 import { Button } from '../../../../../components'
+import { Container } from '../../../../../layout'
+
+import style from './courseHero.module.scss'
 
 const index = ({ content }) => {
   const { title, subTitle, img } = content

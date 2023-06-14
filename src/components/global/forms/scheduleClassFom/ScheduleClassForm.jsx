@@ -1,6 +1,7 @@
 import React from 'react'
-import style from './scheduleClass.module.scss'
 import { Icon } from '@iconify/react'
+
+import style from './scheduleClass.module.scss'
 
 const ScheduleClassForm = () => {
   return (

@@ -1,6 +1,8 @@
 import React from 'react'
+
 import ResourceListDisplay from '../../../../../../components/dashboard/resources/ResourceListDisplay'
 import { DASHBOARD_CONTENT } from '../../../../../../layout/Layout/dashboardLayout/content'
+
 import style from './studentAssignment.module.scss'
 
 const StudentAssignmentDetails = () => {

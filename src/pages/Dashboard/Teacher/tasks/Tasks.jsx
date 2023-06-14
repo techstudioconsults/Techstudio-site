@@ -1,6 +1,9 @@
 import React from 'react'
+
 import { Avatar } from '../../../../components'
+
 import Table from './component/table/Table'
+
 import style from './tasks.module.scss'
 
 const Tasks = () => {

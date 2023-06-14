@@ -1,7 +1,9 @@
 import React from 'react'
+
 import BlogCard from '../../../../../components/global/cards/blogCard/BlogCard'
-import style from './blogSectionTwo.module.scss'
 import { Container } from '../../../../../layout'
+
+import style from './blogSectionTwo.module.scss'
 
 const index = () => {
   return (

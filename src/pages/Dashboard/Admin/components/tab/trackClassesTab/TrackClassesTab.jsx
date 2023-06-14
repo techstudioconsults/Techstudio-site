@@ -1,14 +1,16 @@
 import React, { useCallback, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { Outlet, useLocation, useNavigate, useParams } from 'react-router'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import style from '../adminTab.module.scss'
+
+import SpinnerComponent from '../../../../../../components/global/skeletonLoader/SpinnerComponent'
 import {
   useGetClassByCourseIDMutation,
   useGetLessonByCourseIDMutation,
 } from '../../../classes/api/classApiSlice'
-import SpinnerComponent from '../../../../../../components/global/skeletonLoader/SpinnerComponent'
-import { useDispatch } from 'react-redux'
+
+import style from '../adminTab.module.scss'
 
 const TrackClassesTab = ({ courses }) => {
   const { state, pathname } = useLocation()

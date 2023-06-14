@@ -1,6 +1,7 @@
 import React from 'react'
-import style from './chat.module.scss'
 import { Icon } from '@iconify/react'
+
+import style from './chat.module.scss'
 
 const ChatDisplay = () => {
   return (

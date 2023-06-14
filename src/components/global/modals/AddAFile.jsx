@@ -1,8 +1,9 @@
 import React from 'react'
+import { Icon } from '@iconify/react'
+
 // import PropTypes from 'prop-types'
 // import fileUpload from '../../../assets/images/fileUpload.webp'
 import style from './upload.module.scss'
-import { Icon } from '@iconify/react'
 
 // eslint-disable-next-line react/prop-types
 const AddAFile = () => {

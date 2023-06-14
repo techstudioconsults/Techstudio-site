@@ -1,13 +1,15 @@
-import { ErrorMessage } from '@hookform/error-message'
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import useToast from '../../../../hooks/useToast'
+import { ErrorMessage } from '@hookform/error-message'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+
+import useToast from '../../../../hooks/useToast'
 import { useContactUsMutation } from '../../../../pages/Auth/api/authApiSlice'
-import style from './contactForm.module.scss'
-import ToastComponent from '../../toast/ToastComponent'
-import Portal from '../../POTAL/Portal'
 import ContactUsFeedback from '../../../../pages/Externals/ContactUs/sections/ContactSection3/ContactSection3'
+import Portal from '../../POTAL/Portal'
+import ToastComponent from '../../toast/ToastComponent'
+
+import style from './contactForm.module.scss'
 
 const validation = {
   required: 'This input is required.',

@@ -1,4 +1,5 @@
 import React from 'react'
+
 import style from './singleBlogCard.module.scss'
 // import img from '../../../../../assets/images/blog-img2.webp'
 

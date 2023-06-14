@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
 import { NavLink, useLocation } from 'react-router-dom'
-import style from './dashboardLeftSideNav.module.scss'
 import { Icon } from '@iconify/react'
+import PropTypes from 'prop-types'
+
 import { DASHBOARD_CONTENT } from '../Layout/dashboardLayout/content'
+
+import style from './dashboardLeftSideNav.module.scss'
 
 const DashboardSideNav = () => {
   const { leftStudentNav, leftTeacherNav, leftAdminNav } = DASHBOARD_CONTENT

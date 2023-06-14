@@ -1,10 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import clock from '../../../../assets/icons/clock.png'
-import style from './liveClass.module.scss'
-import { AssignmentOffcanvas, Avatar, Portal } from '../../../../components'
 import { Link } from 'react-router-dom'
 import { Icon } from '@iconify/react'
+import PropTypes from 'prop-types'
+
+import clock from '../../../../assets/icons/clock.png'
+import { AssignmentOffcanvas, Avatar, Portal } from '../../../../components'
+
+import style from './liveClass.module.scss'
 
 const LiveClassDisplayCard = ({ isTDB, isRecordedFile }) => {
   return (

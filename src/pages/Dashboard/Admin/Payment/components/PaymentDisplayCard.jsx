@@ -2,16 +2,19 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/prop-types */
 import React from 'react'
-import AddPaymentModal from './AddPaymentModal'
-import FullPaymentHistoryModal from './FullPaymentHistoryModal'
-import style from '../style/paymentClasses.module.scss'
-import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { Icon } from '@iconify/react'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+
 import { Portal } from '../../../../../components'
-import { useGetSingleStudentPaymentRecordsMutation } from '../api/paymentApiSlice'
-import EditPaymentModal from './EditPaymentRecord'
-import EditPaymentHistoryModal from './EditPaymentHistoryModal'
 import useCurrency from '../../../../../hooks/useCurrency'
+import { useGetSingleStudentPaymentRecordsMutation } from '../api/paymentApiSlice'
+
+import AddPaymentModal from './AddPaymentModal'
+import EditPaymentHistoryModal from './EditPaymentHistoryModal'
+import EditPaymentModal from './EditPaymentRecord'
+import FullPaymentHistoryModal from './FullPaymentHistoryModal'
+
+import style from '../style/paymentClasses.module.scss'
 
 const PaymentDisplayCard = ({ paymentDetail }) => {
   const currency = useCurrency()

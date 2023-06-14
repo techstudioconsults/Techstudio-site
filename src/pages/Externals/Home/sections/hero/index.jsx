@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Button from '../../../../../components/global/Button'
 // import heroImg from '../../../../../assets/images/heroImg.webp'
-import { Container } from '../../../../../layout'
+import { Container } from '@/layout'
+
+import Button from '../../../../../components/global/Button'
 
 import style from './hero.module.scss'
 
@@ -36,8 +37,8 @@ const Hero = ({ content }) => {
             <img
               alt='logo'
               data-sizes='auto'
-              src='https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686218523/techstudio-web-app/assets/images/heroImg_x9cptk.webp'
-              data-src='https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_1000,f_auto,q_auto/v1686218523/techstudio-web-app/assets/images/heroImg_x9cptk.webp'
+              src='https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686652477/techstudio-web-app/assets/images/Property_1_Frame_1000002519_srrfd7.webp'
+              data-src='https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_1000/v1686652477/techstudio-web-app/assets/images/Property_1_Frame_1000002519_srrfd7.webp'
               className='lazyload'
             />
           </div>

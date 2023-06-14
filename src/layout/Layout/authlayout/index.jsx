@@ -1,10 +1,12 @@
 import React from 'react'
-import style from './authLayout.module.scss'
+import { Link } from 'react-router-dom'
+import { PropTypes } from 'prop-types'
+
 // import authImg from '../../../assets/images/authImg.webp'
 import logo from '../../../assets/icons/logo.png'
-import { PropTypes } from 'prop-types'
-import { Link } from 'react-router-dom'
 import MinimalFooter from '../../MinimalFooter'
+
+import style from './authLayout.module.scss'
 
 const index = ({ children }) => {
   return (

@@ -1,16 +1,18 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/display-name */
 
-import style from '../courses/createCourse/createCourse.module.scss'
-import Select from 'react-select'
+import { useCallback, useEffect, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
+import { useSelector } from 'react-redux'
+import { useLocation, useNavigate } from 'react-router-dom'
+import Select from 'react-select'
+import { ErrorMessage } from '@hookform/error-message'
+import { yupResolver } from '@hookform/resolvers/yup'
 // import { useGetTutorsMutation } from '../api/coursesApiSlice'
 import axios from 'axios'
-import { useSelector } from 'react-redux'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import * as yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { useCallback, useEffect, useState } from 'react'
+
 import {
   AvatarDropdown,
   CancelModal,
@@ -18,13 +20,13 @@ import {
   SaveSuccess,
   ToastComponent,
 } from '../../../../components'
-import { selectCurrentToken } from '../../../Auth/api/authSlice'
 import useToast from '../../../../hooks/useToast'
-import { useLocation, useNavigate } from 'react-router-dom'
-import { ErrorMessage } from '@hookform/error-message'
+import { selectCurrentToken } from '../../../Auth/api/authSlice'
 import { useGetClassByCourseIDMutation } from '../classes/api/classApiSlice'
 import { useViewCoursesDetailsMutation } from '../courses/api/coursesApiSlice'
 import { useGetResourcesByCourseIDMutation } from '../resources/api/resourceApiSlice'
+
+import style from '../courses/createCourse/createCourse.module.scss'
 
 const baseUrl = import.meta.env.VITE_BASE_URL
 

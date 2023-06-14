@@ -1,17 +1,20 @@
-import React, { useEffect, useCallback } from 'react'
-import style from './style/paymentClasses.module.scss'
+import React, { useCallback, useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
+
+import { AvatarDropdown, SearchComponent } from '../../../../components'
+import Feedback from '../../../../components/global/feedbacks/Feedback'
+import useCurrency from '../../../../hooks/useCurrency'
+import { useGetClassByCourseIDMutation } from '../classes/api/classApiSlice'
 // import coinImg from '../../../../assets/images/amico.png'
 import { useViewAllCoursesMutation } from '../courses/api/coursesApiSlice'
-import { useGetClassByCourseIDMutation } from '../classes/api/classApiSlice'
-import { useSelector } from 'react-redux'
 import { selectCourses } from '../courses/api/coursesSlice'
-import { useParams } from 'react-router-dom'
-import Feedback from '../../../../components/global/feedbacks/Feedback'
-import { AvatarDropdown, SearchComponent } from '../../../../components'
-import PaymentTab from './components/PaymentTab'
+
 import { useGetRevenueInfoMutation } from './api/paymentApiSlice'
 import { selectRevenueInfo } from './api/paymentSlice'
-import useCurrency from '../../../../hooks/useCurrency'
+import PaymentTab from './components/PaymentTab'
+
+import style from './style/paymentClasses.module.scss'
 
 const AdminPaymentView = () => {
   const [viewAllCourses] = useViewAllCoursesMutation()

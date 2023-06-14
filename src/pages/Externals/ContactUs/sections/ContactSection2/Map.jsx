@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
-import style from './ContactSection2.module.scss'
-import GoogleMapReact from 'google-map-react'
 // import './map.css'
 import { Icon } from '@iconify/react'
+import GoogleMapReact from 'google-map-react'
+
+import style from './ContactSection2.module.scss'
 
 const Marker = () => (
   <div>

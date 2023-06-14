@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
-import {
-  useGetAllTutorsMutation,
-  useGetTutorsByCourseIDMutation,
-} from '../../../pages/Dashboard/Admin/users/api/usersApiSlice'
+
+import { useGetTutorsByCourseIDMutation } from '../../../pages/Dashboard/Admin/users/api/usersApiSlice'
 import { selectAllTutors } from '../../../pages/Dashboard/Admin/users/api/usersSlice'
-import ListLayout from './ListLayout'
-import style from './tutorlist.module.scss'
 import SpinnerComponent from '../../global/skeletonLoader/SpinnerComponent'
+
+import ListLayout from './ListLayout'
+
+import style from './tutorlist.module.scss'
 
 const TutorList = () => {
   const [getTutorsByCourseID, tutorArgs] = useGetTutorsByCourseIDMutation()

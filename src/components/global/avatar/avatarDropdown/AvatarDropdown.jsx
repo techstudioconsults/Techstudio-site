@@ -1,11 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { Icon } from '@iconify/react'
+
 // import useToast from '../../../../hooks/useToast'
 import { useSendLogoutMutation } from '../../../../pages/Auth/api/authApiSlice'
 import { selectCurrentRefreshToken } from '../../../../pages/Auth/api/authSlice'
 // import ToastComponent from '../../toast/ToastComponent'
 import Avatar from '../Avatar'
-import { Icon } from '@iconify/react'
 
 const AvatarDropdown = () => {
   // const [errorMessage, setErrorMessage] = useState(null)

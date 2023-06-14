@@ -1,5 +1,6 @@
 import React from 'react'
-import contactModalIcon from '../../../../assets/images/ContactModalImage.png'
+
+import contactModalIcon from '@/assets/images/ContactModalImage.png'
 
 const ContactFormModal = () => {
   return (

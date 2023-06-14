@@ -1,6 +1,8 @@
-import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import PropTypes from 'prop-types'
+
+import { useDashboardAllResourcesMutation } from '../../../pages/Dashboard/Admin/api/dashboardApiSlice'
 import {
   useDeleteClassMutation,
   useDeleteLessonMutation,
@@ -16,7 +18,6 @@ import {
   useGetAllResourcesMutation,
   useGetResourcesByCourseIDMutation,
 } from '../../../pages/Dashboard/Admin/resources/api/resourceApiSlice'
-import { useDashboardAllResourcesMutation } from '../../../pages/Dashboard/Admin/api/dashboardApiSlice'
 
 const DeleteModal = ({ content }) => {
   const [isDeleted, setDeleted] = useState(false)

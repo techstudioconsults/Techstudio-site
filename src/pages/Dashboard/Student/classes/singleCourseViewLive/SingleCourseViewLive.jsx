@@ -1,4 +1,8 @@
 import React from 'react'
+// import { HiOutlineMicrophone } from 'react-icons/hi'
+// import { CgScreen } from 'react-icons/cg'
+import { Icon } from '@iconify/react'
+
 // import { MdOutlineSlideshow, MdOutlineVideocam } from 'react-icons/md'
 // import { BsRecordCircle } from 'react-icons/bs'
 // import noise from '../../../../../assets/video/white-noise.gif'
@@ -7,10 +11,8 @@ import {
   CalendarOffCanvas,
   ChatDisplay,
 } from '../../../../../components'
+
 import style from './liveCourse.module.scss'
-// import { HiOutlineMicrophone } from 'react-icons/hi'
-// import { CgScreen } from 'react-icons/cg'
-import { Icon } from '@iconify/react'
 
 const SingleCourseViewLive = () => {
   return (

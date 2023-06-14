@@ -1,14 +1,16 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
-import * as bootstrap from 'bootstrap/dist/js/bootstrap'
-import { Icon } from '@iconify/react'
-import { useSelector } from 'react-redux'
-import { selectSingleStudentsPaymentRecord } from '../api/paymentSlice'
 import { useState } from 'react'
-import EditPaymentModal from './EditPaymentRecord'
 import { useRef } from 'react'
+import { useSelector } from 'react-redux'
+import { Icon } from '@iconify/react'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+
 import { Portal } from '../../../../../components'
 import useCurrency from '../../../../../hooks/useCurrency'
+import { selectSingleStudentsPaymentRecord } from '../api/paymentSlice'
+
+import EditPaymentModal from './EditPaymentRecord'
 
 const EditPaymentHistoryModal = ({ studentPayment }) => {
   const currency = useCurrency()

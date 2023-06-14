@@ -1,6 +1,8 @@
 import React from 'react'
+
 import { Avatar, CalendarOffCanvas, ClassesTab } from '../../../../components'
 import TeacherClassNotificationView from '../components/teacherClassNotificationView/TeacherClassNotificationView'
+
 import style from './teacherClasses.module.scss'
 
 const TeacherClassView = () => {

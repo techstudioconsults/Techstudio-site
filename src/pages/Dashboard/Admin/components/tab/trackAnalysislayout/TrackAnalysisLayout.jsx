@@ -1,4 +1,5 @@
 import React from 'react'
+
 import {
   AddAFile,
   DashboardResource,
@@ -7,6 +8,7 @@ import {
   Portal,
   TutorList,
 } from '../../../../../../components'
+
 import style from './trackAnalysis.module.scss'
 
 const TrackAnalysisLayout = () => {

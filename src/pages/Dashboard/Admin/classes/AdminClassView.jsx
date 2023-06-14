@@ -2,19 +2,21 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import { AvatarDropdown, SearchComponent } from '../../../../components'
-import style from './adminClasses.module.scss' //using courses view layout !important
-import TrackClassesTab from '../components/tab/trackClassesTab/TrackClassesTab'
-import 'react-loading-skeleton/dist/skeleton.css'
-import { Link, useParams } from 'react-router-dom'
-import TeacherClassNotificationView from '../../Teacher/components/teacherClassNotificationView/TeacherClassNotificationView'
-import { useViewAllCoursesMutation } from '../courses/api/coursesApiSlice'
 import { useCallback, useEffect } from 'react'
-import { selectCourses } from '../courses/api/coursesSlice'
 import { useSelector } from 'react-redux'
+import { Link, useParams } from 'react-router-dom'
+
+import { selectClassDetailOpen } from '../../../../app/api/appSlice'
+import { AvatarDropdown, SearchComponent } from '../../../../components'
 import Feedback from '../../../../components/global/feedbacks/Feedback'
 import SpinnerComponent from '../../../../components/global/skeletonLoader/SpinnerComponent'
-import { selectClassDetailOpen } from '../../../../app/api/appSlice'
+import TeacherClassNotificationView from '../../Teacher/components/teacherClassNotificationView/TeacherClassNotificationView'
+import TrackClassesTab from '../components/tab/trackClassesTab/TrackClassesTab'
+import { useViewAllCoursesMutation } from '../courses/api/coursesApiSlice'
+import { selectCourses } from '../courses/api/coursesSlice'
+
+import 'react-loading-skeleton/dist/skeleton.css'
+import style from './adminClasses.module.scss' //using courses view layout !important
 
 const AdminClassView = () => {
   const [viewAllCourses, courseArgs] = useViewAllCoursesMutation()

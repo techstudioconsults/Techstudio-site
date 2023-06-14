@@ -1,22 +1,25 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
+import { useCallback, useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+
 import {
   AddResource,
   AvatarDropdown,
   Portal,
   SearchComponent,
 } from '../../../../components'
-import style from './adminResource.module.scss' //using courses view layout !important
-import 'react-loading-skeleton/dist/skeleton.css'
-import { useCallback, useEffect } from 'react'
-import { useSelector } from 'react-redux'
 import Feedback from '../../../../components/global/feedbacks/Feedback'
-import ResourceCourseTab from './resourceCourseTab/ResourceCourseTab'
-import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import SpinnerComponent from '../../../../components/global/skeletonLoader/SpinnerComponent'
 import { useViewAllCoursesMutation } from '../courses/api/coursesApiSlice'
 import { selectCourses } from '../courses/api/coursesSlice'
+
+import ResourceCourseTab from './resourceCourseTab/ResourceCourseTab'
+
+import 'react-loading-skeleton/dist/skeleton.css'
+import style from './adminResource.module.scss' //using courses view layout !important
 
 const AdminResourcesView = () => {
   const [viewAllCourses, coursesArgs] = useViewAllCoursesMutation()

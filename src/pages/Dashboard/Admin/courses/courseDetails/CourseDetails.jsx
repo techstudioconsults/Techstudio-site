@@ -1,12 +1,14 @@
 import React from 'react'
-import { AvatarStack } from '../../../../../components'
-import { Icon } from '@iconify/react'
-import { DASHBOARD_CONTENT } from '../../../../../layout/Layout/dashboardLayout/content'
-import style from '../adminCourse.module.scss'
-import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
+import { Icon } from '@iconify/react'
+import PropTypes from 'prop-types'
+
 import { selectCourseDetailsLoading } from '../../../../../app/api/appSlice'
+import { AvatarStack } from '../../../../../components'
 import SpinnerComponent from '../../../../../components/global/skeletonLoader/SpinnerComponent'
+import { DASHBOARD_CONTENT } from '../../../../../layout/Layout/dashboardLayout/content'
+
+import style from '../adminCourse.module.scss'
 
 const CourseDetails = ({ courseDetails, show }) => {
   // const { title, description, tutors, duration } = courseDetails

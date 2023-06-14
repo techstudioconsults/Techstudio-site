@@ -1,9 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import style from './adminTab.module.scss'
-import '../../../../../scss/custom/bs-custom.css'
-import PropTypes from 'prop-types'
-import { NavLink, Outlet, useNavigate, useParams } from 'react-router-dom'
 import { useEffect } from 'react'
+import { NavLink, Outlet, useNavigate, useParams } from 'react-router-dom'
+import PropTypes from 'prop-types'
+
+import '../../../../../scss/custom/bs-custom.css'
+import style from './adminTab.module.scss'
 
 const AdminDashboardTab = ({ courses }) => {
   // verifies if routeName is the one active (in browser input)

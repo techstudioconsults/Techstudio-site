@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import style from './employersHero.module.scss'
-import { Container } from '../../../../../layout'
 import { EmployerForm } from '../../../../../components'
+import { Container } from '../../../../../layout'
+
+import style from './employersHero.module.scss'
 
 const EmployerHero = ({ content }) => {
   return (

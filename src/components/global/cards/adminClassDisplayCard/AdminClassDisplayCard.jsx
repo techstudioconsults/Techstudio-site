@@ -1,13 +1,15 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { Icon } from '@iconify/react'
-import { Link, useParams } from 'react-router-dom'
-import PropTypes from 'prop-types'
-import style from './adminClassDisplay.module.scss'
-import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { useDispatch } from 'react-redux'
-import Portal from '../../POTAL/Portal'
+import { Link, useParams } from 'react-router-dom'
+import { Icon } from '@iconify/react'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+import PropTypes from 'prop-types'
+
 import DeleteModal from '../../modals/DeleteModal'
+import Portal from '../../POTAL/Portal'
+
+import style from './adminClassDisplay.module.scss'
 
 const AdminClassDisplayCard = ({ singleClass, isPrevious }) => {
   const { courseID } = useParams()

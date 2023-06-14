@@ -1,9 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 import { Authlayout } from '../../layout'
+import Button from '../global/Button'
+
 // import paymentImg from '../../assets/images/payment.webp'
 import style from './payment.module.scss'
-import { Link } from 'react-router-dom'
-import Button from '../global/Button'
 
 const Payment = () => {
   return (

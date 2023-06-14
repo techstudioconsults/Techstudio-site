@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import { DashboardMiniCard } from '../../../../components'
+
 import style from './studentdashboardSections.module.scss'
 
 const StudentDashboardSectionTwo = ({ content }) => {

@@ -1,6 +1,7 @@
 import React from 'react'
-import style from './card.module.scss'
 import PropTypes from 'prop-types'
+
+import style from './card.module.scss'
 
 const index = ({ cardDetails }) => {
   return (

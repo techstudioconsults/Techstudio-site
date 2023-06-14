@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import style from './employersSectionFour.module.scss'
-import { Container } from '../../../../../layout'
+
 import { EmployerForm } from '../../../../../components'
+import { Container } from '../../../../../layout'
+
+import style from './employersSectionFour.module.scss'
 
 const index = ({ content }) => {
   const { header } = content

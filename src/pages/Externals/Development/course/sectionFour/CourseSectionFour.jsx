@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import style from './courseSectionFour.module.scss'
-import { Container } from '../../../../../layout'
+
 import { ShortStepper } from '../../../../../components'
+import { Container } from '../../../../../layout'
+
+import style from './courseSectionFour.module.scss'
 
 const CourseSectionFour = ({ content }) => {
   const { header, list } = content

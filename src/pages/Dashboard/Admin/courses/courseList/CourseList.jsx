@@ -1,16 +1,18 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { Icon } from '@iconify/react'
-import PropTypes from 'prop-types'
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
-import { AvatarStack, DeleteModal, Portal } from '../../../../../components'
-import { DASHBOARD_CONTENT } from '../../../../../layout/Layout/dashboardLayout/content'
-import style from '../adminCourse.module.scss'
-import * as bootstrap from 'bootstrap/dist/js/bootstrap'
-import { useViewCoursesDetailsMutation } from '../api/coursesApiSlice'
 import { useCallback, useEffect, useState } from 'react'
 // import { useGetClassByCourseIDMutation } from '../../classes/api/classApiSlice'
 import { useDispatch } from 'react-redux'
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
+import { Icon } from '@iconify/react'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+import PropTypes from 'prop-types'
+
+import { AvatarStack, DeleteModal, Portal } from '../../../../../components'
+import { DASHBOARD_CONTENT } from '../../../../../layout/Layout/dashboardLayout/content'
+import { useViewCoursesDetailsMutation } from '../api/coursesApiSlice'
+
+import style from '../adminCourse.module.scss'
 
 const CourseList = ({ course }) => {
   const navigate = useNavigate()

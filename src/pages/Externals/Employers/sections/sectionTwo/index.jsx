@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import style from './employersSectionTwo.module.scss'
-import { Container } from '../../../../../layout'
+
 import { HowItWorksCard } from '../../../../../components'
+import { Container } from '../../../../../layout'
+
+import style from './employersSectionTwo.module.scss'
 
 const index = ({ content }) => {
   const cardDisplay = content.cards.map((card, index) => {

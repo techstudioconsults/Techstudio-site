@@ -1,9 +1,11 @@
-import PropTypes from 'prop-types'
 import React from 'react'
+import { Icon } from '@iconify/react'
+import PropTypes from 'prop-types'
+
 import { DASHBOARD_CONTENT } from '../../../../layout/Layout/dashboardLayout/content'
 import AvatarStack from '../../avatarStacks/AvatarStack'
+
 import style from './classDetails.module.scss'
-import { Icon } from '@iconify/react'
 
 const ClassDetails = ({ isTDB, isADB }) => {
   const { imageList } = DASHBOARD_CONTENT

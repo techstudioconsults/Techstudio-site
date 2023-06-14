@@ -1,7 +1,9 @@
 import React from 'react'
-import style from './singleBlogSectionThree.module.scss'
-import { Container } from '../../../../../../layout'
+
 import { SingleBlogCard } from '../../../../../../components'
+import { Container } from '../../../../../../layout'
+
+import style from './singleBlogSectionThree.module.scss'
 
 const SingleBlogSectionThree = () => {
   return (

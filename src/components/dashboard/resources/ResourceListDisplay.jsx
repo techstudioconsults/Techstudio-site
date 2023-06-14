@@ -1,8 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import pdf from '../../../assets/icons/Icon-awesome-file-pdf.png'
-import cam from '../../../assets/icons/cam.png'
 import { Icon } from '@iconify/react'
+import PropTypes from 'prop-types'
+
+import cam from '../../../assets/icons/cam.png'
+import pdf from '../../../assets/icons/Icon-awesome-file-pdf.png'
 
 const ResourceListDisplay = ({ file, isVideo, isTextFile, isADB }) => {
   return (

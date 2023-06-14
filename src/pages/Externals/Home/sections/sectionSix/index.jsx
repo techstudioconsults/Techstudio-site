@@ -1,9 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import BannerII from '../../../../../components/global/banners/BannerII'
 import Button from '../../../../../components/global/Button'
-import style from './sectionSix.module.scss'
 import { Container } from '../../../../../layout'
+
+import style from './sectionSix.module.scss'
 
 const SectionSix = ({ content }) => {
   const { header } = content

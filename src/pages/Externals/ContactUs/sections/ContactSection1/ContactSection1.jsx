@@ -1,9 +1,11 @@
 import React from 'react'
-import { Container } from '../../../../../layout'
-import PropTypes from 'prop-types'
-import ContactForm from '../../../../../components/global/forms/contactForm/ContactForm'
-import style from './ContactSection1.module.scss'
 import { Icon } from '@iconify/react'
+import PropTypes from 'prop-types'
+
+import ContactForm from '../../../../../components/global/forms/contactForm/ContactForm'
+import { Container } from '../../../../../layout'
+
+import style from './ContactSection1.module.scss'
 
 const ContactSection1 = ({ content }) => {
   const { header, address } = content

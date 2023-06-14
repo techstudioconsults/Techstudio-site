@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { Container, ExternalLayout, Navbar } from '../../../../../layout'
+
 import Header from './header/Header'
 import SingleBlogSectionThree from './sectionThree/SingleBlogSectionThree'
 

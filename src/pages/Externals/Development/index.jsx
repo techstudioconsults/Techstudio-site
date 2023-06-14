@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Container, ExternalLayout, Navbar } from '../../../layout'
+
 import { BannerII, Button } from '../../../components'
+import { Container, ExternalLayout, Navbar } from '../../../layout'
+
 import CourseHero from './course/courseHero'
-import CourseSectionTwo from './course/sectionTwo/CourseSectionTwo'
 import CourseSectionFour from './course/sectionFour/CourseSectionFour'
+import CourseSectionTwo from './course/sectionTwo/CourseSectionTwo'
 
 const index = ({ content, job }) => {
   const { hero, sectionTwo, sectionFour } = content

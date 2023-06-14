@@ -1,13 +1,15 @@
 import React from 'react'
+import { useLocation } from 'react-router'
+import { Icon } from '@iconify/react'
 import PropTypes from 'prop-types'
+
 import { DASHBOARD_CONTENT } from '../../../../layout/Layout/dashboardLayout/content'
 import LiveClassDisplayCard from '../../../global/cards/liveClassDisplayCard/LiveClassDisplayCard'
-import style from './classesTab.module.scss'
 import ScheduleClassForm from '../../../global/forms/scheduleClassFom/ScheduleClassForm'
 import AddAClassOffCanvas from '../../../global/offCanvas/AddAClassOffcanvas'
 import Portal from '../../../global/POTAL/Portal'
-import { useLocation } from 'react-router'
-import { Icon } from '@iconify/react'
+
+import style from './classesTab.module.scss'
 
 const ClassesTab = ({ isTDB }) => {
   const { studentBoard } = DASHBOARD_CONTENT

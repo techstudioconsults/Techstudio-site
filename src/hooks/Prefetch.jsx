@@ -1,6 +1,7 @@
-import { store } from '../../app/store'
 import { useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
+
+import { store } from '../../app/store'
 
 const Prefetch = () => {
   useEffect(() => {

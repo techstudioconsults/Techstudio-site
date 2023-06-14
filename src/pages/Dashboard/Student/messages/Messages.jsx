@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { Avatar, Button, MessageCard } from '../../../../components'
+
 import style from './messages.module.scss'
 
 const Messages = () => {

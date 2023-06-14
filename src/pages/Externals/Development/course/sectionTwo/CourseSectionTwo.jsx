@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import style from './courseSectiontwo.module.scss'
-import { Container } from '../../../../../layout'
+
 import { CourseCard } from '../../../../../components'
+import { Container } from '../../../../../layout'
+
+import style from './courseSectiontwo.module.scss'
 
 const CourseSectionTwo = ({ content }) => {
   const { header, cards } = content

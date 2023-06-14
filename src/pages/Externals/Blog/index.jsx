@@ -1,9 +1,10 @@
 import React from 'react'
-import { ExternalLayout, Navbar } from '../../../layout'
-import BlogHero from './sections/hero/BlogHero'
-import BlogSectionTwo from './sections/sectionTwo'
-import BlogSectionThree from './sections/sectionThree'
 
+import { ExternalLayout, Navbar } from '../../../layout'
+
+import BlogHero from './sections/hero/BlogHero'
+import BlogSectionThree from './sections/sectionThree'
+import BlogSectionTwo from './sections/sectionTwo'
 // import { HOME_CONTENT } from '../Home/content'
 import { BLOG_CONTENT } from './content'
 

@@ -1,8 +1,10 @@
 // REACT DEFAULTS
-import PropTypes from 'prop-types'
 import { Outlet } from 'react-router-dom'
+import PropTypes from 'prop-types'
+
 // COMPONENTS
 import { DashboardLeftSideNav, DashboardMobileNav } from '../..'
+
 // STYLES
 import style from './dashboardLayout.module.scss'
 

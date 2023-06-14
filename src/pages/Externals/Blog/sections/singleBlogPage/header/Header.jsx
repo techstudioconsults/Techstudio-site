@@ -1,6 +1,8 @@
 import React from 'react'
-import style from './header.module.scss'
+
 import { Container } from '../../../../../../layout'
+
+import style from './header.module.scss'
 // import PropTypes from 'prop-types'
 
 const Header = () => {

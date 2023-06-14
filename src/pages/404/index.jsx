@@ -1,6 +1,8 @@
-import style from './404.module.scss'
 import { Link } from 'react-router-dom'
+
 import { Container, ExternalLayout } from '../../layout'
+
+import style from './404.module.scss'
 
 const index = () => {
   return (

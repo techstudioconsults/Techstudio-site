@@ -1,7 +1,9 @@
 import React from 'react'
-import style from './relatedVideoCard.module.scss'
+
 // import video from '../../../../assets/video/video.mp4'
-import clock from '../../../../assets/icons/alarm-clock-II.png'
+import clock from '@/assets/icons/alarm-clock-II.png'
+
+import style from './relatedVideoCard.module.scss'
 
 const RelatedVideoCard = () => {
   return (

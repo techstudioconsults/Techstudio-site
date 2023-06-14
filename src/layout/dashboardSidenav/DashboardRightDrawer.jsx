@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import { AvatarDropdown, CalendarApp, ClassDetails } from '../../components'
+
 import style from './dashboardDrawer.module.scss'
 
 function dashboardRightDrawer({ isTDB }) {

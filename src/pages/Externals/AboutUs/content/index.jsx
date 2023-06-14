@@ -1,10 +1,3 @@
-// import AboutSec4Img01 from '../../../../assets/images/AboutSec4Img01.png'
-// import AboutSec4Img02 from '../../../../assets/images/AboutSec4Img02.png'
-// import AboutSec4Img03 from '../../../../assets/images/AboutSec4Img03.png'
-// import AboutSec4Img04 from '../../../../assets/images/AboutSec4Img04.png'
-// import AboutSec4Img05 from '../../../../assets/images/AboutSec4Img05.png'
-// import AboutSec4Img06 from '../../../../assets/images/AboutSec4Img06.png'
-
 export const ABOUT_CONTENT = {
   hero: {
     caption: `KNOW US MORE`,

@@ -1,8 +1,10 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
-import { DASHBOARD_CONTENT } from '../../../../../layout/Layout/dashboardLayout/content'
-import style from './classNotification.module.scss'
 import { Icon } from '@iconify/react'
+
+// import PropTypes from 'prop-types'
+import { DASHBOARD_CONTENT } from '@/layout/Layout/dashboardLayout/content'
+
+import style from './classNotification.module.scss'
 
 const ClassNotificationView = () => {
   const { studentBoard } = DASHBOARD_CONTENT

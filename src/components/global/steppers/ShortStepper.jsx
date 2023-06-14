@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import style from './stepper.module.scss'
+
 const ShortStepper = ({ lists, isCourses }) => {
   const listsDisplay = lists.map((list) => {
     return (

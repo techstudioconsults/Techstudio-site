@@ -1,7 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import style from './aboutSectionThree.module.scss'
 import { Icon } from '@iconify/react'
+import PropTypes from 'prop-types'
+
+import style from './aboutSectionThree.module.scss'
 
 const AboutSectionThreeCard = ({ content, isAbout }) => {
   const { icon, title, desc } = content

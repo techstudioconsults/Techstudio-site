@@ -1,8 +1,10 @@
 import React from 'react'
-import style from './blogHero.module.scss'
 import PropTypes from 'prop-types'
-import { Container } from '../../../../../layout'
+
 import { SearchForm } from '../../../../../components'
+import { Container } from '../../../../../layout'
+
+import style from './blogHero.module.scss'
 
 const BlogHero = ({ content }) => {
   const { title, caption } = content

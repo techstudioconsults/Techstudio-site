@@ -10,7 +10,7 @@
     "format": "prettier --write \"./src/**/*.{js,jsx,json,css,scss,md}\"",
     "format:check": "prettier --check \"./src/**/*.{js,jsx,json,css,scss,md}\"",
     "prepare": "husky install",
-    "lint": "eslint"
+    "lint": "eslint --fix"
   },
   "jest": {
     "transformIgnorePatterns": [
@@ -87,6 +87,7 @@
     "@vitejs/plugin-react": "^4.0.0",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-autofix": "^1.1.0",
     "eslint-plugin-css-modules": "^2.11.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",

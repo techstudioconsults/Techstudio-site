@@ -1,11 +1,13 @@
 import React from 'react'
+
 // import { ContactHero, ContactSectionTwo } from '../../../components'
 import { ExternalLayout, Navbar } from '../../../layout'
-import { CONTACT_CONTENT } from './content'
-import Map from './sections/ContactSection2/Map'
+import ContactSection3 from '../ContactUs/sections/ContactSection3/ContactSection3'
+
 import ContactHero from './sections/ContactHero/ContactHero'
 import ContactSection1 from './sections/ContactSection1/ContactSection1'
-import ContactSection3 from '../ContactUs/sections/ContactSection3/ContactSection3'
+import Map from './sections/ContactSection2/Map'
+import { CONTACT_CONTENT } from './content'
 
 const index = () => {
   const { hero, location } = CONTACT_CONTENT

@@ -1,8 +1,9 @@
 import React from 'react'
-import style from './blogCard.module.scss'
+import { Link } from 'react-router-dom'
 // import blogImg from '../../../../assets/images/blog-img1.webp'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+
+import style from './blogCard.module.scss'
 
 const BlogCard = ({ isCarouselView }) => {
   return (

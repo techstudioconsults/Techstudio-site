@@ -1,9 +1,11 @@
 import React from 'react'
-import style from './sectionTwo.module.scss'
-import PropTypes from 'prop-types'
-import { Container } from '../../../../../layout'
-import { SectionTwoCard } from '../../../../../components'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+
+import { SectionTwoCard } from '../../../../../components'
+import { Container } from '../../../../../layout'
+
+import style from './sectionTwo.module.scss'
 
 const SectionTwo = ({ content }) => {
   const { header, cards } = content

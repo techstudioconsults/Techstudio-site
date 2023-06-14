@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { Swiper } from 'swiper/react'
-import 'swiper/swiper.min.css'
-import 'swiper/css/pagination'
 import { Pagination } from 'swiper'
+import { Swiper } from 'swiper/react'
+
+import 'swiper/css/pagination'
+
+import 'swiper/swiper.min.css'
 
 const TestimonialBanner = ({ children, title }) => {
   const swiperRef = React.useRef(null)

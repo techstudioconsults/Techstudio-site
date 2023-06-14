@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import style from './AboutSection2.module.scss'
+
 import { Container } from '../../../../../layout'
+
+import style from './AboutSection2.module.scss'
 // import AboutSection2Pattern01 from '../../../../../assets/images/AboutSection2Pattern01.png'
 // import AboutSection2Pattern02 from '../../../../../assets/images/AboutSection2Pattern02.png'
 

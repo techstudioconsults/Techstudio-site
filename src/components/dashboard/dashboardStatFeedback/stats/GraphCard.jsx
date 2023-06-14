@@ -1,7 +1,9 @@
 import React from 'react'
-import style from './graph.module.scss'
+
 // import graph from '../../../../assets/images/graph.png'
 import AdminChart from '../../../global/chart/AdminChart'
+
+import style from './graph.module.scss'
 
 const GraphCard = () => {
   return (

@@ -1,6 +1,8 @@
 import React from 'react'
+
 // import video from '../../../../../assets/video/video.mp4'
 import { RelatedVideoCard } from '../../../../../components'
+
 import style from './videoframe.module.scss'
 
 const VideoFrame = () => {

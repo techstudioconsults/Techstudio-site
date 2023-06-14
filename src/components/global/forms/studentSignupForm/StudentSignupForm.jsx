@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import { Link } from 'react-router-dom'
 import { ErrorMessage } from '@hookform/error-message'
-import style from '../signupForm/signupForm.module.scss'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+
+import useToast from '../../../../hooks/useToast'
+import { useSignupStudentMutation } from '../../../../pages/Auth/api/authApiSlice'
 import Feedback from '../../modals/Feedback'
 import Portal from '../../POTAL/Portal'
-import * as bootstrap from 'bootstrap/dist/js/bootstrap'
-import { useSignupStudentMutation } from '../../../../pages/Auth/api/authApiSlice'
-import useToast from '../../../../hooks/useToast'
 import ToastComponent from '../../toast/ToastComponent'
+
+import style from '../signupForm/signupForm.module.scss'
 
 const validation = {
   required: 'This input is required.',

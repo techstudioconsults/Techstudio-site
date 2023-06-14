@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import style from './blogSectionThree.module.scss'
+
 import BlogCard from '../../../../../components/global/cards/blogCard/BlogCard'
 import { Container } from '../../../../../layout'
+
+import style from './blogSectionThree.module.scss'
 
 const index = ({ content }) => {
   const { header } = content

@@ -1,16 +1,17 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import { Icon } from '@iconify/react'
 import React from 'react'
-import { Link } from 'react-router-dom'
-import Avatar, { AvatarXL } from '../../avatar/Avatar'
-import * as bootstrap from 'bootstrap/dist/js/bootstrap'
-import DeleteModal from '../../modals/DeleteModal'
-import Portal from '../../POTAL/Portal'
-import { useDispatch } from 'react-redux'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { Icon } from '@iconify/react'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+
+import { AvatarXL } from '../../avatar/Avatar'
+import DeleteModal from '../../modals/DeleteModal'
+import Portal from '../../POTAL/Portal'
 // import style from './adminClassDisplay.module.scss'
 
 const LessonCard = ({ singleLesson }) => {

@@ -1,6 +1,7 @@
 import React from 'react'
-import styles from './whatsapp.module.scss'
 import { Icon } from '@iconify/react'
+
+import styles from './whatsapp.module.scss'
 
 const WhatsAppIcon = () => {
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent)

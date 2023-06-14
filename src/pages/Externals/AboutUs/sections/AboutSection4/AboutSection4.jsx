@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import style from './AboutSection4.module.scss'
+
 import TeamCard from '../../../../../components/global/cards/teamCard/TeamCard'
 import { Container } from '../../../../../layout'
+
+import style from './AboutSection4.module.scss'
 
 const AboutSection4 = ({ content }) => {
   const { header, cards, subtitle } = content

@@ -1,9 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+
 import logo from '../../../../assets/icons/logo.png'
 import { Avatar } from '../../../../components'
-import style from './studentDBIntro.module.scss'
+
 import StudentIntroCard from './StudentIntroCard'
+
+import style from './studentDBIntro.module.scss'
 
 const StudentDashboardIntro = () => {
   return (

@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { Button } from '../../../../components'
+
 // import img from '../../../../assets/images/intro-img3.webp'
 import style from './introCard.module.scss'
 
