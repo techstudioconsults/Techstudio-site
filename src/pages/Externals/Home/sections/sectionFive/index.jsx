@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import ShortStepper from '../../../../../components/global/steppers/ShortStepper'
+import Stepper from '../../../../../components/global/steppers/Stepper'
 import { Container } from '../../../../../layout'
 
 import style from './sectionFive.module.scss'
@@ -15,7 +15,7 @@ const SectionFive = ({ content }) => {
       <Container>
         <section className={`${style.sectionFive} my-4`}>
           <div className={style.stepperList}>
-            <ShortStepper lists={lists} />
+            <Stepper lists={lists} />
           </div>
           <div className={style.sectionFiveImg}>
             <img

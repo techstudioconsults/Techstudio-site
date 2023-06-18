@@ -91,7 +91,7 @@ const SectionSeven = ({ data }) => {
               upcoming classes
             </p>
             <div>
-              <h4 className='fs-2xl fs-3xl my-5 fw-semibold'>
+              <h4 className='fs-2xl my-5 fw-bold'>
                 {classes[index]?.courseTitle}
               </h4>
               <p className=''>{classes[index]?.description}</p>

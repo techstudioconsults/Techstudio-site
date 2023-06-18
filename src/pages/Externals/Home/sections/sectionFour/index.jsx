@@ -3,12 +3,14 @@ import PropTypes from 'prop-types'
 import { SwiperSlide } from 'swiper/react'
 
 import { Profile, TestimonialBanner } from '../../../../../components'
+import Brands from '../../../../../components/global/brands/Brands'
 import Button from '../../../../../components/global/Button'
+import GalleryIndex from '../../../../../components/global/carousel/Gallery/GalleryIndex'
 import { Container } from '../../../../../layout'
 
 import style from './sectionFour.module.scss'
 
-const SectionFour = ({ content }) => {
+const SectionFour = ({ content, isDevelopmentView }) => {
   const { articleOne, header, body } = content
 
   const testimonials = body.testimonials.map((testimonial, index) => {
@@ -109,9 +111,13 @@ const SectionFour = ({ content }) => {
           </div>
         </section>
 
+        <div hidden={!isDevelopmentView}>
+          <GalleryIndex />
+        </div>
+
         <TestimonialBanner title={body.title}>{testimonials}</TestimonialBanner>
 
-        <div className={style.sectionFourWrapper}>
+        <div hidden={isDevelopmentView} className={style.sectionFourWrapper}>
           <div className={style.sectionFourImg}>
             <img
               alt='card-img'

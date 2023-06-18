@@ -1,0 +1,92 @@
+// @use '@/scss/global/colors' as colors;
+// @use '@/scss/utils/functions' as fn;
+// @import '@/scss/utils/breakpoints';
+// @import '@/scss/utils/mixins';
+
+// .sectionFour {
+//   .testimonial {
+//     max-width: fn.rem(600);
+//     margin: 0 auto;
+//   }
+
+//   .description {
+//     // border: 1px solid red;
+//     width: 100%;
+//     // width: 50%;
+//     @include breakpoint-up('lg') {
+//       width: 50%;
+//     }
+//   }
+
+//   .brand {
+//     width: fn.rem(100);
+//     @include breakpoint-up('lg') {
+//       width: fit-content;
+//     }
+//   }
+
+//   .sectionFourWrapper {
+//     margin-top: fn.rem(100);
+//     @include breakpoint-up('lg') {
+//       @include flex;
+//       @include flex_align;
+//       // gap: fn.rem(50);
+//     }
+
+//     .sectionFourImg {
+//       // flex: 1;
+//       display: none;
+//       width: 50%;
+
+//       @include breakpoint-up('lg') {
+//         display: block;
+//       }
+//     }
+
+//     .sectionFourTextGroup {
+//       @include breakpoint-up('lg') {
+//         width: 60%;
+//       }
+
+//       .sectionFourText {
+//         text-align: center;
+//         margin-bottom: fn.rem(32);
+
+//         @include breakpoint-up('lg') {
+//           text-align: start;
+//           margin-right: fn.rem(50);
+//         }
+
+//         @include breakpoint-up('2xl') {
+//           margin-right: fn.rem(0);
+//         }
+
+//         .caption {
+//           color: colors.$blue;
+//           font-weight: 600;
+//           font-size: fn.rem(14);
+//         }
+
+//         .title {
+//           font-weight: 600;
+//           margin: fn.rem(16) 0 fn.rem(24);
+//         }
+
+//         .subTitle {
+//           margin-bottom: fn.rem(52);
+//           @include breakpoint-up('lg') {
+//             // margin-right: fn.rem(50);
+//           }
+//         }
+//       }
+//     }
+
+//     .btnContainer {
+//       @include flex;
+//       justify-content: center;
+//       @include breakpoint-up('lg') {
+//         justify-content: flex-start;
+//       }
+//     }
+//   }
+// }

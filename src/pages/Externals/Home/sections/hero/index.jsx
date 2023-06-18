@@ -37,8 +37,8 @@ const Hero = ({ content }) => {
             <img
               alt='logo'
               data-sizes='auto'
-              src='https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686652477/techstudio-web-app/assets/images/Property_1_Frame_1000002519_srrfd7.webp'
-              data-src='https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_1000/v1686652477/techstudio-web-app/assets/images/Property_1_Frame_1000002519_srrfd7.webp'
+              src='https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686744735/techstudio-web-app/assets/images/hero_doqefw.webp'
+              data-src='https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1686744735/techstudio-web-app/assets/images/hero_doqefw.webp'
               className='lazyload'
             />
           </div>

@@ -2,7 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { BannerII, Button } from '../../../components'
+import Brands from '../../../components/global/brands/Brands'
 import { Container, ExternalLayout, Navbar } from '../../../layout'
+import { HOME_CONTENT } from '../Home/content'
+import SectionFour from '../Home/sections/sectionFour'
 
 import CourseHero from './course/courseHero'
 import CourseSectionFour from './course/sectionFour/CourseSectionFour'
@@ -10,11 +13,19 @@ import CourseSectionTwo from './course/sectionTwo/CourseSectionTwo'
 
 const index = ({ content, job }) => {
   const { hero, sectionTwo, sectionFour } = content
+  const {
+    sectionFour: { articleOne, header, body },
+  } = HOME_CONTENT
   return (
     <ExternalLayout>
-      <Navbar bg={`transparent`} setTextColorBlack />
+      <Navbar bg={`transparent`} />
       <CourseHero content={hero} />
       <CourseSectionTwo content={sectionTwo} />
+      <CourseSectionFour content={sectionFour} />
+      <Container>
+        {/* <Brands /> */}
+        <SectionFour isDevelopmentView content={{ articleOne, header, body }} />
+      </Container>
       <section className='my-lg-32'>
         <Container>
           <BannerII>
@@ -36,7 +47,6 @@ const index = ({ content, job }) => {
           </BannerII>
         </Container>
       </section>
-      <CourseSectionFour content={sectionFour} />
     </ExternalLayout>
   )
 }

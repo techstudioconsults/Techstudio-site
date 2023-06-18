@@ -4,21 +4,37 @@
 @import '@/scss/utils/mixins';
 
 .hero {
-  // color: colors.$light;
+  position: relative;
+  background-color: colors.$deep-blue;
+  background: url(https://res.cloudinary.com/dkszgtapy/image/upload/v1686218517/techstudio-web-app/assets/images/blog-img1_gm7m8n.webp)
+    no-repeat;
+  background-size: cover;
   @include flex;
   @include flex_centered;
-  // background: url('../../../assets/images/heroBg.webp') no-repeat right;
-  // background-size: cover;
-  // background-color: colors.$deep-blue;
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // background-color: #00000050;
+    background: #162143de;
+    // z-index: -1;
+  }
   @include breakpoint-up('lg') {
     height: fn.rem(749);
   }
   .heroWrapper {
+    position: relative;
+    z-index: 1;
+    // border: 1px solid red;
     text-align: center;
     @include flex_column;
     flex-direction: column-reverse;
     gap: fn.rem(78);
     padding-top: fn.rem(100);
+    color: colors.$light;
 
     @include breakpoint-up('lg') {
       text-align: initial;
@@ -30,7 +46,7 @@
     .heroText {
       flex: 1;
       .title {
-        color: colors.$deep-blue;
+        color: colors.$light;
         font-weight: 600;
         margin-bottom: fn.rem(22);
       }
@@ -45,7 +61,7 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
-        filter: drop-shadow(1px 1px 10px colors.$gray);
+        // filter: drop-shadow(1px 1px 10px colors.$gray);
       }
     }
   }

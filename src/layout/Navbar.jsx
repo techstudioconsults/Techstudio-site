@@ -14,25 +14,25 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
   // const courses = useSelector(selectCoursesExternal)
   const navEl = useRef()
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (navEl) {
-        if (window.scrollY >= 10) {
-          navEl.current.style.backgroundColor = `#1f2666`
-          navEl.current.style.boxShadow = `rgba(0, 0, 0, 0.2) 0px 18px 50px 5px`
-          keepColor ? setColor(false) : setColor(false)
-        } else if (window.scrollY == 0) {
-          keepColor ? setColor(false) : setColor(true)
-          navEl.current.style.backgroundColor = `transparent`
-          navEl.current.style.boxShadow = null
-        }
-      }
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [keepColor])
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (navEl) {
+  //       if (window.scrollY >= 10) {
+  //         navEl.current.style.backgroundColor = `#1f2666`
+  //         navEl.current.style.boxShadow = `rgba(0, 0, 0, 0.2) 0px 18px 50px 5px`
+  //         keepColor ? setColor(false) : setColor(false)
+  //       } else if (window.scrollY == 0) {
+  //         keepColor ? setColor(false) : setColor(true)
+  //         navEl.current.style.backgroundColor = `transparent`
+  //         navEl.current.style.boxShadow = null
+  //       }
+  //     }
+  //   }
+  //   window.addEventListener('scroll', handleScroll)
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll)
+  //   }
+  // }, [keepColor])
 
   // const dropdownLinks = courses.map((course) => {
   //   return (
