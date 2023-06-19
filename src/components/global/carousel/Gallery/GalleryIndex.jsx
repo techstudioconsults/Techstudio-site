@@ -35,7 +35,7 @@ const GalleryIndex = () => {
               src='https://res.cloudinary.com/dkszgtapy/image/upload/v1686740627/techstudio-web-app/assets/images/Polygon_1_ysztg3.webp'
               alt='polygon'
             />
-            <section className='d-flex position-relative'>
+            <section className='d-lg-flex position-relative'>
               <Swiper
                 ref={swiperRef}
                 className={style.GalleryIndexContentsSecond}
@@ -93,7 +93,7 @@ const GalleryIndex = () => {
                   />
                 </SwiperSlide>
               </Swiper>
-              <div className={style.sliderText}>
+              <div className={`${style.sliderText} mt-10`}>
                 <h5 className='fs-xl fw-bold'>
                   A World-Class Learning Facility
                 </h5>

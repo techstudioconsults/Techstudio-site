@@ -39,9 +39,9 @@ const ShortStepper = ({ lists, isCourses }) => {
                 <p className={`${style.caption} fs-xs fw-bold text-primary`}>
                   {list.caption}
                 </p>
-                <p className={`${style.title} fs-3xl`}>{list.title}</p>
+                <p className={`${style.title} fs-xl fs-lg-3xl`}>{list.title}</p>
                 <p className={`mt-2 mb-10 fs-sm lh-lg`}>{list.desc}</p>
-                <div className='d-flex gap-5'>
+                <div className='d-flex flex-column flex-md-row gap-5'>
                   {list?.tagAttr?.map((tag, index) => {
                     return (
                       <TagBox

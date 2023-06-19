@@ -120,7 +120,7 @@ export const DEVELOPMENT_CONTENT = {
           title: `Introduction To Product Design`,
           desc: `Unit 1 provides students with a comprehensive introduction to product design. It acquaints them with the fundamental principles, elements, and tools necessary for successful design. The unit emphasizes the primary purpose of product design, which is to create innovative solutions that cater to user needs and evoke emotions. Through engaging lectures and interactive discussions, students gain a deep understanding of the impact that well-designed products can have on society and individuals.`,
           bgColor: `red`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218527/techstudio-web-app/assets/images/teacher_f4hm2d.webp`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687125554/techstudio-web-app/assets/images/Group_1000002473_ag6rmm.svg`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -135,7 +135,7 @@ export const DEVELOPMENT_CONTENT = {
           title: `User Interface / Visual Design`,
           desc: `Unit 2 focuses on User Interface (UI) and Visual Design, aiming to create engaging digital experiences. Students learn to create low-fidelity wireframes, convert them to high-fidelity wireframes, design mobile/web app interfaces, and develop responsive web designs. This unit equips students with the skills to visualize and refine design concepts, create user-friendly interfaces, and adapt designs to different devices. By mastering UI and Visual Design principles and techniques, students are prepared to craft captivating digital experiences that seamlessly blend aesthetics and functionality. Additionally, they gain proficiency in using Auto Layouts, constraints, and resizing frames for design`,
           bgColor: `light-blue-ii`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218527/techstudio-web-app/assets/images/teacher_f4hm2d.webp`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687125445/techstudio-web-app/assets/images/rafiki_lzuju5.svg`,
           tagAttr: [
             {
               bgColor: `white`,
@@ -160,7 +160,7 @@ export const DEVELOPMENT_CONTENT = {
           title: `Interaction Design: Breathing Life into Visual Experiences`,
           desc: `Unit 3 explores Interaction Design, emphasizing the addition of interactivity and animation to visual designs. Students learn to animate components or elements, prototype design pages, create interactive components, and test interactions using Figma. This unit equips students with the skills to bring their designs to life through motion and interactivity, enhancing user engagement and creating seamless user experiences.`,
           bgColor: `primary`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218527/techstudio-web-app/assets/images/teacher_f4hm2d.webp`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687125464/techstudio-web-app/assets/images/amico_pb1jgg.svg`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -176,7 +176,7 @@ export const DEVELOPMENT_CONTENT = {
           desc: `Unit 4 focuses on User Experience (UX), encompassing the design process, user research, collaboration, wireframing, and usability testing. Students gain an understanding of Design Thinking as a design process, conduct user research to gather valuable feedback for creating user personas and journey maps. They collaborate and brainstorm to generate ideas, employing techniques like Information Architecture and user flows. Students then translate these ideas into tangible wireframes. Lastly, they conduct rigorous usability tests on the final design to ensure a seamless user experience before delivering the project.
 `,
           bgColor: `blue`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218527/techstudio-web-app/assets/images/teacher_f4hm2d.webp`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687125471/techstudio-web-app/assets/images/amico_di4euq.svg`,
           tagAttr: [
             {
               bgColor: `white`,
@@ -196,7 +196,7 @@ export const DEVELOPMENT_CONTENT = {
           title: `Capstone Project: Bringing Ideas to Life`,
           desc: `This Unit is dedicated to the Capstone Project, where students apply their acquired knowledge and skills to create a comprehensive design solution. The unit encompasses creating case studies to articulate the problem statement and provide an overview of the product. Following the design thinking stages, students iterate on their prototype, incorporating feedback and refining their design. Rigorous testing ensures the effectiveness and usability of the prototype. Finally, students showcase their work through a compelling pitch or presentation, demonstrating their understanding of the project's objectives, process, and outcomes. This unit allows students to showcase their creativity, problem-solving abilities, and presentation skills, culminating in a tangible representation of their product design journey.`,
           bgColor: `white`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218527/techstudio-web-app/assets/images/teacher_f4hm2d.webp`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687125489/techstudio-web-app/assets/images/rafiki_pvgkaz.svg`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -216,6 +216,24 @@ export const DEVELOPMENT_CONTENT = {
           ],
         },
       ],
+    },
+
+    duration: {
+      online: {
+        time: `N/A`,
+        date: `N/A`,
+        price: `0`,
+      },
+      weekday: {
+        time: `12`,
+        date: `July 3, 2023`,
+        price: `250000`,
+      },
+      weekend: {
+        time: `12`,
+        date: `July 1, 2023`,
+        price: `250000`,
+      },
     },
   },
   fullStackDevelopment: {
@@ -256,7 +274,7 @@ export const DEVELOPMENT_CONTENT = {
           title: `Introduction To HTML And CSS`,
           desc: `This unit provides a solid foundation in web development, covering both HTML and CSS. Students will learn how to create well-structured HTML documents using tags, elements, and attributes. They will also explore CSS syntax and style rules to customize the appearance of web pages. Topics include text styling, backgrounds, borders, and images. Additionally, students will discover CSS layout techniques, such as floats and CSS grid, to create different page layouts. They will also explore Bootstrap, utilizing its pre-built components and responsive grid system for attractive and mobile-friendly layouts. Practical exercises reinforce learning.`,
           bgColor: `red`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218527/techstudio-web-app/assets/images/teacher_f4hm2d.webp`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687127143/techstudio-web-app/assets/images/JavaScript_frameworks_2_jeyawg.gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -281,7 +299,7 @@ export const DEVELOPMENT_CONTENT = {
           title: `Java Script Basic`,
           desc: `Throughout the course of this unit, students will embark on a journey into the fundamentals of JavaScript, unlocking the potential to create engaging and interactive web experiences. By delving into the core concepts and syntax of JavaScript, students will gain a comprehensive understanding of how to leverage this powerful programming language to build dynamic and responsive web pages. They will explore topics such as variables, data types, conditional statements, loops, functions, arrays, objects, and DOM manipulation.`,
           bgColor: `light-blue-ii`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218527/techstudio-web-app/assets/images/teacher_f4hm2d.webp`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687127472/techstudio-web-app/assets/images/JavaScript_frameworks_3_icwy5l.gif`,
           tagAttr: [
             {
               bgColor: `white`,
@@ -302,7 +320,7 @@ export const DEVELOPMENT_CONTENT = {
           desc: `Object-oriented JavaScript is a programming paradigm that focuses on organizing code into objects, which encapsulate data and methods. It provides a way to create reusable and modular code, making it easier to manage and maintain complex applications.
 In object-oriented JavaScript, students will learn how to create objects, define their properties and methods, and establish relationships between objects through inheritance. They will explore concepts such as encapsulation, where data and methods are bundled together within objects to control access and ensure data integrity.`,
           bgColor: `primary`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218527/techstudio-web-app/assets/images/teacher_f4hm2d.webp`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687125906/techstudio-web-app/assets/images/Frame_1000002484_im2kg6.svg`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -322,7 +340,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `The DOM`,
           desc: `Unit 4 dives into the exploration of the Document Object Model (DOM), an essential API for interacting programmatically with HTML and XML documents. The unit focuses on the DOM's association with JavaScript, the widely used programming language for web development, known for its built-in support for the DOM. Students learn how to leverage the DOM to manipulate and interact with web content dynamically.`,
           bgColor: `blue`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218527/techstudio-web-app/assets/images/teacher_f4hm2d.webp`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687125893/techstudio-web-app/assets/images/Group_1000002474_tjqtsc.svg`,
           tagAttr: [
             {
               bgColor: `white`,
@@ -347,7 +365,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `The REACT Library`,
           desc: `Unit 5 focuses on the popular JavaScript library, React, known for its ability to create powerful and interactive user interfaces. React has gained immense popularity due to its component-based architecture, which allows developers to build reusable UI components that encapsulate specific functionalities. By breaking down the user interface into modular components, React promotes code reusability, improves maintainability, and facilitates collaborative development.`,
           bgColor: `white`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218527/techstudio-web-app/assets/images/teacher_f4hm2d.webp`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687125897/techstudio-web-app/assets/images/atom-loader_1_vyfujv.svg`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -367,7 +385,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Version Control`,
           desc: `This Unit of the curriculum explores the importance of version control systems, with a particular focus on Git. Version control systems like Git play a crucial role in managing code changes over time. They provide a structured framework for tracking modifications, maintaining a comprehensive history of changes, and facilitating collaborative development by enabling multiple developers to work on the same codebase simultaneously.`,
           bgColor: `light-blue-ii`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218527/techstudio-web-app/assets/images/teacher_f4hm2d.webp`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687125893/techstudio-web-app/assets/images/Group_1000002474_tjqtsc.svg`,
           tagAttr: [
             {
               bgColor: `white`,
@@ -392,7 +410,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Node JS`,
           desc: `Node JS is a backend or server-side framework that uses JavaScript code outside a web browser. Server-side JavaScript is becoming more prevalent in the industry, with web frameworks such as Node.js and Express making it simple to create and deploy complex, data-driven web applications. This course will prepare you to use such frameworks and show you how to integrate them with NoSQL databases such as MongoDB.`,
           bgColor: `white`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218527/techstudio-web-app/assets/images/teacher_f4hm2d.webp`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687125897/techstudio-web-app/assets/images/atom-loader_1_vyfujv.svg`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -412,7 +430,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Deployment`,
           desc: `In this comprehensive unit, students delve into the art of deploying web applications using three prominent platforms: GitHub, Netlify, and Heroku. They gain hands-on experience in version control, automation, and best practices for production environments. Throughout the curriculum, students learn to optimize deployments, scale applications, and ensure efficient error handling. By mastering these skills, they become proficient in successfully deploying web apps to meet the demands of real-world scenarios.`,
           bgColor: `blue`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218527/techstudio-web-app/assets/images/teacher_f4hm2d.webp`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687128212/techstudio-web-app/assets/images/Market_launch_j1iogl.gif`,
           tagAttr: [
             {
               bgColor: `white`,
@@ -432,6 +450,24 @@ In object-oriented JavaScript, students will learn how to create objects, define
           ],
         },
       ],
+    },
+
+    duration: {
+      online: {
+        time: `16`,
+        date: `July 1, 2023`,
+        price: `200000`,
+      },
+      weekday: {
+        time: `24`,
+        date: `July 3, 2023`,
+        price: `500000`,
+      },
+      weekend: {
+        time: `16`,
+        date: `July 1, 2023`,
+        price: `300000`,
+      },
     },
   },
   datascience: {
@@ -472,7 +508,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Introduction to Microsoft Excel - Objectives`,
           desc: `In this unit, Students learn Microsoft Excel fundamentals, including installation, workbook creation, environment navigation, and the importance of Excel. They explore formulas, functions (arithmetic, text, logical, date), data organization (sorting, filtering, validation), analysis (conditional formatting, Power Query, Power Pivot), and pivot table creation. Practical skills for data management and analysis are gained. Throughout the unit, students gain practical skills in using Microsoft Excel for data management, analysis, and reporting..`,
           bgColor: `red`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218527/techstudio-web-app/assets/images/teacher_f4hm2d.webp`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687126307/techstudio-web-app/assets/images/Data_analysis_as85zx.gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -487,7 +523,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Introduction to SQL`,
           desc: `This unit introduces students to SQL, a programming language used for accessing databases. They learn the basics of SQL, including its purpose, types of databases, and concepts of DBMS and RDBMS. Students gain practical skills in creating and managing databases and tables, including inserting records and altering table structures. They also explore SQL statements for selecting columns, updating data, applying constraints, and sorting values. Throughout the unit, students develop a solid foundation in SQL fundamentals for working with databases.`,
           bgColor: `light-blue-ii`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218527/techstudio-web-app/assets/images/teacher_f4hm2d.webp`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687128488/techstudio-web-app/assets/images/pana_sgxtms.svg`,
           tagAttr: [
             {
               bgColor: `white`,
@@ -502,7 +538,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Python Basics`,
           desc: `Students delve into Python programming, acquiring a strong foundation in this widely-used language for data analysis. They learn to install Anaconda, explore in-built functions, work with different data types, manipulate strings, use variables and operators, implement loops, and import modules for enhanced functionality. Practical exercises empower students to write Python code proficiently, analyze large datasets, and create visual representations of data.`,
           bgColor: `primary`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218527/techstudio-web-app/assets/images/teacher_f4hm2d.webp`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687128499/techstudio-web-app/assets/images/rafiki_jkdsfc.svg`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -522,7 +558,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Python NumPy`,
           desc: `Students delve into NumPy, a vital Python library for numerical data analysis and scientific computing. They gain hands-on experience by importing the library and utilizing array functions. Through practical exercises, they learn to create one-dimensional and two-dimensional arrays, enabling efficient manipulation and analysis of complex numerical data. By mastering NumPy, students acquire essential skills for advanced data analysis, modeling, and scientific computations in Python.`,
           bgColor: `blue`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218527/techstudio-web-app/assets/images/teacher_f4hm2d.webp`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687128519/techstudio-web-app/assets/images/pana_xxryex.svg`,
           tagAttr: [
             {
               bgColor: `white`,
@@ -542,7 +578,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Python Pandas`,
           desc: `In this unit, students delve into Pandas, a powerful Python library for data manipulation and analysis. They learn to convert sequences and dictionaries into DataFrame tables using the .DataFrame function. Students gain practical skills in importing files and converting them into DataFrames. They explore various DataFrame operations such as retrieving index and columns, using head and tail methods, accessing specific columns, counting values, summing columns vertically and horizontally, locating values in cells or positions, extracting rows based on conditions, creating columns based on conditions, and utilizing the groupby function.`,
           bgColor: `white`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218527/techstudio-web-app/assets/images/teacher_f4hm2d.webp`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687128524/techstudio-web-app/assets/images/rafiki_dexbmz.png`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -562,7 +598,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Python Plotly`,
           desc: `Students delve into Plotly and Plotly Express, Python libraries renowned for interactive data visualization. They acquire practical skills in creating a variety of charts, including bar charts for categorical comparisons, line charts for trend analysis, area charts for cumulative data, pie charts for proportions, and donut charts with a center hole. By mastering Plotly, students unlock the ability to design captivating and interactive visualizations that effectively convey data insights.`,
           bgColor: `light-blue-ii`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218527/techstudio-web-app/assets/images/teacher_f4hm2d.webp`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687128568/techstudio-web-app/assets/images/amico_uj3blm.svg`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -577,6 +613,24 @@ In object-oriented JavaScript, students will learn how to create objects, define
           ],
         },
       ],
+    },
+
+    duration: {
+      online: {
+        time: `N/A`,
+        date: `N/A`,
+        price: `0`,
+      },
+      weekday: {
+        time: `12`,
+        date: `July 3, 2023`,
+        price: `250000`,
+      },
+      weekend: {
+        time: `12`,
+        date: `July 1, 2023`,
+        price: `250000`,
+      },
     },
   },
   // mobileDevelopment: {

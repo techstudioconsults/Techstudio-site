@@ -48,10 +48,11 @@
     }
     &Second {
       border-radius: fn.rem(30);
-      height: fn.rem(664);
+
       // width: 100%;
       @include breakpoint-up('lg') {
         // position: absolute;
+        height: fn.rem(664);
         min-width: fn.rem(892);
         max-width: fn.rem(892);
         // margin-right: auto;
@@ -88,7 +89,11 @@
       z-index: 3;
       max-width: fn.rem(458);
       min-width: fn.rem(458);
-      transform: translateX(-8rem);
+      transform: translateX(-10rem);
     }
+    // @include breakpoint-up('md') {
+    //   border: 1px solid red;
+    //   transform: translateX(-35rem);
+    // }
   }
 }

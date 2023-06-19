@@ -14,7 +14,7 @@ export const HOME_CONTENT = {
     },
     cards: [
       {
-        image: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_1000/v1686218811/techstudio-web-app/assets/images/Group_1000002452_dtfdi4_hwvx6m.webp`,
+        image: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687132640/techstudio-web-app/assets/images/Group_discussion_yyzu1o.gif`,
         imageLow: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686218811/techstudio-web-app/assets/images/Group_1000002452_dtfdi4_hwvx6m.webp`,
         title: `Great learning Environment`,
         description: `We provide you with the best learning facility you can lay
@@ -23,13 +23,13 @@ equipped with high-speed internet and the latest
 technologies for learning.`,
       },
       {
-        image: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_1000/v1686218811/techstudio-web-app/assets/images/Group_1000002453_kuik1j_w4xaie.webp`,
+        image: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687132610/techstudio-web-app/assets/images/Office_work_fsvou4.gif`,
         imageLow: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686218811/techstudio-web-app/assets/images/Group_1000002453_kuik1j_w4xaie.webp`,
         title: `Experienced Tutor`,
         description: `Our tutors are highly skilled professionals that are chosen based on industry experience and teaching ability. Our support team provides students with guidance and tips on building a top-notch portfolio that woos employers.`,
       },
       {
-        image: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_1000/v1686218811/techstudio-web-app/assets/images/Illustration_vtaodd_ctbjgo.webp`,
+        image: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687132623/techstudio-web-app/assets/images/Website_Creator_xhhfld.gif`,
         imageLow: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686218811/techstudio-web-app/assets/images/Illustration_vtaodd_ctbjgo.webp`,
         title: `Career Support`,
         description: `We offer you the best support - either while you’re
