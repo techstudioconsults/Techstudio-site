@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import PropTypes from 'prop-types'
 
 import { BannerII, Button } from '../../../components'
@@ -13,30 +13,41 @@ import CourseHero from './course/courseHero'
 import CourseSectionFour from './course/sectionFour/CourseSectionFour'
 import CourseSectionTwo from './course/sectionTwo/CourseSectionTwo'
 
-const index = ({ content, job }) => {
+const Development = ({ content, job }) => {
   const { hero, sectionTwo, sectionFour, duration } = content
   const {
     sectionFour: { articleOne, header, body },
   } = HOME_CONTENT
+
+  const style = useMemo(() => {
+    const baseStyle = {
+      borderRadius: `8.33846px`,
+      transform: `translateY(-50%)`,
+      position: `relative`,
+      width: `75%`,
+    }
+
+    if (window.innerWidth <= 767) {
+      baseStyle.transform = `static`
+      baseStyle.width = `90%`
+    }
+
+    return baseStyle
+  }, [])
+
   return (
     <ExternalLayout>
       <Navbar bg={`transparent`} />
       <CourseHero content={hero} />
-      <section
-        style={{
-          borderRadius: `8.33846px`,
-          transform: `translateY(-50%)`,
-          position: `relative`,
-        }}
-      >
+      <section style={style} className='m-auto mt-10 mt-lg-0'>
         <CourseBanner duration={duration} />
       </section>
       <CourseSectionTwo content={sectionTwo} />
       <CourseSectionFour content={sectionFour} />
-      <Container>
-        {/* <Brands /> */}
-        <SectionFour isDevelopmentView content={{ articleOne, header, body }} />
-      </Container>
+      {/* <Container> */}
+      {/* <Brands /> */}
+      <SectionFour isDevelopmentView content={{ articleOne, header, body }} />
+      {/* </Container> */}
       {/* faq */}
       <section>
         <Container>
@@ -69,9 +80,9 @@ const index = ({ content, job }) => {
   )
 }
 
-index.propTypes = {
+Development.propTypes = {
   content: PropTypes.object.isRequired,
   job: PropTypes.string,
 }
 
-export default index
+export default Development

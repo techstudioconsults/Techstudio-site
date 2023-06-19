@@ -9,13 +9,13 @@ const CourseBanner = ({ duration }) => {
       style={{
         borderRadius: `8.33846px`,
       }}
-      className='cc-shadow w-75 p-10 m-auto bg-white'
+      className='cc-shadow p-10 m-auto bg-white text-center text-lg-start'
     >
-      <span className='d-flex gap-1 align-items-center'>
+      <p className='d-flex gap-1 align-items-center justify-content-center justify-content-lg-start'>
         <Icon icon={`solar:calendar-linear`} />
         <span className='fw-bold'>Next Cohort:</span>
-      </span>
-      <section className='d-flex flex-column flex-lg-row justify-content-between align-items-center'>
+      </p>
+      <section className='d-flex flex-column flex-lg-row justify-content-between align-items-center gap-5'>
         <div>
           <h2 className='m-0 fs-3xl text-primary'>{duration?.weekday?.date}</h2>
           <p className='m-0 fs-xs text-dark fw-bold'>

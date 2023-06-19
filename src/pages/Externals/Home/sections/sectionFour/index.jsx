@@ -1,4 +1,5 @@
 import React from 'react'
+import Marquee from 'react-fast-marquee'
 import PropTypes from 'prop-types'
 import { SwiperSlide } from 'swiper/react'
 
@@ -36,7 +37,7 @@ const SectionFour = ({ content, isDevelopmentView }) => {
     <section className={`${style.sectionFour} mb-20`}>
       <Container>
         <section>
-          <section className='d-flex flex-column align-items-center justify-content-between flex-lg-row mt-12'>
+          <section className='d-flex flex-column align-items-center justify-content-between flex-lg-row my-12'>
             <div className={`text-center text-lg-start`}>
               <p className={`text-primary fs-sm fw-semibold`}>
                 {articleOne.title}
@@ -51,70 +52,70 @@ const SectionFour = ({ content, isDevelopmentView }) => {
               {articleOne.description}
             </div>
           </section>
-          <div className='container mt-12 mb-32 text-center'>
-            <div className='row align-items-center justify-content-center justify-content-lg-between gap-10'>
-              {/* <img
-                className={`${style.brand} col-5 col-lg-2`}
-                src={articleOne.companies[0]}
-                alt='logo'
-              /> */}
-              <img
-                alt='card-img'
-                data-sizes='auto'
-                className={`${style.brand} col-5 col-lg-2 lazyload`}
-                src={articleOne.companies[0]}
-                data-src={articleOne.companies[0]}
-              />
-              <img
-                alt='card-img'
-                data-sizes='auto'
-                className={`${style.brand} col-5 col-lg-2 lazyload`}
-                src={articleOne.companies[1]}
-                data-src={articleOne.companies[1]}
-              />
-              <img
-                alt='card-img'
-                data-sizes='auto'
-                className={`${style.brand} col-5 col-lg-2 lazyload`}
-                src={articleOne.companies[2]}
-                data-src={articleOne.companies[2]}
-              />
-              <img
-                alt='card-img'
-                data-sizes='auto'
-                className={`${style.brand} col-5 col-lg-2 lazyload`}
-                src={articleOne.companies[3]}
-                data-src={articleOne.companies[3]}
-              />
-              <img
-                alt='card-img'
-                data-sizes='auto'
-                className={`${style.brand} col-5 col-lg-2 lazyload`}
-                src={articleOne.companies[4]}
-                data-src={articleOne.companies[4]}
-              />
-              <img
-                alt='card-img'
-                data-sizes='auto'
-                className={`${style.brand} col-5 col-lg-2 lazyload`}
-                src={articleOne.companies[5]}
-                data-src={articleOne.companies[5]}
-              />
-              <img
-                alt='card-img'
-                data-sizes='auto'
-                className={`${style.brand} col-5 col-lg-2 lazyload`}
-                src={articleOne.companies[6]}
-                data-src={articleOne.companies[6]}
-              />
-            </div>
-          </div>
         </section>
+      </Container>
 
-        <div hidden={!isDevelopmentView}>
-          <GalleryIndex />
-        </div>
+      <div className='container-fluid text-center mb-20'>
+        <Marquee speed={30} style={{}}>
+          <div className=' d-flex align-items-center justify-content-center justify-content-lg-between gap-24'>
+            <img
+              alt='card-img'
+              data-sizes='auto'
+              className={`${style.brand} col-5 col-lg-2 lazyload`}
+              src={articleOne.companies[0]}
+              data-src={articleOne.companies[0]}
+            />
+            <img
+              alt='card-img'
+              data-sizes='auto'
+              className={`${style.brand} col-5 col-lg-2 lazyload`}
+              src={articleOne.companies[1]}
+              data-src={articleOne.companies[1]}
+            />
+            <img
+              alt='card-img'
+              data-sizes='auto'
+              className={`${style.brand} col-5 col-lg-2 lazyload`}
+              src={articleOne.companies[2]}
+              data-src={articleOne.companies[2]}
+            />
+            <img
+              alt='card-img'
+              data-sizes='auto'
+              className={`${style.brand} col-5 col-lg-2 lazyload`}
+              src={articleOne.companies[3]}
+              data-src={articleOne.companies[3]}
+            />
+            <img
+              alt='card-img'
+              data-sizes='auto'
+              className={`${style.brand} col-5 col-lg-2 lazyload`}
+              src={articleOne.companies[4]}
+              data-src={articleOne.companies[4]}
+            />
+            <img
+              alt='card-img'
+              data-sizes='auto'
+              className={`${style.brand} col-5 col-lg-2 lazyload`}
+              src={articleOne.companies[5]}
+              data-src={articleOne.companies[5]}
+            />
+            <img
+              alt='card-img'
+              data-sizes='auto'
+              className={`${style.brand} col-5 col-lg-2 lazyload`}
+              src={articleOne.companies[6]}
+              data-src={articleOne.companies[6]}
+            />
+          </div>
+        </Marquee>
+      </div>
 
+      <div hidden={!isDevelopmentView}>
+        <GalleryIndex />
+      </div>
+
+      <Container>
         <TestimonialBanner title={body.title}>{testimonials}</TestimonialBanner>
 
         <div hidden={isDevelopmentView} className={style.sectionFourWrapper}>
