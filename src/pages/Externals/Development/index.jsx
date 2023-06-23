@@ -37,7 +37,7 @@ const Development = ({ content, job }) => {
 
   return (
     <ExternalLayout>
-      <Navbar bg={`transparent`} />
+      <Navbar bg={`transparent`} keepColor />
       <CourseHero content={hero} />
       <section style={style} className='m-auto mt-10 mt-lg-0'>
         <CourseBanner duration={duration} />

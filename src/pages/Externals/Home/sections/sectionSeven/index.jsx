@@ -36,7 +36,6 @@ const SectionSeven = ({ data }) => {
       `https://api.techstudio.academy/api/v1/external/classes`
     )
     setClasses(res.data.data)
-    console.log(res.data.data)
   }, [])
 
   useEffect(() => {

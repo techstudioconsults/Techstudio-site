@@ -1,38 +1,38 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Icon } from '@iconify/react'
 import PropTypes from 'prop-types'
 
+import { selectCoursesExternal } from '../app/api/appSlice'
 import { Button } from '../components'
 
 import style from './layout.module.scss'
-// import { useSelector } from 'react-redux'
-// import { selectCoursesExternal } from '../app/api/appSlice'
 
 const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
   const [color, setColor] = useState(setTextColorBlack)
   // const courses = useSelector(selectCoursesExternal)
   const navEl = useRef()
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     if (navEl) {
-  //       if (window.scrollY >= 10) {
-  //         navEl.current.style.backgroundColor = `#1f2666`
-  //         navEl.current.style.boxShadow = `rgba(0, 0, 0, 0.2) 0px 18px 50px 5px`
-  //         keepColor ? setColor(false) : setColor(false)
-  //       } else if (window.scrollY == 0) {
-  //         keepColor ? setColor(false) : setColor(true)
-  //         navEl.current.style.backgroundColor = `transparent`
-  //         navEl.current.style.boxShadow = null
-  //       }
-  //     }
-  //   }
-  //   window.addEventListener('scroll', handleScroll)
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll)
-  //   }
-  // }, [keepColor])
+  useEffect(() => {
+    const handleScroll = () => {
+      if (navEl) {
+        if (window.scrollY >= 10) {
+          navEl.current.style.backgroundColor = `#1f2666`
+          navEl.current.style.boxShadow = `rgba(0, 0, 0, 0.2) 0px 18px 50px 5px`
+          keepColor ? setColor(false) : setColor(false)
+        } else if (window.scrollY == 0) {
+          keepColor ? setColor(false) : setColor(true)
+          navEl.current.style.backgroundColor = `transparent`
+          navEl.current.style.boxShadow = null
+        }
+      }
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [keepColor])
 
   // const dropdownLinks = courses.map((course) => {
   //   return (
@@ -49,7 +49,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
   return (
     <nav
       ref={navEl}
-      className={['navbar navbar-expand-lg fixed-top py-0 py-lg-2'].join(' ')}
+      className={['navbar navbar-expand-lg fixed-top py-0 py-lg-1'].join(' ')}
       style={{
         backgroundColor: bg,
       }}

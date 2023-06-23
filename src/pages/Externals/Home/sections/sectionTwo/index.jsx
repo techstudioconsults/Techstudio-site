@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import PropTypes from 'prop-types'
 
 import { SectionTwoCard } from '../../../../../components'

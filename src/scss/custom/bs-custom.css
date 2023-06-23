@@ -63,6 +63,12 @@
   animation: 0.5s fadeOut forwards;
 }
 
+.cc-bend {
+  transform: perspective(1200px) translateX(0px) translateY(-29.781px)
+    scale(0.950365) rotate(0deg) rotateX(9.92701deg) rotateY(0deg)
+    translateZ(0px);
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

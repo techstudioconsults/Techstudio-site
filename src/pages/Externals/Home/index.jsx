@@ -1,5 +1,3 @@
-import React, { useCallback, useEffect, useState } from 'react'
-
 import GalleryIndex from '../../../components/global/carousel/Gallery/GalleryIndex'
 import { ExternalLayout, Navbar } from '../../../layout'
 
@@ -29,6 +27,7 @@ const Home = () => {
     <div>
       <ExternalLayout>
         <Navbar bg={`transparent`} keepColor />
+
         {/* <GalleryIndex /> */}
         <>
           <Hero content={hero} />

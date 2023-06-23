@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 import { SwiperSlide } from 'swiper/react'
 
 import { Profile, TestimonialBanner } from '../../../../../components'
-import Brands from '../../../../../components/global/brands/Brands'
 import Button from '../../../../../components/global/Button'
 import GalleryIndex from '../../../../../components/global/carousel/Gallery/GalleryIndex'
+import UseAnimate from '../../../../../hooks/useAnimate'
 import { Container } from '../../../../../layout'
 
 import style from './sectionFour.module.scss'
@@ -55,8 +55,10 @@ const SectionFour = ({ content, isDevelopmentView }) => {
         </section>
       </Container>
 
-      <div className='container-fluid text-center mb-20'>
-        <Marquee speed={30} style={{}}>
+      <div
+        className={`container-fluid text-center mb-20 ${style.gradientOverlay}`}
+      >
+        <Marquee speed={50}>
           <div className=' d-flex align-items-center justify-content-center justify-content-lg-between gap-24'>
             <img
               alt='card-img'
@@ -93,13 +95,13 @@ const SectionFour = ({ content, isDevelopmentView }) => {
               src={articleOne.companies[4]}
               data-src={articleOne.companies[4]}
             />
-            <img
+            {/* <img
               alt='card-img'
               data-sizes='auto'
               className={`${style.brand} col-5 col-lg-2 lazyload`}
               src={articleOne.companies[5]}
               data-src={articleOne.companies[5]}
-            />
+            /> */}
             <img
               alt='card-img'
               data-sizes='auto'
@@ -120,13 +122,15 @@ const SectionFour = ({ content, isDevelopmentView }) => {
 
         <div hidden={isDevelopmentView} className={style.sectionFourWrapper}>
           <div className={style.sectionFourImg}>
-            <img
-              alt='card-img'
-              data-sizes='auto'
-              className={`lazyload`}
-              src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686218826/techstudio-web-app/assets/images/Group_1000002320_pve1ql_lqi4vr.webp`}
-              data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_425/v1686218826/techstudio-web-app/assets/images/Group_1000002320_pve1ql_lqi4vr.webp`}
-            />
+            <UseAnimate hidden={{ scale: 0 }} visible={{ scale: 1 }}>
+              <img
+                alt='card-img'
+                data-sizes='auto'
+                className={`lazyload`}
+                src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686218826/techstudio-web-app/assets/images/Group_1000002320_pve1ql_lqi4vr.webp`}
+                data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_425/v1686218826/techstudio-web-app/assets/images/Group_1000002320_pve1ql_lqi4vr.webp`}
+              />
+            </UseAnimate>
           </div>
           <div className={style.sectionFourTextGroup}>
             <div className={style.sectionFourText}>

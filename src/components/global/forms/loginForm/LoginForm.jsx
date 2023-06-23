@@ -30,7 +30,7 @@ const ContactForm = () => {
   const [login, { isLoading }] = useLoginMutation()
 
   // hooks
-  const [persist, setPersist] = usePersist()
+  // const [persist, setPersist] = usePersist()
   const navigate = useNavigate()
   const { toast } = useToast()
 
@@ -66,9 +66,9 @@ const ContactForm = () => {
       return !prevState
     })
   }
-  const handleToggle = () => {
-    setPersist((prev) => !prev)
-  }
+  // const handleToggle = () => {
+  //   setPersist((prev) => !prev)
+  // }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={[style.form].join(' ')}>

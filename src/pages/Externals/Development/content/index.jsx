@@ -226,7 +226,7 @@ export const DEVELOPMENT_CONTENT = {
       },
       weekday: {
         time: `12`,
-        date: `July 3, 2023`,
+        date: `July 9, 2023`,
         price: `250000`,
       },
       weekend: {
