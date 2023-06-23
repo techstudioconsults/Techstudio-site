@@ -10,7 +10,7 @@ const ShortStepper = ({ lists, isCourses }) => {
   const listsDisplay = lists.map((list) => {
     return (
       <section
-        // style={{ background: list.id % 2 === 0 ? list.bgColor : `null` }}
+        style={{ background: list.id % 2 === 0 ? list.bgColor : `null` }}
         className={[
           list.id % 2 === 0 ? `bg-${list.bgColor} ${style.section}` : null,
           list.bgColor === `blue` ? `text-white` : `text-blue`,

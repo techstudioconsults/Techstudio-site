@@ -49,7 +49,7 @@ const SectionFour = ({ content, isDevelopmentView }) => {
             <div
               className={`fs-sm text-center text-lg-start ${style.description}`}
             >
-              {articleOne.description}
+              <UseAnimate>{articleOne.description}</UseAnimate>
             </div>
           </section>
         </section>

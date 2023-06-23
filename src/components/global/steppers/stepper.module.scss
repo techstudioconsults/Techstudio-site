@@ -52,14 +52,13 @@
     left: 50%;
     transform: translate(-50%, 0);
     height: 107%;
-    border-left: fn.rem(1) solid colors.$gold;
+    border-left: fn.rem(1) solid colors.$blue;
   }
 
   .step:last-child .line {
-    // border: 1px solid red;
+    display: none;
     background-color: colors.$blue;
     border-left: fn.rem(1) solid colors.$light;
-    // z-index: -1; /* behind the circle to completely hide */
   }
 
   .step.completed .circle {
