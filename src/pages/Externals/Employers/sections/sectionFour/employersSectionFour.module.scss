@@ -1,0 +1,33 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
+.employersSectionFour {
+  @include breakpoint-up('lg') {
+    padding: fn.rem(58) 0;
+  }
+  background-color: colors.$light-blue-II;
+  .sectionFourWrapper {
+    @include flex_column;
+    gap: fn.rem(120);
+    @include breakpoint-up('lg') {
+      @include flex;
+      align-items: center;
+    }
+
+    .text {
+      .title {
+        color: colors.$deep-blue;
+        font-weight: 800;
+      }
+
+      .desc {
+        @include breakpoint-up('lg') {
+          font-size: fn.rem(18);
+          padding-right: fn.rem(100);
+        }
+      }
+    }
+  }
+}

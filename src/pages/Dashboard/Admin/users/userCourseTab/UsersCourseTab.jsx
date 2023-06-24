@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { Outlet, useLocation, useNavigate, useParams } from 'react-router'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
+
 import style from './resourceCourseTab.module.scss'
 
 const UsersCourseTab = ({ courses, type }) => {

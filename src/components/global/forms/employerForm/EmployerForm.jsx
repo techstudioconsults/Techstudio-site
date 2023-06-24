@@ -1,7 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import style from '../signupForm/signupForm.module.scss'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+
+import style from '../signupForm/signupForm.module.scss'
 
 const EmployerForm = ({ showTopInputs }) => {
   return (

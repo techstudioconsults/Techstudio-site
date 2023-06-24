@@ -3,17 +3,20 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+
+import { selectClassDetailOpen } from '../../../../app/api/appSlice'
 import { AvatarDropdown, SearchComponent } from '../../../../components'
-import style from './adminCourse.module.scss'
+import Feedback from '../../../../components/global/feedbacks/Feedback'
+import SpinnerComponent from '../../../../components/global/skeletonLoader/SpinnerComponent'
+
 import { useViewAllCoursesMutation } from './api/coursesApiSlice'
 import { selectCourseDetails, selectCourses } from './api/coursesSlice'
 import CourseDetails from './courseDetails/CourseDetails'
 import CourseList from './courseList/CourseList'
+
 import 'react-loading-skeleton/dist/skeleton.css'
-import { Link } from 'react-router-dom'
-import Feedback from '../../../../components/global/feedbacks/Feedback'
-import SpinnerComponent from '../../../../components/global/skeletonLoader/SpinnerComponent'
-import { selectClassDetailOpen } from '../../../../app/api/appSlice'
+import style from './adminCourse.module.scss'
 
 const AdminCourseView = () => {
   const [viewAllCourses, { isLoading }] = useViewAllCoursesMutation()

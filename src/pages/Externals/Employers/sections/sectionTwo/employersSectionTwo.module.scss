@@ -1,0 +1,29 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
+.employerSectionTwo {
+  background-color: colors.$grey-bg;
+  padding: fn.rem(86) 0 fn.rem(107);
+  .headerText {
+    text-align: center;
+    line-height: fn.rem(36);
+    margin-block-end: fn.rem(72);
+    color: colors.$deep-blue;
+
+    .title {
+      font-size: fn.rem(32);
+      font-weight: 700;
+      margin: 0;
+    }
+  }
+  .cardGroup {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: fn.rem(10);
+    @include breakpoint-up('lg') {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

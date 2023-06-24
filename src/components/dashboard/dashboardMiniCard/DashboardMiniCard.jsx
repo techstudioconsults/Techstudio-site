@@ -1,10 +1,11 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react'
-import PropTypes from 'prop-types'
-import style from './dashboardminiCard.module.scss'
-import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { Icon } from '@iconify/react'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+import PropTypes from 'prop-types'
+
+import style from './dashboardminiCard.module.scss'
 // eslint-disable-next-line react/prop-types
 const DashboardMiniCard = ({ card, total, modalNumber, route, location }) => {
   const handleDetailModal = () => {

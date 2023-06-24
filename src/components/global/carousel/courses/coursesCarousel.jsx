@@ -1,15 +1,17 @@
-import { SectionThreeCard } from '../../../../pages/Externals/Home/sections/sectionThree'
 import React, { useState } from 'react'
-import { HOME_CONTENT } from '../../../../pages/Externals/Home/content'
-import { Swiper, SwiperSlide } from 'swiper/react'
 // import 'swiper/swiper.min.css'
 import { Icon } from '@iconify/react'
-// Import Swiper styles
-import './styles.css'
-import 'swiper/css/pagination'
-
 // import required modules
 import { Pagination } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+import 'swiper/css/pagination'
+
+import { HOME_CONTENT } from '../../../../pages/Externals/Home/content'
+import { SectionThreeCard } from '../../../../pages/Externals/Home/sections/sectionThree'
+
+// Import Swiper styles
+import './styles.css'
 
 const Carousel = () => {
   const { sectionThree } = HOME_CONTENT

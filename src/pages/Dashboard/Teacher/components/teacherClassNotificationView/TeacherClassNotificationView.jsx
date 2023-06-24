@@ -1,11 +1,13 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import style from './classNotification.module.scss'
-import { Avatar, AvatarStack } from '../../../../../components'
-import { Icon } from '@iconify/react'
 import { useSelector } from 'react-redux'
-import { selectDetails } from '../../../Admin/classes/api/classSlice'
+import { Icon } from '@iconify/react'
+import PropTypes from 'prop-types'
+
+import { Avatar, AvatarStack } from '../../../../../components'
 import useCurrency from '../../../../../hooks/useCurrency'
+import { selectDetails } from '../../../Admin/classes/api/classSlice'
+
+import style from './classNotification.module.scss'
 
 const color = {
   color: `#95A8B8`,

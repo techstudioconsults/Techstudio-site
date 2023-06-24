@@ -1,13 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+
 import { DashboardMiniCard, Portal } from '../../../../components'
-import style from './studentdashboardSections.module.scss'
+import OutstandingCardDisplay from '../../../../components/dashboard/dashboardMiniCard/OutstandingCardDisplay'
+import StudentCardDisplay from '../../../../components/dashboard/dashboardMiniCard/StudentCardDisplay'
+import TutorsCardDisplay from '../../../../components/dashboard/dashboardMiniCard/TutorsCardDisplay'
 import useCurrency from '../../../../hooks/useCurrency'
 import CardDetailsModal from '../../Admin/components/cardDetailsModal/CardDetailsModal'
-import { Link } from 'react-router-dom'
-import TutorsCardDisplay from '../../../../components/dashboard/dashboardMiniCard/TutorsCardDisplay'
-import StudentCardDisplay from '../../../../components/dashboard/dashboardMiniCard/StudentCardDisplay'
-import OutstandingCardDisplay from '../../../../components/dashboard/dashboardMiniCard/OutstandingCardDisplay'
+
+import style from './studentdashboardSections.module.scss'
 
 const StudentDashboardSectionTwo = ({ content, cardsAPI }) => {
   const { cards } = content

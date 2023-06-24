@@ -1,0 +1,13 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
+.courseSectionFour {
+  .title {
+    text-align: center;
+    margin-bottom: fn.rem(78);
+    color: colors.$deep-blue;
+    font-weight: 600;
+  }
+}

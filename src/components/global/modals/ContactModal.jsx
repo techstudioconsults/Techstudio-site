@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types'
 import { MdClose } from 'react-icons/md'
+import PropTypes from 'prop-types'
+
 import feedback from '../../../assets/images/feedback.webp'
 
 const Feedback = () => {

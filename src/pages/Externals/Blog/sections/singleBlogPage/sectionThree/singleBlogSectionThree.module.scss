@@ -1,0 +1,21 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
+.singleBlogSectionThree {
+  margin-block-end: fn.rem(109);
+  .title {
+    text-align: center;
+    color: colors.$deep-blue;
+    margin-bottom: fn.rem(22);
+  }
+  .cardGroup {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: fn.rem(22);
+    @include breakpoint-up('lg') {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

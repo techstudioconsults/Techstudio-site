@@ -1,12 +1,17 @@
 import React from 'react'
+
 import style from './singleBlogCard.module.scss'
-import img from '../../../../../assets/images/blog-img2.webp'
+// import img from '../../../../../assets/images/blog-img2.webp'
 
 const SingleBlogCard = () => {
   return (
     <div className={style.singleBlogCard}>
       <div className={style.imgContainer}>
-        <img src={img} alt='img-card' className='cc-img-fluid' />
+        <img
+          src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218518/techstudio-web-app/assets/images/blog-img2_ye8vqw.webp`}
+          alt='img-card'
+          className='cc-img-fluid'
+        />
       </div>
       <div className={style.singleBlogText}>
         <span className={style.caption}>Policy Vault Africa</span>

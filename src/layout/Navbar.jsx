@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
-import PropTypes from 'prop-types'
-import { HiOutlineMenuAlt4 } from 'react-icons/hi'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { FaChevronDown } from 'react-icons/fa'
+import { Icon } from '@iconify/react'
+import PropTypes from 'prop-types'
+
+import { selectCoursesExternal } from '../app/api/appSlice'
 import { Button } from '../components'
+
 import style from './layout.module.scss'
-// import { useSelector } from 'react-redux'
-// import { selectCoursesExternal } from '../app/api/appSlice'
 
 const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
   const [color, setColor] = useState(setTextColorBlack)
@@ -48,7 +49,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
   return (
     <nav
       ref={navEl}
-      className={['navbar navbar-expand-lg fixed-top py-0 py-lg-2'].join(' ')}
+      className={['navbar navbar-expand-lg fixed-top py-0 py-lg-1'].join(' ')}
       style={{
         backgroundColor: bg,
       }}
@@ -61,8 +62,8 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
                 className={['logo', style.responsiveLogo].join(' ')}
                 src={
                   color
-                    ? `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684888559/techstudio/logo_black_text_new_1_frkqnn.png`
-                    : `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684888535/techstudio/logo_white_text_new_1_yo2rsg.png`
+                    ? `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218815/techstudio-web-app/assets/images/logo_black_text_new_1_frkqnn_xdlflg.png`
+                    : `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218525/techstudio-web-app/assets/images/logo_white_text_new_2_fmjlzq.png`
                 }
                 alt='logo'
               />
@@ -70,7 +71,8 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
           </div>
         </Link>
 
-        <HiOutlineMenuAlt4
+        <Icon
+          icon={`heroicons-solid:menu-alt-4`}
           data-bs-toggle='collapse'
           data-bs-target='#navbarNavAltMarkup'
           aria-controls='navbarNavAltMarkup'
@@ -110,18 +112,20 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
                 aria-expanded='false'
               >
                 Courses
-                <FaChevronDown className='ms-2 fs-sm fw-semibold' />
+                <Icon
+                  icon={`mdi:chevron-down`}
+                  className='ms-2 fs-sm fw-semibold'
+                />
               </div>
               <ul className='dropdown-menu mt-8'>
                 <li className='my-2'>
-                  <li className='my-2'>
-                    <Link
-                      className='dropdown-item fs-sm fw-semibold py-2'
-                      to='/course/product-design'
-                    >
-                      Product Design
-                    </Link>
-                  </li>
+                  <Link
+                    className='dropdown-item fs-sm fw-semibold py-2'
+                    to='/course/product-design'
+                  >
+                    Product Design
+                  </Link>
+
                   {/* <Link
                     className='dropdown-item fs-sm fw-semibold py-2'
                     to='/course/frontend'

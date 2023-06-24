@@ -1,0 +1,12 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
+.introBody {
+  background-color: colors.$light-blue-II;
+  height: 100%;
+}
+.introBodyWrapper {
+  // width: 100%;
+}

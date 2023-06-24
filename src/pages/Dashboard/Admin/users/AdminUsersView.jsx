@@ -1,18 +1,21 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import { AvatarDropdown, Portal, SearchComponent } from '../../../../components'
-import style from './adminUsers.module.scss' //using courses view layout !important
-import 'react-loading-skeleton/dist/skeleton.css'
-import { Icon } from '@iconify/react'
 // import TeacherClassNotificationView from '../../Teacher/components/teacherClassNotificationView/TeacherClassNotificationView'
 import { useCallback, useEffect } from 'react'
-import UsersTab from './userCourseTab/UsersTab'
 import { useSelector } from 'react-redux'
+import { Icon } from '@iconify/react'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+
+import { AvatarDropdown, Portal, SearchComponent } from '../../../../components'
 import { useViewAllCoursesMutation } from '../courses/api/coursesApiSlice'
 import { selectCourses } from '../courses/api/coursesSlice'
+
+import UsersTab from './userCourseTab/UsersTab'
 import UserRegistrationFormModal from './userRegistrationForms/UserRegistrationFormModal'
-import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+
+import 'react-loading-skeleton/dist/skeleton.css'
+import style from './adminUsers.module.scss' //using courses view layout !important
 
 const AdminUsersView = () => {
   const [viewAllCourses] = useViewAllCoursesMutation()

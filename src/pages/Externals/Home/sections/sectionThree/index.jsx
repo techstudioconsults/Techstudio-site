@@ -1,10 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import style from './sectioniThree.module.scss'
-import { Container } from '../../../../../layout'
-import { CoursesCarousel } from '../../../../../components'
 import { Link } from 'react-router-dom'
-// import { Profile, TestimonialBanner } from '../../../../../components'
+import PropTypes from 'prop-types'
+
+import { CoursesCarousel } from '../../../../../components'
+import { Container } from '../../../../../layout'
+
+import style from './sectioniThree.module.scss'
 
 const SectionThree = ({ content }) => {
   const { header } = content
@@ -32,7 +33,14 @@ export const SectionThreeCard = ({ content }) => {
       className={`${style.sectionThreeCard} d-flex flex-column align-items-center justify-content-between`}
     >
       <div className={style.cardImg}>
-        <img src={content.image} alt='card-img' className='img-fluid' />
+        {/* <img src={content.image} alt='card-img' className='img-fluid' /> */}
+        <img
+          alt='card-img'
+          data-sizes='auto'
+          src={content.imageLow}
+          data-src={content.image}
+          className='lazyload img-fluid'
+        />
       </div>
       <div className={`text-center`}>
         <h3 className='fs-xl mt-5'>{content.title}</h3>

@@ -1,10 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
-import React, { useEffect, useCallback, useState, useMemo } from 'react'
-import axios from 'axios'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectFAQ } from '../../../../../app/api/appSlice'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+
+import { selectFAQ } from '../../../../../app/api/appSlice'
 
 const Accordion = () => {
   const dispatch = useDispatch()

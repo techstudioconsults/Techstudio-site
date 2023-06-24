@@ -1,11 +1,12 @@
-@use '../../../../../scss/global/colors' as colors;
-@use '../../../../../scss/utils/functions' as fn;
-@import '../../../../../scss/utils/breakpoints';
-@import '../../../../../scss/utils/mixins';
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
 
 .contactHero {
   color: colors.$light;
-  background: url(../../../../../assets/images/blogHeroBg.webp) no-repeat center;
+  background: url(https://res.cloudinary.com/dkszgtapy/image/upload/v1686218518/techstudio-web-app/assets/images/blogHeroBg_ckuu9x.webp)
+    no-repeat center;
   background-size: cover;
   //   height: fn.rem(316);
 

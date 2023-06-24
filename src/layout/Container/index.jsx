@@ -1,9 +1,9 @@
 // REACT DEFAULTS
+import { useEffect, useState } from 'react'
 import { PropTypes } from 'prop-types'
 
 // STYLES
 import styles from './container.module.scss'
-import { useState, useEffect } from 'react'
 
 const Container = ({ paddingBlock, children }) => {
   const [padding, setPadding] = useState('')

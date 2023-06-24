@@ -1,0 +1,20 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
+.carouselBtnGroup {
+  @include flex;
+  @include flex_align;
+  gap: fn.rem(16);
+
+  .btnNavFlat {
+    width: fn.rem(50);
+    height: fn.rem(5);
+    border-radius: fn.rem(8);
+
+    &:nth-child(1) {
+      background-color: colors.$blue;
+    }
+  }
+}

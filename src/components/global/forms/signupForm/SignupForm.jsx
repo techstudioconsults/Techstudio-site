@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import { Link } from 'react-router-dom'
 import { ErrorMessage } from '@hookform/error-message'
-import style from './signupForm.module.scss'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
-import Portal from '../../POTAL/Portal'
-import Feedback from '../../modals/Feedback'
+
 // RTK
 import { useRegisterStudentMutation } from '../../../../pages/Auth/api/authApiSlice'
+import Feedback from '../../modals/Feedback'
+import Portal from '../../POTAL/Portal'
+
+import style from './signupForm.module.scss'
 
 // input validation
 const validation = {

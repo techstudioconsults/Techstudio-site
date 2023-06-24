@@ -1,9 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import pdf from '../../../assets/icons/Icon-awesome-file-pdf.png'
-import cam from '../../../assets/icons/cam.png'
-import { MdOutlineFileDownload, MdPlayCircleFilled } from 'react-icons/md'
 import { Icon } from '@iconify/react'
+import PropTypes from 'prop-types'
+
+import cam from '../../../assets/icons/cam.png'
+import pdf from '../../../assets/icons/Icon-awesome-file-pdf.png'
 
 const ResourceListDisplay = ({ file, isVideo, isTextFile, isADB }) => {
   return (
@@ -25,10 +25,18 @@ const ResourceListDisplay = ({ file, isVideo, isTextFile, isADB }) => {
           }`}
         >
           <p className={['fs-xs text-primary'].join(' ')}>View</p>
-          <MdOutlineFileDownload className='text-primary' size={20} />
+          <Icon
+            icon={`material-symbols:download`}
+            className='text-primary'
+            width={`1rem`}
+          />
         </div>
         <div className={[isVideo ? `d-block` : `d-none`]}>
-          <MdPlayCircleFilled className='text-primary' size={20} />
+          <Icon
+            icon={`material-symbols:play-circle`}
+            className='text-primary'
+            size={20}
+          />
         </div>
         <div className='text-danger'>
           <Icon icon={`mi:delete`} />

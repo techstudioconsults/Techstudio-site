@@ -1,9 +1,11 @@
 import React from 'react'
-import { Authlayout } from '../../layout'
-import paymentImg from '../../assets/images/payment.webp'
-import style from './payment.module.scss'
 import { Link } from 'react-router-dom'
+
+import { Authlayout } from '../../layout'
 import Button from '../global/Button'
+
+// import paymentImg from '../../assets/images/payment.webp'
+import style from './payment.module.scss'
 
 const Payment = () => {
   return (
@@ -14,7 +16,10 @@ const Payment = () => {
           <p className={style.subTitle}>It gets easy from here.</p>
         </div>
         <div className={style.imgContainer}>
-          <img src={paymentImg} alt='payment-img' />
+          <img
+            src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218526/techstudio-web-app/assets/images/payment_sbiwls.webp`}
+            alt='payment-img'
+          />
         </div>
         <div className={style.text}>
           <p>

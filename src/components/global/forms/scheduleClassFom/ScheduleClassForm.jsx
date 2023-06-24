@@ -1,5 +1,6 @@
 import React from 'react'
-import { CgAttachment } from 'react-icons/cg'
+import { Icon } from '@iconify/react'
+
 import style from './scheduleClass.module.scss'
 
 const ScheduleClassForm = () => {
@@ -27,7 +28,7 @@ const ScheduleClassForm = () => {
         <label htmlFor='resource'>Resources</label>
         <div className={style.attachmentForm}>
           <div className={style.iconText}>
-            <CgAttachment />
+            <Icon icon={`gg:attachment`} />
             <p>Browse files or drag and drop here</p>
           </div>
           <button type='submit'>Add</button>

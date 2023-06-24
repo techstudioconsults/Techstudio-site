@@ -1,20 +1,23 @@
 import React, { useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
+
 import {
   AvatarDropdown,
   CalendarApp,
   DashboardNavbar,
 } from '../../../components'
 import Feedback from '../../../components/global/feedbacks/Feedback'
+import SpinnerComponent from '../../../components/global/skeletonLoader/SpinnerComponent'
 import { DASHBOARD_CONTENT } from '../../../layout/Layout/dashboardLayout/content'
 import StudentDashboardSectionTwo from '../Student/components/StudentDashboardSectionTwo'
-import style from './adminDashboard.module.scss'
+
 import { useGetCardInfoMutation } from './api/dashboardApiSlice'
 import { selectCards } from './api/dashboardSlice'
 import AdminDashboardTab from './components/tab/AdminDashboardTab'
 import { useViewAllCoursesMutation } from './courses/api/coursesApiSlice'
 import { selectCourses } from './courses/api/coursesSlice'
-import SpinnerComponent from '../../../components/global/skeletonLoader/SpinnerComponent'
+
+import style from './adminDashboard.module.scss'
 
 const AdminDashboard = () => {
   const { adminDashboard } = DASHBOARD_CONTENT

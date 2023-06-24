@@ -1,21 +1,17 @@
 import React, { useEffect } from 'react'
+import { Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
+
+import { Container } from '../../../../layout'
+
 import 'swiper/css'
 import style from './Gallery.module.scss'
-import GalleryImg01 from '../../../../assets/images/GelleryImg01.png'
-import GalleryImg02 from '../../../../assets/images/GelleryImg02.png'
-import GalleryImg03 from '../../../../assets/images/GelleryImg03.png'
-import GalleryImg04 from '../../../../assets/images/GelleryImg04.png'
-import GalleryImg05 from '../../../../assets/images/GelleryImg05.png'
-import GalleryImg06 from '../../../../assets/images/GelleryImg06.png'
-import { Container } from '../../../../layout'
-import { Autoplay } from 'swiper'
 
 const GalleryIndex = () => {
   const swiperRef = React.useRef(null)
 
   return (
-    <div className={style.GalleryIndex}>
+    <div className={`${style.GalleryIndex} bg-white`}>
       <div className={style.GalleryIndexContents}>
         <Container>
           <div className={style.GalleryIndexContentsFirstInner}>
@@ -32,55 +28,95 @@ const GalleryIndex = () => {
           </div>
         </Container>
 
-        <div>
-          <Swiper
-            ref={swiperRef}
-            className={style.GalleryIndexContentsSecond}
-            spaceBetween={0}
-            slidesPerView={5}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-            }}
-            modules={[Autoplay]}
-            breakpoints={{
-              320: {
-                slidesPerView: 1,
-              },
-              375: {
-                slidesPerView: 1,
-              },
-              480: {
-                slidesPerView: 2,
-              },
-              768: {
-                slidesPerView: 3,
-              },
-              1024: {
-                slidesPerView: 4,
-              },
-            }}
-          >
-            <SwiperSlide>
-              <img src={GalleryImg01} alt='' className={style.GalleryImg} />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={GalleryImg02} alt='' className={style.GalleryImg} />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={GalleryImg03} alt='' className={style.GalleryImg} />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={GalleryImg04} alt='' className={style.GalleryImg} />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={GalleryImg05} alt='' className={style.GalleryImg} />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={GalleryImg06} alt='' className={style.GalleryImg} />
-            </SwiperSlide>
-          </Swiper>
-        </div>
+        <Container>
+          <section className={` position-relative`}>
+            <img
+              className={style.polygon}
+              src='https://res.cloudinary.com/dkszgtapy/image/upload/v1686740627/techstudio-web-app/assets/images/Polygon_1_ysztg3.webp'
+              alt='polygon'
+            />
+            <section className='d-lg-flex position-relative'>
+              <Swiper
+                ref={swiperRef}
+                className={style.GalleryIndexContentsSecond}
+                spaceBetween={0}
+                // slidesPerView={5}
+                autoplay={{
+                  delay: 3000,
+                  disableOnInteraction: true,
+                }}
+                modules={[Autoplay]}
+              >
+                <SwiperSlide className={style.slider}>
+                  <img
+                    alt='card-img'
+                    data-sizes='auto'
+                    className={`${style.GalleryImg} lazyload`}
+                    src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686743832/techstudio-web-app/assets/images/Rectangle_17_l7oaid.webp`}
+                    data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1686743832/techstudio-web-app/assets/images/Rectangle_17_l7oaid.webp`}
+                  />
+                </SwiperSlide>
+                <SwiperSlide className={style.slider}>
+                  <img
+                    alt='card-img'
+                    data-sizes='auto'
+                    className={`${style.GalleryImg} lazyload`}
+                    src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686777381/techstudio-web-app/assets/images/Rectangle_14_ttyodm.webp`}
+                    data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1686777381/techstudio-web-app/assets/images/Rectangle_14_ttyodm.webp`}
+                  />
+                </SwiperSlide>
+                <SwiperSlide className={style.slider}>
+                  <img
+                    alt='card-img'
+                    data-sizes='auto'
+                    className={`${style.GalleryImg} lazyload`}
+                    src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686777368/techstudio-web-app/assets/images/Rectangle_17_3_fpehs3.webp`}
+                    data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1686777368/techstudio-web-app/assets/images/Rectangle_17_3_fpehs3.webp`}
+                  />
+                </SwiperSlide>
+                <SwiperSlide className={style.slider}>
+                  <img
+                    alt='card-img'
+                    data-sizes='auto'
+                    className={`${style.GalleryImg} lazyload`}
+                    src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686777212/techstudio-web-app/assets/images/Rectangle_15_qd4r71.webp`}
+                    data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1686777212/techstudio-web-app/assets/images/Rectangle_15_qd4r71.webp`}
+                  />
+                </SwiperSlide>
+                <SwiperSlide className={style.slider}>
+                  <img
+                    alt='card-img'
+                    data-sizes='auto'
+                    className={`${style.GalleryImg} lazyload`}
+                    src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686777198/techstudio-web-app/assets/images/Rectangle_11_mc9urm.webp`}
+                    data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1686777198/techstudio-web-app/assets/images/Rectangle_11_mc9urm.webp`}
+                  />
+                </SwiperSlide>
+              </Swiper>
+              <div className={`${style.sliderText} mt-10`}>
+                <h5 className='fs-xl fw-bold'>
+                  A World-Class Learning Facility
+                </h5>
+                <p className='mt-10'>
+                  At Tech Studio Academy, we have created a conducive
+                  environment for learning, combining exceptional school
+                  structures, inspiring classrooms, and dedicated tutors. We
+                  understand that the physical surroundings greatly impact the
+                  educational experience, and we strive to provide a nurturing
+                  setting that fosters academic growth, creativity, and personal
+                  development.
+                </p>
+                <br />
+                <p>
+                  Our classrooms are carefully designed to facilitate effective
+                  teaching and learning to enable tutors to deliver dynamic and
+                  engaging lessons that captivate students' attention and spark
+                  their curiosity.
+                </p>
+              </div>
+            </section>
+          </section>
+        </Container>
       </div>
     </div>
   )

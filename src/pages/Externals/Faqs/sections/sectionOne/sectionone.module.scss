@@ -1,10 +1,10 @@
-@use '../../../../../scss/global/colors' as colors;
-@use '../../../../../scss/utils/functions' as fn;
-@import '../../../../../scss/utils/breakpoints';
-@import '../../../../../scss/utils/mixins';
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
 
 .headerContainer {
-  background-image: url(../../../../../assets/images/Frame-1000002342.png);
+  background-image: url(https://res.cloudinary.com/dkszgtapy/image/upload/v1686218518/techstudio-web-app/assets/images/blogHeroBg_ckuu9x.webp);
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0 auto;

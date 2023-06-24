@@ -1,9 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import style from './AboutSection2.module.scss'
+
 import { Container } from '../../../../../layout'
-import AboutSection2Pattern01 from '../../../../../assets/images/AboutSection2Pattern01.png'
-import AboutSection2Pattern02 from '../../../../../assets/images/AboutSection2Pattern02.png'
+
+import style from './AboutSection2.module.scss'
+// import AboutSection2Pattern01 from '../../../../../assets/images/AboutSection2Pattern01.png'
+// import AboutSection2Pattern02 from '../../../../../assets/images/AboutSection2Pattern02.png'
 
 const AboutSection2 = ({ content }) => {
   const { images } = content
@@ -22,12 +24,12 @@ const AboutSection2 = ({ content }) => {
         {imgDisplay}
         <div className={style.aboutSectionTwoInner}>
           <img
-            src={AboutSection2Pattern01}
+            src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218516/techstudio-web-app/assets/images/AboutSection2Pattern01_umrjsl.png`}
             alt=''
             className={style.pattern01}
           />
           <img
-            src={AboutSection2Pattern02}
+            src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218516/techstudio-web-app/assets/images/AboutSection2Pattern02_mnthqw.png`}
             alt=''
             className={style.pattern02}
           />

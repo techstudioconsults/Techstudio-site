@@ -1,57 +1,60 @@
-// REACT DEFAULTS
-import React from 'react'
-import { Suspense } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import React, { lazy, Suspense, useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { Route, Routes, useLocation } from 'react-router-dom'
 
-// COMPONENTS
-import {
-  Accounts,
-  AdminClassTab,
-  ChangePassword,
-  Loading,
-  Payment,
-} from './components'
-import { DashboardLayout } from './layout'
-
-import AdminClassView from './pages/Dashboard/Admin/classes/AdminClassView'
-import { DEVELOPMENT_CONTENT } from './pages/Externals/Development/content'
-import RequireAuth from './hooks/RequireAuth'
+import { selectUserType } from './app/api/appSlice'
 import { ROLES } from './config/role'
+import RequireAuth from './hooks/RequireAuth'
+import OPTVerification from './pages/Auth/OTP/OTPVerification'
+import AdminClassView from './pages/Dashboard/Admin/classes/AdminClassView'
 import {
   selectClasses,
   selectLessons,
 } from './pages/Dashboard/Admin/classes/api/classSlice'
-import { useSelector } from 'react-redux'
-import AdminUsersView from './pages/Dashboard/Admin/users/AdminUsersView'
-import AdminUserListDisplay from './pages/Dashboard/Admin/users/userCourseTab/UsersListDisplay'
 import TrackAnalysisLayout from './pages/Dashboard/Admin/components/tab/trackAnalysislayout/TrackAnalysisLayout'
-import OPTVerification from './pages/Auth/OTP/OTPVerification'
-import { selectUserType } from './app/api/appSlice'
+import AdminUsersView from './pages/Dashboard/Admin/users/AdminUsersView'
 import StudentListDisplay from './pages/Dashboard/Admin/users/userCourseTab/StudentListDisplay'
+import AdminUserListDisplay from './pages/Dashboard/Admin/users/userCourseTab/UsersListDisplay'
+import { DEVELOPMENT_CONTENT } from './pages/Externals/Development/content'
+import JobRequirementModal from './pages/Externals/Employers/jobRequirement/JobRequirementModal'
+// COMPONENTS
+import { Accounts, AdminClassTab, ChangePassword, Payment } from './components'
+import { DashboardLayout } from './layout'
+
+const HomePage = lazy(() => import('./pages/Externals/Home'))
+const AboutUs = lazy(() => import('./pages/Externals/AboutUs'))
+const Intro = lazy(() => import('./pages/Externals/Intro'))
+const Faq = lazy(() => import('./pages/Externals/Faqs'))
+const Register = lazy(() => import('./pages/Auth/studentRegistration/Register'))
+const SignIn = lazy(() => import('./pages/Auth/login/SignIn'))
+const ForgotPassword = lazy(() =>
+  import('./pages/Auth/forgotPassword/ForgotPassword')
+)
+const AdminSignup = lazy(() =>
+  import('./pages/Auth/adminSignup/AdminRegistration')
+)
+const Employers = lazy(() => import('./pages/Externals/Employers'))
+const ContactUs = lazy(() => import('./pages/Externals/ContactUs'))
+const Development = lazy(() => import('./pages/Externals/Development'))
+
+import SpinnerComponent from './components/global/skeletonLoader/SpinnerComponent'
 import {
-  AboutUs,
   AdminCourseView,
   AdminDashboard,
   AdminPaymentView,
   AdminResourceView,
-  AdminSignup,
-  ContactUs,
+  Blog,
   CreateClass,
   CreateCourse,
   CreateLesson,
-  Development,
   EditClass,
   EditCourse,
   EditLesson,
-  ForgotPassword,
-  HomePage,
-  Intro,
   Messages,
   PageNotFound,
   PaymentListView,
-  Register,
   ResourcesTab,
-  SignIn,
+  SingleBlogPage,
   SingleCourseView,
   SingleCourseViewLive,
   StudentCalssesView,
@@ -60,11 +63,18 @@ import {
   Tasks,
   TeacherClassView,
   TeacherDashboard,
-  Faq,
 } from './pages'
-import JobRequirementModal from './pages/Externals/Employers/jobRequirement/JobRequirementModal'
 
 const App = () => {
+  // const location = useLocation()
+
+  // const [displayLocation, setDisplayLocation] = useState(location)
+  // const [transitionStage, setTransistionStage] = useState('fadeIn')
+
+  // useEffect(() => {
+  //   if (location !== displayLocation) setTransistionStage('fadeOut')
+  // }, [location, displayLocation])
+
   const { fullStackDevelopment, datascience, UIUXDevelopment } =
     DEVELOPMENT_CONTENT
 
@@ -73,7 +83,26 @@ const App = () => {
   const userType = useSelector(selectUserType)
 
   return (
-    <Suspense fallback={<Loading text='LOADING...' />}>
+    <Suspense
+      fallback={
+        <div
+          style={{ width: `100%`, height: `100vh` }}
+          className='d-flex align-items-center justify-content-center'
+        >
+          <SpinnerComponent />
+        </div>
+      }
+    >
+      {/* <div
+        className={`${transitionStage}`}
+        onAnimationEnd={() => {
+          if (transitionStage === 'fadeOut') {
+            setTransistionStage('fadeIn')
+            setDisplayLocation(location)
+          }
+        }}
+      > */}
+      {/* <Routes location={displayLocation}> */}
       <Routes>
         {/* public routes */}
         <Route index path='/' element={<HomePage />} />
@@ -87,15 +116,15 @@ const App = () => {
         <Route path='/admin/register' element={<AdminSignup />} />
         {/* <Route path='/student/signup' element={<StudentSignup />} /> */}
         <Route path='/payment' element={<Payment />} />
-        {/* <Route path='/employers' element={<Employers />} /> */}
+        <Route path='/employers' element={<Employers />} />
         <Route
           path='/employers/detailedform'
           element={<JobRequirementModal />}
         />
         <Route path='/payment/accounts' element={<Accounts />} />
         <Route path='/about-us' element={<AboutUs />} />
-        {/* <Route path='/blog' element={<Blog />} />
-        <Route path='/blog/:id' element={<SingleBlogPage />} /> */}
+        <Route path='/blog' element={<Blog />} />
+        <Route path='/blog/:id' element={<SingleBlogPage />} />
         <Route path='/contact' element={<ContactUs />} />
         {/* <Route
           path='/course/frontend'
@@ -134,7 +163,6 @@ const App = () => {
             />
           }
         /> */}
-
         {/* protected Routes */}
         {/* <Route element={<PersistLogin />}> */}
         <Route
@@ -243,6 +271,7 @@ const App = () => {
         {/* 404 PAGE NOT FOUND ROUTE */}
         <Route path='*' element={<PageNotFound />} />
       </Routes>
+      {/* </div> */}
       {/* dashboard routes */}
     </Suspense>
   )

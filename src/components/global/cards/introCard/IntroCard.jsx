@@ -5,16 +5,12 @@
 // import calendar from '../../../../assets/icons/calendar.png'
 // import img2 from '../../../../assets/images/intro-img1.webp'
 // import Button from '../../Button'
-import useCurrency from '../../../../hooks/useCurrency'
-
 // const IntroCard = ({ course }) => {
 //   const formatCurrency = useCurrency()
-
 //   const convertDateToReadable = (date) => {
 //     let dateSet = new Date(date).toUTCString().split(' ')
 //     return `${dateSet[2]} ${dateSet[1]}, ${dateSet[3]}`
 //   }
-
 //   return (
 //     <div className={[style.introCard, `cc-shadow`].join(' ')}>
 //       <div className={style.imgContainer}>
@@ -23,7 +19,6 @@ import useCurrency from '../../../../hooks/useCurrency'
 //       <div className={style.introCardText}>
 //         <h5 className={style.title}>{course?.title}</h5>
 //         <p className={style.desc}>{course?.description}</p>
-
 //         <div className={style.timeDate}>
 //           <div className={style.time}>
 //             <span className={style.icon}>
@@ -52,21 +47,21 @@ import useCurrency from '../../../../hooks/useCurrency'
 //     </div>
 //   )
 // }
-
 // IntroCard.propTypes = {
 //   course: PropTypes.object,
 // }
-
 // export default IntroCard
-
-import React, { useState, useEffect, useCallback } from 'react'
-import PropTypes from 'prop-types'
-import style from './introCard.module.scss'
-import clock from '../../../../assets/icons/clock.png'
-import calendar from '../../../../assets/icons/calendar.png'
-import Button from '../../Button'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import PropTypes from 'prop-types'
+
 import { selectCoursesExternal } from '../../../../app/api/appSlice'
+import calendar from '../../../../assets/icons/calendar.png'
+import clock from '../../../../assets/icons/clock.png'
+import useCurrency from '../../../../hooks/useCurrency'
+import Button from '../../Button'
+
+import style from './introCard.module.scss'
 
 const IntroCard = ({ course }) => {
   const formatCurrency = useCurrency()

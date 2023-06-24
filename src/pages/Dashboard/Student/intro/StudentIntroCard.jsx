@@ -1,6 +1,8 @@
 import React from 'react'
+
 import { Button } from '../../../../components'
-import img from '../../../../assets/images/intro-img3.webp'
+
+// import img from '../../../../assets/images/intro-img3.webp'
 import style from './introCard.module.scss'
 
 const StudentIntroCard = () => {
@@ -44,7 +46,11 @@ const StudentIntroCard = () => {
         />
       </div>
       <div className={style.img}>
-        <img src={img} alt='intro-logo' className='cc-img-fluid' />
+        <img
+          src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218525/techstudio-web-app/assets/images/intro-img3_p2sdv6.webp`}
+          alt='intro-logo'
+          className='cc-img-fluid'
+        />
       </div>
     </div>
   )

@@ -1,14 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { Link, useParams } from 'react-router-dom'
-import style from './feedback.module.scss'
-import img from '../../../../assets/icons/avatar.png'
 import { useCallback } from 'react'
-import { useGetClassByCourseIDMutation } from '../../../../pages/Dashboard/Admin/classes/api/classApiSlice'
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import { Link, useParams } from 'react-router-dom'
+import PropTypes from 'prop-types'
+
+import img from '../../../../assets/icons/avatar.png'
+import { useGetClassByCourseIDMutation } from '../../../../pages/Dashboard/Admin/classes/api/classApiSlice'
 import { selectClasses } from '../../../../pages/Dashboard/Admin/classes/api/classSlice'
 import SpinnerComponent from '../../../global/skeletonLoader/SpinnerComponent'
+
+import style from './feedback.module.scss'
 
 const FeedbackCard = ({ title }) => {
   let { courseID } = useParams()

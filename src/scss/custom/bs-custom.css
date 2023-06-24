@@ -26,6 +26,10 @@
   color: #0266f4;
 }
 
+.table {
+  background: transparent !important;
+}
+
 .table td,
 .table th {
   padding: 1rem;
@@ -49,3 +53,41 @@
   justify-content: flex-start;
   margin: 0.5rem 0;
 }
+
+/* ROUTE TRANSITION ANIMATION */
+.fadeIn {
+  animation: 0.5s fadeIn forwards;
+}
+
+.fadeOut {
+  animation: 0.5s fadeOut forwards;
+}
+
+.cc-bend {
+  transform: perspective(1200px) translateX(0px) translateY(-29.781px)
+    scale(0.950365) rotate(0deg) rotateX(9.92701deg) rotateY(0deg)
+    translateZ(0px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+  to {
+    transform: translate(-20px, 0);
+    opacity: 0;
+  }
+}
+/* ROUTE TRANSITION ANIMATION END */

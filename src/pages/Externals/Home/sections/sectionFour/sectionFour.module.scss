@@ -1,9 +1,12 @@
-@use '../../../../../scss/global/colors' as colors;
-@use '../../../../../scss/utils/functions' as fn;
-@import '../../../../../scss/utils/breakpoints';
-@import '../../../../../scss/utils/mixins';
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
 
 .sectionFour {
+  // border: 1px solid red;
+  position: relative;
+  z-index: 1;
   .testimonial {
     max-width: fn.rem(600);
     margin: 0 auto;
@@ -33,9 +36,31 @@
     }
 
     .sectionFourImg {
-      // flex: 1;
+      // border: 1px solid red;
+      position: relative;
       display: none;
       width: 50%;
+
+      .img {
+        margin-left: 2rem;
+        scale: 0.9;
+      }
+
+      .angle,
+      .box {
+        position: absolute;
+      }
+
+      .angle {
+        top: -1rem;
+        right: 5rem;
+      }
+
+      .box {
+        bottom: -1rem;
+        left: 0;
+        z-index: -1;
+      }
 
       @include breakpoint-up('lg') {
         display: block;
@@ -87,5 +112,29 @@
         justify-content: flex-start;
       }
     }
+  }
+}
+
+.gradientOverlay {
+  // border: 1px solid red;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 1) 2%,
+      rgba(255, 255, 255, 0) 20%,
+      rgba(255, 255, 255, 0) 50%,
+      rgba(255, 255, 255, 0) 70%,
+      rgba(255, 255, 255, 1) 98%
+    );
+    // background-color: red;
+    z-index: 2;
   }
 }

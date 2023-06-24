@@ -1,8 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { NavLink, useLocation } from 'react-router-dom'
-import { DASHBOARD_CONTENT } from '../Layout/dashboardLayout/content'
 import { Icon } from '@iconify/react'
+import PropTypes from 'prop-types'
+
+import { DASHBOARD_CONTENT } from '../Layout/dashboardLayout/content'
+
 import style from './dashboardMobilenav.module.scss'
 
 const DashboardMobileNav = ({ isTDB, isADB }) => {

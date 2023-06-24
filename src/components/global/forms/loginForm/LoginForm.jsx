@@ -1,15 +1,17 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useEffect, useState } from 'react'
-import { FaEye, FaEyeSlash } from 'react-icons/fa'
-import { Link, useNavigate } from 'react-router-dom'
-import style from '../signupForm/signupForm.module.scss'
-import { ErrorMessage } from '@hookform/error-message'
 import { useForm } from 'react-hook-form'
+import { Link, useNavigate } from 'react-router-dom'
+import { ErrorMessage } from '@hookform/error-message'
+import { Icon } from '@iconify/react'
+
+import usePersist from '../../../../hooks/usePersist'
+import useToast from '../../../../hooks/useToast'
 // RTK
 import { useLoginMutation } from '../../../../pages/Auth/api/authApiSlice.js'
-import usePersist from '../../../../hooks/usePersist'
 import ToastComponent from '../../toast/ToastComponent'
-import useToast from '../../../../hooks/useToast'
+
+import style from '../signupForm/signupForm.module.scss'
 
 const validation = {
   required: 'This input is required.',
@@ -28,7 +30,7 @@ const ContactForm = () => {
   const [login, { isLoading }] = useLoginMutation()
 
   // hooks
-  const [persist, setPersist] = usePersist()
+  // const [persist, setPersist] = usePersist()
   const navigate = useNavigate()
   const { toast } = useToast()
 
@@ -64,9 +66,9 @@ const ContactForm = () => {
       return !prevState
     })
   }
-  const handleToggle = () => {
-    setPersist((prev) => !prev)
-  }
+  // const handleToggle = () => {
+  //   setPersist((prev) => !prev)
+  // }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={[style.form].join(' ')}>
@@ -116,7 +118,11 @@ const ContactForm = () => {
               className={['input-group-text', style.showPassword].join(' ')}
               id='passwordHelpBlock'
             >
-              {isShow ? <FaEyeSlash /> : <FaEye />}
+              {isShow ? (
+                <Icon icon={`ph:eye-slash-thin`} />
+              ) : (
+                <Icon icon={`ph:eye`} />
+              )}
             </div>
           </div>
           <ErrorMessage

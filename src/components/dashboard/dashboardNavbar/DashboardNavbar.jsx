@@ -1,10 +1,12 @@
 import React from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import PropTypes from 'prop-types'
+
 import { DashboardRightDrawer } from '../../../layout'
 import CalendarOffCanvas from '../../global/offCanvas/CalendarOffCanvas'
-import style from './dashboardnavbar.module.scss'
-import PropTypes from 'prop-types'
-import { Link, useLocation } from 'react-router-dom'
 import SearchComponent from '../../global/searchComponent/SearchComponent'
+
+import style from './dashboardnavbar.module.scss'
 
 const DashboardNavbar = ({ isTDB }) => {
   const location = useLocation()

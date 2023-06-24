@@ -1,7 +1,7 @@
-@use '../../../scss/global/colors' as colors;
-@use '../../../scss/utils/functions' as fn;
-@import '../../../scss/utils/breakpoints';
-@import '../../../scss/utils/mixins';
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
 
 .stepper {
   .step {
@@ -11,8 +11,17 @@
     margin-block: fn.rem(32);
   }
 
+  .section {
+    border: 1px solid transparent;
+  }
+
   .vStepper {
     position: relative;
+    display: none;
+    @include breakpoint-up('md') {
+      display: block;
+      margin-right: fn.rem(40);
+    }
   }
 
   /* regular step */
@@ -42,13 +51,14 @@
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0);
-    height: 100%;
-    border-left: fn.rem(1) solid colors.$gold;
+    height: 107%;
+    border-left: fn.rem(1) solid colors.$blue;
   }
 
   .step:last-child .line {
+    display: none;
+    background-color: colors.$blue;
     border-left: fn.rem(1) solid colors.$light;
-    z-index: -1; /* behind the circle to completely hide */
   }
 
   .step.completed .circle {
@@ -69,7 +79,7 @@
 
   .content {
     width: 100%;
-    margin-left: fn.rem(40);
+
     .title {
       font-weight: 700;
     }
@@ -77,18 +87,39 @@
 
   .contentFlex {
     @include flex_column;
+
+    .bgwrapper {
+      @include breakpoint-up('lg') {
+        width: 65%;
+      }
+      .caption {
+        // margin-top: fn.rem(32);
+      }
+    }
+    // gap: fn.rem(30);
     @include breakpoint-up('lg') {
       @include flex;
+      // align-items: center;
     }
-    // .title,
-    // .text {
-    //   flex: 1;
-    // }
-    .title {
-      flex: 1;
-    }
+
     .text {
-      flex: 2;
+      display: none;
+      // width: fn.rem(716);
+      @include breakpoint-up('lg') {
+        display: block;
+        width: 45%;
+        padding: fn.rem(32);
+        height: fn.rem(400);
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }
+
+// ._line_1e1f7_36 {
+//     border: 1px solid red !important;
+//     display: none;
+//   }

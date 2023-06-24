@@ -1,0 +1,68 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
+.hero {
+  position: relative;
+  background-color: colors.$deep-blue;
+  background: url(https://res.cloudinary.com/dkszgtapy/image/upload/v1687252360/techstudio-web-app/assets/images/Frame_1000002468_wwh0ja.webp)
+    no-repeat;
+  background-size: cover;
+  @include flex;
+  @include flex_centered;
+  // &::before {
+  //   position: absolute;
+  //   content: '';
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   // background-color: #00000050;
+  //   background: #162143de;
+  //   // z-index: -1;
+  // }
+  @include breakpoint-up('lg') {
+    height: fn.rem(749);
+  }
+  .heroWrapper {
+    position: relative;
+    z-index: 1;
+    // border: 1px solid red;
+    text-align: center;
+    @include flex_column;
+    flex-direction: column-reverse;
+    gap: fn.rem(78);
+    padding-top: fn.rem(100);
+    color: colors.$light;
+
+    @include breakpoint-up('lg') {
+      text-align: initial;
+      @include flex;
+      @include flex_align;
+      padding-top: 0;
+    }
+
+    .heroText {
+      flex: 1;
+      .title {
+        color: colors.$light;
+        font-weight: 600;
+        margin-bottom: fn.rem(22);
+      }
+    }
+
+    .heroImg {
+      flex: 1;
+      max-width: fn.rem(701);
+      height: fn.rem(484);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        // filter: drop-shadow(1px 1px 10px colors.$gray);
+      }
+    }
+  }
+}

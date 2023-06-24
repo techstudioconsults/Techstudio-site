@@ -1,12 +1,10 @@
 import React from 'react'
-import {
-  BlogHero,
-  BlogSectionThree,
-  BlogSectionTwo,
-  // SectionThree,
-} from '../../../components'
+
 import { ExternalLayout, Navbar } from '../../../layout'
 
+import BlogHero from './sections/hero/BlogHero'
+import BlogSectionThree from './sections/sectionThree'
+import BlogSectionTwo from './sections/sectionTwo'
 // import { HOME_CONTENT } from '../Home/content'
 import { BLOG_CONTENT } from './content'
 
@@ -19,7 +17,6 @@ const Home = () => {
       <BlogHero content={hero} />
       <BlogSectionTwo />
       <BlogSectionThree content={sectionThree_blog} />
-      {/* <SectionThree content={sectionThree} /> */}
     </ExternalLayout>
   )
 }

@@ -1,8 +1,11 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
+
 import { Authlayout } from '../../../layout'
-import style from '../auth.module.scss'
+
 import OTPForm from './OTPForm'
+
+import style from '../auth.module.scss'
 
 const OPTVerification = () => {
   const { state } = useLocation()

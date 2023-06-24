@@ -1,8 +1,10 @@
 import React from 'react'
-import style from './job.module.scss'
-import { JobRequirementForm } from '../../../../components'
 import { Link } from 'react-router-dom'
 import { Icon } from '@iconify/react'
+
+import { JobRequirementForm } from '../../../../components'
+
+import style from './job.module.scss'
 
 const JobRequirementModal = () => {
   return (

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import style from './teamCard.module.scss'
 
 const TeamCard = ({ content }) => {

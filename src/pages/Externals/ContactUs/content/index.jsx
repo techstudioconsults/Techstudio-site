@@ -1,4 +1,3 @@
-import img from '../../../../assets/images/nigeria.webp'
 export const CONTACT_CONTENT = {
   hero: {
     title: `We'd love to hear from you`,
@@ -11,7 +10,7 @@ export const CONTACT_CONTENT = {
       caption: `Where the magic happens`,
     },
     address: {
-      img: img,
+      img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218525/techstudio-web-app/assets/images/nigeria_utfblr.webp`,
       state: `Lagos, Nigeria`,
       address: `1 Ogunlesi Street, Off Awoyokun, Onipanu, Lagos.`,
       whatsapp: `Call or Whatsapp`,

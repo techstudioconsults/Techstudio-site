@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import style from './AboutHero.module.scss'
+
 // import heroImg from '../../../../../assets/images/AboutHeroImg.png'
 import { Container } from '../../../../../layout'
+
+import style from './AboutHero.module.scss'
 
 const AboutHero = ({ content }) => {
   const { caption, title, description1, description2, description3 } = content
@@ -20,7 +22,7 @@ const AboutHero = ({ content }) => {
         </section>
         <section className={style.aboutHeroImg}>
           <img
-            src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1685692477/techstudio/Group_1000002342_wtjpod.png`}
+            src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218827/techstudio-web-app/assets/images/Group_1000002342_wtjpod_lbxmfq.png`}
             alt='hero-mg'
             className='img-fluid'
           />

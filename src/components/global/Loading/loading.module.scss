@@ -1,3 +1,8 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
 .Loading {
   height: 100vh;
   width: 100%;

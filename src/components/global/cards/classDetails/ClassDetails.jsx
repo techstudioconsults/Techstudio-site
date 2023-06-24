@@ -1,9 +1,10 @@
-import PropTypes from 'prop-types'
 import React from 'react'
-import { AiOutlineClockCircle } from 'react-icons/ai'
-import { MdOutlineComputer } from 'react-icons/md'
+import { Icon } from '@iconify/react'
+import PropTypes from 'prop-types'
+
 import { DASHBOARD_CONTENT } from '../../../../layout/Layout/dashboardLayout/content'
 import AvatarStack from '../../avatarStacks/AvatarStack'
+
 import style from './classDetails.module.scss'
 
 const ClassDetails = ({ isTDB, isADB }) => {
@@ -23,7 +24,7 @@ const ClassDetails = ({ isTDB, isADB }) => {
       <div className={style.classTimeType}>
         <div className='d-flex align-items-center gap-3'>
           <div>
-            <AiOutlineClockCircle color='grey' size={20} />
+            <Icon icon={`mdi:clock-outline`} color='grey' width={`1rem`} />
           </div>
           <div>
             <p className='fw-bold fs-sm'>55 mins</p>
@@ -32,7 +33,7 @@ const ClassDetails = ({ isTDB, isADB }) => {
         </div>
         <div className='d-flex align-items-center gap-3'>
           <div>
-            <MdOutlineComputer color='grey' size={20} />
+            <Icon icon={`mdi:laptop`} color='grey' width={`1rem`} />
           </div>
           <div>
             <p className='fw-bold fs-sm'>Live Class</p>

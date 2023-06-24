@@ -1,13 +1,15 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/css'
-import style from './Gallery.module.scss'
+
 import GalleryImg01 from '../../../assets/images/GelleryImg01.png'
 import GalleryImg02 from '../../../assets/images/GelleryImg02.png'
 import GalleryImg03 from '../../../assets/images/GelleryImg03.png'
 import GalleryImg04 from '../../../assets/images/GelleryImg04.png'
 import GalleryImg05 from '../../../assets/images/GelleryImg05.png'
 import GalleryImg06 from '../../../assets/images/GelleryImg06.png'
+
+import 'swiper/css'
+import style from './Gallery.module.scss'
 
 const GalleryIndex = () => {
   return (

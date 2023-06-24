@@ -1,15 +1,19 @@
-import React from 'react'
+import { useLayoutEffect } from 'react'
+import { useRef } from 'react'
 
-import { ExternalLayout, Navbar } from '../../../layout'
-import { HOME_CONTENT } from './content'
-import Hero from './sections/hero'
-import SectionTwo from './sections/sectionTwo'
-import SectionThree from './sections/sectionThree'
-import SectionFour from './sections/sectionFour'
-import SectionFive from './sections/sectionFive'
-import SectionSix from './sections/sectionSix'
+// import { gsap } from 'gsap'
 import GalleryIndex from '../../../components/global/carousel/Gallery/GalleryIndex'
+import { ExternalLayout, Navbar } from '../../../layout'
+
+import Hero from './sections/hero'
+import SectionFive from './sections/sectionFive'
+import SectionFour from './sections/sectionFour'
 import SectionSeven from './sections/sectionSeven'
+import SectionSix from './sections/sectionSix'
+import SectionThree from './sections/sectionThree'
+import SectionTwo from './sections/sectionTwo'
+import { HOME_CONTENT } from './content'
+
 // import { Whatsapp } from '../../../components'
 
 const Home = () => {
@@ -22,19 +26,25 @@ const Home = () => {
     sectionSix,
     sectionSeven,
   } = HOME_CONTENT
+
   return (
-    <ExternalLayout>
-      <Navbar bg={`transparent`} keepColor />
-      <Hero content={hero} />
-      <SectionTwo content={sectionTwo} />
-      <SectionThree content={sectionThree} />
-      <SectionFour content={sectionFour} />
-      <SectionFive content={sectionFive} />
-      <GalleryIndex />
-      <SectionSeven data={sectionSeven.upcomingClasses} />
-      <SectionSix content={sectionSix} />
-      {/* <GalleryIndex /> */}
-    </ExternalLayout>
+    <div>
+      <ExternalLayout>
+        <Navbar bg={`transparent`} keepColor />
+
+        {/* <GalleryIndex /> */}
+        <>
+          <Hero content={hero} />
+          <SectionTwo content={sectionTwo} />
+          <SectionThree content={sectionThree} />
+          <SectionFour content={sectionFour} />
+          <SectionFive content={sectionFive} />
+          <GalleryIndex />
+          <SectionSeven data={sectionSeven.upcomingClasses} />
+          <SectionSix content={sectionSix} />
+        </>
+      </ExternalLayout>
+    </div>
   )
 }
 

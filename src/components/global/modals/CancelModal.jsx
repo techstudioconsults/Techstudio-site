@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import PropTypes from 'prop-types'
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 const CancelModal = ({ content }) => {
   const { courseID } = useParams()

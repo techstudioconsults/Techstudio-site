@@ -1,10 +1,12 @@
 import React from 'react'
-import style from './table.module.scss'
 import DataTable from 'react-data-table-component'
-import { TABLE_DATA } from '../tableData'
 import { Link } from 'react-router-dom'
+
 import { OffCanvas } from '../../../../../../components'
 import StudentAssignmentDetails from '../studentAssignmentDetailsView/StudentAssignmentDetails'
+import { TABLE_DATA } from '../tableData'
+
+import style from './table.module.scss'
 
 const customStyles = {
   rows: {

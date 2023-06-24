@@ -1,11 +1,10 @@
 import React from 'react'
-import {
-  AboutSectionThree,
-  EmployersHero,
-  EmployersSectionFour,
-  EmployersSectionTwo,
-} from '../../../components'
+
 import { ExternalLayout, Navbar } from '../../../layout'
+
+import EmployersHero from './sections/hero/EmployerHero'
+import EmployersSectionFour from './sections/sectionFour'
+import EmployersSectionTwo from './sections/sectionTwo'
 import { EMPLOPYERS_CONTENT } from './content'
 
 const index = () => {
@@ -16,7 +15,7 @@ const index = () => {
       <EmployersHero content={hero} />
       <EmployersSectionTwo content={sectionTwo} />
       {/* using about section three component sructure */}
-      <AboutSectionThree textAlignLeft content={sectionThree} />
+      {/* <AboutSectionThree textAlignLeft content={sectionThree} /> */}
       <EmployersSectionFour content={sectionFour} />
     </ExternalLayout>
   )

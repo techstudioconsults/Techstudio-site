@@ -1,9 +1,11 @@
 import React from 'react'
+
 import {
   DashboardResource,
   FeedbackCard,
   GraphCard,
 } from '../../../../components'
+
 import style from './studentdashboardSections.module.scss'
 
 const StudentDashboardSectionThree = () => {

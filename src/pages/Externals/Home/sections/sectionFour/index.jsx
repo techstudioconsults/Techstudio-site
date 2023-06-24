@@ -1,12 +1,19 @@
-import React from 'react'
+import { useRef } from 'react'
+import Marquee from 'react-fast-marquee'
 import PropTypes from 'prop-types'
-import style from './sectionFour.module.scss'
-import { Container } from '../../../../../layout'
-import Button from '../../../../../components/global/Button'
-import { Profile, TestimonialBanner } from '../../../../../components'
 import { SwiperSlide } from 'swiper/react'
 
-const SectionFour = ({ content }) => {
+import { Profile, TestimonialBanner } from '../../../../../components'
+import Button from '../../../../../components/global/Button'
+import GalleryIndex from '../../../../../components/global/carousel/Gallery/GalleryIndex'
+import { TAKE_A_COURSE_ANIMATION } from '../../../../../gsap'
+import IntersectionObserver from '../../../../../hooks/IntersectionObserver'
+import { Container } from '../../../../../layout'
+
+import style from './sectionFour.module.scss'
+
+const SectionFour = ({ content, isDevelopmentView }) => {
+  const sectionFour = useRef() // create a ref for the root level element (for scoping)
   const { articleOne, header, body } = content
 
   const testimonials = body.testimonials.map((testimonial, index) => {
@@ -29,10 +36,10 @@ const SectionFour = ({ content }) => {
   })
 
   return (
-    <section className={`${style.sectionFour} mb-20`}>
+    <section className={`${style.sectionFour} pb-20 bg-white`}>
       <Container>
         <section>
-          <section className='d-flex flex-column align-items-center justify-content-between flex-lg-row mt-12'>
+          <section className='d-flex flex-column align-items-center justify-content-between flex-lg-row my-12'>
             <div className={`text-center text-lg-start`}>
               <p className={`text-primary fs-sm fw-semibold`}>
                 {articleOne.title}
@@ -47,80 +54,117 @@ const SectionFour = ({ content }) => {
               {articleOne.description}
             </div>
           </section>
-          <div className='container mt-12 mb-32 text-center'>
-            <div className='row align-items-center justify-content-center justify-content-lg-between gap-10'>
-              <img
-                className={`${style.brand} col-5 col-lg-2`}
-                src={articleOne.companies[0]}
-                alt='logo'
-              />
-
-              <img
-                className={`${style.brand} col-5 col-lg-2`}
-                src={articleOne.companies[1]}
-                alt='logo'
-              />
-
-              <img
-                className={`${style.brand} col-5 col-lg-2`}
-                src={articleOne.companies[2]}
-                alt='logo'
-              />
-
-              <img
-                className={`${style.brand} col-5 col-lg-2`}
-                src={articleOne.companies[3]}
-                alt='logo'
-              />
-
-              <img
-                className={`${style.brand} col-5 col-lg-2`}
-                src={articleOne.companies[4]}
-                alt='logo'
-              />
-
-              <img
-                className={`${style.brand} col-5 col-lg-2`}
-                src={articleOne.companies[5]}
-                alt='logo'
-              />
-
-              <img
-                className={`${style.brand} col-5 col-lg-2`}
-                src={articleOne.companies[6]}
-                alt='logo'
-              />
-            </div>
-          </div>
         </section>
+      </Container>
 
-        <TestimonialBanner title={body.title}>{testimonials}</TestimonialBanner>
-
-        <div className={style.sectionFourWrapper}>
-          <div className={style.sectionFourImg}>
+      <div
+        className={`container-fluid text-center mb-20 ${style.gradientOverlay}`}
+      >
+        <Marquee speed={50}>
+          <div className=' d-flex align-items-center justify-content-center justify-content-lg-between gap-24'>
             <img
-              src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1684971187/techstudio/Group_1000002320_pve1ql.png`}
-              alt='section-four'
-              className='img-fluid'
+              alt='card-img'
+              data-sizes='auto'
+              className={`${style.brand} col-5 col-lg-2 lazyload`}
+              src={articleOne.companies[0]}
+              data-src={articleOne.companies[0]}
+            />
+            <img
+              alt='card-img'
+              data-sizes='auto'
+              className={`${style.brand} col-5 col-lg-2 lazyload`}
+              src={articleOne.companies[1]}
+              data-src={articleOne.companies[1]}
+            />
+            <img
+              alt='card-img'
+              data-sizes='auto'
+              className={`${style.brand} col-5 col-lg-2 lazyload`}
+              src={articleOne.companies[2]}
+              data-src={articleOne.companies[2]}
+            />
+            <img
+              alt='card-img'
+              data-sizes='auto'
+              className={`${style.brand} col-5 col-lg-2 lazyload`}
+              src={articleOne.companies[3]}
+              data-src={articleOne.companies[3]}
+            />
+            <img
+              alt='card-img'
+              data-sizes='auto'
+              className={`${style.brand} col-5 col-lg-2 lazyload`}
+              src={articleOne.companies[4]}
+              data-src={articleOne.companies[4]}
+            />
+            {/* <img
+              alt='card-img'
+              data-sizes='auto'
+              className={`${style.brand} col-5 col-lg-2 lazyload`}
+              src={articleOne.companies[5]}
+              data-src={articleOne.companies[5]}
+            /> */}
+            <img
+              alt='card-img'
+              data-sizes='auto'
+              className={`${style.brand} col-5 col-lg-2 lazyload`}
+              src={articleOne.companies[6]}
+              data-src={articleOne.companies[6]}
             />
           </div>
-          <div className={style.sectionFourTextGroup}>
-            <div className={style.sectionFourText}>
-              <h5 className={style.caption}>{header.caption}</h5>
-              <h2 className={style.title}>{header.title}</h2>
-              <p className={style.subTitle}>{header.subTitle}</p>
-            </div>
-            <div className={style.btnContainer}>
-              <Button
-                linkHref='/student/register'
-                linkText='Get Started'
-                solidBtn
-                navBtn
-                width={`11`}
+        </Marquee>
+      </div>
+
+      <div hidden={!isDevelopmentView}>
+        <GalleryIndex />
+      </div>
+
+      <Container>
+        <TestimonialBanner title={body.title}>{testimonials}</TestimonialBanner>
+
+        <IntersectionObserver
+          animationFuncion={() => TAKE_A_COURSE_ANIMATION(sectionFour)}
+        >
+          <div hidden={isDevelopmentView} className={style.sectionFourWrapper}>
+            <div ref={sectionFour} className={style.sectionFourImg}>
+              <img
+                alt='card-img'
+                data-sizes='auto'
+                className={`lazyload ${style.angle} angle`}
+                src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1687594313/techstudio-web-app/assets/images/Group_1000002319_izpnar.svg`}
+              />
+              <img
+                alt='card-img'
+                data-sizes='auto'
+                className={`lazyload ${style.img} img`}
+                src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1687594302/techstudio-web-app/assets/images/Frame_73_eqbnub.webp`}
+                data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_425/v1687594302/techstudio-web-app/assets/images/Frame_73_eqbnub.webp`}
+              />
+              <img
+                alt='card-img'
+                data-sizes='auto'
+                className={`lazyload ${style.box} box`}
+                src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1687594309/techstudio-web-app/assets/images/Frame_70_xuw32a.svg`}
               />
             </div>
+            <div className={style.sectionFourTextGroup}>
+              <div className={style.sectionFourText}>
+                <h5 className={style.caption}>{header.caption}</h5>
+                <h2 className={style.title}>{header.title}</h2>
+                <p className={style.subTitle}>{header.subTitle}</p>
+              </div>
+              <div className={style.btnContainer}>
+                <Button
+                  linkHref='/student/register'
+                  linkText='Get Started'
+                  solidBtn
+                  navBtn
+                  width={`11`}
+                />
+              </div>
+            </div>
           </div>
-        </div>
+        </IntersectionObserver>
       </Container>
     </section>
   )

@@ -1,14 +1,15 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import useToast from '../../../../../hooks/useToast'
-import * as bootstrap from 'bootstrap/dist/js/bootstrap'
-import { useSignupStudentMutation } from '../../../../Auth/api/authApiSlice'
-import { Feedback, Portal, ToastComponent } from '../../../../../components'
-import { useGetAllTutorsMutation } from '../api/usersApiSlice'
 import { useDispatch, useSelector } from 'react-redux'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+
 import { selectErrorMessage } from '../../../../../app/api/appSlice'
+import { Feedback, Portal, ToastComponent } from '../../../../../components'
 import NewToast from '../../../../../components/global/toast/NewToast'
+import useToast from '../../../../../hooks/useToast'
+import { useSignupStudentMutation } from '../../../../Auth/api/authApiSlice'
+import { useGetAllTutorsMutation } from '../api/usersApiSlice'
 
 const TutorRegistrationForm = ({ cancelBtn }) => {
   const [signupStudent, { isLoading }] = useSignupStudentMutation()

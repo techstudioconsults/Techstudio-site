@@ -1,0 +1,55 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
+.blogHero {
+  color: colors.$light;
+  @include flex;
+  @include flex_centered;
+  background: url(https://res.cloudinary.com/dkszgtapy/image/upload/v1686218520/techstudio-web-app/assets/images/Frame-1000002342_lqamt9.png)
+    no-repeat right;
+  background-size: cover;
+  background-color: colors.$deep-blue;
+  @include breakpoint-up('lg') {
+    height: fn.rem(524);
+  }
+  .heroWrapper {
+    text-align: center;
+    @include flex_column;
+    flex-direction: column-reverse;
+    gap: fn.rem(32);
+    padding-top: fn.rem(100);
+
+    @include breakpoint-up('lg') {
+      text-align: initial;
+      @include flex;
+      @include flex_align;
+    }
+
+    .heroText {
+      flex: 1;
+
+      .title {
+        margin: fn.rem(16) 0 fn.rem(28);
+        color: colors.$light;
+      }
+
+      .searchForm {
+        margin-block: fn.rem(32);
+      }
+    }
+
+    .heroImg {
+      flex: 1;
+      max-width: fn.rem(701);
+      height: fn.rem(284);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}

@@ -1,7 +1,9 @@
 import React from 'react'
-import style from './contacthero.module.scss'
-import { Container } from '../../../../../layout'
 import PropTypes from 'prop-types'
+
+import { Container } from '../../../../../layout'
+
+import style from './contacthero.module.scss'
 
 const ContactHero = ({ content }) => {
   const { title, subTitle } = content

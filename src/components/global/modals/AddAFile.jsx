@@ -1,7 +1,8 @@
 import React from 'react'
-import { MdClose } from 'react-icons/md'
+import { Icon } from '@iconify/react'
+
 // import PropTypes from 'prop-types'
-import fileUpload from '../../../assets/images/fileUpload.webp'
+// import fileUpload from '../../../assets/images/fileUpload.webp'
 import style from './upload.module.scss'
 
 // eslint-disable-next-line react/prop-types
@@ -16,8 +17,9 @@ const AddAFile = () => {
       <div className='modal-dialog modal-dialog-centered modal-fullscreen-md-down modal-lg'>
         <div className='modal-content'>
           <div className='modal-header d-flex justify-content-end'>
-            <MdClose
-              size={`1.5rem`}
+            <Icon
+              icon={`material-symbols:close`}
+              width={`1.5rem`}
               data-bs-dismiss='modal'
               aria-label='Close'
             />
@@ -26,7 +28,10 @@ const AddAFile = () => {
             <div className={style.uploadForm}>
               <div className={style.formWrapper}>
                 <div className={style.img}>
-                  <img src={fileUpload} alt='file' />
+                  <img
+                    src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218520/techstudio-web-app/assets/images/fileUpload_eznswz.webp`}
+                    alt='file'
+                  />
                 </div>
                 <div className={style.uploadBtn}>
                   <button className='bg-transparent border border-1 px-5'>

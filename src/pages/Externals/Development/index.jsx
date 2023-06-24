@@ -1,21 +1,60 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import PropTypes from 'prop-types'
-import { Container, ExternalLayout, Navbar } from '../../../layout'
-import {
-  BannerII,
-  Button,
-  CourseHero,
-  CourseSectionFour,
-  CourseSectionTwo,
-} from '../../../components'
 
-const index = ({ content, job }) => {
-  const { hero, sectionTwo, sectionFour } = content
+import { BannerII, Button } from '../../../components'
+import CourseBanner from '../../../components/global/banners/CourseBanner'
+import Brands from '../../../components/global/brands/Brands'
+import { Container, ExternalLayout, Navbar } from '../../../layout'
+import SectionTwo from '../Faqs/sections/sectionTwo'
+import { HOME_CONTENT } from '../Home/content'
+import SectionFour from '../Home/sections/sectionFour'
+
+import CourseHero from './course/courseHero'
+import CourseSectionFour from './course/sectionFour/CourseSectionFour'
+import CourseSectionTwo from './course/sectionTwo/CourseSectionTwo'
+
+const Development = ({ content, job }) => {
+  const { hero, sectionTwo, sectionFour, duration } = content
+  const {
+    sectionFour: { articleOne, header, body },
+  } = HOME_CONTENT
+
+  const style = useMemo(() => {
+    const baseStyle = {
+      borderRadius: `8.33846px`,
+      transform: `translateY(-50%)`,
+      position: `relative`,
+      maxWidth: `1080px`,
+    }
+
+    if (window.innerWidth <= 767) {
+      baseStyle.transform = `static`
+      baseStyle.width = `90%`
+    }
+
+    return baseStyle
+  }, [])
+
   return (
     <ExternalLayout>
-      <Navbar bg={`transparent`} setTextColorBlack />
+      <Navbar bg={`transparent`} keepColor />
       <CourseHero content={hero} />
+      <section style={style} className='m-auto mt-10 mt-lg-0'>
+        <CourseBanner duration={duration} />
+      </section>
       <CourseSectionTwo content={sectionTwo} />
+      <CourseSectionFour content={sectionFour} />
+      {/* <Container> */}
+      {/* <Brands /> */}
+      <SectionFour isDevelopmentView content={{ articleOne, header, body }} />
+      {/* </Container> */}
+      {/* faq */}
+      <section>
+        <Container>
+          <h3 className='text-center'>{hero.title} FAQs</h3>
+          <SectionTwo />
+        </Container>
+      </section>
       <section className='my-lg-32'>
         <Container>
           <BannerII>
@@ -37,14 +76,13 @@ const index = ({ content, job }) => {
           </BannerII>
         </Container>
       </section>
-      <CourseSectionFour content={sectionFour} />
     </ExternalLayout>
   )
 }
 
-index.propTypes = {
+Development.propTypes = {
   content: PropTypes.object.isRequired,
   job: PropTypes.string,
 }
 
-export default index
+export default Development

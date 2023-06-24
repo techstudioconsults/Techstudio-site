@@ -1,11 +1,13 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { Icon } from '@iconify/react'
+import axios from 'axios'
 import PropTypes from 'prop-types'
+
+import { Container } from '../../../../../layout'
+
 // STYLE
 import style from './sectionSeven.module.scss'
-import { Icon } from '@iconify/react'
-import { Container } from '../../../../../layout'
-import { Link } from 'react-router-dom'
-import axios from 'axios'
 
 const SectionSeven = ({ data }) => {
   const [index, setIndex] = useState(0)
@@ -34,7 +36,6 @@ const SectionSeven = ({ data }) => {
       `https://api.techstudio.academy/api/v1/external/classes`
     )
     setClasses(res.data.data)
-    console.log(res.data.data)
   }, [])
 
   useEffect(() => {
@@ -73,6 +74,13 @@ const SectionSeven = ({ data }) => {
       >
         <article className={style.quoteContainer}>
           <img src={image} alt='img' className='cc-img-fluid' />
+          {/* <img
+            alt='card-img'
+            data-sizes='auto'
+            className={`lazyload cc-img-fluid`}
+            // src={image}
+            data-src={image}
+          /> */}
         </article>
         <section
           className={`${style.text} d-flex flex-column justify-content-between`}
@@ -82,7 +90,7 @@ const SectionSeven = ({ data }) => {
               upcoming classes
             </p>
             <div>
-              <h4 className='fs-2xl fs-3xl my-5 fw-semibold'>
+              <h4 className='fs-2xl my-5 fw-bold'>
                 {classes[index]?.courseTitle}
               </h4>
               <p className=''>{classes[index]?.description}</p>

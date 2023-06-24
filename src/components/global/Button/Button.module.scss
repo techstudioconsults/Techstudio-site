@@ -1,6 +1,6 @@
-@use '../../../scss/global/colors' as colors;
-@use '../../../scss/utils/functions' as fn;
-@import '../../../scss/utils/breakpoints';
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
 
 .btn {
   cursor: pointer;
