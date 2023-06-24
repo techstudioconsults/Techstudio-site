@@ -24,7 +24,7 @@ const Development = ({ content, job }) => {
       borderRadius: `8.33846px`,
       transform: `translateY(-50%)`,
       position: `relative`,
-      width: `75%`,
+      maxWidth: `1080px`,
     }
 
     if (window.innerWidth <= 767) {

@@ -4,6 +4,9 @@
 @import '@/scss/utils/mixins';
 
 .sectionFour {
+  // border: 1px solid red;
+  position: relative;
+  z-index: 1;
   .testimonial {
     max-width: fn.rem(600);
     margin: 0 auto;
@@ -33,9 +36,31 @@
     }
 
     .sectionFourImg {
-      // flex: 1;
+      // border: 1px solid red;
+      position: relative;
       display: none;
       width: 50%;
+
+      .img {
+        margin-left: 2rem;
+        scale: 0.9;
+      }
+
+      .angle,
+      .box {
+        position: absolute;
+      }
+
+      .angle {
+        top: -1rem;
+        right: 5rem;
+      }
+
+      .box {
+        bottom: -1rem;
+        left: 0;
+        z-index: -1;
+      }
 
       @include breakpoint-up('lg') {
         display: block;

@@ -11,7 +11,7 @@ const GalleryIndex = () => {
   const swiperRef = React.useRef(null)
 
   return (
-    <div className={style.GalleryIndex}>
+    <div className={`${style.GalleryIndex} bg-white`}>
       <div className={style.GalleryIndexContents}>
         <Container>
           <div className={style.GalleryIndexContentsFirstInner}>

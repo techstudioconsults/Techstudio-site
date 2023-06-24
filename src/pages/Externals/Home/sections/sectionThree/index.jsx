@@ -6,7 +6,6 @@ import { CoursesCarousel } from '../../../../../components'
 import { Container } from '../../../../../layout'
 
 import style from './sectioniThree.module.scss'
-// import { Profile, TestimonialBanner } from '../../../../../components'
 
 const SectionThree = ({ content }) => {
   const { header } = content

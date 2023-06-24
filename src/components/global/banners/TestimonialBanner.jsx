@@ -5,8 +5,6 @@ import { Swiper } from 'swiper/react'
 
 import 'swiper/css/pagination'
 
-import UseAnimate from '../../../hooks/useAnimate'
-
 import 'swiper/swiper.min.css'
 
 const TestimonialBanner = ({ children, title }) => {
@@ -23,48 +21,48 @@ const TestimonialBanner = ({ children, title }) => {
   }, [])
 
   return (
-    <UseAnimate
-      delay={0.1}
-      duration={1}
-      hidden={{
-        transform:
-          'perspective(1200px) translateX(0px) translateY(-29.781px) scale(0.950365) rotate(0deg) rotateX(9.92701deg) rotateY(0deg) translateZ(0px)',
-      }}
-      visible={{
-        transform: 'perspective(1200px)',
-      }}
+    // <UseAnimate
+    //   delay={0.1}
+    //   duration={1}
+    //   hidden={{
+    //     transform:
+    //       'perspective(1200px) translateX(0px) translateY(-29.781px) scale(0.950365) rotate(0deg) rotateX(9.92701deg) rotateY(0deg) translateZ(0px)',
+    //   }}
+    //   visible={{
+    //     transform: 'perspective(1200px)',
+    //   }}
+    // >
+    <div
+      className={`w-100 position-relative bg-blue border-radius-lg py-10 p-lg-10 px-10`}
     >
-      <div
-        className={`w-100 position-relative bg-blue border-radius-lg py-10 p-lg-10 px-10`}
+      <img
+        className='position-absolute top-0 start-0 my-10 mx-16 d-none d-lg-block'
+        src='https://res.cloudinary.com/kingsleysolomon/image/upload/v1667476114/samples/techstudio/Icons%20and%20Images/Icons%20and%20Images/Tech%20Studio%20images/Repeat_Grid_38_ipl0tv.png'
+        alt='img'
+      />
+
+      <p className='fs-2xl fw-semibold text-center text-white'>{title}</p>
+      <Swiper
+        ref={swiperRef}
+        loop={true}
+        spaceBetween={300}
+        slidesPerView={1}
+        pagination={{
+          dynamicBullets: true,
+        }}
+        modules={[Pagination]}
+        // onSlideChange={handleSlideChange}
       >
-        <img
-          className='position-absolute top-0 start-0 my-10 mx-16 d-none d-lg-block'
-          src='https://res.cloudinary.com/kingsleysolomon/image/upload/v1667476114/samples/techstudio/Icons%20and%20Images/Icons%20and%20Images/Tech%20Studio%20images/Repeat_Grid_38_ipl0tv.png'
-          alt='img'
-        />
+        {children}
+      </Swiper>
 
-        <p className='fs-2xl fw-semibold text-center text-white'>{title}</p>
-        <Swiper
-          ref={swiperRef}
-          loop={true}
-          spaceBetween={300}
-          slidesPerView={1}
-          pagination={{
-            dynamicBullets: true,
-          }}
-          modules={[Pagination]}
-          // onSlideChange={handleSlideChange}
-        >
-          {children}
-        </Swiper>
-
-        <img
-          className='position-absolute bottom-0 end-0 my-10 mx-16 d-none d-lg-block'
-          src='https://res.cloudinary.com/kingsleysolomon/image/upload/v1667476113/samples/techstudio/Icons%20and%20Images/Icons%20and%20Images/Tech%20Studio%20images/Rectangle_7475_gijnxw.png'
-          alt='img'
-        />
-      </div>
-    </UseAnimate>
+      <img
+        className='position-absolute bottom-0 end-0 my-10 mx-16 d-none d-lg-block'
+        src='https://res.cloudinary.com/kingsleysolomon/image/upload/v1667476113/samples/techstudio/Icons%20and%20Images/Icons%20and%20Images/Tech%20Studio%20images/Rectangle_7475_gijnxw.png'
+        alt='img'
+      />
+    </div>
+    // </UseAnimate>
   )
 }
 

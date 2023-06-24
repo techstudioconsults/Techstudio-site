@@ -1,4 +1,4 @@
-import React from 'react'
+import { useRef } from 'react'
 import Marquee from 'react-fast-marquee'
 import PropTypes from 'prop-types'
 import { SwiperSlide } from 'swiper/react'
@@ -6,12 +6,14 @@ import { SwiperSlide } from 'swiper/react'
 import { Profile, TestimonialBanner } from '../../../../../components'
 import Button from '../../../../../components/global/Button'
 import GalleryIndex from '../../../../../components/global/carousel/Gallery/GalleryIndex'
-import UseAnimate from '../../../../../hooks/useAnimate'
+import { TAKE_A_COURSE_ANIMATION } from '../../../../../gsap'
+import IntersectionObserver from '../../../../../hooks/IntersectionObserver'
 import { Container } from '../../../../../layout'
 
 import style from './sectionFour.module.scss'
 
 const SectionFour = ({ content, isDevelopmentView }) => {
+  const sectionFour = useRef() // create a ref for the root level element (for scoping)
   const { articleOne, header, body } = content
 
   const testimonials = body.testimonials.map((testimonial, index) => {
@@ -34,7 +36,7 @@ const SectionFour = ({ content, isDevelopmentView }) => {
   })
 
   return (
-    <section className={`${style.sectionFour} mb-20`}>
+    <section className={`${style.sectionFour} pb-20 bg-white`}>
       <Container>
         <section>
           <section className='d-flex flex-column align-items-center justify-content-between flex-lg-row my-12'>
@@ -49,7 +51,7 @@ const SectionFour = ({ content, isDevelopmentView }) => {
             <div
               className={`fs-sm text-center text-lg-start ${style.description}`}
             >
-              <UseAnimate>{articleOne.description}</UseAnimate>
+              {articleOne.description}
             </div>
           </section>
         </section>
@@ -120,35 +122,49 @@ const SectionFour = ({ content, isDevelopmentView }) => {
       <Container>
         <TestimonialBanner title={body.title}>{testimonials}</TestimonialBanner>
 
-        <div hidden={isDevelopmentView} className={style.sectionFourWrapper}>
-          <div className={style.sectionFourImg}>
-            <UseAnimate hidden={{ scale: 0 }} visible={{ scale: 1 }}>
+        <IntersectionObserver
+          animationFuncion={() => TAKE_A_COURSE_ANIMATION(sectionFour)}
+        >
+          <div hidden={isDevelopmentView} className={style.sectionFourWrapper}>
+            <div ref={sectionFour} className={style.sectionFourImg}>
               <img
                 alt='card-img'
                 data-sizes='auto'
-                className={`lazyload`}
-                src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686218826/techstudio-web-app/assets/images/Group_1000002320_pve1ql_lqi4vr.webp`}
-                data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_425/v1686218826/techstudio-web-app/assets/images/Group_1000002320_pve1ql_lqi4vr.webp`}
+                className={`lazyload ${style.angle} angle`}
+                src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1687594313/techstudio-web-app/assets/images/Group_1000002319_izpnar.svg`}
               />
-            </UseAnimate>
-          </div>
-          <div className={style.sectionFourTextGroup}>
-            <div className={style.sectionFourText}>
-              <h5 className={style.caption}>{header.caption}</h5>
-              <h2 className={style.title}>{header.title}</h2>
-              <p className={style.subTitle}>{header.subTitle}</p>
-            </div>
-            <div className={style.btnContainer}>
-              <Button
-                linkHref='/student/register'
-                linkText='Get Started'
-                solidBtn
-                navBtn
-                width={`11`}
+              <img
+                alt='card-img'
+                data-sizes='auto'
+                className={`lazyload ${style.img} img`}
+                src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1687594302/techstudio-web-app/assets/images/Frame_73_eqbnub.webp`}
+                data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_425/v1687594302/techstudio-web-app/assets/images/Frame_73_eqbnub.webp`}
+              />
+              <img
+                alt='card-img'
+                data-sizes='auto'
+                className={`lazyload ${style.box} box`}
+                src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1687594309/techstudio-web-app/assets/images/Frame_70_xuw32a.svg`}
               />
             </div>
+            <div className={style.sectionFourTextGroup}>
+              <div className={style.sectionFourText}>
+                <h5 className={style.caption}>{header.caption}</h5>
+                <h2 className={style.title}>{header.title}</h2>
+                <p className={style.subTitle}>{header.subTitle}</p>
+              </div>
+              <div className={style.btnContainer}>
+                <Button
+                  linkHref='/student/register'
+                  linkText='Get Started'
+                  solidBtn
+                  navBtn
+                  width={`11`}
+                />
+              </div>
+            </div>
           </div>
-        </div>
+        </IntersectionObserver>
       </Container>
     </section>
   )

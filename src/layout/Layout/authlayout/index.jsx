@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { PropTypes } from 'prop-types'
 
-// import authImg from '../../../assets/images/authImg.webp'
 import logo from '../../../assets/icons/logo.png'
 import MinimalFooter from '../../MinimalFooter'
 
@@ -14,7 +13,7 @@ const index = ({ children }) => {
       <Link to={`/`} className={style.logo}>
         <img src={logo} alt='logo' />
       </Link>
-      <div className={style.imgContainer}>
+      <div className={`${style.imgContainer}`}>
         <img
           src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218517/techstudio-web-app/assets/images/authImg_uy00im.webp`}
           alt='auth-img'
