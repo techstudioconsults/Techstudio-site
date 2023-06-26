@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
+// import { FACILITY_ANIMATION } from '../../../../gsap'
+// import Gsap from '../../../../hooks/Gsap'
 import { Container } from '../../../../layout'
 
 import 'swiper/css'
@@ -14,18 +16,20 @@ const GalleryIndex = () => {
     <div className={`${style.GalleryIndex} bg-white`}>
       <div className={style.GalleryIndexContents}>
         <Container>
-          <div className={style.GalleryIndexContentsFirstInner}>
+          {/* <Gsap animationFuncion={FACILITY_ANIMATION}> */}
+          <div className={`${style.GalleryIndexContentsFirstInner}`}>
             <div>
               <h6 className={style.galleryHeader}>WHAT TO EXPECT</h6>
               <h3 className={`${style.gallerySubheader} mb-0`}>Our Facility</h3>
             </div>
-            <p className={style.galleryText}>
+            <p className={`${style.galleryText} facility`}>
               We have put in place a very comfortable, and conducive learning
               facilities where you have access to resources. We have also
               invested in unlimited internet to ensure our students don’t have
               hinderance in their learning process.
             </p>
           </div>
+          {/* </Gsap> */}
         </Container>
 
         <Container>
@@ -93,7 +97,8 @@ const GalleryIndex = () => {
                   />
                 </SwiperSlide> */}
               </Swiper>
-              <div className={`${style.sliderText} mt-10`}>
+
+              <div className={`${style.sliderText} mt-10 slideText`}>
                 <h5 className='fs-xl fw-bold'>
                   A World-Class Learning Facility
                 </h5>

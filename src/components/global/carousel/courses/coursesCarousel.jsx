@@ -7,6 +7,8 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import 'swiper/css/pagination'
 
+import { SECTION_THREE_ANIMATION } from '../../../../gsap'
+import Gsap from '../../../../hooks/Gsap'
 import { HOME_CONTENT } from '../../../../pages/Externals/Home/content'
 import { SectionThreeCard } from '../../../../pages/Externals/Home/sections/sectionThree'
 
@@ -39,7 +41,9 @@ const Carousel = () => {
 
   const cardDisplay = sectionThree.cards.map((card, index) => (
     <SwiperSlide className='pb-16' key={index}>
-      <SectionThreeCard content={card} />
+      <Gsap animationFuncion={SECTION_THREE_ANIMATION}>
+        <SectionThreeCard content={card} />
+      </Gsap>
     </SwiperSlide>
   ))
 

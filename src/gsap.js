@@ -2,27 +2,75 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
-export const GENERIC_ANIMATION = (contextRef) => {
-  return gsap.context(() => {
-    gsap.fromTo(
-      `.animate`,
-      {
-        opacity: 0,
-        y: `5rem`,
+const genericAnimation = (className) => {
+  gsap.fromTo(
+    className,
+    {
+      opacity: 0,
+      y: `5rem`,
+    },
+    {
+      duration: 1,
+      opacity: 1,
+      stagger: 0.5,
+      y: 0,
+      scrollTrigger: {
+        trigger: className,
+        // start: `top 50%`,
       },
-      {
-        duration: 1,
-        opacity: 1,
-        stagger: 0.5,
-        y: 0,
-        scrollTrigger: {
-          trigger: `.animate`,
-          start: `top 80%`,
-        },
-      }
-    )
+    }
+  )
+}
+
+export const HERO_ANIMATION = (contextRef) => {
+  return gsap.context(() => {
+    genericAnimation(`.hero`)
   }, contextRef)
 }
+export const SECTION_TWO_ANIMATION = (contextRef) => {
+  return gsap.context(() => {
+    genericAnimation(`.sectionTwo`)
+  }, contextRef)
+}
+
+export const SECTION_THREE_ANIMATION = (contextRef) => {
+  return gsap.context(() => {
+    genericAnimation(`.sectionThree`)
+  }, contextRef)
+}
+export const SECTION_FOUR_ANIMATION = (contextRef) => {
+  return gsap.context(() => {
+    genericAnimation(`.sectionFour`)
+  }, contextRef)
+}
+export const GALLERY_ANIMATION = (contextRef) => {
+  return gsap.context(() => {
+    genericAnimation(`.galleryIndex`)
+  }, contextRef)
+}
+// export const FACILITY_ANIMATION = (contextRef) => {
+//   return gsap.context(() => {
+//     genericAnimation(`.facility`)
+//   }, contextRef)
+// }
+// export const GALLERY_TEXT_ANIMATION = (contextRef) => {
+//   return gsap.context(() => {
+//     gsap.fromTo(
+//       `.slideText`,
+//       { opacity: 0, x: `10rem` },
+//       {
+//         x: `initial`,
+//         opacity: 1,
+//         scrollTrigger: {
+//           trigger: `.slideText`,
+//           start: `top center`,
+//         },
+//       }
+//     )
+//   }, contextRef)
+// }
+
+// ======================================================================================
 
 export const TAKE_A_COURSE_ANIMATION = (contextRef) => {
   const scrollTrigger = {

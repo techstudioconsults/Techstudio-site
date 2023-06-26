@@ -1,15 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { GENERIC_ANIMATION } from '../../../gsap'
+import { SECTION_TWO_ANIMATION } from '../../../gsap'
 import Gsap from '../../../hooks/Gsap'
 
 import style from './card.module.scss'
 
 const index = ({ cardDetails }) => {
   return (
-    <Gsap animationFuncion={GENERIC_ANIMATION}>
-      <div className={`${style.sectionTwoCard} animate`}>
+    <Gsap animationFuncion={SECTION_TWO_ANIMATION}>
+      <div className={`${style.sectionTwoCard} sectionTwo`}>
         <div className={style.cardImg}>
           <img
             alt='card-img'

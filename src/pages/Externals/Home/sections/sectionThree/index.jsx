@@ -10,7 +10,7 @@ import style from './sectioniThree.module.scss'
 const SectionThree = ({ content }) => {
   const { header } = content
   return (
-    <section className={style.sectionThree}>
+    <section className={`${style.sectionThree}`}>
       <div className={style.banner}>
         <Container>
           <section className='d-flex flex-column justify-content-center align-items-center'>
@@ -30,7 +30,7 @@ const SectionThree = ({ content }) => {
 export const SectionThreeCard = ({ content }) => {
   return (
     <div
-      className={`${style.sectionThreeCard} d-flex flex-column align-items-center justify-content-between`}
+      className={`${style.sectionThreeCard} d-flex flex-column align-items-center justify-content-between sectionThree`}
     >
       <div className={style.cardImg}>
         {/* <img src={content.image} alt='card-img' className='img-fluid' /> */}

@@ -6,8 +6,13 @@ import { SwiperSlide } from 'swiper/react'
 import { Profile, TestimonialBanner } from '../../../../../components'
 import Button from '../../../../../components/global/Button'
 import GalleryIndex from '../../../../../components/global/carousel/Gallery/GalleryIndex'
-import { TAKE_A_COURSE_ANIMATION } from '../../../../../gsap'
+import {
+  HERO_ANIMATION,
+  SECTION_FOUR_ANIMATION,
+  TAKE_A_COURSE_ANIMATION,
+} from '../../../../../gsap'
 import IntersectionObserver from '../../../../../hooks/Gsap'
+import Gsap from '../../../../../hooks/Gsap'
 import { Container } from '../../../../../layout'
 
 import style from './sectionFour.module.scss'
@@ -38,19 +43,21 @@ const SectionFour = ({ content, isDevelopmentView }) => {
   return (
     <section className={`${style.sectionFour} pb-20 bg-white`}>
       <Container>
-        <section>
-          <section className='d-flex flex-column align-items-center justify-content-between flex-lg-row my-12'>
-            <div className={`text-center text-lg-start`}>
-              <p className={`text-primary fw-semibold`}>{articleOne.title}</p>
-              <p className={`fs-3xl text-blue fw-semibold`}>
-                {articleOne.topic}
-              </p>
-            </div>
-            <div className={`text-center text-lg-start ${style.description}`}>
-              {articleOne.description}
-            </div>
+        <Gsap animationFuncion={SECTION_FOUR_ANIMATION}>
+          <section className='sectionFour'>
+            <section className='d-flex flex-column align-items-center justify-content-between flex-lg-row my-12'>
+              <div className={`text-center text-lg-start`}>
+                <p className={`text-primary fw-semibold`}>{articleOne.title}</p>
+                <p className={`fs-3xl text-blue fw-semibold`}>
+                  {articleOne.topic}
+                </p>
+              </div>
+              <div className={`text-center text-lg-start ${style.description}`}>
+                {articleOne.description}
+              </div>
+            </section>
           </section>
-        </section>
+        </Gsap>
       </Container>
 
       <div
