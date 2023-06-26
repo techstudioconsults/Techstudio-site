@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import Stepper from '../../../../../components/global/steppers/Stepper'
 import { STEPPER_IMG_ANIMATION } from '../../../../../gsap'
-import IntersectionObserver from '../../../../../hooks/IntersectionObserver'
+import IntersectionObserver from '../../../../../hooks/Gsap'
 import { Container } from '../../../../../layout'
 
 import style from './sectionFive.module.scss'

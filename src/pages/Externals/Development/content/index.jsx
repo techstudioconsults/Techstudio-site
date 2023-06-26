@@ -226,13 +226,17 @@ export const DEVELOPMENT_CONTENT = {
       },
       weekday: {
         time: `12`,
-        date: `July 9, 2023`,
+        date: `July 10, 2023`,
         price: `250000`,
       },
       weekend: {
         time: `12`,
-        date: `July 1, 2023`,
+        date: `July 8, 2023`,
         price: `250000`,
+      },
+      span: {
+        weekday: `Mon - wed (10am - 5pm)`,
+        weekend: `Sat - Sun (10am - 5pm)`,
       },
     },
   },
@@ -365,6 +369,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `The REACT Library`,
           desc: `Unit 5 focuses on the popular JavaScript library, React, known for its ability to create powerful and interactive user interfaces. React has gained immense popularity due to its component-based architecture, which allows developers to build reusable UI components that encapsulate specific functionalities. By breaking down the user interface into modular components, React promotes code reusability, improves maintainability, and facilitates collaborative development.`,
           bgColor: `white`,
+          className: `react-img`,
           img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687125897/techstudio-web-app/assets/images/atom-loader_1_vyfujv.svg`,
           tagAttr: [
             {
@@ -468,6 +473,10 @@ In object-oriented JavaScript, students will learn how to create objects, define
         date: `July 1, 2023`,
         price: `300000`,
       },
+      span: {
+        weekday: `Mon - Thur (10am - 5pm)`,
+        weekend: `Sat - Sun (10am - 5pm)`,
+      },
     },
   },
   datascience: {
@@ -508,7 +517,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Introduction to Microsoft Excel - Objectives`,
           desc: `In this unit, Students learn Microsoft Excel fundamentals, including installation, workbook creation, environment navigation, and the importance of Excel. They explore formulas, functions (arithmetic, text, logical, date), data organization (sorting, filtering, validation), analysis (conditional formatting, Power Query, Power Pivot), and pivot table creation. Practical skills for data management and analysis are gained. Throughout the unit, students gain practical skills in using Microsoft Excel for data management, analysis, and reporting..`,
           bgColor: `red`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687126307/techstudio-web-app/assets/images/Data_analysis_as85zx.gif`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687740338/techstudio-web-app/assets/images/Data_analysis_2_rchbol.gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -623,13 +632,18 @@ In object-oriented JavaScript, students will learn how to create objects, define
       },
       weekday: {
         time: `12`,
-        date: `July 3, 2023`,
+        date: `July 10, 2023`,
         price: `250000`,
       },
       weekend: {
         time: `12`,
-        date: `July 1, 2023`,
+        date: `July 8, 2023`,
         price: `250000`,
+      },
+
+      span: {
+        weekday: `Mon - wed (10am - 5pm)`,
+        weekend: `Sat - Sun (10am - 5pm)`,
       },
     },
   },

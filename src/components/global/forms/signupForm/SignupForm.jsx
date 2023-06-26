@@ -145,9 +145,9 @@ const ContactForm = () => {
             {...register('course')}
             className={[`form-select`, style.select].join(' ')}
           >
-            <option>Mobile Development</option>
+            {/* <option>Mobile Development</option> */}
             <option>Fullstack Development</option>
-            <option>Frontend Development</option>
+            {/* <option>Frontend Development</option> */}
             <option>UI/UX Development</option>
             <option>Data science</option>
           </select>

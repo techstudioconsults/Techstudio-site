@@ -2,6 +2,8 @@ import React from 'react'
 import { Icon } from '@iconify/react'
 import PropTypes from 'prop-types'
 
+import { REACT_IMG_ANIMATION } from '../../../gsap'
+import Gsap from '../../../hooks/Gsap'
 import { Container } from '../../../layout'
 
 import style from './stepper.module.scss'
@@ -40,7 +42,7 @@ const ShortStepper = ({ lists, isCourses }) => {
                   {list.caption}
                 </p>
                 <p className={`${style.title} fs-xl fs-lg-3xl`}>{list.title}</p>
-                <p className={`mt-2 mb-10 fs-sm lh-lg`}>{list.desc}</p>
+                <p className={`mt-2 mb-10 lh-lg`}>{list.desc}</p>
                 <div className='d-flex flex-column flex-md-row gap-5'>
                   {list?.tagAttr?.map((tag, index) => {
                     return (
@@ -54,8 +56,9 @@ const ShortStepper = ({ lists, isCourses }) => {
                   })}
                 </div>
               </div>
+
               <div className={style.text}>
-                <img src={list.img} alt='pic' />
+                <img className={`${list.className}`} src={list.img} alt='pic' />
               </div>
             </div>
           </div>
@@ -63,7 +66,11 @@ const ShortStepper = ({ lists, isCourses }) => {
       </section>
     )
   })
-  return <div className={style.stepper}>{listsDisplay}</div>
+  return (
+    <Gsap animationFuncion={REACT_IMG_ANIMATION}>
+      <div className={style.stepper}>{listsDisplay}</div>
+    </Gsap>
+  )
 }
 
 ShortStepper.propTypes = {

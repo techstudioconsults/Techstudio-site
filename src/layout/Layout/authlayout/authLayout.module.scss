@@ -13,10 +13,13 @@
   }
 
   .logo {
-    position: absolute;
-    top: fn.rem(75);
-    left: fn.rem(55);
-    z-index: 999;
+    padding: fn.rem(20);
+    @include breakpoint-up('lg') {
+      position: absolute;
+      top: fn.rem(45);
+      left: fn.rem(55);
+      z-index: 999;
+    }
   }
   .imgContainer,
   .children {
@@ -27,8 +30,10 @@
   }
 
   .imgContainer {
+    display: none;
     height: fn.rem(100);
     @include breakpoint-up('lg') {
+      display: initial;
       height: 100%;
     }
   }

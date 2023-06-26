@@ -17,7 +17,7 @@ const index = ({ content, duration }) => {
               <h1 className={style.title}>{title}</h1>
               <p className={style.description}>{subTitle}</p>
 
-              <div className='mt-10 d-flex justify-content-center justify-content-lg-start mb-10 mb-lg-0'>
+              <div className='mt-10 d-flex justify-content-center justify-content-xl-start mb-10 mb-lg-0'>
                 <Button
                   linkHref='/student/register'
                   linkText='Enroll Now'

@@ -52,7 +52,7 @@
       display: grid;
       grid-template-columns: auto;
       grid-gap: fn.rem(32);
-      @include breakpoint-up('xl') {
+      @include breakpoint-up('lg') {
         grid-template-columns: auto auto auto auto;
       }
     }

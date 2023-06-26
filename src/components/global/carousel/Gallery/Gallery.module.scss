@@ -84,7 +84,7 @@
     border-radius: fn.rem(14);
     box-shadow: 10px 5px 15px #cccccc;
     padding: fn.rem(30);
-    @include breakpoint-up('lg') {
+    @include breakpoint-up('xl') {
       margin: auto;
       background-color: colors.$light;
       position: relative;

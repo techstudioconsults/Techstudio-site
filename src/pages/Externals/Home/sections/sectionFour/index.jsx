@@ -7,7 +7,7 @@ import { Profile, TestimonialBanner } from '../../../../../components'
 import Button from '../../../../../components/global/Button'
 import GalleryIndex from '../../../../../components/global/carousel/Gallery/GalleryIndex'
 import { TAKE_A_COURSE_ANIMATION } from '../../../../../gsap'
-import IntersectionObserver from '../../../../../hooks/IntersectionObserver'
+import IntersectionObserver from '../../../../../hooks/Gsap'
 import { Container } from '../../../../../layout'
 
 import style from './sectionFour.module.scss'
@@ -41,16 +41,12 @@ const SectionFour = ({ content, isDevelopmentView }) => {
         <section>
           <section className='d-flex flex-column align-items-center justify-content-between flex-lg-row my-12'>
             <div className={`text-center text-lg-start`}>
-              <p className={`text-primary fs-sm fw-semibold`}>
-                {articleOne.title}
-              </p>
+              <p className={`text-primary fw-semibold`}>{articleOne.title}</p>
               <p className={`fs-3xl text-blue fw-semibold`}>
                 {articleOne.topic}
               </p>
             </div>
-            <div
-              className={`fs-sm text-center text-lg-start ${style.description}`}
-            >
+            <div className={`text-center text-lg-start ${style.description}`}>
               {articleOne.description}
             </div>
           </section>

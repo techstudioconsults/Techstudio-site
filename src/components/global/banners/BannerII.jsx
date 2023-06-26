@@ -19,7 +19,7 @@ const BannerII = ({ children }) => {
       {children}
       <div
         style={{ bottom: `-6px` }}
-        className='position-absolute end-0 me-32 d-none d-lg-block'
+        className='position-absolute end-0 me-32 d-none d-xl-block'
       >
         <img
           alt='card-img'

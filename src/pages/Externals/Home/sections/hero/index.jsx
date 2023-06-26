@@ -5,6 +5,8 @@ import PropTypes from 'prop-types'
 import { Container } from '@/layout'
 
 import Button from '../../../../../components/global/Button'
+import { GENERIC_ANIMATION } from '../../../../../gsap'
+import Gsap from '../../../../../hooks/Gsap'
 
 import style from './hero.module.scss'
 
@@ -47,6 +49,7 @@ const Hero = ({ content }) => {
   }
 
   return (
+    // <Gsap animationFuncion={GENERIC_ANIMATION}>
     <header
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
@@ -55,10 +58,10 @@ const Hero = ({ content }) => {
       <Container paddingBlock={0}>
         <section className={style.heroWrapper}>
           <div className={style.heroText}>
-            <h1 className={style.title}>{title}</h1>
-            <p className={style.description}>{description}</p>
+            <h1 className={`${style.title} `}>{title}</h1>
+            <p className={`${style.description}`}>{description}</p>
 
-            <div className={style.btnGroup}>
+            <div className={`${style.btnGroup}`}>
               <Button
                 width={`11`}
                 solidBtn
@@ -92,6 +95,7 @@ const Hero = ({ content }) => {
         </section>
       </Container>
     </header>
+    // </Gsap>
   )
 }
 
