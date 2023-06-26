@@ -13,7 +13,7 @@ const SectionSeven = ({ data }) => {
   const [index, setIndex] = useState(0)
   const [classes, setClasses] = useState([])
   const carousel = useRef()
-  const { image } = data[index]
+  const { image, date, duration, location } = data[index]
 
   const convertDateToReadable = (date) => {
     let dateSet = new Date(date).toUTCString().split(' ')
@@ -111,13 +111,7 @@ const SectionSeven = ({ data }) => {
                 <Icon className='me-2' icon={`game-icons:duration`} />
                 <span>Duration</span>
               </span>
-              <span>
-                {calculateWeeks(
-                  classes[index]?.startDate,
-                  classes[index]?.endDate
-                )}{' '}
-                weeks
-              </span>
+              <span>{duration}</span>
             </div>
           </section>
           <section className='d-flex'>

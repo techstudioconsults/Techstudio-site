@@ -189,7 +189,7 @@ Would you like to talk to a Tech expert over any tech related issue? We have pro
         title: `Javascript Fullstack Web Development`,
         description: `We provide high-quality and affordable technology training to meet our students’ needs. Also, we ensure all our students are equipped with the necessary tech skills for related work opportunities at the end of the program.`,
         location: `Physical & Online`,
-        date: `28 / 01 / 2023`,
+        date: `10 / 07 / 2023`,
         duration: `24 Weeks`,
       },
       {
@@ -198,7 +198,7 @@ Would you like to talk to a Tech expert over any tech related issue? We have pro
         title: `Product Design & UI/UX Immersive`,
         description: `Lorem ipsum dolor sit amet consectetur. Non nibh consectetur magna ornare varius ac dis pulvinar nunc. Eget ut ipsum interdum et fames mauris in quam tellus. Eget. Eget ut ipsum interdum et fames mauris in quam tellus. Eget.`,
         location: `Physical`,
-        date: `28 / 01 / 2023`,
+        date: `10 / 07 / 2023`,
         duration: `12 Weeks`,
       },
       {
@@ -207,7 +207,7 @@ Would you like to talk to a Tech expert over any tech related issue? We have pro
         title: `Data Science & Analysis`,
         description: `We provide high-quality and affordable technology training to meet our students’ needs. Also, we ensure all our students are equipped with the necessary tech skills for related work opportunities at the end of the program.`,
         location: `Physical`,
-        date: `28 / 01 / 2023`,
+        date: `10 / 07 / 2023`,
         duration: `12 Weeks`,
       },
     ],
