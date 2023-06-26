@@ -460,17 +460,17 @@ In object-oriented JavaScript, students will learn how to create objects, define
     duration: {
       online: {
         time: `16`,
-        date: `July 1, 2023`,
+        date: `July 10, 2023`,
         price: `200000`,
       },
       weekday: {
         time: `24`,
-        date: `July 3, 2023`,
+        date: `July 10, 2023`,
         price: `500000`,
       },
       weekend: {
         time: `16`,
-        date: `July 1, 2023`,
+        date: `July 8, 2023`,
         price: `300000`,
       },
       span: {
