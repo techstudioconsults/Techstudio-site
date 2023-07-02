@@ -48,27 +48,71 @@ export const GALLERY_ANIMATION = (contextRef) => {
     genericAnimation(`.galleryIndex`)
   }, contextRef)
 }
-// export const FACILITY_ANIMATION = (contextRef) => {
-//   return gsap.context(() => {
-//     genericAnimation(`.facility`)
-//   }, contextRef)
-// }
-// export const GALLERY_TEXT_ANIMATION = (contextRef) => {
-//   return gsap.context(() => {
-//     gsap.fromTo(
-//       `.slideText`,
-//       { opacity: 0, x: `10rem` },
-//       {
-//         x: `initial`,
-//         opacity: 1,
-//         scrollTrigger: {
-//           trigger: `.slideText`,
-//           start: `top center`,
-//         },
-//       }
-//     )
-//   }, contextRef)
-// }
+export const FACILITY_ANIMATION = (contextRef) => {
+  return gsap.context(() => {
+    genericAnimation(`.facility`)
+  }, contextRef)
+}
+export const SCALE_ANIMATION = (contextRef) => {
+  return gsap.context(() => {
+    gsap.fromTo(
+      `.scale`,
+      {
+        opacity: 0,
+        scale: 0,
+      },
+      {
+        duration: 0.5,
+        opacity: 1,
+        stagger: 0.2,
+        scale: 1,
+        scrollTrigger: {
+          trigger: `.scale`,
+          // start: `top 50%`,
+        },
+      }
+    )
+  }, contextRef)
+}
+export const TEAM_ANIMATION = (contextRef) => {
+  return gsap.context(() => {
+    gsap.fromTo(
+      `.team`,
+      {
+        opacity: 0,
+        scale: 0,
+      },
+      {
+        duration: 0.5,
+        opacity: 1,
+        stagger: 0.2,
+        scale: 1,
+        scrollTrigger: {
+          trigger: `.team`,
+          // start: `top 50%`,
+        },
+      }
+    )
+  }, contextRef)
+}
+
+export const GALLERY_TEXT_ANIMATION = (contextRef) => {
+  return gsap.context(() => {
+    gsap.fromTo(
+      `.slideText`,
+      { opacity: 0, x: `-10rem` },
+      {
+        duration: 1,
+        x: window.innerWidth <= 767 ? 0 : `-8rem`,
+        opacity: 1,
+        scrollTrigger: {
+          trigger: `.slideText`,
+          start: `top center`,
+        },
+      }
+    )
+  }, contextRef)
+}
 
 // ======================================================================================
 

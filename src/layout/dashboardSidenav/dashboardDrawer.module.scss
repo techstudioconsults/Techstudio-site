@@ -9,6 +9,7 @@
   width: 100%;
   @include flex-column;
   justify-content: space-between;
+  overflow-y: scroll;
 
   @include breakpoint-up('lg') {
     padding: fn.rem(32);

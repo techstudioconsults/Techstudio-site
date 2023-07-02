@@ -170,7 +170,7 @@ const App = () => {
         >
           {/* admin routes */}
           <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
-            <Route element={<DashboardLayout isADB />}>
+            <Route element={<DashboardLayout />}>
               <Route path='/admin/dashboard' element={<AdminDashboard />}>
                 <Route path=':courseID' element={<TrackAnalysisLayout />} />
               </Route>

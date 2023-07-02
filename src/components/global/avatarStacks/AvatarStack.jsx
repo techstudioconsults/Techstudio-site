@@ -32,7 +32,7 @@ const AvatarStack = ({ showImage, imageList, dontShowMore, tutors }) => {
   return (
     <div className={style.avatarCollections}>
       {imagesDisplay}
-      <p
+      {/* <p
         className={[
           style.message,
           `ms-2 text-white`,
@@ -48,7 +48,8 @@ const AvatarStack = ({ showImage, imageList, dontShowMore, tutors }) => {
           : imageList?.length === 0
           ? `Students yet to register`
           : ``}
-      </p>
+      </p> */}
+      <p className='text-secondary fs-sm ms-1'>+30 joined the class</p>
     </div>
   )
 }

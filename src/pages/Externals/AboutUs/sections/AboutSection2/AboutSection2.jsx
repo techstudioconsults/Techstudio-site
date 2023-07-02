@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { SCALE_ANIMATION } from '../../../../../gsap'
+import Gsap from '../../../../../hooks/Gsap'
 import { Container } from '../../../../../layout'
 
 import style from './AboutSection2.module.scss'
@@ -13,7 +15,9 @@ const AboutSection2 = ({ content }) => {
   const imgDisplay = images.map((img) => {
     return (
       <div className={style.imgContainer} key={img.src}>
-        <img src={img.src} alt='img' className={style.mainImg} />
+        <Gsap animationFuncion={SCALE_ANIMATION}>
+          <img src={img.src} alt='img' className={`${style.mainImg} scale`} />
+        </Gsap>
       </div>
     )
   })
