@@ -50,14 +50,14 @@ const Hero = ({ content }) => {
 
   return (
     <header
-      onMouseLeave={handleMouseLeave}
-      onMouseMove={handleMouseMove}
+      // onMouseLeave={handleMouseLeave}
+      // onMouseMove={handleMouseMove}
       className={style.hero}
     >
       <Container paddingBlock={0}>
-        <section className={style.heroWrapper}>
-          <div className={style.heroText}>
-            <Gsap animationFuncion={() => genericAnimation(`hero`)}>
+        <Gsap animationFuncion={() => genericAnimation(`hero`)}>
+          <section className={style.heroWrapper}>
+            <div className={style.heroText}>
               <h1 className={`${style.title} hero`}>{title}</h1>
               <p className={`${style.description} hero`}>{description}</p>
 
@@ -76,25 +76,32 @@ const Hero = ({ content }) => {
                   linkText='Log in'
                 />
               </div>
-            </Gsap>
-          </div>
-          <div
-            style={{
-              transform: `perspective(1000px) rotateX(${transform.translateX}deg) rotateY(${transform.translateY}deg) translateZ(0px)`,
-              transition: `all .1s ease-out`,
-            }}
-            className={style.heroImg}
-          >
-            <img
-              alt='logo'
-              data-sizes='auto'
-              src='https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686744735/techstudio-web-app/assets/images/hero_doqefw.webp'
-              data-src='https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1686744735/techstudio-web-app/assets/images/hero_doqefw.webp'
-              className='lazyload'
-            />
-          </div>
-        </section>
+            </div>
+            <div
+              style={{
+                transform: `perspective(1000px) rotateX(${transform.translateX}deg) rotateY(${transform.translateY}deg) translateZ(0px)`,
+                transition: `all .1s ease-out`,
+              }}
+              className={style.heroImg}
+            >
+              <img
+                alt='logo'
+                data-sizes='auto'
+                src='https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686744735/techstudio-web-app/assets/images/hero_doqefw.webp'
+                data-src='https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1686744735/techstudio-web-app/assets/images/hero_doqefw.webp'
+                className='lazyload'
+              />
+            </div>
+          </section>
+        </Gsap>
       </Container>
+      {/* <Gsap animationFuncion={() => float(`float`)}>
+        <img
+          src='https://res.cloudinary.com/dkszgtapy/image/upload/v1688484230/techstudio-web-app/assets/images/Vector_t3xpcs.svg'
+          alt=''
+          className='float'
+        />
+      </Gsap> */}
     </header>
   )
 }

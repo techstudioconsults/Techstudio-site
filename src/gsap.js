@@ -40,6 +40,19 @@ export const spin = (className) => {
   })
 }
 
+// export const float = (className) => {
+//   let xValue = Math.random() * 100
+//   let yValue = Math.random() * 100
+
+//   return gsap.context(() => {
+//     gsap.fromTo(
+//       `.${className}`,
+//       { opacity: 0.5, x: `${100}vw`, y: `${100}` },
+//       { duration: 100, opacity: 0.5, x: `100vw` }
+//     )
+//   })
+// }
+
 export const routeAnimation = (contextRef) => {
   return gsap.context(() => {
     gsap.fromTo(
@@ -83,7 +96,7 @@ export const GALLERY_TEXT_ANIMATION = (contextRef) => {
       { opacity: 0, x: `-10rem` },
       {
         duration: 1,
-        x: window.innerWidth <= 767 ? 0 : `-8rem`,
+        x: window.innerWidth <= 767 ? 0 : `-15rem`,
         opacity: 1,
         scrollTrigger: {
           trigger: `.slideText`,

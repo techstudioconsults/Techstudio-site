@@ -2,7 +2,7 @@ import React from 'react'
 import { Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { GALLERY_TEXT_ANIMATION, genericAnimation } from '../../../../gsap'
+import { genericAnimation } from '../../../../gsap'
 import Gsap from '../../../../hooks/Gsap'
 import { Container } from '../../../../layout'
 
@@ -100,12 +100,12 @@ const GalleryIndex = () => {
                 </SwiperSlide> */}
               </Swiper>
 
-              <Gsap animationFuncion={GALLERY_TEXT_ANIMATION}>
-                <div className={`${style.sliderText} mt-10 slideText`}>
-                  <h5 className='fs-xl fw-bold'>
+              <div className={`${style.sliderText} mt-10`}>
+                <Gsap animationFuncion={() => genericAnimation(`text`)}>
+                  <h5 className='fs-xl fw-bold text'>
                     A World-Class Learning Facility
                   </h5>
-                  <p className='mt-10'>
+                  <p className='mt-10 text'>
                     At Tech Studio Academy, we have created a conducive
                     environment for learning, combining exceptional school
                     structures, inspiring classrooms, and dedicated tutors. We
@@ -115,14 +115,14 @@ const GalleryIndex = () => {
                     personal development.
                   </p>
                   <br />
-                  <p>
+                  <p className='text'>
                     Our classrooms are carefully designed to facilitate
                     effective teaching and learning to enable tutors to deliver
                     dynamic and engaging lessons that captivate students'
                     attention and spark their curiosity.
                   </p>
-                </div>
-              </Gsap>
+                </Gsap>
+              </div>
             </section>
           </section>
         </Container>
