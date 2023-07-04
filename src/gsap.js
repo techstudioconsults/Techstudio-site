@@ -17,12 +17,13 @@ export const genericAnimation = (className) => {
         y: 0,
         scrollTrigger: {
           trigger: `.${className}`,
-          // start: `top 50%`,
+          // start: `top 5%`,
         },
       }
     )
   })
 }
+
 export const spin = (className) => {
   return gsap.context(() => {
     gsap.to(`.${className}`, {
@@ -37,6 +38,20 @@ export const spin = (className) => {
       },
     })
   })
+}
+
+export const routeAnimation = (contextRef) => {
+  return gsap.context(() => {
+    gsap.fromTo(
+      `.route`,
+      { opacity: 0, y: `-1rem` },
+      {
+        duration: 1.5,
+        opacity: 1,
+        y: 0,
+      }
+    )
+  }, contextRef)
 }
 
 export const SCALE_ANIMATION = (className, contextRef) => {
