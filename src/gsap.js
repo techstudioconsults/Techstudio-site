@@ -2,82 +2,47 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
-const genericAnimation = (className) => {
-  gsap.fromTo(
-    className,
-    {
-      opacity: 0,
-      y: `5rem`,
-    },
-    {
-      duration: 1,
-      opacity: 1,
-      stagger: 0.5,
-      y: 0,
-      scrollTrigger: {
-        trigger: className,
-        // start: `top 50%`,
-      },
-    }
-  )
-}
-
-export const HERO_ANIMATION = (contextRef) => {
-  return gsap.context(() => {
-    genericAnimation(`.hero`)
-  }, contextRef)
-}
-export const SECTION_TWO_ANIMATION = (contextRef) => {
-  return gsap.context(() => {
-    genericAnimation(`.sectionTwo`)
-  }, contextRef)
-}
-
-export const SECTION_THREE_ANIMATION = (contextRef) => {
-  return gsap.context(() => {
-    genericAnimation(`.sectionThree`)
-  }, contextRef)
-}
-export const SECTION_FOUR_ANIMATION = (contextRef) => {
-  return gsap.context(() => {
-    genericAnimation(`.sectionFour`)
-  }, contextRef)
-}
-export const GALLERY_ANIMATION = (contextRef) => {
-  return gsap.context(() => {
-    genericAnimation(`.galleryIndex`)
-  }, contextRef)
-}
-export const FACILITY_ANIMATION = (contextRef) => {
-  return gsap.context(() => {
-    genericAnimation(`.facility`)
-  }, contextRef)
-}
-export const SCALE_ANIMATION = (contextRef) => {
+export const genericAnimation = (className) => {
   return gsap.context(() => {
     gsap.fromTo(
-      `.scale`,
+      `.${className}`,
       {
         opacity: 0,
-        scale: 0,
+        y: `5rem`,
       },
       {
-        duration: 0.5,
+        duration: 1,
         opacity: 1,
         stagger: 0.2,
-        scale: 1,
+        y: 0,
         scrollTrigger: {
-          trigger: `.scale`,
+          trigger: `.${className}`,
           // start: `top 50%`,
         },
       }
     )
-  }, contextRef)
+  })
 }
-export const TEAM_ANIMATION = (contextRef) => {
+export const spin = (className) => {
+  return gsap.context(() => {
+    gsap.to(`.${className}`, {
+      duration: 20,
+      rotate: className === `spin-reverse` ? `-360deg` : `360deg`,
+      yoyo: true,
+      repeat: -1,
+      ease: `slow(0.5, 0.8)`,
+      scrollTrigger: {
+        trigger: `.${className}`,
+        // start: `top 50%`,
+      },
+    })
+  })
+}
+
+export const SCALE_ANIMATION = (className, contextRef) => {
   return gsap.context(() => {
     gsap.fromTo(
-      `.team`,
+      `.${className}`,
       {
         opacity: 0,
         scale: 0,
@@ -88,7 +53,7 @@ export const TEAM_ANIMATION = (contextRef) => {
         stagger: 0.2,
         scale: 1,
         scrollTrigger: {
-          trigger: `.team`,
+          trigger: `.${className}`,
           // start: `top 50%`,
         },
       }
@@ -107,7 +72,7 @@ export const GALLERY_TEXT_ANIMATION = (contextRef) => {
         opacity: 1,
         scrollTrigger: {
           trigger: `.slideText`,
-          start: `top center`,
+          // start: `top center`,
         },
       }
     )
@@ -116,7 +81,7 @@ export const GALLERY_TEXT_ANIMATION = (contextRef) => {
 
 // ======================================================================================
 
-export const TAKE_A_COURSE_ANIMATION = (contextRef) => {
+export const TAKE_A_COURSE_ANIMATION = () => {
   const scrollTrigger = {
     // markers: true,
     trigger: `.img`,
@@ -144,7 +109,7 @@ export const TAKE_A_COURSE_ANIMATION = (contextRef) => {
       { opacity: 0, x: `-5rem`, y: `5rem` },
       { scrollTrigger, duration: 0.5, opacity: 1, x: 0, y: 0 }
     )
-  }, contextRef)
+  })
 }
 
 export const STEPPER_IMG_ANIMATION = (contextRef) => {

@@ -49,17 +49,17 @@ const ClassDetails = ({ isTDB, isADB }) => {
         ].join(' ')}
       >
         <button className='fs-sm bg-primary text-white rounded rounded-lg px-3 w-50'>
-          Start Class
+          Start Lesson
         </button>
         <button className='fs-sm fw-semibold bg-white text-primary rounded rounded-lg px-3 w-50 border border-primary'>
           Reschedule
         </button>
       </div>
-      <div className={[isADB ? `d-flex` : `d-none`, `gap-3 my-5`].join(' ')}>
+      {/* <div className={[isADB ? `d-flex` : `d-none`, `gap-3 my-5`].join(' ')}>
         <button className='fs-sm fw-semibold bg-white text-primary rounded rounded-lg px-3 w-50 border border-primary'>
           Reschedule
         </button>
-      </div>
+      </div> */}
     </div>
   )
 }

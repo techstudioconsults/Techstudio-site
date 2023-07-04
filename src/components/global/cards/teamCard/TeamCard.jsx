@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { TEAM_ANIMATION } from '../../../../gsap'
+import { SCALE_ANIMATION } from '../../../../gsap'
 import Gsap from '../../../../hooks/Gsap'
 
 import style from './teamCard.module.scss'
@@ -9,7 +9,7 @@ import style from './teamCard.module.scss'
 const TeamCard = ({ content }) => {
   const { img, name, job } = content
   return (
-    <Gsap animationFuncion={TEAM_ANIMATION}>
+    <Gsap animationFuncion={() => SCALE_ANIMATION(`team`)}>
       <div className={`${style.teamCard} team`}>
         <div className={style.teamCardImgContainer}>
           <img src={img} alt='team-img' className='cc-img-fluid' />

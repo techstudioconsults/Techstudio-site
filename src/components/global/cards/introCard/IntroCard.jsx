@@ -58,6 +58,8 @@ import PropTypes from 'prop-types'
 import { selectCoursesExternal } from '../../../../app/api/appSlice'
 import calendar from '../../../../assets/icons/calendar.png'
 import clock from '../../../../assets/icons/clock.png'
+import { SCALE_ANIMATION } from '../../../../gsap'
+import Gsap from '../../../../hooks/Gsap'
 import useCurrency from '../../../../hooks/useCurrency'
 import Button from '../../Button'
 
@@ -91,15 +93,17 @@ const IntroCard = ({ course }) => {
 
   return (
     <div className={[style.introCard, `cc-shadow`].join(' ')}>
-      <div className={style.imgContainer}>
-        <img src={course.img} alt='img' className='cc-img-fluid' />
-      </div>
+      <Gsap animationFuncion={() => SCALE_ANIMATION(`scale`)}>
+        <div className={style.imgContainer}>
+          <img src={course.img} alt='img' className='cc-img-fluid scale' />
+        </div>
+      </Gsap>
       <div className={style.introCardText}>
-        <h5 className={style.title}>{course.course}</h5>
-        <p className={style.desc}>{course.desc}</p>
+        <h5 className={`${style.title} tagDetails`}>{course.course}</h5>
+        <p className={`${style.desc} tagDetails`}>{course.desc}</p>
 
         {/* onliine */}
-        <section className='my-3'>
+        <section className='my-3 tagDetails'>
           <p className='fs-xs text-danger fw-semibold'>Online</p>
           <div className={`${style.timeDate} my-0 gap-4 gap-lg-8`}>
             <div className={style.time}>
@@ -131,7 +135,7 @@ const IntroCard = ({ course }) => {
           </div>
         </section>
         {/* weekday */}
-        <section className='my-3'>
+        <section className='my-3 tagDetails'>
           <p className='fs-xs text-danger fw-semibold'>Weekday</p>
           <div className={`${style.timeDate} my-0 gap-4 gap-lg-8`}>
             <div className={style.time}>
@@ -163,7 +167,7 @@ const IntroCard = ({ course }) => {
           </div>
         </section>
         {/* weekend */}
-        <section className='my-3'>
+        <section className='my-3 tagDetails'>
           <p className='fs-xs text-danger fw-semibold'>Weekend</p>
           <div className={`${style.timeDate} my-0 gap-4 gap-lg-8`}>
             <div className={style.time}>
@@ -194,7 +198,7 @@ const IntroCard = ({ course }) => {
             </div>
           </div>
         </section>
-        <div className={`${style.priceButton} justify-content-end`}>
+        <div className={`${style.priceButton} justify-content-end tagDetails`}>
           {/* <h5 className={style.price}>
             {formatCurrency(course.price) || formatCurrency(fee)}
           </h5> */}

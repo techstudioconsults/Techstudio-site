@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { HERO_ANIMATION } from '../../../../../gsap'
+import { genericAnimation } from '../../../../../gsap'
 import Gsap from '../../../../../hooks/Gsap'
 // import heroImg from '../../../../../assets/images/AboutHeroImg.png'
 import { Container } from '../../../../../layout'
@@ -11,12 +11,12 @@ import style from './AboutHero.module.scss'
 const AboutHero = ({ content }) => {
   const { caption, title, description1, description2, description3 } = content
   return (
-    <Gsap animationFuncion={HERO_ANIMATION}>
-      <Container>
+    <Container>
+      <Gsap animationFuncion={() => genericAnimation(`hero`)}>
         <header className={style.aboutHero}>
           <section className={style.aboutHeroTextGroup}>
-            <h5 className={style.caption}>{caption}</h5>
-            <h1 className={style.title}>{title}</h1>
+            <h5 className={`${style.caption} hero`}>{caption}</h5>
+            <h1 className={`${style.title} hero`}>{title}</h1>
             <p className={`${style.description} hero`}>{description1}</p>
             <br />
             <p className={`${style.description} hero`}>{description2}</p>
@@ -31,8 +31,8 @@ const AboutHero = ({ content }) => {
             />
           </section>
         </header>
-      </Container>
-    </Gsap>
+      </Gsap>
+    </Container>
   )
 }
 

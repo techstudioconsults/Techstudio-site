@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { genericAnimation } from '../../../gsap'
+import Gsap from '../../../hooks/Gsap'
+
 import style from './stepper.module.scss'
 
 const Stepper = ({ lists, isCourses }) => {
@@ -23,8 +26,10 @@ const Stepper = ({ lists, isCourses }) => {
             ' '
           )}
         >
-          <h4 className={style.title}>{list.title}</h4>
-          <p className={style.text}>{list.desc}</p>
+          <Gsap animationFuncion={() => genericAnimation(`stepper`)}>
+            <h4 className={`${style.title} stepper`}>{list.title}</h4>
+            <p className={`${style.text} stepper`}>{list.desc}</p>
+          </Gsap>
         </div>
       </div>
     )

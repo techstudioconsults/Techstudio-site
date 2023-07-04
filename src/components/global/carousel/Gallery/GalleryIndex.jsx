@@ -2,7 +2,7 @@ import React from 'react'
 import { Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { GALLERY_TEXT_ANIMATION } from '../../../../gsap'
+import { GALLERY_TEXT_ANIMATION, genericAnimation } from '../../../../gsap'
 import Gsap from '../../../../hooks/Gsap'
 import { Container } from '../../../../layout'
 
@@ -16,18 +16,22 @@ const GalleryIndex = () => {
     <div className={`${style.GalleryIndex} bg-white`}>
       <div className={style.GalleryIndexContents}>
         <Container>
-          <div className={`${style.GalleryIndexContentsFirstInner} `}>
-            <div>
-              <h6 className={style.galleryHeader}>WHAT TO EXPECT</h6>
-              <h3 className={`${style.gallerySubheader} mb-0`}>Our Facility</h3>
+          <Gsap animationFuncion={() => genericAnimation(`facility`)}>
+            <div className={`${style.GalleryIndexContentsFirstInner} facility`}>
+              <div>
+                <h6 className={style.galleryHeader}>WHAT TO EXPECT</h6>
+                <h3 className={`${style.gallerySubheader} mb-0`}>
+                  Our Facility
+                </h3>
+              </div>
+              <p className={`${style.galleryText} facility`}>
+                We have put in place a very comfortable, and conducive learning
+                facilities where you have access to resources. We have also
+                invested in unlimited internet to ensure our students don’t have
+                hinderance in their learning process.
+              </p>
             </div>
-            <p className={`${style.galleryText} facility`}>
-              We have put in place a very comfortable, and conducive learning
-              facilities where you have access to resources. We have also
-              invested in unlimited internet to ensure our students don’t have
-              hinderance in their learning process.
-            </p>
-          </div>
+          </Gsap>
         </Container>
 
         <Container>
@@ -95,6 +99,7 @@ const GalleryIndex = () => {
                   />
                 </SwiperSlide> */}
               </Swiper>
+
               <Gsap animationFuncion={GALLERY_TEXT_ANIMATION}>
                 <div className={`${style.sliderText} mt-10 slideText`}>
                   <h5 className='fs-xl fw-bold'>

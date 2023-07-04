@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 import { selectFAQ } from '../../../../../app/api/appSlice'
+import { genericAnimation } from '../../../../../gsap'
+import Gsap from '../../../../../hooks/Gsap'
 
 const Accordion = () => {
   const dispatch = useDispatch()
@@ -50,34 +52,33 @@ const Accordion = () => {
   }
   const displayFAQ = faq?.data?.map((faq) => {
     return (
-      <div
-        key={faq?.id}
-        className='accordion-item border border-0 py-2 py-lg-5'
-      >
-        <h2 className='accordion-header' id='headingTwo'>
-          <button
-            style={style}
-            className='accordion-button collapsed text-dark'
-            type='button'
-            data-bs-toggle='collapse'
-            data-bs-target={`#a-${faq.id.toString()}-accordion`}
-            aria-expanded='false'
-            aria-controls={`a-${faq.id.toString()}-accordion`}
+      <Gsap key={faq?.id} animationFuncion={() => genericAnimation(`faq`)}>
+        <div className='accordion-item border border-0 py-2 py-lg-5 faq'>
+          <h2 className='accordion-header' id='headingTwo'>
+            <button
+              style={style}
+              className='accordion-button collapsed text-dark'
+              type='button'
+              data-bs-toggle='collapse'
+              data-bs-target={`#a-${faq.id.toString()}-accordion`}
+              aria-expanded='false'
+              aria-controls={`a-${faq.id.toString()}-accordion`}
+            >
+              {faq?.question}
+            </button>
+          </h2>
+          <div
+            id={`a-${faq.id.toString()}-accordion`}
+            className='accordion-collapse collapse'
+            aria-labelledby='headingTwo'
+            data-bs-parent='#accordionExample'
           >
-            {faq?.question}
-          </button>
-        </h2>
-        <div
-          id={`a-${faq.id.toString()}-accordion`}
-          className='accordion-collapse collapse'
-          aria-labelledby='headingTwo'
-          data-bs-parent='#accordionExample'
-        >
-          <div style={style} className='accordion-body text-dark'>
-            {faq?.answer}
+            <div style={style} className='accordion-body text-dark'>
+              {faq?.answer}
+            </div>
           </div>
         </div>
-      </div>
+      </Gsap>
     )
   })
 

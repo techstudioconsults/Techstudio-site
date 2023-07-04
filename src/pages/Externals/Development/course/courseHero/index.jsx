@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Button } from '../../../../../components'
+import { genericAnimation } from '../../../../../gsap'
+import Gsap from '../../../../../hooks/Gsap'
 import { Container } from '../../../../../layout'
 
 import style from './courseHero.module.scss'
@@ -9,15 +11,15 @@ import style from './courseHero.module.scss'
 const index = ({ content, duration }) => {
   const { title, subTitle, img } = content
   return (
-    <>
+    <Gsap animationFuncion={() => genericAnimation(`hero`)}>
       <header className={style.hero}>
         <Container paddingBlock={0}>
           <section className={style.heroWrapper}>
             <div className={style.heroText}>
-              <h1 className={style.title}>{title}</h1>
-              <p className={style.description}>{subTitle}</p>
+              <h1 className={`${style.title} hero`}>{title}</h1>
+              <p className={`${style.description} hero`}>{subTitle}</p>
 
-              <div className='mt-10 d-flex justify-content-center justify-content-xl-start mb-10 mb-lg-0'>
+              <div className='mt-10 d-flex justify-content-center justify-content-xl-start mb-10 mb-lg-0 hero'>
                 <Button
                   linkHref='/student/register'
                   linkText='Enroll Now'
@@ -27,13 +29,13 @@ const index = ({ content, duration }) => {
                 />
               </div>
             </div>
-            <div className={style.heroImg}>
+            <div className={`${style.heroImg} hero`}>
               <img src={img} alt='hero-img' />
             </div>
           </section>
         </Container>
       </header>
-    </>
+    </Gsap>
   )
 }
 

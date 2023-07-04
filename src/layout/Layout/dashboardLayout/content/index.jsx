@@ -30,7 +30,7 @@ export const DASHBOARD_CONTENT = {
       id: 2,
       icon: `eos-icons:product-classes`,
       title: `Classes`,
-      link: `/tutor/classes`,
+      link: `/tutor/classes/1/class`,
     },
     // {
     //   id: 3,

@@ -38,6 +38,8 @@ const ContactUs = lazy(() => import('./pages/Externals/ContactUs'))
 const Development = lazy(() => import('./pages/Externals/Development'))
 
 import SpinnerComponent from './components/global/skeletonLoader/SpinnerComponent'
+import TutorClassTab from './pages/Dashboard/Teacher/components/tab/classTab/TutorClassTab'
+import TutorLessonTab from './pages/Dashboard/Teacher/components/tab/lessonTab/TutorLessonTab'
 import {
   AdminCourseView,
   AdminDashboard,
@@ -170,7 +172,7 @@ const App = () => {
         >
           {/* admin routes */}
           <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
-            <Route element={<DashboardLayout />}>
+            <Route element={<DashboardLayout isADB />}>
               <Route path='/admin/dashboard' element={<AdminDashboard />}>
                 <Route path=':courseID' element={<TrackAnalysisLayout />} />
               </Route>
@@ -256,7 +258,14 @@ const App = () => {
                 path='/tutor/dashboard'
                 element={<TeacherDashboard />}
               />
-              <Route path='tutor/classes' element={<TeacherClassView />} />
+              <Route path='tutor/classes' element={<TeacherClassView />}>
+                <Route path=':id/class' element={<TutorClassTab />} />
+                <Route path=':id/lesson' element={<TutorLessonTab />} />
+              </Route>
+              <Route
+                path='/tutor/class/lesson/create'
+                element={<CreateLesson />}
+              />
               <Route
                 path='/tutor/classes/single-class'
                 element={<SingleCourseView />}
