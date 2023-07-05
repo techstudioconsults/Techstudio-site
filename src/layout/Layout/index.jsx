@@ -1,8 +1,8 @@
 // REACT DEFAULTS
 import { PropTypes } from 'prop-types'
 
-import { routeAnimation } from '../../gsap'
-import Gsap from '../../hooks/Gsap'
+// import { routeAnimation } from '../../gsap'
+// import Gsap from '../../hooks/Gsap'
 // COMPONENTS
 import Footer from '../Footer'
 
@@ -11,12 +11,12 @@ import styles from './Layout.module.scss'
 
 const Layout = ({ children }) => {
   return (
-    <Gsap animationFuncion={routeAnimation}>
-      <main className={`${styles.main} route`}>
-        {children}
-        <Footer />
-      </main>
-    </Gsap>
+    // <Gsap animationFuncion={routeAnimation}>
+    <main className={`${styles.main} route`}>
+      {children}
+      <Footer />
+    </main>
+    // </Gsap>
   )
 }
 
