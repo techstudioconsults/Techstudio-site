@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 import { BannerII, Button } from '../../../components'
 import CourseBanner from '../../../components/global/banners/CourseBanner'
-import Brands from '../../../components/global/brands/Brands'
 import { Container, ExternalLayout, Navbar } from '../../../layout'
 import SectionTwo from '../Faqs/sections/sectionTwo'
 import { HOME_CONTENT } from '../Home/content'
@@ -44,11 +43,8 @@ const Development = ({ content, job }) => {
       </section>
       <CourseSectionTwo content={sectionTwo} />
       <CourseSectionFour content={sectionFour} />
-      {/* <Container> */}
-      {/* <Brands /> */}
       <SectionFour isDevelopmentView content={{ articleOne, header, body }} />
-      {/* </Container> */}
-      {/* faq */}
+
       <section>
         <Container>
           <h3 className='text-center'>{hero.title} FAQs</h3>
@@ -60,7 +56,7 @@ const Development = ({ content, job }) => {
           <BannerII>
             <div className='ms-3 ms-lg-40 text-white py-20 py-xl-0'>
               <span>Want to start a career as a {job} ?</span>
-              <h3 className='mt-7 fw-bold text-white fs-2xl'>
+              <h3 className='mt-7 fw-bold text-white'>
                 Get started with TechStudio
               </h3>
               <div className='w-50'>

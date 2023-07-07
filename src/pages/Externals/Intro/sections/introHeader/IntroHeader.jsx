@@ -2,8 +2,8 @@ import React from 'react'
 import { useContext } from 'react'
 
 import AppContext from '../../../../../contexts/AppProvider'
-import { genericAnimation } from '../../../../../gsap'
-import Gsap from '../../../../../hooks/Gsap'
+// import { genericAnimation } from '../../../../../gsap'
+// import Gsap from '../../../../../hooks/Gsap'
 import { Container } from '../../../../../layout'
 
 // import logo from '../../../assets/icons/logo.png'

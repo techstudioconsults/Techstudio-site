@@ -2,54 +2,103 @@
 @use '../global//colors' as colors;
 @import '../../scss/utils/breakpoints';
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  letter-spacing: fn.rem(0.5);
-  line-height: 1.5;
-  color: colors.$deep-blue;
-}
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6 {
+//   letter-spacing: fn.rem(0.5);
+//   line-height: 1.5;
+//   color: colors.$deep-blue;
+// }
 
-h1,
-h2,
-h3 {
-  font-weight: 700 !important;
-  margin-block-end: 1rem;
-}
+// h1,
+// h2,
+// h3 {
+//   font-weight: 700 !important;
+//   margin-block-end: 1rem;
+// }
 
-h4,
-h5,
-h6 {
-  font-weight: 600;
-  margin-block-end: 0.5rem;
-}
+// h4,
+// h5,
+// h6 {
+//   font-weight: 600;
+//   margin-block-end: 0.5rem;
+// }
 
-h1 {
-  // font-size: min(5vw - fn.rem(16), fn.rem(40));
-  font-size: clamp(fn.rem(28), fn.rem(16) + 2vw, fn.rem(56));
-}
+// h1 {
+//   // font-size: min(5vw - fn.rem(16), fn.rem(40));
+//   font-size: clamp(fn.rem(28), fn.rem(16) + 2vw, fn.rem(56));
+// }
 
-h2 {
-  // font-size: min(4vw - fn.rem(16), fn.rem(32));
-  font-size: clamp(fn.rem(22), fn.rem(14) + 1.5vw, fn.rem(48));
-}
+// h2 {
+//   // font-size: min(4vw - fn.rem(16), fn.rem(32));
+//   font-size: clamp(fn.rem(22), fn.rem(14) + 1.5vw, fn.rem(48));
+// }
 
-h3 {
-  // font-size: min(3vw - fn.rem(16), fn.rem(24));
-  font-size: clamp(fn.rem(22), fn.rem(14) + 1.5vw, fn.rem(40));
-}
+// h3 {
+//   // font-size: min(3vw - fn.rem(16), fn.rem(24));
+//   font-size: clamp(fn.rem(22), fn.rem(14) + 1.5vw, fn.rem(40));
+// }
 
-p {
-  margin-block: 0;
-  font-size: fn.rem(14);
-  letter-spacing: fn.rem(0.2);
-  line-height: 1.8;
-  font-weight: 400;
+// p {
+//   margin-block: 0;
+//   // font-size: fn.rem(14);
+//   letter-spacing: fn.rem(0.2);
+//   line-height: 1.8;
+//   font-weight: 400;
 
-  @include breakpoint-up('lg') {
-    font-size: fn.rem(16);
-  }
-}
+//   @include breakpoint-up('lg') {
+//     // font-size: fn.rem(16);
+//   }
+// }
+
+// $baseFontSize: 16px;
+// $baseLineHeight: 1.5;
+// $breakpointSmall: 576px;
+// $breakpointMedium: 768px;
+// $breakpointLarge: 992px;
+
+// @mixin fluid-type($minFontSize, $maxFontSize, $minViewportWidth, $maxViewportWidth) {
+//   $fluidFontSizeUnit: ($maxFontSize - $minFontSize) / ($maxViewportWidth - $minViewportWidth);
+//   $fluidFontSizeIntercept: $minFontSize - ($fluidFontSizeUnit * $minViewportWidth);
+
+//   font-size: calc(#{$minFontSize} + #{$fluidFontSizeUnit} * (100vw - #{$minViewportWidth}) + #{$fluidFontSizeIntercept});
+//   line-height: $baseLineHeight;
+// }
+
+// h1 {
+//   @include fluid-type(8px, 48px, $breakpointSmall, $breakpointLarge);
+// }
+
+// h2 {
+//   @include fluid-type(20px, 36px, $breakpointSmall, $breakpointLarge);
+// }
+
+// h3 {
+//   @include fluid-type(18px, 32px, $breakpointSmall, $breakpointLarge);
+// }
+
+// h4 {
+//   @include fluid-type(16px, 28px, $breakpointSmall, $breakpointLarge);
+// }
+
+// h5 {
+//   @include fluid-type(14px, 24px, $breakpointSmall, $breakpointLarge);
+// }
+
+// h6 {
+//   @include fluid-type(12px, 20px, $breakpointSmall, $breakpointLarge);
+// }
+
+// p {
+//   @include fluid-type(12.5px, 16px, $breakpointSmall, $breakpointLarge);
+// }
+
+// // Media query for small screens
+// @media (max-width: $breakpointSmall) {
+//   h1, h2, h3, h4, h5, h6, p {
+//     font-size: $baseFontSize;
+//   }
+// }

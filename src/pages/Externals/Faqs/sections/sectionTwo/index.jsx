@@ -31,7 +31,7 @@ const Accordion = () => {
     }
 
     if (window.innerWidth <= 767) {
-      baseStyle.fontSize = `12px`
+      baseStyle.fontSize = `12.5px`
     }
 
     return baseStyle

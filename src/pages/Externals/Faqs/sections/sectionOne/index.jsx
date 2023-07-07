@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { Icon } from '@iconify/react'
@@ -70,7 +70,7 @@ const index = () => {
             onSubmit={handleSubmit(onSubmit)}
             className={`${style.searchContainer} input-group mb-3 bg-white border border-2 border-white rounded rounded-md overflow-hidden search`}
           >
-            <span className='input-group-text fs-xl bg-white' id='basic-addon1'>
+            <span className='input-group-text bg-white' id='basic-addon1'>
               <Icon icon='iconamoon:search-thin' />
             </span>
             <input

@@ -82,11 +82,11 @@ const SectionSeven = ({ data }) => {
             className={`${style.text} d-flex flex-column justify-content-between`}
           >
             <section className=''>
-              <p className='fs-sm fw-semibold text-primary text-uppercase classes'>
+              <p className=' fw-semibold text-primary text-uppercase classes'>
                 upcoming classes
               </p>
               <div>
-                <h4 className='fs-2xl my-5 fw-bold classes'>
+                <h4 className=' my-5 fw-bold classes'>
                   {classes[index]?.courseTitle}
                 </h4>
                 <p className='classes'>{classes[index]?.description}</p>

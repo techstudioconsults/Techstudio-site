@@ -102,7 +102,7 @@ const GalleryIndex = () => {
 
               <div className={`${style.sliderText} mt-10`}>
                 <Gsap animationFuncion={() => genericAnimation(`text`)}>
-                  <h5 className='fs-xl fw-bold text'>
+                  <h5 className='fw-bold text'>
                     A World-Class Learning Facility
                   </h5>
                   <p className='mt-10 text'>

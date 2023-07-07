@@ -46,8 +46,8 @@ export const SectionThreeCard = ({ content }) => {
           />
         </div>
         <div className={`text-center`}>
-          <h3 className='fs-xl mt-5'>{content.title}</h3>
-          <p className='fs-sm'>{content.description}</p>
+          <h3 className='mt-5'>{content.title}</h3>
+          <p>{content.description}</p>
         </div>
         <Link className='mt-5' to={content.path}>
           <button

@@ -31,10 +31,7 @@ const ContactSection1 = ({ content }) => {
               <p className={style.address}>{address.address}</p>
               <h6 className={style.whatsapp}>{`Call or Whatsapp`}</h6>
               <p>
-                <span className='fw-semibold'>
-                  {/* <Icon className='fs-xl mb-1' icon={`logos:whatsapp-icon`} />{' '} */}
-                  Busola:
-                </span>
+                <span className='fw-semibold'>Busola:</span>
                 <a
                   className='d-inline text-dark'
                   href={`tel:${address.busola}`}
@@ -45,10 +42,7 @@ const ContactSection1 = ({ content }) => {
               </p>
 
               <p>
-                <span className='fw-semibold'>
-                  {/* <Icon className='fs-xl mb-1' icon={`gg:phone`} /> */}
-                  Blessing:
-                </span>
+                <span className='fw-semibold'>Blessing:</span>
                 <a
                   className='d-inline text-dark'
                   href={`tel:${address.blessing}`}
@@ -62,7 +56,7 @@ const ContactSection1 = ({ content }) => {
           <div>
             <div className={`${style.info} d-flex align-items-center`}>
               <div className='mb-1'>
-                <Icon className='fs-xl' icon={`ic:baseline-email`} />
+                <Icon className='' icon={`ic:baseline-email`} />
               </div>
               <a href={`mailto:${address.email}`} className={style.email}>
                 {address.email}

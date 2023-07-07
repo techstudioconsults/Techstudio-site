@@ -38,7 +38,7 @@
         color: colors.$light;
         font-weight: 600;
         @include breakpoint-up('2xl') {
-          font-size: fn.rem(44);
+          // font-size: fn.rem(44);
         }
       }
 

@@ -26,7 +26,7 @@
       margin-bottom: fn.rem(23);
       .title {
         font-weight: 700;
-        font-size: fn.rem(28);
+        // font-size: fn.rem(28);
         margin-block-end: fn.rem(9);
       }
 
@@ -64,9 +64,9 @@
       .email {
         color: colors.$deep-blue;
         font-weight: 600;
-        font-size: fn.rem(14);
+        // font-size: fn.rem(14);
         @include breakpoint-up('lg') {
-          font-size: fn.rem(16);
+          // font-size: fn.rem(16);
         }
       }
     }

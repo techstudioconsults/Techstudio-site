@@ -40,6 +40,7 @@ const Development = lazy(() => import('./pages/Externals/Development'))
 import SpinnerComponent from './components/global/skeletonLoader/SpinnerComponent'
 import TutorClassTab from './pages/Dashboard/Teacher/components/tab/classTab/TutorClassTab'
 import TutorLessonTab from './pages/Dashboard/Teacher/components/tab/lessonTab/TutorLessonTab'
+import TutorResourceTab from './pages/Dashboard/Teacher/components/tab/ResourceTab/TutorResourceTabView'
 import {
   AdminCourseView,
   AdminDashboard,
@@ -272,6 +273,10 @@ const App = () => {
               />
               <Route path='/tutor/messages' element={<Messages />} />
               <Route path='/tutor/tasks' element={<Tasks />} />
+              <Route
+                path='/tutor/resources/all'
+                element={<TutorResourceTab />}
+              />
             </Route>
           </Route>
         </Route>

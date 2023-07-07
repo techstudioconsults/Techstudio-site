@@ -2,7 +2,6 @@ import React from 'react'
 
 // import { ContactHero, ContactSectionTwo } from '../../../components'
 import { ExternalLayout, Navbar } from '../../../layout'
-import ContactSection3 from '../ContactUs/sections/ContactSection3/ContactSection3'
 
 import ContactHero from './sections/ContactHero/ContactHero'
 import ContactSection1 from './sections/ContactSection1/ContactSection1'

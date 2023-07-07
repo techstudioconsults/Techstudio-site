@@ -82,7 +82,7 @@ const ContactForm = () => {
             render={({ messages }) => {
               return messages
                 ? Object.entries(messages).map(([type, message]) => (
-                    <p className='fs-xs text-danger' key={type}>
+                    <p className=' text-danger' key={type}>
                       {message}
                     </p>
                   ))
@@ -108,7 +108,7 @@ const ContactForm = () => {
             render={({ messages }) => {
               return messages
                 ? Object.entries(messages).map(([type, message]) => (
-                    <p className='fs-xs text-danger' key={type}>
+                    <p className='text-danger' key={type}>
                       {message}
                     </p>
                   ))
@@ -134,7 +134,7 @@ const ContactForm = () => {
             render={({ messages }) => {
               return messages
                 ? Object.entries(messages).map(([type, message]) => (
-                    <p className='fs-xs text-danger' key={type}>
+                    <p className='text-danger' key={type}>
                       {message}
                     </p>
                   ))
@@ -170,7 +170,7 @@ const ContactForm = () => {
             render={({ messages }) => {
               return messages
                 ? Object.entries(messages).map(([type, message]) => (
-                    <p className='fs-xs text-danger' key={type}>
+                    <p className='text-danger' key={type}>
                       {message}
                     </p>
                   ))
