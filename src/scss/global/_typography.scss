@@ -88,3 +88,6 @@ span {
 .large-text {
   @include fluid-type($min_width, $max_width, 16px, 24px);
 }
+.btn-text {
+  @include fluid-type($min_width, $max_width, 14px, 16px);
+}

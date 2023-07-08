@@ -74,7 +74,7 @@
     top: fn.rem(-30);
     left: fn.rem(-50);
     z-index: 2;
-    @include breakpoint-up('lg') {
+    @include breakpoint-up('xl') {
       display: block;
     }
   }

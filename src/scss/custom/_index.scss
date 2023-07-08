@@ -150,6 +150,18 @@ $table-bg: transparent; //dont touch or modify.
   border-radius: fn.rem(16);
 }
 
+.cc-container{
+  width: 100%;
+  // padding-inline: fn.rem(12);
+
+  @media only screen and (min-width: 1240px) {
+    width: 100%;
+    padding-inline: 0;
+    max-width: fn.rem(1248);
+    margin: auto;
+  }
+}
+
 .cc-img-fluid {
   width: 100%;
   height: 100%;

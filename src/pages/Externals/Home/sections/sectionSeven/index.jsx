@@ -119,7 +119,9 @@ const SectionSeven = ({ data }) => {
             </section>
             <section className='d-flex classes'>
               <Link to={`/student/register`}>
-                <button className='btn btn-primary px-10'>Enroll Now</button>
+                <button className='btn btn-primary px-10 btn-text'>
+                  Enroll Now
+                </button>
               </Link>
             </section>
             <div
