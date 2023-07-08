@@ -43,11 +43,11 @@ const SectionFour = ({ content, isDevelopmentView }) => {
             <section className='d-flex flex-column align-items-center justify-content-between flex-lg-row my-12'>
               <div className={`text-center text-lg-start`}>
                 <p className={`text-primary fw-semibold`}>{articleOne.title}</p>
-                <p className={`text-blue fw-semibold`}>{articleOne.topic}</p>
+                <h2 className={`text-blue fw-semibold`}>{articleOne.topic}</h2>
               </div>
-              <div className={`text-center text-lg-start ${style.description}`}>
+              <p className={`text-center text-lg-start ${style.description}`}>
                 {articleOne.description}
-              </div>
+              </p>
             </section>
           </section>
         </Container>
@@ -150,9 +150,9 @@ const SectionFour = ({ content, isDevelopmentView }) => {
                   animationFuncion={() => genericAnimation(`sectionFourText`)}
                 >
                   <div className={`${style.sectionFourText}`}>
-                    <h5 className={`${style.caption} sectionFourText`}>
+                    <p className={`${style.caption} sectionFourText`}>
                       {header.caption}
-                    </h5>
+                    </p>
                     <h2 className={`${style.title} sectionFourText`}>
                       {header.title}
                     </h2>

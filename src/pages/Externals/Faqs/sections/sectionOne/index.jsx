@@ -45,11 +45,11 @@ const index = () => {
   return (
     <Gsap animationFuncion={() => genericAnimation(`faqH`)}>
       <main className={style.headerContainer}>
-        <h2 className={`${style.subtitle} faqH`}>
+        <h1 className={`${style.subtitle} faqH`}>
           Frequently Asked Questions{' '}
-        </h2>
-        <h2 className={`${style.subtitle} faqH`}>(FAQS)</h2>
-        <p className={`${style.subtitleTwo} faqH`}>
+        </h1>
+        <h1 className={`${style.subtitle} faqH`}>(FAQS)</h1>
+        <p className={`${style.subtitleTwo} medium-text`}>
           You have questions? We are here to help
         </p>
         {/* <form onSubmit={handleSubmit(onSubmit)}>

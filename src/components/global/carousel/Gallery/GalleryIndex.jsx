@@ -19,7 +19,9 @@ const GalleryIndex = () => {
           <Gsap animationFuncion={() => genericAnimation(`facility`)}>
             <div className={`${style.GalleryIndexContentsFirstInner} facility`}>
               <div>
-                <h6 className={style.galleryHeader}>WHAT TO EXPECT</h6>
+                <p className={`${style.galleryHeader} fw-semibold`}>
+                  WHAT TO EXPECT
+                </p>
                 <h3 className={`${style.gallerySubheader} mb-0`}>
                   Our Facility
                 </h3>

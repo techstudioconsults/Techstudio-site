@@ -89,7 +89,7 @@ const Accordion = () => {
   const pagination = (
     <div className='pagination d-flex justify-content-center my-20 gap-3'>
       <button
-        className='bg-transparent'
+        className='bg-transparent small-text'
         disabled={currentPage === 1}
         onClick={() => handlePageChange(currentPage - 1)}
       >
@@ -100,8 +100,8 @@ const Accordion = () => {
           key={page}
           className={
             currentPage === page
-              ? 'active bg-blue text-white px-4 rounded rounded-2'
-              : 'bg-transparent'
+              ? 'active bg-blue text-white px-4 rounded rounded-2 small-text'
+              : 'bg-transparent small-text'
           }
           onClick={() => handlePageChange(page)}
         >
@@ -109,7 +109,7 @@ const Accordion = () => {
         </button>
       ))}
       <button
-        className='bg-transparent'
+        className='bg-transparent small-text'
         disabled={currentPage === 4}
         onClick={() => handlePageChange(currentPage + 1)}
       >

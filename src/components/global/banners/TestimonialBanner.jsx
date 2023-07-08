@@ -36,7 +36,7 @@ const TestimonialBanner = ({ children, title }) => {
           />
         </Gsap>
 
-        <p className='fw-semibold text-center text-white'>{title}</p>
+        <h3 className='fw-semibold text-center text-white'>{title}</h3>
         <Swiper
           ref={swiperRef}
           loop={true}

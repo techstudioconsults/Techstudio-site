@@ -46,7 +46,7 @@
       color: colors.$dark-gray;
     }
     .timeDate {
-      @include flex_column;
+      @include flex;
       // font-size: fn.rem(14);
       gap: fn.rem(32);
       margin-block: fn.rem(35);

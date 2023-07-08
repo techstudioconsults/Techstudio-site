@@ -93,7 +93,7 @@ const SectionSeven = ({ data }) => {
               </div>
             </section>
             <section
-              className={`${style.classInfo} d-flex flex-column gap-3 my-10 classes`}
+              className={`${style.classInfo} d-flex flex-column gap-3 my-10 classes small-text fw-semibold`}
             >
               <div className='d-flex justify-content-between'>
                 <span>

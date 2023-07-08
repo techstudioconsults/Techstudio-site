@@ -15,7 +15,7 @@ const AboutHero = ({ content }) => {
       <Gsap animationFuncion={() => genericAnimation(`hero`)}>
         <header className={style.aboutHero}>
           <section className={style.aboutHeroTextGroup}>
-            <h5 className={`${style.caption} hero`}>{caption}</h5>
+            <h5 className={`${style.caption} hero small-text`}>{caption}</h5>
             <h1 className={`${style.title} hero`}>{title}</h1>
             <p className={`${style.description} hero`}>{description1}</p>
             <br />

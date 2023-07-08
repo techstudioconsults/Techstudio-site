@@ -22,8 +22,10 @@ const ContactSection1 = ({ content }) => {
             <h3 className={style.title}>{header.title}</h3>
             <p className={style.caption}>{header.caption}</p>
           </div>
-          <div className={style.addressWrapper}>
-            <div className={style.flag}>
+          <div
+            className={`${style.addressWrapper} justify-content-center justify-content-lg-start`}
+          >
+            <div className={`${style.flag} d-none d-lg-block`}>
               <img src={address.img} alt='flag' className={style.flag} />
             </div>
             <div className={style.address}>
@@ -54,7 +56,9 @@ const ContactSection1 = ({ content }) => {
             </div>
           </div>
           <div>
-            <div className={`${style.info} d-flex align-items-center`}>
+            <div
+              className={`${style.info} d-flex align-items-center justify-content-center justify-content-lg-start`}
+            >
               <div className='mb-1'>
                 <Icon className='' icon={`ic:baseline-email`} />
               </div>

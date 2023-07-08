@@ -99,12 +99,12 @@ const IntroCard = ({ course }) => {
       </div>
       {/* </Gsap> */}
       <div className={style.introCardText}>
-        <h5 className={`${style.title} tagDetails`}>{course.course}</h5>
+        <h3 className={`${style.title} tagDetails`}>{course.course}</h3>
         <p className={`${style.desc} tagDetails`}>{course.desc}</p>
 
         {/* onliine */}
         <section className='my-3 tagDetails'>
-          <p className='text-danger fw-semibold'>Online</p>
+          <p className='text-danger fw-semibold tiny-text'>Online</p>
           <div className={`${style.timeDate} my-0 gap-4 gap-lg-8`}>
             <div className={style.time}>
               <span className={style.icon}>
@@ -126,7 +126,7 @@ const IntroCard = ({ course }) => {
               </span>
             </div>
             <div className={style?.date}>
-              <p className='mb-0 fw-bold'>
+              <p className='mb-0 fw-bold medium-text'>
                 {course.online.price
                   ? formatCurrency(course.online.price)
                   : `N/A` || formatCurrency(fee)}
@@ -136,7 +136,7 @@ const IntroCard = ({ course }) => {
         </section>
         {/* weekday */}
         <section className='my-3 tagDetails'>
-          <p className=' text-danger fw-semibold'>Weekday</p>
+          <p className=' text-danger fw-semibold tiny-text'>Weekday</p>
           <div className={`${style.timeDate} my-0 gap-4 gap-lg-8`}>
             <div className={style.time}>
               <span className={style.icon}>
@@ -158,7 +158,7 @@ const IntroCard = ({ course }) => {
               </span>
             </div>
             <div className={style?.date}>
-              <p className='mb-0 fw-bold'>
+              <p className='mb-0 fw-bold medium-text'>
                 {course.weekday.price
                   ? formatCurrency(course.weekday.price)
                   : `N/A` || formatCurrency(fee)}
@@ -168,7 +168,7 @@ const IntroCard = ({ course }) => {
         </section>
         {/* weekend */}
         <section className='my-3 tagDetails'>
-          <p className=' text-danger fw-semibold'>Weekend</p>
+          <p className=' text-danger fw-semibold tiny-text'>Weekend</p>
           <div className={`${style.timeDate} my-0 gap-4 gap-lg-8`}>
             <div className={style.time}>
               <span className={style.icon}>
@@ -190,7 +190,7 @@ const IntroCard = ({ course }) => {
               </span>
             </div>
             <div className={style?.date}>
-              <p className='mb-0 fw-bold'>
+              <p className='mb-0 fw-bold medium-text'>
                 {course.weekend.price
                   ? formatCurrency(course.weekend.price)
                   : `N/A` || formatCurrency(fee)}

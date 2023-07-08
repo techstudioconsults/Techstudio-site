@@ -14,7 +14,7 @@ const CourseSectionTwo = ({ content }) => {
   return (
     <Container>
       <section className={style.courseSectionTwo}>
-        <h3 className={style.title}>{header.title}</h3>
+        <h2 className={style.title}>{header.title}</h2>
         <div className={style.courseCardGroup}>{cardsDisplay}</div>
       </section>
     </Container>

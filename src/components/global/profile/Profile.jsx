@@ -27,7 +27,7 @@ const Profile = ({ content }) => {
         <img className='img-fluid' src={image} alt='avatar' />
       </div>
       <div className='text-start'>
-        <h5 className='text-info fw-bold'>{name}</h5>
+        <p className='text-info fw-bold'>{name}</p>
         <p className='text-white'>{job}</p>
       </div>
     </div>
