@@ -38,9 +38,11 @@ const ContactUs = lazy(() => import('./pages/Externals/ContactUs'))
 const Development = lazy(() => import('./pages/Externals/Development'))
 
 import SpinnerComponent from './components/global/skeletonLoader/SpinnerComponent'
+import { RecentTask } from './pages/Dashboard/Teacher/components/recentTask/RecentTask'
 import TutorClassTab from './pages/Dashboard/Teacher/components/tab/classTab/TutorClassTab'
 import TutorLessonTab from './pages/Dashboard/Teacher/components/tab/lessonTab/TutorLessonTab'
 import TutorResourceTab from './pages/Dashboard/Teacher/components/tab/ResourceTab/TutorResourceTabView'
+import SubmissionListView from './pages/Dashboard/Teacher/tasks/SubmissionListView'
 import {
   AdminCourseView,
   AdminDashboard,
@@ -273,6 +275,10 @@ const App = () => {
               />
               <Route path='/tutor/messages' element={<Messages />} />
               <Route path='/tutor/tasks' element={<Tasks />} />
+              <Route
+                path='/tutor/tasks/submission'
+                element={<SubmissionListView />}
+              />
               <Route
                 path='/tutor/resources/all'
                 element={<TutorResourceTab />}
