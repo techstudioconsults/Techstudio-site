@@ -37,7 +37,7 @@ const TutorRegistrationForm = ({ cancelBtn }) => {
     const formData = {
       ...data,
       userRole: `TUTOR`,
-      phoneNumber: parseInt(data.phoneNumber),
+      phoneNumber: data.phoneNumber,
     }
 
     try {
@@ -45,6 +45,7 @@ const TutorRegistrationForm = ({ cancelBtn }) => {
         document.getElementById('feedback')
       )
       const res = await signupStudent(formData).unwrap()
+      console.log(res)
 
       if (res.success) {
         reset()

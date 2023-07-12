@@ -17,7 +17,7 @@ import ToastComponent from '../toast/ToastComponent'
 // import PropTypes from 'prop-types'
 import style from './upload.module.scss'
 
-const baseUrl = process.env.REACT_APP_BASE_URL
+const baseUrl = import.meta.env.VITE_BASE_URL
 
 const durationSelectInput = {
   control: (styles) => ({

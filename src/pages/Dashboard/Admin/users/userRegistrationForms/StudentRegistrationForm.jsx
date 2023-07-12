@@ -66,7 +66,7 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
   const OnSubmit = async (data) => {
     const formData = {
       ...data,
-      phoneNumber: parseInt(data.phoneNumber),
+      phoneNumber: data.phoneNumber,
       course: courseSelected,
       deposit: parseInt(data.deposit),
       userRole: `STUDENT`,
