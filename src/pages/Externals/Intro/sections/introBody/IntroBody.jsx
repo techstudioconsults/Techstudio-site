@@ -37,6 +37,8 @@ import { useContext } from 'react'
 
 import { IntroCard } from '../../../../../components'
 import AppContext from '../../../../../contexts/AppProvider'
+import { genericAnimation } from '../../../../../gsap'
+import Gsap from '../../../../../hooks/Gsap'
 import { Container } from '../../../../../layout'
 import { INTRO_CONTENT } from '../../content'
 
@@ -49,9 +51,11 @@ const IntroBody = () => {
   return (
     <section className={style.introBody}>
       <Container>
-        <section className={style.introBodyWrapper}>
-          <IntroCard course={price[index]} />
-        </section>
+        <Gsap animationFuncion={() => genericAnimation(`tagDetails`)}>
+          <section className={`${style.introBodyWrapper}`}>
+            <IntroCard course={price[index]} />
+          </section>
+        </Gsap>
       </Container>
     </section>
   )

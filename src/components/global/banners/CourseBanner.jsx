@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { Icon } from '@iconify/react'
 
 import { COURSE_BANNER_ANIMATION } from '../../../gsap'
-import IntersectionObserver from '../../../hooks/IntersectionObserver'
+import IntersectionObserver from '../../../hooks/Gsap'
 import Button from '../Button'
 
 const CourseBanner = ({ duration }) => {
@@ -16,27 +16,27 @@ const CourseBanner = ({ duration }) => {
           style={{
             borderRadius: `8.33846px`,
           }}
-          className='cc-shadow p-10 m-auto bg-white text-center text-lg-start courseBanner'
+          className='cc-shadow p-10 m-auto bg-white courseBanner d-flex flex-column text-center text-md-start'
         >
-          <p className='d-flex gap-1 align-items-center justify-content-center  justify-content-lg-start'>
+          <p className='d-flex align-items-center justify-content-center justify-content-md-start gap-1 fw-bold'>
             <Icon icon={`solar:calendar-linear`} />
-            <span className='fw-bold'>Next Cohort:</span>
+            Next Cohort:
           </p>
-          <section className='d-flex flex-column flex-lg-row justify-content-between align-items-center gap-5'>
-            <div>
-              <h2 className='m-0 fs-3xl text-primary'>
-                {duration?.weekday?.date}
-              </h2>
-              <p className='m-0 fs-xs text-dark fw-bold'>
-                Weekday Class, Online Class; Mon - Thurs (10am - 5pm){' '}
-              </p>
-            </div>
+          <section className='d-flex flex-column flex-md-row justify-content-between align-items-center gap-5'>
             <div>
               <h2 className='m-0 fs-3xl text-primary'>
                 {duration?.weekend?.date}
               </h2>
               <p className='m-0 fs-xs text-dark fw-bold'>
-                Weekday Class, Online Class; Mon - Thurs (10am - 5pm){' '}
+                Weekend Class, {duration?.span?.weekend}{' '}
+              </p>
+            </div>
+            <div>
+              <h2 className='m-0 fs-3xl text-primary'>
+                {duration?.weekday?.date}
+              </h2>
+              <p className='m-0 fs-xs text-dark fw-bold'>
+                Weekday Class, Online Class; {duration?.span?.weekday}{' '}
               </p>
             </div>
             <div className=''>

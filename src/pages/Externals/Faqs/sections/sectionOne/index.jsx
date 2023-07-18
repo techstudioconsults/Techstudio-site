@@ -5,6 +5,9 @@ import { useDispatch } from 'react-redux'
 import { Icon } from '@iconify/react'
 import axios from 'axios'
 
+import { genericAnimation, SCALE_ANIMATION } from '../../../../../gsap'
+import Gsap from '../../../../../hooks/Gsap'
+
 import style from './sectionone.module.scss'
 
 const index = () => {
@@ -40,13 +43,16 @@ const index = () => {
   // }
 
   return (
-    <main className={style.headerContainer}>
-      <h2 className={style.subtitle}>Frequently Asked Questions </h2>
-      <h2 className={style.subtitle}>(FAQS)</h2>
-      <p className={style.subtitleTwo}>
-        You have questions? We are here to help
-      </p>
-      {/* <form onSubmit={handleSubmit(onSubmit)}>
+    <Gsap animationFuncion={() => genericAnimation(`faqH`)}>
+      <main className={style.headerContainer}>
+        <h2 className={`${style.subtitle} faqH`}>
+          Frequently Asked Questions{' '}
+        </h2>
+        <h2 className={`${style.subtitle} faqH`}>(FAQS)</h2>
+        <p className={`${style.subtitleTwo} faqH`}>
+          You have questions? We are here to help
+        </p>
+        {/* <form onSubmit={handleSubmit(onSubmit)}>
         <div className={`${style.searchContainer} d-flex align-items-center`}>
           <div>
             <Icon icon='iconamoon:search-thin' />
@@ -59,23 +65,26 @@ const index = () => {
           />
         </div>
       </form> */}
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className={`${style.searchContainer} input-group mb-3 bg-white border border-2 border-white rounded rounded-md overflow-hidden`}
-      >
-        <span className='input-group-text fs-xl bg-white' id='basic-addon1'>
-          <Icon icon='iconamoon:search-thin' />
-        </span>
-        <input
-          type='text'
-          className='form-control text-dark border border-0'
-          placeholder='Search'
-          aria-label='Username'
-          aria-describedby='basic-addon1'
-          {...register('search')}
-        />
-      </form>
-    </main>
+        <Gsap animationFuncion={() => SCALE_ANIMATION(`search`)}>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className={`${style.searchContainer} input-group mb-3 bg-white border border-2 border-white rounded rounded-md overflow-hidden search`}
+          >
+            <span className='input-group-text fs-xl bg-white' id='basic-addon1'>
+              <Icon icon='iconamoon:search-thin' />
+            </span>
+            <input
+              type='text'
+              className='form-control text-dark border border-0'
+              placeholder='Search'
+              aria-label='Username'
+              aria-describedby='basic-addon1'
+              {...register('search')}
+            />
+          </form>
+        </Gsap>
+      </main>
+    </Gsap>
   )
 }
 export default index

@@ -5,24 +5,14 @@
 
 .hero {
   position: relative;
-  background-color: colors.$deep-blue;
+  // background-color: colors.$deep-blue;
   background: url(https://res.cloudinary.com/dkszgtapy/image/upload/v1687252360/techstudio-web-app/assets/images/Frame_1000002468_wwh0ja.webp)
     no-repeat;
   background-size: cover;
   @include flex;
   @include flex_centered;
-  // &::before {
-  //   position: absolute;
-  //   content: '';
-  //   top: 0;
-  //   left: 0;
-  //   width: 100%;
-  //   height: 100%;
-  //   // background-color: #00000050;
-  //   background: #162143de;
-  //   // z-index: -1;
-  // }
-  @include breakpoint-up('lg') {
+
+  @include breakpoint-up('md') {
     height: fn.rem(749);
   }
   .heroWrapper {
@@ -36,7 +26,7 @@
     padding-top: fn.rem(100);
     color: colors.$light;
 
-    @include breakpoint-up('lg') {
+    @include breakpoint-up('xl') {
       text-align: initial;
       @include flex;
       @include flex_align;
@@ -56,6 +46,11 @@
       flex: 1;
       max-width: fn.rem(701);
       height: fn.rem(484);
+      margin: 0 auto;
+      display: none;
+      @include breakpoint-up('xl') {
+        display: initial;
+      }
 
       img {
         width: 100%;

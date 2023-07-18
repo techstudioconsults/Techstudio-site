@@ -49,6 +49,7 @@ const AvatarStack = ({ showImage, imageList, dontShowMore, tutors }) => {
           ? `Students yet to register`
           : ``}
       </p>
+      {/* <p className='text-secondary fs-sm ms-1'>+30 joined the class</p> */}
     </div>
   )
 }

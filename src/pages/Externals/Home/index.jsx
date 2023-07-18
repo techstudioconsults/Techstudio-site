@@ -1,7 +1,3 @@
-import { useLayoutEffect } from 'react'
-import { useRef } from 'react'
-
-// import { gsap } from 'gsap'
 import GalleryIndex from '../../../components/global/carousel/Gallery/GalleryIndex'
 import { ExternalLayout, Navbar } from '../../../layout'
 
@@ -31,8 +27,6 @@ const Home = () => {
     <div>
       <ExternalLayout>
         <Navbar bg={`transparent`} keepColor />
-
-        {/* <GalleryIndex /> */}
         <>
           <Hero content={hero} />
           <SectionTwo content={sectionTwo} />

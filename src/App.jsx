@@ -1,6 +1,6 @@
-import React, { lazy, Suspense, useEffect, useState } from 'react'
+import React, { lazy, Suspense } from 'react'
 import { useSelector } from 'react-redux'
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 
 import { selectUserType } from './app/api/appSlice'
 import { ROLES } from './config/role'
@@ -38,6 +38,8 @@ const ContactUs = lazy(() => import('./pages/Externals/ContactUs'))
 const Development = lazy(() => import('./pages/Externals/Development'))
 
 import SpinnerComponent from './components/global/skeletonLoader/SpinnerComponent'
+import TutorClassTab from './pages/Dashboard/Teacher/components/tab/classTab/TutorClassTab'
+import TutorLessonTab from './pages/Dashboard/Teacher/components/tab/lessonTab/TutorLessonTab'
 import {
   AdminCourseView,
   AdminDashboard,
@@ -256,7 +258,14 @@ const App = () => {
                 path='/tutor/dashboard'
                 element={<TeacherDashboard />}
               />
-              <Route path='tutor/classes' element={<TeacherClassView />} />
+              <Route path='tutor/classes' element={<TeacherClassView />}>
+                <Route path=':id/class' element={<TutorClassTab />} />
+                <Route path=':id/lesson' element={<TutorLessonTab />} />
+              </Route>
+              <Route
+                path='/tutor/class/lesson/create'
+                element={<CreateLesson />}
+              />
               <Route
                 path='/tutor/classes/single-class'
                 element={<SingleCourseView />}

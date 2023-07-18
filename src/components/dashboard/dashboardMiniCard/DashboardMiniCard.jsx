@@ -22,7 +22,7 @@ const DashboardMiniCard = ({ card, total, modalNumber, route, location }) => {
     <div
       style={{ cursor: `pointer` }}
       onClick={handleDetailModal}
-      className={[style.dashboardCard, `col-3 cc-grow`].join(' ')}
+      className={[style.dashboardCard, `cc-grow`].join(' ')}
     >
       <div
         style={{ backgroundColor: card.img.accent }}

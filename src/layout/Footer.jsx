@@ -32,7 +32,7 @@ const Footer = () => {
               <div>
                 <p className='fs-md fw-bolder pb-2_5'>Courses</p>
               </div>
-              <ul className='nav flex-column fs-sm  gap-3 align-items-start'>
+              <ul className='nav flex-column gap-3 align-items-start'>
                 <li className='nav-item mb-0'>
                   <Link
                     className='text-white cc-link-hover'

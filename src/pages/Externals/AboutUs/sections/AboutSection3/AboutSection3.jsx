@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import AboutSectionThreeCard from '../../../../../components/global/cards/AboutSectionThreeCard'
+import { genericAnimation } from '../../../../../gsap'
+import Gsap from '../../../../../hooks/Gsap'
 import { Container } from '../../../../../layout'
 
 import style from './AboutSection3.module.scss'
@@ -9,7 +11,14 @@ import style from './AboutSection3.module.scss'
 const AboutSection3 = ({ content }) => {
   const { header, cards } = content
   const cardsDisplay = cards.map((card) => {
-    return <AboutSectionThreeCard isAbout key={card.title} content={card} />
+    return (
+      <Gsap
+        key={card.title}
+        animationFuncion={() => genericAnimation(`sectionThree`)}
+      >
+        <AboutSectionThreeCard isAbout content={card} />
+      </Gsap>
+    )
   })
   return (
     <section className={style.aboutSectionThree}>

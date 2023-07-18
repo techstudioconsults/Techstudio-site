@@ -7,7 +7,7 @@ import style from './aboutSectionThree.module.scss'
 const AboutSectionThreeCard = ({ content, isAbout }) => {
   const { icon, title, desc } = content
   return (
-    <div className={style.aboutSectionThreeCard}>
+    <div className={`${style.aboutSectionThreeCard} sectionThree`}>
       <div className={style.iconWrapper}>
         <Icon icon={icon} />
         <img hidden={isAbout} src={icon} alt='icon' />

@@ -57,7 +57,7 @@ const AdminDashboard = () => {
         <div className={style.sectionTwoLayout}>
           <div className={style.spanCol2}>
             <div>
-              <DashboardNavbar isTDB />
+              <DashboardNavbar isADB />
             </div>
             <div>
               <StudentDashboardSectionTwo

@@ -6,7 +6,9 @@
 .carousel {
   .quoteContainer {
     flex: 1;
-    @include breakpoint-up('lg') {
+    display: none;
+    @include breakpoint-up('xl') {
+      display: block;
       img {
         width: fn.rem(500);
       }

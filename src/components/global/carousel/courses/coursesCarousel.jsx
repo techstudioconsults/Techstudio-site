@@ -49,7 +49,7 @@ const Carousel = () => {
   return (
     <div className='carousel-container'>
       <section className='d-flex align-items-center'>
-        <div style={{ width: `8rem` }} className='d-none d-lg-block'>
+        {/* <div style={{ width: `8rem` }} className='d-none d-lg-block'>
           <Icon
             className={`${
               isFirstSlide ? `d-none` : `d-block`
@@ -57,7 +57,7 @@ const Carousel = () => {
             icon={`carbon:previous-outline`}
             onClick={goPrev}
           />
-        </div>
+        </div> */}
         <Swiper
           ref={swiperRef}
           spaceBetween={50}
@@ -70,7 +70,7 @@ const Carousel = () => {
             640: {
               slidesPerView: 2,
             },
-            768: {
+            1200: {
               slidesPerView: 3,
             },
           }}
@@ -80,7 +80,7 @@ const Carousel = () => {
           {cardDisplay}
         </Swiper>
 
-        <div className='d-none d-lg-block'>
+        {/* <div className='d-none d-lg-block'>
           <Icon
             className={`${
               !isLastSlide ? `d-block` : `d-none`
@@ -88,7 +88,7 @@ const Carousel = () => {
             onClick={goNext}
             icon={`carbon:next-outline`}
           />
-        </div>
+        </div> */}
       </section>
       <section className='d-flex d-lg-none justify-content-center align-items-center mt-10'>
         <div>
