@@ -24,18 +24,14 @@ const CourseBanner = ({ duration }) => {
           </p>
           <section className='d-flex flex-column flex-md-row justify-content-between align-items-center gap-5'>
             <div>
-              <h2 className='m-0 fs-3xl text-primary'>
-                {duration?.weekend?.date}
-              </h2>
-              <p className='m-0 fs-xs text-dark fw-bold'>
+              <h2 className='m-0 text-primary'>{duration?.weekend?.date}</h2>
+              <p className='m-0 text-dark small-text fw-bold'>
                 Weekend Class, {duration?.span?.weekend}{' '}
               </p>
             </div>
             <div>
-              <h2 className='m-0 fs-3xl text-primary'>
-                {duration?.weekday?.date}
-              </h2>
-              <p className='m-0 fs-xs text-dark fw-bold'>
+              <h2 className='m-0 text-primary'>{duration?.weekday?.date}</h2>
+              <p className='m-0 text-dark small-text fw-bold'>
                 Weekday Class, Online Class; {duration?.span?.weekday}{' '}
               </p>
             </div>

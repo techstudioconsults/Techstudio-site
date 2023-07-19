@@ -36,6 +36,12 @@
   }
 }
 
+@media (max-width: 370px) {
+  .responsiveLogo {
+    width: 100%;
+    max-width: 100px;
+  }
+}
 @media (max-width: 480px) {
   .responsiveLogo {
     max-width: 100px;

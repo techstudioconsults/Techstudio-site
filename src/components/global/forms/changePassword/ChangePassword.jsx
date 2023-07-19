@@ -16,7 +16,7 @@ import ToastComponent from '../../toast/ToastComponent'
 
 import style from '../signupForm/signupForm.module.scss'
 
-const baseUrl = process.env.REACT_APP_BASE_URL
+const baseUrl = import.meta.env.VITE_BASE_URL
 
 const validation = {
   required: 'input your new password',
@@ -36,6 +36,7 @@ const ChangePassword = () => {
   const navigate = useNavigate()
 
   const token = location.pathname.split(`/`)[2]
+  console.log(token, baseUrl)
   const credentials = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -81,7 +82,7 @@ const ChangePassword = () => {
           credentials
         )
 
-        if (res.status === 201) {
+        if (res.status === 200) {
           setLoading(false)
           navigate(`/login`)
           modal.show()

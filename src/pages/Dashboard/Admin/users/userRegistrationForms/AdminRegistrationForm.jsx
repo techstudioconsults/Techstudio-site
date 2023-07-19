@@ -33,7 +33,7 @@ const AdminRegistrationForm = ({ cancelBtn }) => {
     const formData = {
       ...data,
       // userRole: `ADMIIN`,
-      phoneNumber: parseInt(data.phoneNumber),
+      phoneNumber: data.phoneNumber,
     }
     console.log(formData)
     try {

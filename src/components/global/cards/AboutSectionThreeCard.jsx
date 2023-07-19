@@ -8,8 +8,8 @@ const AboutSectionThreeCard = ({ content, isAbout }) => {
   const { icon, title, desc } = content
   return (
     <div className={`${style.aboutSectionThreeCard} sectionThree`}>
-      <div className={style.iconWrapper}>
-        <Icon icon={icon} />
+      <div className={`${style.iconWrapper}`}>
+        <Icon icon={icon} className='fs-2xl' />
         <img hidden={isAbout} src={icon} alt='icon' />
       </div>
       <h5 className={style.title}>{title}</h5>

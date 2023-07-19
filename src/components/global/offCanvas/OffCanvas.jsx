@@ -2,11 +2,11 @@ import React from 'react'
 import { Icon } from '@iconify/react'
 import PropTypes from 'prop-types'
 
-const offCanvas = ({ children, text }) => {
+const offCanvas = ({ children, text, styles }) => {
   return (
     <div>
       <p
-        className='fs-sm'
+        className={`fs-sm ${styles}`}
         data-bs-toggle='offcanvas'
         data-bs-target='#offcanvasRight'
         aria-controls='offcanvasRight'

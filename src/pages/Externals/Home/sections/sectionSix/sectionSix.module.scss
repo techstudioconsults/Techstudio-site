@@ -5,8 +5,9 @@
 
 .sectionSix {
   background-color: colors.$deep-blue;
-  margin: fn.rem(116) 0 fn.rem(144);
+  margin: fn.rem(40) 0 fn.rem(70);
   @include breakpoint-up('xl') {
+    margin: fn.rem(116) 0 fn.rem(144);
     background-color: transparent;
   }
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import PropTypes from 'prop-types'
 
 const Profile = ({ content }) => {
@@ -27,8 +27,8 @@ const Profile = ({ content }) => {
         <img className='img-fluid' src={image} alt='avatar' />
       </div>
       <div className='text-start'>
-        <h5 className='text-info fs-xl fw-bold'>{name}</h5>
-        <p className='text-white fs-sm'>{job}</p>
+        <p className='text-info fw-bold'>{name}</p>
+        <p className='text-white'>{job}</p>
       </div>
     </div>
   )

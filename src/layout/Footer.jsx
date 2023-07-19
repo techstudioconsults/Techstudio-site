@@ -4,7 +4,7 @@ import { Icon } from '@iconify/react'
 
 const Footer = () => {
   return (
-    <div className='bg-blue z-index-999'>
+    <div className='bg-blue z-index-999 mt-md-20'>
       <div className='container'>
         <footer className='py-20 px-3 px-xl-0 text-white'>
           <div className='row m-0'>
@@ -22,7 +22,7 @@ const Footer = () => {
               </div>
               <ul className='nav flex-column fs-sm mt-5 gap-1 align-items-start'>
                 <li className='nav-item mb-2'>
-                  <p className='text-light fs-xxl '>
+                  <p className='text-light small-text'>
                     1,Ogunlesi Street, Awoyokun Bus Stop,Onipanu Lagos
                   </p>
                 </li>
@@ -35,7 +35,7 @@ const Footer = () => {
               <ul className='nav flex-column gap-3 align-items-start'>
                 <li className='nav-item mb-0'>
                   <Link
-                    className='text-white cc-link-hover'
+                    className='text-white cc-link-hover small-text'
                     to='/course/frontend'
                   >
                     Frontend Development
@@ -51,7 +51,7 @@ const Footer = () => {
                 </li> */}
                 <li className='nav-item mb-0'>
                   <Link
-                    className='text-white cc-link-hover '
+                    className='text-white cc-link-hover  small-text'
                     to='/course/product-design'
                   >
                     Product Design
@@ -59,7 +59,7 @@ const Footer = () => {
                 </li>
                 <li className='nav-item mb-0'>
                   <Link
-                    className='text-white cc-link-hover'
+                    className='text-white cc-link-hover small-text'
                     to='/course/fullstack'
                   >
                     Fullstack Development
@@ -67,7 +67,7 @@ const Footer = () => {
                 </li>
                 <li className='nav-item mb-0'>
                   <Link
-                    className='text-white cc-link-hover'
+                    className='text-white cc-link-hover small-text'
                     to='/course/data-science'
                   >
                     Data Science
@@ -80,7 +80,7 @@ const Footer = () => {
               <div>
                 <h5 className='fs-md'>
                   <Link
-                    className='text-white d-block cc-link-hover'
+                    className='text-white d-block cc-link-hover '
                     to='/about-us'
                   >
                     About Us
@@ -106,14 +106,14 @@ const Footer = () => {
               </div> */}
               <div>
                 <h5 className='fs-md fw-semibold pt-2_5'>
-                  <Link className='text-white d-block cc-link-hover' to='/faq'>
+                  <Link className='text-white d-block cc-link-hover ' to='/faq'>
                     FAQs
                   </Link>
                 </h5>
               </div>
               <div>
                 <h5 className='fs-md fw-semibold pt-2_5'>
-                  <Link className='text-white d-block cc-link-hover' to='#'>
+                  <Link className='text-white d-block cc-link-hover ' to='#'>
                     Privacy Policy
                   </Link>
                 </h5>
@@ -121,7 +121,7 @@ const Footer = () => {
               <div>
                 <h5 className='fs-md fw-semibold pt-2_5'>
                   <Link
-                    className='text-white d-block cc-link-hover'
+                    className='text-white d-block cc-link-hover '
                     to='/contact'
                   >
                     Contact Us
