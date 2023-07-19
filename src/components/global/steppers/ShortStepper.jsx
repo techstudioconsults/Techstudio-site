@@ -42,19 +42,17 @@ const ShortStepper = ({ lists, isCourses }) => {
               >
                 <div className={style.bgwrapper}>
                   <p
-                    className={`${style.caption} fs-xs fw-bold text-primary ${list.classname}`}
+                    className={`${style.caption} small-text fw-bold text-primary ${list.classname}`}
                   >
                     {list.caption}
                   </p>
-                  <p
-                    className={`${style.title} fs-xl fs-lg-3xl ${list.classname}`}
-                  >
+                  <h3 className={`${style.title}  ${list.classname}`}>
                     {list.title}
-                  </p>
-                  <p className={`mt-2 mb-10 lh-lg ${list.classname}`}>
+                  </h3>
+                  <p className={`mt-2 mb-10 lh-lg small-tex ${list.classname}`}>
                     {list.desc}
                   </p>
-                  <div className={`d-flex flex-column flex-md-row gap-5`}>
+                  <div className={`d-flex flex-colum flex-wrap gap-2 gap-lg-5`}>
                     {list?.tagAttr?.map((tag, index) => {
                       return (
                         <TagBox
@@ -100,10 +98,8 @@ export const TagBox = ({ text, img, color, classname }) => {
         color == `blue` ? `text-white` : `text-black`
       } align-items-center justify-content-center gap-2 py-3 px-5 rounded`}
     >
-      {/* <div className='fs-2xl'> */}
-      <Icon icon={img} alt='logo' className='fs-3xl' />
-      {/* </div> */}
-      <p className='fw-bold fs-sm'>{text}</p>
+      <Icon icon={img} alt='logo' className='' />
+      <p className='fw-bold small-text'>{text}</p>
     </section>
   )
 }

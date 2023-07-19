@@ -46,13 +46,13 @@ export const SectionThreeCard = ({ content }) => {
           />
         </div>
         <div className={`text-center`}>
-          <h3 className='fs-xl mt-5'>{content.title}</h3>
+          <h3 className='mt-5'>{content.title}</h3>
           <p className='fs-sm'>{content.description}</p>
         </div>
         <Link className='mt-5' to={content.path}>
           <button
             style={{ border: `2px solid #0266f4` }}
-            className='btn btn-outline-primary px-10 fw-semibold'
+            className='btn btn-outline-primary px-10 py-0 fw-semibold btn-text'
           >
             View Course
           </button>

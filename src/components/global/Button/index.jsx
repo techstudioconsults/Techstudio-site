@@ -22,7 +22,7 @@ const Button = ({
   return (
     <Link
       to={linkHref}
-      className={`${styles.btn} ${
+      className={` btn-text ${styles.btn} ${
         solidBtn ? styles.solidBtn : styles.lightBtn
       } ${navBtn ? styles.navBtn : ''} ${textBtn ? styles.textBtn : null}
       ${full ? styles.fullWidth : ''} ${

@@ -28,7 +28,7 @@ const index = () => {
           <BannerII>
             <div className='ms-10 ms-lg-40 text-white py-20 py-xl-0 '>
               <span>Want to start a career in Tech ?</span>
-              <h3 className='mt-3 mb-10 fs-3xl fw-bold text-white'>
+              <h3 className='mt-3 mb-10 fw-bold text-white'>
                 Get started with TechStudio
               </h3>
               <div className='w-50'>

@@ -11,9 +11,9 @@ export const genericAnimation = (className) => {
         y: `5rem`,
       },
       {
-        duration: 1,
+        duration: 0.5,
         opacity: 1,
-        stagger: 0.2,
+        stagger: 0.1,
         y: 0,
         scrollTrigger: {
           trigger: `.${className}`,

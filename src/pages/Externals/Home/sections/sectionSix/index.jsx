@@ -14,8 +14,8 @@ const SectionSix = ({ content }) => {
       <Container>
         <BannerII>
           <div className='ms-3 ms-lg-40 text-white py-20 py-xl-0'>
-            <span>{header.caption}</span>
-            <h4 className='mt-3 fw-bold text-white fs-2xl'>{header.title}</h4>
+            <span className='small-text'>{header.caption}</span>
+            <h4 className='mt-3 fw-bold text-white'>{header.title}</h4>
             <p className={`${style.description}`}>{header.description}</p>
             <div className={style.btnContainer}>
               <Button

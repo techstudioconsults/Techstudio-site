@@ -19,7 +19,7 @@
       font-weight: 600;
       margin: 0 auto;
       @include breakpoint-up('xl') {
-        font-size: fn.rem(32);
+        // font-size: fn.rem(32);
       }
     }
 

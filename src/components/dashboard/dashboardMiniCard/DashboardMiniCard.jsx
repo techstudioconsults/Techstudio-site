@@ -44,7 +44,7 @@ const DashboardMiniCard = ({ card, total, modalNumber, route, location }) => {
       </div>
       <div className={style.content}>
         <h6 className={style.title}>{card.title}</h6>
-        <p className={`fs-xl ${style.total}`}>{total || 0}</p>
+        <p className={`fs-xl ${style.total}`}>{card?.total || 0}</p>
       </div>
     </div>
   )

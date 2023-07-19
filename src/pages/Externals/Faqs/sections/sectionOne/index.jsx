@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { Icon } from '@iconify/react'
@@ -10,10 +10,8 @@ import Gsap from '../../../../../hooks/Gsap'
 
 import style from './sectionone.module.scss'
 
-const index = () => {
-
 const baseUrl = import.meta.env.VITE_BASE_URL
-
+const index = () => {
   const dispatch = useDispatch()
   const [loading, setLoading] = useState(false)
 
@@ -48,11 +46,11 @@ const baseUrl = import.meta.env.VITE_BASE_URL
   return (
     <Gsap animationFuncion={() => genericAnimation(`faqH`)}>
       <main className={style.headerContainer}>
-        <h2 className={`${style.subtitle} faqH`}>
+        <h1 className={`${style.subtitle} faqH`}>
           Frequently Asked Questions{' '}
-        </h2>
-        <h2 className={`${style.subtitle} faqH`}>(FAQS)</h2>
-        <p className={`${style.subtitleTwo} faqH`}>
+        </h1>
+        <h1 className={`${style.subtitle} faqH`}>(FAQS)</h1>
+        <p className={`${style.subtitleTwo} medium-text`}>
           You have questions? We are here to help
         </p>
         {/* <form onSubmit={handleSubmit(onSubmit)}>
@@ -73,7 +71,7 @@ const baseUrl = import.meta.env.VITE_BASE_URL
             onSubmit={handleSubmit(onSubmit)}
             className={`${style.searchContainer} input-group mb-3 bg-white border border-2 border-white rounded rounded-md overflow-hidden search`}
           >
-            <span className='input-group-text fs-xl bg-white' id='basic-addon1'>
+            <span className='input-group-text bg-white' id='basic-addon1'>
               <Icon icon='iconamoon:search-thin' />
             </span>
             <input

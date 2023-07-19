@@ -56,94 +56,94 @@ const ContactForm = () => {
   }, [isSubmitSuccessful, reset])
 
   return (
-    <Gsap animationFuncion={() => SCALE_ANIMATION(`form`)}>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className={[style.form, `cc-shadow form`].join(' ')}
-      >
-        <Portal wrapperId='react-portal-modal-container'>
-          <ContactUsFeedback />
-        </Portal>
-        <div>
-          <label htmlFor='fullName' className='form-label fw-semibold'>
-            Full Name
-          </label>
-          <input
-            type='text'
-            id='fullName'
-            className='form-control text-dark'
-            aria-describedby='passwordHelpBlock'
-            placeholder='Full name'
-            {...register('fullName', validation)}
-          />
-          <ErrorMessage
-            errors={errors}
-            name='fullName'
-            render={({ messages }) => {
-              return messages
-                ? Object.entries(messages).map(([type, message]) => (
-                    <p className='fs-xs text-danger' key={type}>
-                      {message}
-                    </p>
-                  ))
-                : null
-            }}
-          />
-        </div>
-        <div>
-          <label htmlFor='email' className='form-label fw-semibold'>
-            Email Address
-          </label>
-          <input
-            type='email'
-            id='email'
-            className='form-control text-dark'
-            aria-describedby='passwordHelpBlock'
-            placeholder='example@example.com'
-            {...register('email', validation)}
-          />
-          <ErrorMessage
-            errors={errors}
-            name='email'
-            render={({ messages }) => {
-              return messages
-                ? Object.entries(messages).map(([type, message]) => (
-                    <p className='fs-xs text-danger' key={type}>
-                      {message}
-                    </p>
-                  ))
-                : null
-            }}
-          />
-        </div>
-        <div>
-          <label htmlFor='email' className='form-label fw-semibold'>
-            Subject
-          </label>
-          <input
-            type='text'
-            id='subject'
-            className='form-control text-dark'
-            aria-describedby='passwordHelpBlock'
-            placeholder='subject title'
-            // {...register('subject', validation)}
-          />
-          <ErrorMessage
-            errors={errors}
-            name='email'
-            render={({ messages }) => {
-              return messages
-                ? Object.entries(messages).map(([type, message]) => (
-                    <p className='fs-xs text-danger' key={type}>
-                      {message}
-                    </p>
-                  ))
-                : null
-            }}
-          />
-        </div>
-        {/* <div>
-        <label htmlFor='subject' className='form-label fw-semibold'>
+    // <Gsap animationFuncion={() => SCALE_ANIMATION(`form`)}>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className={[style.form, `cc-shadow form`].join(' ')}
+    >
+      <Portal wrapperId='react-portal-modal-container'>
+        <ContactUsFeedback />
+      </Portal>
+      <div>
+        <label htmlFor='fullName' className='form-label fw-semibold d-flex'>
+          Full Name
+        </label>
+        <input
+          type='text'
+          id='fullName'
+          className='form-control text-dark'
+          aria-describedby='passwordHelpBlock'
+          placeholder='Full name'
+          {...register('fullName', validation)}
+        />
+        <ErrorMessage
+          errors={errors}
+          name='fullName'
+          render={({ messages }) => {
+            return messages
+              ? Object.entries(messages).map(([type, message]) => (
+                  <p className=' text-danger' key={type}>
+                    {message}
+                  </p>
+                ))
+              : null
+          }}
+        />
+      </div>
+      <div>
+        <label htmlFor='email' className='form-label fw-semibold d-flex'>
+          Email Address
+        </label>
+        <input
+          type='email'
+          id='email'
+          className='form-control text-dark'
+          aria-describedby='passwordHelpBlock'
+          placeholder='example@example.com'
+          {...register('email', validation)}
+        />
+        <ErrorMessage
+          errors={errors}
+          name='email'
+          render={({ messages }) => {
+            return messages
+              ? Object.entries(messages).map(([type, message]) => (
+                  <p className='text-danger' key={type}>
+                    {message}
+                  </p>
+                ))
+              : null
+          }}
+        />
+      </div>
+      <div>
+        <label htmlFor='email' className='form-label fw-semibold d-flex'>
+          Subject
+        </label>
+        <input
+          type='text'
+          id='subject'
+          className='form-control text-dark'
+          aria-describedby='passwordHelpBlock'
+          placeholder='subject title'
+          // {...register('subject', validation)}
+        />
+        <ErrorMessage
+          errors={errors}
+          name='email'
+          render={({ messages }) => {
+            return messages
+              ? Object.entries(messages).map(([type, message]) => (
+                  <p className='text-danger' key={type}>
+                    {message}
+                  </p>
+                ))
+              : null
+          }}
+        />
+      </div>
+      {/* <div>
+        <label htmlFor='subject' className='form-label fw-semibold d-flex'>
           Subject
         </label>
         <select
@@ -153,49 +153,49 @@ const ContactForm = () => {
           <option>Training programs</option>
         </select>
       </div> */}
-        <div className={style.textArea}>
-          <label htmlFor='message' className='form-label fw-semibold'>
-            Message or Questions
-          </label>
-          <textarea
-            className='form-control text-dark'
-            id='message'
-            rows='3'
-            placeholder='Type your message, questions or inquiries here'
-            {...register('message', validation)}
-          ></textarea>
-          <ErrorMessage
-            errors={errors}
-            name='message'
-            render={({ messages }) => {
-              return messages
-                ? Object.entries(messages).map(([type, message]) => (
-                    <p className='fs-xs text-danger' key={type}>
-                      {message}
-                    </p>
-                  ))
-                : null
-            }}
-          />
-        </div>
+      <div className={style.textArea}>
+        <label htmlFor='message' className='form-label fw-semibold d-flex'>
+          Message or Questions
+        </label>
+        <textarea
+          className='form-control text-dark'
+          id='message'
+          rows='3'
+          placeholder='Type your message, questions or inquiries here'
+          {...register('message', validation)}
+        ></textarea>
+        <ErrorMessage
+          errors={errors}
+          name='message'
+          render={({ messages }) => {
+            return messages
+              ? Object.entries(messages).map(([type, message]) => (
+                  <p className='text-danger' key={type}>
+                    {message}
+                  </p>
+                ))
+              : null
+          }}
+        />
+      </div>
 
-        <div className={style.btnContainer}>
-          <button
-            type='submit'
-            data-toggle='modal'
-            data-target='#ContactFeedback'
-          >
-            <div
-              hidden={!isLoading}
-              className='spinner-border spinner-border-sm me-5 text-white'
-              role='status'
-            />
-            {isLoading ? `Please wait...` : `Send Message`}
-          </button>
-          <ToastComponent errorMessage={errorMessage} />
-        </div>
-      </form>
-    </Gsap>
+      <div className={style.btnContainer}>
+        <button
+          type='submit'
+          data-toggle='modal'
+          data-target='#ContactFeedback'
+        >
+          <div
+            hidden={!isLoading}
+            className='spinner-border spinner-border-sm me-5 text-white'
+            role='status'
+          />
+          {isLoading ? `Please wait...` : `Send Message`}
+        </button>
+        <ToastComponent errorMessage={errorMessage} />
+      </div>
+    </form>
+    // </Gsap>
   )
 }
 

@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Icon } from '@iconify/react'
 import PropTypes from 'prop-types'
 
-import { selectCoursesExternal } from '../app/api/appSlice'
 import { Button } from '../components'
 
 import style from './layout.module.scss'
@@ -54,7 +52,8 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
         backgroundColor: bg,
       }}
     >
-      <div className='container-xxl py-6'>
+      {/* <Container></Container> */}
+      <div className='container-xxl py-6 py-lg-6'>
         <Link className='navbar-brand' to='/'>
           <div className='d-flex align-items-center gap-2'>
             <div className={style.navImgContainer}>

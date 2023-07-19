@@ -8,14 +8,17 @@ import { useSelector } from 'react-redux'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 
 import { AvatarDropdown, SearchComponent } from '../../../../components'
+import AddPaymentModal from '../../Admin/Payment/components/AddPaymentModal'
+import CreateTaskModal from '../components/modal/CreateTaskModal'
 import TeacherClassNotificationView from '../components/teacherClassNotificationView/TeacherClassNotificationView'
 
+import Table from './component/table/Table'
 import { TaskCardView } from './component/taskCard/TaskCardView'
 
 import 'react-loading-skeleton/dist/skeleton.css'
-import style from './tasks.module.scss' //using courses view layout !important
+import style from './taskSubmission.module.scss' //using courses view layout !important
 
-const TutorClassView = () => {
+const SubmissionListView = () => {
   // const classDetailOpen = useSelector(selectClassDetailOpen)
   const [title, setTitle] = useState(`Tasks`)
   const location = useLocation()
@@ -41,14 +44,11 @@ const TutorClassView = () => {
             >
               <SearchComponent />
             </div>
-            <Link to={`/tutor/class/lesson/create`}>
-              <button className='btn btn-primary fs-sm w-100 px-10'>
-                Create Task
-              </button>
-            </Link>
+            <CreateTaskModal />
           </div>
+          <AvatarDropdown />
         </div>
-        <section className='w-50 mt-10'>
+        <section className='w-25 mt-10'>
           <div className='input-select mt-3'>
             <select
               className='form-select form-select-sm'
@@ -62,27 +62,11 @@ const TutorClassView = () => {
           </div>
         </section>
         <div className='mt-10'>
-          <div className='mt-5 d-flex flex-column gap-4'>
-            <p className='fs-xl fw-bold'>Recent</p>
-            <TaskCardView />
-          </div>
-          <div className='mt-5 d-flex flex-column gap-4'>
-            <p className='fs-xl fw-bold'>Older</p>
-            <TaskCardView />
-            <TaskCardView />
-            <TaskCardView />
-            <TaskCardView />
-          </div>
+          <Table />
         </div>
-      </div>
-      <div className={`${style.notification}`}>
-        <div className='d-flex justify-content-end'>
-          <AvatarDropdown />
-        </div>
-        {/* <TeacherClassNotificationView mobile={false} /> */}
       </div>
     </section>
   )
 }
 
-export default TutorClassView
+export default SubmissionListView

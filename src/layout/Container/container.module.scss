@@ -3,14 +3,40 @@
 @import '@/scss/utils/breakpoints';
 @import '@/scss/utils/mixins';
 
+// xs': fn.em(0),
+//   'sm': fn.em(576),
+//   'md': fn.em(768),
+//   'lg': fn.em(992),
+//   'lgII': fn.em(1024),
+//   'xl': fn.em(1200),
+//   'xxl': fn.em(1400),
+//   '2xl': fn.em(1441),
+
 .xContainer {
   width: 100%;
-  padding-inline: fn.rem(12);
+  padding-inline: fn.rem(16);
 
-  // SCREENS 1400px and LARGER
-  @media only screen and (min-width: 1240px) {
-    width: 100%;
-    max-width: fn.rem(1248);
+  @media only screen and (min-width: 576px) {
+    max-width: fn.rem(500);
     margin: auto;
+  }
+  @media only screen and (min-width: 768px) {
+    max-width: fn.rem(700);
+  }
+  @media only screen and (min-width: 992px) {
+    max-width: fn.rem(900);
+  }
+  @media only screen and (min-width: 1024px) {
+    // max-width: fn.rem();
+  }
+  @media only screen and (min-width: 1200px) {
+    max-width: fn.rem(1200);
+  }
+  @media only screen and (min-width: 1400px) {
+    // padding-inline: 0;
+    max-width: fn.rem(1248);
+  }
+  @media only screen and (min-width: 1440px) {
+    max-width: fn.rem(1248);
   }
 }

@@ -10,12 +10,13 @@ import { Container } from '../../../../../layout'
 
 // STYLE
 import style from './sectionSeven.module.scss'
+const baseUrl = import.meta.env.VITE_BASE_URL
 
 const SectionSeven = ({ data }) => {
   const [index, setIndex] = useState(0)
   const [classes, setClasses] = useState([])
   const carousel = useRef()
-  const { image, date, duration, location } = data[index]
+  const { image, date, duration, location, title, description } = data[index]
 
   const convertDateToReadable = (date) => {
     let dateSet = new Date(date).toUTCString().split(' ')
@@ -34,9 +35,8 @@ const SectionSeven = ({ data }) => {
   }
 
   const getUpcomingClasses = useCallback(async () => {
-    const res = await axios.get(
-      `https://api.techstudio.academy/api/v1/external/classes`
-    )
+    const res = await axios.get(`${baseUrl}/external/classes`)
+    console.log(res)
     setClasses(res.data.data)
   }, [])
 
@@ -47,14 +47,14 @@ const SectionSeven = ({ data }) => {
   const checkpage = useCallback(
     (page) => {
       if (page < 0) {
-        return classes.length - 1
+        return data.length - 1
       }
-      if (page > classes.length - 1 || page > data.length - 1) {
+      if (page > data.length - 1 || page > data.length - 1) {
         return 0
       }
       return page
     },
-    [classes.length, data.length]
+    [data.length]
   )
 
   const handlePreviousBtn = () => {
@@ -73,7 +73,7 @@ const SectionSeven = ({ data }) => {
       <Gsap animationFuncion={() => genericAnimation(`classes`)}>
         <section
           ref={carousel}
-          className={`${style.carousel} d-flex flex-column flex-lg-row gap-20 gap-lg-40`}
+          className={`${style.carousel} d-flex flex-column flex-lg-row gap-20 gap-lg-40 mt-lg-20`}
         >
           <article className={style.quoteContainer}>
             <img src={image} alt='img' className='cc-img-fluid' />
@@ -82,14 +82,12 @@ const SectionSeven = ({ data }) => {
             className={`${style.text} d-flex flex-column justify-content-between`}
           >
             <section className=''>
-              <p className='fs-sm fw-semibold text-primary text-uppercase classes'>
+              <p className=' fw-semibold text-primary text-uppercase classes'>
                 upcoming classes
               </p>
               <div>
-                <h4 className='fs-2xl my-5 fw-bold classes'>
-                  {classes[index]?.courseTitle}
-                </h4>
-                <p className='classes'>{classes[index]?.description}</p>
+                <h4 className=' my-5 fw-bold classes'>{title}</h4>
+                <p className='classes'>{description}</p>
               </div>
             </section>
             <section
@@ -100,14 +98,14 @@ const SectionSeven = ({ data }) => {
                   <Icon className='me-2' icon={`ion:location-outline`} />
                   <span>Preference</span>
                 </span>
-                <span>{classes[index]?.preference}</span>
+                <span>{location}</span>
               </div>
               <div className='d-flex  justify-content-between'>
                 <span>
                   <Icon className='me-2' icon={`fluent-mdl2:date-time`} />
                   <span>Start Date</span>
                 </span>
-                <span>{convertDateToReadable(classes[index]?.startDate)}</span>
+                <span>{date}</span>
               </div>
               <div className='d-flex justify-content-between'>
                 <span>
@@ -119,7 +117,9 @@ const SectionSeven = ({ data }) => {
             </section>
             <section className='d-flex classes'>
               <Link to={`/student/register`}>
-                <button className='btn btn-primary px-10'>Enroll Now</button>
+                <button className='btn btn-primary px-10 btn-text'>
+                  Enroll Now
+                </button>
               </Link>
             </section>
             <div

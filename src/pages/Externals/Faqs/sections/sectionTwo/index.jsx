@@ -9,10 +9,9 @@ import { selectFAQ } from '../../../../../app/api/appSlice'
 import { genericAnimation } from '../../../../../gsap'
 import Gsap from '../../../../../hooks/Gsap'
 
+const baseUrl = import.meta.env.VITE_BASE_URL
+
 const Accordion = () => {
-
-  const baseUrl = import.meta.env.VITE_BASE_URL
-
   const dispatch = useDispatch()
   const faq = useSelector(selectFAQ)
   const [currentPage, setCurrentPage] = useState(1)
@@ -20,9 +19,7 @@ const Accordion = () => {
 
   const getFAQ = useCallback(async () => {
     setLoading(true)
-    const res = await axios.get(
-      `${baseUrl}/external/faq?page=${currentPage}`
-    )
+    const res = await axios.get(`${baseUrl}/external/faq?page=${currentPage}`)
     dispatch({ type: `app/setFAQ`, payload: res.data.data })
     console.log(res.data.data)
     setLoading(false)
@@ -34,7 +31,7 @@ const Accordion = () => {
     }
 
     if (window.innerWidth <= 767) {
-      baseStyle.fontSize = `12px`
+      baseStyle.fontSize = `12.5px`
     }
 
     return baseStyle
@@ -55,33 +52,36 @@ const Accordion = () => {
   }
   const displayFAQ = faq?.data?.map((faq) => {
     return (
-      <Gsap key={faq?.id} animationFuncion={() => genericAnimation(`faq`)}>
-        <div className='accordion-item border border-0 py-2 py-lg-5 faq'>
-          <h2 className='accordion-header' id='headingTwo'>
-            <button
-              style={style}
-              className='accordion-button collapsed text-dark'
-              type='button'
-              data-bs-toggle='collapse'
-              data-bs-target={`#a-${faq.id.toString()}-accordion`}
-              aria-expanded='false'
-              aria-controls={`a-${faq.id.toString()}-accordion`}
-            >
-              {faq?.question}
-            </button>
-          </h2>
-          <div
-            id={`a-${faq.id.toString()}-accordion`}
-            className='accordion-collapse collapse'
-            aria-labelledby='headingTwo'
-            data-bs-parent='#accordionExample'
+      // <Gsap key={faq?.id} animationFuncion={() => genericAnimation(`faq`)}>
+      <div
+        key={faq?.id}
+        className='accordion-item border border-0 py-2 py-lg-5 faq'
+      >
+        <h2 className='accordion-header' id='headingTwo'>
+          <button
+            style={style}
+            className='accordion-button collapsed text-dark'
+            type='button'
+            data-bs-toggle='collapse'
+            data-bs-target={`#a-${faq.id.toString()}-accordion`}
+            aria-expanded='false'
+            aria-controls={`a-${faq.id.toString()}-accordion`}
           >
-            <div style={style} className='accordion-body text-dark'>
-              {faq?.answer}
-            </div>
+            {faq?.question}
+          </button>
+        </h2>
+        <div
+          id={`a-${faq.id.toString()}-accordion`}
+          className='accordion-collapse collapse'
+          aria-labelledby='headingTwo'
+          data-bs-parent='#accordionExample'
+        >
+          <div style={style} className='accordion-body text-dark'>
+            {faq?.answer}
           </div>
         </div>
-      </Gsap>
+      </div>
+      // </Gsap>
     )
   })
 
@@ -92,7 +92,7 @@ const Accordion = () => {
   const pagination = (
     <div className='pagination d-flex justify-content-center my-20 gap-3'>
       <button
-        className='bg-transparent'
+        className='bg-transparent small-text'
         disabled={currentPage === 1}
         onClick={() => handlePageChange(currentPage - 1)}
       >
@@ -103,8 +103,8 @@ const Accordion = () => {
           key={page}
           className={
             currentPage === page
-              ? 'active bg-blue text-white px-4 rounded rounded-2'
-              : 'bg-transparent'
+              ? 'active bg-blue text-white px-4 rounded rounded-2 small-text'
+              : 'bg-transparent small-text'
           }
           onClick={() => handlePageChange(page)}
         >
@@ -112,7 +112,7 @@ const Accordion = () => {
         </button>
       ))}
       <button
-        className='bg-transparent'
+        className='bg-transparent small-text'
         disabled={currentPage === 4}
         onClick={() => handlePageChange(currentPage + 1)}
       >

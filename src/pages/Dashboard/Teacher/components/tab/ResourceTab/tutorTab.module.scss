@@ -3,7 +3,7 @@
 @import '@/scss/utils/breakpoints';
 @import '@/scss/utils/mixins';
 
-.classView {
+.resourceView {
   background-image: url('../../../../assets/images/512\ 1.png');
   background-position: right;
   // background-size: 30%;
@@ -19,7 +19,8 @@
       padding: fn.rem(32);
     }
     @include breakpoint-up('xl') {
-      width: 70%;
+      // width: 65%;
+      width: 72.5%;
     }
 
     .header {
@@ -72,7 +73,7 @@
   }
 
   .notification {
-    width: 30%;
+    width: 35%;
     position: sticky;
     top: 0;
     height: 100vh;
@@ -83,5 +84,32 @@
       padding: fn.rem(32) fn.rem(16);
       gap: fn.rem(85);
     }
+  }
+}
+.TutorResourceTabDisplay {
+  .tabList {
+    width: 50%;
+    background-color: colors.$light-grey;
+    border-radius: fn.rem(4);
+    padding: fn.rem(5);
+    @include flex;
+    justify-content: space-between;
+    gap: fn.rem(10);
+
+    .link {
+      flex: 1;
+      .a {
+        text-align: center;
+        color: colors.$text-dark;
+        font-size: fn.rem(14);
+        font-weight: 600;
+      }
+    }
+  }
+
+  .listWrapper {
+    height: 75vh;
+    padding: fn.rem(16) 0;
+    overflow-y: auto;
   }
 }

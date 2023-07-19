@@ -2,6 +2,37 @@
 @use '../global//colors' as colors;
 @import '../../scss/utils/breakpoints';
 
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(
+          #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+            ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+        );
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+$min_width: 320px;
+$max_width: 1440px;
+$min_font: 24px;
+$max_font: 48px;
+
 h1,
 h2,
 h3,
@@ -28,28 +59,35 @@ h6 {
 }
 
 h1 {
-  // font-size: min(5vw - fn.rem(16), fn.rem(40));
-  font-size: clamp(fn.rem(28), fn.rem(16) + 2vw, fn.rem(56));
+  @include fluid-type($min_width, $max_width, 24px, 44px);
 }
 
 h2 {
-  // font-size: min(4vw - fn.rem(16), fn.rem(32));
-  font-size: clamp(fn.rem(22), fn.rem(14) + 1.5vw, fn.rem(48));
+  @include fluid-type($min_width, $max_width, 20px, 32px);
 }
 
 h3 {
-  // font-size: min(3vw - fn.rem(16), fn.rem(24));
-  font-size: clamp(fn.rem(22), fn.rem(14) + 1.5vw, fn.rem(40));
+  @include fluid-type($min_width, $max_width, 18px, 24px);
 }
 
-p {
+p,
+span {
   margin-block: 0;
-  font-size: fn.rem(14);
-  letter-spacing: fn.rem(0.2);
-  line-height: 1.8;
-  font-weight: 400;
+  @include fluid-type($min_width, $max_width, 12.5px, 16px);
+}
 
-  @include breakpoint-up('lg') {
-    font-size: fn.rem(16);
-  }
+.tiny-text {
+  @include fluid-type($min_width, $max_width, 10px, 12px);
+}
+.small-text {
+  @include fluid-type($min_width, $max_width, 12px, 14px);
+}
+.medium-text {
+  @include fluid-type($min_width, $max_width, 16px, 20px);
+}
+.large-text {
+  @include fluid-type($min_width, $max_width, 16px, 24px);
+}
+.btn-text {
+  @include fluid-type($min_width, $max_width, 14px, 16px);
 }
