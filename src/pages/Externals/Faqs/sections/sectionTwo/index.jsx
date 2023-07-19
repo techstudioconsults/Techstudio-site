@@ -10,6 +10,9 @@ import { genericAnimation } from '../../../../../gsap'
 import Gsap from '../../../../../hooks/Gsap'
 
 const Accordion = () => {
+
+  const baseUrl = import.meta.env.VITE_BASE_URL
+
   const dispatch = useDispatch()
   const faq = useSelector(selectFAQ)
   const [currentPage, setCurrentPage] = useState(1)
@@ -18,7 +21,7 @@ const Accordion = () => {
   const getFAQ = useCallback(async () => {
     setLoading(true)
     const res = await axios.get(
-      `https://api.techstudio.academy/api/v1/external/faq?page=${currentPage}`
+      `${baseUrl}/external/faq?page=${currentPage}`
     )
     dispatch({ type: `app/setFAQ`, payload: res.data.data })
     console.log(res.data.data)
