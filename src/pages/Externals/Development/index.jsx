@@ -1,4 +1,6 @@
-import React, { useMemo } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import axios from 'axios'
 import PropTypes from 'prop-types'
 
 import { BannerII, Button } from '../../../components'
@@ -11,8 +13,11 @@ import SectionFour from '../Home/sections/sectionFour'
 import CourseHero from './course/courseHero'
 import CourseSectionFour from './course/sectionFour/CourseSectionFour'
 import CourseSectionTwo from './course/sectionTwo/CourseSectionTwo'
+const baseUrl = import.meta.env.VITE_BASE_URL
 
-const Development = ({ content, job }) => {
+const Development = ({ content, job, query }) => {
+  const dispatch = useDispatch()
+  // const [loading, setLoading] = useState(true)
   const { hero, sectionTwo, sectionFour, duration } = content
   const {
     sectionFour: { articleOne, header, body },
@@ -33,6 +38,21 @@ const Development = ({ content, job }) => {
 
     return baseStyle
   }, [])
+
+  const getFAQ = useCallback(async () => {
+    try {
+      const res = await axios.get(`${baseUrl}/external/faq?search=${query}`)
+      dispatch({ type: `app/setFAQ`, payload: res.data.data })
+      console.log(res.data.data)
+      // setLoading(false)
+    } catch (err) {
+      console.log(err)
+    }
+  }, [dispatch, query])
+
+  useEffect(() => {
+    getFAQ()
+  }, [getFAQ])
 
   return (
     <ExternalLayout>

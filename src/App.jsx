@@ -146,18 +146,29 @@ const App = () => {
             <Development
               content={fullStackDevelopment}
               job={`Fullstack Web Developer`}
+              query={`Javascript`}
             />
           }
         />
         <Route
           path='/course/product-design'
           element={
-            <Development content={UIUXDevelopment} job={`Product Designer`} />
+            <Development
+              content={UIUXDevelopment}
+              job={`Product Designer`}
+              query={`product design`}
+            />
           }
         />
         <Route
           path='/course/data-science'
-          element={<Development content={datascience} job={`Data Scientist`} />}
+          element={
+            <Development
+              content={datascience}
+              job={`Data Scientist`}
+              query={`Data science`}
+            />
+          }
         />
         {/* <Route
           path='/course/mobile'

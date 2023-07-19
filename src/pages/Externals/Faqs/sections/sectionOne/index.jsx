@@ -10,10 +10,8 @@ import Gsap from '../../../../../hooks/Gsap'
 
 import style from './sectionone.module.scss'
 
-const index = () => {
-
 const baseUrl = import.meta.env.VITE_BASE_URL
-
+const index = () => {
   const dispatch = useDispatch()
   const [loading, setLoading] = useState(false)
 
