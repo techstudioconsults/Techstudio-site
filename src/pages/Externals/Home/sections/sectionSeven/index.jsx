@@ -73,7 +73,7 @@ const SectionSeven = ({ data }) => {
       <Gsap animationFuncion={() => genericAnimation(`classes`)}>
         <section
           ref={carousel}
-          className={`${style.carousel} d-flex flex-column flex-lg-row gap-20 gap-lg-40`}
+          className={`${style.carousel} d-flex flex-column flex-lg-row gap-20 gap-lg-40 mt-lg-20`}
         >
           <article className={style.quoteContainer}>
             <img src={image} alt='img' className='cc-img-fluid' />

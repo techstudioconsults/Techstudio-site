@@ -46,7 +46,7 @@ const Development = ({ content, job }) => {
       <SectionFour isDevelopmentView content={{ articleOne, header, body }} />
 
       <section>
-        <Container>
+        <Container paddingBlock={0}>
           <h3 className='text-center'>{hero.title} FAQs</h3>
           <SectionTwo />
         </Container>
@@ -54,7 +54,7 @@ const Development = ({ content, job }) => {
       <section className='my-lg-32'>
         <Container>
           <BannerII>
-            <div className='ms-3 ms-lg-40 text-white py-20 py-xl-0'>
+            <div className='ms-lg-40 text-white py-xl-0 px-5 px-lg-0'>
               <span>Want to start a career as a {job} ?</span>
               <h3 className='mt-7 fw-bold text-white'>
                 Get started with TechStudio

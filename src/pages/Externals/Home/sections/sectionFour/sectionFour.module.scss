@@ -23,8 +23,17 @@
   .brand {
     width: fn.rem(100);
     @include breakpoint-up('lg') {
+      // scale: 1;
       width: fit-content;
     }
+  }
+
+  .brandScale {
+    scale: 0.7;
+    @include breakpoint-up('lg') {
+      scale: 1;
+    }
+    // border: 1px solid red;
   }
 
   .sectionFourWrapper {

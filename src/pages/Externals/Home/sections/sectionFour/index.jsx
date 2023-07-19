@@ -53,10 +53,12 @@ const SectionFour = ({ content, isDevelopmentView }) => {
         </Container>
 
         <div
-          className={`container-fluid text-center mb-20 ${style.gradientOverlay}`}
+          className={`container-fluid text-center mb-lg-20 ${style.gradientOverlay}`}
         >
           <Marquee speed={50}>
-            <div className=' d-flex align-items-center justify-content-center justify-content-lg-between gap-24'>
+            <div
+              className={`d-flex align-items-center justify-content-center justify-content-lg-between gap-24 ${style.brandScale}`}
+            >
               <img
                 alt='card-img'
                 data-sizes='auto'
@@ -115,9 +117,11 @@ const SectionFour = ({ content, isDevelopmentView }) => {
         </div>
 
         <Container>
-          <TestimonialBanner title={body.title}>
-            {testimonials}
-          </TestimonialBanner>
+          <section className='mt-lg-20'>
+            <TestimonialBanner title={body.title}>
+              {testimonials}
+            </TestimonialBanner>
+          </section>
 
           <Gsap animationFuncion={TAKE_A_COURSE_ANIMATION}>
             <div
