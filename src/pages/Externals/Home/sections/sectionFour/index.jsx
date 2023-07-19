@@ -37,10 +37,10 @@ const SectionFour = ({ content, isDevelopmentView }) => {
 
   return (
     <Gsap animationFuncion={() => genericAnimation(`sectionFour`)}>
-      <section className={`${style.sectionFour} pb-20 bg-white`}>
+      <section className={`${style.sectionFour} pb-10 bg-white`}>
         <Container>
           <section className='sectionFour'>
-            <section className='d-flex flex-column align-items-center justify-content-between flex-lg-row my-12'>
+            <section className='d-flex flex-column align-items-center justify-content-between flex-lg-row my-5'>
               <div className={`text-center text-lg-start`}>
                 <p className={`text-primary fw-semibold`}>{articleOne.title}</p>
                 <p className={`fs-3xl text-blue fw-semibold`}>

@@ -52,6 +52,8 @@
       display: grid;
       grid-template-columns: auto;
       grid-gap: fn.rem(32);
+      margin-top: -3rem;
+
       @include breakpoint-up('lg') {
         grid-template-columns: auto auto auto auto;
       }
