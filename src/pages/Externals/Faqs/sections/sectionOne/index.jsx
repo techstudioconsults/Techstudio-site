@@ -11,6 +11,9 @@ import Gsap from '../../../../../hooks/Gsap'
 import style from './sectionone.module.scss'
 
 const index = () => {
+
+const baseUrl = import.meta.env.VITE_BASE_URL
+
   const dispatch = useDispatch()
   const [loading, setLoading] = useState(false)
 
@@ -22,7 +25,7 @@ const index = () => {
     setLoading(true)
     try {
       const res = await axios.get(
-        `https://api.techstudio.academy/api/v1/external/faq?search=${data.search}`
+        `${baseUrl}/external/faq?search=${data.search}`
       )
       dispatch({ type: `app/setFAQ`, payload: res.data.data })
       console.log(res.data.data)

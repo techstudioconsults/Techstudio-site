@@ -12,7 +12,7 @@ const BannerII = ({ children }) => {
   return (
     <div
       style={style}
-      className='w-100 position-relative bg-blue d-flex align-items-center bannerII border-radius-lg'
+      className='w-100 position-relative bg-blue d-flex align-items-center bannerII border-radius-lg mt-n9'
     >
       <Gsap animationFuncion={() => spin(`spin`)}>
         <div className='position-absolute top-0 start-0 translate-middle m-5 d-none d-lg-block'>

@@ -70,20 +70,25 @@
     height: 30vh;
     object-fit: cover;
     border-radius: 7px;
+    display: none;
 
     @include breakpoint-up('lg') {
       width: 100%;
       // height: fn.rem(492);
       height: 50vh;
+     
     }
 
     @include breakpoint-up('xl') {
       width: 100%;
       height: auto;
+     
       // height: fn.rem(492);
     }
     @include breakpoint-up('sm') {
       width: 100%;
+      display: block;
+     
     }
   }
   .imgContainer {
@@ -91,16 +96,20 @@
     height: 30vh;
     object-fit: cover;
     // border-radius: 10px;
+    display: none;
+    
 
     @include breakpoint-up('lg') {
       width: 100%;
       // height: fn.rem(492);
       height: 50vh;
+      display:block;
     }
     @include breakpoint-up('xl') {
       width: 100%;
       // height: fn.rem(492);
       height: auto;
+       display: block;
     }
 
     &:nth-child(1) {
@@ -114,6 +123,7 @@
         width: 336px;
         height: 225px;
         z-index: 2;
+       
       }
     }
 
