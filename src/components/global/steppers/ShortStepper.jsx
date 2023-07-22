@@ -41,13 +41,13 @@ const ShortStepper = ({ lists, isCourses }) => {
                   isCourses ? style.contentFlex : null,
                 ].join(' ')}
               >
-                <div className={style.bgwrapper}>
+                <div className={style.bgwrapper} >
                   <p
                     className={`${style.caption} small-text fw-bold text-primary ${list.classname}`}
                   >
                     {list.caption}
                   </p>
-                  <h3 className={`${style.title}   ${list.classname}`} >
+                  <h3 className={`${style.title}   ${list.classname}`} style={{ color: list.id % 2 === 0 ? `blue` : `null` }}>
                     {list.title}
                   </h3>
                   <p className={`mt-2 mb-10 lh-lg small-text ${list.classname}`}>
