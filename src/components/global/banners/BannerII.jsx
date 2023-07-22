@@ -6,7 +6,7 @@ import Gsap from '../../../hooks/Gsap'
 
 const BannerII = ({ children }) => {
   const style = {
-    height: `20.938rem`,
+    height: `16.938rem`,
   }
 
   return (
