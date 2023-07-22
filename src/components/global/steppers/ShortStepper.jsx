@@ -47,7 +47,7 @@ const ShortStepper = ({ lists, isCourses }) => {
                   >
                     {list.caption}
                   </p>
-                  <h3 className={`${style.title}   ${list.classname}`} style={{ color: list.id % 2 === 0 ? `blue` : `null` }}>
+                  <h3 className={`${style.title}   ${list.classname}`} style={{ color: list.id  === 4 ? `white` : `null` }} key={list.id}>
                     {list.title}
                   </h3>
                   <p className={`mt-2 mb-10 lh-lg small-text ${list.classname}`}>
