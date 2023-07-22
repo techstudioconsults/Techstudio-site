@@ -46,10 +46,10 @@ const ShortStepper = ({ lists, isCourses }) => {
                   >
                     {list.caption}
                   </p>
-                  <h3 className={`${style.title}  ${list.classname}`}>
+                  <h3 className={`${style.title}  ${list.classname}`} >
                     {list.title}
                   </h3>
-                  <p className={`mt-2 mb-10 lh-lg small-tex ${list.classname}`}>
+                  <p className={`mt-2 mb-10 lh-lg small-text ${list.classname}`}>
                     {list.desc}
                   </p>
                   <div className={`d-flex flex-colum flex-wrap gap-2 gap-lg-5`}>

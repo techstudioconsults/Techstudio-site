@@ -9,6 +9,7 @@
     flex-direction: row;
     justify-content: flex-start;
     margin-block: fn.rem(32);
+    
   }
 
   .section {
@@ -82,7 +83,9 @@
 
     .title {
       font-weight: 700;
+      
     }
+    
   }
 
   .contentFlex {
@@ -118,6 +121,8 @@
     }
   }
 }
+
+
 
 // ._line_1e1f7_36 {
 //     border: 1px solid red !important;

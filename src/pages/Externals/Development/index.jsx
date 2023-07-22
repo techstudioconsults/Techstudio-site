@@ -13,6 +13,7 @@ import SectionFour from '../Home/sections/sectionFour'
 import CourseHero from './course/courseHero'
 import CourseSectionFour from './course/sectionFour/CourseSectionFour'
 import CourseSectionTwo from './course/sectionTwo/CourseSectionTwo'
+
 const baseUrl = import.meta.env.VITE_BASE_URL
 
 const Development = ({ content, job, query }) => {

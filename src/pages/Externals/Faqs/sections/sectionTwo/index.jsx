@@ -92,7 +92,7 @@ const Accordion = () => {
   }
 
   const pagination = (
-    <div className='pagination d-flex justify-content-center my-20 gap-3'>
+    <div className='pagination d-flex justify-content-center my-20 my-sm-5 gap-3'>
       <button
         className='bg-transparent small-text'
         disabled={currentPage === 1}
