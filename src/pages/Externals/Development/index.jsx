@@ -66,7 +66,7 @@ const Development = ({ content, job, query }) => {
       <CourseSectionFour content={sectionFour} />
       <SectionFour isDevelopmentView content={{ articleOne, header, body }} />
 
-      <section>
+      <section >
         <Container>
           <h3 className='text-center'>{hero.title} FAQs</h3>
           <SectionTwo />
