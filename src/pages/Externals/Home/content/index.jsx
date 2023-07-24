@@ -189,7 +189,7 @@ Would you like to talk to a Tech expert over any tech related issue? We have pro
         title: `Javascript Fullstack Web Development`,
         description: `With 24 intense weeks of on-campus training, you will learn to think and build like software developers. You move from understanding programming fundamentals to launching full-stack web apps. You do all these while learning to solve everyday problems with constructive, well-written programs`,
         location: `Physical & Online`,
-        date: `10 / 07 / 2023`,
+        date: `7 / 08 / 2023`,
         duration: `24 Weeks`,
       },
       {
@@ -198,7 +198,7 @@ Would you like to talk to a Tech expert over any tech related issue? We have pro
         title: `Product Design & UI/UX Immersive`,
         description: `In this program, you will learn to design and deliver digital products that serve clients' needs and solve users' problems. You will understand the fundamental techniques and tools of design like problem definition, user research, prototyping, testing, and more.`,
         location: `Physical`,
-        date: `10 / 07 / 2023`,
+        date: `7 / 08 / 2023`,
         duration: `12 Weeks`,
       },
       {
@@ -207,7 +207,7 @@ Would you like to talk to a Tech expert over any tech related issue? We have pro
         title: `Data Science & Analysis`,
         description: `In this program, you will learn to build predictive models, understand data visualisation and pattern recognition. You'll learn to use leading methods to wrangle large data sets to forecast trends, generate information and inform strategy.`,
         location: `Physical`,
-        date: `10 / 07 / 2023`,
+        date: `7 / 08 / 2023`,
         duration: `12 Weeks`,
       },
     ],
