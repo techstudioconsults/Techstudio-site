@@ -19,6 +19,7 @@ const ShortStepper = ({ lists, isCourses }) => {
           style={{ background: list.id % 2 === 0 ? list.bgColor : `null` }}
           className={[
             list.id % 2 === 0 ? `bg-${list.bgColor} ${style.section}` : null,
+         
             list.bgColor === `blue` ? `text-white` : `text-blue`,
           ].join(' ')}
         >
@@ -40,16 +41,16 @@ const ShortStepper = ({ lists, isCourses }) => {
                   isCourses ? style.contentFlex : null,
                 ].join(' ')}
               >
-                <div className={style.bgwrapper}>
+                <div className={style.bgwrapper} >
                   <p
                     className={`${style.caption} small-text fw-bold text-primary ${list.classname}`}
                   >
                     {list.caption}
                   </p>
-                  <h3 className={`${style.title}  ${list.classname}`}>
+                  <h3 className={`${style.title}   ${list.classname}`} style={{ color: list.id  === 4 || list.id=== 8 ? `white` : `null` }} key={list.id}>
                     {list.title}
                   </h3>
-                  <p className={`mt-2 mb-10 lh-lg small-tex ${list.classname}`}>
+                  <p className={`mt-2 mb-10 lh-lg small-text ${list.classname}`}>
                     {list.desc}
                   </p>
                   <div className={`d-flex flex-colum flex-wrap gap-2 gap-lg-5`}>

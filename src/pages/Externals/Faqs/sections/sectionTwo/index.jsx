@@ -8,8 +8,9 @@ import axios from 'axios'
 import { selectFAQ } from '../../../../../app/api/appSlice'
 import { genericAnimation } from '../../../../../gsap'
 import Gsap from '../../../../../hooks/Gsap'
-
+import './sectionTwo.scss'
 const baseUrl = import.meta.env.VITE_BASE_URL
+
 
 const Accordion = () => {
   const dispatch = useDispatch()
@@ -55,9 +56,10 @@ const Accordion = () => {
       // <Gsap key={faq?.id} animationFuncion={() => genericAnimation(`faq`)}>
       <div
         key={faq?.id}
-        className='accordion-item border border-0 py-2 py-lg-5 faq'
+        className='accordion-item border border-0 py-1  py-lg-5 faq'
+        
       >
-        <h2 className='accordion-header' id='headingTwo'>
+        <h2 className='accordion-header ' id='headingTwo'>
           <button
             style={style}
             className='accordion-button collapsed text-dark'
@@ -90,7 +92,7 @@ const Accordion = () => {
   }
 
   const pagination = (
-    <div className='pagination d-flex justify-content-center my-20 gap-3'>
+    <div className='pagination d-flex justify-content-center my-20 my-sm-10 gap-3'>
       <button
         className='bg-transparent small-text'
         disabled={currentPage === 1}
@@ -122,7 +124,7 @@ const Accordion = () => {
   )
 
   return (
-    <section className='container pt-5'>
+    <section className='container pt-3 padding-up'>
       <div className='accordion mt-5 mt-lg-20' id='accordionExample'>
         {displayFAQ}
       </div>

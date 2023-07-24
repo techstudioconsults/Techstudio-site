@@ -32,12 +32,12 @@ export const FAQ_CONTENT = {
     },
     {
       id: `a8`,
-      question: `Tell me what the Python Full stack program is about bbbbbbb?`,
+      question: `Tell me what the Python Full stack program is about?`,
       answer: `Tell me what the Python Full stack program is about? `,
     },
     {
       id: `h`,
-      question: `Tell me what the Python Full stack program is about ayyyyyyy?`,
+      question: `Tell me what the Python Full stack program is about?`,
       answer: `Tell me what the Python Full stack program is about? `,
     },
     {
