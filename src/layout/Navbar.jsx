@@ -188,12 +188,13 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
           </div>
           <div
             className={[
-              'd-flex gap-3 justify-content-center my-10 my-lg-0',
+              'd-flex gap-3 justify-content-center fw-semibold my-10 my-lg-0',
               isEmployersRoute ? `d-none visibility-hidden` : null,
             ].join(' ')}
           >
             <Button linkHref='/login' linkText='Log in' solidBtn navBtn />
             <Button
+              className='fw-semibold'
               linkHref='/student/register'
               linkText='Register'
               textBtn
