@@ -17,6 +17,8 @@ const Container = ({ paddingBlock, children }) => {
       className={styles.xContainer}
       style={{
         paddingBlock: padding ? padding : '2.5rem',
+
+
       }}
     >
       {children}

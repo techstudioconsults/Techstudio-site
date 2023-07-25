@@ -12,6 +12,7 @@ const CourseSectionFour = ({ content }) => {
       <div className={style.stepperList}>
         <ShortStepper isCourses lists={list} />
       </div>
+       
     </div>
   )
 }
