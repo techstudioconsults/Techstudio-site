@@ -37,7 +37,7 @@ const SectionFour = ({ content, isDevelopmentView }) => {
 
   return (
     <Gsap animationFuncion={() => genericAnimation(`sectionFour`)}>
-      <section className={`${style.sectionFour} pb-5 bg-white`}>
+      <section className={`${style.sectionFour} pb-0 bg-white`}>
         <Container>
           <section className='sectionFour'>
             <section className='d-flex flex-column align-items-center justify-content-between flex-lg-row my-5'>
