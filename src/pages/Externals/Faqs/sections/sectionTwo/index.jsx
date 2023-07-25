@@ -8,9 +8,9 @@ import axios from 'axios'
 import { selectFAQ } from '../../../../../app/api/appSlice'
 import { genericAnimation } from '../../../../../gsap'
 import Gsap from '../../../../../hooks/Gsap'
+
 import './sectionTwo.scss'
 const baseUrl = import.meta.env.VITE_BASE_URL
-
 
 const Accordion = () => {
   const dispatch = useDispatch()
@@ -57,7 +57,6 @@ const Accordion = () => {
       <div
         key={faq?.id}
         className='accordion-item border border-0 py-1  py-lg-5 faq'
-
       >
         <h2 className='accordion-header ' id='headingTwo'>
           <button
