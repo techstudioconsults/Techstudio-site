@@ -57,7 +57,7 @@ const Accordion = () => {
       <div
         key={faq?.id}
         className='accordion-item border border-0 py-1  py-lg-5 faq'
-        
+
       >
         <h2 className='accordion-header ' id='headingTwo'>
           <button
@@ -129,7 +129,7 @@ const Accordion = () => {
         {displayFAQ}
       </div>
       {pagination}
-      <div className='d-flex flex-column flex-lg-row justify-content-center align-items-center mb-10 gap-1'>
+      <div className='d-flex flex-column flex-lg-row justify-content-center align-items-center gap-1'>
         <p className='d-inline fw-semibold'>
           Can’t find the answer you are looking for?
         </p>{' '}
