@@ -66,16 +66,13 @@ const Development = ({ content, job, query }) => {
       <CourseSectionFour content={sectionFour} />
       <SectionFour isDevelopmentView content={{ articleOne, header, body }} />
 
-      <section >
+      <section>
         <Container>
           <h3 className='text-center'>{hero.title} FAQs</h3>
           <SectionTwo />
         </Container>
       </section>
-      <section
-        className='my-lg-32 my-sm-3'
-       
-      >
+      <section className='my-lg-32 my-sm-3'>
         <Container>
           <BannerII>
             <div className='ms-lg-40 text-white py-xl-0 px-5 px-lg-0'>

@@ -198,7 +198,7 @@ export const DEVELOPMENT_CONTENT = {
             },
             {
               bgColor: `white`,
-              img: `logos:figma`,
+              img: `flat-color-icons:document`,
               text: `Google Forms`,
             },
           ],
