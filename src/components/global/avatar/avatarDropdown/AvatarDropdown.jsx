@@ -31,10 +31,16 @@ const AvatarDropdown = () => {
   return (
     <div className='dropdown'>
       <div
-        className='dropdown-toggle'
+        className='dropdown-toggle d-flex gap-8 align-items-center'
         data-bs-toggle='dropdown'
         aria-expanded='false'
       >
+        <div
+          style={{ width: `2rem`, height: `2rem` }}
+          className='d-flex align-items-center justify-content-center fs-2xl rounded rounded-circle border p-1 text-primary'
+        >
+          <Icon icon={`mdi:bell-notification-outline`} />
+        </div>
         <Avatar />
       </div>
       <ul className='dropdown-menu mt-3'>

@@ -14,7 +14,7 @@ import { useDownloadAllTutorsMutation } from '../api/usersApiSlice'
 import UsersCourseTab from './UsersCourseTab'
 
 import style from './usersTab.module.scss'
-const baseUrl = process.env.REACT_APP_BASE_URL
+const baseUrl = import.meta.env.VITE_BASE_URL
 
 const UserTab = ({ courses }) => {
   const [isTutorTab, setTutorTab] = useState(true)

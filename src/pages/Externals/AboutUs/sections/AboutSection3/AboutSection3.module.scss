@@ -6,6 +6,11 @@
 .aboutSectionThree {
   background-color: colors.$light-blue-III;
   padding: fn.rem(0) 0 fn.rem(0);
+  margin-top: -5rem;
+   @include breakpoint-up('xl') {
+       margin-top: -1rem;
+      }
+  
   .header {
     text-align: center;
     margin-block-end: fn.rem(55);
@@ -14,7 +19,7 @@
       font-weight: 600;
       margin: 0 auto;
       @include breakpoint-up('xl') {
-        font-size: fn.rem(32);
+        // font-size: fn.rem(32);
       }
     }
 
@@ -30,7 +35,10 @@
     grid-row-gap: fn.rem(20);
     margin-block-start: fn.rem(60);
     grid-template-columns: repeat(1, 1fr);
-    @include breakpoint-up('lg') {
+    @include breakpoint-up('md') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include breakpoint-up('xl') {
       grid-template-columns: repeat(3, 1fr);
     }
   }

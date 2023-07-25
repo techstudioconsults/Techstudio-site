@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { Icon } from '@iconify/react'
 import PropTypes from 'prop-types'
 
@@ -33,16 +34,19 @@ const TeacherClassNotificationView = ({ mobile }) => {
               <Avatar />
             </div>
             <h6 className={['fw-bold', style.title].join(' ')}>
-              {details?.title || details?.topic}
+              {details?.title ||
+                details?.topic ||
+                `Javascript Fullstack January 2023`}
             </h6>
             <p className={[style.text, `text-secondary`].join(' ')}>
               {details?.tutors?.[0].name || details?.tutorName}
             </p>
             <p className={`text-dark text-wrap hide_scrollbar ${style.desc}`}>
-              {details?.description}
+              {details?.description ||
+                `Lorem ipsum dolor sit amet consectetur. Quis nam viverra vitae varius aenean tempor vel etiam. Tortor aliquet imperdiet magnis tristique dignissim pharetra malesuada. Mauris egestas eget sapien at massa tellus. `}
             </p>
             <p className='mt-3 fs-2xl fw-bold text-danger'>
-              {details.fee ? `${formatCurrency(details?.fee)}` : ``}
+              {details?.fee ? `${formatCurrency(details?.fee)}` : ``}
             </p>
           </div>
           <div
@@ -50,14 +54,15 @@ const TeacherClassNotificationView = ({ mobile }) => {
           >
             <p className='fs-sm text-info'>Students:</p>
             <div className='w-75'>
-              <AvatarStack imageList={details.students} />
+              <AvatarStack imageList={details?.students} />
             </div>
           </div>
           <div
             className={`d-flex justify-content-between align-items-center mt-5`}
           >
             <p className='fs-sm text-info'>
-              Class: {details?.title || details?.classTitle}
+              {/* Class: {details?.title || details?.classTitle} */}
+              Course: {`Javascript Fullstack`}
             </p>
             {/* <p className='fs-sm text-white w-75'></p> */}
           </div>
@@ -71,7 +76,9 @@ const TeacherClassNotificationView = ({ mobile }) => {
               </div>
               <div>
                 <p className='fw-bold fs-sm'>
-                  {convertDateToReadable(details?.startDate || details?.date)}
+                  {convertDateToReadable(
+                    details?.startDate || details?.date || `18 Jan, 2023`
+                  )}
                 </p>
                 <p className={['fs-xs text-info'].join(' ')}>Start Date</p>
               </div>
@@ -83,9 +90,9 @@ const TeacherClassNotificationView = ({ mobile }) => {
                   width={`1.5rem`}
                 />
               </div>
-              <div hidden={!details?.endDate}>
+              <div hidden={details?.endDate}>
                 <p className='fw-bold fs-sm'>
-                  {convertDateToReadable(details?.endDate)}
+                  {convertDateToReadable(details?.endDate || `18 Jan, 2023`)}
                 </p>
                 <p className={['fs-xs text-info'].join(' ')}>End Date</p>
               </div>
@@ -100,7 +107,7 @@ const TeacherClassNotificationView = ({ mobile }) => {
               </div>
               <div>
                 <p className='fw-bold fs-sm'>
-                  {details?.preference || details?.classType} class
+                  {details?.preference || details?.classType || `Weekend`} class
                 </p>
                 <p style={color} className={['fs-xs text-info'].join(' ')}>
                   preference
@@ -110,14 +117,16 @@ const TeacherClassNotificationView = ({ mobile }) => {
           </div>
         </div>
         <div className={[`d-flex gap-3 align-items-center `].join(' ')}>
-          {/* <Link to={`/admin/class/:id/lesson/edit`}>
-            <button className='fs-xs bg-primary text-white rounded rounded-lg px-3'>
-              Reschedule A Lesson
+          <Link to={`/tutor/class/lesson/create`}>
+            <button className='fs-xs bg-primary text-white rounded rounded-lg px-5'>
+              Schedule A Lesson
             </button>
-          </Link> */}
-          {/* <button className='fs-sm fw-semibold bg-white text-primary rounded rounded-lg px-3 w-50 border border-primary'>
-            Reschedule
-          </button> */}
+          </Link>
+          <Link to={`/tutor/class/lesson/create`}>
+            <button className='fs-xs bg-primary text-white rounded rounded-lg px-5'>
+              Reschedule Lesson
+            </button>
+          </Link>
         </div>
       </div>
     </div>

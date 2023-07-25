@@ -15,21 +15,25 @@
     }
 
     .subtitle {
-      font-size: 16px;
+      // font-size: 16px;
     }
   }
   .title {
     font-weight: 600;
-    font-size: fn.rem(35);
+    // font-size: fn.rem(35);
   }
   .teamCardGroup {
+    // border: 1px solid red;
     display: grid;
     grid-gap: fn.rem(20);
     grid-row-gap: fn.rem(50);
-    margin-block: fn.rem(60);
+    margin-top: fn.rem(60);
     grid-template-columns: repeat(1, 1fr);
 
-    @include breakpoint-up('lg') {
+    @include breakpoint-up('sm') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include breakpoint-up('xl') {
       grid-template-columns: repeat(3, 1fr);
     }
   }

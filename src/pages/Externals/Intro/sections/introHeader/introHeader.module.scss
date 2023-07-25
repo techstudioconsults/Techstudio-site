@@ -24,14 +24,14 @@
       margin-top: fn.rem(70);
       .title {
         font-weight: 600;
-        font-size: fn.rem(24);
+        // font-size: fn.rem(24);
 
         color: colors.$deep-blue;
         margin-bottom: fn.rem(8);
       }
 
       .subTitle {
-        font-size: fn.rem(14);
+        // font-size: fn.rem(14);
         margin-top: 0;
         color: colors.$dark-gray;
       }
@@ -43,7 +43,7 @@
         padding-block: fn.rem(12);
         padding-inline: fn.rem(27);
         border-radius: fn.rem(6);
-        font-size: fn.rem(14);
+        // font-size: fn.rem(14);
         transition: all 0.5s ease;
 
         &:hover {

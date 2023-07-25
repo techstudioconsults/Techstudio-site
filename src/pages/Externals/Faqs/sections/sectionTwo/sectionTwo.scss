@@ -1,0 +1,79 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
+
+.padding-up {
+    
+@include breakpoint-up('xs') {
+       margin-top: -2rem;
+    //    color: yellow;
+      
+     }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .accordion-item {
+//     margin: 0 auto;
+//     color: rgb(66, 208, 38);
+
+//     // font-weight: 400;
+//     // font-size: fn.rem(27);
+//     // border: none;
+//     // box-shadow: none;
+//     @include breakpoint-up('sm') {
+//       margin-top: -5rem;
+//       color: yellow;
+      
+//     }
+//   }
+
+// .accordionContainer {
+//   width: 100%;
+//   margin: 0 auto;
+
+  
+//   }
+
+//   .accordionButton {
+//     background-color: white !important ;
+//     color: black;
+//     box-shadow: none;
+//   }
+//   .accordionBody {
+//     color: blue;
+//   }
+// }
+// .carouselNumber {
+//   font-size: fn.rem(24);
+// }
+// .contactLink {
+//   text-align: center;
+//   padding-bottom: fn.rem(100);
+//   //   font-size: fn.em(27);
+//   font-weight: 600;
+//   span a {
+//     display: inline;
+//     color: rgba(31, 38, 102, 1);
+//   }
+// }

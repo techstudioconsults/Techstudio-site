@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Icon } from '@iconify/react'
 import PropTypes from 'prop-types'
 
-import { selectCoursesExternal } from '../app/api/appSlice'
 import { Button } from '../components'
 
 import style from './layout.module.scss'
@@ -54,7 +52,8 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
         backgroundColor: bg,
       }}
     >
-      <div className='container-xxl py-6'>
+      {/* <Container></Container> */}
+      <div className='container-xxl py-6 py-lg-6'>
         <Link className='navbar-brand' to='/'>
           <div className='d-flex align-items-center gap-2'>
             <div className={style.navImgContainer}>
@@ -117,10 +116,10 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
                   className='ms-2 fs-sm fw-semibold'
                 />
               </div>
-              <ul className='dropdown-menu mt-8'>
+              <ul className='dropdown-menu mt-8 text-dark'>
                 <li className='my-2'>
                   <Link
-                    className='dropdown-item fs-sm fw-semibold py-2'
+                    className='dropdown-item fs-sm fw-semibold py-2 text-dark'
                     to='/course/product-design'
                   >
                     Product Design
@@ -135,7 +134,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
                 </li>
                 <li className='my-2'>
                   <Link
-                    className='dropdown-item fs-sm fw-semibold py-2'
+                    className='dropdown-item fs-sm fw-semibold py-2 text-dark'
                     to='/course/data-science'
                   >
                     Data Science
@@ -143,7 +142,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
                 </li>
                 <li className='my-2'>
                   <Link
-                    className='dropdown-item fs-sm fw-semibold py-2'
+                    className='dropdown-item fs-sm fw-semibold py-2 text-dark'
                     to='/course/fullstack'
                   >
                     Fullstack Development
@@ -189,12 +188,13 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
           </div>
           <div
             className={[
-              'd-flex gap-3 justify-content-center my-10 my-lg-0',
+              'd-flex gap-3 justify-content-center fw-semibold my-10 my-lg-0',
               isEmployersRoute ? `d-none visibility-hidden` : null,
             ].join(' ')}
           >
             <Button linkHref='/login' linkText='Log in' solidBtn navBtn />
             <Button
+              className='fw-semibold'
               linkHref='/student/register'
               linkText='Register'
               textBtn

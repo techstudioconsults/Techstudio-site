@@ -2,6 +2,8 @@ import React from 'react'
 import { useContext } from 'react'
 
 import AppContext from '../../../../../contexts/AppProvider'
+// import { genericAnimation } from '../../../../../gsap'
+// import Gsap from '../../../../../hooks/Gsap'
 import { Container } from '../../../../../layout'
 
 // import logo from '../../../assets/icons/logo.png'
@@ -18,7 +20,7 @@ const IntroHeader = () => {
     getCourseDetails(name)
   }
 
-  // const tags = courses.map((course) => {
+  // const tag small-texts = courses.map((course) => {
   //   return (
   //     <button
   //       id={course.id}
@@ -33,23 +35,25 @@ const IntroHeader = () => {
   // })
 
   return (
+    // <Gsap animationFuncion={() => genericAnimation(`tag small-text`)}>
     <div className={style.introHeader}>
       <Container>
         <section className={style.introHeaderWapper}>
-          <div className={style.text}>
+          <div className={`${style.text} tag small-text`}>
             <h2 className={style.title}>Our Courses</h2>
             <p className={style.subTitle}>
               Select any of our courses to get started on your tech journey
             </p>
           </div>
           <div
-            className={`${style.btnGroup} d-flex flex-column flex-lg-row gap-3 gap-lg-5`}
+            className={`${style.btnGroup} d-flex flex-column flex-lg-row gap-3 gap-lg-5 tag small-text`}
           >
             <button
               onClick={handleClick}
               name={0}
               className={[
                 style.courseBtn,
+                `tag small-text`,
                 index === 0 ? style.active : null,
               ].join(' ')}
             >
@@ -60,6 +64,7 @@ const IntroHeader = () => {
               name={1}
               className={[
                 style.courseBtn,
+                `tag small-text`,
                 index === 1 ? style.active : null,
               ].join(' ')}
             >
@@ -70,6 +75,7 @@ const IntroHeader = () => {
               name={2}
               className={[
                 style.courseBtn,
+                `tag small-text`,
                 index === 2 ? style.active : null,
               ].join(' ')}
             >
@@ -81,6 +87,7 @@ const IntroHeader = () => {
               name={3}
               className={[
                 style.courseBtn,
+                `tag small-text`,
                 index === 3 ? style.active : null,
               ].join(' ')}
             >
@@ -90,6 +97,7 @@ const IntroHeader = () => {
         </section>
       </Container>
     </div>
+    // </Gsap>
   )
 }
 

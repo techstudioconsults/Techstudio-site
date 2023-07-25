@@ -1,6 +1,6 @@
-import React, { lazy, Suspense, useEffect, useState } from 'react'
+import React, { lazy, Suspense } from 'react'
 import { useSelector } from 'react-redux'
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 
 import { selectUserType } from './app/api/appSlice'
 import { ROLES } from './config/role'
@@ -38,6 +38,11 @@ const ContactUs = lazy(() => import('./pages/Externals/ContactUs'))
 const Development = lazy(() => import('./pages/Externals/Development'))
 
 import SpinnerComponent from './components/global/skeletonLoader/SpinnerComponent'
+import { RecentTask } from './pages/Dashboard/Teacher/components/recentTask/RecentTask'
+import TutorClassTab from './pages/Dashboard/Teacher/components/tab/classTab/TutorClassTab'
+import TutorLessonTab from './pages/Dashboard/Teacher/components/tab/lessonTab/TutorLessonTab'
+import TutorResourceTab from './pages/Dashboard/Teacher/components/tab/ResourceTab/TutorResourceTabView'
+import SubmissionListView from './pages/Dashboard/Teacher/tasks/SubmissionListView'
 import {
   AdminCourseView,
   AdminDashboard,
@@ -141,18 +146,29 @@ const App = () => {
             <Development
               content={fullStackDevelopment}
               job={`Fullstack Web Developer`}
+              query={`Javascript`}
             />
           }
         />
         <Route
           path='/course/product-design'
           element={
-            <Development content={UIUXDevelopment} job={`Product Designer`} />
+            <Development
+              content={UIUXDevelopment}
+              job={`Product Designer`}
+              query={`product design`}
+            />
           }
         />
         <Route
           path='/course/data-science'
-          element={<Development content={datascience} job={`Data Scientist`} />}
+          element={
+            <Development
+              content={datascience}
+              job={`Data Scientist`}
+              query={`Data science`}
+            />
+          }
         />
         {/* <Route
           path='/course/mobile'
@@ -256,13 +272,28 @@ const App = () => {
                 path='/tutor/dashboard'
                 element={<TeacherDashboard />}
               />
-              <Route path='tutor/classes' element={<TeacherClassView />} />
+              <Route path='tutor/classes' element={<TeacherClassView />}>
+                <Route path=':id/class' element={<TutorClassTab />} />
+                <Route path=':id/lesson' element={<TutorLessonTab />} />
+              </Route>
+              <Route
+                path='/tutor/class/lesson/create'
+                element={<CreateLesson />}
+              />
               <Route
                 path='/tutor/classes/single-class'
                 element={<SingleCourseView />}
               />
               <Route path='/tutor/messages' element={<Messages />} />
               <Route path='/tutor/tasks' element={<Tasks />} />
+              <Route
+                path='/tutor/tasks/submission'
+                element={<SubmissionListView />}
+              />
+              <Route
+                path='/tutor/resources/all'
+                element={<TutorResourceTab />}
+              />
             </Route>
           </Route>
         </Route>

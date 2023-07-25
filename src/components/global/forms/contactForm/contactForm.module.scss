@@ -5,7 +5,9 @@
 
 .form {
   border-top: fn.rem(7) solid colors.$blue;
+  width: 100%;
   max-width: fn.rem(480);
+  margin: 0 auto;
   border-radius: fn.rem(8);
   @include flex_column;
   gap: fn.rem(24);

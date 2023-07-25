@@ -16,11 +16,11 @@ const ResourceListDisplay = ({ file, isVideo, isTextFile, isADB }) => {
             alt='img'
           />
         </div>
-        <p className='fs-sm'>{file.name}</p>
+        <p className='fs-sm'>{file?.name || `Design and insights.pdf`}</p>
       </div>
       <div className='d-flex align-items-center gap-5'>
         <div
-          className={`d-flex align-items-center gap-3 ${
+          className={`d-flex align-items-center text-primary gap-3 ${
             isADB ? `d-none` : `d-flex`
           }`}
         >
@@ -30,6 +30,7 @@ const ResourceListDisplay = ({ file, isVideo, isTextFile, isADB }) => {
             className='text-primary'
             width={`1rem`}
           />
+          <p className='fs-xs'>Download</p>
         </div>
         <div className={[isVideo ? `d-block` : `d-none`]}>
           <Icon
@@ -38,9 +39,9 @@ const ResourceListDisplay = ({ file, isVideo, isTextFile, isADB }) => {
             size={20}
           />
         </div>
-        <div className='text-danger'>
+        {/* <div className='text-danger'>
           <Icon icon={`mi:delete`} />
-        </div>
+        </div> */}
       </div>
     </section>
   )

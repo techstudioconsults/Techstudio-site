@@ -18,24 +18,24 @@
 
   .subtitle {
     margin: 0 auto;
-    font-size: fn.em(44);
+    // font-size: fn.em(44);
     font-weight: 700;
     color: white;
     line-height: fn.rem(50);
     letter-spacing: fn.rem(0.5);
     @include breakpoint-down('sm') {
       text-align: center;
-      font-size: fn.em(24);
+      // font-size: fn.em(24);
     }
   }
   .subtitleTwo {
     color: white;
-    font-size: fn.rem(27);
+    // font-size: fn.rem(27);
     font-weight: 400;
     margin-block: 20px;
     line-height: fn.rem(48);
     @include breakpoint-down('lg') {
-      font-size: fn.em(18);
+      // font-size: fn.em(18);
       padding-bottom: fn.rem(20);
     }
   }
@@ -43,7 +43,7 @@
     position: absolute;
     bottom: fn.rem(16);
     left: fn.rem(25);
-    font-size: fn.rem(25);
+    // font-size: fn.rem(25);
     // padding-right: fn.rem(10);
   }
   .searchContainer {

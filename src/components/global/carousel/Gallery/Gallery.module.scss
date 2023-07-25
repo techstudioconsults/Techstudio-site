@@ -30,15 +30,15 @@
         text-align: center;
 
         .galleryHeader {
-          font-size: 14px;
+          // font-size: 14px;
           color: #0266f4;
         }
         .gallerySubheader {
-          font-size: 35px;
+          // font-size: 35px;
           font-weight: 600;
         }
         .galleryText {
-          font-size: 16px;
+          // font-size: 16px;
         }
 
         @include breakpoint-up('lg') {
@@ -74,7 +74,7 @@
     top: fn.rem(-30);
     left: fn.rem(-50);
     z-index: 2;
-    @include breakpoint-up('lg') {
+    @include breakpoint-up('xl') {
       display: block;
     }
   }
@@ -84,7 +84,7 @@
     border-radius: fn.rem(14);
     box-shadow: 10px 5px 15px #cccccc;
     padding: fn.rem(30);
-    @include breakpoint-up('lg') {
+    @include breakpoint-up('xl') {
       margin: auto;
       background-color: colors.$light;
       position: relative;

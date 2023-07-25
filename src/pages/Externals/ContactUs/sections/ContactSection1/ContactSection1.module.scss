@@ -7,7 +7,10 @@
   @include flex_column;
   flex-direction: column-reverse;
   gap: fn.rem(50);
+  text-align: center;
+  // align-items: center;
   @include breakpoint-up('lg') {
+    text-align: start;
     @include flex;
     align-items: center;
     gap: fn.rem(109);
@@ -26,7 +29,7 @@
       margin-bottom: fn.rem(23);
       .title {
         font-weight: 700;
-        font-size: fn.rem(28);
+        // font-size: fn.rem(28);
         margin-block-end: fn.rem(9);
       }
 
@@ -38,6 +41,7 @@
     .addressWrapper {
       @include flex;
       gap: fn.rem(21);
+      // justify-content: center;
 
       .flag {
         width: fn.rem(66);
@@ -55,8 +59,9 @@
       @include flex;
       gap: fn.rem(16);
       margin-top: fn.rem(32);
-      margin-left: fn.rem(90);
-
+      @include breakpoint-up('lg') {
+        margin-left: fn.rem(90);
+      }
       .icon {
         color: colors.$deep-blue;
       }
@@ -64,9 +69,9 @@
       .email {
         color: colors.$deep-blue;
         font-weight: 600;
-        font-size: fn.rem(14);
+        // font-size: fn.rem(14);
         @include breakpoint-up('lg') {
-          font-size: fn.rem(16);
+          // font-size: fn.rem(16);
         }
       }
     }

@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 
+import { SCALE_ANIMATION } from '../../../../gsap'
+import Gsap from '../../../../hooks/Gsap'
 import useToast from '../../../../hooks/useToast'
 import { useContactUsMutation } from '../../../../pages/Auth/api/authApiSlice'
 import ContactUsFeedback from '../../../../pages/Externals/ContactUs/sections/ContactSection3/ContactSection3'
@@ -54,15 +56,16 @@ const ContactForm = () => {
   }, [isSubmitSuccessful, reset])
 
   return (
+    // <Gsap animationFuncion={() => SCALE_ANIMATION(`form`)}>
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className={[style.form, `cc-shadow`].join(' ')}
+      className={[style.form, `cc-shadow form`].join(' ')}
     >
       <Portal wrapperId='react-portal-modal-container'>
         <ContactUsFeedback />
       </Portal>
       <div>
-        <label htmlFor='fullName' className='form-label fw-semibold'>
+        <label htmlFor='fullName' className='form-label fw-semibold d-flex'>
           Full Name
         </label>
         <input
@@ -79,7 +82,7 @@ const ContactForm = () => {
           render={({ messages }) => {
             return messages
               ? Object.entries(messages).map(([type, message]) => (
-                  <p className='fs-xs text-danger' key={type}>
+                  <p className=' text-danger' key={type}>
                     {message}
                   </p>
                 ))
@@ -88,7 +91,7 @@ const ContactForm = () => {
         />
       </div>
       <div>
-        <label htmlFor='email' className='form-label fw-semibold'>
+        <label htmlFor='email' className='form-label fw-semibold d-flex'>
           Email Address
         </label>
         <input
@@ -105,7 +108,7 @@ const ContactForm = () => {
           render={({ messages }) => {
             return messages
               ? Object.entries(messages).map(([type, message]) => (
-                  <p className='fs-xs text-danger' key={type}>
+                  <p className='text-danger' key={type}>
                     {message}
                   </p>
                 ))
@@ -114,7 +117,7 @@ const ContactForm = () => {
         />
       </div>
       <div>
-        <label htmlFor='email' className='form-label fw-semibold'>
+        <label htmlFor='email' className='form-label fw-semibold d-flex'>
           Subject
         </label>
         <input
@@ -131,7 +134,7 @@ const ContactForm = () => {
           render={({ messages }) => {
             return messages
               ? Object.entries(messages).map(([type, message]) => (
-                  <p className='fs-xs text-danger' key={type}>
+                  <p className='text-danger' key={type}>
                     {message}
                   </p>
                 ))
@@ -140,7 +143,7 @@ const ContactForm = () => {
         />
       </div>
       {/* <div>
-        <label htmlFor='subject' className='form-label fw-semibold'>
+        <label htmlFor='subject' className='form-label fw-semibold d-flex'>
           Subject
         </label>
         <select
@@ -151,7 +154,7 @@ const ContactForm = () => {
         </select>
       </div> */}
       <div className={style.textArea}>
-        <label htmlFor='message' className='form-label fw-semibold'>
+        <label htmlFor='message' className='form-label fw-semibold d-flex'>
           Message or Questions
         </label>
         <textarea
@@ -167,7 +170,7 @@ const ContactForm = () => {
           render={({ messages }) => {
             return messages
               ? Object.entries(messages).map(([type, message]) => (
-                  <p className='fs-xs text-danger' key={type}>
+                  <p className='text-danger' key={type}>
                     {message}
                   </p>
                 ))
@@ -192,6 +195,7 @@ const ContactForm = () => {
         <ToastComponent errorMessage={errorMessage} />
       </div>
     </form>
+    // </Gsap>
   )
 }
 
