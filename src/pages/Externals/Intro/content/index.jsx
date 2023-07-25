@@ -15,12 +15,12 @@ export const INTRO_CONTENT = {
       },
       weekday: {
         time: `12`,
-        date: `July 3, 2023`,
+        date: `August 7, 2023`,
         price: `250000`,
       },
       weekend: {
         time: `12`,
-        date: `July 1, 2023`,
+        date: `August 5, 2023`,
         price: `250000`,
       },
       path: `/course/product-design`,
@@ -43,17 +43,17 @@ export const INTRO_CONTENT = {
       desc: `TechStudio will help you become a professional Fullstack web developer. You’ll learn all you need to know to become a Fullstack Developer and build interesting portfolios while learning the fundmentals of HTML, CSS, JavaScript, React, Mongo DB, Express and hosting on Vercel.`,
       online: {
         time: `16`,
-        date: `July 1, 2023`,
+        date: `August 7, 2023`,
         price: `200000`,
       },
       weekday: {
         time: `24`,
-        date: `July 3, 2023`,
+        date: `August 7, 2023`,
         price: `500000`,
       },
       weekend: {
         time: `16`,
-        date: `July 1, 2023`,
+        date: `August 5, 2023`,
         price: `300000`,
       },
       path: `/course/fullstack`,
@@ -74,12 +74,12 @@ export const INTRO_CONTENT = {
       },
       weekday: {
         time: `12`,
-        date: `July 3, 2023`,
+        date: `August 7, 2023`,
         price: `250000`,
       },
       weekend: {
         time: `12`,
-        date: `July 1, 2023`,
+        date: `August 5, 2023`,
         price: `250000`,
       },
       path: `/course/data-science`,
