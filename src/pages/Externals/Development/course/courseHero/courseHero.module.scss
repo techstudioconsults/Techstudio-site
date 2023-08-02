@@ -42,21 +42,53 @@
       }
     }
 
-    .heroImg {
+    .heroForm {
       flex: 1;
       max-width: fn.rem(701);
-      height: fn.rem(484);
+      // height: fn.rem(484);
+      height: auto;
       margin: 0 auto;
-      display: none;
+      @include flex_centered;
+
       @include breakpoint-up('xl') {
         display: initial;
       }
+      .row{
+        display: flex;
+        gap: 1.5rem;
+      }
+      &Contents::before {
+        content: '';
+        width: 38%;
+        height: 387px;
+        background-color: hsla(214, 85%, 19%, 1);
+        position: absolute;
+        top: -3rem;
+        right: .5rem;
+        border-radius: 8px;
+        z-index: -1;
+        display: none;
+        @include breakpoint-up('xl') {
+       display: block;
+      }
+      }
 
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        // filter: drop-shadow(1px 1px 10px colors.$gray);
+      &Contents{
+        width: 80%;
+        margin: 0 auto;
+        background-color: #fff;
+        padding:1.5rem;
+        border-radius: .5rem;
+      }
+      &Inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .btn{
+        background: blue;
+        color: #fff;
+        border-radius: 5px;
       }
     }
   }
