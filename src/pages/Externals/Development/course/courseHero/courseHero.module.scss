@@ -11,20 +11,27 @@
   background-size: cover;
   @include flex;
   @include flex_centered;
+  height: fn.rem(900);
+  margin-bottom: 5rem;
 
   @include breakpoint-up('md') {
-    height: fn.rem(749);
+    height: fn.rem(900);
+     margin-bottom: 0;
   }
   .heroWrapper {
     position: relative;
     z-index: 1;
-    // border: 1px solid red;
     text-align: center;
     @include flex_column;
-    flex-direction: column-reverse;
-    gap: fn.rem(78);
-    padding-top: fn.rem(100);
+    flex-direction: column;
+    gap: fn.rem(25);
+    padding-top: fn.rem(0);
     color: colors.$light;
+
+    @include breakpoint-up('md'){
+      // padding-top: fn.rem(100);
+      gap: fn.rem(25);
+    }
 
     @include breakpoint-up('xl') {
       text-align: initial;
@@ -45,7 +52,8 @@
     .heroForm {
       flex: 1;
       max-width: fn.rem(701);
-      // height: fn.rem(484);
+      height: fn.rem(484);
+      // height: fit-content;
       height: auto;
       margin: 0 auto;
       @include flex_centered;
@@ -74,11 +82,15 @@
       }
 
       &Contents{
-        width: 80%;
+        width: 100%;
         margin: 0 auto;
         background-color: #fff;
         padding:1.5rem;
         border-radius: .5rem;
+
+        @include breakpoint-up('md') {
+        width: 80%;
+      }
       }
       &Inputs {
         display: flex;
@@ -86,7 +98,8 @@
         gap: 1.5rem;
       }
       .btn{
-        background: blue;
+        background: colors.$blue;
+        font-weight: 100;
         color: #fff;
         border-radius: 5px;
       }

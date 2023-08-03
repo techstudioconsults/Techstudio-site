@@ -53,7 +53,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
       }}
     >
       {/* <Container></Container> */}
-      <div className='container-xxl py-6 py-lg-6'>
+      <div className='container-xxl py-6 px-md-8  px-lg-16 px-xl-0 py-lg-6'>
         <Link className='navbar-brand' to='/'>
           <div className='d-flex align-items-center gap-2'>
             <div className={style.navImgContainer}>

@@ -6,14 +6,14 @@ import { useForm } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
 import useToast from '../../../../../hooks/useToast'
 import Portal from '../../../../../components/global/POTAL/Portal'
-import ToastComponent from '../../../../../components/global/toast/ToastComponent'
 import Feedback from '../../../../../components/global/modals/Feedback'
+import ToastComponent from '../../../../../components/global/toast/ToastComponent'
 
 import { Button } from '../../../../../components'
 import { genericAnimation } from '../../../../../gsap'
 import Gsap from '../../../../../hooks/Gsap'
 import { Container } from '../../../../../layout'
-import { useSignupStudentMutation } from '../../../../../pages/Auth/api/authApiSlice'
+import { useRegisterStudentMutation } from '../../../../../pages/Auth/api/authApiSlice'
 
 import style from './courseHero.module.scss'
 
@@ -26,7 +26,7 @@ const validation = {
 }
 
 const index = ({ content, duration }) => {
-  const [signupStudent, { isLoading }] = useSignupStudentMutation()
+  const [registerStudent, { isLoading }] = useRegisterStudentMutation()
   const [errorMessage, setErrorMessage] = useState(null)
   const { title, subTitle, img } = content
   const { toast } = useToast()
@@ -45,28 +45,28 @@ const index = ({ content, duration }) => {
       ...data,
       course: `design`,
       schedule: `Weekday`,
-      phoneNumber: parseInt(data.phoneNumber),
+      phoneNumber: (data.phoneNumber),
     }
     console.log(formData)
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
         document.getElementById('feedback')
       )
-      const res = await signupStudent(formData).unwrap()
+      const res = await registerStudent(formData).unwrap()
       console.log(res)
-      console.log(res)
+
       res.success ? modal.show() : null
     } catch (err) {
       console.log(err.data)
-      // setErrorMessage(err.data.message)
-      // toast.show()
+      setErrorMessage(err.data.message)
+      toast.show()
     }
   }
-  // useEffect(() => {
-  //   if (isSubmitSuccessful) {
-  //     reset()
-  //   }
-  // }, [isSubmitSuccessful, reset])
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset()
+    }
+  }, [isSubmitSuccessful, reset])
 
   return (
     <Gsap animationFuncion={() => genericAnimation(`hero`)}>
@@ -101,11 +101,11 @@ const index = ({ content, duration }) => {
                   className={[style.heroFormInputs].join(' ')}
                 >
                   <Portal wrapperId='react-portal-modal-container'>
-                    {/* <ToastComponent errorMessage={errorMessage} /> */}
+                    <ToastComponent errorMessage={errorMessage} />
                     <Feedback
                       content={{
                         title: `Registration Successfull!`,
-                        desc: ` Your details have been received and our Customer CareRepresentative will contact you shortly.`,
+                        desc: ` Your details have been received and our Customer Care Representative will contact you shortly.`,
                       }}
                     />
                   </Portal>
