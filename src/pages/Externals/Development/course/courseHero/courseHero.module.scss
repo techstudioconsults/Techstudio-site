@@ -16,7 +16,7 @@
 
   @include breakpoint-up('md') {
     height: fn.rem(900);
-     margin-bottom: 0;
+    margin-bottom: 0;
   }
   .heroWrapper {
     position: relative;
@@ -28,7 +28,7 @@
     padding-top: fn.rem(0);
     color: colors.$light;
 
-    @include breakpoint-up('md'){
+    @include breakpoint-up('md') {
       // padding-top: fn.rem(100);
       gap: fn.rem(25);
     }
@@ -38,6 +38,7 @@
       @include flex;
       @include flex_align;
       padding-top: 0;
+      // padding: 0 3rem;
     }
 
     .heroText {
@@ -61,7 +62,7 @@
       @include breakpoint-up('xl') {
         display: initial;
       }
-      .row{
+      .row {
         display: flex;
         gap: 1.5rem;
       }
@@ -72,32 +73,33 @@
         background-color: hsla(214, 85%, 19%, 1);
         position: absolute;
         top: -3rem;
-        right: .5rem;
+        right: 0;
         border-radius: 8px;
         z-index: -1;
         display: none;
         @include breakpoint-up('xl') {
-       display: block;
-      }
+          display: block;
+          // right: 1rem;
+        }
       }
 
-      &Contents{
+      &Contents {
         width: 100%;
         margin: 0 auto;
         background-color: #fff;
-        padding:1.5rem;
-        border-radius: .5rem;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
 
         @include breakpoint-up('md') {
-        width: 80%;
-      }
+          width: 80%;
+        }
       }
       &Inputs {
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
       }
-      .btn{
+      .btn {
         background: colors.$blue;
         font-weight: 100;
         color: #fff;

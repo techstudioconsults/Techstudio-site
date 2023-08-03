@@ -90,12 +90,12 @@ const index = ({ content, duration }) => {
             <div className={style.heroForm}>
               <div className={style.heroFormContents}>
                 {/* <img src={img} alt='hero-img' /> */}
-                <h5 className='pb-4 text-2'>
-                  <small>
+                <h3 className='pb-4'>
+                  {/* <small> */}
                     Register to lern more about the program pricing and
                     curriculum
-                  </small>
-                </h5>
+                  {/* </small> */}
+                </h3>
                 <form
                   onSubmit={handleSubmit(onSubmit)}
                   className={[style.heroFormInputs].join(' ')}
