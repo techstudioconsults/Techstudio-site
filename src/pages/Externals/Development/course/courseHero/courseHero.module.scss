@@ -11,26 +11,34 @@
   background-size: cover;
   @include flex;
   @include flex_centered;
+  height: fn.rem(900);
+  margin-bottom: 5rem;
 
   @include breakpoint-up('md') {
-    height: fn.rem(749);
+    height: fn.rem(900);
+    margin-bottom: 0;
   }
   .heroWrapper {
     position: relative;
     z-index: 1;
-    // border: 1px solid red;
     text-align: center;
     @include flex_column;
-    flex-direction: column-reverse;
-    gap: fn.rem(78);
-    padding-top: fn.rem(100);
+    flex-direction: column;
+    gap: fn.rem(25);
+    padding-top: fn.rem(0);
     color: colors.$light;
+
+    @include breakpoint-up('md') {
+      // padding-top: fn.rem(100);
+      gap: fn.rem(25);
+    }
 
     @include breakpoint-up('xl') {
       text-align: initial;
       @include flex;
       @include flex_align;
       padding-top: 0;
+      // padding: 0 3rem;
     }
 
     .heroText {
@@ -42,21 +50,60 @@
       }
     }
 
-    .heroImg {
+    .heroForm {
       flex: 1;
       max-width: fn.rem(701);
       height: fn.rem(484);
+      // height: fit-content;
+      height: auto;
       margin: 0 auto;
-      display: none;
+      @include flex_centered;
+
       @include breakpoint-up('xl') {
         display: initial;
       }
+      .row {
+        display: flex;
+        gap: 1.5rem;
+      }
+      &Contents::before {
+        content: '';
+        width: 38%;
+        height: 387px;
+        background-color: hsla(214, 85%, 19%, 1);
+        position: absolute;
+        top: -3rem;
+        right: 0;
+        border-radius: 8px;
+        z-index: -1;
+        display: none;
+        @include breakpoint-up('xl') {
+          display: block;
+          // right: 1rem;
+        }
+      }
 
-      img {
+      &Contents {
         width: 100%;
-        height: 100%;
-        object-fit: contain;
-        // filter: drop-shadow(1px 1px 10px colors.$gray);
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+
+        @include breakpoint-up('md') {
+          width: 80%;
+        }
+      }
+      &Inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .btn {
+        background: colors.$blue;
+        font-weight: 100;
+        color: #fff;
+        border-radius: 5px;
       }
     }
   }

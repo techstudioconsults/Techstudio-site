@@ -58,7 +58,7 @@ const Development = ({ content, job, query }) => {
   return (
     <ExternalLayout>
       <Navbar bg={`transparent`} keepColor />
-      <CourseHero content={hero} />
+      <CourseHero content={hero} courseName={query} />
       <section style={style} className='m-auto mt-10 mt-lg-0'>
         <CourseBanner duration={duration} />
       </section>

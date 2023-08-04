@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { Icon } from '@iconify/react'
 import PropTypes from 'prop-types'
@@ -44,6 +44,26 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
   //     </li>
   //   )
   // })
+  const navStyle = 'container-xxl py-6 px-md-8  px-lg-16 px-xl-15 px-xxl-1 py-lg-6'
+
+  // const style = useEffect(() => {
+  //   const styleNavbar = {
+  //     borderRadius: `8.33846px`,
+  //     transform: `translateY(-50%)`,
+  //     position: `relative`,
+  //     maxWidth: `1080px`,
+  //   }
+
+  //   if (window.innerWidth >= 1200 && window.innerWidth <= 1400) {
+  //     styleNavbar.padding = `2rem 0`
+  //     styleNavbar.backgroundColor =`red`
+  //     // styleNavbar.width = `90%`
+  //   }
+
+  //   return styleNavbar
+  // }, [])
+
+
   return (
     <nav
       ref={navEl}
@@ -53,7 +73,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
       }}
     >
       {/* <Container></Container> */}
-      <div className='container-xxl py-6 py-lg-6'>
+      <div className={`${navStyle}`}>
         <Link className='navbar-brand' to='/'>
           <div className='d-flex align-items-center gap-2'>
             <div className={style.navImgContainer}>
