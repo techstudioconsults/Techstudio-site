@@ -1,17 +1,17 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { useState, useEffect } from 'react'
-import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
-import useToast from '../../../../../hooks/useToast'
-import Portal from '../../../../../components/global/POTAL/Portal'
-import Feedback from '../../../../../components/global/modals/Feedback'
-import ToastComponent from '../../../../../components/global/toast/ToastComponent'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+import PropTypes from 'prop-types'
 
 import { Button } from '../../../../../components'
+import Feedback from '../../../../../components/global/modals/Feedback'
+import Portal from '../../../../../components/global/POTAL/Portal'
+import ToastComponent from '../../../../../components/global/toast/ToastComponent'
 import { genericAnimation } from '../../../../../gsap'
 import Gsap from '../../../../../hooks/Gsap'
+import useToast from '../../../../../hooks/useToast'
 import { Container } from '../../../../../layout'
 import { useRegisterStudentMutation } from '../../../../../pages/Auth/api/authApiSlice'
 
@@ -25,10 +25,10 @@ const validation = {
   },
 }
 
-const index = ({ content, duration }) => {
+const CourseHero = ({ content, duration, courseName }) => {
   const [registerStudent, { isLoading }] = useRegisterStudentMutation()
   const [errorMessage, setErrorMessage] = useState(null)
-  const { title, subTitle, img } = content
+  const { title, subTitle } = content
   const { toast } = useToast()
 
   const {
@@ -43,9 +43,8 @@ const index = ({ content, duration }) => {
   const onSubmit = async (data) => {
     const formData = {
       ...data,
-      course: `design`,
+      course: courseName,
       schedule: `Weekday`,
-      phoneNumber: (data.phoneNumber),
     }
     console.log(formData)
     try {
@@ -91,10 +90,7 @@ const index = ({ content, duration }) => {
               <div className={style.heroFormContents}>
                 {/* <img src={img} alt='hero-img' /> */}
                 <h3 className='pb-4'>
-                  {/* <small> */}
-                    Register to lern more about the program pricing and
-                    curriculum
-                  {/* </small> */}
+                  Register to lern more about the program pricing and curriculum
                 </h3>
                 <form
                   onSubmit={handleSubmit(onSubmit)}
@@ -225,8 +221,8 @@ const index = ({ content, duration }) => {
   )
 }
 
-index.propTypes = {
+CourseHero.propTypes = {
   content: PropTypes.object.isRequired,
 }
 
-export default index
+export default CourseHero
