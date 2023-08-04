@@ -90,7 +90,8 @@ const CourseHero = ({ content, duration, courseName }) => {
               <div className={style.heroFormContents}>
                 {/* <img src={img} alt='hero-img' /> */}
                 <h3 className='pb-4'>
-                  Register to lern more about the program pricing and curriculum
+                  Register to learn more about the program pricing and
+                  curriculum
                 </h3>
                 <form
                   onSubmit={handleSubmit(onSubmit)}
