@@ -52,8 +52,12 @@
       // scale: 0.5;
 
       .img {
+        // border: 1px solid red;
         margin-left: 2rem;
-        scale: 0.9;
+        // scale: 0.9;
+        width: fn.rem(394.3);
+        height: fn.rem(361.8);
+        object-fit: cover;
       }
 
       .angle,

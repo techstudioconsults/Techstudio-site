@@ -29,7 +29,7 @@ root.render(
     <BrowserRouter>
       <AppProvider>
         <ScrollToTop />
-        {/* <Whatsapp /> */}
+        <Whatsapp />
         <App />
       </AppProvider>
     </BrowserRouter>

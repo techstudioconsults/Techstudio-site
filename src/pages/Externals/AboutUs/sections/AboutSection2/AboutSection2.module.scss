@@ -60,82 +60,45 @@
       transform: translate(-50%, -50%);
       position: absolute;
       right: -2.5%;
-      bottom: -4%;
+      bottom: -10%;
       width: 8%;
     }
   }
-  .mainImg {
+
+  .imgContainer {
+    // border: 1px solid red;
     width: 100%;
-    // height: 25rem;
-    height: 30vh;
     object-fit: cover;
-    border-radius: 7px;
     display: none;
 
     @include breakpoint-up('lg') {
-      width: 100%;
-      // height: fn.rem(492);
-      height: 50vh;
-     
-    }
-
-    @include breakpoint-up('xl') {
-      width: 100%;
-      height: auto;
-     
-      // height: fn.rem(492);
-    }
-    @include breakpoint-up('sm') {
       width: 100%;
       display: block;
-     
-    }
-  }
-  .imgContainer {
-    width: 100%;
-    height: 30vh;
-    object-fit: cover;
-    // border-radius: 10px;
-    display: none;
-    
-
-    @include breakpoint-up('lg') {
-      width: 100%;
-      // height: fn.rem(492);
-      height: 50vh;
-      display:block;
     }
     @include breakpoint-up('xl') {
       width: 100%;
-      // height: fn.rem(492);
       height: auto;
-       display: block;
+      display: block;
     }
 
     &:nth-child(1) {
       width: 100%;
-      // height: 100%;
-      // object-fit: contain;
 
       @include breakpoint-up('xl') {
-        transform: translate(15%, -60%);
+        transform: translate(15%, -80%);
         position: relative;
         width: 336px;
-        height: 225px;
         z-index: 2;
-       
       }
     }
 
     &:nth-child(2) {
       width: 100%;
-      // height: 100%;
-      // object-fit: cover;
 
       @include breakpoint-up('xl') {
         transform: translate(-20%, 40%);
         width: 390px;
-        height: 254px;
+        // height: 254px;
       }
     }
 
@@ -147,7 +110,7 @@
       @include breakpoint-up('xl') {
         transform: translate(-15%, 5%);
         width: 326px;
-        height: 248px;
+        // height: 248px;
       }
     }
 
@@ -159,17 +122,30 @@
       @include breakpoint-up('xl') {
         transform: translate(-8%, 55%);
         width: 311px;
-        height: 235px;
+        // height: 235px;
         z-index: 2;
       }
     }
 
-    &:nth-child(5) {
-      // left: 904px;
-      // top: 260px;
+    .mainImg {
+      // border: 2px solid green;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 7px;
+      display: none;
 
-      width: 308px;
-      height: 204px;
+      @include breakpoint-up('sm') {
+        width: 100%;
+        display: block;
+        height: fn.rem(300);
+      }
+      @include breakpoint-up('lg') {
+        width: 100%;
+      }
+      @include breakpoint-up('xl') {
+        width: 100%;
+        height: fn.rem(200);
+      }
     }
   }
 }

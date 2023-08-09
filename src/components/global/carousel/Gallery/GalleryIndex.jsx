@@ -55,15 +55,15 @@ const GalleryIndex = () => {
                 }}
                 modules={[Autoplay]}
               >
-                {/* <SwiperSlide className={style.slider}>
+                <SwiperSlide className={style.slider}>
                   <img
                     alt='card-img'
                     data-sizes='auto'
                     className={`${style.GalleryImg} lazyload`}
-                    src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686743832/techstudio-web-app/assets/images/Rectangle_17_l7oaid.webp`}
-                    data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1686743832/techstudio-web-app/assets/images/Rectangle_17_l7oaid.webp`}
+                    src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1691502308/techstudio-web-app/assets/images/IMG_9412_mil4co.webp`}
+                    data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1691502308/techstudio-web-app/assets/images/IMG_9412_mil4co.webp`}
                   />
-                </SwiperSlide> */}
+                </SwiperSlide>
                 <SwiperSlide className={style.slider}>
                   <img
                     alt='card-img'
@@ -73,15 +73,15 @@ const GalleryIndex = () => {
                     data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1686777381/techstudio-web-app/assets/images/Rectangle_14_ttyodm.webp`}
                   />
                 </SwiperSlide>
-                {/* <SwiperSlide className={style.slider}>
+                <SwiperSlide className={style.slider}>
                   <img
                     alt='card-img'
                     data-sizes='auto'
                     className={`${style.GalleryImg} lazyload`}
-                    src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686777368/techstudio-web-app/assets/images/Rectangle_17_3_fpehs3.webp`}
-                    data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1686777368/techstudio-web-app/assets/images/Rectangle_17_3_fpehs3.webp`}
+                    src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1691502055/techstudio-web-app/assets/images/IMG_9436_wcn8mn.webp`}
+                    data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1691502055/techstudio-web-app/assets/images/IMG_9436_wcn8mn.webp`}
                   />
-                </SwiperSlide> */}
+                </SwiperSlide>
                 <SwiperSlide className={style.slider}>
                   <img
                     alt='card-img'
@@ -91,15 +91,42 @@ const GalleryIndex = () => {
                     data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1686777212/techstudio-web-app/assets/images/Rectangle_15_qd4r71.webp`}
                   />
                 </SwiperSlide>
-                {/* <SwiperSlide className={style.slider}>
+                <SwiperSlide className={style.slider}>
                   <img
                     alt='card-img'
                     data-sizes='auto'
                     className={`${style.GalleryImg} lazyload`}
-                    src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686777198/techstudio-web-app/assets/images/Rectangle_11_mc9urm.webp`}
-                    data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1686777198/techstudio-web-app/assets/images/Rectangle_11_mc9urm.webp`}
+                    src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1691501934/techstudio-web-app/assets/images/IMG_9419_w7p2l6.webp`}
+                    data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1691501934/techstudio-web-app/assets/images/IMG_9419_w7p2l6.webp`}
                   />
-                </SwiperSlide> */}
+                </SwiperSlide>
+                <SwiperSlide className={style.slider}>
+                  <img
+                    alt='card-img'
+                    data-sizes='auto'
+                    className={`${style.GalleryImg} lazyload`}
+                    src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1691501885/techstudio-web-app/assets/images/IMG_9423_oyny7o.webp`}
+                    data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1691501885/techstudio-web-app/assets/images/IMG_9423_oyny7o.webp`}
+                  />
+                </SwiperSlide>
+                <SwiperSlide className={style.slider}>
+                  <img
+                    alt='card-img'
+                    data-sizes='auto'
+                    className={`${style.GalleryImg} lazyload`}
+                    src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1691502680/techstudio-web-app/assets/images/IMG_9418_f8hbk7.webp`}
+                    data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1691502680/techstudio-web-app/assets/images/IMG_9418_f8hbk7.webp`}
+                  />
+                </SwiperSlide>
+                <SwiperSlide className={style.slider}>
+                  <img
+                    alt='card-img'
+                    data-sizes='auto'
+                    className={`${style.GalleryImg} lazyload`}
+                    src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1691502047/techstudio-web-app/assets/images/IMG_9433_kmoob7.webp`}
+                    data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1691502047/techstudio-web-app/assets/images/IMG_9433_kmoob7.webp`}
+                  />
+                </SwiperSlide>
               </Swiper>
 
               <div className={`${style.sliderText} mt-10`}>

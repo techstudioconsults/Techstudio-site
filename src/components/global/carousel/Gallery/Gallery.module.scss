@@ -50,10 +50,11 @@
     }
     &Second {
       border-radius: fn.rem(30);
+      // border: 1px solid red;
+      height: fn.rem(300);
 
       // width: 100%;
       @include breakpoint-up('lg') {
-        // position: absolute;
         height: fn.rem(664);
         min-width: fn.rem(892);
         max-width: fn.rem(892);

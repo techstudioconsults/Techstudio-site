@@ -414,19 +414,24 @@ In object-oriented JavaScript, students will learn how to create objects, define
           tagAttr: [
             {
               bgColor: `white`,
-              img: `vscode-icons:file-type-vscode`,
-              text: `Visual Studio Code`,
+              img: `devicon:git`,
+              text: `Git`,
             },
             {
               bgColor: `white`,
-              img: `logos:javascript`,
-              text: `Javascript`,
+              img: `devicon:github`,
+              text: `GitHub`,
             },
             {
               bgColor: `white`,
-              img: `vscode-icons:file-type-node`,
-              text: `Node JS`,
+              img: `ph:terminal-fill`,
+              text: `Terminal`,
             },
+            // {
+            //   bgColor: `white`,
+            //   img: `vscode-icons:file-type-node`,
+            //   text: `Node JS`,
+            // },
           ],
         },
         {
