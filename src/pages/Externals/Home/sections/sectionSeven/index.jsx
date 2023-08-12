@@ -18,21 +18,21 @@ const SectionSeven = ({ data }) => {
   const carousel = useRef()
   const { image, date, duration, location, title, description } = data[index]
 
-  const convertDateToReadable = (date) => {
-    let dateSet = new Date(date).toUTCString().split(' ')
-    return `${dateSet[2]} ${dateSet[1]}, ${dateSet[3]}`
-  }
+  // const convertDateToReadable = (date) => {
+  //   let dateSet = new Date(date).toUTCString().split(' ')
+  //   return `${dateSet[2]} ${dateSet[1]}, ${dateSet[3]}`
+  // }
 
-  function calculateWeeks(startDate, endDate) {
-    const start = new Date(startDate)
-    const end = new Date(endDate)
+  // function calculateWeeks(startDate, endDate) {
+  //   const start = new Date(startDate)
+  //   const end = new Date(endDate)
 
-    // Calculate the time difference in milliseconds
-    const timeDiff = end.getTime() - start.getTime()
-    // Calculate the number of weeks
-    const weeks = Math.ceil(timeDiff / (1000 * 3600 * 24 * 7))
-    return weeks
-  }
+  //   // Calculate the time difference in milliseconds
+  //   const timeDiff = end.getTime() - start.getTime()
+  //   // Calculate the number of weeks
+  //   const weeks = Math.ceil(timeDiff / (1000 * 3600 * 24 * 7))
+  //   return weeks
+  // }
 
   const getUpcomingClasses = useCallback(async () => {
     const res = await axios.get(`${baseUrl}/external/classes`)

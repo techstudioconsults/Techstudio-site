@@ -124,7 +124,7 @@ const GalleryIndex = () => {
                     data-sizes='auto'
                     className={`${style.GalleryImg} lazyload`}
                     src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1691502047/techstudio-web-app/assets/images/IMG_9433_kmoob7.webp`}
-                    data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1691502047/techstudio-web-app/assets/images/IMG_9433_kmoob7.webp`}
+                    data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1691502047/techstudio-web-app/assets/images/IMG_9433_kmoob7.webp`}
                   />
                 </SwiperSlide>
               </Swiper>

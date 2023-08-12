@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useMemo } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Icon } from '@iconify/react'
 import PropTypes from 'prop-types'
@@ -44,7 +44,8 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
   //     </li>
   //   )
   // })
-  const navStyle = 'container-xxl py-6 px-md-8  px-lg-16 px-xl-15 px-xxl-1 py-lg-6'
+  const navStyle =
+    'container-xxl py-6 px-md-8  px-lg-16 px-xl-15 px-xxl-1 py-lg-6'
 
   // const style = useEffect(() => {
   //   const styleNavbar = {
@@ -62,7 +63,6 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
 
   //   return styleNavbar
   // }, [])
-
 
   return (
     <nav
@@ -145,12 +145,12 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
                     Product Design
                   </Link>
 
-                  {/* <Link
-                    className='dropdown-item fs-sm fw-semibold py-2'
+                  <Link
+                    className='dropdown-item fs-sm fw-semibold py-2 text-dark'
                     to='/course/frontend'
                   >
                     Frontend Development
-                  </Link> */}
+                  </Link>
                 </li>
                 <li className='my-2'>
                   <Link

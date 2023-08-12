@@ -94,20 +94,20 @@ const SectionFour = ({ content, isDevelopmentView }) => {
                 src={articleOne.companies[4]}
                 data-src={articleOne.companies[4]}
               />
-              {/* <img
-              alt='card-img'
-              data-sizes='auto'
-              className={`${style.brand} col-5 col-lg-2 lazyload`}
-              src={articleOne.companies[5]}
-              data-src={articleOne.companies[5]}
-            /> */}
               <img
+                alt='card-img'
+                data-sizes='auto'
+                className={`${style.brand} col-5 col-lg-2 lazyload`}
+                src={articleOne.companies[5]}
+                data-src={articleOne.companies[5]}
+              />
+              {/* <img
                 alt='card-img'
                 data-sizes='auto'
                 className={`${style.brand} col-5 col-lg-2 lazyload`}
                 src={articleOne.companies[6]}
                 data-src={articleOne.companies[6]}
-              />
+              /> */}
             </div>
           </Marquee>
         </div>

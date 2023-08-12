@@ -80,8 +80,12 @@ const App = () => {
   //   if (location !== displayLocation) setTransistionStage('fadeOut')
   // }, [location, displayLocation])
 
-  const { fullStackDevelopment, datascience, UIUXDevelopment } =
-    DEVELOPMENT_CONTENT
+  const {
+    fullStackDevelopment,
+    datascience,
+    UIUXDevelopment,
+    frontendDevelopment,
+  } = DEVELOPMENT_CONTENT
 
   const classes = useSelector(selectClasses)
   const lessons = useSelector(selectLessons)
@@ -131,15 +135,16 @@ const App = () => {
         <Route path='/blog' element={<Blog />} />
         <Route path='/blog/:id' element={<SingleBlogPage />} />
         <Route path='/contact' element={<ContactUs />} />
-        {/* <Route
+        <Route
           path='/course/frontend'
           element={
             <Development
               content={frontendDevelopment}
               job={`Frontend Web Developer`}
+              query={`Javascript`}
             />
           }
-        /> */}
+        />
         <Route
           path='/course/fullstack'
           element={
