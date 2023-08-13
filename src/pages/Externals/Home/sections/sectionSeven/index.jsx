@@ -16,27 +16,31 @@ const SectionSeven = ({ data }) => {
   const [index, setIndex] = useState(0)
   const [classes, setClasses] = useState([])
   const carousel = useRef()
-  const { image, date, duration, location, title, description } = data[index]
+  const [dataImage, setDataImage] = useState(data[index])
+  // const { image, date, duration, location, title, description } = data[index]
+  const upcomingClass = classes[index]
 
-  // const convertDateToReadable = (date) => {
-  //   let dateSet = new Date(date).toUTCString().split(' ')
-  //   return `${dateSet[2]} ${dateSet[1]}, ${dateSet[3]}`
-  // }
+  console.log(upcomingClass)
 
-  // function calculateWeeks(startDate, endDate) {
-  //   const start = new Date(startDate)
-  //   const end = new Date(endDate)
+  const convertDateToReadable = (date) => {
+    let dateSet = new Date(date).toUTCString().split(' ')
+    return `${dateSet[2]} ${dateSet[1]}, ${dateSet[3]}`
+  }
 
-  //   // Calculate the time difference in milliseconds
-  //   const timeDiff = end.getTime() - start.getTime()
-  //   // Calculate the number of weeks
-  //   const weeks = Math.ceil(timeDiff / (1000 * 3600 * 24 * 7))
-  //   return weeks
-  // }
+  function calculateWeeks(startDate, endDate) {
+    const start = new Date(startDate)
+    const end = new Date(endDate)
+
+    // Calculate the time difference in milliseconds
+    const timeDiff = end.getTime() - start.getTime()
+    // Calculate the number of weeks
+    const weeks = Math.ceil(timeDiff / (1000 * 3600 * 24 * 7))
+    return weeks
+  }
 
   const getUpcomingClasses = useCallback(async () => {
     const res = await axios.get(`${baseUrl}/external/classes`)
-    console.log(res)
+    console.log(res.data.data)
     setClasses(res.data.data)
   }, [])
 
@@ -47,14 +51,17 @@ const SectionSeven = ({ data }) => {
   const checkpage = useCallback(
     (page) => {
       if (page < 0) {
-        return data.length - 1
+        return classes.length - 1
       }
-      if (page > data.length - 1 || page > data.length - 1) {
+      if (page > classes.length - 1) {
         return 0
+      }
+      if (page > data.length - 1) {
+        setDataImage(data[index])
       }
       return page
     },
-    [data.length]
+    [classes.length, data, index]
   )
 
   const handlePreviousBtn = () => {
@@ -76,8 +83,9 @@ const SectionSeven = ({ data }) => {
           className={`${style.carousel} d-flex flex-column flex-lg-row gap-20 gap-lg-40 mt-lg-20`}
         >
           <article className={style.quoteContainer}>
-            <img src={image} alt='img' className='cc-img-fluid' />
+            <img src={dataImage.image} alt='img' className='cc-img-fluid' />
           </article>
+
           <section
             className={`${style.text} d-flex flex-column justify-content-between`}
           >
@@ -86,8 +94,10 @@ const SectionSeven = ({ data }) => {
                 upcoming classes
               </p>
               <div>
-                <h4 className=' my-5 fw-bold classes'>{title}</h4>
-                <p className='classes'>{description}</p>
+                <h4 className=' my-5 fw-bold classes'>
+                  {upcomingClass?.courseTitle}
+                </h4>
+                <p className='classes'>{upcomingClass?.description}</p>
               </div>
             </section>
             <section
@@ -98,21 +108,30 @@ const SectionSeven = ({ data }) => {
                   <Icon className='me-2' icon={`ion:location-outline`} />
                   <span>Preference</span>
                 </span>
-                <span>{location}</span>
+                {/* <span>{location}</span> */}
+                <span>{upcomingClass?.preference}</span>
               </div>
               <div className='d-flex  justify-content-between'>
                 <span>
                   <Icon className='me-2' icon={`fluent-mdl2:date-time`} />
                   <span>Start Date</span>
                 </span>
-                <span>{date}</span>
+                {/* <span>{date}</span> */}
+                <span>{convertDateToReadable(upcomingClass?.startDate)}</span>
               </div>
               <div className='d-flex justify-content-between'>
                 <span>
                   <Icon className='me-2' icon={`game-icons:duration`} />
                   <span>Duration</span>
                 </span>
-                <span>{duration}</span>
+                {/* <span>{duration}</span> */}
+                <span>
+                  {calculateWeeks(
+                    upcomingClass?.startDate,
+                    upcomingClass?.endDate
+                  )}{' '}
+                  Weeks
+                </span>
               </div>
             </section>
             <section className='d-flex classes'>

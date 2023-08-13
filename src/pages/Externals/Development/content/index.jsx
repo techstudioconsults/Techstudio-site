@@ -11,7 +11,7 @@ export const DEVELOPMENT_CONTENT = {
 
     sectionTwo: {
       header: {
-        title: `Our process`,
+        title: `Our Process`,
       },
       cards: [
         {
@@ -24,7 +24,7 @@ export const DEVELOPMENT_CONTENT = {
         },
         {
           img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218526/techstudio-web-app/assets/images/numberThree_ludnkx.webp`,
-          text: `And finally, you’ll learn the fundamentals of working as a team; collaborate with other group members of the class to build, change, maintain, and secure an application. Track your team development process using Version Control Systems.`,
+          text: `And finally, you’ll learn the fundamentals of working as a team; collaborate with other group members of the class to build, change, maintain, and secure an application. Track your team development Process using Version Control Systems.`,
         },
       ],
     },
@@ -210,7 +210,7 @@ export const DEVELOPMENT_CONTENT = {
 
     sectionTwo: {
       header: {
-        title: `Our process`,
+        title: `Our Process`,
       },
       cards: [
         {
@@ -296,7 +296,7 @@ export const DEVELOPMENT_CONTENT = {
           classname: `D`,
           caption: `UNIT 4`,
           title: `User Experience: Crafting Seamless User Journeys`,
-          desc: `Unit 4 focuses on User Experience (UX), encompassing the design process, user research, collaboration, wireframing, and usability testing. Students gain an understanding of Design Thinking as a design process, conduct user research to gather valuable feedback for creating user personas and journey maps. They collaborate and brainstorm to generate ideas, employing techniques like Information Architecture and user flows. Students then translate these ideas into tangible wireframes. Lastly, they conduct rigorous usability tests on the final design to ensure a seamless user experience before delivering the project.
+          desc: `Unit 4 focuses on User Experience (UX), encompassing the design Process, user research, collaboration, wireframing, and usability testing. Students gain an understanding of Design Thinking as a design Process, conduct user research to gather valuable feedback for creating user personas and journey maps. They collaborate and brainstorm to generate ideas, employing techniques like Information Architecture and user flows. Students then translate these ideas into tangible wireframes. Lastly, they conduct rigorous usability tests on the final design to ensure a seamless user experience before delivering the project.
 `,
           bgColor: `blue`,
           img: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_500/v1691612899/6a5404804f053237d5da254518054a43_ewbc4s.gif`,
@@ -318,7 +318,7 @@ export const DEVELOPMENT_CONTENT = {
           classname: `E`,
           caption: `UNIT 5`,
           title: `Capstone Project: Bringing Ideas to Life`,
-          desc: `This Unit is dedicated to the Capstone Project, where students apply their acquired knowledge and skills to create a comprehensive design solution. The unit encompasses creating case studies to articulate the problem statement and provide an overview of the product. Following the design thinking stages, students iterate on their prototype, incorporating feedback and refining their design. Rigorous testing ensures the effectiveness and usability of the prototype. Finally, students showcase their work through a compelling pitch or presentation, demonstrating their understanding of the project's objectives, process, and outcomes. This unit allows students to showcase their creativity, problem-solving abilities, and presentation skills, culminating in a tangible representation of their product design journey.`,
+          desc: `This Unit is dedicated to the Capstone Project, where students apply their acquired knowledge and skills to create a comprehensive design solution. The unit encompasses creating case studies to articulate the problem statement and provide an overview of the product. Following the design thinking stages, students iterate on their prototype, incorporating feedback and refining their design. Rigorous testing ensures the effectiveness and usability of the prototype. Finally, students showcase their work through a compelling pitch or presentation, demonstrating their understanding of the project's objectives, Process, and outcomes. This unit allows students to showcase their creativity, problem-solving abilities, and presentation skills, culminating in a tangible representation of their product design journey.`,
           bgColor: `white`,
           img: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_500/v1691612899/b1194eb483bb1aa573963decdf539d06_si9be3.gif`,
           tagAttr: [
@@ -373,7 +373,7 @@ export const DEVELOPMENT_CONTENT = {
 
     sectionTwo: {
       header: {
-        title: `Our process`,
+        title: `Our Process`,
       },
       cards: [
         {
@@ -625,7 +625,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
 
     sectionTwo: {
       header: {
-        title: `Our process`,
+        title: `Our Process`,
       },
       cards: [
         {
@@ -799,7 +799,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
 
   //   sectionTwo: {
   //     header: {
-  //       title: `Our process`,
+  //       title: `Our Process`,
   //     },
   //     cards: [
   //       {
@@ -812,7 +812,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
   //       },
   //       {
   //         img: numberThree,
-  //         text: `You’ll go through each process in the app development lifecycle so as to build a fully functional mobile app that can be deployed on both the Android and iOS platforms.`,
+  //         text: `You’ll go through each Process in the app development lifecycle so as to build a fully functional mobile app that can be deployed on both the Android and iOS platforms.`,
   //       },
   //     ],
   //   },

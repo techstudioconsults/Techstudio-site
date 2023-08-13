@@ -5,7 +5,7 @@ export const INTRO_CONTENT = {
     {
       id: 1,
       img: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_500/v1691612898/20e286636ecf529af409f599f0dbb9c2_xak8qt.gif`,
-      course: `Product Design`,
+      course: `User Interface & User Experience design`,
       desc: `
           Learn to design and deliver digital products that serve clients' needs and solve users' problems. Understand the fundamental techniques and tools of design like problem definition, user research, prototyping, testing, and more. Dive into human-computer interaction, information architecture, usability, and product management. You'll learn to engage in real-life project works, collaborate with other members of your team to execute the UX design process from start to finish.`,
       online: {
