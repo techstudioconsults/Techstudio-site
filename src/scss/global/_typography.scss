@@ -1,6 +1,6 @@
 @use '../utils/functions' as fn;
 @use '../global//colors' as colors;
-@import '../../scss/utils/breakpoints';
+// @import '../../scss/utils/breakpoints';
 
 @function strip-unit($value) {
   @return $value / ($value * 0 + 1);

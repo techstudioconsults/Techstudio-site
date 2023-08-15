@@ -655,7 +655,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Introduction to Microsoft Excel - Objectives`,
           desc: `In this unit, Students learn Microsoft Excel fundamentals, including installation, workbook creation, environment navigation, and the importance of Excel. They explore formulas, functions (arithmetic, text, logical, date), data organization (sorting, filtering, validation), analysis (conditional formatting, Power Query, Power Pivot), and pivot table creation. Practical skills for data management and analysis are gained. Throughout the unit, students gain practical skills in using Microsoft Excel for data management, analysis, and reporting..`,
           bgColor: `red`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687740338/techstudio-web-app/assets/images/Data_analysis_2_rchbol.gif`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1692082254/bfb5b4897bb4f51d4f22c6ba63c8136b_kfzrze.gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -671,7 +671,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Introduction to SQL`,
           desc: `This unit introduces students to SQL, a programming language used for accessing databases. They learn the basics of SQL, including its purpose, types of databases, and concepts of DBMS and RDBMS. Students gain practical skills in creating and managing databases and tables, including inserting records and altering table structures. They also explore SQL statements for selecting columns, updating data, applying constraints, and sorting values. Throughout the unit, students develop a solid foundation in SQL fundamentals for working with databases.`,
           bgColor: `light-blue-ii`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687128488/techstudio-web-app/assets/images/pana_sgxtms.svg`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_500/v1692082256/abc5322e9ee002bf49464784ebb0d2cd_ia8hz2.gif`,
           tagAttr: [
             {
               bgColor: `white`,
@@ -687,7 +687,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Python Basics`,
           desc: `Students delve into Python programming, acquiring a strong foundation in this widely-used language for data analysis. They learn to install Anaconda, explore in-built functions, work with different data types, manipulate strings, use variables and operators, implement loops, and import modules for enhanced functionality. Practical exercises empower students to write Python code proficiently, analyze large datasets, and create visual representations of data.`,
           bgColor: `primary`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687128499/techstudio-web-app/assets/images/rafiki_jkdsfc.svg`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1692082251/dfe8cb9ac8ba7741cc7c04b09edc69bd_y5optz.gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -708,7 +708,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Python NumPy`,
           desc: `Students delve into NumPy, a vital Python library for numerical data analysis and scientific computing. They gain hands-on experience by importing the library and utilizing array functions. Through practical exercises, they learn to create one-dimensional and two-dimensional arrays, enabling efficient manipulation and analysis of complex numerical data. By mastering NumPy, students acquire essential skills for advanced data analysis, modeling, and scientific computations in Python.`,
           bgColor: `blue`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687128519/techstudio-web-app/assets/images/pana_xxryex.svg`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1692082257/fd85e8d3642aeeba72e47599b5f2dec0_lo9pwr.gif`,
           tagAttr: [
             {
               bgColor: `white`,
@@ -729,7 +729,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Python Pandas`,
           desc: `In this unit, students delve into Pandas, a powerful Python library for data manipulation and analysis. They learn to convert sequences and dictionaries into DataFrame tables using the .DataFrame function. Students gain practical skills in importing files and converting them into DataFrames. They explore various DataFrame operations such as retrieving index and columns, using head and tail methods, accessing specific columns, counting values, summing columns vertically and horizontally, locating values in cells or positions, extracting rows based on conditions, creating columns based on conditions, and utilizing the groupby function.`,
           bgColor: `white`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687128524/techstudio-web-app/assets/images/rafiki_dexbmz.png`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_500/v1692082262/a798f8ee55153920af25f110edc2848f_ujbija.gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -750,7 +750,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Python Plotly`,
           desc: `Students delve into Plotly and Plotly Express, Python libraries renowned for interactive data visualization. They acquire practical skills in creating a variety of charts, including bar charts for categorical comparisons, line charts for trend analysis, area charts for cumulative data, pie charts for proportions, and donut charts with a center hole. By mastering Plotly, students unlock the ability to design captivating and interactive visualizations that effectively convey data insights.`,
           bgColor: `light-blue-ii`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687128568/techstudio-web-app/assets/images/amico_uj3blm.svg`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_500/v1692082260/917c198b23aa44c102a649d13a939375_t6v1z8.gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -761,6 +761,22 @@ In object-oriented JavaScript, students will learn how to create objects, define
               bgColor: `white`,
               img: `devicon:plotly`,
               text: `Plotly`,
+            },
+          ],
+        },
+        {
+          id: 7,
+          classname: `G`,
+          caption: `UNIT 6`,
+          title: `Machine Learning Basic`,
+          desc: `Machine learning (ML) is the subset of artificial intelligence (AI) that focuses on building systems that learn—or improve performance—based on the data they consume, computers to learn and make predictions or decisions without being explicitly programmed. Artificial intelligence is a broad term that refers to systems or machines that mimic human intelligence. Machine learning and AI are often discussed together, and the terms are sometimes used interchangeably, but they don’t mean the same thing. An important distinction is that although all machine learning is AI, not all AI is machine learning.`,
+          bgColor: `light-blue-ii`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1692082274/19dc5738fe7bc39fc8789dd766fe4599_cekqgh.gif`,
+          tagAttr: [
+            {
+              bgColor: `blue`,
+              img: `carbon:machine-learning-model`,
+              text: `ML Model`,
             },
           ],
         },

@@ -60,7 +60,7 @@ export const INTRO_CONTENT = {
     },
     {
       id: 3,
-      img: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_500/v1691612899/6a5404804f053237d5da254518054a43_ewbc4s.gif`,
+      img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1692082274/19dc5738fe7bc39fc8789dd766fe4599_cekqgh.gif`,
       course: `Data Science`,
       desc: `Learn to build predictive models, understand data visualisation and pattern recognition. You'll learn to use leading methods to wrangle large data sets to forecast trends, generate information and inform strategy.
 
