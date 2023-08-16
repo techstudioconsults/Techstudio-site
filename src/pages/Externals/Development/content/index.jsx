@@ -3,7 +3,7 @@
 export const DEVELOPMENT_CONTENT = {
   frontendDevelopment: {
     hero: {
-      title: `Frontend Web Development`,
+      title: `Frontend Engineering Immersive`,
       subTitle: `Let’s help you become a professional frontend web developer. You’ll learn all you need to know to become a Frontend Developer and build interesting portfolios while learning the fundamentals of HTML, CSS, JavaScript and React.`,
       // img: frontendImg,
       img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218833/techstudio-web-app/assets/images/Group_1000002400_ocntit_pqduyw.png`,
@@ -153,9 +153,35 @@ export const DEVELOPMENT_CONTENT = {
         {
           id: 6,
           classname: `F`,
+          title: `Next JS`,
+          desc: `Next js is built on React. It elevates web development with efficient rendering and routing, offering server-side rendering and automatic code splitting for optimal performance. By extending React's component-based approach to pages, it simplifies dynamic routing. With server-side rendering, pages are pre-rendered on the server, boosting speed and SEO. Empowering developers with data fetching and routing control, Next js enables seamless creation of high-performance web applications.`,
+          caption: `UNIT 6`,
+          bgColor: `light-blue-ii`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1692183210/a7d4cf71a46dd1daa1854ed5573fd2f4_r3cs5h.gif`,
+          tagAttr: [
+            {
+              bgColor: `white`,
+              img: `vscode-icons:file-type-vscode`,
+              text: `Visual Studio Code`,
+            },
+            {
+              bgColor: `white`,
+              img: `devicon:nextjs`,
+              text: `Nextjs`,
+            },
+            {
+              bgColor: `white`,
+              img: `devicon:vercel`,
+              text: `Vercel`,
+            },
+          ],
+        },
+        {
+          id: 7,
+          classname: `G`,
           title: `Version Control and Deployment`,
           desc: `Version control systems like Git play a crucial role in managing code changes over time. They provide a structured way to track modifications, maintain a history of changes, and enable multiple developers to work on the same codebase simultaneously. With version control, developers can create branches to work on different features or bug fixes independently`,
-          caption: `UNIT 6`,
+          caption: `UNIT 7`,
           bgColor: `light-blue-ii`,
           img: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_500/v1691612844/1b675dbc3d6997b36a5b81d4eb14d4c1_shwnuv.gif`,
           tagAttr: [
@@ -684,20 +710,31 @@ In object-oriented JavaScript, students will learn how to create objects, define
           id: 3,
           classname: `C`,
           caption: `UNIT 3`,
+          title: `Introduction to Power BI`,
+          desc: `Students will learn how to pre-process and transform data(data cleaning) before creating visually appealing and interactive visualization and dashboards by utilizing business intelligence. As a data analyst/scientist you can convey insights effectively and predict business trends communicating your findings to those who will make better decisions. The role of a data analyst/scientist has become increasingly important as businesses have become more data-driven. They help businesses make sense of the vast amount of data that they collect.`,
+          bgColor: `primary`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1692082251/dfe8cb9ac8ba7741cc7c04b09edc69bd_y5optz.gif`,
+          tagAttr: [
+            {
+              bgColor: `blue`,
+              img: `logos:microsoft-power-bi`,
+              text: `Power Bi`,
+            },
+          ],
+        },
+        {
+          id: 4,
+          classname: `D`,
+          caption: `UNIT 4`,
           title: `Python Basics`,
           desc: `Students delve into Python programming, acquiring a strong foundation in this widely-used language for data analysis. They learn to install Anaconda, explore in-built functions, work with different data types, manipulate strings, use variables and operators, implement loops, and import modules for enhanced functionality. Practical exercises empower students to write Python code proficiently, analyze large datasets, and create visual representations of data.`,
-          bgColor: `primary`,
+          bgColor: `light-blue-ii`,
           img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1692082251/dfe8cb9ac8ba7741cc7c04b09edc69bd_y5optz.gif`,
           tagAttr: [
             {
               bgColor: `blue`,
               img: `logos:python`,
               text: `Python`,
-            },
-            {
-              bgColor: `blue`,
-              img: `logos:microsoft-power-bi`,
-              text: `Power Bi`,
             },
           ],
         },

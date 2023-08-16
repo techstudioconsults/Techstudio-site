@@ -4,19 +4,18 @@ import PropTypes from 'prop-types'
 const AppContext = createContext()
 
 export const AppProvider = ({ children }) => {
-  const [index, setIndex] = useState(0)
+  const [courseID, setCourseID] = useState(null)
   const [route, setRoute] = useState(null)
 
-  const getCourseDetails = (name) => {
-    setIndex(parseInt(name))
-    console.log(name)
+  const getCourseID = (id) => {
+    setCourseID(id)
   }
   const getdashboardNavRoute = (route) => {
     setRoute(route)
   }
   return (
     <AppContext.Provider
-      value={{ index, getCourseDetails, route, getdashboardNavRoute }}
+      value={{ courseID, getCourseID, route, getdashboardNavRoute }}
     >
       {children}
     </AppContext.Provider>

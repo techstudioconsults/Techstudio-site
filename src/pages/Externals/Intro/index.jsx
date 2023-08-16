@@ -1,7 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react'
+import { useContext } from 'react'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
 
+import AppContext from '../../../contexts/AppProvider'
 import { Footer, Navbar } from '../../../layout'
 
 import IntroBody from './sections/introBody/IntroBody'
@@ -9,15 +11,19 @@ import IntroHeader from './sections/introHeader/IntroHeader'
 const baseUrl = import.meta.env.VITE_BASE_URL
 
 const Intro = () => {
-  const dispatch = useDispatch()
+  const { courseID } = useContext(AppContext)
   const [courses, setCourses] = useState([])
+
+  console.log(courseID)
 
   const getCourses = useCallback(async () => {
     const res = await axios.get(`${baseUrl}/external/courses`)
-    dispatch({ type: `app/setCourses`, payload: res.data.data })
-    dispatch({ type: `app/setCourseID`, payload: res.data.data[0].id })
     setCourses(res.data.data)
-  }, [dispatch])
+  }, [])
+
+  const getFilteredCourse = courses.filter((course) => {
+    return course.id === courseID
+  })
 
   useEffect(() => {
     getCourses()
@@ -26,7 +32,7 @@ const Intro = () => {
     <main>
       <Navbar bg={`transparent`} setTextColorBlack />
       <IntroHeader courses={courses} />
-      <IntroBody />
+      <IntroBody courseDetails={getFilteredCourse?.[0]} />
       <Footer />
     </main>
   )

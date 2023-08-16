@@ -13,12 +13,11 @@ import style from './introHeader.module.scss'
 // import { selectCoursesExternal } from '../../../app/api/appSlice'
 
 const IntroHeader = ({ courses }) => {
-  const { index, getCourseDetails } = useContext(AppContext)
-  console.log(courses)
+  const { getCourseID } = useContext(AppContext)
 
   const handleClick = (e) => {
-    let name = e.target.name
-    getCourseDetails(name)
+    let id = e.target.id
+    getCourseID(id)
   }
 
   const displayCourses = courses.map((course) => {
@@ -26,11 +25,11 @@ const IntroHeader = ({ courses }) => {
       <button
         key={course.id}
         onClick={handleClick}
-        name={course.id}
+        id={course.id}
         className={[
           style.courseBtn,
           `tag small-text`,
-          index === 0 ? style.active : null,
+          // index === 0 ? style.active : null,
         ].join(' ')}
       >
         {course.title}
