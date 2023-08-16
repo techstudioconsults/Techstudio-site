@@ -12,27 +12,31 @@ import style from './introHeader.module.scss'
 // import { useDispatch, useSelector } from 'react-redux'
 // import { selectCoursesExternal } from '../../../app/api/appSlice'
 
-const IntroHeader = () => {
+const IntroHeader = ({ courses }) => {
   const { index, getCourseDetails } = useContext(AppContext)
+  console.log(courses)
 
   const handleClick = (e) => {
     let name = e.target.name
     getCourseDetails(name)
   }
 
-  // const tag small-texts = courses.map((course) => {
-  //   return (
-  //     <button
-  //       id={course.id}
-  //       key={course.id}
-  //       onClick={handleClick}
-  //       name={courses.id}
-  //       className={[style.courseBtn].join(' ')}
-  //     >
-  //       {course.title}
-  //     </button>
-  //   )
-  // })
+  const displayCourses = courses.map((course) => {
+    return (
+      <button
+        key={course.id}
+        onClick={handleClick}
+        name={course.id}
+        className={[
+          style.courseBtn,
+          `tag small-text`,
+          index === 0 ? style.active : null,
+        ].join(' ')}
+      >
+        {course.title}
+      </button>
+    )
+  })
 
   return (
     // <Gsap animationFuncion={() => genericAnimation(`tag small-text`)}>
@@ -48,7 +52,7 @@ const IntroHeader = () => {
           <div
             className={`${style.btnGroup} d-flex flex-column flex-lg-row gap-3 gap-lg-5 tag small-text`}
           >
-            <button
+            {/* <button
               onClick={handleClick}
               name={0}
               className={[
@@ -92,7 +96,8 @@ const IntroHeader = () => {
               ].join(' ')}
             >
               Frontend Development
-            </button>
+            </button> */}
+            {displayCourses}
           </div>
         </section>
       </Container>

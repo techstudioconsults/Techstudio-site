@@ -20,8 +20,6 @@ const SectionSeven = ({ data }) => {
   // const { image, date, duration, location, title, description } = data[index]
   const upcomingClass = classes[index]
 
-  console.log(upcomingClass)
-
   const convertDateToReadable = (date) => {
     let dateSet = new Date(date).toUTCString().split(' ')
     return `${dateSet[2]} ${dateSet[1]}, ${dateSet[3]}`
@@ -39,7 +37,7 @@ const SectionSeven = ({ data }) => {
   }
 
   const getUpcomingClasses = useCallback(async () => {
-    const res = await axios.get(`${baseUrl}/external/classes`)
+    const res = await axios.get(`${baseUrl}/external/courses`)
     console.log(res.data.data)
     setClasses(res.data.data)
   }, [])
@@ -95,7 +93,7 @@ const SectionSeven = ({ data }) => {
               </p>
               <div>
                 <h4 className=' my-5 fw-bold classes'>
-                  {upcomingClass?.courseTitle}
+                  {upcomingClass?.classes?.weekday[0]?.title}
                 </h4>
                 <p className='classes'>{upcomingClass?.description}</p>
               </div>
@@ -109,7 +107,7 @@ const SectionSeven = ({ data }) => {
                   <span>Preference</span>
                 </span>
                 {/* <span>{location}</span> */}
-                <span>{upcomingClass?.preference}</span>
+                <span>{upcomingClass?.classes?.weekday[0]?.preference}</span>
               </div>
               <div className='d-flex  justify-content-between'>
                 <span>
@@ -125,13 +123,7 @@ const SectionSeven = ({ data }) => {
                   <span>Duration</span>
                 </span>
                 {/* <span>{duration}</span> */}
-                <span>
-                  {calculateWeeks(
-                    upcomingClass?.startDate,
-                    upcomingClass?.endDate
-                  )}{' '}
-                  Weeks
-                </span>
+                <span>{upcomingClass?.duration} Weeks</span>
               </div>
             </section>
             <section className='d-flex classes'>
