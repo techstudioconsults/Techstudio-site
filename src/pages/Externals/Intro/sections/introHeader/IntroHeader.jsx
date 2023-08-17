@@ -1,5 +1,7 @@
 import React from 'react'
 import { useContext } from 'react'
+import { useEffect } from 'react'
+import { useRef } from 'react'
 
 import AppContext from '../../../../../contexts/AppProvider'
 // import { genericAnimation } from '../../../../../gsap'
@@ -13,7 +15,8 @@ import style from './introHeader.module.scss'
 // import { selectCoursesExternal } from '../../../app/api/appSlice'
 
 const IntroHeader = ({ courses }) => {
-  const { getCourseID } = useContext(AppContext)
+  const { courseID, getCourseID } = useContext(AppContext)
+  const button = useRef(null)
 
   const handleClick = (e) => {
     let id = e.target.id
@@ -29,13 +32,16 @@ const IntroHeader = ({ courses }) => {
         className={[
           style.courseBtn,
           `tag small-text`,
-          // index === 0 ? style.active : null,
+          courseID === course.id ? style.active : null,
         ].join(' ')}
       >
         {course.title}
       </button>
     )
   })
+
+  console.log(button)
+  // useEffect(() => {}, [])
 
   return (
     // <Gsap animationFuncion={() => genericAnimation(`tag small-text`)}>
@@ -51,51 +57,6 @@ const IntroHeader = ({ courses }) => {
           <div
             className={`${style.btnGroup} d-flex flex-column flex-lg-row gap-3 gap-lg-5 tag small-text`}
           >
-            {/* <button
-              onClick={handleClick}
-              name={0}
-              className={[
-                style.courseBtn,
-                `tag small-text`,
-                index === 0 ? style.active : null,
-              ].join(' ')}
-            >
-              Product Design
-            </button>
-            <button
-              onClick={handleClick}
-              name={1}
-              className={[
-                style.courseBtn,
-                `tag small-text`,
-                index === 1 ? style.active : null,
-              ].join(' ')}
-            >
-              Fullstack Development
-            </button>
-            <button
-              onClick={handleClick}
-              name={2}
-              className={[
-                style.courseBtn,
-                `tag small-text`,
-                index === 2 ? style.active : null,
-              ].join(' ')}
-            >
-              Data Science
-            </button>
-            <button
-              // disabled
-              onClick={handleClick}
-              name={3}
-              className={[
-                style.courseBtn,
-                `tag small-text`,
-                index === 3 ? style.active : null,
-              ].join(' ')}
-            >
-              Frontend Development
-            </button> */}
             {displayCourses}
           </div>
         </section>

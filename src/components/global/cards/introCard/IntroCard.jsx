@@ -16,7 +16,31 @@ const IntroCard = ({ course }) => {
     return `${dateSet[2]} ${dateSet[1]}, ${dateSet[3]}`
   }
 
-  console.log(course)
+  function calculateWeeks(startDate, endDate) {
+    const start = new Date(startDate)
+    const end = new Date(endDate)
+
+    // Calculate the time difference in milliseconds
+    const timeDiff = end.getTime() - start.getTime()
+    // Calculate the number of weeks
+    const weeks = Math.ceil(timeDiff / (1000 * 3600 * 24 * 7))
+    return weeks
+  }
+
+  const getCourseRoute = (title) => {
+    switch (title?.toLowerCase()) {
+      case `product design ui/ux`:
+        return `/course/product-design`
+      case `Fullstack development`:
+        return `/course/fullstack`
+      case `data science`:
+        return `/course/data-science`
+      case `frontend engineering`:
+        return `/course/frontend`
+      default:
+        return `/`
+    }
+  }
 
   return (
     <div className={[style.introCard, `cc-shadow`].join(' ')}>
@@ -44,7 +68,7 @@ const IntroCard = ({ course }) => {
               <span>
                 {!course?.classes?.online?.[0]?.startDate
                   ? `N/A`
-                  : `starting ${convertDateToReadable(
+                  : `Starting ${convertDateToReadable(
                       course?.classes?.online?.[0]?.startDate
                     )}`}
               </span>
@@ -54,12 +78,19 @@ const IntroCard = ({ course }) => {
                 <img src={clock} alt='clock' />
               </span>
               <span>
-                {!course?.duration ? `N/A` : `${course?.duration} Weeks`}
+                {!course?.classes?.online?.[0]?.startDate
+                  ? `N/A`
+                  : `${calculateWeeks(
+                      course?.classes?.online?.[0]?.startDate,
+                      course?.classes?.online?.[0]?.endDate
+                    )} Weeks`}
               </span>
             </div>
             <div className={style.date}>
               <p className='mb-0 fw-bold medium-text'>
-                {!course?.fee ? `N/A` : formatCurrency(course?.fee)}
+                {!course?.classes?.online?.[0]?.fee
+                  ? `N/A`
+                  : formatCurrency(course?.classes?.online?.[0]?.fee)}
               </p>
             </div>
           </div>
@@ -73,20 +104,31 @@ const IntroCard = ({ course }) => {
                 <img src={calendar} alt='calendar' />
               </span>
               <span>
-                {`starting ${convertDateToReadable(
-                  course?.classes?.weekday?.[0]?.startDate
-                )}`}
+                {!course?.classes?.weekday?.[0]?.startDate
+                  ? `N/A`
+                  : `Starting ${convertDateToReadable(
+                      course?.classes?.weekday?.[0]?.startDate
+                    )}`}
               </span>
             </div>
             <div className={style?.date}>
               <span className={style.icon}>
                 <img src={clock} alt='clock' />
               </span>
-              <span>{`${course?.duration} Weeks`}</span>
+              <span>
+                {!course?.classes?.weekday?.[0]?.startDate
+                  ? `N/A`
+                  : `${calculateWeeks(
+                      course?.classes?.weekday?.[0]?.startDate,
+                      course?.classes?.weekday?.[0]?.endDate
+                    )} Weeks`}
+              </span>
             </div>
             <div className={style?.date}>
               <p className='mb-0 fw-bold medium-text'>
-                {formatCurrency(course?.fee)}
+                {!course?.classes?.weekday?.[0]?.fee
+                  ? `N/A`
+                  : formatCurrency(course?.classes?.weekday?.[0]?.fee)}
               </p>
             </div>
           </div>
@@ -100,20 +142,32 @@ const IntroCard = ({ course }) => {
                 <img src={calendar} alt='calendar' />
               </span>
               <span>
-                {`starting ${convertDateToReadable(
-                  course?.classes?.weekend?.[0]?.startDate
-                )}`}
+                {!course?.classes?.weekend?.[0]?.startDate
+                  ? `N/A`
+                  : `Starting ${convertDateToReadable(
+                      course?.classes?.weekend?.[0]?.startDate
+                    )}`}
               </span>
             </div>
             <div className={style?.date}>
               <span className={style.icon}>
                 <img src={clock} alt='clock' />
               </span>
-              <span>{course?.duration} Weeks</span>
+              <span>
+                {' '}
+                {!course?.classes?.weekend?.[0]?.startDate
+                  ? `N/A`
+                  : `${calculateWeeks(
+                      course?.classes?.weekend?.[0]?.startDate,
+                      course?.classes?.weekend?.[0]?.endDate
+                    )} Weeks`}
+              </span>
             </div>
             <div className={style?.date}>
               <p className='mb-0 fw-bold medium-text'>
-                {formatCurrency(course?.fee)}
+                {!course?.classes?.weekend?.[0]?.fee
+                  ? `N/A`
+                  : formatCurrency(course?.classes?.weekend?.[0]?.fee)}
               </p>
             </div>
           </div>
@@ -125,7 +179,8 @@ const IntroCard = ({ course }) => {
           <Button
             width={`10`}
             linkText='View Full Details'
-            linkHref={`/course/${course?.title}`}
+            // linkHref={`/course/${course?.title}`}
+            linkHref={getCourseRoute(course?.title)}
             solidBtn
             navBtn
           />

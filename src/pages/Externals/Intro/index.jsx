@@ -11,14 +11,16 @@ import IntroHeader from './sections/introHeader/IntroHeader'
 const baseUrl = import.meta.env.VITE_BASE_URL
 
 const Intro = () => {
-  const { courseID } = useContext(AppContext)
+  const { courseID, getCourseID } = useContext(AppContext)
   const [courses, setCourses] = useState([])
 
   console.log(courseID)
 
   const getCourses = useCallback(async () => {
     const res = await axios.get(`${baseUrl}/external/courses`)
+    getCourseID(res.data.data[0].id)
     setCourses(res.data.data)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const getFilteredCourse = courses.filter((course) => {

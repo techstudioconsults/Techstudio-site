@@ -346,7 +346,7 @@ export const DEVELOPMENT_CONTENT = {
           title: `Capstone Project: Bringing Ideas to Life`,
           desc: `This Unit is dedicated to the Capstone Project, where students apply their acquired knowledge and skills to create a comprehensive design solution. The unit encompasses creating case studies to articulate the problem statement and provide an overview of the product. Following the design thinking stages, students iterate on their prototype, incorporating feedback and refining their design. Rigorous testing ensures the effectiveness and usability of the prototype. Finally, students showcase their work through a compelling pitch or presentation, demonstrating their understanding of the project's objectives, Process, and outcomes. This unit allows students to showcase their creativity, problem-solving abilities, and presentation skills, culminating in a tangible representation of their product design journey.`,
           bgColor: `white`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_500/v1691612899/b1194eb483bb1aa573963decdf539d06_si9be3.gif`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687125906/techstudio-web-app/assets/images/Frame_1000002484_im2kg6.svg`,
           tagAttr: [
             {
               bgColor: `blue`,
