@@ -10,6 +10,7 @@ import coursesReducer from '../pages/Dashboard/Admin/courses/api/coursesSlice'
 import paymentReducer from '../pages/Dashboard/Admin/Payment/api/paymentSlice'
 import resourceReducer from '../pages/Dashboard/Admin/resources/api/resourceSlice'
 import usersReducer from '../pages/Dashboard/Admin/users/api/usersSlice'
+import externalReducer from '../pages/Externals/api/externalSlice'
 
 import { apiSlice } from './api/apiSlice'
 import appReducer from './api/appSlice'
@@ -26,7 +27,7 @@ const persistedReducer = persistReducer(persistConfig, authReducer)
 export const store = configureStore({
   reducer: {
     [apiSlice.reducerPath]: apiSlice.reducer,
-    // auth: authReducer,
+    external: externalReducer,
     auth: persistedReducer,
     dashboard: dashboardReducer,
     courses: coursesReducer,

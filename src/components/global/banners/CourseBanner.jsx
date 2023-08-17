@@ -1,12 +1,25 @@
 import { useRef } from 'react'
+import { useSelector } from 'react-redux'
 import { Icon } from '@iconify/react'
 
 import { COURSE_BANNER_ANIMATION } from '../../../gsap'
 import IntersectionObserver from '../../../hooks/Gsap'
+import { selectExternalCourses } from '../../../pages/Externals/api/externalSlice'
 import Button from '../Button'
 
-const CourseBanner = ({ duration }) => {
+const CourseBanner = ({ name, duration }) => {
+  const upcomingCourses = useSelector(selectExternalCourses)
   const banner = useRef()
+
+  const courseDuration = upcomingCourses.filter((course) => {
+    return course.title === name
+  })
+
+  const convertDateToReadable = (date) => {
+    let dateSet = new Date(date).toUTCString().split(' ')
+    return `${dateSet[2]} ${dateSet[1]}, ${dateSet[3]}`
+  }
+
   return (
     <IntersectionObserver
       animationFuncion={() => COURSE_BANNER_ANIMATION(banner)}
@@ -24,13 +37,25 @@ const CourseBanner = ({ duration }) => {
           </p>
           <section className='d-flex flex-column flex-md-row justify-content-between align-items-center gap-5'>
             <div>
-              <h2 className='m-0 text-primary'>{duration?.weekend?.date}</h2>
+              <h2 className='m-0 text-primary'>
+                {!courseDuration[0]?.classes?.online?.[0]?.startDate
+                  ? `N/A`
+                  : `${convertDateToReadable(
+                      courseDuration[0]?.classes?.online?.[0]?.startDate
+                    )}`}
+              </h2>
               <p className='m-0 text-dark small-text fw-bold'>
                 Weekend Class, {duration?.span?.weekend}{' '}
               </p>
             </div>
             <div>
-              <h2 className='m-0 text-primary'>{duration?.weekday?.date}</h2>
+              <h2 className='m-0 text-primary'>
+                {!courseDuration[0]?.classes?.weekday?.[0]?.startDate
+                  ? `N/A`
+                  : `${convertDateToReadable(
+                      courseDuration[0]?.classes?.weekday?.[0]?.startDate
+                    )}`}
+              </h2>
               <p className='m-0 text-dark small-text fw-bold'>
                 Weekday Class, Online Class; {duration?.span?.weekday}{' '}
               </p>

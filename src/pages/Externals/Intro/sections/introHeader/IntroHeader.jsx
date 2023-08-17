@@ -1,7 +1,5 @@
 import React from 'react'
 import { useContext } from 'react'
-import { useEffect } from 'react'
-import { useRef } from 'react'
 
 import AppContext from '../../../../../contexts/AppProvider'
 // import { genericAnimation } from '../../../../../gsap'
@@ -16,7 +14,6 @@ import style from './introHeader.module.scss'
 
 const IntroHeader = ({ courses }) => {
   const { courseID, getCourseID } = useContext(AppContext)
-  const button = useRef(null)
 
   const handleClick = (e) => {
     let id = e.target.id
@@ -39,9 +36,6 @@ const IntroHeader = ({ courses }) => {
       </button>
     )
   })
-
-  console.log(button)
-  // useEffect(() => {}, [])
 
   return (
     // <Gsap animationFuncion={() => genericAnimation(`tag small-text`)}>

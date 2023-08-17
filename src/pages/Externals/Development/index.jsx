@@ -16,9 +16,8 @@ import CourseSectionTwo from './course/sectionTwo/CourseSectionTwo'
 
 const baseUrl = import.meta.env.VITE_BASE_URL
 
-const Development = ({ content, job, query }) => {
+const Development = ({ content, job, query, name }) => {
   const dispatch = useDispatch()
-  // const [loading, setLoading] = useState(true)
   const { hero, sectionTwo, sectionFour, duration } = content
   const {
     sectionFour: { articleOne, header, body },
@@ -60,7 +59,7 @@ const Development = ({ content, job, query }) => {
       <Navbar bg={`transparent`} keepColor />
       <CourseHero content={hero} courseName={query} />
       <section style={style} className='m-auto mt-10 mt-lg-0'>
-        <CourseBanner duration={duration} />
+        <CourseBanner name={name} duration={duration} />
       </section>
       <CourseSectionTwo content={sectionTwo} />
       <CourseSectionFour content={sectionFour} />

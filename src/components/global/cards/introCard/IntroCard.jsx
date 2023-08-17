@@ -31,7 +31,7 @@ const IntroCard = ({ course }) => {
     switch (title?.toLowerCase()) {
       case `product design ui/ux`:
         return `/course/product-design`
-      case `Fullstack development`:
+      case `fullstack development`:
         return `/course/fullstack`
       case `data science`:
         return `/course/data-science`
@@ -47,7 +47,7 @@ const IntroCard = ({ course }) => {
       {/* <Gsap animationFuncion={() => SCALE_ANIMATION(`scale`)}> */}
       <div className={style.imgContainer}>
         <img
-          src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_500/v1691612898/20e286636ecf529af409f599f0dbb9c2_xak8qt.gif`}
+          src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1692269980/learning_atvahc.gif`}
           alt='img'
           className='cc-img-fluid scale'
         />
@@ -62,9 +62,7 @@ const IntroCard = ({ course }) => {
           <p className='text-danger fw-semibold tiny-text'>Online</p>
           <div className={`${style.timeDate} my-0 gap-4 gap-lg-8`}>
             <div className={style.time}>
-              <span className={style.icon}>
-                <img src={calendar} alt='calendar' />
-              </span>
+              <img className={style.icon} src={calendar} alt='calendar' />
               <span>
                 {!course?.classes?.online?.[0]?.startDate
                   ? `N/A`
@@ -74,9 +72,7 @@ const IntroCard = ({ course }) => {
               </span>
             </div>
             <div className={style.date}>
-              <span className={style.icon}>
-                <img src={clock} alt='clock' />
-              </span>
+              <img className={style.icon} src={clock} alt='clock' />
               <span>
                 {!course?.classes?.online?.[0]?.startDate
                   ? `N/A`
@@ -100,9 +96,7 @@ const IntroCard = ({ course }) => {
           <p className=' text-danger fw-semibold tiny-text'>Weekday</p>
           <div className={`${style.timeDate} my-0 gap-4 gap-lg-8`}>
             <div className={style.time}>
-              <span className={style.icon}>
-                <img src={calendar} alt='calendar' />
-              </span>
+              <img className={style.icon} src={calendar} alt='calendar' />
               <span>
                 {!course?.classes?.weekday?.[0]?.startDate
                   ? `N/A`
@@ -112,9 +106,7 @@ const IntroCard = ({ course }) => {
               </span>
             </div>
             <div className={style?.date}>
-              <span className={style.icon}>
-                <img src={clock} alt='clock' />
-              </span>
+              <img className={style.icon} src={clock} alt='clock' />
               <span>
                 {!course?.classes?.weekday?.[0]?.startDate
                   ? `N/A`
@@ -138,9 +130,7 @@ const IntroCard = ({ course }) => {
           <p className=' text-danger fw-semibold tiny-text'>Weekend</p>
           <div className={`${style.timeDate} my-0 gap-4 gap-lg-8`}>
             <div className={style.time}>
-              <span className={style.icon}>
-                <img src={calendar} alt='calendar' />
-              </span>
+              <img className={style.icon} src={calendar} alt='calendar' />
               <span>
                 {!course?.classes?.weekend?.[0]?.startDate
                   ? `N/A`
@@ -150,9 +140,7 @@ const IntroCard = ({ course }) => {
               </span>
             </div>
             <div className={style?.date}>
-              <span className={style.icon}>
-                <img src={clock} alt='clock' />
-              </span>
+              <img className={style.icon} src={clock} alt='clock' />
               <span>
                 {' '}
                 {!course?.classes?.weekend?.[0]?.startDate
