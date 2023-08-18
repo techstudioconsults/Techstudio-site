@@ -76,7 +76,7 @@ import {
 } from './pages'
 
 const App = () => {
-  const [getUpcomingCourses] = useGetUpcomingCoursesMutation()
+  const [getUpcomingCourses, { isLoading }] = useGetUpcomingCoursesMutation()
   const upcomingCourses = useSelector(selectExternalCourses)
   const fetchUpcomingCourses = useCallback(async () => {
     await getUpcomingCourses().unwrap()
@@ -142,12 +142,16 @@ const App = () => {
         key={course.id}
         path={getCourseContent(course).path}
         element={
-          <Development
-            content={getCourseContent(course).content}
-            job={getCourseContent(course).job}
-            query={getCourseContent(course).query}
-            name={getCourseContent(course).courseName}
-          />
+          isLoading ? (
+            <SpinnerComponent />
+          ) : (
+            <Development
+              content={getCourseContent(course).content}
+              job={getCourseContent(course).job}
+              query={getCourseContent(course).query}
+              name={getCourseContent(course).courseName}
+            />
+          )
         }
       />
     )
