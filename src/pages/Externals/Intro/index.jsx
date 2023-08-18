@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useContext } from 'react'
 import { useSelector } from 'react-redux'
 
@@ -12,25 +12,20 @@ import IntroHeader from './sections/introHeader/IntroHeader'
 const Intro = () => {
   const { courseID, getCourseID } = useContext(AppContext)
   const upcomingCourses = useSelector(selectExternalCourses)
-  const [courses, setCourses] = useState([])
 
-  const getCourses = useCallback(() => {
-    getCourseID(upcomingCourses[0]?.id)
-    setCourses(upcomingCourses)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  const getFilteredCourse = courses.filter((course) => {
+  const getFilteredCourse = upcomingCourses.filter((course) => {
     return course?.id === courseID
   })
 
   useEffect(() => {
-    getCourses()
-  }, [getCourses])
+    getCourseID(upcomingCourses[0]?.id)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [upcomingCourses])
+
   return (
     <main>
       <Navbar bg={`transparent`} setTextColorBlack />
-      <IntroHeader courses={courses} />
+      <IntroHeader courses={upcomingCourses} />
       <IntroBody courseDetails={getFilteredCourse?.[0]} />
       <Footer />
     </main>
