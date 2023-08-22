@@ -14,12 +14,12 @@ export const HOME_CONTENT = {
     },
     cards: [
       {
-        image: `https://res.cloudinary.com/dkszgtapy/image/upload/v1692269984/business-meeting_x6xahr.gif`,
-        imageLow: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1692269984/business-meeting_x6xahr.gif`,
+        image: `https://res.cloudinary.com/dkszgtapy/image/upload/v1692701429/career-development_fzzy90.gif`,
+        imageLow: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1692701429/career-development_fzzy90.gif`,
         title: `Great learning Environment`,
         description: `We provide you with the best learning facility you can lay
-your eyes on. All our classes are conducive, en-suite and
-equipped with high-speed internet and the latest
+        your eyes on. All our classes are conducive, en-suite and
+        equipped with high-speed internet and the latest
 technologies for learning.`,
       },
       {
