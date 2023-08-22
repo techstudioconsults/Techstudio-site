@@ -11,19 +11,19 @@ export const ABOUT_CONTENT = {
     images: [
       {
         id: 1,
-        src: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218514/techstudio-web-app/assets/images/AboutSec2Img01_xgsvqw.png`,
+        src: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_500/v1691501934/techstudio-web-app/assets/images/IMG_9419_w7p2l6.webp`,
       },
       {
         id: 2,
-        src: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218514/techstudio-web-app/assets/images/AboutSec2Img02_xgx6e6.png`,
+        src: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_500/v1691502003/techstudio-web-app/assets/images/IMG_9435_infhuu.webp`,
       },
       {
         id: 3,
-        src: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218514/techstudio-web-app/assets/images/AboutSec2Img03_mshd9b.png`,
+        src: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_500/v1691501842/techstudio-web-app/assets/images/IMG_9424_ffooid.webp`,
       },
       {
         id: 4,
-        src: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218515/techstudio-web-app/assets/images/AboutSec2Img04_w6nju2.png`,
+        src: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_500/v1691502692/techstudio-web-app/assets/images/IMG_9417_hbjuu8.webp`,
       },
     ],
   },

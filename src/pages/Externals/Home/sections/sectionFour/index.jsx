@@ -94,20 +94,20 @@ const SectionFour = ({ content, isDevelopmentView }) => {
                 src={articleOne.companies[4]}
                 data-src={articleOne.companies[4]}
               />
-              {/* <img
-              alt='card-img'
-              data-sizes='auto'
-              className={`${style.brand} col-5 col-lg-2 lazyload`}
-              src={articleOne.companies[5]}
-              data-src={articleOne.companies[5]}
-            /> */}
               <img
+                alt='card-img'
+                data-sizes='auto'
+                className={`${style.brand} col-5 col-lg-2 lazyload`}
+                src={articleOne.companies[5]}
+                data-src={articleOne.companies[5]}
+              />
+              {/* <img
                 alt='card-img'
                 data-sizes='auto'
                 className={`${style.brand} col-5 col-lg-2 lazyload`}
                 src={articleOne.companies[6]}
                 data-src={articleOne.companies[6]}
-              />
+              /> */}
             </div>
           </Marquee>
         </div>
@@ -139,8 +139,8 @@ const SectionFour = ({ content, isDevelopmentView }) => {
                   alt='card-img'
                   data-sizes='auto'
                   className={`lazyload ${style.img} img`}
-                  src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1687594302/techstudio-web-app/assets/images/Frame_73_eqbnub.webp`}
-                  data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_425/v1687594302/techstudio-web-app/assets/images/Frame_73_eqbnub.webp`}
+                  src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1691502656/techstudio-web-app/assets/images/IMG_9425_lelq4u.webp`}
+                  data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_450/v1691502656/techstudio-web-app/assets/images/IMG_9425_lelq4u.webp`}
                 />
                 <img
                   alt='card-img'

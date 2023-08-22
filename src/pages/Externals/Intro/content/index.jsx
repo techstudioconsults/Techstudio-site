@@ -4,8 +4,8 @@ export const INTRO_CONTENT = {
   price: [
     {
       id: 1,
-      img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685702014/techstudio/Frame_zkl9do.png`,
-      course: `Product Design`,
+      img: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_500/v1691612898/20e286636ecf529af409f599f0dbb9c2_xak8qt.gif`,
+      course: `User Interface & User Experience design`,
       desc: `
           Learn to design and deliver digital products that serve clients' needs and solve users' problems. Understand the fundamental techniques and tools of design like problem definition, user research, prototyping, testing, and more. Dive into human-computer interaction, information architecture, usability, and product management. You'll learn to engage in real-life project works, collaborate with other members of your team to execute the UX design process from start to finish.`,
       online: {
@@ -27,7 +27,7 @@ export const INTRO_CONTENT = {
     },
     {
       id: 2,
-      img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685701951/techstudio/Illustration_vtaodd.png`,
+      img: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_500/v1691823803/52f3a298d97a1f4c61987e149b3b902a_jjwbcv.gif`,
       course: `Fullstack Development`,
       // desc: `The first weeks of this bootcamp is to help you appreciate the fundamentals of web development, understanding structure, design and getting comfortable coding in HTML and CSS.
 
@@ -60,7 +60,7 @@ export const INTRO_CONTENT = {
     },
     {
       id: 3,
-      img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685701951/techstudio/Illustration_vtaodd.png`,
+      img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1692082274/19dc5738fe7bc39fc8789dd766fe4599_cekqgh.gif`,
       course: `Data Science`,
       desc: `Learn to build predictive models, understand data visualisation and pattern recognition. You'll learn to use leading methods to wrangle large data sets to forecast trends, generate information and inform strategy.
 
@@ -86,7 +86,7 @@ export const INTRO_CONTENT = {
     },
     {
       id: 4,
-      img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1685701951/techstudio/Illustration_vtaodd.png`,
+      img: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_500/v1691612900/015d82be2d96741cd9c9f29c2f6dc723_srx6in.gif`,
       course: `Frontend Development`,
       desc: `You’ll participate in a wide-range of projects where you’ll gain hands-on experience with the fundamentals of development. This program is designed to equip professionals with the competencies required to enable you sail through the tech space and take you through a hands-on learning experience to build platforms.`,
       online: {

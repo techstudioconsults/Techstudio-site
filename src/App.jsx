@@ -37,12 +37,17 @@ const Employers = lazy(() => import('./pages/Externals/Employers'))
 const ContactUs = lazy(() => import('./pages/Externals/ContactUs'))
 const Development = lazy(() => import('./pages/Externals/Development'))
 
+import { useEffect } from 'react'
+import { useCallback } from 'react'
+
 import SpinnerComponent from './components/global/skeletonLoader/SpinnerComponent'
 import { RecentTask } from './pages/Dashboard/Teacher/components/recentTask/RecentTask'
 import TutorClassTab from './pages/Dashboard/Teacher/components/tab/classTab/TutorClassTab'
 import TutorLessonTab from './pages/Dashboard/Teacher/components/tab/lessonTab/TutorLessonTab'
 import TutorResourceTab from './pages/Dashboard/Teacher/components/tab/ResourceTab/TutorResourceTabView'
 import SubmissionListView from './pages/Dashboard/Teacher/tasks/SubmissionListView'
+import { useGetUpcomingCoursesMutation } from './pages/Externals/api/externalApi'
+import { selectExternalCourses } from './pages/Externals/api/externalSlice'
 import {
   AdminCourseView,
   AdminDashboard,
@@ -71,21 +76,86 @@ import {
 } from './pages'
 
 const App = () => {
-  // const location = useLocation()
+  const [getUpcomingCourses, { isLoading }] = useGetUpcomingCoursesMutation()
+  const upcomingCourses = useSelector(selectExternalCourses)
+  const fetchUpcomingCourses = useCallback(async () => {
+    await getUpcomingCourses().unwrap()
+  }, [getUpcomingCourses])
 
-  // const [displayLocation, setDisplayLocation] = useState(location)
-  // const [transitionStage, setTransistionStage] = useState('fadeIn')
+  useEffect(() => {
+    fetchUpcomingCourses()
+  }, [fetchUpcomingCourses])
 
-  // useEffect(() => {
-  //   if (location !== displayLocation) setTransistionStage('fadeOut')
-  // }, [location, displayLocation])
-
-  const { fullStackDevelopment, datascience, UIUXDevelopment } =
-    DEVELOPMENT_CONTENT
+  const {
+    fullStackDevelopment,
+    datascience,
+    UIUXDevelopment,
+    frontendDevelopment,
+  } = DEVELOPMENT_CONTENT
 
   const classes = useSelector(selectClasses)
   const lessons = useSelector(selectLessons)
   const userType = useSelector(selectUserType)
+
+  const getCourseContent = (course) => {
+    switch (course.title?.toLowerCase()) {
+      case `product design ui/ux`:
+        return {
+          content: UIUXDevelopment,
+          path: `/course/product-design`,
+          job: `Product Designer`,
+          query: `UI/UX`,
+          courseName: course.title,
+        }
+      case `fullstack development`:
+        return {
+          content: fullStackDevelopment,
+          path: `/course/fullstack`,
+          job: `Fullstack Developer`,
+          query: `javascript`,
+          courseName: course.title,
+        }
+      case `data science`:
+        return {
+          content: datascience,
+          path: `/course/data-science`,
+          job: `Data Scientist`,
+          query: `science`,
+          courseName: course.title,
+        }
+      case `frontend engineering`:
+        return {
+          content: frontendDevelopment,
+          path: `/course/frontend`,
+          job: `Frontend Web Developer`,
+          query: `javascript`,
+          courseName: course.title,
+        }
+      default:
+        return {}
+    }
+  }
+
+  const displayUpcomingCoursesDetails = upcomingCourses.map((course) => {
+    return (
+      <Route
+        key={course.id}
+        path={getCourseContent(course).path}
+        element={
+          isLoading ? (
+            <SpinnerComponent />
+          ) : (
+            <Development
+              content={getCourseContent(course).content}
+              job={getCourseContent(course).job}
+              query={getCourseContent(course).query}
+              name={getCourseContent(course).courseName}
+            />
+          )
+        }
+      />
+    )
+  })
 
   return (
     <Suspense
@@ -131,54 +201,7 @@ const App = () => {
         <Route path='/blog' element={<Blog />} />
         <Route path='/blog/:id' element={<SingleBlogPage />} />
         <Route path='/contact' element={<ContactUs />} />
-        {/* <Route
-          path='/course/frontend'
-          element={
-            <Development
-              content={frontendDevelopment}
-              job={`Frontend Web Developer`}
-            />
-          }
-        /> */}
-        <Route
-          path='/course/fullstack'
-          element={
-            <Development
-              content={fullStackDevelopment}
-              job={`Fullstack Web Developer`}
-              query={`Javascript`}
-            />
-          }
-        />
-        <Route
-          path='/course/product-design'
-          element={
-            <Development
-              content={UIUXDevelopment}
-              job={`Product Designer`}
-              query={`product design`}
-            />
-          }
-        />
-        <Route
-          path='/course/data-science'
-          element={
-            <Development
-              content={datascience}
-              job={`Data Scientist`}
-              query={`Data science`}
-            />
-          }
-        />
-        {/* <Route
-          path='/course/mobile'
-          element={
-            <Development
-              content={mobileDevelopment}
-              job={`Frontend Developer`}
-            />
-          }
-        /> */}
+        {displayUpcomingCoursesDetails}
         {/* protected Routes */}
         {/* <Route element={<PersistLogin />}> */}
         <Route

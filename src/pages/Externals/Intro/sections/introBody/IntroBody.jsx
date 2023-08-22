@@ -36,24 +36,19 @@ import React from 'react'
 import { useContext } from 'react'
 
 import { IntroCard } from '../../../../../components'
-import AppContext from '../../../../../contexts/AppProvider'
 import { genericAnimation } from '../../../../../gsap'
 import Gsap from '../../../../../hooks/Gsap'
 import { Container } from '../../../../../layout'
-import { INTRO_CONTENT } from '../../content'
 
 import style from './introBody.module.scss'
 
-const IntroBody = () => {
-  const { index } = useContext(AppContext)
-  const { price } = INTRO_CONTENT
-
+const IntroBody = ({ courseDetails }) => {
   return (
     <section className={style.introBody}>
       <Container>
         <Gsap animationFuncion={() => genericAnimation(`tagDetails`)}>
           <section className={`${style.introBodyWrapper}`}>
-            <IntroCard course={price[index]} />
+            <IntroCard course={courseDetails} />
           </section>
         </Gsap>
       </Container>

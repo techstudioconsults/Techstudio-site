@@ -1,13 +1,16 @@
-import React, { useEffect, useRef, useState, useMemo } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Icon } from '@iconify/react'
 import PropTypes from 'prop-types'
 
 import { Button } from '../components'
+import { selectExternalCourses } from '../pages/Externals/api/externalSlice'
 
 import style from './layout.module.scss'
 
 const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
+  const upcomingCourses = useSelector(selectExternalCourses)
   const [color, setColor] = useState(setTextColorBlack)
   // const courses = useSelector(selectCoursesExternal)
   const navEl = useRef()
@@ -44,7 +47,8 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
   //     </li>
   //   )
   // })
-  const navStyle = 'container-xxl py-6 px-md-8  px-lg-16 px-xl-15 px-xxl-1 py-lg-6'
+  const navStyle =
+    'container-xxl py-6 px-md-8  px-lg-16 px-xl-15 px-xxl-1 py-lg-6'
 
   // const style = useEffect(() => {
   //   const styleNavbar = {
@@ -63,7 +67,32 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
   //   return styleNavbar
   // }, [])
 
+  const getCourseRoute = (title) => {
+    switch (title?.toLowerCase()) {
+      case `product design ui/ux`:
+        return `/course/product-design`
+      case `fullstack development`:
+        return `/course/fullstack`
+      case `data science`:
+        return `/course/data-science`
+      case `frontend engineering`:
+        return `/course/frontend`
+      default:
+        return `/`
+    }
+  }
 
+  const dynamicDropdown = upcomingCourses.map((course) => {
+    return (
+      <Link
+        key={course.id}
+        className='dropdown-item fs-sm fw-semibold py-2 text-dark'
+        to={getCourseRoute(course.title)}
+      >
+        {course.title}
+      </Link>
+    )
+  })
   return (
     <nav
       ref={navEl}
@@ -137,45 +166,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
                 />
               </div>
               <ul className='dropdown-menu mt-8 text-dark'>
-                <li className='my-2'>
-                  <Link
-                    className='dropdown-item fs-sm fw-semibold py-2 text-dark'
-                    to='/course/product-design'
-                  >
-                    Product Design
-                  </Link>
-
-                  {/* <Link
-                    className='dropdown-item fs-sm fw-semibold py-2'
-                    to='/course/frontend'
-                  >
-                    Frontend Development
-                  </Link> */}
-                </li>
-                <li className='my-2'>
-                  <Link
-                    className='dropdown-item fs-sm fw-semibold py-2 text-dark'
-                    to='/course/data-science'
-                  >
-                    Data Science
-                  </Link>
-                </li>
-                <li className='my-2'>
-                  <Link
-                    className='dropdown-item fs-sm fw-semibold py-2 text-dark'
-                    to='/course/fullstack'
-                  >
-                    Fullstack Development
-                  </Link>
-                </li>
-                {/* <li className='my-2'>
-                  <Link
-                    className='dropdown-item fs-sm fw-semibold py-2'
-                    to='/course/mobile'
-                  >
-                    Mobile Development
-                  </Link>
-                </li> */}
+                {dynamicDropdown}
               </ul>
             </div>
             {/* <Link

@@ -14,23 +14,23 @@ export const HOME_CONTENT = {
     },
     cards: [
       {
-        image: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687132640/techstudio-web-app/assets/images/Group_discussion_yyzu1o.gif`,
-        imageLow: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686218811/techstudio-web-app/assets/images/Group_1000002452_dtfdi4_hwvx6m.webp`,
+        image: `https://res.cloudinary.com/dkszgtapy/image/upload/v1692701429/career-development_fzzy90.gif`,
+        imageLow: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1692701429/career-development_fzzy90.gif`,
         title: `Great learning Environment`,
         description: `We provide you with the best learning facility you can lay
-your eyes on. All our classes are conducive, en-suite and
-equipped with high-speed internet and the latest
+        your eyes on. All our classes are conducive, en-suite and
+        equipped with high-speed internet and the latest
 technologies for learning.`,
       },
       {
-        image: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687132610/techstudio-web-app/assets/images/Office_work_fsvou4.gif`,
-        imageLow: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686218811/techstudio-web-app/assets/images/Group_1000002453_kuik1j_w4xaie.webp`,
+        image: `https://res.cloudinary.com/dkszgtapy/image/upload/v1692269977/people-discussing_ku4x9b.gif`,
+        imageLow: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1692269977/people-discussing_ku4x9b.gif`,
         title: `Experienced Tutor`,
         description: `Our tutors are highly skilled professionals that are chosen based on industry experience and teaching ability. Our support team provides students with guidance and tips on building a top-notch portfolio that woos employers.`,
       },
       {
-        image: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687132623/techstudio-web-app/assets/images/Website_Creator_xhhfld.gif`,
-        imageLow: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686218811/techstudio-web-app/assets/images/Illustration_vtaodd_ctbjgo.webp`,
+        image: `https://res.cloudinary.com/dkszgtapy/image/upload/v1692269984/business-meeting_x6xahr.gif`,
+        imageLow: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1692269984/business-meeting_x6xahr.gif`,
         title: `Career Support`,
         description: `We offer you the best support - either while you’re
         learning or after you’ve graduated. Our support team
@@ -101,6 +101,7 @@ technologies for learning.`,
         `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686218820/techstudio-web-app/assets/images/UBA_Group_-_png_ins7hl_ufleew.webp`,
         `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686218821/techstudio-web-app/assets/images/Access_Bank_-_png_0_xybewj_n0vtmy.webp`,
         `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686218817/techstudio-web-app/assets/images/PwC_-_png_dawz1t_qlx4wy.webp`,
+        `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1691612843/image_lp6d7k.webp`,
         `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686218822/techstudio-web-app/assets/images/Amazon_Web_Services_-_png_tdbti3_tdw8kg.webp`,
         `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686218814/techstudio-web-app/assets/images/image_2_awsu96_a54uz8.webp`,
       ],
