@@ -27,9 +27,9 @@ export const authApiSlice = apiSlice.injectEndpoints({
 
     registerStudent: builder.mutation({
       query: (credentials) => ({
-        url: '/auth/register',
+        url: `/auth/register?courseId=${credentials.courseID}`,
         method: 'POST',
-        body: { ...credentials },
+        body: { ...credentials.body },
       }),
     }),
 

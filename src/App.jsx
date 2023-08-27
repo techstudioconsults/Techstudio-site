@@ -106,6 +106,7 @@ const App = () => {
           job: `Product Designer`,
           query: `UI/UX`,
           courseName: course.title,
+          courseID: course.id,
         }
       case `fullstack development`:
         return {
@@ -114,6 +115,7 @@ const App = () => {
           job: `Fullstack Developer`,
           query: `javascript`,
           courseName: course.title,
+          courseID: course.id,
         }
       case `data science`:
         return {
@@ -122,6 +124,7 @@ const App = () => {
           job: `Data Scientist`,
           query: `science`,
           courseName: course.title,
+          courseID: course.id,
         }
       case `frontend engineering`:
         return {
@@ -130,6 +133,7 @@ const App = () => {
           job: `Frontend Web Developer`,
           query: `javascript`,
           courseName: course.title,
+          courseID: course.id,
         }
       default:
         return {}
@@ -150,6 +154,7 @@ const App = () => {
               job={getCourseContent(course).job}
               query={getCourseContent(course).query}
               name={getCourseContent(course).courseName}
+              courseID={getCourseContent(course).courseID}
             />
           )
         }

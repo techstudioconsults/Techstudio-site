@@ -25,11 +25,13 @@ const validation = {
   },
 }
 
-const CourseHero = ({ content, duration, courseName }) => {
+const CourseHero = ({ content, courseName, courseID }) => {
   const [registerStudent, { isLoading }] = useRegisterStudentMutation()
   const [errorMessage, setErrorMessage] = useState(null)
   const { title, subTitle } = content
   const { toast } = useToast()
+
+  console.log(courseID)
 
   const {
     register,
@@ -46,13 +48,13 @@ const CourseHero = ({ content, duration, courseName }) => {
       course: courseName,
       schedule: `Weekday`,
     }
-    console.log(formData)
+    // console.log(formData)
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
         document.getElementById('feedback')
       )
-      const res = await registerStudent(formData).unwrap()
-      console.log(res)
+      const res = await registerStudent({ body: formData, courseID }).unwrap()
+      // console.log(res)
 
       res.success ? modal.show() : null
     } catch (err) {

@@ -16,7 +16,7 @@ import CourseSectionTwo from './course/sectionTwo/CourseSectionTwo'
 
 const baseUrl = import.meta.env.VITE_BASE_URL
 
-const Development = ({ content, job, query, name }) => {
+const Development = ({ content, job, query, name, courseID }) => {
   const dispatch = useDispatch()
   const { hero, sectionTwo, sectionFour, duration } = content
   const {
@@ -57,7 +57,7 @@ const Development = ({ content, job, query, name }) => {
   return (
     <ExternalLayout>
       <Navbar bg={`transparent`} keepColor />
-      <CourseHero content={hero} courseName={query} />
+      <CourseHero content={hero} courseName={query} courseID={courseID} />
       <section style={style} className='m-auto mt-10 mt-lg-0'>
         <CourseBanner name={name} duration={duration} />
       </section>
