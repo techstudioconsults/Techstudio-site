@@ -104,7 +104,7 @@ const App = () => {
           content: UIUXDevelopment,
           path: `/course/product-design`,
           job: `Product Designer`,
-          query: `UI/UX`,
+          query: `product design`,
           courseName: course.title,
           courseID: course.id,
         }
@@ -113,7 +113,7 @@ const App = () => {
           content: fullStackDevelopment,
           path: `/course/fullstack`,
           job: `Fullstack Developer`,
-          query: `javascript`,
+          query: `fullstack`,
           courseName: course.title,
           courseID: course.id,
         }
@@ -131,7 +131,7 @@ const App = () => {
           content: frontendDevelopment,
           path: `/course/frontend`,
           job: `Frontend Web Developer`,
-          query: `javascript`,
+          query: `frontend javascript`,
           courseName: course.title,
           courseID: course.id,
         }
