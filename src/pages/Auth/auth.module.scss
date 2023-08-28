@@ -3,42 +3,17 @@
 @import '@/scss/utils/breakpoints';
 @import '@/scss/utils/mixins';
 
-// .signup {
-//   border: 1px solid red;
-//   padding: fn.rem(37);
-//   border-radius: fn.rem(8);
-//   border-top: fn.rem(7) solid colors.$blue;
-// }
-// .signup .header {
-//   border: 1px solid red;
-//   padding: fn.rem(37);
-//   border-radius: fn.rem(8);
-//   border-top: fn.rem(7) solid colors.$blue;
-// }
-
-// .signup .header .subTitle {
-//   margin-bottom: fn.rem(48);
-// }
-.signups {
-  border: 1px solid red;
+.signup {
   padding: fn.rem(37);
   border-radius: fn.rem(8);
   border-top: fn.rem(7) solid colors.$blue;
 }
-.header {
-  padding: 3rem;
-
-  .subTitle {
-    margin-bottom: fn.rem(48);
-  }
+.signup .header {
+  padding: fn.rem(37);
+  border-radius: fn.rem(8);
+  // border-top: fn.rem(7) solid colors.$blue;
 }
 
-@media (min-width: 700px) {
-  .header {
-    padding: 3rem;
-
-    .subTitle {
-      margin-bottom: fn.rem(48);
-    }
-  }
+.signup .header .subTitle {
+  margin-bottom: fn.rem(48);
 }
