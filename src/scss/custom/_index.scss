@@ -14,8 +14,9 @@ $info: #b8dff2;
 $dark: #292929;
 $body-color: #979dad;
 $mute: #6c757d;
-$danger: #e00017;
+$danger: green;
 $light: #fff;
+$myown: #000;
 
 $font-weight-lighter: lighter;
 $font-weight-light: 300;
@@ -32,6 +33,7 @@ $theme-colors: (
   'danger': $danger,
   'muted': $mute,
   'secondary': $secondary,
+  'myown': $myown,
 );
 
 $grid-columns: 12 !default;
@@ -150,7 +152,7 @@ $table-bg: transparent; //dont touch or modify.
   border-radius: fn.rem(16);
 }
 
-.cc-container{
+.cc-container {
   width: 100%;
   // padding-inline: fn.rem(12);
 
