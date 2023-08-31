@@ -75,6 +75,9 @@ import {
   TeacherDashboard,
 } from './pages'
 
+import packageJson from '../package.json'
+
+
 const App = () => {
   const [getUpcomingCourses, { isLoading }] = useGetUpcomingCoursesMutation()
   const upcomingCourses = useSelector(selectExternalCourses)
@@ -86,15 +89,29 @@ const App = () => {
     fetchUpcomingCourses()
   }, [fetchUpcomingCourses])
 
-  useEffect(() => {
-    // Function to clear complete cache data
-    caches.keys().then((names) => {
-      names.forEach((name) => {
-        caches.delete(name)
-      })
-    })
-    // alert('Complete Cache Cleared')
-  }, [])
+  
+
+useEffect(() => {
+  
+  let version = localStorage.getItem('version');
+  if (version != packageJson.version) {
+    if (window.caches) { // Corrected condition
+      caches.keys().then((names) => {
+        // Delete all the cache files
+        names.forEach(name => {
+          caches.delete(name);
+        })
+      });
+    }
+
+    // Makes sure the page reloads. Changes are only visible after you refresh.
+    window.location.reload();
+  }
+
+  localStorage.clear();
+  localStorage.setItem('version', packageJson.version);
+}, [])
+
 
   const {
     fullStackDevelopment,
