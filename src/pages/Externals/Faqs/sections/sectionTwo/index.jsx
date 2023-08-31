@@ -99,7 +99,7 @@ const Accordion = () => {
       >
         {'<'}
       </button>
-      {[1, 2, 3, 4].map((page) => (
+      {[1, 2, 3].map((page) => (
         <button
           key={page}
           className={

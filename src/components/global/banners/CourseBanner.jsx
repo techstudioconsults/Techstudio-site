@@ -45,7 +45,7 @@ const CourseBanner = ({ name, duration }) => {
                     )}`}
               </h2>
               <p className='m-0 text-dark small-text fw-bold'>
-                Weekend Class, {duration?.span?.weekend}{' '}
+                Weekend Class, Online Class: {duration?.span?.weekend}{' '}
               </p>
             </div>
             <div>
@@ -57,7 +57,7 @@ const CourseBanner = ({ name, duration }) => {
                     )}`}
               </h2>
               <p className='m-0 text-dark small-text fw-bold'>
-                Weekday Class, Online Class; {duration?.span?.weekday}{' '}
+                Weekday Class: {duration?.span?.weekday}{' '}
               </p>
             </div>
             <div className=''>
