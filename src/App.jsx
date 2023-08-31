@@ -86,6 +86,16 @@ const App = () => {
     fetchUpcomingCourses()
   }, [fetchUpcomingCourses])
 
+  useEffect(() => {
+    // Function to clear complete cache data
+    caches.keys().then((names) => {
+      names.forEach((name) => {
+        caches.delete(name)
+      })
+    })
+    alert('Complete Cache Cleared')
+  }, [])
+
   const {
     fullStackDevelopment,
     datascience,

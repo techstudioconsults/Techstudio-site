@@ -41,14 +41,15 @@ const Development = ({ content, job, query, name, courseID }) => {
 
   const getFAQ = useCallback(async () => {
     try {
-      const res = await axios.get(`${baseUrl}/external/faq?search=${query}`)
+      // const res = await axios.get(`${baseUrl}/external/faq?search=${query}`)
+      const res = await axios.get(`${baseUrl}/external/faq`)
       dispatch({ type: `app/setFAQ`, payload: res.data.data })
       console.log(res.data.data)
       // setLoading(false)
     } catch (err) {
       console.log(err)
     }
-  }, [dispatch, query])
+  }, [dispatch])
 
   useEffect(() => {
     getFAQ()
@@ -67,7 +68,10 @@ const Development = ({ content, job, query, name, courseID }) => {
 
       <section>
         <Container>
-          <h3 className='text-center'>{hero.title} FAQs</h3>
+          <h3 className='text-center'>
+            {/* {hero.title} */}
+            FAQs
+          </h3>
           <SectionTwo />
         </Container>
       </section>
