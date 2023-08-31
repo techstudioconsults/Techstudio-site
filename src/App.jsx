@@ -93,7 +93,7 @@ const App = () => {
         caches.delete(name)
       })
     })
-    alert('Complete Cache Cleared')
+    // alert('Complete Cache Cleared')
   }, [])
 
   const {
