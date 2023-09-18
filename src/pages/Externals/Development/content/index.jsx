@@ -644,7 +644,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
   },
   datascience: {
     hero: {
-      title: `Data Science Immersive With Python`,
+      title: `Data Science Immersive with Python and Machine Learning`,
       subTitle: `Get your hands dirty working with Excel and complex data. Dive into the Python programming language, understand data analysis and statistical modeling using Python, after which you move into machine learning and algorithms.`,
       img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687070589/techstudio-web-app/assets/images/Group_1000002401_tpwtbe.png`,
     },

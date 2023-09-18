@@ -167,7 +167,7 @@ const Footer = () => {
               <li className=''>
                 <a
                   target={`_blank`}
-                  href='https://twitter.com/TechStudioAcdmy'
+                  href='https://twitter.com/techstudioacdmy'
                   className='text-white cc-link-hover'
                 >
                   <Icon icon={`fa:twitter`} className='fs-xl' />
