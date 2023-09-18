@@ -23,7 +23,8 @@ const Footer = () => {
               <ul className='nav flex-column fs-sm mt-5 gap-1 align-items-start'>
                 <li className='nav-item mb-2'>
                   <p className='text-light small-text'>
-                    1,Ogunlesi Street, Awoyokun Bus Stop,<br/> Onipanu Lagos
+                    1,Ogunlesi Street, Awoyokun Bus Stop,
+                    <br /> Onipanu Lagos
                   </p>
                 </li>
               </ul>

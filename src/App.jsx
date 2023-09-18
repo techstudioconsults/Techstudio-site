@@ -40,6 +40,8 @@ const Development = lazy(() => import('./pages/Externals/Development'))
 import { useEffect } from 'react'
 import { useCallback } from 'react'
 
+import packageJson from '../package.json'
+
 import SpinnerComponent from './components/global/skeletonLoader/SpinnerComponent'
 import { RecentTask } from './pages/Dashboard/Teacher/components/recentTask/RecentTask'
 import TutorClassTab from './pages/Dashboard/Teacher/components/tab/classTab/TutorClassTab'
@@ -74,8 +76,6 @@ import {
   TeacherClassView,
   TeacherDashboard,
 } from './pages'
-
-import packageJson from '../package.json'
 
 const App = () => {
   const [getUpcomingCourses, { isLoading }] = useGetUpcomingCoursesMutation()
