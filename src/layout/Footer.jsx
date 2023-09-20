@@ -192,6 +192,16 @@ const Footer = () => {
                   <Icon icon={`fa:instagram`} className='fs-xl' />
                 </a>
               </li>
+
+              <li className=''>
+                <a
+                  target={`_blank`}
+                  href='https://linkedin.com/company/tech-studio-academy'
+                  className='text-white cc-link-hover '
+                >
+                  <Icon icon={`fa:linkedin`} className='fs-xl' />
+                </a>
+              </li>
             </ul>
           </div>
         </footer>
