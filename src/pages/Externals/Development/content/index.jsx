@@ -183,7 +183,7 @@ export const DEVELOPMENT_CONTENT = {
           desc: `Version control systems like Git play a crucial role in managing code changes over time. They provide a structured way to track modifications, maintain a history of changes, and enable multiple developers to work on the same codebase simultaneously. With version control, developers can create branches to work on different features or bug fixes independently`,
           caption: `UNIT 7`,
           bgColor: `light-blue-ii`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_500/v1691612844/1b675dbc3d6997b36a5b81d4eb14d4c1_shwnuv.gif`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1695457938/git_gknern.gif`,
           tagAttr: [
             {
               bgColor: `white`,
@@ -572,7 +572,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Version Control`,
           desc: `This Unit of the curriculum explores the importance of version control systems, with a particular focus on Git. Version control systems like Git play a crucial role in managing code changes over time. They provide a structured framework for tracking modifications, maintaining a comprehensive history of changes, and facilitating collaborative development by enabling multiple developers to work on the same codebase simultaneously.`,
           bgColor: `light-blue-ii`,
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_500/v1691612844/1b675dbc3d6997b36a5b81d4eb14d4c1_shwnuv.gif`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1695457938/git_gknern.gif`,
           tagAttr: [
             {
               bgColor: `white`,
