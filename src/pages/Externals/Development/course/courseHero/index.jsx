@@ -103,8 +103,9 @@ const CourseHero = ({ content, courseName, courseID }) => {
                     <ToastComponent errorMessage={errorMessage} />
                     <Feedback
                       content={{
-                        title: `Registration Successfull!`,
-                        desc: ` Your details have been received and our Customer Care Representative will contact you shortly.`,
+                        title: `Registration Successful!`,
+                        desc: `The program package has been successfully sent to your email. Thank you.`,
+                        /*Your details have been received and our Customer Care Representative will contact you shortly */
                       }}
                     />
                   </Portal>

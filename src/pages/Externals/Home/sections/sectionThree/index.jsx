@@ -31,7 +31,7 @@ const SectionThree = ({ content }) => {
 
 export const SectionThreeCard = ({ content }) => {
   return (
-    <Gsap animationFuncion={() => genericAnimation(`sectionThree`)}>
+    // <Gsap animationFuncion={() => genericAnimation(`sectionThree`)}>
       <div
         className={`${style.sectionThreeCard} d-flex flex-column align-items-center justify-content-between sectionThree`}
       >
@@ -58,7 +58,7 @@ export const SectionThreeCard = ({ content }) => {
           </button>
         </Link>
       </div>
-    </Gsap>
+    // </Gsap>
   )
 }
 
