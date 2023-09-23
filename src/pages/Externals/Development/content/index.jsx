@@ -202,6 +202,32 @@ export const DEVELOPMENT_CONTENT = {
             },
           ],
         },
+        {
+          id: 8,
+          classname: `H`,
+          title: `Capstone Project`,
+          desc: `In this unit, the project enables you to demonstrate multiple skills you have learned to develop a real life project. Students apply their Frontend Engineering skills to create a web application that is dynamic and real life worthy from choosing your library, creating folder structure, coding, testing, deployment, user experience enhancement, and a final presentation, showcasing their comprehensive understanding and abilities in frontend engineering.`,
+          caption: `UNIT 8`,
+          bgColor: `blue`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1692269983/ui-ux-development_fqnykx.gif`,
+          tagAttr: [
+            {
+              bgColor: `white`,
+              img: `vscode-icons:file-type-vscode`,
+              text: `Visual Studio Code`,
+            },
+             {
+              bgColor: `white`,
+              img: `logos:react`,
+              text: `React`,
+            },
+            {
+              bgColor: `white`,
+              img: `mdi:github`,
+              text: `GitHub`,
+            },
+          ],
+        },
       ],
     },
 
@@ -617,6 +643,36 @@ In object-oriented JavaScript, students will learn how to create objects, define
             },
           ],
         },
+        {
+          id: 9,
+          classname: `I`,
+          caption: `UNIT 9`,
+          title: `Capstone Project
+          `,
+          desc: `In this unit, students apply their Full-stack web development skills to create a web application, from 
+          choosing your library, creating folder structure, coding, testing, deployment, user experience enhancement, and a final presentation, showcasing their comprehensive understanding and abilities in web development.`,
+          bgColor: `white`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1692269983/ui-ux-development_fqnykx.gif`,
+          tagAttr: [
+            
+           
+            {
+              bgColor: `blue`,
+              img: `vscode-icons:file-type-vscode`,
+              text: `Visual Studio Code`,
+            },
+             {
+              bgColor: `blue`,
+              img: `logos:react`,
+              text: `React`,
+            },
+            {
+              bgColor: `blue`,
+              img: `mdi:github`,
+              text: `GitHub`,
+            },
+          ],
+        },
       ],
     },
 
@@ -644,7 +700,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
   },
   datascience: {
     hero: {
-      title: `Data Science Immersive With Python`,
+      title: `Data Science Immersive with Python and Machine Learning`,
       subTitle: `Get your hands dirty working with Excel and complex data. Dive into the Python programming language, understand data analysis and statistical modeling using Python, after which you move into machine learning and algorithms.`,
       img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687070589/techstudio-web-app/assets/images/Group_1000002401_tpwtbe.png`,
     },
@@ -817,6 +873,23 @@ In object-oriented JavaScript, students will learn how to create objects, define
             },
           ],
         },
+        {
+          id: 9,
+          classname: `I`,
+          caption: `UNIT 9`,
+          title: `Capstone Project`,
+          desc: `In this capstone project, students leverage their proficiency in Excel, Power BI, SQL, Python, and Machine Learning to analyze complex datasets, develop data-driven insights, create interactive visualizations, design and implement predictive models, and present their findings, culminating in a comprehensive demonstration of their data science expertise and problem-solving abilities. The key components are: Data collection, Data cleaning, Data summarization, Data interpretation, Data presentation.`,
+          bgColor: `white`,
+          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1692269983/ui-ux-development_fqnykx.gif`,
+          tagAttr: [
+            {
+              bgColor: `blue`,
+              img: `carbon:machine-learning-model`,
+              text: `ML Model`,
+            },
+          ],
+        },
+        
       ],
     },
 

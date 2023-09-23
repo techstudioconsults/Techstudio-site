@@ -61,7 +61,7 @@ const Carousel = () => {
         <Swiper
           ref={swiperRef}
           spaceBetween={50}
-          slidesPerView={1}
+          slidesPerView={1} 
           pagination={{
             clickable: true,
             dynamicBullets: true,

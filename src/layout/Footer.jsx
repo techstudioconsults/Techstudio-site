@@ -23,7 +23,8 @@ const Footer = () => {
               <ul className='nav flex-column fs-sm mt-5 gap-1 align-items-start'>
                 <li className='nav-item mb-2'>
                   <p className='text-light small-text'>
-                    1,Ogunlesi Street, Awoyokun Bus Stop, Onipanu Lagos
+                    1,Ogunlesi Street, Awoyokun Bus Stop,
+                    <br /> Onipanu Lagos
                   </p>
                 </li>
               </ul>
@@ -167,7 +168,7 @@ const Footer = () => {
               <li className=''>
                 <a
                   target={`_blank`}
-                  href='https://twitter.com/TechStudioAcdmy'
+                  href='https://twitter.com/techstudioacdmy'
                   className='text-white cc-link-hover'
                 >
                   <Icon icon={`fa:twitter`} className='fs-xl' />
@@ -189,6 +190,16 @@ const Footer = () => {
                   className='text-white cc-link-hover '
                 >
                   <Icon icon={`fa:instagram`} className='fs-xl' />
+                </a>
+              </li>
+
+              <li className=''>
+                <a
+                  target={`_blank`}
+                  href='https://linkedin.com/company/tech-studio-academy'
+                  className='text-white cc-link-hover '
+                >
+                  <Icon icon={`fa:linkedin`} className='fs-xl' />
                 </a>
               </li>
             </ul>
