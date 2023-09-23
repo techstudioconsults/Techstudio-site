@@ -149,7 +149,8 @@ const ContactForm = () => {
             <option>Fullstack Development</option>
             {/* <option>Frontend Development</option> */}
             <option>Product Design</option>
-            <option>Data science</option>
+            <option>Data Science</option>
+            <option>Frontend Engineering</option>
           </select>
         </div>
       </div>
