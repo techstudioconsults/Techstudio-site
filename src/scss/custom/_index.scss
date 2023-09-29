@@ -188,6 +188,21 @@ $table-bg: transparent; //dont touch or modify.
     color: colors.$light-red !important;
   }
 }
+.cc-link-hover-img {
+  position: relative;
+  transition: 4s ease;
+  &:hover {
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #01010150;
+    }
+  }
+}
 
 .cc-resource-hover {
   transition: 0.3s ease;
