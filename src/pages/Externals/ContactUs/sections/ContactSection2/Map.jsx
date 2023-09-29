@@ -37,5 +37,3 @@ const Map = ({ location }) => {
 }
 
 export default Map
-
-        // AIzaSyA5aU7vSwabkvdjPeiSQ-ooJRnwPEoWAcI
