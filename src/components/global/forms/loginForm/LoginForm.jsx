@@ -173,14 +173,14 @@ const ContactForm = () => {
         </button>
         <ToastComponent errorMessage={errorMessage} />
       </div>
-      {/* <footer className={style.caption}>
+      <footer className={style.caption}>
         <p className={style.footerLink}>
           Don’t have an account yet?{' '}
-          <Link to={`/register`} className={style.signupLink}>
+          <Link to={`/student/register`} className={style.signupLink}>
             Sign up here
           </Link>
         </p>
-      </footer> */}
+      </footer>
     </form>
   )
 }
