@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import { AvatarDropdown, CalendarApp, ClassDetails } from '../../components'
+
 import style from './dashboardDrawer.module.scss'
 
 function dashboardRightDrawer({ isTDB }) {
@@ -11,7 +13,7 @@ function dashboardRightDrawer({ isTDB }) {
       <div className='d-flex justify-content-end align-items-center'>
         <AvatarDropdown />
       </div>
-      <div>
+      <div className='my-10'>
         <CalendarApp />
       </div>
       <div>{classDetails}</div>

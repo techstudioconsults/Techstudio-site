@@ -1,20 +1,22 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import { Link, useNavigate } from 'react-router-dom'
 import { ErrorMessage } from '@hookform/error-message'
-import style from '../signupForm/signupForm.module.scss'
-import Feedback from '../../modals/Feedback'
-import Portal from '../../POTAL/Portal'
+import { Icon } from '@iconify/react'
+import axios from 'axios'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
-import ToastComponent from '../../toast/ToastComponent'
+
 import useToast from '../../../../hooks/useToast'
 import { Authlayout } from '../../../../layout'
-import { FaEye, FaEyeSlash } from 'react-icons/fa'
-import axios from 'axios'
+import Feedback from '../../modals/Feedback'
+import Portal from '../../POTAL/Portal'
+import ToastComponent from '../../toast/ToastComponent'
 
-const baseUrl = process.env.REACT_APP_BASE_URL
+import style from '../signupForm/signupForm.module.scss'
+
+const baseUrl = import.meta.env.VITE_BASE_URL
 
 const validation = {
   required: 'input your new password',
@@ -34,6 +36,7 @@ const ChangePassword = () => {
   const navigate = useNavigate()
 
   const token = location.pathname.split(`/`)[2]
+  console.log(token, baseUrl)
   const credentials = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -79,7 +82,7 @@ const ChangePassword = () => {
           credentials
         )
 
-        if (res.status === 201) {
+        if (res.status === 200) {
           setLoading(false)
           navigate(`/login`)
           modal.show()
@@ -142,7 +145,11 @@ const ChangePassword = () => {
                   className={['input-group-text', style.showPassword].join(' ')}
                   id='passwordHelpBlock'
                 >
-                  {isOldShow ? <FaEyeSlash /> : <FaEye />}
+                  {isOldShow ? (
+                    <Icon icon={`ph:eye-slash-thin`} />
+                  ) : (
+                    <Icon icon={`ph:eye`} />
+                  )}
                 </div>
               </div>
               <ErrorMessage
@@ -175,7 +182,11 @@ const ChangePassword = () => {
                   className={['input-group-text', style.showPassword].join(' ')}
                   id='passwordHelpBlock'
                 >
-                  {isNewShow ? <FaEyeSlash /> : <FaEye />}
+                  {isNewShow ? (
+                    <Icon icon={`ph:eye-slash-thin`} />
+                  ) : (
+                    <Icon icon={`ph:eye`} />
+                  )}
                 </div>
               </div>
               <ErrorMessage

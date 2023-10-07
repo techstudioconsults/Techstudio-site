@@ -1,6 +1,17 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/display-name */
 
+import { useCallback, useEffect, useState } from 'react'
+import { Controller, useForm } from 'react-hook-form'
+import { useSelector } from 'react-redux'
+import { useLocation, useNavigate } from 'react-router-dom'
+import Select from 'react-select'
+import { ErrorMessage } from '@hookform/error-message'
+import { yupResolver } from '@hookform/resolvers/yup'
+import axios from 'axios'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+import * as yup from 'yup'
+
 import {
   AvatarDropdown,
   CancelModal,
@@ -8,22 +19,13 @@ import {
   Save,
   ToastComponent,
 } from '../../../../../components'
-import style from './createCourse.module.scss'
-import Select from 'react-select'
-import { Controller, useForm } from 'react-hook-form'
-import { useGetTutorsMutation } from '../api/coursesApiSlice'
-import axios from 'axios'
-import { useSelector } from 'react-redux'
-import { selectCurrentToken } from '../../../../Auth/api/authSlice'
-import * as bootstrap from 'bootstrap/dist/js/bootstrap'
-import { useCallback, useEffect, useState } from 'react'
 import useToast from '../../../../../hooks/useToast'
-import { useLocation, useNavigate } from 'react-router-dom'
-import * as yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { ErrorMessage } from '@hookform/error-message'
+import { selectCurrentToken } from '../../../../Auth/api/authSlice'
+import { useGetTutorsMutation } from '../api/coursesApiSlice'
 
-const baseUrl = process.env.REACT_APP_BASE_URL
+import style from './createCourse.module.scss'
+
+const baseUrl = import.meta.env.VITE_BASE_URL
 
 const colorStyles = {
   control: (styles) => ({

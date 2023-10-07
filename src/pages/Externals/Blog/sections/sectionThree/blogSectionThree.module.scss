@@ -1,0 +1,23 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
+.blogSectionThree {
+  .header {
+    @include flex;
+    @include flex_align;
+    gap: fn.rem(32);
+
+    .horizontalLine {
+      flex: 1;
+      width: 80%;
+      height: fn.rem(3);
+    }
+  }
+
+  .olderPosts {
+    @include flex_column;
+    gap: fn.rem(24);
+  }
+}

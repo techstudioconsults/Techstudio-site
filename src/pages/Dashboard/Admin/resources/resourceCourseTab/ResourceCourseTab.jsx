@@ -2,13 +2,15 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { Outlet, useLocation, useNavigate, useParams } from 'react-router'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import style from '../resourceCourseTab/resourceCourseTab.module.scss'
+
+import SpinnerComponent from '../../../../../components/global/skeletonLoader/SpinnerComponent'
 import {
   useGetAllResourcesMutation,
   useGetResourcesByCourseIDMutation,
 } from '../api/resourceApiSlice'
 import { setResources } from '../api/resourceSlice'
-import SpinnerComponent from '../../../../../components/global/skeletonLoader/SpinnerComponent'
+
+import style from '../resourceCourseTab/resourceCourseTab.module.scss'
 
 const ResourceCourseTab = ({ courses }) => {
   const [resourcesLength, setResourceLength] = useState()

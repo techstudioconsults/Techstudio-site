@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+
 import UserRegistrationFormTab from './userRegistrationFormTab/UserRegistrationFormTab'
 
 // eslint-disable-next-line react/prop-types

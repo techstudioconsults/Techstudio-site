@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
 import { useNavigate } from 'react-router-dom'
+import PropTypes from 'prop-types'
 // import { MdClose } from 'react-icons/md'
 
 const Save = ({ content, saveCourse, isSave }) => {

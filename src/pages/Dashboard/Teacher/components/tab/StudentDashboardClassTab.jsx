@@ -1,7 +1,9 @@
 import React from 'react'
+
 import { Button } from '../../../../../components'
 import ResourceListDisplay from '../../../../../components/dashboard/resources/ResourceListDisplay'
 import { DASHBOARD_CONTENT } from '../../../../../layout/Layout/dashboardLayout/content'
+
 import style from './classTab.module.scss'
 
 const StudentDashboardClassTab = () => {

@@ -1,14 +1,15 @@
-import PropTypes from 'prop-types'
-import { useLocation } from 'react-router-dom'
 import { useCallback, useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { useLocation } from 'react-router-dom'
+import PropTypes from 'prop-types'
+
+import Feedback from '../../../../../components/global/feedbacks/Feedback'
+import SpinnerComponent from '../../../../../components/global/skeletonLoader/SpinnerComponent'
 import {
   useGetAllStudentsMutation,
   useGetStudentsByCourseIDMutation,
 } from '../api/usersApiSlice'
-import { useSelector } from 'react-redux'
 import { selectAllStudents } from '../api/usersSlice'
-import SpinnerComponent from '../../../../../components/global/skeletonLoader/SpinnerComponent'
-import Feedback from '../../../../../components/global/feedbacks/Feedback'
 
 const StudentListDisplay = () => {
   const [getAllStudents] = useGetAllStudentsMutation()

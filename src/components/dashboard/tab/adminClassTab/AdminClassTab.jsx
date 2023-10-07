@@ -1,17 +1,18 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { Link, useLocation, useParams } from 'react-router-dom'
+import { Icon } from '@iconify/react'
 import PropTypes from 'prop-types'
-import style from '../classesTab/classesTab.module.scss'
+
 import AdminClassDisplayCard from '../../../global/cards/adminClassDisplayCard/AdminClassDisplayCard'
 import LessonCard from '../../../global/cards/lessonCards/LessonCard'
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import Feedback from '../../../global/feedbacks/Feedback'
-import { Icon } from '@iconify/react'
-import { useDispatch } from 'react-redux'
+
+import style from '../classesTab/classesTab.module.scss'
 
 const ClassesTab = ({ classes, lessons, isTDB }) => {
   const location = useLocation()
-  const navigate = useNavigate()
   const onGoingTabRef = useRef(null)
   const lessonTabRef = useRef(null)
   const [isLesson, setLesson] = useState(false)

@@ -1,4 +1,5 @@
 import { apiSlice } from '../../../../../app/api/apiSlice'
+
 import { setClassResources, setResources } from './resourceSlice'
 
 export const resourceApiSlice = apiSlice.injectEndpoints({

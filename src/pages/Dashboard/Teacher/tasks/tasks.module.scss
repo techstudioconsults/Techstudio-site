@@ -1,24 +1,87 @@
-@use '../../../../scss/global/colors' as colors;
-@use '../../../../scss/utils/functions' as fn;
-@import '../../../../scss/utils/breakpoints';
-@import '../../../../scss/utils/mixins';
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
 
-.tasks {
-  padding: fn.rem(32) fn.rem(16);
-  .header {
-    @include flex;
-    @include flex_align;
-    margin-bottom: fn.rem(32);
-    .title {
-      font-weight: bold;
+.classView {
+  background-image: url('../../../../assets/images/512\ 1.png');
+  background-position: right;
+  // background-size: 30%;
+  background-repeat: no-repeat;
+  background-color: colors.$light;
+  background-attachment: fixed;
+  @include flex;
+
+  .dashboardDisplay {
+    padding: fn.rem(20) fn.rem(10);
+    width: 100%;
+    @include breakpoint-up('md') {
+      padding: fn.rem(32);
+    }
+    @include breakpoint-up('xl') {
+      width: 70%;
+    }
+
+    .header {
+      @include flex;
+      @include flex_align;
+      justify-content: space-between;
+    }
+    .searchInput {
+      width: fn.rem(400);
+      height: fn.rem(36);
+
+      input {
+        &::placeholder {
+          font-size: fn.rem(10);
+          color: colors.$secondary;
+        }
+      }
+    }
+
+    .noActive {
+      border: 1px solid red !important;
+    }
+
+    .dropdown {
+      color: colors.$deep-blue;
+      margin-left: -9rem !important;
+      margin-top: 0.5rem !important;
+    }
+
+    .tableHeadTitle {
+      flex: 2;
+      p {
+        color: colors.$deep-blue;
+      }
+    }
+
+    .tableHead {
+      flex: 1;
+      p {
+        color: colors.$gray;
+      }
+      ul {
+        height: 100%;
+        li {
+          font-size: fn.rem(12);
+          padding-block: fn.rem(1);
+        }
+      }
     }
   }
-  @include breakpoint-up('lg') {
-    padding: fn.rem(32);
-  }
-  .search {
-    width: 100%;
-    max-width: fn.rem(400);
-    margin-bottom: fn.rem(20);
+
+  .notification {
+    width: 30%;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: none;
+
+    @include breakpoint-up('xl') {
+      @include flex_column;
+      padding: fn.rem(32) fn.rem(16);
+      gap: fn.rem(85);
+    }
   }
 }

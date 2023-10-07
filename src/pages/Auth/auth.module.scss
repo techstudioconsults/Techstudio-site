@@ -1,16 +1,19 @@
-@use '../../scss/global/colors' as colors;
-@use '../../scss/utils/functions' as fn;
-@import '../../scss/utils/breakpoints';
-@import '../../scss/utils/mixins';
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
 
 .signup {
   padding: fn.rem(37);
   border-radius: fn.rem(8);
   border-top: fn.rem(7) solid colors.$blue;
+}
+.signup .header {
+  // padding: fn.rem(37);
+  border-radius: fn.rem(8);
+  // border-top: fn.rem(7) solid colors.$blue;
+}
 
-  .header {
-    .subTitle {
-      margin-bottom: fn.rem(48);
-    }
-  }
+.signup .header .subTitle {
+  margin-bottom: fn.rem(48);
 }

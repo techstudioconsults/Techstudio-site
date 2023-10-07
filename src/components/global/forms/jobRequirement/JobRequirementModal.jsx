@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { JobRequirementForm } from '../../..'
+
 import style from './job.module.scss'
 
 const JobRequirementModal = () => {

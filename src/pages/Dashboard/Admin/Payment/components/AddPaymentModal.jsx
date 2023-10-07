@@ -2,20 +2,22 @@
 /** @format */
 
 import React, { useState } from 'react'
-import style from '../style/paymentClasses.module.scss'
+import { useRef } from 'react'
 import { useForm } from 'react-hook-form'
-import * as bootstrap from 'bootstrap/dist/js/bootstrap'
-import axios from 'axios'
-import { selectCurrentToken } from '../../../../Auth/api/authSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { useRef } from 'react'
-import SaveSuccessPayment from '../../../../../components/global/modals/SaveSuccessPayment'
+import axios from 'axios'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+
+import { selectErrorMessage } from '../../../../../app/api/appSlice'
 import { CancelModal, Portal, ToastComponent } from '../../../../../components'
+import SaveSuccessPayment from '../../../../../components/global/modals/SaveSuccessPayment'
 // import useToast from '../../../../../hooks/useToast'
 import NewToast from '../../../../../components/global/toast/NewToast'
-import { selectErrorMessage } from '../../../../../app/api/appSlice'
 import useCurrency from '../../../../../hooks/useCurrency'
+import { selectCurrentToken } from '../../../../Auth/api/authSlice'
+
+import style from '../style/paymentClasses.module.scss'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 

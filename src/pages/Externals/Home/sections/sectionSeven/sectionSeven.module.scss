@@ -1,0 +1,27 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
+.carousel {
+  .quoteContainer {
+    flex: 1;
+    display: none;
+    @include breakpoint-up('xl') {
+      display: block;
+      img {
+        width: fn.rem(500);
+      }
+    }
+  }
+
+  .text {
+    flex: 2;
+  }
+}
+
+.classInfo {
+  @include breakpoint-up('lg') {
+    width: 50%;
+  }
+}

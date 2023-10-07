@@ -1,7 +1,7 @@
-@use '../../../../scss/global/colors' as colors;
-@use '../../../../scss/utils/functions' as fn;
-@import '../../../../scss/utils/breakpoints';
-@import '../../../../scss/utils/mixins';
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
 
 .teamCard {
   .teamCardImgContainer {
@@ -15,7 +15,7 @@
     .name {
       margin-bottom: 0;
       margin-top: fn.rem(16);
-      font-size: fn.rem(20);
+      // font-size: fn.rem(20);
       font-weight: 700;
     }
 

@@ -1,17 +1,19 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import { Icon } from '@iconify/react'
 import React from 'react'
+import { useState } from 'react'
+import { useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Icon } from '@iconify/react'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+
+import { useDashboardSearchMutation } from '../../../pages/Dashboard/Admin/api/dashboardApiSlice'
+import Feedback from '../feedbacks/Feedback'
+import Portal from '../POTAL/Portal'
+import SpinnerComponent from '../skeletonLoader/SpinnerComponent'
+
 import style from '../../../components/dashboard/dashboardNavbar/dashboardnavbar.module.scss'
 import searchStyle from './search.module.scss'
-import * as bootstrap from 'bootstrap/dist/js/bootstrap'
-import Portal from '../POTAL/Portal'
-import { useState } from 'react'
-import { useDashboardSearchMutation } from '../../../pages/Dashboard/Admin/api/dashboardApiSlice'
-import { useNavigate } from 'react-router-dom'
-import Feedback from '../feedbacks/Feedback'
-import SpinnerComponent from '../skeletonLoader/SpinnerComponent'
-import { useRef } from 'react'
 
 const SearchComponent = () => {
   const navigate = useNavigate()

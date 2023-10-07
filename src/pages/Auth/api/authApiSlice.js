@@ -1,5 +1,6 @@
-import { logOut, setCredentials } from './authSlice'
 import { apiSlice } from '../../../app/api/apiSlice'
+
+import { logOut, setCredentials } from './authSlice'
 
 export const authApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -26,9 +27,9 @@ export const authApiSlice = apiSlice.injectEndpoints({
 
     registerStudent: builder.mutation({
       query: (credentials) => ({
-        url: '/auth/register',
+        url: `/auth/register?courseId=${credentials.courseID}`,
         method: 'POST',
-        body: { ...credentials },
+        body: { ...credentials.body },
       }),
     }),
 

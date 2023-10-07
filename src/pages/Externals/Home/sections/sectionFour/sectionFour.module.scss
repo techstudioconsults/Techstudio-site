@@ -1,0 +1,158 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
+.sectionFour {
+  // border: 1px solid red;
+  position: relative;
+  z-index: 1;
+  .testimonial {
+    max-width: fn.rem(600);
+    margin: 0 auto;
+  }
+
+  .description {
+    width: 100%;
+    // width: 50%;
+    @include breakpoint-up('lg') {
+      width: 50%;
+    }
+  }
+
+  .brand {
+    width: fn.rem(100);
+    @include breakpoint-up('lg') {
+      // scale: 1;
+      width: fit-content;
+    }
+  }
+
+  .brandScale {
+    scale: 0.7;
+    @include breakpoint-up('lg') {
+      scale: 1;
+    }
+    // border: 1px solid red;
+  }
+
+  .sectionFourWrapper {
+    margin-top: fn.rem(100);
+    @include breakpoint-up('lg') {
+      @include flex;
+      @include flex_align;
+      // gap: fn.rem(50);
+    }
+
+    .sectionFourImg {
+      // border: 1px solid red;
+      position: relative;
+      display: none;
+      width: 50%;
+      // scale: 0.5;
+
+      .img {
+        // border: 1px solid red;
+        margin-left: 2rem;
+        // scale: 0.9;
+        width: fn.rem(394.3);
+        height: fn.rem(361.8);
+        object-fit: cover;
+      }
+
+      .angle,
+      .box {
+        position: absolute;
+        display: none;
+        @include breakpoint-up('xxl') {
+          display: initial;
+        }
+      }
+
+      .angle {
+        top: -1rem;
+        right: 5rem;
+      }
+
+      .box {
+        bottom: -1rem;
+        left: 0;
+        z-index: -1;
+      }
+
+      @include breakpoint-up('lg') {
+        display: block;
+      }
+    }
+
+    .sectionFourTextGroup {
+      @include breakpoint-up('lg') {
+        width: 60%;
+      }
+
+      .sectionFourText {
+        text-align: center;
+        margin-bottom: fn.rem(32);
+
+        @include breakpoint-up('lg') {
+          text-align: start;
+          margin-right: fn.rem(50);
+        }
+
+        @include breakpoint-up('2xl') {
+          margin-right: fn.rem(0);
+        }
+
+        .caption {
+          color: colors.$blue;
+          font-weight: 600;
+          // font-size: fn.rem(14);
+        }
+
+        .title {
+          font-weight: 600;
+          margin: fn.rem(16) 0 fn.rem(24);
+        }
+
+        .subTitle {
+          margin-bottom: fn.rem(52);
+          @include breakpoint-up('lg') {
+            // margin-right: fn.rem(50);
+          }
+        }
+      }
+    }
+
+    .btnContainer {
+      @include flex;
+      justify-content: center;
+      @include breakpoint-up('lg') {
+        justify-content: flex-start;
+      }
+    }
+  }
+}
+
+.gradientOverlay {
+  // border: 1px solid red;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 1) 2%,
+      rgba(255, 255, 255, 0) 20%,
+      rgba(255, 255, 255, 0) 50%,
+      rgba(255, 255, 255, 0) 70%,
+      rgba(255, 255, 255, 1) 98%
+    );
+    // background-color: red;
+    z-index: 2;
+  }
+}

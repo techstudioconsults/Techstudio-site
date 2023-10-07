@@ -1,0 +1,39 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
+.sectionFive {
+  background-color: colors.$light-blue-II;
+  @include breakpoint-up('lg') {
+    @include flex;
+    @include flex_align;
+    gap: fn.rem(64);
+    padding-block: fn.rem(40);
+  }
+
+  .stepperList,
+  .sectionFiveImg {
+    flex: 1;
+    position: relative;
+
+    .img1,
+    .img2 {
+      display: none;
+      @include breakpoint-up('lg') {
+        position: absolute;
+        display: initial;
+      }
+    }
+
+    .img1 {
+      top: -25rem;
+      // z-index: -1;
+    }
+    .img2 {
+      top: -5rem;
+      right: 0;
+      // z-index: -1;
+    }
+  }
+}

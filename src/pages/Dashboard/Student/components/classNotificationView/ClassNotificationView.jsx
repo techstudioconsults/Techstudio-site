@@ -1,9 +1,9 @@
 import React from 'react'
+import { Icon } from '@iconify/react'
+
 // import PropTypes from 'prop-types'
-import { AiFillFileText } from 'react-icons/ai'
-import { FaVideo } from 'react-icons/fa'
-import { IoMdChatbubbles } from 'react-icons/io'
-import { DASHBOARD_CONTENT } from '../../../../../layout/Layout/dashboardLayout/content'
+import { DASHBOARD_CONTENT } from '@/layout/Layout/dashboardLayout/content'
+
 import style from './classNotification.module.scss'
 
 const ClassNotificationView = () => {
@@ -13,11 +13,11 @@ const ClassNotificationView = () => {
       <div key={notice.id} className={style.notificationMessage}>
         <div className={style.icon}>
           {notice.type === `video` ? (
-            <FaVideo />
+            <Icon icon={`mdi:video`} />
           ) : notice.type === `messsage` ? (
-            <IoMdChatbubbles />
+            <Icon icon={`bxs:chat`} />
           ) : (
-            <AiFillFileText />
+            <Icon icon={`bxs:file`} />
           )}
         </div>
         <div className={style.details}>

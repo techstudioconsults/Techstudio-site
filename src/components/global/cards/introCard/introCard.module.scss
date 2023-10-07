@@ -1,10 +1,10 @@
-@use '../../../../scss/global/colors' as colors;
-@use '../../../../scss/utils/functions' as fn;
-@import '../../../../scss/utils/breakpoints';
-@import '../../../../scss/utils/mixins';
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
 
 .introCard {
-  max-width: fn.rem(1021);
+  max-width: fn.rem(1240.34);
   background-color: colors.$base-bg;
   padding: fn.rem(16);
   border: 1px solid #c4cdd5;
@@ -12,7 +12,7 @@
   gap: fn.rem(50);
 
   @include flex_column;
-  @include breakpoint-up('md') {
+  @include breakpoint-up('lg') {
     @include flex;
     @include flex_align;
     padding: fn.rem(35);
@@ -20,6 +20,7 @@
 
   .imgContainer {
     @include breakpoint-up('sm') {
+      flex: 1;
       max-width: fn.rem(290);
       margin: 0 auto;
       img {
@@ -35,17 +36,18 @@
   }
 
   .introCardText {
+    flex: 2;
     .title {
       margin-bottom: fn.rem(19);
       font-weight: 700;
     }
     .desc {
-      font-size: fn.rem(14);
+      // font-size: fn.rem(14);
       color: colors.$dark-gray;
     }
     .timeDate {
-      @include flex_column;
-      font-size: fn.rem(14);
+      @include flex;
+      // font-size: fn.rem(14);
       gap: fn.rem(32);
       margin-block: fn.rem(35);
       font-weight: 700;

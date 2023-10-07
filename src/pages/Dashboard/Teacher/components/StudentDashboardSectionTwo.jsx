@@ -1,9 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import { DashboardMiniCard } from '../../../../components'
+
 import style from './studentdashboardSections.module.scss'
 
-const StudentDashboardSectionTwo = ({ content }) => {
+const StudentDashboardSectionTwo = ({ content, profile }) => {
+  console.log(profile)
   const { cards } = content
   const cardDisplay = cards.map((card) => {
     return <DashboardMiniCard key={card.id} card={card} />

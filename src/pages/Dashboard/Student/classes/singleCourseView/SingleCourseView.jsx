@@ -1,9 +1,11 @@
 import React from 'react'
-import { Avatar } from '../../../../../components'
+
 import clock from '../../../../../assets/icons/alarm-clock.png'
-import style from './singlecourseview.module.scss'
-import VideoFrame from '../../components/videoframe/VideoFrame'
+import { Avatar } from '../../../../../components'
 import StudentDashboardClassTab from '../../components/tab/StudentDashboardClassTab'
+import VideoFrame from '../../components/videoframe/VideoFrame'
+
+import style from './singlecourseview.module.scss'
 
 const SingleCourseView = () => {
   return (

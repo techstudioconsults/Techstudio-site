@@ -1,8 +1,9 @@
 import React from 'react'
-import style from './blogCard.module.scss'
-import blogImg from '../../../../assets/images/blog-img1.webp'
-import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+// import blogImg from '../../../../assets/images/blog-img1.webp'
+import PropTypes from 'prop-types'
+
+import style from './blogCard.module.scss'
 
 const BlogCard = ({ isCarouselView }) => {
   return (
@@ -13,7 +14,11 @@ const BlogCard = ({ isCarouselView }) => {
       ].join(' ')}
     >
       <div className={style.imgContainer}>
-        <img src={blogImg} alt='blog-img' className='cc-img-fluid' />
+        <img
+          src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218517/techstudio-web-app/assets/images/blog-img1_gm7m8n.webp`}
+          alt='blog-img'
+          className='cc-img-fluid'
+        />
       </div>
       <div className={style.blogText}>
         <p className={style.date}>14th February, 2021</p>

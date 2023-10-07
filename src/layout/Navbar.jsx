@@ -1,14 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react'
-import PropTypes from 'prop-types'
-import { HiOutlineMenuAlt4 } from 'react-icons/hi'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import techimage from '../assets/icons/logo.png'
-import { FaChevronDown } from 'react-icons/fa'
+import { Icon } from '@iconify/react'
+import PropTypes from 'prop-types'
+
 import { Button } from '../components'
+import DiscountBanner from '../components/global/banners/DiscountBanner'
+import { selectExternalCourses } from '../pages/Externals/api/externalSlice'
+
 import style from './layout.module.scss'
 
 const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
+  const upcomingCourses = useSelector(selectExternalCourses)
   const [color, setColor] = useState(setTextColorBlack)
+  // const courses = useSelector(selectCoursesExternal)
   const navEl = useRef()
 
   useEffect(() => {
@@ -31,33 +36,94 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
     }
   }, [keepColor])
 
+  // const dropdownLinks = courses.map((course) => {
+  //   return (
+  //     <li key={course.id} className='my-2'>
+  //       <Link
+  //         className='dropdown-item fs-sm fw-semibold py-2'
+  //         to='/course/frontend'
+  //       >
+  //         {course.title}
+  //       </Link>
+  //     </li>
+  //   )
+  // })
+  const navStyle =
+    'container-xxl py-6 px-md-8  px-lg-16 px-xl-15 px-xxl-1 py-lg-6'
+
+  // const style = useEffect(() => {
+  //   const styleNavbar = {
+  //     borderRadius: `8.33846px`,
+  //     transform: `translateY(-50%)`,
+  //     position: `relative`,
+  //     maxWidth: `1080px`,
+  //   }
+
+  //   if (window.innerWidth >= 1200 && window.innerWidth <= 1400) {
+  //     styleNavbar.padding = `2rem 0`
+  //     styleNavbar.backgroundColor =`red`
+  //     // styleNavbar.width = `90%`
+  //   }
+
+  //   return styleNavbar
+  // }, [])
+
+  const getCourseRoute = (title) => {
+    switch (title?.toLowerCase()) {
+      case `product design ui/ux`:
+        return `/course/product-design`
+      case `fullstack development`:
+        return `/course/fullstack`
+      case `data science`:
+        return `/course/data-science`
+      case `frontend engineering`:
+        return `/course/frontend`
+      default:
+        return `/`
+    }
+  }
+
+  const dynamicDropdown = upcomingCourses.map((course) => {
+    return (
+      <Link
+        key={course.id}
+        className='dropdown-item fs-sm fw-semibold py-2 text-dark'
+        to={getCourseRoute(course.title)}
+      >
+        {course.title}
+      </Link>
+    )
+  })
   return (
     <nav
       ref={navEl}
-      className={['navbar navbar-expand-lg fixed-top py-0 py-lg-2'].join(' ')}
+      className={[
+        ' d-flex flex-column navbar navbar-expand-lg fixed-top py-0 py-lg-1',
+      ].join(' ')}
       style={{
         backgroundColor: bg,
       }}
     >
-      <div className='container-xxl py-3'>
+      {/* <DiscountBanner /> */}
+      <div className={`${navStyle}`}>
         <Link className='navbar-brand' to='/'>
           <div className='d-flex align-items-center gap-2'>
             <div className={style.navImgContainer}>
-              <img className='logo' src={techimage} alt='logo' />
+              <img
+                className={['logo', style.responsiveLogo].join(' ')}
+                src={
+                  color
+                    ? `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218815/techstudio-web-app/assets/images/logo_black_text_new_1_frkqnn_xdlflg.png`
+                    : `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218525/techstudio-web-app/assets/images/logo_white_text_new_2_fmjlzq.png`
+                }
+                alt='logo'
+              />
             </div>
-            <span
-              className={[
-                'fw-bold',
-                style.logoText,
-                color ? `text-black` : `text-white`,
-              ].join(' ')}
-            >
-              Techstudio Academy
-            </span>
           </div>
         </Link>
 
-        <HiOutlineMenuAlt4
+        <Icon
+          icon={`heroicons-solid:menu-alt-4`}
           data-bs-toggle='collapse'
           data-bs-target='#navbarNavAltMarkup'
           aria-controls='navbarNavAltMarkup'
@@ -71,7 +137,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
 
         <div
           className={[
-            'collapse navbar-collapse d-lg-flex justify-content-between ms-lg-10 ms-xl-24',
+            'collapse navbar-collapse d-lg-flex justify-content-between ms-lg-10 ms-xl-40',
             color ? style.navbarDropdownLight : style.navbarDropdown,
           ].join(' ')}
           id='navbarNavAltMarkup'
@@ -97,52 +163,16 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
                 aria-expanded='false'
               >
                 Courses
-                <FaChevronDown className='ms-2 fs-sm fw-semibold' />
+                <Icon
+                  icon={`mdi:chevron-down`}
+                  className='ms-2 fs-sm fw-semibold'
+                />
               </div>
-              <ul className='dropdown-menu mt-8'>
-                <li className='my-2'>
-                  <Link
-                    className='dropdown-item fs-sm fw-semibold py-2'
-                    to='/course/frontend'
-                  >
-                    Frontend
-                  </Link>
-                </li>
-                <li className='my-2'>
-                  <Link
-                    className='dropdown-item fs-sm fw-semibold py-2'
-                    to='/course/data-science'
-                  >
-                    Data Science
-                  </Link>
-                </li>
-                <li className='my-2'>
-                  <Link
-                    className='dropdown-item fs-sm fw-semibold py-2'
-                    to='/course/fullstack'
-                  >
-                    Fullstack
-                  </Link>
-                </li>
-                <li className='my-2'>
-                  <Link
-                    className='dropdown-item fs-sm fw-semibold py-2'
-                    to='/course/mobile'
-                  >
-                    Mobile Development
-                  </Link>
-                </li>
-                <li className='my-2'>
-                  <Link
-                    className='dropdown-item fs-sm fw-semibold py-2'
-                    to='/course/uiux'
-                  >
-                    UI/UX
-                  </Link>
-                </li>
+              <ul className='dropdown-menu mt-8 text-dark'>
+                {dynamicDropdown}
               </ul>
             </div>
-            <Link
+            {/* <Link
               className={[
                 'nav-link fw-semibold',
                 color ? `text-black` : `text-white`,
@@ -150,6 +180,15 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
               to='/employers'
             >
               Employers
+            </Link> */}
+            <Link
+              className={[
+                'nav-link fw-semibold',
+                color ? `text-black` : `text-white`,
+              ].join(' ')}
+              to='/faq'
+            >
+              FAQ
             </Link>
             <Link
               className={[
@@ -163,12 +202,13 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
           </div>
           <div
             className={[
-              'd-flex gap-3 justify-content-center my-10 my-lg-0',
+              'd-flex gap-3 justify-content-center fw-semibold my-10 my-lg-0',
               isEmployersRoute ? `d-none visibility-hidden` : null,
             ].join(' ')}
           >
             <Button linkHref='/login' linkText='Log in' solidBtn navBtn />
             <Button
+              className='fw-semibold'
               linkHref='/student/register'
               linkText='Register'
               textBtn

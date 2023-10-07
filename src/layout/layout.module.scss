@@ -1,18 +1,21 @@
-@use '../scss/global/colors' as colors;
-@use '../scss/utils/functions' as fn;
-@import '../scss/utils/breakpoints';
-@import '../scss/utils/mixins';
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
 
 .navImgContainer {
-  width: fn.rem(24);
+  width: fit-content;
   height: fn.rem(24);
   img {
     width: 100%;
     height: 100%;
+    // width: 4.5rem;
+    object-fit: contain;
+
   }
   @include breakpoint-up('lg') {
-    width: fn.rem(40);
-    height: fn.rem(40);
+    width: fn.rem(120);
+    height: fn.rem(36);
   }
 }
 
@@ -35,3 +38,21 @@
     background-color: transparent;
   }
 }
+
+@media (max-width: 370px) {
+  .responsiveLogo {
+    max-width: 100px;
+  }
+}
+@media (max-width: 480px) {
+  .responsiveLogo {
+    max-width: 100px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .responsiveLogo {
+    max-width: 150px;
+  }
+}
+

@@ -1,0 +1,24 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
+.sectionSix {
+  background-color: colors.$deep-blue;
+  margin: fn.rem(40) 0 fn.rem(70);
+  @include breakpoint-up('xl') {
+    margin: fn.rem(116) 0 fn.rem(144);
+    background-color: transparent;
+  }
+
+  .description {
+    @include breakpoint-up('xl') {
+      width: 50%;
+    }
+  }
+
+  .btnContainer {
+    @include flex;
+    margin-top: fn.rem(30);
+  }
+}

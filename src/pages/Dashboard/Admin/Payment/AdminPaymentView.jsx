@@ -1,17 +1,20 @@
-import React, { useEffect, useCallback } from 'react'
-import style from './style/paymentClasses.module.scss'
-import coinImg from '../../../../assets/images/amico.png'
-import { useViewAllCoursesMutation } from '../courses/api/coursesApiSlice'
-import { useGetClassByCourseIDMutation } from '../classes/api/classApiSlice'
+import React, { useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { selectCourses } from '../courses/api/coursesSlice'
 import { useParams } from 'react-router-dom'
-import Feedback from '../../../../components/global/feedbacks/Feedback'
+
 import { AvatarDropdown, SearchComponent } from '../../../../components'
-import PaymentTab from './components/PaymentTab'
+import Feedback from '../../../../components/global/feedbacks/Feedback'
+import useCurrency from '../../../../hooks/useCurrency'
+import { useGetClassByCourseIDMutation } from '../classes/api/classApiSlice'
+// import coinImg from '../../../../assets/images/amico.png'
+import { useViewAllCoursesMutation } from '../courses/api/coursesApiSlice'
+import { selectCourses } from '../courses/api/coursesSlice'
+
 import { useGetRevenueInfoMutation } from './api/paymentApiSlice'
 import { selectRevenueInfo } from './api/paymentSlice'
-import useCurrency from '../../../../hooks/useCurrency'
+import PaymentTab from './components/PaymentTab'
+
+import style from './style/paymentClasses.module.scss'
 
 const AdminPaymentView = () => {
   const [viewAllCourses] = useViewAllCoursesMutation()
@@ -130,7 +133,10 @@ const AdminPaymentView = () => {
                     </div>
                   </div>
                   <div>
-                    <img src={coinImg} alt='coin' />
+                    <img
+                      src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218516/techstudio-web-app/assets/images/amico_myhyzl.png`}
+                      alt='coin'
+                    />
                   </div>
                 </div>
               </div>
@@ -150,7 +156,10 @@ const AdminPaymentView = () => {
                     </div>
                   </div>
                   <div>
-                    <img src={coinImg} alt='coin' />
+                    <img
+                      src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218516/techstudio-web-app/assets/images/amico_myhyzl.png`}
+                      alt='coin'
+                    />
                   </div>
                 </div>
               </div>

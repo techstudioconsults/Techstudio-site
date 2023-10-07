@@ -1,0 +1,110 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
+.hero {
+  position: relative;
+  background-color: rgba(22, 33, 67, 0.87) !important;
+  background: url(https://res.cloudinary.com/dkszgtapy/image/upload/v1687252360/techstudio-web-app/assets/images/Frame_1000002468_wwh0ja.webp)
+    no-repeat;
+  background-size: cover;
+  @include flex;
+  @include flex_centered;
+  height: fn.rem(900);
+  margin-bottom: 5rem;
+
+  @include breakpoint-up('md') {
+    height: fn.rem(900);
+    margin-bottom: 0;
+  }
+  .heroWrapper {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    @include flex_column;
+    flex-direction: column;
+    gap: fn.rem(25);
+    padding-top: fn.rem(0);
+    color: colors.$light;
+
+    @include breakpoint-up('md') {
+      // padding-top: fn.rem(100);
+      gap: fn.rem(25);
+    }
+
+    @include breakpoint-up('xl') {
+      text-align: initial;
+      @include flex;
+      @include flex_align;
+      padding-top: 0;
+      // padding: 0 3rem;
+    }
+
+    .heroText {
+      flex: 1;
+      .title {
+        color: colors.$light;
+        font-weight: 600;
+        margin-bottom: fn.rem(22);
+      }
+    }
+
+    .heroForm {
+      flex: 1;
+      max-width: fn.rem(701);
+      height: fn.rem(484);
+      // height: fit-content;
+      height: auto;
+      margin: 0 auto;
+      @include flex_centered;
+
+      @include breakpoint-up('xl') {
+        display: initial;
+      }
+      .row {
+        display: flex;
+        gap: 1.5rem;
+      }
+      &Contents::before {
+        content: '';
+        width: 38%;
+        height: 387px;
+        background-color: hsla(214, 85%, 19%, 1);
+        position: absolute;
+        top: -3rem;
+        right: 0;
+        border-radius: 8px;
+        z-index: -1;
+        display: none;
+        @include breakpoint-up('xl') {
+          display: block;
+          // right: 1rem;
+        }
+      }
+
+      &Contents {
+        width: 100%;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+
+        @include breakpoint-up('md') {
+          width: 80%;
+        }
+      }
+      &Inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .btn {
+        background: colors.$blue;
+        font-weight: 100;
+        color: #fff;
+        border-radius: 5px;
+      }
+    }
+  }
+}

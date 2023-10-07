@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
+
 import Avatar from '../../global/avatar/Avatar'
+
 import style from './tutorlist.module.scss'
 
 const ListLayout = ({ tutor }) => {

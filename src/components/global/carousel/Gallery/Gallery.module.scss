@@ -1,0 +1,102 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+// *{
+//     padding: 0;
+//     margin: 0;
+//     box-sizing: border-box;
+// }
+.container {
+  width: 100%;
+  // background-color: red;
+}
+.GalleryIndex {
+  width: 100%;
+  padding: 5rem auto;
+  position: relative;
+  z-index: 1;
+
+  &Contents {
+    width: 100%;
+    margin: 0 auto;
+    &First {
+      &Inner {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-content: center;
+        align-items: center;
+        column-gap: 8rem;
+        text-align: center;
+
+        .galleryHeader {
+          // font-size: 14px;
+          color: #0266f4;
+        }
+        .gallerySubheader {
+          // font-size: 35px;
+          font-weight: 600;
+        }
+        .galleryText {
+          // font-size: 16px;
+        }
+
+        @include breakpoint-up('lg') {
+          display: grid;
+          grid-template-columns: repeat(2, auto);
+          text-align: start;
+        }
+      }
+    }
+    &Second {
+      border-radius: fn.rem(30);
+      // border: 1px solid red;
+      height: fn.rem(300);
+
+      // width: 100%;
+      @include breakpoint-up('lg') {
+        height: fn.rem(664);
+        min-width: fn.rem(892);
+        max-width: fn.rem(892);
+        // margin-right: auto;
+      }
+
+      .GalleryImg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .polygon {
+    display: none;
+    position: absolute;
+    top: fn.rem(-30);
+    left: fn.rem(-50);
+    z-index: 2;
+    @include breakpoint-up('xl') {
+      display: block;
+    }
+  }
+
+  .sliderText {
+    // height: fn.rem(505);
+    border-radius: fn.rem(14);
+    box-shadow: 10px 5px 15px #cccccc;
+    padding: fn.rem(30);
+    @include breakpoint-up('xl') {
+      margin: auto;
+      background-color: colors.$light;
+      position: relative;
+      z-index: 3;
+      max-width: fn.rem(458);
+      min-width: fn.rem(458);
+      transform: translateX(-10rem);
+    }
+    // @include breakpoint-up('md') {
+    //   border: 1px solid red;
+    //   transform: translateX(-35rem);
+    // }
+  }
+}

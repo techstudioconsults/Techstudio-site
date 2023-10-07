@@ -1,12 +1,12 @@
-@use '../../../scss/global/colors' as colors;
-@use '../../../scss/utils/functions' as fn;
-@import '../../../scss/utils/breakpoints';
-@import '../../../scss/utils/mixins';
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
 // add a new font called rubick to the dashboard view
 
 .dashboardCard {
-  width: 100%;
-  min-width: fn.rem(218.64);
+  // width: 100%;
+  // min-width: fn.rem(218.64);
   height: fn.rem(170);
   padding: fn.rem(20);
   @include flex;
@@ -15,6 +15,7 @@
   border-radius: fn.rem(4);
   background-color: colors.$base-bg;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  flex: 1;
 
   .icon {
     width: fn.rem(44);

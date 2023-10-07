@@ -1,0 +1,46 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
+.sectionThree {
+  background-color: #e5effe;
+  margin-block: fn.rem(32);
+
+  .title {
+    text-align: center;
+    font-weight: 600;
+    // font-size: fn.rem(14);
+    color: colors.$blue;
+    // margin-bottom: fn.rem(33);
+    @include breakpoint-up('xl') {
+      text-align: initial;
+    }
+  }
+  .subTitle {
+    text-align: center;
+    font-weight: 600;
+    // font-size: fn.rem(24);
+    @include breakpoint-up('xl') {
+      font-size: fn.rem(32);
+    }
+  }
+  .desc {
+    text-align: center;
+    // font-size: fn.rem(14);
+    max-width: fn.rem(557);
+  }
+
+  .message {
+    // font-size: fn.rem(14);
+    @include breakpoint-up('lg') {
+      // font-size: fn.rem(16);
+      max-width: fn.rem(600);
+    }
+  }
+}
+
+.sectionThreeCard {
+  // border: 1px solid red;
+  height: fn.rem(450);
+}

@@ -2,22 +2,24 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react'
 import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { selectClasses } from '../../classes/api/classSlice'
-import { selectCurrentToken } from '../../../../Auth/api/authSlice'
-import { selectStudentsPaymentRecord } from '../api/paymentSlice'
-import { useForm } from 'react-hook-form'
+import { Icon } from '@iconify/react'
 import axios from 'axios'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import download from 'downloadjs'
+
 import { Portal, ToastComponent } from '../../../../../components'
-import UserRegistrationFormModal from '../../users/userRegistrationForms/UserRegistrationFormModal'
 import Feedback from '../../../../../components/global/feedbacks/Feedback'
-import PaymentDisplayCard from './PaymentDisplayCard'
-import { Icon } from '@iconify/react'
-import useToast from '../../../../../hooks/useToast'
 import SpinnerComponent from '../../../../../components/global/skeletonLoader/SpinnerComponent'
+import useToast from '../../../../../hooks/useToast'
+import { selectCurrentToken } from '../../../../Auth/api/authSlice'
+import { selectClasses } from '../../classes/api/classSlice'
+import UserRegistrationFormModal from '../../users/userRegistrationForms/UserRegistrationFormModal'
+import { selectStudentsPaymentRecord } from '../api/paymentSlice'
+
+import PaymentDisplayCard from './PaymentDisplayCard'
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 

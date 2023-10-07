@@ -1,13 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import style from './dashboardbanner.module.scss'
 
-const DashboardBanner = ({ content }) => {
+const DashboardBanner = ({ content, profile }) => {
   const { header } = content
+  const { firstName, lastName } = profile
   return (
     <section className={style.banner}>
       <div className={style.text}>
-        <h4 className={style.title}>{header.title}</h4>
+        <h4 className={style.title}>
+          {firstName} {lastName}
+        </h4>
         <p className={style.desc}>{header.desc}</p>
       </div>
       <div className={style.bannerImg}>

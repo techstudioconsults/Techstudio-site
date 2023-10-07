@@ -1,0 +1,42 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
+.aboutHero {
+  //   border: 1px solid red;
+  @include flex_column;
+  text-align: center;
+  gap: fn.rem(32);
+  margin-top: fn.rem(100);
+  @include breakpoint-up('xl') {
+    text-align: left;
+    @include flex;
+    @include flex_align;
+  }
+
+  .aboutHeroTextGroup {
+    flex: 1;
+    .caption {
+      color: colors.$blue;
+      // font-size: fn.rem(14);
+    }
+
+    .title {
+      font-weight: 600;
+      margin-block: fn.rem(16);
+    }
+  }
+
+  .aboutHeroImg {
+    flex: 1;
+    max-width: fn.rem(659);
+    height: fn.rem(659);
+    display: none;
+    margin: 0 auto;
+    @include breakpoint-up('xl') {
+      @include flex_centered;
+      // display: block;
+    }
+  }
+}

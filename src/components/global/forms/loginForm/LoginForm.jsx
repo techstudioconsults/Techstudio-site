@@ -1,15 +1,17 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useEffect, useState } from 'react'
-import { FaEye, FaEyeSlash } from 'react-icons/fa'
-import { Link, useNavigate } from 'react-router-dom'
-import style from '../signupForm/signupForm.module.scss'
-import { ErrorMessage } from '@hookform/error-message'
 import { useForm } from 'react-hook-form'
+import { Link, useNavigate } from 'react-router-dom'
+import { ErrorMessage } from '@hookform/error-message'
+import { Icon } from '@iconify/react'
+
+import usePersist from '../../../../hooks/usePersist'
+import useToast from '../../../../hooks/useToast'
 // RTK
 import { useLoginMutation } from '../../../../pages/Auth/api/authApiSlice.js'
-import usePersist from '../../../../hooks/usePersist'
 import ToastComponent from '../../toast/ToastComponent'
-import useToast from '../../../../hooks/useToast'
+
+import style from '../signupForm/signupForm.module.scss'
 
 const validation = {
   required: 'This input is required.',
@@ -28,7 +30,7 @@ const ContactForm = () => {
   const [login, { isLoading }] = useLoginMutation()
 
   // hooks
-  const [persist, setPersist] = usePersist()
+  // const [persist, setPersist] = usePersist()
   const navigate = useNavigate()
   const { toast } = useToast()
 
@@ -64,9 +66,9 @@ const ContactForm = () => {
       return !prevState
     })
   }
-  const handleToggle = () => {
-    setPersist((prev) => !prev)
-  }
+  // const handleToggle = () => {
+  //   setPersist((prev) => !prev)
+  // }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={[style.form].join(' ')}>
@@ -116,7 +118,11 @@ const ContactForm = () => {
               className={['input-group-text', style.showPassword].join(' ')}
               id='passwordHelpBlock'
             >
-              {isShow ? <FaEyeSlash /> : <FaEye />}
+              {isShow ? (
+                <Icon icon={`ph:eye-slash-thin`} />
+              ) : (
+                <Icon icon={`ph:eye`} />
+              )}
             </div>
           </div>
           <ErrorMessage
@@ -134,7 +140,7 @@ const ContactForm = () => {
           />
         </div>
         <div className='d-flex justify-content-between align-items-center'>
-          <div className='form-check d-flex align-items-center gap-2'>
+          {/* <div className='form-check d-flex align-items-center gap-2'>
             <input
               disabled
               className='form-check-input'
@@ -150,7 +156,7 @@ const ContactForm = () => {
             >
               Remember me
             </label>
-          </div>
+          </div> */}
           <Link to={`/forgot-password`}>
             <p className={style.forgotpassword}>Forgot Password?</p>
           </Link>
@@ -167,14 +173,14 @@ const ContactForm = () => {
         </button>
         <ToastComponent errorMessage={errorMessage} />
       </div>
-      {/* <footer className={style.caption}>
+      <footer className={style.caption}>
         <p className={style.footerLink}>
           Don’t have an account yet?{' '}
-          <Link to={`/register`} className={style.signupLink}>
+          <Link to={`/student/register`} className={style.signupLink}>
             Sign up here
           </Link>
         </p>
-      </footer> */}
+      </footer>
     </form>
   )
 }

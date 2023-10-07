@@ -1,0 +1,38 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
+.jobForm {
+  label {
+    font-weight: 600;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: fn.rem(45);
+    margin-block: fn.rem(43);
+    @include breakpoint-up('lg') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    select,
+    input {
+      height: fn.rem(48);
+      font-size: fn.rem(14);
+    }
+  }
+  .rowSpan {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-block: fn.rem(43);
+    gap: fn.rem(45);
+
+    .quillWrapper {
+      .quill {
+        height: fn.rem(232);
+        margin-bottom: fn.rem(32);
+      }
+    }
+  }
+}

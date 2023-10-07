@@ -1,13 +1,17 @@
-import { ErrorMessage } from '@hookform/error-message'
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import useToast from '../../../../hooks/useToast'
+import { ErrorMessage } from '@hookform/error-message'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+
+import { SCALE_ANIMATION } from '../../../../gsap'
+import Gsap from '../../../../hooks/Gsap'
+import useToast from '../../../../hooks/useToast'
 import { useContactUsMutation } from '../../../../pages/Auth/api/authApiSlice'
-import style from './contactForm.module.scss'
-import ToastComponent from '../../toast/ToastComponent'
+import ContactUsFeedback from '../../../../pages/Externals/ContactUs/sections/ContactSection3/ContactSection3'
 import Portal from '../../POTAL/Portal'
-import Feedback from '../../modals/Feedback'
+import ToastComponent from '../../toast/ToastComponent'
+
+import style from './contactForm.module.scss'
 
 const validation = {
   required: 'This input is required.',
@@ -31,9 +35,11 @@ const ContactForm = () => {
   })
 
   const onSubmit = async (data) => {
+    console.log(data)
+    let modal
     try {
-      let modal = bootstrap.Modal.getOrCreateInstance(
-        document.getElementById('feedback')
+      modal = bootstrap.Modal.getOrCreateInstance(
+        document.getElementById('contactUsfeedback')
       )
       const res = await contactUs(data).unwrap()
       console.log(res)
@@ -50,27 +56,22 @@ const ContactForm = () => {
   }, [isSubmitSuccessful, reset])
 
   return (
+    // <Gsap animationFuncion={() => SCALE_ANIMATION(`form`)}>
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className={[style.form, `cc-shadow`].join(' ')}
+      className={[style.form, `cc-shadow form`].join(' ')}
     >
       <Portal wrapperId='react-portal-modal-container'>
-        <Feedback
-          content={{
-            title: `Message sent successfully`,
-            desc: ` Your message has been received and our Customer Care
-                Representative will contact you shortly.`,
-          }}
-        />
+        <ContactUsFeedback />
       </Portal>
       <div>
-        <label htmlFor='fullName' className='form-label fw-semibold'>
+        <label htmlFor='fullName' className='form-label fw-semibold d-flex'>
           Full Name
         </label>
         <input
           type='text'
           id='fullName'
-          className='form-control'
+          className='form-control text-dark'
           aria-describedby='passwordHelpBlock'
           placeholder='Full name'
           {...register('fullName', validation)}
@@ -81,7 +82,7 @@ const ContactForm = () => {
           render={({ messages }) => {
             return messages
               ? Object.entries(messages).map(([type, message]) => (
-                  <p className='fs-xs text-danger' key={type}>
+                  <p className=' text-danger' key={type}>
                     {message}
                   </p>
                 ))
@@ -90,13 +91,13 @@ const ContactForm = () => {
         />
       </div>
       <div>
-        <label htmlFor='email' className='form-label fw-semibold'>
+        <label htmlFor='email' className='form-label fw-semibold d-flex'>
           Email Address
         </label>
         <input
           type='email'
           id='email'
-          className='form-control'
+          className='form-control text-dark'
           aria-describedby='passwordHelpBlock'
           placeholder='example@example.com'
           {...register('email', validation)}
@@ -107,7 +108,33 @@ const ContactForm = () => {
           render={({ messages }) => {
             return messages
               ? Object.entries(messages).map(([type, message]) => (
-                  <p className='fs-xs text-danger' key={type}>
+                  <p className='text-danger' key={type}>
+                    {message}
+                  </p>
+                ))
+              : null
+          }}
+        />
+      </div>
+      <div>
+        <label htmlFor='email' className='form-label fw-semibold d-flex'>
+          Subject
+        </label>
+        <input
+          type='text'
+          id='subject'
+          className='form-control text-dark'
+          aria-describedby='passwordHelpBlock'
+          placeholder='subject title'
+          // {...register('subject', validation)}
+        />
+        <ErrorMessage
+          errors={errors}
+          name='email'
+          render={({ messages }) => {
+            return messages
+              ? Object.entries(messages).map(([type, message]) => (
+                  <p className='text-danger' key={type}>
                     {message}
                   </p>
                 ))
@@ -116,7 +143,7 @@ const ContactForm = () => {
         />
       </div>
       {/* <div>
-        <label htmlFor='subject' className='form-label fw-semibold'>
+        <label htmlFor='subject' className='form-label fw-semibold d-flex'>
           Subject
         </label>
         <select
@@ -127,11 +154,11 @@ const ContactForm = () => {
         </select>
       </div> */}
       <div className={style.textArea}>
-        <label htmlFor='message' className='form-label fw-semibold'>
+        <label htmlFor='message' className='form-label fw-semibold d-flex'>
           Message or Questions
         </label>
         <textarea
-          className='form-control'
+          className='form-control text-dark'
           id='message'
           rows='3'
           placeholder='Type your message, questions or inquiries here'
@@ -143,7 +170,7 @@ const ContactForm = () => {
           render={({ messages }) => {
             return messages
               ? Object.entries(messages).map(([type, message]) => (
-                  <p className='fs-xs text-danger' key={type}>
+                  <p className='text-danger' key={type}>
                     {message}
                   </p>
                 ))
@@ -151,8 +178,13 @@ const ContactForm = () => {
           }}
         />
       </div>
+
       <div className={style.btnContainer}>
-        <button type='submit'>
+        <button
+          type='submit'
+          data-toggle='modal'
+          data-target='#ContactFeedback'
+        >
           <div
             hidden={!isLoading}
             className='spinner-border spinner-border-sm me-5 text-white'
@@ -163,6 +195,7 @@ const ContactForm = () => {
         <ToastComponent errorMessage={errorMessage} />
       </div>
     </form>
+    // </Gsap>
   )
 }
 

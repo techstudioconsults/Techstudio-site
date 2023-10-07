@@ -1,0 +1,49 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
+.singleBlogHeader {
+  color: colors.$light;
+  background: url(https://res.cloudinary.com/dkszgtapy/image/upload/v1686218518/techstudio-web-app/assets/images/blogHeroBg_ckuu9x.webp)
+    no-repeat center;
+  background-size: cover;
+  margin-block-end: fn.rem(100);
+  @include breakpoint-up('lg') {
+    margin-block-end: fn.rem(350);
+    height: fn.rem(500);
+  }
+
+  .heroWrapper {
+    max-width: fn.rem(939);
+    margin: 0 auto;
+    @include flex_column;
+    transform: translateY(fn.rem(100));
+    @include breakpoint-up('lg') {
+      transform: translateY(fn.rem(150));
+    }
+
+    .heading {
+      //   padding-top: fn.rem(100);
+      max-width: fn.rem(939);
+
+      .title {
+        color: colors.$light;
+        @include breakpoint-up('lg') {
+        }
+      }
+
+      .subText {
+        @include flex;
+        @include flex_align;
+        gap: fn.rem(16);
+        margin: fn.rem(16) 0 fn.rem(41);
+      }
+    }
+
+    .imgContainer {
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+      max-width: fn.rem(939);
+    }
+  }
+}

@@ -1,10 +1,11 @@
 import React from 'react'
-import style from './authLayout.module.scss'
-import authImg from '../../../assets/images/authImg.webp'
-import logo from '../../../assets/icons/logo.png'
-import { PropTypes } from 'prop-types'
 import { Link } from 'react-router-dom'
+import { PropTypes } from 'prop-types'
+
+import logo from '../../../assets/icons/logo.png'
 import MinimalFooter from '../../MinimalFooter'
+
+import style from './authLayout.module.scss'
 
 const index = ({ children }) => {
   return (
@@ -12,8 +13,12 @@ const index = ({ children }) => {
       <Link to={`/`} className={style.logo}>
         <img src={logo} alt='logo' />
       </Link>
-      <div className={style.imgContainer}>
-        <img src={authImg} alt='auth-img' className='cc-img-fluid' />
+      <div className={`${style.imgContainer}`}>
+        <img
+          src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218517/techstudio-web-app/assets/images/authImg_uy00im.webp`}
+          alt='auth-img'
+          className='cc-img-fluid'
+        />
       </div>
       <div className={style.children}>
         <div className={style.childrenWrapper}>

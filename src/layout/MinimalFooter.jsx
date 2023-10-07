@@ -1,5 +1,4 @@
 import React from 'react'
-import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa'
 
 import Container from './Container'
 
@@ -18,7 +17,7 @@ const MinimalFooter = () => {
                 href='https://twitter.com/TechStudioAcdmy'
                 className='text-blue'
               >
-                <FaTwitter className='fs-sm' />
+                {/* <FaTwitter className='fs-sm' /> */}
               </a>
             </li>
             <li className='ms-3'>
@@ -27,7 +26,7 @@ const MinimalFooter = () => {
                 href='https://facebook.com/techstudioacademy'
                 className='text-blue'
               >
-                <FaFacebookF className='fs-sm' />
+                {/* <FaFacebookF className='fs-sm' /> */}
               </a>
             </li>
             <li className='ms-3'>
@@ -36,7 +35,7 @@ const MinimalFooter = () => {
                 href='https://instagram.com/techstudioacademy'
                 className='text-blue cc-link-hover '
               >
-                <FaInstagram className='fs-sm' />
+                {/* <FaInstagram className='fs-sm' /> */}
               </a>
             </li>
           </ul>

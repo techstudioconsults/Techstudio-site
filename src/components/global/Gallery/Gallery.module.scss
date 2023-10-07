@@ -1,0 +1,67 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+// *{
+//     padding: 0;
+//     margin: 0;
+//     box-sizing: border-box;
+// }
+.container {
+  width: 100%;
+  // background-color: red;
+}
+.GalleryIndex {
+  width: 100%;
+  // max-width: 1440px;
+  margin: 5rem auto;
+  // background-color: red;
+
+  @include breakpoint-up('lg') {
+    // width: fn.rem(1439);
+    // height: fn.rem(312);
+    margin: 0 auto;
+  }
+
+  &Contents {
+    width: 100%;
+    margin: 0 auto;
+    &First {
+      &Inner {
+        width: 90%;
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto 3rem;
+        column-gap: 8rem;
+        text-align: center;
+
+        .galleryHeader {
+          font-size: 14px;
+          color: #0266f4;
+        }
+        .gallerySubheader {
+          font-size: 35px;
+        }
+        .galleryText {
+          font-size: 16px;
+        }
+
+        @include breakpoint-up('lg') {
+          width: 90%;
+          display: grid;
+          grid-template-columns: repeat(2, auto);
+          text-align: start;
+        }
+      }
+    }
+    &Second {
+      max-width: 1440px;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

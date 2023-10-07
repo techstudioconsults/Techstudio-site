@@ -1,5 +1,5 @@
 import { apiSlice } from '../../../../../app/api/apiSlice'
-import { setcourseDetailsLoading } from '../../../../../app/api/appSlice'
+
 import { setCourseDetails, setCourses } from './coursesSlice'
 
 export const coursesApiSlice = apiSlice.injectEndpoints({

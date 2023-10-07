@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import style from './avatarStack.module.scss'
 
 const AvatarStack = ({ showImage, imageList, dontShowMore, tutors }) => {
@@ -48,6 +49,7 @@ const AvatarStack = ({ showImage, imageList, dontShowMore, tutors }) => {
           ? `Students yet to register`
           : ``}
       </p>
+      {/* <p className='text-secondary fs-sm ms-1'>+30 joined the class</p> */}
     </div>
   )
 }

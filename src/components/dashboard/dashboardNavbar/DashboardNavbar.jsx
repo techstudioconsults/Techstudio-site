@@ -1,12 +1,14 @@
 import React from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import PropTypes from 'prop-types'
+
 import { DashboardRightDrawer } from '../../../layout'
 import CalendarOffCanvas from '../../global/offCanvas/CalendarOffCanvas'
-import style from './dashboardnavbar.module.scss'
-import PropTypes from 'prop-types'
-import { Link, useLocation } from 'react-router-dom'
 import SearchComponent from '../../global/searchComponent/SearchComponent'
 
-const DashboardNavbar = ({ isTDB }) => {
+import style from './dashboardnavbar.module.scss'
+
+const DashboardNavbar = ({ isTDB, isADB }) => {
   const location = useLocation()
   const courseID = location.pathname.split(`/`)[3]
 
@@ -22,18 +24,27 @@ const DashboardNavbar = ({ isTDB }) => {
         <div className='d-flex align-items-center gap-2'>
           {/* make this search input a stand alone component */}
           <SearchComponent />
-          <div
-            className={[isTDB ? `d-none d-md-flex gap-2` : `d-none`].join(' ')}
-          >
-            <Link to={`/admin/courses/create`}>
-              <button
-                style={{ height: `2.25rem`, width: `9.938rem` }}
-                className='btn btn-primary fs-sm'
-              >
-                Create Course
-              </button>
-            </Link>
-            {courseID ? (
+          <div className={[`d-none d-md-flex gap-2`].join(' ')}>
+            {isTDB ? (
+              <Link>
+                <button
+                  style={{ height: `2.25rem`, width: `9.938rem` }}
+                  className='btn btn-primary fs-sm'
+                >
+                  Schedule Lesson
+                </button>
+              </Link>
+            ) : (
+              <Link to={`/admin/courses/create`}>
+                <button
+                  style={{ height: `2.25rem`, width: `9.938rem` }}
+                  className='btn btn-primary fs-sm'
+                >
+                  Create Course
+                </button>
+              </Link>
+            )}
+            {courseID && isADB ? (
               <Link
                 to={`/admin/class/${courseID}/create`}
                 state={{ tutors: location?.state?.tutors }}

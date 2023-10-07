@@ -1,6 +1,8 @@
 import React from 'react'
+
 import { AdminSignupForm } from '../../../components'
 import { Authlayout } from '../../../layout'
+
 import style from '../auth.module.scss'
 
 const AdminSignup = () => {

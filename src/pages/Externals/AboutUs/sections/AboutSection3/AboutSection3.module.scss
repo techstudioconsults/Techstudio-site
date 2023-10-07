@@ -1,0 +1,45 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
+.aboutSectionThree {
+  background-color: colors.$light-blue-III;
+  padding: fn.rem(0) 0 fn.rem(0);
+  margin-top: -5rem;
+   @include breakpoint-up('xl') {
+       margin-top: -1rem;
+      }
+  
+  .header {
+    text-align: center;
+    margin-block-end: fn.rem(55);
+    .title {
+      width: fit-content;
+      font-weight: 600;
+      margin: 0 auto;
+      @include breakpoint-up('xl') {
+        // font-size: fn.rem(32);
+      }
+    }
+
+    .subTitle {
+      text-align-last: center;
+      max-width: fn.rem(500);
+      margin: auto;
+    }
+  }
+  .cardGroup {
+    display: grid;
+    grid-column-gap: fn.rem(70);
+    grid-row-gap: fn.rem(20);
+    margin-block-start: fn.rem(60);
+    grid-template-columns: repeat(1, 1fr);
+    @include breakpoint-up('md') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include breakpoint-up('xl') {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

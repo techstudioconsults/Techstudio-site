@@ -1,21 +1,21 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useCallback, useEffect } from 'react'
-import { DASHBOARD_CONTENT } from '../../../layout/Layout/dashboardLayout/content'
-import style from './dashboardresource.module.scss'
-import './custom.css'
-import ResourceListDisplay from './ResourceListDisplay'
-import PropTypes from 'prop-types'
-import { useDashboardAllResourcesMutation } from '../../../pages/Dashboard/Admin/api/dashboardApiSlice'
-import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+import PropTypes from 'prop-types'
+
+import { useDashboardAllResourcesMutation } from '../../../pages/Dashboard/Admin/api/dashboardApiSlice'
 import { selectDashboardResources } from '../../../pages/Dashboard/Admin/api/dashboardSlice'
 import AdminResourceListDisplay from '../../../pages/Dashboard/Admin/resources/resourceCourseTab/AdminResourceListDisplay'
+import { AddResource } from '../..'
 import Feedback from '../../global/feedbacks/Feedback'
 import Portal from '../../global/POTAL/Portal'
-import { AddResource } from '../..'
-import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import SpinnerComponent from '../../global/skeletonLoader/SpinnerComponent'
+
+import './custom.css'
+import style from './dashboardresource.module.scss'
 
 const DashboardResource = () => {
   // const { studentBoard } = DASHBOARD_CONTENT

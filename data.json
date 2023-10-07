@@ -1,0 +1,89 @@
+{
+  "data": [
+    {
+      "id": "64d7c55060786070817d638b",
+      "title": "Javascript Fullstack Web Development",
+      "description": "With 24 intense weeks of on-campus training, you will learn to think and build like software developers. You move from understanding programming fundamentals to launching full-stack web apps. You do all these while learning to solve everyday problems with constructive, well-written programs\r\n\r\n",
+      "duration": 24,
+      "startDate": "2023-09-01T00:00:00.000Z",
+      "fee": 500000,
+      "upcoming class": {
+        "online": {
+          "id": "64d7c64160786070817d63b7",
+          "title": "Javascript Fullstack Web Develpment",
+          "courseId": "64d7c55060786070817d638b",
+          "courseTitle": "Javascript Fullstack Web Development",
+          "description": "With 24 intense weeks of on-campus training, you will learn to think and build like software developers. You move from understanding programming fundamentals to launching full-stack web apps. You do all these while learning to solve everyday problems with constructive, well-written programs\n",
+          "preference": "weekday",
+          "startDate": "2023-09-01T00:00:00.000Z",
+          "endDate": "2024-02-01T00:00:00.000Z",
+          "fee": 500000,
+          "tutors": [
+            {
+              "id": "64d7567260786070817d62c3",
+              "name": "Test Tutor",
+              "avatar": null
+            }
+          ],
+          "students": [],
+          "resources": {
+            "audio": [],
+            "video": [],
+            "document": []
+          },
+          "createdAt": "2023-08-12T17:49:53.269Z"
+        },
+        "weekend": {
+          "id": "64d7c64160786070817d63b7",
+          "title": "Javascript Fullstack Web Develpment",
+          "courseId": "64d7c55060786070817d638b",
+          "courseTitle": "Javascript Fullstack Web Development",
+          "description": "With 24 intense weeks of on-campus training, you will learn to think and build like software developers. You move from understanding programming fundamentals to launching full-stack web apps. You do all these while learning to solve everyday problems with constructive, well-written programs\n",
+          "preference": "weekday",
+          "startDate": "2023-09-01T00:00:00.000Z",
+          "endDate": "2024-02-01T00:00:00.000Z",
+          "fee": 500000,
+          "tutors": [
+            {
+              "id": "64d7567260786070817d62c3",
+              "name": "Test Tutor",
+              "avatar": null
+            }
+          ],
+          "students": [],
+          "resources": {
+            "audio": [],
+            "video": [],
+            "document": []
+          },
+          "createdAt": "2023-08-12T17:49:53.269Z"
+        },
+        "weekday": {
+          "id": "64d7c64160786070817d63b7",
+          "title": "Javascript Fullstack Web Develpment",
+          "courseId": "64d7c55060786070817d638b",
+          "courseTitle": "Javascript Fullstack Web Development",
+          "description": "With 24 intense weeks of on-campus training, you will learn to think and build like software developers. You move from understanding programming fundamentals to launching full-stack web apps. You do all these while learning to solve everyday problems with constructive, well-written programs\n",
+          "preference": "weekday",
+          "startDate": "2023-09-01T00:00:00.000Z",
+          "endDate": "2024-02-01T00:00:00.000Z",
+          "fee": 500000,
+          "tutors": [
+            {
+              "id": "64d7567260786070817d62c3",
+              "name": "Test Tutor",
+              "avatar": null
+            }
+          ],
+          "students": [],
+          "resources": {
+            "audio": [],
+            "video": [],
+            "document": []
+          },
+          "createdAt": "2023-08-12T17:49:53.269Z"
+        }
+      }
+    }
+  ]
+}

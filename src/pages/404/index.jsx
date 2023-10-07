@@ -1,7 +1,8 @@
-import ErrorImg from '../../assets/images/404.webp'
-import style from './404.module.scss'
 import { Link } from 'react-router-dom'
+
 import { Container, ExternalLayout } from '../../layout'
+
+import style from './404.module.scss'
 
 const index = () => {
   return (
@@ -21,7 +22,11 @@ const index = () => {
             </Link>
           </section>
           <section className={style.error_main_two}>
-            <img src={ErrorImg} alt='error img' className={style.error_img} />
+            <img
+              src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218512/techstudio-web-app/assets/images/404_awudxb.webp`}
+              alt='error img'
+              className={style.error_img}
+            />
           </section>
         </section>
       </Container>

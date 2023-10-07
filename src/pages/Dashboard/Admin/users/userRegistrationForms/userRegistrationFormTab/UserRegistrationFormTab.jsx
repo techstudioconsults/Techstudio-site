@@ -1,10 +1,12 @@
 import React from 'react'
-import style from './registrationFormTab.module.scss'
 // import '../../../../../components/dashboard/resources/custom.css'
 import PropTypes from 'prop-types'
+
+import AdminRegistrationForm from '../AdminRegistrationForm'
 import StudentRegistrationForm from '../StudentRegistrationForm'
 import TutorRegistrationForm from '../TutorRegistrationForm'
-import AdminRegistrationForm from '../AdminRegistrationForm'
+
+import style from './registrationFormTab.module.scss'
 
 const UserRegistrationFormTab = ({ cancelBtn }) => {
   return (

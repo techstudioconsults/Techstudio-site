@@ -1,5 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+
 import style from '../signupForm/signupForm.module.scss'
 
 const EmployerForm = ({ showTopInputs }) => {
@@ -55,7 +57,9 @@ const EmployerForm = ({ showTopInputs }) => {
       </div>
 
       <div className={style.btnContainer}>
-        <button href='/'>Get Started</button>
+        <Link to={`/employers/detailedform`}>
+          <button>Get Started</button>
+        </Link>
       </div>
     </form>
   )

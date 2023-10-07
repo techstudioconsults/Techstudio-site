@@ -1,0 +1,79 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
+.ContactSection1 {
+  @include flex_column;
+  flex-direction: column-reverse;
+  gap: fn.rem(50);
+  text-align: center;
+  // align-items: center;
+  @include breakpoint-up('lg') {
+    text-align: start;
+    @include flex;
+    align-items: center;
+    gap: fn.rem(109);
+    // @include flex_align;
+  }
+
+  .form,
+  .locationWrapper {
+    flex: 1;
+  }
+
+  .locationWrapper {
+    margin-bottom: fn.rem(40);
+    // margin-block-start: fn.rem(100);
+    .location {
+      margin-bottom: fn.rem(23);
+      .title {
+        font-weight: 700;
+        // font-size: fn.rem(28);
+        margin-block-end: fn.rem(9);
+      }
+
+      .caption {
+        color: colors.$dark-gray;
+      }
+    }
+
+    .addressWrapper {
+      @include flex;
+      gap: fn.rem(21);
+      // justify-content: center;
+
+      .flag {
+        width: fn.rem(66);
+      }
+      .address {
+        color: colors.$dark-gray;
+        // padding-inline-end: fn.rem(100);
+      }
+      .whatsapp {
+        margin-top: fn.rem(21);
+      }
+    }
+
+    .info {
+      @include flex;
+      gap: fn.rem(16);
+      margin-top: fn.rem(32);
+      @include breakpoint-up('lg') {
+        margin-left: fn.rem(90);
+      }
+      .icon {
+        color: colors.$deep-blue;
+      }
+
+      .email {
+        color: colors.$deep-blue;
+        font-weight: 600;
+        // font-size: fn.rem(14);
+        @include breakpoint-up('lg') {
+          // font-size: fn.rem(16);
+        }
+      }
+    }
+  }
+}

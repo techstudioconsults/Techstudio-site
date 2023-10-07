@@ -2,17 +2,19 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/prop-types */
 import React from 'react'
-import AddPaymentModal from './AddPaymentModal'
-import FullPaymentHistoryModal from './FullPaymentHistoryModal'
-import style from '../style/paymentClasses.module.scss'
-import { HiOutlineEllipsisVertical } from 'react-icons/hi2'
-import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import { Icon } from '@iconify/react'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+
 import { Portal } from '../../../../../components'
-import { useGetSingleStudentPaymentRecordsMutation } from '../api/paymentApiSlice'
-import EditPaymentModal from './EditPaymentRecord'
-import EditPaymentHistoryModal from './EditPaymentHistoryModal'
 import useCurrency from '../../../../../hooks/useCurrency'
+import { useGetSingleStudentPaymentRecordsMutation } from '../api/paymentApiSlice'
+
+import AddPaymentModal from './AddPaymentModal'
+import EditPaymentHistoryModal from './EditPaymentHistoryModal'
+import EditPaymentModal from './EditPaymentRecord'
+import FullPaymentHistoryModal from './FullPaymentHistoryModal'
+
+import style from '../style/paymentClasses.module.scss'
 
 const PaymentDisplayCard = ({ paymentDetail }) => {
   const currency = useCurrency()
@@ -119,7 +121,10 @@ const PaymentDisplayCard = ({ paymentDetail }) => {
             data-bs-toggle='dropdown'
             aria-expanded='false'
           >
-            <HiOutlineEllipsisVertical className={[style.ellipsis].join(' ')} />
+            <Icon
+              icon={`mdi:ellipsis-vertical`}
+              className={[style.ellipsis].join(' ')}
+            />
           </button>
           <ul className='dropdown-menu dropdown-menu-end'>
             <li>

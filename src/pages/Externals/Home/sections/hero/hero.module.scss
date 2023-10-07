@@ -1,0 +1,85 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
+.hero {
+  color: colors.$light;
+  @include flex;
+  @include flex_centered;
+  background-size: cover;
+  background-color: colors.$deep-blue;
+  // height: fit-content;
+  height: auto;
+  @include breakpoint-up('xl') {
+    background: url(https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_1400/v1686218522/techstudio-web-app/assets/images/heroBg_yicr2q.webp)
+      no-repeat right;
+    background-color: colors.$deep-blue;
+    height: fn.rem(714);
+  }
+
+  .heroWrapper {
+    text-align: center;
+    @include flex_column;
+    flex-direction: column-reverse;
+    gap: fn.rem(8);
+    padding-top: fn.rem(100);
+
+    @include breakpoint-up('md') {
+      gap: fn.rem(15);
+    }
+    @include breakpoint-up('xl') {
+      text-align: initial;
+      @include flex;
+      @include flex_align;
+      padding-top: 0;
+    }
+
+    .heroText {
+      flex: 1;
+
+      .title {
+        color: colors.$light;
+        font-weight: 600;
+        @include breakpoint-up('2xl') {
+          // font-size: fn.rem(44);
+        }
+      }
+
+      .btnGroup {
+        @include flex_column;
+        @include flex_align;
+        margin-block: fn.rem(32);
+        gap: fn.rem(16);
+        @include breakpoint-up('md') {
+          @include flex;
+          justify-content: center;
+        }
+        @include breakpoint-up('xl') {
+          @include flex;
+          justify-content: flex-start;
+        }
+      }
+    }
+
+    .heroImg {
+      flex: 2;
+      max-width: fn.rem(640);
+      // height: fn.rem(484);
+      height: auto;
+      margin: 0 auto;
+
+      @include breakpoint-up('md') {
+        max-width: fn.rem(640);
+        height: fn.rem(484);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        padding: 0 !important;
+        object-fit: contain;
+      }
+    }
+  }
+}

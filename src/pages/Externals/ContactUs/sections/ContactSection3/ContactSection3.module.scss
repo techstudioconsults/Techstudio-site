@@ -1,0 +1,33 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
+.modalContent {
+  padding: 2rem 1.5rem;
+  width: fn.rem(614);
+  display: flex;
+  justify-content: center;
+}
+.modalFooter {
+  border-top: none;
+}
+.modalHeader {
+  border-bottom: none;
+}
+.innerHeader {
+  font-size: fn.rem(24);
+  color: #000;
+}
+.innerText {
+  font-size: fn.rem(15);
+}
+.btnClose {
+  background: #0266f4;
+  border: none;
+  width: fn.rem(273);
+}
+.btnClose:hover {
+  background: #0266f4;
+  width: fn.rem(273);
+}

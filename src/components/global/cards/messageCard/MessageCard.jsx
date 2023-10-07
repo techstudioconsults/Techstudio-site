@@ -1,6 +1,8 @@
 import React from 'react'
-import style from './messageCard.module.scss'
+
 import Avatar from '../../avatar/Avatar'
+
+import style from './messageCard.module.scss'
 
 const MessageCard = () => {
   return (

@@ -1,6 +1,8 @@
 import React from 'react'
+
 import ResourceListDisplay from '../../../../../../components/dashboard/resources/ResourceListDisplay'
 import { DASHBOARD_CONTENT } from '../../../../../../layout/Layout/dashboardLayout/content'
+
 import style from './studentAssignment.module.scss'
 
 const StudentAssignmentDetails = () => {
@@ -12,7 +14,7 @@ const StudentAssignmentDetails = () => {
   return (
     <div>
       <div className={[style.Modalbody].join(' ')}>
-        <h6 className={[style.title, `text-black`].join(' ')}>
+        <h6 className={[style.title, `text-black fw-semibold`].join(' ')}>
           Fundamentals of Design
         </h6>
         <div className={style.desc}>
@@ -30,6 +32,14 @@ const StudentAssignmentDetails = () => {
             </p>
           </div>
         </div>
+        <div className='d-flex mt-5 gap-3 fs-sm'>
+          <div className='group-63'>
+            <div className='url fw-semibold'>URL:</div>
+          </div>
+          <div className='text-lightBlue fw-semibold'>
+            www.figma/gtbsfsbnjks/.com
+          </div>
+        </div>
         <div className='my-10'>
           <h5 className='fs-sm'>Attachments</h5>
           {fileDisplay}
@@ -44,6 +54,12 @@ const StudentAssignmentDetails = () => {
               aria-describedby='passwordHelpBlock'
               placeholder='Type your comment here'
             />
+          </div>
+          <div className='d-flex justify-content-end gap-10 align-items-center'>
+            <button className='btn btn-primary fs-sm px-5'>Save Changes</button>
+            <button className='btn btn-outline border fs-sm px-5'>
+              Cancel
+            </button>
           </div>
         </div>
       </div>

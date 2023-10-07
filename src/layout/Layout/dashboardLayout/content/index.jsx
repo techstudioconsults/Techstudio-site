@@ -1,19 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-// import img1Grey from '../../../../assets/icons/menu-grey.png'
-// import img1Light from '../../../../assets/icons/menu-white.png'
-// import img2Grey from '../../../../assets/icons/cap-grey.png'
-// import img2Light from '../../../../assets/icons/cap-light.png'
-// import img3Grey from '../../../../assets/icons/message-gray.png'
-// import img3Light from '../../../../assets/icons/message-gray.png'
-// import checklistGrey from '../../../../assets/icons/checklist-grey.png'
-// import checklistLight from '../../../../assets/icons/checklist-light.png'
-import teacherImg4 from '../../../../assets/images/teacher.webp'
-import studentImg4 from '../../../../assets/images/db-banner.-img.webp'
-// import img5 from '../../../../assets/icons/Icon-awesome-folder.png'
-// import img6 from '../../../../assets/icons/Icon-awesome-tasks.png'
-// import img7 from '../../../../assets/icons/Icon-awesome-folder-plus.png'
-// import img8 from '../../../../assets/icons/Icon-material-timelapse.png'
-
 export const DASHBOARD_CONTENT = {
   leftStudentNav: [
     {
@@ -46,19 +30,25 @@ export const DASHBOARD_CONTENT = {
       id: 2,
       icon: `eos-icons:product-classes`,
       title: `Classes`,
-      link: `/tutor/classes`,
+      link: `/tutor/classes/1/class`,
     },
+    // {
+    //   id: 3,
+    //   icon: `mdi:message-group`,
+    //   title: `Messages`,
+    //   link: `/tutor/messages`,
+    // },
     {
       id: 3,
-      icon: `mdi:message-group`,
-      title: `Messages`,
-      link: `/tutor/messages`,
-    },
-    {
-      id: 4,
       icon: `fluent:clipboard-task-24-filled`,
       title: `Tasks`,
       link: `/tutor/tasks`,
+    },
+    {
+      id: 4,
+      icon: `grommet-icons:resources`,
+      title: `Resources`,
+      link: `/tutor/resources/all`,
     },
   ],
   leftAdminNav: [
@@ -114,7 +104,7 @@ export const DASHBOARD_CONTENT = {
   studentBoard: {
     banner: {
       header: {
-        img: studentImg4,
+        img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218525/techstudio-web-app/assets/images/intro-img3_p2sdv6.webp`,
         title: `Hello Tomiwa!`,
         desc: `You can be the best you can on this platform. Learn anytime and boost your skills`,
       },
@@ -242,7 +232,7 @@ export const DASHBOARD_CONTENT = {
   teacherDashboard: {
     banner: {
       header: {
-        img: teacherImg4,
+        img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218527/techstudio-web-app/assets/images/teacher_f4hm2d.webp`,
         title: `Hello Rafiu!`,
         desc: `Welcome to your techstudio dashboard. Time to pass knowledge down to Your students.`,
       },
@@ -253,37 +243,31 @@ export const DASHBOARD_CONTENT = {
         {
           id: 1,
           img: {
-            src: ``,
-            accent: `#ECEAFE`,
+            src: `fe:users`,
+            accent: `#4847E033`,
+            color: `#4847E0`,
           },
           title: `Enrolled Students`,
-          total: 24,
-        },
-        {
-          id: 2,
-          img: {
-            src: ``,
-            accent: `#EBF0E6`,
-          },
-          title: `Tasks assigned`,
-          total: 12,
+          total: 100,
         },
         {
           id: 3,
           img: {
-            src: ``,
-            accent: `#D9EDFF`,
+            src: `la:chalkboard-teacher`,
+            accent: `#56790033`,
+            color: `#567900`,
           },
-          title: `Tasks Submitted`,
+          title: `Class Assigned`,
           total: 12,
         },
         {
           id: 4,
           img: {
-            src: ``,
-            accent: `#E000171A`,
+            src: `material-symbols:create-new-folder`,
+            accent: `#E0001733`,
+            color: `#E00017`,
           },
-          title: `Weeks Remaining`,
+          title: `Task Received`,
           total: 7,
         },
       ],

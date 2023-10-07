@@ -1,12 +1,14 @@
 import React from 'react'
-import { AvatarStack } from '../../../../../components'
-import { Icon } from '@iconify/react'
-import { DASHBOARD_CONTENT } from '../../../../../layout/Layout/dashboardLayout/content'
-import style from '../adminCourse.module.scss'
-import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
+import { Icon } from '@iconify/react'
+import PropTypes from 'prop-types'
+
 import { selectCourseDetailsLoading } from '../../../../../app/api/appSlice'
+import { AvatarStack } from '../../../../../components'
 import SpinnerComponent from '../../../../../components/global/skeletonLoader/SpinnerComponent'
+import { DASHBOARD_CONTENT } from '../../../../../layout/Layout/dashboardLayout/content'
+
+import style from '../adminCourse.module.scss'
 
 const CourseDetails = ({ courseDetails, show }) => {
   // const { title, description, tutors, duration } = courseDetails
@@ -28,7 +30,7 @@ const CourseDetails = ({ courseDetails, show }) => {
             <p className={style.text}>{courseDetails?.description}</p>
           </div>
           <div>
-            <table className='table table-borderless table-lg align-middle'>
+            <table className={` table table-borderless table-lg align-middle`}>
               <thead className='text-white'>
                 <tr>
                   <th scope='col'></th>
@@ -55,7 +57,7 @@ const CourseDetails = ({ courseDetails, show }) => {
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className='bg-transparent'>
                 <tr>
                   <th scope='row' className='fw-light text-info'>
                     Online:

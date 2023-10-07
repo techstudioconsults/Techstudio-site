@@ -1,19 +1,20 @@
 /* eslint-disable react/prop-types */
 import React, { useCallback, useEffect, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
-import useToast from '../../../../../hooks/useToast'
-import * as bootstrap from 'bootstrap/dist/js/bootstrap'
-import { useViewAllCoursesMutation } from '../../courses/api/coursesApiSlice'
-import { useGetClassByCourseIDMutation } from '../../classes/api/classApiSlice'
-import { useSignupStudentMutation } from '../../../../Auth/api/authApiSlice'
-import { Feedback, Portal, ToastComponent } from '../../../../../components'
-import { useGetAllStudentsMutation } from '../api/usersApiSlice'
-import * as yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { ErrorMessage } from '@hookform/error-message'
-import NewToast from '../../../../../components/global/toast/NewToast'
 import { useDispatch, useSelector } from 'react-redux'
+import { ErrorMessage } from '@hookform/error-message'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+import * as yup from 'yup'
+
 import { selectErrorMessage } from '../../../../../app/api/appSlice'
+import { Feedback, Portal, ToastComponent } from '../../../../../components'
+import NewToast from '../../../../../components/global/toast/NewToast'
+import useToast from '../../../../../hooks/useToast'
+import { useSignupStudentMutation } from '../../../../Auth/api/authApiSlice'
+import { useGetClassByCourseIDMutation } from '../../classes/api/classApiSlice'
+import { useViewAllCoursesMutation } from '../../courses/api/coursesApiSlice'
+import { useGetAllStudentsMutation } from '../api/usersApiSlice'
 
 const StudentRegistrationForm = ({ cancelBtn }) => {
   const [signupStudent, { isLoading }] = useSignupStudentMutation()
@@ -65,7 +66,7 @@ const StudentRegistrationForm = ({ cancelBtn }) => {
   const OnSubmit = async (data) => {
     const formData = {
       ...data,
-      phoneNumber: parseInt(data.phoneNumber),
+      phoneNumber: data.phoneNumber,
       course: courseSelected,
       deposit: parseInt(data.deposit),
       userRole: `STUDENT`,

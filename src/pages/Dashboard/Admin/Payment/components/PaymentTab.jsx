@@ -1,10 +1,12 @@
 import React, { useCallback, useEffect } from 'react'
 import { Outlet, useLocation, useNavigate, useParams } from 'react-router'
 import { NavLink } from 'react-router-dom'
-import style from '../style/payment.module.scss'
 import PropTypes from 'prop-types'
-import { useGetStudentPaymentRecordsByCourseIDsMutation } from '../api/paymentApiSlice'
+
 import SpinnerComponent from '../../../../../components/global/skeletonLoader/SpinnerComponent'
+import { useGetStudentPaymentRecordsByCourseIDsMutation } from '../api/paymentApiSlice'
+
+import style from '../style/payment.module.scss'
 
 const PaymentTab = ({ courses }) => {
   const location = useLocation()

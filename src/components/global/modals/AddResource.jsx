@@ -1,21 +1,23 @@
-import axios from 'axios'
 import React, { useEffect, useRef, useState } from 'react'
-import { useSelector } from 'react-redux'
-import * as bootstrap from 'bootstrap/dist/js/bootstrap'
-import { selectCurrentToken } from '../../../pages/Auth/api/authSlice'
-import { selectCourses } from '../../../pages/Dashboard/Admin/courses/api/coursesSlice'
-// import PropTypes from 'prop-types'
-import style from './upload.module.scss'
-import useToast from '../../../hooks/useToast'
-import ToastComponent from '../toast/ToastComponent'
-import { SaveSuccess } from '../..'
 import { Controller, useForm } from 'react-hook-form'
+import { useSelector } from 'react-redux'
 import Select from 'react-select'
 import { ErrorMessage } from '@hookform/error-message'
 import { yupResolver } from '@hookform/resolvers/yup'
+import axios from 'axios'
+import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import * as yup from 'yup'
 
-const baseUrl = process.env.REACT_APP_BASE_URL
+import useToast from '../../../hooks/useToast'
+import { selectCurrentToken } from '../../../pages/Auth/api/authSlice'
+import { selectCourses } from '../../../pages/Dashboard/Admin/courses/api/coursesSlice'
+import { SaveSuccess } from '../..'
+import ToastComponent from '../toast/ToastComponent'
+
+// import PropTypes from 'prop-types'
+import style from './upload.module.scss'
+
+const baseUrl = import.meta.env.VITE_BASE_URL
 
 const durationSelectInput = {
   control: (styles) => ({

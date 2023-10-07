@@ -1,5 +1,6 @@
 import React from 'react'
-import { MdSend } from 'react-icons/md'
+import { Icon } from '@iconify/react'
+
 import style from './chat.module.scss'
 
 const ChatDisplay = () => {
@@ -19,7 +20,7 @@ const ChatDisplay = () => {
           aria-label='.form-control-sm example'
         />
         <div className='py-2 px-3'>
-          <MdSend size={`1rem`} />
+          <Icon icon={`mdi:send`} width={`1rem`} />
         </div>
       </div>
     </section>

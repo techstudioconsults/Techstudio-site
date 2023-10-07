@@ -1,16 +1,19 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useEffect, useState } from 'react'
-import { DASHBOARD_CONTENT } from '../../../../../layout/Layout/dashboardLayout/content'
-import style from './resourceTab.module.scss'
-import '../../../../../components/dashboard/resources/custom.css'
-import PropTypes from 'prop-types'
-import AdminResourceListDisplay from './AdminResourceListDisplay'
-import { useLocation } from 'react-router-dom'
-import Feedback from '../../../../../components/global/feedbacks/Feedback'
 import { useSelector } from 'react-redux'
-import { selectResources } from '../api/resourceSlice'
+import { useLocation } from 'react-router-dom'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
+import PropTypes from 'prop-types'
+
+import Feedback from '../../../../../components/global/feedbacks/Feedback'
+import { DASHBOARD_CONTENT } from '../../../../../layout/Layout/dashboardLayout/content'
+import { selectResources } from '../api/resourceSlice'
+
+import AdminResourceListDisplay from './AdminResourceListDisplay'
+
+import '../../../../../components/dashboard/resources/custom.css'
+import style from './resourceTab.module.scss'
 
 const ResourceTab = () => {
   // const { studentBoard } = DASHBOARD_CONTENT

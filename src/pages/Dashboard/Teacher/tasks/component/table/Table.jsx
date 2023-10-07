@@ -1,10 +1,12 @@
 import React from 'react'
-import style from './table.module.scss'
 import DataTable from 'react-data-table-component'
-import { TABLE_DATA } from '../tableData'
 import { Link } from 'react-router-dom'
+
 import { OffCanvas } from '../../../../../../components'
 import StudentAssignmentDetails from '../studentAssignmentDetailsView/StudentAssignmentDetails'
+import { TABLE_DATA } from '../tableData'
+
+import style from './table.module.scss'
 
 const customStyles = {
   rows: {
@@ -63,17 +65,21 @@ const columns = [
     selector: (row) => row.assignment,
     sortable: true,
     cell: (row) => (
-      <OffCanvas text={row.assignment}>
+      <OffCanvas styles={`text-lightBlue fw-semibold`} text={row.assignment}>
         <StudentAssignmentDetails />
       </OffCanvas>
     ),
   },
   {
-    name: 'view',
-    grow: 0,
+    name: 'Submission Date & Time',
+    grow: 1,
     selector: (row) => row.view,
     sortable: true,
-    cell: (row) => <Link to={row.view}>View</Link>,
+    cell: (row) => (
+      <Link className='text-danger fw-semibold' to={row.view}>
+        {row.view}
+      </Link>
+    ),
   },
 ]
 

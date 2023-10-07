@@ -1,7 +1,7 @@
-@use '../../../../scss/global/colors' as colors;
-@use '../../../../scss/utils/functions' as fn;
-@import '../../../../scss/utils/breakpoints';
-@import '../../../../scss/utils/mixins';
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
 
 .courseView {
   background-image: url('../../../../assets/images/512\ 1.png');
@@ -118,6 +118,11 @@
       }
     }
   }
+}
+
+.tableView {
+  border: 1px solid red;
+  background-color: green !important;
 }
 
 .courseDetails.show {
