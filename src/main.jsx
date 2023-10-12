@@ -13,6 +13,7 @@ import { store } from './app/store'
 import ScrollToTop from './components/global/scroll-to-top/ScrollToTop'
 // import 'bootstrap/dist/js/bootstrap.bundle.min'
 import { AppProvider } from './contexts/AppProvider'
+import MetaPixel from './util/meta/metaPixel'
 // COMPONENTS
 import App from './App'
 import { Whatsapp } from './components'
@@ -26,6 +27,7 @@ root.render(
   // <React.StrictMode>
   <Provider store={store}>
     {/* <PersistGate loading={null} persistor={persistor}> */}
+    <MetaPixel />
     <BrowserRouter>
       <AppProvider>
         <ScrollToTop />
