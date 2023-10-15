@@ -22,10 +22,10 @@ const StudentListDisplay = () => {
   const getStudents = useCallback(async () => {
     if (courseId === `all`) {
       const res = await getAllStudents().unwrap()
-      console.log(res)
+      // console.log(res)
     } else {
       const res = await getStudentsByCourseID(courseId).unwrap()
-      console.log(res)
+      // console.log(res)
     }
   }, [courseId, getAllStudents, getStudentsByCourseID])
 
