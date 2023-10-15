@@ -23,7 +23,7 @@ const SubmissionListView = () => {
   const [title, setTitle] = useState(`Tasks`)
   const location = useLocation()
 
-  console.log(location)
+  // console.log(location)
 
   useEffect(() => {
     if (location.pathname.includes(`class`)) {

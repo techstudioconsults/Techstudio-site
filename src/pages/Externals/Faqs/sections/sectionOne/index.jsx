@@ -26,7 +26,6 @@ const index = () => {
         `${baseUrl}/external/faq?search=${data.search}`
       )
       dispatch({ type: `app/setFAQ`, payload: res.data.data })
-      console.log(res.data.data)
       setLoading(false)
     } catch (err) {
       console.log(err)
