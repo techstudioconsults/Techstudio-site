@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { ErrorMessage } from '@hookform/error-message'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 
 // RTK
 import { useRegisterStudentMutation } from '../../../../pages/Auth/api/authApiSlice'
+import { selectExternalCourses } from '../../../../pages/Externals/api/externalSlice'
 import Feedback from '../../modals/Feedback'
 import Portal from '../../POTAL/Portal'
 
@@ -22,6 +24,17 @@ const validation = {
 
 const ContactForm = () => {
   const [registerStudent, { isLoading }] = useRegisterStudentMutation()
+  const upcomingCourses = useSelector(selectExternalCourses)
+
+  console.log(upcomingCourses)
+
+  const dropdownOption = upcomingCourses.map((course) => {
+    return (
+      <option key={course.id} value={course.id} title={course.title}>
+        {course.title}
+      </option>
+    )
+  })
 
   const {
     register,
@@ -33,11 +46,27 @@ const ContactForm = () => {
   })
 
   const onSubmit = async (data) => {
+    console.log(data)
+    const selectedCourse = upcomingCourses.filter((course) => {
+      return course.id === data.course
+    })
+    console.log(selectedCourse)
+    console.log('Selected Course ID:', data.course)
+    console.log('Selected Course Title:', selectedCourse[0].title)
+    console.log(data)
+    const formData = {
+      ...data,
+      course: selectedCourse[0].title,
+      schedule: `Weekday`,
+    }
     try {
       let modal = bootstrap.Modal.getOrCreateInstance(
         document.getElementById('feedback')
       )
-      const res = await registerStudent(data).unwrap()
+      const res = await registerStudent({
+        body: formData,
+        courseID: selectedCourse[0].id,
+      }).unwrap()
       console.log(res)
       res.success ? modal.show() : null
     } catch (err) {
@@ -145,12 +174,13 @@ const ContactForm = () => {
             {...register('course')}
             className={[`form-select`, style.select].join(' ')}
           >
-            {/* <option>Mobile Development</option> */}
+            {dropdownOption}
+            {/* <option>Mobile Development</option>
             <option>Fullstack Development</option>
-            {/* <option>Frontend Development</option> */}
+            <option>Frontend Development</option>
             <option>Product Design</option>
             <option>Data Science</option>
-            <option>Frontend Engineering</option>
+            <option>Frontend Engineering</option> */}
           </select>
         </div>
       </div>
