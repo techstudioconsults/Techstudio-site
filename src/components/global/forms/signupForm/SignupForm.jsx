@@ -26,7 +26,7 @@ const ContactForm = () => {
   const [registerStudent, { isLoading }] = useRegisterStudentMutation()
   const upcomingCourses = useSelector(selectExternalCourses)
 
-  console.log(upcomingCourses)
+  // console.log(upcomingCourses)
 
   const dropdownOption = upcomingCourses.map((course) => {
     return (
@@ -46,14 +46,14 @@ const ContactForm = () => {
   })
 
   const onSubmit = async (data) => {
-    console.log(data)
+    // console.log(data)
     const selectedCourse = upcomingCourses.filter((course) => {
       return course.id === data.course
     })
-    console.log(selectedCourse)
-    console.log('Selected Course ID:', data.course)
-    console.log('Selected Course Title:', selectedCourse[0].title)
-    console.log(data)
+    // console.log(selectedCourse)
+    // console.log('Selected Course ID:', data.course)
+    // console.log('Selected Course Title:', selectedCourse[0].title)
+    // console.log(data)
     const formData = {
       ...data,
       course: selectedCourse[0].title,
@@ -67,7 +67,7 @@ const ContactForm = () => {
         body: formData,
         courseID: selectedCourse[0].id,
       }).unwrap()
-      console.log(res)
+      // console.log(res)
       res.success ? modal.show() : null
     } catch (err) {
       console.log(err)
