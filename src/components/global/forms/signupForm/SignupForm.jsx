@@ -56,7 +56,7 @@ const ContactForm = () => {
     // console.log(data)
     const formData = {
       ...data,
-      course: selectedCourse[0].title,
+      course: selectedCourse[0]?.title || `Product Design UI/UX`,
       schedule: `Weekday`,
     }
     try {
@@ -65,7 +65,7 @@ const ContactForm = () => {
       )
       const res = await registerStudent({
         body: formData,
-        courseID: selectedCourse[0].id,
+        courseID: selectedCourse[0]?.id,
       }).unwrap()
       // console.log(res)
       res.success ? modal.show() : null
