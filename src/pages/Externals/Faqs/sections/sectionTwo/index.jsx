@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 import { selectFAQ } from '../../../../../app/api/appSlice'
-import { genericAnimation } from '../../../../../gsap'
-import Gsap from '../../../../../hooks/Gsap'
 
+// import { genericAnimation } from '../../../../../gsap'
+// import Gsap from '../../../../../hooks/Gsap'
 import './sectionTwo.scss'
 const baseUrl = import.meta.env.VITE_BASE_URL
 
@@ -22,7 +22,6 @@ const Accordion = () => {
     setLoading(true)
     const res = await axios.get(`${baseUrl}/external/faq?page=${currentPage}`)
     dispatch({ type: `app/setFAQ`, payload: res.data.data })
-    console.log(res.data.data)
     setLoading(false)
   }, [currentPage, dispatch])
 
