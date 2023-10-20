@@ -195,7 +195,7 @@ const ContactForm = () => {
             id='phone'
             className='form-control'
             aria-describedby='phoneHelpBlock'
-            placeholder='user type'
+            placeholder='Phone Number'
             {...register('phoneNumber', validation)}
           />
           <ErrorMessage
