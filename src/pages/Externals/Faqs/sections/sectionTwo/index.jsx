@@ -31,7 +31,7 @@ const Accordion = () => {
     }
 
     if (window.innerWidth <= 767) {
-      baseStyle.fontSize = `12.5px`
+      baseStyle.fontSize = `14px`
     }
 
     return baseStyle
@@ -122,7 +122,7 @@ const Accordion = () => {
   )
 
   return (
-    <section className='container pt-3 padding-up'>
+    <section className='container pt-10 padding-up'>
       <div className='accordion mt-5 mt-lg-20' id='accordionExample'>
         {displayFAQ}
       </div>
