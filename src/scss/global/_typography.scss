@@ -73,14 +73,14 @@ h3 {
 p,
 span {
   margin-block: 0;
-  @include fluid-type($min_width, $max_width, 12.5px, 16px);
+  @include fluid-type($min_width, $max_width, 14px, 16px);
 }
 
 .tiny-text {
-  @include fluid-type($min_width, $max_width, 10px, 12px);
+  @include fluid-type($min_width, $max_width, 12px, 12px);
 }
 .small-text {
-  @include fluid-type($min_width, $max_width, 12px, 14px);
+  @include fluid-type($min_width, $max_width, 14px, 14px);
 }
 .medium-text {
   @include fluid-type($min_width, $max_width, 16px, 20px);
