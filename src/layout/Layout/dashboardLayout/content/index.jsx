@@ -88,6 +88,12 @@ export const DASHBOARD_CONTENT = {
       title: `Users`,
       link: `/admin/users`,
     },
+    {
+      id: 7,
+      icon: `material-symbols-light:create-new-folder-rounded`,
+      title: `Create`,
+      // link: `/admin/create`,
+    },
   ],
 
   imageList: [

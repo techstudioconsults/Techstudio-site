@@ -282,6 +282,10 @@ const App = () => {
                   }
                 />
               </Route>
+
+              {/* <Route path='/admin/create' element={<AdminResourceView />}>
+                <Route path=':create' element={<ResourcesTab />} />
+              </Route> */}
               {/* PAYMENT ROUTE */}
               <Route path='/admin/payment' element={<AdminPaymentView />}>
                 <Route path='courses/:courseID' element={<PaymentListView />} />

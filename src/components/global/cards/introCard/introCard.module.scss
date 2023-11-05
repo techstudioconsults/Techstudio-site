@@ -11,7 +11,7 @@
   border-radius: fn.rem(8);
   gap: fn.rem(50);
 
-  @include flex_column;
+  @include flex_column-reverse;
   @include breakpoint-up('lg') {
     @include flex;
     @include flex_align;
