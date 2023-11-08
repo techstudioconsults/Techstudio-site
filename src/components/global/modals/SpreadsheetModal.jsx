@@ -11,6 +11,7 @@ import ToastComponent from '../toast/ToastComponent'
 const SpreadsheetModal = () => {
   const [isLoading, setLoading] = useState()
   const [errorMessage, setErrorMessage] = useState()
+  const [successMessage, setSuccessMessage] = useState()
   const { toast } = useToast()
   const token = useSelector(selectCurrentToken)
 
@@ -26,15 +27,17 @@ const SpreadsheetModal = () => {
   })
 
   const onSubmit = async (data) => {
+    setLoading(true)
     try {
       const response = await axios.post('https://api.staging.techstudioacademy.com/api/v1/dashboard/spreadsheet', data, credentials)
       console.log(response)
       if (response.status === 201) {
-        setErrorMessage(response?.data?.message)
-        toast.show()
+        setLoading(false)
+        setSuccessMessage(response?.data?.message)
       }
     } catch (error) {
       console.log(error)
+      setLoading(false)
       setErrorMessage(error?.response?.data?.message)
       toast.show()
     }
@@ -69,7 +72,7 @@ const SpreadsheetModal = () => {
               </button>
             </form>
           </div>
-          <div className='modal-footer'></div>
+          <div className='modal-footer text-success fs-sm d-flex justify-content-center'>{successMessage}</div>
         </div>
       </div>
     </div>
