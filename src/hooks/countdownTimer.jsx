@@ -34,9 +34,8 @@ const CountdownTimer = ({ targetDate }) => {
     <>
       <span className={`text-danger fs-sm`}> Expires: </span>
       <span className={`text-danger fs-sm`}>
-        {timeRemaining.days > 0 && `${timeRemaining.days} days `}
-        {timeRemaining.hours > 0 && `${timeRemaining.hours} hrs `}
-        {timeRemaining.minutes > 0 && `${timeRemaining.minutes} mins `}
+        {timeRemaining.days > 0 && `${timeRemaining.days} days `}: {timeRemaining.hours > 0 && `${timeRemaining.hours} hrs `} : {` `}
+        {timeRemaining.minutes > 0 && `${timeRemaining.minutes} mins `} : {` `}
         {`${timeRemaining.seconds} secs`}
       </span>
     </>
