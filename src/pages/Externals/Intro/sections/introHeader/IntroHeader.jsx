@@ -26,11 +26,7 @@ const IntroHeader = ({ courses }) => {
         key={course.id}
         onClick={handleClick}
         id={course.id}
-        className={[
-          style.courseBtn,
-          `tag small-text`,
-          courseID === course.id ? style.active : null,
-        ].join(' ')}
+        className={[style.courseBtn, `tag small-text`, courseID === course.id ? style.active : null].join(' ')}
       >
         {course.title}
       </button>
@@ -43,16 +39,10 @@ const IntroHeader = ({ courses }) => {
       <Container>
         <section className={style.introHeaderWapper}>
           <div className={`${style.text} tag small-text`}>
-            <h2 className={style.title}>Our Courses</h2>
-            <p className={style.subTitle}>
-              Select any of our courses to get started on your tech journey
-            </p>
+            <h2 className={`${style.title} mt-10`}>Our Courses</h2>
+            <p className={style.subTitle}>Select any of our courses to get started on your tech journey</p>
           </div>
-          <div
-            className={`${style.btnGroup} d-flex flex-column flex-lg-row gap-3 gap-lg-5 tag small-text`}
-          >
-            {displayCourses}
-          </div>
+          <div className={`${style.btnGroup} d-flex flex-column flex-lg-row gap-3 gap-lg-5 tag small-text`}>{displayCourses}</div>
         </section>
       </Container>
     </div>

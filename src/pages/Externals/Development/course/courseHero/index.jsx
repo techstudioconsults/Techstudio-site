@@ -48,9 +48,7 @@ const CourseHero = ({ content, courseName, courseID }) => {
     }
 
     try {
-      let modal = bootstrap.Modal.getOrCreateInstance(
-        document.getElementById('feedback')
-      )
+      let modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('feedback'))
       const res = await registerStudent({ body: formData, courseID }).unwrap()
 
       res.success ? modal.show() : null
@@ -68,7 +66,7 @@ const CourseHero = ({ content, courseName, courseID }) => {
 
   return (
     <Gsap animationFuncion={() => genericAnimation(`hero`)}>
-      <header className={style.hero}>
+      <header className={`${style.hero} pt-48 pt-xl-0`}>
         <Container paddingBlock={0}>
           <section className={style.heroWrapper}>
             <div className={style.heroText}>
@@ -76,26 +74,14 @@ const CourseHero = ({ content, courseName, courseID }) => {
               <p className={`${style.description} hero`}>{subTitle}</p>
 
               <div className='mt-10 d-flex justify-content-center justify-content-xl-start mb-10 mb-lg-0 hero'>
-                <Button
-                  linkHref='/student/register'
-                  linkText='Enroll Now'
-                  solidBtn
-                  navBtn
-                  width={`10`}
-                />
+                <Button linkHref='/student/register' linkText='Enroll Now' solidBtn navBtn width={`10`} />
               </div>
             </div>
             <div className={style.heroForm}>
               <div className={style.heroFormContents}>
                 {/* <img src={img} alt='hero-img' /> */}
-                <h3 className='pb-4'>
-                  Register to learn more about the program pricing and
-                  curriculum
-                </h3>
-                <form
-                  onSubmit={handleSubmit(onSubmit)}
-                  className={[style.heroFormInputs].join(' ')}
-                >
+                <h3 className='pb-4'>Register to learn more about the program pricing and curriculum</h3>
+                <form onSubmit={handleSubmit(onSubmit)} className={[style.heroFormInputs].join(' ')}>
                   <Portal wrapperId='react-portal-modal-container'>
                     <ToastComponent errorMessage={errorMessage} />
                     <Feedback
@@ -121,13 +107,11 @@ const CourseHero = ({ content, courseName, courseID }) => {
                         name='firstName'
                         render={({ messages }) => {
                           return messages
-                            ? Object.entries(messages).map(
-                                ([type, message]) => (
-                                  <p className='fs-xs text-danger' key={type}>
-                                    {message}
-                                  </p>
-                                )
-                              )
+                            ? Object.entries(messages).map(([type, message]) => (
+                                <p className='fs-xs text-danger' key={type}>
+                                  {message}
+                                </p>
+                              ))
                             : null
                         }}
                       />
@@ -146,13 +130,11 @@ const CourseHero = ({ content, courseName, courseID }) => {
                         name='lastName'
                         render={({ messages }) => {
                           return messages
-                            ? Object.entries(messages).map(
-                                ([type, message]) => (
-                                  <p className='fs-xs text-danger' key={type}>
-                                    {message}
-                                  </p>
-                                )
-                              )
+                            ? Object.entries(messages).map(([type, message]) => (
+                                <p className='fs-xs text-danger' key={type}>
+                                  {message}
+                                </p>
+                              ))
                             : null
                         }}
                       />
@@ -205,11 +187,7 @@ const CourseHero = ({ content, courseName, courseID }) => {
                     />
                   </div>
                   <button type='submit' className={style.btn}>
-                    <div
-                      hidden={!isLoading}
-                      className={`spinner-border spinner-border-sm me-5 text-white`}
-                      role='status'
-                    />
+                    <div hidden={!isLoading} className={`spinner-border spinner-border-sm me-5 text-white`} role='status' />
                     {isLoading ? `Please wait...` : `Get Program Package`}
                   </button>
                 </form>

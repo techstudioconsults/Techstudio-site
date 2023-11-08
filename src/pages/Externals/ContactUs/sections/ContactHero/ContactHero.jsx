@@ -11,7 +11,7 @@ const ContactHero = ({ content }) => {
   const { title, subTitle } = content
   return (
     <Gsap animationFuncion={() => genericAnimation(`hero`)}>
-      <header className={style.contactHero}>
+      <header className={`${style.contactHero}  pt-20`}>
         <Container paddingBlock={0}>
           <section className={style.heroWrapper}>
             <h1 className={`${style.title} hero`}>{title}</h1>

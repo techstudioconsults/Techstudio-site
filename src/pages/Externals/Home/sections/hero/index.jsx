@@ -52,7 +52,7 @@ const Hero = ({ content }) => {
     <header
       // onMouseLeave={handleMouseLeave}
       // onMouseMove={handleMouseMove}
-      className={style.hero}
+      className={`${style.hero}  pt-24 pt-lg-40`}
     >
       <Container paddingBlock={0}>
         <Gsap animationFuncion={() => genericAnimation(`hero`)}>
@@ -69,12 +69,7 @@ const Hero = ({ content }) => {
                   // linkHref='/student/signup'
                   linkText='Explore Courses'
                 />
-                <Button
-                  width={`11`}
-                  solidBtn={false}
-                  linkHref='/login'
-                  linkText='Log in'
-                />
+                <Button width={`11`} solidBtn={false} linkHref='/login' linkText='Log in' />
               </div>
             </div>
             <div
