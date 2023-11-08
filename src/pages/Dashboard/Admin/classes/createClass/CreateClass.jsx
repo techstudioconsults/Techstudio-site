@@ -4,7 +4,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { useSelector } from 'react-redux'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Select from 'react-select'
 import { ErrorMessage } from '@hookform/error-message'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -16,13 +16,7 @@ import axios from 'axios'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import * as yup from 'yup'
 
-import {
-  AvatarDropdown,
-  CancelModal,
-  Portal,
-  SaveSuccess,
-  ToastComponent,
-} from '../../../../../components'
+import { AvatarDropdown, CancelModal, Portal, SaveSuccess, ToastComponent } from '../../../../../components'
 import useToast from '../../../../../hooks/useToast'
 import { selectCurrentToken } from '../../../../Auth/api/authSlice'
 import { useViewCoursesDetailsMutation } from '../../courses/api/coursesApiSlice'
@@ -73,10 +67,7 @@ const schema = yup.object().shape({
   title: yup.string().required('title is required'),
   fee: yup.string().required('fee is required'),
   description: yup.string().required('description is required'),
-  tutors: yup
-    .array()
-    .min(1, 'Please select at least one tutor')
-    .required('at least one tutor is required'),
+  tutors: yup.array().min(1, 'Please select at least one tutor').required('at least one tutor is required'),
   startDate: yup.string().required('when does the class start?'),
   endDate: yup.string().required('when does the class end?'),
   preference: yup.string().required('class preference required'),
@@ -116,11 +107,7 @@ const CreateClass = () => {
     const res = await getResourcesByCourseID(courseID).unwrap()
     if (res.success) {
       console.log(res.data.resources)
-      setCrudeResources([
-        ...res.data.resources.audio,
-        ...res.data.resources.video,
-        ...res.data.resources.document,
-      ])
+      setCrudeResources([...res.data.resources.audio, ...res.data.resources.video, ...res.data.resources.document])
     }
   }, [courseID, getResourcesByCourseID])
   console.log(crudeResources, resources)
@@ -183,9 +170,7 @@ const CreateClass = () => {
     formData.append(`startDate`, new Date(data.startDate).toISOString())
     formData.append(`endDate`, new Date(data.endDate).toISOString())
     data.tutors.forEach((item) => formData.append('tutors[]', item.value))
-    data.resources?.forEach((item) =>
-      formData.append('resources[]', item.value || ``)
-    )
+    data.resources?.forEach((item) => formData.append('resources[]', item.value || ``))
 
     const formdata = {
       title: data.title,
@@ -209,15 +194,9 @@ const CreateClass = () => {
     // }
 
     try {
-      let modal = bootstrap.Modal.getOrCreateInstance(
-        document.getElementById('save-success')
-      )
+      let modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('save-success'))
 
-      const res = await axios.post(
-        `${baseUrl}/classes/${courseID}`,
-        formdata,
-        credentials
-      )
+      const res = await axios.post(`${baseUrl}/classes/${courseID}`, formdata, credentials)
       console.log(res)
       if (res.status === 201) {
         reset()
@@ -234,9 +213,7 @@ const CreateClass = () => {
 
   const handleCancelAction = (event) => {
     event.stopPropagation()
-    let modal = bootstrap.Modal.getOrCreateInstance(
-      document.getElementById('cancel-modal')
-    )
+    let modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('cancel-modal'))
     modal.show()
   }
 
@@ -264,31 +241,20 @@ const CreateClass = () => {
       <div className={style.dashboardDisplay}>
         <div className={style.header}>
           <h4 className={[style.title, `mb-0`].join(' ')}>Create Class</h4>
-          <p className={style.subTitle}>
-            Fill in the fields below to create a new class under a course.
-          </p>
+          <p className={style.subTitle}>Fill in the fields below to create a new class under a course.</p>
         </div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className='my-10 container'>
             {/* title */}
             <div className='mb-8 d-flex row'>
               <div className='col-4'>
-                <label
-                  htmlFor='title'
-                  className={`col-form-label fs-lg ${style.labels} w-100`}
-                >
+                <label htmlFor='title' className={`col-form-label fs-lg ${style.labels} w-100`}>
                   Class Title
                 </label>
               </div>
               <div className='col-8'>
                 <div className={`${style.inputs} w-100`}>
-                  <input
-                    placeholder='class title'
-                    type='text'
-                    className='form-control form-control-lg'
-                    id='title'
-                    {...register('title')}
-                  />
+                  <input placeholder='class title' type='text' className='form-control form-control-lg' id='title' {...register('title')} />
                   <ErrorMessage
                     errors={errors}
                     name='title'
@@ -308,10 +274,7 @@ const CreateClass = () => {
             {/* about course */}
             <div className='mb-8 row'>
               <div className='col-4'>
-                <label
-                  htmlFor='description'
-                  className={`col-form-label fs-lg ${style.labels} w-100`}
-                >
+                <label htmlFor='description' className={`col-form-label fs-lg ${style.labels} w-100`}>
                   Description
                 </label>
               </div>
@@ -343,22 +306,13 @@ const CreateClass = () => {
             </div>
             <div className='mb-8 d-flex row'>
               <div className='col-4'>
-                <label
-                  htmlFor='title'
-                  className={`col-form-label fs-lg ${style.labels} w-100`}
-                >
+                <label htmlFor='title' className={`col-form-label fs-lg ${style.labels} w-100`}>
                   Fee
                 </label>
               </div>
               <div className='col-8'>
                 <div className={`${style.inputs} w-100`}>
-                  <input
-                    placeholder='class fee'
-                    type='text'
-                    className='form-control form-control-lg'
-                    id='fee'
-                    {...register('fee')}
-                  />
+                  <input placeholder='class fee' type='text' className='form-control form-control-lg' id='fee' {...register('fee')} />
                   <ErrorMessage
                     errors={errors}
                     name='fee'
@@ -379,20 +333,11 @@ const CreateClass = () => {
             <div className='mb-8'>
               <div className='d-flex  row'>
                 <div className='col-4'>
-                  <p className={`col-form-label fs-lg ${style.labels} w-100`}>
-                    Start Date
-                  </p>
+                  <p className={`col-form-label fs-lg ${style.labels} w-100`}>Start Date</p>
                 </div>
                 <div className='col-8'>
-                  <div
-                    className={`${style.inputs} d-flex flex-column justify-content-between w-100`}
-                  >
-                    <input
-                      type='date'
-                      className='form-control form-control-lg'
-                      id='start-date'
-                      {...register('startDate')}
-                    />
+                  <div className={`${style.inputs} d-flex flex-column justify-content-between w-100`}>
+                    <input type='date' className='form-control form-control-lg' id='start-date' {...register('startDate')} />
                     <ErrorMessage
                       errors={errors}
                       name='startDate'
@@ -413,20 +358,11 @@ const CreateClass = () => {
             <div className='mb-8'>
               <div className='d-flex  row'>
                 <div className='col-4'>
-                  <p className={`col-form-label fs-lg ${style.labels} w-100`}>
-                    End Date
-                  </p>
+                  <p className={`col-form-label fs-lg ${style.labels} w-100`}>End Date</p>
                 </div>
                 <div className='col-8'>
-                  <div
-                    className={`${style.inputs} d-flex flex-column justify-content-between w-100`}
-                  >
-                    <input
-                      type='date'
-                      className='form-control form-control-lg'
-                      id='end-date'
-                      {...register('endDate')}
-                    />
+                  <div className={`${style.inputs} d-flex flex-column justify-content-between w-100`}>
+                    <input type='date' className='form-control form-control-lg' id='end-date' {...register('endDate')} />
                     <ErrorMessage
                       errors={errors}
                       name='endDate'
@@ -447,17 +383,12 @@ const CreateClass = () => {
             {/* preferences */}
             <div className='mb-8 d-flex  row'>
               <div className='col-4'>
-                <label
-                  htmlFor='title'
-                  className={`col-form-label fs-lg ${style.labels} w-100 p-0`}
-                >
+                <label htmlFor='title' className={`col-form-label fs-lg ${style.labels} w-100 p-0`}>
                   Preference
                 </label>
               </div>
               <div className='col-8'>
-                <div
-                  className={`${style.inputs} w-100 d-flex  justify-content-between`}
-                >
+                <div className={`${style.inputs} w-100 d-flex  justify-content-between`}>
                   <div className='form-check form-check-inline'>
                     <input
                       className='form-check-input me-2'
@@ -520,10 +451,7 @@ const CreateClass = () => {
             {/* tutors */}
             <div className='mb-8 row'>
               <div className='col-4'>
-                <label
-                  htmlFor='tutors'
-                  className={`col-form-label fs-lg ${style.labels}`}
-                >
+                <label htmlFor='tutors' className={`col-form-label fs-lg ${style.labels}`}>
                   Tutors
                 </label>
               </div>
@@ -536,14 +464,7 @@ const CreateClass = () => {
                       render={({ field }) => {
                         return (
                           <>
-                            <Select
-                              styles={colorStyles}
-                              className='reactSelect my-2'
-                              placeholder='select tutors'
-                              options={tutors}
-                              isMulti
-                              {...field}
-                            />
+                            <Select styles={colorStyles} className='reactSelect my-2' placeholder='select tutors' options={tutors} isMulti {...field} />
                           </>
                         )
                       }}
@@ -568,10 +489,7 @@ const CreateClass = () => {
             {/* Resource */}
             <div className='mb-8 d-flex row'>
               <div className='col-4'>
-                <label
-                  htmlFor='resources'
-                  className={`col-form-label fs-lg ${style.labels} w-100`}
-                >
+                <label htmlFor='resources' className={`col-form-label fs-lg ${style.labels} w-100`}>
                   Resources
                 </label>
               </div>
@@ -634,23 +552,11 @@ const CreateClass = () => {
             {/* CTA */}
             <div className='d-flex gap-10 justify-content-end my-8 row'>
               <div className={`w-100 text-end`}>
-                <button
-                  disabled={isLoading}
-                  type='submit'
-                  className='btn btn-primary w-25 me-10'
-                >
-                  <div
-                    hidden={!isLoading}
-                    className='spinner-border spinner-border-sm me-5 text-white'
-                    role='status'
-                  />
+                <button disabled={isLoading} type='submit' className='btn btn-primary w-25 me-10'>
+                  <div hidden={!isLoading} className='spinner-border spinner-border-sm me-5 text-white' role='status' />
                   {isLoading ? `Please wait...` : `Save Class`}
                 </button>
-                <button
-                  type='button'
-                  onClick={handleCancelAction}
-                  className='btn btn-outline-danger w-25 dont-delete-btn'
-                >
+                <button type='button' onClick={handleCancelAction} className='btn btn-outline-danger w-25 dont-delete-btn'>
                   Cancel
                 </button>
               </div>

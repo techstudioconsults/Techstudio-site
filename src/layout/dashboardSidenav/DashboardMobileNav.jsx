@@ -16,35 +16,12 @@ const DashboardMobileNav = ({ isTDB, isADB }) => {
   const navDisplay = isTDB
     ? leftTeacherNav.map((nav) => {
         return (
-          <NavLink
-            id={nav.title}
-            to={nav.link}
-            key={nav.id}
-            className={[style.link].join(' ')}
-          >
+          <NavLink id={nav.title} to={nav.link} key={nav.id} className={[style.link].join(' ')}>
             <li className={style.list}>
               <div className={style.imgContainer}>
-                <Icon
-                  width={`1.5rem`}
-                  height={`1.5rem`}
-                  icon={nav.icon}
-                  color={
-                    route[2] === nav.title.toLocaleLowerCase()
-                      ? `white`
-                      : `grey`
-                  }
-                />
+                <Icon width={`1.5rem`} height={`1.5rem`} icon={nav.icon} color={route[2] === nav.title.toLocaleLowerCase() ? `white` : `grey`} />
               </div>
-              <p
-                className={[
-                  style.title,
-                  route[2] === nav.title.toLocaleLowerCase()
-                    ? `text-white`
-                    : null,
-                ].join(' ')}
-              >
-                {nav.title}
-              </p>
+              <p className={[style.title, route[2] === nav.title.toLocaleLowerCase() ? `text-white` : null].join(' ')}>{nav.title}</p>
             </li>
           </NavLink>
         )
@@ -52,70 +29,24 @@ const DashboardMobileNav = ({ isTDB, isADB }) => {
     : isADB
     ? leftAdminNav.map((nav) => {
         return (
-          <NavLink
-            id={nav.title}
-            to={nav.link}
-            key={nav.id}
-            className={[style.link].join(' ')}
-          >
+          <NavLink id={nav.title} to={nav.link} key={nav.id} className={[style.link].join(' ')}>
             <li className={style.list}>
               <div className={style.imgContainer}>
-                <Icon
-                  width={`1.5rem`}
-                  height={`1.5rem`}
-                  icon={nav.icon}
-                  color={
-                    route[2] === nav.title.toLocaleLowerCase()
-                      ? `white`
-                      : `grey`
-                  }
-                />
+                <Icon width={`1.5rem`} height={`1.5rem`} icon={nav.icon} color={route[2] === nav.title.toLocaleLowerCase() ? `white` : `grey`} />
               </div>
-              <p
-                className={[
-                  style.title,
-                  route[2] === nav.title.toLocaleLowerCase()
-                    ? `text-white`
-                    : null,
-                ].join(' ')}
-              >
-                {nav.title}
-              </p>
+              <p className={[style.title, route[2] === nav.title.toLocaleLowerCase() ? `text-white` : null].join(' ')}>{nav.title}</p>
             </li>
           </NavLink>
         )
       })
     : leftStudentNav.map((nav) => {
         return (
-          <NavLink
-            id={nav.title}
-            to={nav.link}
-            key={nav.id}
-            className={[style.link].join(' ')}
-          >
+          <NavLink id={nav.title} to={nav.link} key={nav.id} className={[style.link].join(' ')}>
             <li className={style.list}>
               <div className={style.imgContainer}>
-                <Icon
-                  width={`1.5rem`}
-                  height={`1.5rem`}
-                  icon={nav.icon}
-                  color={
-                    route[2] === nav.title.toLocaleLowerCase()
-                      ? `white`
-                      : `grey`
-                  }
-                />
+                <Icon width={`1.5rem`} height={`1.5rem`} icon={nav.icon} color={route[2] === nav.title.toLocaleLowerCase() ? `white` : `grey`} />
               </div>
-              <p
-                className={[
-                  style.title,
-                  route[2] === nav.title.toLocaleLowerCase()
-                    ? `text-white`
-                    : null,
-                ].join(' ')}
-              >
-                {nav.title}
-              </p>
+              <p className={[style.title, route[2] === nav.title.toLocaleLowerCase() ? `text-white` : null].join(' ')}>{nav.title}</p>
             </li>
           </NavLink>
         )
