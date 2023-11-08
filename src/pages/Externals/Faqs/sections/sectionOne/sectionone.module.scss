@@ -9,10 +9,10 @@
   background-size: cover;
   margin: 0 auto;
   text-align: center;
-  padding-top: fn.rem(130);
+  padding-top: fn.rem(180);
   padding-bottom: fn.rem(50);
   @include breakpoint-down('sm') {
-    padding-top: fn.rem(80);
+    padding-top: fn.rem(180);
     padding-bottom: fn.rem(20);
   }
 

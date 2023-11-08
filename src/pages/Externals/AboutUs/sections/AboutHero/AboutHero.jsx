@@ -13,7 +13,7 @@ const AboutHero = ({ content }) => {
   return (
     <Container>
       <Gsap animationFuncion={() => genericAnimation(`hero`)}>
-        <header className={style.aboutHero}>
+        <header className={`${style.aboutHero}  pt-20 pt-xl-30`}>
           <section className={style.aboutHeroTextGroup}>
             <h5 className={`${style.caption} hero small-text`}>{caption}</h5>
             <h1 className={`${style.title} hero`}>{title}</h1>

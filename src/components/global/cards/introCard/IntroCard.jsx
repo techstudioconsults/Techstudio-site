@@ -46,11 +46,7 @@ const IntroCard = ({ course }) => {
     <div className={[style.introCard, `cc-shadow`].join(' ')}>
       {/* <Gsap animationFuncion={() => SCALE_ANIMATION(`scale`)}> */}
       <div className={style.imgContainer}>
-        <img
-          src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1692269980/learning_atvahc.gif`}
-          alt='img'
-          className='cc-img-fluid scale'
-        />
+        <img src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1692269980/learning_atvahc.gif`} alt='img' className='cc-img-fluid scale' />
       </div>
       {/* </Gsap> */}
       <div className={style.introCardText}>
@@ -63,31 +59,18 @@ const IntroCard = ({ course }) => {
           <div className={`${style.timeDate} my-0 gap-4 gap-lg-8`}>
             <div className={style.time}>
               <img className={style.icon} src={calendar} alt='calendar' />
-              <span>
-                {!course?.classes?.online?.[0]?.startDate
-                  ? `N/A`
-                  : `Starting ${convertDateToReadable(
-                      course?.classes?.online?.[0]?.startDate
-                    )}`}
-              </span>
+              <span>{!course?.classes?.online?.[0]?.startDate ? `N/A` : `Starting ${convertDateToReadable(course?.classes?.online?.[0]?.startDate)}`}</span>
             </div>
             <div className={style.date}>
               <img className={style.icon} src={clock} alt='clock' />
               <span>
                 {!course?.classes?.online?.[0]?.startDate
                   ? `N/A`
-                  : `${calculateWeeks(
-                      course?.classes?.online?.[0]?.startDate,
-                      course?.classes?.online?.[0]?.endDate
-                    )} Weeks`}
+                  : `${calculateWeeks(course?.classes?.online?.[0]?.startDate, course?.classes?.online?.[0]?.endDate)} Weeks`}
               </span>
             </div>
             <div className={style.date}>
-              <p className='mb-0 fw-bold medium-text'>
-                {!course?.classes?.online?.[0]?.fee
-                  ? `N/A`
-                  : formatCurrency(course?.classes?.online?.[0]?.fee)}
-              </p>
+              <p className='mb-0 fw-bold medium-text'>{!course?.classes?.online?.[0]?.fee ? `N/A` : formatCurrency(course?.classes?.online?.[0]?.fee)}</p>
             </div>
           </div>
         </section>
@@ -97,31 +80,18 @@ const IntroCard = ({ course }) => {
           <div className={`${style.timeDate} my-0 gap-4 gap-lg-8`}>
             <div className={style.time}>
               <img className={style.icon} src={calendar} alt='calendar' />
-              <span>
-                {!course?.classes?.weekday?.[0]?.startDate
-                  ? `N/A`
-                  : `Starting ${convertDateToReadable(
-                      course?.classes?.weekday?.[0]?.startDate
-                    )}`}
-              </span>
+              <span>{!course?.classes?.weekday?.[0]?.startDate ? `N/A` : `Starting ${convertDateToReadable(course?.classes?.weekday?.[0]?.startDate)}`}</span>
             </div>
             <div className={style?.date}>
               <img className={style.icon} src={clock} alt='clock' />
               <span>
                 {!course?.classes?.weekday?.[0]?.startDate
                   ? `N/A`
-                  : `${calculateWeeks(
-                      course?.classes?.weekday?.[0]?.startDate,
-                      course?.classes?.weekday?.[0]?.endDate
-                    )} Weeks`}
+                  : `${calculateWeeks(course?.classes?.weekday?.[0]?.startDate, course?.classes?.weekday?.[0]?.endDate)} Weeks`}
               </span>
             </div>
             <div className={style?.date}>
-              <p className='mb-0 fw-bold medium-text'>
-                {!course?.classes?.weekday?.[0]?.fee
-                  ? `N/A`
-                  : formatCurrency(course?.classes?.weekday?.[0]?.fee)}
-              </p>
+              <p className='mb-0 fw-bold medium-text'>{!course?.classes?.weekday?.[0]?.fee ? `N/A` : formatCurrency(course?.classes?.weekday?.[0]?.fee)}</p>
             </div>
           </div>
         </section>
@@ -131,13 +101,7 @@ const IntroCard = ({ course }) => {
           <div className={`${style.timeDate} my-0 gap-4 gap-lg-8`}>
             <div className={style.time}>
               <img className={style.icon} src={calendar} alt='calendar' />
-              <span>
-                {!course?.classes?.weekend?.[0]?.startDate
-                  ? `N/A`
-                  : `Starting ${convertDateToReadable(
-                      course?.classes?.weekend?.[0]?.startDate
-                    )}`}
-              </span>
+              <span>{!course?.classes?.weekend?.[0]?.startDate ? `N/A` : `Starting ${convertDateToReadable(course?.classes?.weekend?.[0]?.startDate)}`}</span>
             </div>
             <div className={style?.date}>
               <img className={style.icon} src={clock} alt='clock' />
@@ -145,18 +109,11 @@ const IntroCard = ({ course }) => {
                 {' '}
                 {!course?.classes?.weekend?.[0]?.startDate
                   ? `N/A`
-                  : `${calculateWeeks(
-                      course?.classes?.weekend?.[0]?.startDate,
-                      course?.classes?.weekend?.[0]?.endDate
-                    )} Weeks`}
+                  : `${calculateWeeks(course?.classes?.weekend?.[0]?.startDate, course?.classes?.weekend?.[0]?.endDate)} Weeks`}
               </span>
             </div>
             <div className={style?.date}>
-              <p className='mb-0 fw-bold medium-text'>
-                {!course?.classes?.weekend?.[0]?.fee
-                  ? `N/A`
-                  : formatCurrency(course?.classes?.weekend?.[0]?.fee)}
-              </p>
+              <p className='mb-0 fw-bold medium-text'>{!course?.classes?.weekend?.[0]?.fee ? `N/A` : formatCurrency(course?.classes?.weekend?.[0]?.fee)}</p>
             </div>
           </div>
         </section>

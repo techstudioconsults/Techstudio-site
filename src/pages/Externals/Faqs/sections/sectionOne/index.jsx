@@ -22,9 +22,7 @@ const index = () => {
   const onSubmit = async (data) => {
     setLoading(true)
     try {
-      const res = await axios.get(
-        `${baseUrl}/external/faq?search=${data.search}`
-      )
+      const res = await axios.get(`${baseUrl}/external/faq?search=${data.search}`)
       dispatch({ type: `app/setFAQ`, payload: res.data.data })
       setLoading(false)
     } catch (err) {
@@ -44,14 +42,10 @@ const index = () => {
 
   return (
     <Gsap animationFuncion={() => genericAnimation(`faqH`)}>
-      <main className={style.headerContainer}>
-        <h1 className={`${style.subtitle} faqH`}>
-          Frequently Asked Questions{' '}
-        </h1>
+      <main className={`${style.headerContainer}`}>
+        <h1 className={`${style.subtitle} faqH`}>Frequently Asked Questions </h1>
         <h1 className={`${style.subtitle} faqH`}>(FAQS)</h1>
-        <p className={`${style.subtitleTwo} medium-text`}>
-          You have questions? We are here to help
-        </p>
+        <p className={`${style.subtitleTwo} medium-text`}>You have questions? We are here to help</p>
         {/* <form onSubmit={handleSubmit(onSubmit)}>
         <div className={`${style.searchContainer} d-flex align-items-center`}>
           <div>
