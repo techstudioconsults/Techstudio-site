@@ -37,10 +37,7 @@ const UserTab = ({ courses }) => {
   const downloadAllTutors = async () => {
     setLoading(true)
     try {
-      const res = await axios.get(
-        `${baseUrl}/users/tutors/download`,
-        credentials
-      )
+      const res = await axios.get(`${baseUrl}/users/tutors/download`, credentials)
       console.log(res.data)
       if (res.status === 200) {
         setLoading(false)
@@ -56,10 +53,7 @@ const UserTab = ({ courses }) => {
   const downloadTutorsByID = async () => {
     setLoading(true)
     try {
-      const res = await axios.get(
-        `${baseUrl}/users/tutors/courses/${courseID}/download`,
-        credentials
-      )
+      const res = await axios.get(`${baseUrl}/users/tutors/courses/${courseID}/download`, credentials)
       console.log(res.data)
       if (res.status === 200) {
         setLoading(false)
@@ -76,10 +70,7 @@ const UserTab = ({ courses }) => {
   const downloadAllStudents = async () => {
     setLoading(true)
     try {
-      const res = await axios.get(
-        `${baseUrl}/users/students/download`,
-        credentials
-      )
+      const res = await axios.get(`${baseUrl}/users/students/download`, credentials)
       console.log(res.data)
       if (res.status === 200) {
         setLoading(false)
@@ -95,10 +86,7 @@ const UserTab = ({ courses }) => {
   const downloadStudentsByID = async () => {
     setLoading(true)
     try {
-      const res = await axios.get(
-        `${baseUrl}/users/students/courses/${courseID}/download`,
-        credentials
-      )
+      const res = await axios.get(`${baseUrl}/users/students/courses/${courseID}/download`, credentials)
       console.log(res.data)
       if (res.status === 200) {
         setLoading(false)
@@ -172,12 +160,7 @@ const UserTab = ({ courses }) => {
           {/* <li className={['nav-item ', style.link, style.lessonLink].join(' ')}> */}
           <div className={`d-flex align-items-center gap-10`}>
             <div>
-              <select
-                disabled
-                className='form-select'
-                aria-label='Default select example'
-                defaultValue={`Class Month/ Year`}
-              >
+              <select disabled className='form-select' aria-label='Default select example' defaultValue={`Class Month/ Year`}>
                 <option value='1'>Class Month/ Year</option>
                 <option value='2'>Two</option>
                 <option value='3'>Three</option>
@@ -191,11 +174,7 @@ const UserTab = ({ courses }) => {
                 onClick={handleTutorDownload}
                 id='download-list'
               >
-                <div
-                  hidden={!isLoading}
-                  className='spinner-border spinner-border-sm me-5 text-primary'
-                  role='status'
-                />
+                <div hidden={!isLoading} className='spinner-border spinner-border-sm me-5 text-primary' role='status' />
                 {isLoading ? `Downloading...` : `Download List`}
               </button>
               <button
@@ -205,11 +184,7 @@ const UserTab = ({ courses }) => {
                 onClick={handleStudentDownload}
                 id='download-list'
               >
-                <div
-                  hidden={!isLoading}
-                  className='spinner-border spinner-border-sm me-5 text-primary'
-                  role='status'
-                />
+                <div hidden={!isLoading} className='spinner-border spinner-border-sm me-5 text-primary' role='status' />
                 {isLoading ? `Downloading...` : `Download List`}
               </button>
             </div>
@@ -219,22 +194,12 @@ const UserTab = ({ courses }) => {
       </div>
 
       <div className='tab-content' id='tabContent'>
-        <div
-          className='tab-pane fade show active'
-          id='ongoing'
-          role='tabpanel'
-          aria-labelledby='home-tab'
-        >
+        <div className='tab-pane fade show active' id='ongoing' role='tabpanel' aria-labelledby='home-tab'>
           <div className={style.listWrapper}>
             <UsersCourseTab type={`tutors`} courses={courses} />
           </div>
         </div>
-        <div
-          className='tab-pane fade'
-          id='previous'
-          role='tabpanel'
-          aria-labelledby='about-tab'
-        >
+        <div className='tab-pane fade' id='previous' role='tabpanel' aria-labelledby='about-tab'>
           <div className={style.listWrapper}>
             <UsersCourseTab type={`students`} courses={courses} />
           </div>

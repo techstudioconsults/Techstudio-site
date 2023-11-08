@@ -48,8 +48,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
   //     </li>
   //   )
   // })
-  const navStyle =
-    'container-xxl py-6 px-md-8  px-lg-16 px-xl-15 px-xxl-1 py-lg-6'
+  const navStyle = 'container-xxl py-6 px-md-8  px-lg-16 px-xl-15 px-xxl-1 py-lg-6'
 
   // const style = useEffect(() => {
   //   const styleNavbar = {
@@ -85,11 +84,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
 
   const dynamicDropdown = upcomingCourses.map((course) => {
     return (
-      <Link
-        key={course.id}
-        className='dropdown-item fs-sm fw-semibold py-2 text-dark'
-        to={getCourseRoute(course.title)}
-      >
+      <Link key={course.id} className='dropdown-item fs-sm fw-semibold py-2 text-dark' to={getCourseRoute(course.title)}>
         {course.title}
       </Link>
     )
@@ -97,14 +92,12 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
   return (
     <nav
       ref={navEl}
-      className={[
-        ' d-flex flex-column navbar navbar-expand-lg fixed-top py-0 py-lg-1',
-      ].join(' ')}
+      className={[' d-flex flex-column navbar navbar-expand-lg fixed-top py-0 py-lg-1'].join(' ')}
       style={{
         backgroundColor: bg,
       }}
     >
-      {/* <DiscountBanner /> */}
+      <DiscountBanner />
       <div className={`${navStyle}`}>
         <Link className='navbar-brand' to='/'>
           <div className='d-flex align-items-center gap-2'>
@@ -129,10 +122,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
           aria-controls='navbarNavAltMarkup'
           aria-expanded='false'
           aria-label='Toggle navigation'
-          className={[
-            'navbar-toggler fs-3xl border-0 p-0',
-            color ? `text-blue` : `text-white`,
-          ].join(' ')}
+          className={['navbar-toggler fs-3xl border-0 p-0', color ? `text-blue` : `text-white`].join(' ')}
         />
 
         <div
@@ -143,34 +133,19 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
           id='navbarNavAltMarkup'
         >
           <div className='navbar-nav align-items-center text-center gap-8 fs-sm'>
-            <Link
-              className={[
-                'nav-link fw-semibold',
-                color ? `text-black` : `text-white`,
-              ].join(' ')}
-              aria-current='page'
-              to='/about-us'
-            >
+            <Link className={['nav-link fw-semibold', color ? `text-black` : `text-white`].join(' ')} aria-current='page' to='/about-us'>
               About Us
             </Link>
             <div className='dropdown'>
               <div
-                className={[
-                  'dropdown-toggle btn fs-sm fw-semibold border-0',
-                  color ? `text-black` : `text-white`,
-                ].join(' ')}
+                className={['dropdown-toggle btn fs-sm fw-semibold border-0', color ? `text-black` : `text-white`].join(' ')}
                 data-bs-toggle='dropdown'
                 aria-expanded='false'
               >
                 Courses
-                <Icon
-                  icon={`mdi:chevron-down`}
-                  className='ms-2 fs-sm fw-semibold'
-                />
+                <Icon icon={`mdi:chevron-down`} className='ms-2 fs-sm fw-semibold' />
               </div>
-              <ul className='dropdown-menu mt-8 text-dark'>
-                {dynamicDropdown}
-              </ul>
+              <ul className='dropdown-menu mt-8 text-dark'>{dynamicDropdown}</ul>
             </div>
             {/* <Link
               className={[
@@ -181,39 +156,16 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
             >
               Employers
             </Link> */}
-            <Link
-              className={[
-                'nav-link fw-semibold',
-                color ? `text-black` : `text-white`,
-              ].join(' ')}
-              to='/faq'
-            >
+            <Link className={['nav-link fw-semibold', color ? `text-black` : `text-white`].join(' ')} to='/faq'>
               FAQ
             </Link>
-            <Link
-              className={[
-                'nav-link fw-semibold',
-                color ? `text-black` : `text-white`,
-              ].join(' ')}
-              to='/contact'
-            >
+            <Link className={['nav-link fw-semibold', color ? `text-black` : `text-white`].join(' ')} to='/contact'>
               Contact Us
             </Link>
           </div>
-          <div
-            className={[
-              'd-flex gap-3 justify-content-center fw-semibold my-10 my-lg-0',
-              isEmployersRoute ? `d-none visibility-hidden` : null,
-            ].join(' ')}
-          >
+          <div className={['d-flex gap-3 justify-content-center fw-semibold my-10 my-lg-0', isEmployersRoute ? `d-none visibility-hidden` : null].join(' ')}>
             <Button linkHref='/login' linkText='Log in' solidBtn navBtn />
-            <Button
-              className='fw-semibold'
-              linkHref='/student/register'
-              linkText='Register'
-              textBtn
-              textColor={color ? `#000000` : `#ffffff`}
-            />
+            <Button className='fw-semibold' linkHref='/student/register' linkText='Register' textBtn textColor={color ? `#000000` : `#ffffff`} />
           </div>
         </div>
       </div>

@@ -13,15 +13,7 @@ import { HOME_CONTENT } from './content'
 // import { Whatsapp } from '../../../components'
 
 const Home = () => {
-  const {
-    hero,
-    sectionTwo,
-    sectionThree,
-    sectionFour,
-    sectionFive,
-    sectionSix,
-    sectionSeven,
-  } = HOME_CONTENT
+  const { hero, sectionTwo, sectionThree, sectionFour, sectionFive, sectionSix, sectionSeven } = HOME_CONTENT
 
   return (
     <div>

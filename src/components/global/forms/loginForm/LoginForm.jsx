@@ -1,11 +1,12 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { ErrorMessage } from '@hookform/error-message'
 import { Icon } from '@iconify/react'
+import axios from 'axios'
 
-import usePersist from '../../../../hooks/usePersist'
 import useToast from '../../../../hooks/useToast'
 // RTK
 import { useLoginMutation } from '../../../../pages/Auth/api/authApiSlice.js'
@@ -23,8 +24,10 @@ const validation = {
 
 const ContactForm = () => {
   // state
+  // const [isLoading, setLoading] = useState(false)
   const [isShow, setShow] = useState(false)
   const [errorMessage, setErrorMessage] = useState(null)
+  // const dispatch = useDispatch()
 
   // mutations
   const [login, { isLoading }] = useLoginMutation()
@@ -45,6 +48,24 @@ const ContactForm = () => {
 
   // restructure this function to use the inbuilt call back action (error, isError)
   const onSubmit = async (data) => {
+    // try {
+    //   setLoading(true)
+    //   const res = await axios.post('https://api.staging.techstudioacademy.com/api/v1/auth/login', data)
+    //   if (res.status === 200) {
+    //     console.log(res)
+    //     dispatch({
+    //       type: `auth/setCredentials`,
+    //       payload: {
+    //         accessToken: res?.data?.data?.accessToken,
+    //         refreshToken: res?.data?.data?.refreshToken,
+    //       },
+    //     })
+    //     navigate(`/${res?.data?.data?.role.toLowerCase()}/dashboard`)
+    //   }
+    // } catch (err) {
+    //   setErrorMessage(err?.data?.message)
+    //   toast.show()
+    // }
     try {
       const res = await login(data).unwrap()
       res.success ? navigate(`/${res.data.role.toLowerCase()}/dashboard`) : null
@@ -113,16 +134,8 @@ const ContactForm = () => {
               {...register('password', validation)}
             />
             {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
-            <div
-              onClick={togglePasswordView}
-              className={['input-group-text', style.showPassword].join(' ')}
-              id='passwordHelpBlock'
-            >
-              {isShow ? (
-                <Icon icon={`ph:eye-slash-thin`} />
-              ) : (
-                <Icon icon={`ph:eye`} />
-              )}
+            <div onClick={togglePasswordView} className={['input-group-text', style.showPassword].join(' ')} id='passwordHelpBlock'>
+              {isShow ? <Icon icon={`ph:eye-slash-thin`} /> : <Icon icon={`ph:eye`} />}
             </div>
           </div>
           <ErrorMessage
@@ -164,11 +177,7 @@ const ContactForm = () => {
       </div>
       <div className={style.btnContainer}>
         <button type='submit'>
-          <div
-            hidden={!isLoading}
-            className='spinner-border spinner-border-sm me-5 text-white'
-            role='status'
-          />
+          <div hidden={!isLoading} className='spinner-border spinner-border-sm me-5 text-white' role='status' />
           {isLoading ? `Please Wait...` : `Login`}
         </button>
         <ToastComponent errorMessage={errorMessage} />

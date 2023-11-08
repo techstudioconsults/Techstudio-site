@@ -34,17 +34,9 @@ const ScheduleClassForm = () => {
           <button type='submit'>Add</button>
         </div>
       </div>
-      <div
-        className={[
-          `d-flex gap-3 my-10 align-items-center justify-content-end`,
-        ].join(' ')}
-      >
-        <button className='fs-sm bg-primary text-white rounded rounded-lg px-3 w-25'>
-          Save Changes
-        </button>
-        <button className='fs-sm fw-semibold bg-white text-primary rounded rounded-lg px-3 w-25 border border-primary'>
-          Cancel
-        </button>
+      <div className={[`d-flex gap-3 my-10 align-items-center justify-content-end`].join(' ')}>
+        <button className='fs-sm bg-primary text-white rounded rounded-lg px-3 w-25'>Save Changes</button>
+        <button className='fs-sm fw-semibold bg-white text-primary rounded rounded-lg px-3 w-25 border border-primary'>Cancel</button>
       </div>
     </form>
   )

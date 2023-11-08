@@ -60,9 +60,7 @@ const ContactForm = () => {
       schedule: `Weekday`,
     }
     try {
-      let modal = bootstrap.Modal.getOrCreateInstance(
-        document.getElementById('feedback')
-      )
+      let modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('feedback'))
       const res = await registerStudent({
         body: formData,
         courseID: selectedCourse[0]?.id,
@@ -156,11 +154,7 @@ const ContactForm = () => {
           <label htmlFor='subject' className='form-label'>
             Time Schedule
           </label>
-          <select
-            id='subject'
-            {...register('schedule')}
-            className={[`form-select`, style.select].join(' ')}
-          >
+          <select id='subject' {...register('schedule')} className={[`form-select`, style.select].join(' ')}>
             <option>Weekday Classes</option>
             <option>Weekend Classes</option>
           </select>
@@ -169,11 +163,7 @@ const ContactForm = () => {
           <label htmlFor='course' className='form-label'>
             Courses
           </label>
-          <select
-            id='course'
-            {...register('course')}
-            className={[`form-select`, style.select].join(' ')}
-          >
+          <select id='course' {...register('course')} className={[`form-select`, style.select].join(' ')}>
             {dropdownOption}
             {/* <option>Mobile Development</option>
             <option>Fullstack Development</option>
@@ -243,28 +233,15 @@ const ContactForm = () => {
 
       <div className={style.secondRow}>
         <div className='form-check d-flex align-items-center gap-2'>
-          <input
-            {...register('newsletter')}
-            className='form-check-input'
-            type='checkbox'
-            value=''
-            id='newsletter'
-          />
-          <label
-            className={['form-check-label', style.checkboxLabel].join(' ')}
-            htmlFor='newsletter'
-          >
+          <input {...register('newsletter')} className='form-check-input' type='checkbox' value='' id='newsletter' />
+          <label className={['form-check-label', style.checkboxLabel].join(' ')} htmlFor='newsletter'>
             Send me alerts and Weekly Newsletters
           </label>
         </div>
       </div>
       <div className={style.btnContainer}>
         <button type='submit'>
-          <div
-            hidden={!isLoading}
-            className='spinner-border spinner-border-sm me-5 text-white'
-            role='status'
-          />
+          <div hidden={!isLoading} className='spinner-border spinner-border-sm me-5 text-white' role='status' />
           {isLoading ? `Please wait...` : `Register`}
         </button>
       </div>
