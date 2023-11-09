@@ -24,13 +24,14 @@ const validation = {
 
 const ContactForm = () => {
   // state
-  // const [isLoading, setLoading] = useState(false)
+  const [isLoading, setLoading] = useState(false)
   const [isShow, setShow] = useState(false)
   const [errorMessage, setErrorMessage] = useState(null)
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
   // mutations
-  const [login, { isLoading }] = useLoginMutation()
+  const [login] = useLoginMutation()
+  // const [login, { isLoading }] = useLoginMutation()
 
   // hooks
   // const [persist, setPersist] = usePersist()
@@ -48,31 +49,31 @@ const ContactForm = () => {
 
   // restructure this function to use the inbuilt call back action (error, isError)
   const onSubmit = async (data) => {
-    // try {
-    //   setLoading(true)
-    //   const res = await axios.post('https://api.staging.techstudioacademy.com/api/v1/auth/login', data)
-    //   if (res.status === 200) {
-    //     console.log(res)
-    //     dispatch({
-    //       type: `auth/setCredentials`,
-    //       payload: {
-    //         accessToken: res?.data?.data?.accessToken,
-    //         refreshToken: res?.data?.data?.refreshToken,
-    //       },
-    //     })
-    //     navigate(`/${res?.data?.data?.role.toLowerCase()}/dashboard`)
-    //   }
-    // } catch (err) {
-    //   setErrorMessage(err?.data?.message)
-    //   toast.show()
-    // }
     try {
-      const res = await login(data).unwrap()
-      res.success ? navigate(`/${res.data.role.toLowerCase()}/dashboard`) : null
+      setLoading(true)
+      const res = await axios.post('https://api.staging.techstudioacademy.com/api/v1/auth/login', data)
+      if (res.status === 200) {
+        console.log(res)
+        dispatch({
+          type: `auth/setCredentials`,
+          payload: {
+            accessToken: res?.data?.data?.accessToken,
+            refreshToken: res?.data?.data?.refreshToken,
+          },
+        })
+        navigate(`/${res?.data?.data?.role.toLowerCase()}/dashboard`)
+      }
     } catch (err) {
-      setErrorMessage(err.data.message)
+      setErrorMessage(err?.data?.message)
       toast.show()
     }
+    // try {
+    //   const res = await login(data).unwrap()
+    //   res.success ? navigate(`/${res.data.role.toLowerCase()}/dashboard`) : null
+    // } catch (err) {
+    //   setErrorMessage(err.data.message)
+    //   toast.show()
+    // }
   }
 
   useEffect(() => {
