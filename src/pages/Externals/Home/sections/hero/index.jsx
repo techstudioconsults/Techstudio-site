@@ -83,7 +83,7 @@ const Hero = ({ content }) => {
                 alt='logo'
                 data-sizes='auto'
                 src='https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686744735/techstudio-web-app/assets/images/hero_doqefw.webp'
-                data-src='https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1686744735/techstudio-web-app/assets/images/hero_doqefw.webp'
+                data-src='https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879067/techstudio/images/Property_1_Frame_1000002519_gyyrq4_lippj4.svg'
                 className='lazyload'
               />
             </div>

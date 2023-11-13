@@ -19,18 +19,12 @@ const GalleryIndex = () => {
           <Gsap animationFuncion={() => genericAnimation(`facility`)}>
             <div className={`${style.GalleryIndexContentsFirstInner} facility`}>
               <div>
-                <p className={`${style.galleryHeader} fw-semibold`}>
-                  WHAT TO EXPECT
-                </p>
-                <h3 className={`${style.gallerySubheader} mb-0`}>
-                  Our Facility
-                </h3>
+                <p className={`${style.galleryHeader} fw-semibold`}>WHAT TO EXPECT</p>
+                <h3 className={`${style.gallerySubheader} mb-0`}>Our Facility</h3>
               </div>
               <p className={`${style.galleryText} facility`}>
-                We have put in place a very comfortable, and conducive learning
-                facilities where you have access to resources. We have also
-                invested in unlimited internet to ensure our students don’t have
-                hinderance in their learning process.
+                We have put in place a very comfortable, and conducive learning facilities where you have access to resources. We have also invested in
+                unlimited internet to ensure our students don’t have hinderance in their learning process.
               </p>
             </div>
           </Gsap>
@@ -40,7 +34,7 @@ const GalleryIndex = () => {
           <section className={` position-relative`}>
             <img
               className={style.polygon}
-              src='https://res.cloudinary.com/dkszgtapy/image/upload/v1686740627/techstudio-web-app/assets/images/Polygon_1_ysztg3.webp'
+              src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879055/techstudio/images/Polygon_1_ysztg3_gz0ob2.png`}
               alt='polygon'
             />
             <section className='d-xl-flex position-relative'>
@@ -60,8 +54,8 @@ const GalleryIndex = () => {
                     alt='card-img'
                     data-sizes='auto'
                     className={`${style.GalleryImg} lazyload`}
-                    src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1691502308/techstudio-web-app/assets/images/IMG_9412_mil4co.webp`}
-                    data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1691502308/techstudio-web-app/assets/images/IMG_9412_mil4co.webp`}
+                    src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879345/techstudio/images/IMG_9412_mil4co_trbvdc.webp`}
+                    data-src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879345/techstudio/images/IMG_9412_mil4co_trbvdc.webp`}
                   />
                 </SwiperSlide>
                 <SwiperSlide className={style.slider}>
@@ -69,8 +63,8 @@ const GalleryIndex = () => {
                     alt='card-img'
                     data-sizes='auto'
                     className={`${style.GalleryImg} lazyload`}
-                    src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686777381/techstudio-web-app/assets/images/Rectangle_14_ttyodm.webp`}
-                    data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1686777381/techstudio-web-app/assets/images/Rectangle_14_ttyodm.webp`}
+                    src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879068/techstudio/images/Rectangle_14_ttyodm_fgxexu.png`}
+                    data-src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879068/techstudio/images/Rectangle_14_ttyodm_fgxexu.png`}
                   />
                 </SwiperSlide>
                 <SwiperSlide className={style.slider}>
@@ -78,8 +72,8 @@ const GalleryIndex = () => {
                     alt='card-img'
                     data-sizes='auto'
                     className={`${style.GalleryImg} lazyload`}
-                    src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1691502055/techstudio-web-app/assets/images/IMG_9436_wcn8mn.webp`}
-                    data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1691502055/techstudio-web-app/assets/images/IMG_9436_wcn8mn.webp`}
+                    src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879051/techstudio/images/IMG_9436_wcn8mn_x0dqal.webp`}
+                    data-src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879051/techstudio/images/IMG_9436_wcn8mn_x0dqal.webp`}
                   />
                 </SwiperSlide>
                 <SwiperSlide className={style.slider}>
@@ -87,8 +81,8 @@ const GalleryIndex = () => {
                     alt='card-img'
                     data-sizes='auto'
                     className={`${style.GalleryImg} lazyload`}
-                    src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686777212/techstudio-web-app/assets/images/Rectangle_15_qd4r71.webp`}
-                    data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1686777212/techstudio-web-app/assets/images/Rectangle_15_qd4r71.webp`}
+                    src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879073/techstudio/images/Rectangle_15_qd4r71_y37idd.png`}
+                    data-src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879073/techstudio/images/Rectangle_15_qd4r71_y37idd.png`}
                   />
                 </SwiperSlide>
                 <SwiperSlide className={style.slider}>
@@ -96,8 +90,8 @@ const GalleryIndex = () => {
                     alt='card-img'
                     data-sizes='auto'
                     className={`${style.GalleryImg} lazyload`}
-                    src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1691501934/techstudio-web-app/assets/images/IMG_9419_w7p2l6.webp`}
-                    data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1691501934/techstudio-web-app/assets/images/IMG_9419_w7p2l6.webp`}
+                    src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879364/techstudio/images/IMG_9419_w7p2l6_phistp.webp`}
+                    data-src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879364/techstudio/images/IMG_9419_w7p2l6_phistp.webp`}
                   />
                 </SwiperSlide>
                 <SwiperSlide className={style.slider}>
@@ -105,8 +99,8 @@ const GalleryIndex = () => {
                     alt='card-img'
                     data-sizes='auto'
                     className={`${style.GalleryImg} lazyload`}
-                    src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1691501885/techstudio-web-app/assets/images/IMG_9423_oyny7o.webp`}
-                    data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1691501885/techstudio-web-app/assets/images/IMG_9423_oyny7o.webp`}
+                    src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879318/techstudio/images/IMG_9423_oyny7o_aufi1n.webp`}
+                    data-src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879318/techstudio/images/IMG_9423_oyny7o_aufi1n.webp`}
                   />
                 </SwiperSlide>
                 <SwiperSlide className={style.slider}>
@@ -114,8 +108,8 @@ const GalleryIndex = () => {
                     alt='card-img'
                     data-sizes='auto'
                     className={`${style.GalleryImg} lazyload`}
-                    src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1691502680/techstudio-web-app/assets/images/IMG_9418_f8hbk7.webp`}
-                    data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1691502680/techstudio-web-app/assets/images/IMG_9418_f8hbk7.webp`}
+                    src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879342/techstudio/images/IMG_9418_f8hbk7_wuinco.webp`}
+                    data-src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879342/techstudio/images/IMG_9418_f8hbk7_wuinco.webp`}
                   />
                 </SwiperSlide>
                 <SwiperSlide className={style.slider}>
@@ -123,32 +117,24 @@ const GalleryIndex = () => {
                     alt='card-img'
                     data-sizes='auto'
                     className={`${style.GalleryImg} lazyload`}
-                    src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1691502047/techstudio-web-app/assets/images/IMG_9433_kmoob7.webp`}
-                    data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1691502047/techstudio-web-app/assets/images/IMG_9433_kmoob7.webp`}
+                    src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879366/techstudio/images/IMG_9433_kmoob7_svinvh.webp`}
+                    data-src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879366/techstudio/images/IMG_9433_kmoob7_svinvh.webp`}
                   />
                 </SwiperSlide>
               </Swiper>
 
               <div className={`${style.sliderText} mt-10`}>
                 <Gsap animationFuncion={() => genericAnimation(`text`)}>
-                  <h5 className='fw-bold text'>
-                    A World-Class Learning Facility
-                  </h5>
+                  <h5 className='fw-bold text'>A World-Class Learning Facility</h5>
                   <p className='mt-10 text'>
-                    At Tech Studio Academy, we have created a conducive
-                    environment for learning, combining exceptional school
-                    structures, inspiring classrooms, and dedicated tutors. We
-                    understand that the physical surroundings greatly impact the
-                    educational experience, and we strive to provide a nurturing
-                    setting that fosters academic growth, creativity, and
-                    personal development.
+                    At Tech Studio Academy, we have created a conducive environment for learning, combining exceptional school structures, inspiring classrooms,
+                    and dedicated tutors. We understand that the physical surroundings greatly impact the educational experience, and we strive to provide a
+                    nurturing setting that fosters academic growth, creativity, and personal development.
                   </p>
                   <br />
                   <p className='text'>
-                    Our classrooms are carefully designed to facilitate
-                    effective teaching and learning to enable tutors to deliver
-                    dynamic and engaging lessons that captivate students'
-                    attention and spark their curiosity.
+                    Our classrooms are carefully designed to facilitate effective teaching and learning to enable tutors to deliver dynamic and engaging lessons
+                    that captivate students' attention and spark their curiosity.
                   </p>
                 </Gsap>
               </div>
