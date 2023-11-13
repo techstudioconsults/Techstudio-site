@@ -1,4 +1,5 @@
 import React from 'react'
+import dayo from '@assets/images/dayo.png'
 import PropTypes from 'prop-types'
 
 import { genericAnimation } from '../../../../../gsap'
@@ -24,11 +25,7 @@ const AboutHero = ({ content }) => {
             <p className={`${style.description} hero`}>{description3}</p>
           </section>
           <section className={style.aboutHeroImg}>
-            <img
-              src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879006/techstudio/images/Group_1000002342_xxwg28_chhkoe.png`}
-              alt='hero-mg'
-              className='img-fluid'
-            />
+            <img src={dayo} alt='hero-mg' className='img-fluid' />
           </section>
         </header>
       </Gsap>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import map from '@assets/images/location.png'
 
 // import { ContactHero, ContactSectionTwo } from '../../../components'
 import { ExternalLayout, Navbar } from '../../../layout'
@@ -43,7 +44,7 @@ const index = () => {
             width={`100%`}
             height={`100%`}
             className='cc-img-fluid'
-            src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1695999154/Screenshot_2023-09-29_154936_etvuxt.png`}
+            src={map}
             alt={`map`}
           />
           {/* <Map location={mapLocation} /> */}

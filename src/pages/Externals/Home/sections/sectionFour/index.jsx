@@ -1,5 +1,8 @@
 import { useRef } from 'react'
 import Marquee from 'react-fast-marquee'
+import box from '@assets/images/box.svg'
+import edges from '@assets/images/edges.svg'
+import smilingLady from '@assets/images/smiling-lady.webp'
 import PropTypes from 'prop-types'
 import { SwiperSlide } from 'swiper/react'
 
@@ -110,25 +113,9 @@ const SectionFour = ({ content, isDevelopmentView }) => {
           <Gsap animationFuncion={TAKE_A_COURSE_ANIMATION}>
             <div hidden={isDevelopmentView} className={style.sectionFourWrapper}>
               <div ref={sectionFour} className={style.sectionFourImg}>
-                <img
-                  alt='card-img'
-                  data-sizes='auto'
-                  className={`lazyload ${style.angle} angle`}
-                  src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879000/techstudio/images/Group_1000002319_izpnar_stcuo5.svg`}
-                />
-                <img
-                  alt='card-img'
-                  data-sizes='auto'
-                  className={`lazyload ${style.img} img`}
-                  src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879329/techstudio/images/IMG_9425_lelq4u_vbf8de.webp`}
-                  data-src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879329/techstudio/images/IMG_9425_lelq4u_vbf8de.webp`}
-                />
-                <img
-                  alt='card-img'
-                  data-sizes='auto'
-                  className={`lazyload ${style.box} box`}
-                  src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699878982/techstudio/images/Frame_70_xuw32a_nipxww.svg`}
-                />
+                <img alt='card-img' data-sizes='auto' className={`lazyload ${style.angle} angle`} src={edges} />
+                <img alt='card-img' data-sizes='auto' className={`lazyload ${style.img} img`} src={smilingLady} />
+                <img alt='card-img' data-sizes='auto' className={`lazyload ${style.box} box`} src={box} />
               </div>
               <div className={style.sectionFourTextGroup}>
                 <Gsap animationFuncion={() => genericAnimation(`sectionFourText`)}>

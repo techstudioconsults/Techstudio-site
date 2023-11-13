@@ -61,7 +61,7 @@ const Carousel = () => {
         <Swiper
           ref={swiperRef}
           spaceBetween={50}
-          slidesPerView={1} 
+          slidesPerView={1}
           pagination={{
             clickable: true,
             dynamicBullets: true,
@@ -92,22 +92,10 @@ const Carousel = () => {
       </section>
       <section className='d-flex d-lg-none justify-content-center align-items-center mt-10'>
         <div>
-          <Icon
-            className={`${
-              isFirstSlide ? `d-none` : `d-block`
-            } btn fs-6xl text-blue`}
-            icon={`carbon:previous-outline`}
-            onClick={goPrev}
-          />
+          <Icon className={`${isFirstSlide ? `d-none` : `d-block`} btn fs-6xl text-blue`} icon={`carbon:previous-outline`} onClick={goPrev} />
         </div>
         <div>
-          <Icon
-            className={`${
-              !isLastSlide ? `d-block` : `d-none`
-            } btn fs-6xl text-blue`}
-            onClick={goNext}
-            icon={`carbon:next-outline`}
-          />
+          <Icon className={`${!isLastSlide ? `d-block` : `d-none`} btn fs-6xl text-blue`} onClick={goNext} icon={`carbon:next-outline`} />
         </div>
       </section>
     </div>

@@ -1,4 +1,6 @@
 import { useRef } from 'react'
+import ipad1 from '@assets/images/ipad-1.png'
+import ipad2 from '@assets/images/ipad-2.png'
 import PropTypes from 'prop-types'
 
 import Stepper from '../../../../../components/global/steppers/Stepper'
@@ -22,20 +24,8 @@ const SectionFive = ({ content }) => {
               <Stepper lists={lists} />
             </div>
             <div ref={sectionFive} className={style.sectionFiveImg}>
-              <img
-                alt='logo'
-                data-sizes='auto'
-                src='https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879045/techstudio/images/iPad_Pro_Mockupxx_1_ppbs9g_khjrr0.svg'
-                data-src='https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879045/techstudio/images/iPad_Pro_Mockupxx_1_ppbs9g_khjrr0.svg'
-                className={`lazyload img-fluid ${style.img1} img1`}
-              />
-              <img
-                alt='logo'
-                data-sizes='auto'
-                src='https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879044/techstudio/images/iPad_Pro_Mockup_1_1_qipool_r8pcai.svg'
-                data-src='https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879044/techstudio/images/iPad_Pro_Mockup_1_1_qipool_r8pcai.svg'
-                className={`lazyload img-fluid ${style.img2} img2`}
-              />
+              <img alt='logo' data-sizes='auto' src={ipad1} className={`lazyload img-fluid ${style.img1} img1`} />
+              <img alt='logo' data-sizes='auto' src={ipad2} className={`lazyload img-fluid ${style.img2} img2`} />
             </div>
           </section>
         </Container>

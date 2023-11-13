@@ -18,13 +18,7 @@ const SectionSix = ({ content }) => {
             <h4 className='mt-3 fw-bold text-white'>{header.title}</h4>
             <p className={`${style.description}`}>{header.description}</p>
             <div className={style.btnContainer}>
-              <Button
-                linkHref='/contact'
-                linkText='Get Help'
-                solidBtn
-                navBtn
-                width={`10`}
-              />
+              <Button linkHref='/contact' linkText='Get Help' solidBtn navBtn width={`10`} />
             </div>
           </div>
         </BannerII>

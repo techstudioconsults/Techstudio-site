@@ -1,3 +1,10 @@
+import staff1 from '@assets/staff/staff1.png'
+import staff2 from '@assets/staff/staff2.png'
+import staff3 from '@assets/staff/staff3.png'
+import staff4 from '@assets/staff/staff4.png'
+import staff5 from '@assets/staff/staff5.png'
+import staff6 from '@assets/staff/staff6.png'
+
 export const ABOUT_CONTENT = {
   hero: {
     caption: `KNOW US MORE`,
@@ -75,32 +82,32 @@ export const ABOUT_CONTENT = {
 
     cards: [
       {
-        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699878961/techstudio/images/AboutSec4Img01_w8mdxw_nxwnqm.png`,
+        img: staff1,
         name: `Wasiu Yusuf`,
         job: `COO`,
       },
       {
-        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699878961/techstudio/images/AboutSec4Img02_vsdms5_rizqa8.png`,
+        img: staff2,
         name: `Tosin Sanya`,
         job: `HR/ Admin Lead`,
       },
       {
-        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699878961/techstudio/images/AboutSec4Img03_paaukf_uvhwom.png`,
+        img: staff3,
         name: `Hafeez Kekere-Ekun`,
         job: `Product Lead`,
       },
       {
-        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699878962/techstudio/images/AboutSec4Img04_df6elh_pwagsn.png`,
+        img: staff4,
         name: `Hussein Oyelaja`,
         job: `Marketing Lead`,
       },
       {
-        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699878961/techstudio/images/AboutSec4Img05_brhhpr_sv7rkd.png`,
+        img: staff5,
         name: `Adebusola Adebowale`,
         job: `Sales & Marketing`,
       },
       {
-        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699878962/techstudio/images/AboutSec4Img06_vd64w5_fcv78h.png`,
+        img: staff6,
         name: `Patrick Blessing`,
         job: `Sales & Marketing`,
       },

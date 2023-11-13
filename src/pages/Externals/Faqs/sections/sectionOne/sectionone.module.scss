@@ -4,7 +4,7 @@
 @import '@/scss/utils/mixins';
 
 .headerContainer {
-  background-image: url(https://res.cloudinary.com/kingsleysolomon/image/upload/v1699878971/techstudio/images/blogHeroBg_ckuu9x_stmgmm.webp);
+  background-image: url(@assets/images/HeroBg.webp);
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0 auto;
