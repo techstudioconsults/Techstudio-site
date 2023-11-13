@@ -10,7 +10,7 @@ export const CONTACT_CONTENT = {
       caption: `Where the magic happens`,
     },
     address: {
-      img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218525/techstudio-web-app/assets/images/nigeria_utfblr.webp`,
+      img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879018/techstudio/images/heroBg_yicr2q_t0jf5j.webp`,
       state: `Lagos, Nigeria`,
       address: `1 Ogunlesi Street, Off Awoyokun, Onipanu, Lagos.`,
       whatsapp: `Call or Whatsapp`,

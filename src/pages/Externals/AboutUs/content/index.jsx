@@ -11,19 +11,19 @@ export const ABOUT_CONTENT = {
     images: [
       {
         id: 1,
-        src: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_500/v1691501934/techstudio-web-app/assets/images/IMG_9419_w7p2l6.webp`,
+        src: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879364/techstudio/images/IMG_9419_w7p2l6_phistp.webp`,
       },
       {
         id: 2,
-        src: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_500/v1691502003/techstudio-web-app/assets/images/IMG_9435_infhuu.webp`,
+        src: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879046/techstudio/images/IMG_9435_infhuu_icl0ga.webp`,
       },
       {
         id: 3,
-        src: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_500/v1691501842/techstudio-web-app/assets/images/IMG_9424_ffooid.webp`,
+        src: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879329/techstudio/images/IMG_9424_ffooid_upwkdx.webp`,
       },
       {
         id: 4,
-        src: `https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_500/v1691502692/techstudio-web-app/assets/images/IMG_9417_hbjuu8.webp`,
+        src: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879344/techstudio/images/IMG_9417_hbjuu8_cowzb4.webp`,
       },
     ],
   },
@@ -75,32 +75,32 @@ export const ABOUT_CONTENT = {
 
     cards: [
       {
-        img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218515/techstudio-web-app/assets/images/AboutSec4Img01_w8mdxw.png`,
+        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699878961/techstudio/images/AboutSec4Img01_w8mdxw_nxwnqm.png`,
         name: `Wasiu Yusuf`,
         job: `COO`,
       },
       {
-        img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218515/techstudio-web-app/assets/images/AboutSec4Img02_vsdms5.png`,
+        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699878961/techstudio/images/AboutSec4Img02_vsdms5_rizqa8.png`,
         name: `Tosin Sanya`,
         job: `HR/ Admin Lead`,
       },
       {
-        img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218515/techstudio-web-app/assets/images/AboutSec4Img03_paaukf.png`,
+        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699878961/techstudio/images/AboutSec4Img03_paaukf_uvhwom.png`,
         name: `Hafeez Kekere-Ekun`,
         job: `Product Lead`,
       },
       {
-        img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218515/techstudio-web-app/assets/images/AboutSec4Img04_df6elh.png`,
+        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699878962/techstudio/images/AboutSec4Img04_df6elh_pwagsn.png`,
         name: `Hussein Oyelaja`,
         job: `Marketing Lead`,
       },
       {
-        img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218516/techstudio-web-app/assets/images/AboutSec4Img05_brhhpr.png`,
+        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699878961/techstudio/images/AboutSec4Img05_brhhpr_sv7rkd.png`,
         name: `Adebusola Adebowale`,
         job: `Sales & Marketing`,
       },
       {
-        img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218516/techstudio-web-app/assets/images/AboutSec4Img06_vd64w5.png`,
+        img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699878962/techstudio/images/AboutSec4Img06_vd64w5_fcv78h.png`,
         name: `Patrick Blessing`,
         job: `Sales & Marketing`,
       },
