@@ -14,7 +14,6 @@ const CourseCard = ({ card }) => {
       </Gsap>
       <Gsap animationFuncion={() => genericAnimation(`text`)}>
         <p className='card-text text'>{card.text}</p>
-      
       </Gsap>
     </div>
   )

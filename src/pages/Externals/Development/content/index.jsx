@@ -15,15 +15,15 @@ export const DEVELOPMENT_CONTENT = {
       },
       cards: [
         {
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218526/techstudio-web-app/assets/images/numberOne_iorpb9.webp`,
+          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879049/techstudio/images/numberOne_iorpb9_sbfndr.webp`,
           text: `We teach the important skills required to jumpstart your career as a web developer. With 5 straight weeks of web training, you learn to think and build like frontend developers.`,
         },
         {
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218526/techstudio-web-app/assets/images/numberTwo_tjclgg.webp`,
+          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879050/techstudio/images/numberTwo_tjclgg_aiqtvs.webp`,
           text: `You move from understanding web basics to launching Single Page Applications (SPAs). You’ll be taught to build smart SPAs using vanilla JavaScript that interacts with user inputs.`,
         },
         {
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218526/techstudio-web-app/assets/images/numberThree_ludnkx.webp`,
+          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879049/techstudio/images/numberThree_ludnkx_ml62k7.webp`,
           text: `And finally, you’ll learn the fundamentals of working as a team; collaborate with other group members of the class to build, change, maintain, and secure an application. Track your team development Process using Version Control Systems.`,
         },
       ],
@@ -216,7 +216,7 @@ export const DEVELOPMENT_CONTENT = {
               img: `vscode-icons:file-type-vscode`,
               text: `Visual Studio Code`,
             },
-             {
+            {
               bgColor: `white`,
               img: `logos:react`,
               text: `React`,
@@ -266,15 +266,15 @@ export const DEVELOPMENT_CONTENT = {
       },
       cards: [
         {
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218526/techstudio-web-app/assets/images/numberOne_iorpb9.webp`,
+          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879049/techstudio/images/numberOne_iorpb9_sbfndr.webp`,
           text: `We teach the important skills required to jumpstart your career as a product designer. With 12 straight weeks of training, you learn to think, build and solve complex UI/UX challenges.`,
         },
         {
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218526/techstudio-web-app/assets/images/numberTwo_tjclgg.webp`,
+          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879050/techstudio/images/numberTwo_tjclgg_aiqtvs.webp`,
           text: `We move from understanding the core principles of effective design to applying tactics like wireframing, low and high-fidelity prototyping, usability testing and user interface design to build a portfolio of intuitive digital products. `,
         },
         {
-          img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218526/techstudio-web-app/assets/images/numberThree_ludnkx.webp`,
+          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879049/techstudio/images/numberThree_ludnkx_ml62k7.webp`,
           text: `You’ll learn the fundamentals of working as a team; sharpen your communication skills and collaborate with web development teams to build, change, maintain and successfully execute cross-functional UI/UX projects.`,
         },
       ],
@@ -649,19 +649,17 @@ In object-oriented JavaScript, students will learn how to create objects, define
           caption: `UNIT 9`,
           title: `Capstone Project
           `,
-          desc: `In this unit, students apply their Full-stack web development skills to create a web application, from 
+          desc: `In this unit, students apply their Full-stack web development skills to create a web application, from
           choosing your library, creating folder structure, coding, testing, deployment, user experience enhancement, and a final presentation, showcasing their comprehensive understanding and abilities in web development.`,
           bgColor: `white`,
           img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1692269983/ui-ux-development_fqnykx.gif`,
           tagAttr: [
-            
-           
             {
               bgColor: `blue`,
               img: `vscode-icons:file-type-vscode`,
               text: `Visual Studio Code`,
             },
-             {
+            {
               bgColor: `blue`,
               img: `logos:react`,
               text: `React`,
@@ -889,7 +887,6 @@ In object-oriented JavaScript, students will learn how to create objects, define
             },
           ],
         },
-        
       ],
     },
 
