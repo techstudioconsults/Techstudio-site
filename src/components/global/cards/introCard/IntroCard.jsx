@@ -46,7 +46,11 @@ const IntroCard = ({ course }) => {
     <div className={[style.introCard, `cc-shadow`].join(' ')}>
       {/* <Gsap animationFuncion={() => SCALE_ANIMATION(`scale`)}> */}
       <div className={style.imgContainer}>
-        <img src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1692269980/learning_atvahc.gif`} alt='img' className='cc-img-fluid scale' />
+        <img
+          src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890564/techstudio/GIFS/Frame_1000002483_ww93xt.gif`}
+          alt='img'
+          className='cc-img-fluid scale'
+        />
       </div>
       {/* </Gsap> */}
       <div className={style.introCardText}>

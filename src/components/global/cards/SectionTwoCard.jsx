@@ -7,13 +7,7 @@ const index = ({ cardDetails }) => {
   return (
     <div className={`${style.sectionTwoCard} sectionTwo`}>
       <div className={style.cardImg}>
-        <img
-          alt='card-img'
-          data-sizes='auto'
-          src={cardDetails.imageLow}
-          data-src={cardDetails.image}
-          className='lazyload'
-        />
+        <img alt='card-img' data-sizes='auto' src={cardDetails.imageLow} data-src={cardDetails.image} className='lazyload' />
         {/* <img src={cardDetails.image} alt='card-img' className='img-flui' /> */}
       </div>
 

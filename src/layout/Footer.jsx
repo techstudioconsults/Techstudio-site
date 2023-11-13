@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import logoWhite from '@assets/images/logo-white.png'
 import { Icon } from '@iconify/react'
 
 const Footer = () => {
@@ -11,10 +12,7 @@ const Footer = () => {
             <div className='col-12 col-lg-3 mb-3'>
               <div>
                 <Link className='d-flex gap-3 text-white justify-content-start' to='/'>
-                  <img
-                    src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879298/techstudio/logo_white_text_new_2_eta0rz_wztvik.png`}
-                    alt='logo'
-                  />
+                  <img src={logoWhite} alt='logo' />
                 </Link>
               </div>
               <ul className='nav flex-column fs-sm mt-5 gap-1 align-items-start'>

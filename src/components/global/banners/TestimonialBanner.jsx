@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react'
+import boxFiller from '@assets/images/box-filler.png'
+import repeatGrid from '@assets/images/repeat-grid.webp'
 import PropTypes from 'prop-types'
 import { Pagination } from 'swiper'
 import { Swiper } from 'swiper/react'
@@ -25,15 +27,9 @@ const TestimonialBanner = ({ children, title }) => {
 
   return (
     <Gsap animationFuncion={TESTIMONIAL_BANNER_ANIMATION}>
-      <div
-        className={`w-100 position-relative bg-blue border-radius-lg py-10 p-lg-10 px-10 testimonialBanner`}
-      >
+      <div className={`w-100 position-relative bg-blue border-radius-lg py-10 p-lg-10 px-10 testimonialBanner`}>
         <Gsap animationFuncion={() => spin(`spin`)}>
-          <img
-            className='position-absolute top-0 start-0 my-10 mx-16 d-none d-lg-block spin'
-            src='https://res.cloudinary.com/kingsleysolomon/image/upload/v1667476114/samples/techstudio/Icons%20and%20Images/Icons%20and%20Images/Tech%20Studio%20images/Repeat_Grid_38_ipl0tv.png'
-            alt='img'
-          />
+          <img className='position-absolute top-0 start-0 my-10 mx-16 d-none d-lg-block spin' src={repeatGrid} alt='img' />
         </Gsap>
 
         <h3 className='fw-semibold text-center text-white'>{title}</h3>
@@ -51,11 +47,7 @@ const TestimonialBanner = ({ children, title }) => {
           {children}
         </Swiper>
         <Gsap animationFuncion={() => spin(`spin-reverse`)}>
-          <img
-            className='position-absolute bottom-0 end-0 my-10 mx-16 d-none d-lg-block spin-reverse'
-            src='https://res.cloudinary.com/kingsleysolomon/image/upload/v1667476113/samples/techstudio/Icons%20and%20Images/Icons%20and%20Images/Tech%20Studio%20images/Rectangle_7475_gijnxw.png'
-            alt='img'
-          />
+          <img className='position-absolute bottom-0 end-0 my-10 mx-16 d-none d-lg-block spin-reverse' src={boxFiller} alt='img' />
         </Gsap>
       </div>
     </Gsap>
@@ -64,11 +56,7 @@ const TestimonialBanner = ({ children, title }) => {
 
 TestimonialBanner.propTypes = {
   title: PropTypes.string,
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.node,
-    PropTypes.arrayOf(PropTypes.node),
-  ]).isRequired,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]).isRequired,
 }
 
 export default TestimonialBanner

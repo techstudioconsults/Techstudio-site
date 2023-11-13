@@ -22,9 +22,7 @@ const ContactSection1 = ({ content }) => {
             <h3 className={style.title}>{header.title}</h3>
             <p className={style.caption}>{header.caption}</p>
           </div>
-          <div
-            className={`${style.addressWrapper} justify-content-center justify-content-lg-start`}
-          >
+          <div className={`${style.addressWrapper} justify-content-center justify-content-lg-start`}>
             <div className={`${style.flag} d-none d-lg-block`}>
               <img src={address.img} alt='flag' className={style.flag} />
             </div>
@@ -34,10 +32,7 @@ const ContactSection1 = ({ content }) => {
               <h6 className={style.whatsapp}>{`Call or Whatsapp`}</h6>
               <p>
                 <span className='fw-semibold'>Busola:</span>
-                <a
-                  className='d-inline text-dark'
-                  href={`tel:${address.busola}`}
-                >
+                <a className='d-inline text-dark' href={`tel:${address.busola}`}>
                   {' '}
                   {address.busola}
                 </a>
@@ -45,10 +40,7 @@ const ContactSection1 = ({ content }) => {
 
               <p>
                 <span className='fw-semibold'>Blessing:</span>
-                <a
-                  className='d-inline text-dark'
-                  href={`tel:${address.blessing}`}
-                >
+                <a className='d-inline text-dark' href={`tel:${address.blessing}`}>
                   {' '}
                   {address.blessing}
                 </a>
@@ -56,9 +48,7 @@ const ContactSection1 = ({ content }) => {
             </div>
           </div>
           <div>
-            <div
-              className={`${style.info} d-flex align-items-center justify-content-center justify-content-lg-start`}
-            >
+            <div className={`${style.info} d-flex align-items-center justify-content-center justify-content-lg-start`}>
               <div className='mb-1'>
                 <Icon className='' icon={`ic:baseline-email`} />
               </div>
