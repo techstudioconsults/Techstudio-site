@@ -20,10 +20,7 @@ const Profile = ({ content }) => {
 
   return (
     <div className='d-flex gap-5 align-items-center justify-content-center'>
-      <div
-        style={style}
-        className='overflow-hidden border border-secondary border-4 rounded-circle'
-      >
+      <div style={style} className='overflow-hidden border border-secondary border-4 rounded-circle'>
         <img className='img-fluid' src={image} alt='avatar' />
       </div>
       <div className='text-start'>

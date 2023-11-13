@@ -106,8 +106,8 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
                 className={['logo', style.responsiveLogo].join(' ')}
                 src={
                   color
-                    ? `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218815/techstudio-web-app/assets/images/logo_black_text_new_1_frkqnn_xdlflg.png`
-                    : `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218525/techstudio-web-app/assets/images/logo_white_text_new_2_fmjlzq.png`
+                    ? `https://res.cloudinary.com/kingsleysolomon/image/upload/v1684888559/techstudio/logo_black_text_new_1_frkqnn.png`
+                    : `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879298/techstudio/logo_white_text_new_2_eta0rz_wztvik.png`
                 }
                 alt='logo'
               />

@@ -19,16 +19,8 @@ const SectionFour = ({ content, isDevelopmentView }) => {
   const testimonials = body.testimonials.map((testimonial, index) => {
     return (
       <SwiperSlide className='pb-10' key={index}>
-        <div
-          className={`text-white text-center d-flex flex-column align-items-lg-center ${style.testimonial}`}
-        >
-          <p
-            className={['text-center lh-lg mt-5 mb-10', style.message].join(
-              ' '
-            )}
-          >
-            {testimonial.message}
-          </p>
+        <div className={`text-white text-center d-flex flex-column align-items-lg-center ${style.testimonial}`}>
+          <p className={['text-center lh-lg mt-5 mb-10', style.message].join(' ')}>{testimonial.message}</p>
           <Profile content={testimonial.profile} />
         </div>
       </SwiperSlide>
@@ -45,20 +37,14 @@ const SectionFour = ({ content, isDevelopmentView }) => {
                 <p className={`text-primary fw-semibold`}>{articleOne.title}</p>
                 <h2 className={`text-blue fw-semibold`}>{articleOne.topic}</h2>
               </div>
-              <p className={`text-center text-lg-start ${style.description}`}>
-                {articleOne.description}
-              </p>
+              <p className={`text-center text-lg-start ${style.description}`}>{articleOne.description}</p>
             </section>
           </section>
         </Container>
 
-        <div
-          className={`container-fluid text-center mb-lg-20 ${style.gradientOverlay}`}
-        >
+        <div className={`container-fluid text-center mb-lg-20 ${style.gradientOverlay}`}>
           <Marquee speed={50}>
-            <div
-              className={`d-flex align-items-center justify-content-center justify-content-lg-between gap-24 ${style.brandScale}`}
-            >
+            <div className={`d-flex align-items-center justify-content-center justify-content-lg-between gap-24 ${style.brandScale}`}>
               <img
                 alt='card-img'
                 data-sizes='auto'
@@ -118,60 +104,41 @@ const SectionFour = ({ content, isDevelopmentView }) => {
 
         <Container>
           <section className='mt-lg-20 '>
-            <TestimonialBanner title={body.title}>
-              {testimonials}
-            </TestimonialBanner>
+            <TestimonialBanner title={body.title}>{testimonials}</TestimonialBanner>
           </section>
 
           <Gsap animationFuncion={TAKE_A_COURSE_ANIMATION}>
-            <div
-              hidden={isDevelopmentView}
-              className={style.sectionFourWrapper}
-            >
+            <div hidden={isDevelopmentView} className={style.sectionFourWrapper}>
               <div ref={sectionFour} className={style.sectionFourImg}>
                 <img
                   alt='card-img'
                   data-sizes='auto'
                   className={`lazyload ${style.angle} angle`}
-                  src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1687594313/techstudio-web-app/assets/images/Group_1000002319_izpnar.svg`}
+                  src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879000/techstudio/images/Group_1000002319_izpnar_stcuo5.svg`}
                 />
                 <img
                   alt='card-img'
                   data-sizes='auto'
                   className={`lazyload ${style.img} img`}
-                  src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1691502656/techstudio-web-app/assets/images/IMG_9425_lelq4u.webp`}
-                  data-src={`https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_450/v1691502656/techstudio-web-app/assets/images/IMG_9425_lelq4u.webp`}
+                  src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879329/techstudio/images/IMG_9425_lelq4u_vbf8de.webp`}
+                  data-src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879329/techstudio/images/IMG_9425_lelq4u_vbf8de.webp`}
                 />
                 <img
                   alt='card-img'
                   data-sizes='auto'
                   className={`lazyload ${style.box} box`}
-                  src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1687594309/techstudio-web-app/assets/images/Frame_70_xuw32a.svg`}
+                  src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699878982/techstudio/images/Frame_70_xuw32a_nipxww.svg`}
                 />
               </div>
               <div className={style.sectionFourTextGroup}>
-                <Gsap
-                  animationFuncion={() => genericAnimation(`sectionFourText`)}
-                >
+                <Gsap animationFuncion={() => genericAnimation(`sectionFourText`)}>
                   <div className={`${style.sectionFourText}`}>
-                    <p className={`${style.caption} sectionFourText`}>
-                      {header.caption}
-                    </p>
-                    <h2 className={`${style.title} sectionFourText`}>
-                      {header.title}
-                    </h2>
-                    <p className={`${style.subTitle} sectionFourText`}>
-                      {header.subTitle}
-                    </p>
+                    <p className={`${style.caption} sectionFourText`}>{header.caption}</p>
+                    <h2 className={`${style.title} sectionFourText`}>{header.title}</h2>
+                    <p className={`${style.subTitle} sectionFourText`}>{header.subTitle}</p>
                   </div>
                   <div className={`${style.btnContainer} sectionFourText`}>
-                    <Button
-                      linkHref='/student/register'
-                      linkText='Get Started'
-                      solidBtn
-                      navBtn
-                      width={`11`}
-                    />
+                    <Button linkHref='/student/register' linkText='Get Started' solidBtn navBtn width={`11`} />
                   </div>
                 </Gsap>
               </div>

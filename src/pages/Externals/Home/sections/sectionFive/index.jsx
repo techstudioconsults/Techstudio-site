@@ -25,15 +25,15 @@ const SectionFive = ({ content }) => {
               <img
                 alt='logo'
                 data-sizes='auto'
-                src='https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1687593362/techstudio-web-app/assets/images/iPad_Pro_Mockupxx_1_ppbs9g.webp'
-                data-src='https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_500/v1687593362/techstudio-web-app/assets/images/iPad_Pro_Mockupxx_1_ppbs9g.webp'
+                src='https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879045/techstudio/images/iPad_Pro_Mockupxx_1_ppbs9g_khjrr0.svg'
+                data-src='https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879045/techstudio/images/iPad_Pro_Mockupxx_1_ppbs9g_khjrr0.svg'
                 className={`lazyload img-fluid ${style.img1} img1`}
               />
               <img
                 alt='logo'
                 data-sizes='auto'
-                src='https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1687608443/techstudio-web-app/assets/images/iPad_Pro_Mockup_1_1_qipool.webp'
-                data-src='https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_500/v1687608443/techstudio-web-app/assets/images/iPad_Pro_Mockup_1_1_qipool.webp'
+                src='https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879044/techstudio/images/iPad_Pro_Mockup_1_1_qipool_r8pcai.svg'
+                data-src='https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879044/techstudio/images/iPad_Pro_Mockup_1_1_qipool_r8pcai.svg'
                 className={`lazyload img-fluid ${style.img2} img2`}
               />
             </div>
