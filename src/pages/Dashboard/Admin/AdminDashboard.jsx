@@ -1,11 +1,7 @@
 import React, { useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
-import {
-  AvatarDropdown,
-  CalendarApp,
-  DashboardNavbar,
-} from '../../../components'
+import { AvatarDropdown, CalendarApp, DashboardNavbar } from '../../../components'
 import Feedback from '../../../components/global/feedbacks/Feedback'
 import SpinnerComponent from '../../../components/global/skeletonLoader/SpinnerComponent'
 import { DASHBOARD_CONTENT } from '../../../layout/Layout/dashboardLayout/content'
@@ -43,11 +39,7 @@ const AdminDashboard = () => {
   const feedback = courses?.length ? (
     <AdminDashboardTab courses={courses} />
   ) : (
-    <Feedback
-      route={`/admin/courses/create`}
-      btnName={`Create A Course`}
-      message={`No Course Found`}
-    />
+    <Feedback route={`/admin/courses/create`} btnName={`Create A Course`} message={`No Course Found`} />
   )
 
   return (
@@ -60,10 +52,7 @@ const AdminDashboard = () => {
               <DashboardNavbar isADB />
             </div>
             <div>
-              <StudentDashboardSectionTwo
-                content={adminDashboard.taskSummary}
-                cardsAPI={cards}
-              />
+              <StudentDashboardSectionTwo content={adminDashboard.taskSummary} cardsAPI={cards} />
             </div>
           </div>
 
