@@ -38,9 +38,7 @@ const ContactForm = () => {
     console.log(data)
     let modal
     try {
-      modal = bootstrap.Modal.getOrCreateInstance(
-        document.getElementById('contactUsfeedback')
-      )
+      modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('contactUsfeedback'))
       const res = await contactUs(data).unwrap()
       console.log(res)
       res.success ? modal.show() : null
@@ -54,13 +52,28 @@ const ContactForm = () => {
       reset()
     }
   }, [isSubmitSuccessful, reset])
+  // const onSubmit = async (data) => {
+  //   console.log(data)
+  //   let modal
+  //   try {
+  //     modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('contactUsfeedback'))
+  //     const res = await contactUs(data).unwrap()
+  //     console.log(res)
+  //     res.success ? modal.show() : null
+  //   } catch (err) {
+  //     setErrorMessage(err.data.message)
+  //     toast.show()
+  //   }
+  // }
+  // useEffect(() => {
+  //   if (isSubmitSuccessful) {
+  //     reset()
+  //   }
+  // }, [isSubmitSuccessful, reset])
 
   return (
     // <Gsap animationFuncion={() => SCALE_ANIMATION(`form`)}>
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className={[style.form, `cc-shadow form`].join(' ')}
-    >
+    <form onSubmit={handleSubmit(onSubmit)} className={[style.form, `cc-shadow form`].join(' ')}>
       <Portal wrapperId='react-portal-modal-container'>
         <ContactUsFeedback />
       </Portal>
@@ -180,16 +193,8 @@ const ContactForm = () => {
       </div>
 
       <div className={style.btnContainer}>
-        <button
-          type='submit'
-          data-toggle='modal'
-          data-target='#ContactFeedback'
-        >
-          <div
-            hidden={!isLoading}
-            className='spinner-border spinner-border-sm me-5 text-white'
-            role='status'
-          />
+        <button type='submit' data-toggle='modal' data-target='#ContactFeedback'>
+          <div hidden={!isLoading} className='spinner-border spinner-border-sm me-5 text-white' role='status' />
           {isLoading ? `Please wait...` : `Send Message`}
         </button>
         <ToastComponent errorMessage={errorMessage} />

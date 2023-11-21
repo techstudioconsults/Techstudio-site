@@ -5,7 +5,7 @@
 
 .contactHero {
   color: colors.$light;
-  background: url(https://res.cloudinary.com/dkszgtapy/image/upload/v1686218518/techstudio-web-app/assets/images/blogHeroBg_ckuu9x.webp)
+  background: url(@assets/images/HeroBg.webp) repeat
     no-repeat center;
   background-size: cover;
   //   height: fn.rem(316);

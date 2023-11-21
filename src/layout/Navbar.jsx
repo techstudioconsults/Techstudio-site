@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import logoBlack from '@assets/images/logo-black.png'
+import logoWhite from '@assets/images/logo-white.png'
 import { Icon } from '@iconify/react'
 import PropTypes from 'prop-types'
 
@@ -97,20 +99,12 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
         backgroundColor: bg,
       }}
     >
-      <DiscountBanner />
+      {/* <DiscountBanner /> */}
       <div className={`${navStyle}`}>
         <Link className='navbar-brand' to='/'>
           <div className='d-flex align-items-center gap-2'>
             <div className={style.navImgContainer}>
-              <img
-                className={['logo', style.responsiveLogo].join(' ')}
-                src={
-                  color
-                    ? `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218815/techstudio-web-app/assets/images/logo_black_text_new_1_frkqnn_xdlflg.png`
-                    : `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218525/techstudio-web-app/assets/images/logo_white_text_new_2_fmjlzq.png`
-                }
-                alt='logo'
-              />
+              <img className={['logo', style.responsiveLogo].join(' ')} src={color ? logoBlack : logoWhite} alt='logo' />
             </div>
           </div>
         </Link>

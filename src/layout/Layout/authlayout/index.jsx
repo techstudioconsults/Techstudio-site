@@ -15,7 +15,8 @@ const index = ({ children }) => {
       </Link>
       <div className={`${style.imgContainer}`}>
         <img
-          src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218517/techstudio-web-app/assets/images/authImg_uy00im.webp`}
+          // src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879329/techstudio/images/IMG_9425_lelq4u_vbf8de.webp`}
+          src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699878967/techstudio/images/authImg_uy00im_gqve3c.webp`}
           alt='auth-img'
           className='cc-img-fluid'
         />
@@ -33,11 +34,7 @@ const index = ({ children }) => {
 }
 
 index.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.node,
-    PropTypes.arrayOf(PropTypes.node),
-  ]).isRequired,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.arrayOf(PropTypes.node)]).isRequired,
 }
 
 export default index

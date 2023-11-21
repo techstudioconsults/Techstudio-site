@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const ToastComponent = ({ bgColor = `#800000`, errorMessage = 'something went wrong' }) => {
   return (
-    <div className='toast-container position-fixed top-0 end-0 p-3'>
+    <div style={{ zIndex: 999 }} className='toast-container position-fixed top-0 end-0 p-3'>
       <div
         style={{ background: bgColor, width: `fit-content` }}
         className='toast align-items-center border-0'

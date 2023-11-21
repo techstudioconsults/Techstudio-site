@@ -1,12 +1,12 @@
 import { useState } from 'react'
+import heroImage from '@assets/images/home-hero-img.png'
+import Button from '@components/global/Button'
+import Gsap from '@hooks/Gsap'
+// import heroImg from '../../../../../assets/images/heroImg.webp'
+import { Container } from '@layout'
 import PropTypes from 'prop-types'
 
-// import heroImg from '../../../../../assets/images/heroImg.webp'
-import { Container } from '@/layout'
-
-import Button from '../../../../../components/global/Button'
 import { genericAnimation } from '../../../../../gsap'
-import Gsap from '../../../../../hooks/Gsap'
 
 import style from './hero.module.scss'
 
@@ -79,13 +79,7 @@ const Hero = ({ content }) => {
               }}
               className={style.heroImg}
             >
-              <img
-                alt='logo'
-                data-sizes='auto'
-                src='https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_100/v1686744735/techstudio-web-app/assets/images/hero_doqefw.webp'
-                data-src='https://res.cloudinary.com/dkszgtapy/image/upload/c_scale,w_2000/v1686744735/techstudio-web-app/assets/images/hero_doqefw.webp'
-                className='lazyload'
-              />
+              <img alt='logo' data-sizes='auto' src={heroImage} className='lazyload' />
             </div>
           </section>
         </Gsap>

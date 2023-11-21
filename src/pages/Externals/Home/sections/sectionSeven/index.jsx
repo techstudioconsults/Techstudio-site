@@ -75,31 +75,20 @@ const SectionSeven = ({ data }) => {
   return (
     <Container>
       <Gsap animationFuncion={() => genericAnimation(`classes`)}>
-        <section
-          ref={carousel}
-          className={`${style.carousel} d-flex flex-column flex-lg-row gap-20 gap-lg-40 mt-lg-20`}
-        >
+        <section ref={carousel} className={`${style.carousel} d-flex flex-column flex-lg-row gap-20 gap-lg-40 mt-lg-20`}>
           <article className={style.quoteContainer}>
             <img src={dataImage.image} alt='img' className='cc-img-fluid' />
           </article>
 
-          <section
-            className={`${style.text} d-flex flex-column justify-content-between`}
-          >
+          <section className={`${style.text} d-flex flex-column justify-content-between`}>
             <section className=''>
-              <p className=' fw-semibold text-primary text-uppercase classes'>
-                upcoming classes
-              </p>
+              <p className=' fw-semibold text-primary text-uppercase classes'>upcoming classes</p>
               <div>
-                <h4 className=' my-5 fw-bold classes'>
-                  {upcomingClass?.classes?.weekday[0]?.title}
-                </h4>
+                <h4 className=' my-5 fw-bold classes'>{upcomingClass?.classes?.weekday[0]?.title}</h4>
                 <p className='classes'>{upcomingClass?.description}</p>
               </div>
             </section>
-            <section
-              className={`${style.classInfo} d-flex flex-column gap-3 my-7 classes`}
-            >
+            <section className={`${style.classInfo} d-flex flex-column gap-3 my-7 classes`}>
               <div className='d-flex justify-content-between'>
                 <span>
                   <Icon className='me-2' icon={`ion:location-outline`} />
@@ -127,16 +116,10 @@ const SectionSeven = ({ data }) => {
             </section>
             <section className='d-flex classes'>
               <Link to={`/student/register`}>
-                <button className='btn btn-primary px-10 btn-text'>
-                  Enroll Now
-                </button>
+                <button className='btn btn-primary px-10 btn-text'>Enroll Now</button>
               </Link>
             </section>
-            <div
-              className={`mt-5 mt-lg-0 d-flex classes ${
-                index ? `justify-content-between` : `justify-content-end`
-              }  justify-content-lg-end`}
-            >
+            <div className={`mt-5 mt-lg-0 d-flex classes ${index ? `justify-content-between` : `justify-content-end`}  justify-content-lg-end`}>
               <button
                 onClick={handlePreviousBtn}
                 className={`btn text fw-bold text-primary
@@ -144,10 +127,7 @@ const SectionSeven = ({ data }) => {
               >
                 {`<<`} Previous
               </button>
-              <button
-                onClick={handleNextBtn}
-                className={`btn text fw-bold text-primary`}
-              >
+              <button onClick={handleNextBtn} className={`btn text fw-bold text-primary`}>
                 Next {`>>`}
               </button>
             </div>

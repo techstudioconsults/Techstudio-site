@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import logoWhite from '@assets/images/logo-white.png'
 import { Icon } from '@iconify/react'
 
 const Footer = () => {
@@ -10,14 +11,8 @@ const Footer = () => {
           <div className='row m-0'>
             <div className='col-12 col-lg-3 mb-3'>
               <div>
-                <Link
-                  className='d-flex gap-3 text-white justify-content-start'
-                  to='/'
-                >
-                  <img
-                    src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218525/techstudio-web-app/assets/images/logo_white_text_new_2_fmjlzq.png`}
-                    alt='logo'
-                  />
+                <Link className='d-flex gap-3 text-white justify-content-start' to='/'>
+                  <img src={logoWhite} alt='logo' />
                 </Link>
               </div>
               <ul className='nav flex-column fs-sm mt-5 gap-1 align-items-start'>
@@ -35,10 +30,7 @@ const Footer = () => {
               </div>
               <ul className='nav flex-column gap-3 align-items-start'>
                 <li className='nav-item mb-0'>
-                  <Link
-                    className='text-white cc-link-hover small-text'
-                    to='/course/frontend'
-                  >
+                  <Link className='text-white cc-link-hover small-text' to='/course/frontend'>
                     Frontend Development
                   </Link>
                 </li>
@@ -51,26 +43,17 @@ const Footer = () => {
                   </Link>
                 </li> */}
                 <li className='nav-item mb-0'>
-                  <Link
-                    className='text-white cc-link-hover  small-text'
-                    to='/course/product-design'
-                  >
+                  <Link className='text-white cc-link-hover  small-text' to='/course/product-design'>
                     Product Design
                   </Link>
                 </li>
                 <li className='nav-item mb-0'>
-                  <Link
-                    className='text-white cc-link-hover small-text'
-                    to='/course/fullstack'
-                  >
+                  <Link className='text-white cc-link-hover small-text' to='/course/fullstack'>
                     Fullstack Development
                   </Link>
                 </li>
                 <li className='nav-item mb-0'>
-                  <Link
-                    className='text-white cc-link-hover small-text'
-                    to='/course/data-science'
-                  >
+                  <Link className='text-white cc-link-hover small-text' to='/course/data-science'>
                     Data Science
                   </Link>
                 </li>
@@ -80,10 +63,7 @@ const Footer = () => {
             <div className='col-12 col-lg-2 my-12 my-lg-0'>
               <div>
                 <h5 className='fs-md'>
-                  <Link
-                    className='text-white d-block cc-link-hover '
-                    to='/about-us'
-                  >
+                  <Link className='text-white d-block cc-link-hover ' to='/about-us'>
                     About Us
                   </Link>
                 </h5>
@@ -121,10 +101,7 @@ const Footer = () => {
               </div>
               <div>
                 <h5 className='fs-md fw-semibold pt-2_5'>
-                  <Link
-                    className='text-white d-block cc-link-hover '
-                    to='/contact'
-                  >
+                  <Link className='text-white d-block cc-link-hover ' to='/contact'>
                     Contact Us
                   </Link>
                 </h5>
@@ -134,9 +111,7 @@ const Footer = () => {
             <div className='col-12 col-lg-4 text-white fw-bolder'>
               <form>
                 <div>
-                  <h5 className='fs-md pb-2_5 text-white'>
-                    Subscribe to our newsletter
-                  </h5>
+                  <h5 className='fs-md pb-2_5 text-white'>Subscribe to our newsletter</h5>
                 </div>
 
                 <div className='input-group mb-3 bg-white rounded-3 p-1'>
@@ -148,12 +123,7 @@ const Footer = () => {
                     aria-label='Email Address'
                     aria-describedby='button-addon2'
                   />
-                  <button
-                    disabled
-                    className='btn btn-primary fs-xs'
-                    type='button'
-                    id='button-addon2'
-                  >
+                  <button disabled className='btn btn-primary fs-xs' type='button' id='button-addon2'>
                     Subscribe
                     <i className=''></i>
                   </button>
@@ -166,39 +136,23 @@ const Footer = () => {
             <p>&copy; {new Date().getFullYear()} TechStudio Academy</p>
             <ul className='list-unstyled d-flex gap-10'>
               <li className=''>
-                <a
-                  target={`_blank`}
-                  href='https://twitter.com/techstudioacdmy'
-                  className='text-white cc-link-hover'
-                >
+                <a target={`_blank`} href='https://twitter.com/techstudioacdmy' className='text-white cc-link-hover'>
                   <Icon icon={`fa:twitter`} className='fs-xl' />
                 </a>
               </li>
               <li className=''>
-                <a
-                  target={`_blank`}
-                  href='https://facebook.com/techstudioacademy'
-                  className='text-white cc-link-hover '
-                >
+                <a target={`_blank`} href='https://facebook.com/techstudioacademy' className='text-white cc-link-hover '>
                   <Icon icon={`fa:facebook`} className='fs-xl' />
                 </a>
               </li>
               <li className=''>
-                <a
-                  target={`_blank`}
-                  href='https://instagram.com/techstudioacademy'
-                  className='text-white cc-link-hover '
-                >
+                <a target={`_blank`} href='https://instagram.com/techstudioacademy' className='text-white cc-link-hover '>
                   <Icon icon={`fa:instagram`} className='fs-xl' />
                 </a>
               </li>
 
               <li className=''>
-                <a
-                  target={`_blank`}
-                  href='https://linkedin.com/company/tech-studio-academy'
-                  className='text-white cc-link-hover '
-                >
+                <a target={`_blank`} href='https://linkedin.com/company/tech-studio-academy' className='text-white cc-link-hover '>
                   <Icon icon={`fa:linkedin`} className='fs-xl' />
                 </a>
               </li>

@@ -27,14 +27,14 @@ const AboutSection2 = ({ content }) => {
         <div className={style.aboutSectionTwoInner}>
           <Gsap animationFuncion={() => spin(`spin-reverse`)}>
             <img
-              src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218516/techstudio-web-app/assets/images/AboutSection2Pattern01_umrjsl.png`}
+              src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699878962/techstudio/images/AboutSection2Pattern01_umrjsl_j0cr70.png`}
               alt=''
               className={`${style.pattern01} spin-reverse`}
             />
           </Gsap>
           <Gsap animationFuncion={() => spin(`spin`)}>
             <img
-              src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218516/techstudio-web-app/assets/images/AboutSection2Pattern02_mnthqw.png`}
+              src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699878962/techstudio/images/AboutSection2Pattern02_mnthqw_f9yjcp.png`}
               alt=''
               className={`${style.pattern02} spin`}
             />
