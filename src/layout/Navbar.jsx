@@ -99,7 +99,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
         backgroundColor: bg,
       }}
     >
-      <DiscountBanner />
+      {/* <DiscountBanner /> */}
       <div className={`${navStyle}`}>
         <Link className='navbar-brand' to='/'>
           <div className='d-flex align-items-center gap-2'>

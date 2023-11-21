@@ -15,8 +15,7 @@ const ClassDetails = ({ isTDB, isADB }) => {
         <span className='fs-xs text-primary'>Today, 28th March, 2021</span>
         <h5 className={['fw-bold mt-2'].join(' ')}>Design Process</h5>
         <p className={['fs-sm text-secondary', style.text].join(' ')}>
-          The course is highly interactive with projects, Checklists &
-          actionable lectures built into…
+          The course is highly interactive with projects, Checklists & actionable lectures built into…
         </p>
       </div>
       <div className={style.classTimeType}>
@@ -42,18 +41,9 @@ const ClassDetails = ({ isTDB, isADB }) => {
       <div>
         <AvatarStack imageList={imageList} />
       </div>
-      <div
-        className={[
-          isTDB ? `d-flex` : `d-none`,
-          `gap-3 mt-20 align-items-center `,
-        ].join(' ')}
-      >
-        <button className='fs-sm bg-primary text-white rounded rounded-lg px-3 w-50'>
-          Start Lesson
-        </button>
-        <button className='fs-sm fw-semibold bg-white text-primary rounded rounded-lg px-3 w-50 border border-primary'>
-          Reschedule
-        </button>
+      <div className={[isTDB ? `d-flex` : `d-none`, `gap-3 mt-20 align-items-center `].join(' ')}>
+        <button className='fs-sm bg-primary text-white rounded rounded-lg px-3 w-50'>Start Lesson</button>
+        <button className='fs-sm fw-semibold bg-white text-primary rounded rounded-lg px-3 w-50 border border-primary'>Reschedule</button>
       </div>
       {/* <div className={[isADB ? `d-flex` : `d-none`, `gap-3 my-5`].join(' ')}>
         <button className='fs-sm fw-semibold bg-white text-primary rounded rounded-lg px-3 w-50 border border-primary'>
