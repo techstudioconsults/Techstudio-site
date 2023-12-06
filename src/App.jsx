@@ -102,7 +102,7 @@ const App = () => {
     localStorage.setItem('version', packageJson.version)
   }, [])
 
-  const { fullStackDevelopment, datascience, UIUXDevelopment, frontendDevelopment } = DEVELOPMENT_CONTENT
+  const { fullStackDevelopment, datascience, UIUXDevelopment, frontendDevelopment, cyberSecurity } = DEVELOPMENT_CONTENT
 
   const classes = useSelector(selectClasses)
   const lessons = useSelector(selectLessons)
@@ -143,6 +143,15 @@ const App = () => {
           path: `/course/frontend`,
           job: `Frontend Web Developer`,
           query: `frontend javascript`,
+          courseName: course.title,
+          courseID: course.id,
+        }
+      case `cyber security`:
+        return {
+          content: cyberSecurity,
+          path: `/course/cyber-security`,
+          job: `Cyber Security Expert`,
+          query: `cyber security`,
           courseName: course.title,
           courseID: course.id,
         }

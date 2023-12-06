@@ -913,6 +913,223 @@ In object-oriented JavaScript, students will learn how to create objects, define
       },
     },
   },
+  cyberSecurity: {
+    hero: {
+      title: `Cyber Security `,
+      subTitle: `Get your hands dirty working with Excel and complex data. Dive into the Python programming language, understand data analysis and statistical modeling using Python, after which you move into machine learning and algorithms.`,
+      img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687070589/techstudio-web-app/assets/images/Group_1000002401_tpwtbe.png`,
+    },
+
+    sectionTwo: {
+      header: {
+        title: `Our Process`,
+      },
+      cards: [
+        {
+          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879049/techstudio/images/numberOne_iorpb9_sbfndr.webp`,
+          text: `You will learn the skills needed to skyrocket your career as a data analyst/scientist. You'll have 12 straight weeks of training to predict trends and generate informed predictive models.`,
+        },
+        {
+          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879050/techstudio/images/numberTwo_tjclgg_aiqtvs.webp`,
+          text: `You’ll learn the fundamentals of the Python programming language and it’s usage in analysing complex data. You’ll build and refine machine learning models to predict patterns from data sets and complete hands-on exercises to reinforce the newly learned skills.`,
+        },
+        {
+          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879049/techstudio/images/numberThree_ludnkx_ml62k7.webp`,
+          text: `You’ll learn the fundamentals of being a true data analyst; you work with a team, sharpen your communication skills and collaborate with members through real-world projects.`,
+        },
+      ],
+    },
+
+    sectionFour: {
+      header: {
+        title: `What you will learn`,
+      },
+      list: [
+        {
+          id: 1,
+          classname: `A`,
+          caption: `UNIT 1`,
+          title: `Introduction to Microsoft Excel - Objectives`,
+          desc: `In this unit, Students learn Microsoft Excel fundamentals, including installation, workbook creation, environment navigation, and the importance of Excel. They explore formulas, functions (arithmetic, text, logical, date), data organization (sorting, filtering, validation), analysis (conditional formatting, Power Query, Power Pivot), and pivot table creation. Practical skills for data management and analysis are gained. Throughout the unit, students gain practical skills in using Microsoft Excel for data management, analysis, and reporting..`,
+          bgColor: `white`,
+          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890749/techstudio/GIFS/microsoft-excel_1_yx9is8.gif`,
+          tagAttr: [
+            {
+              bgColor: `blue`,
+              img: `vscode-icons:file-type-excel`,
+              text: `Microsoft Excel`,
+            },
+          ],
+        },
+        {
+          id: 2,
+          classname: `B`,
+          caption: `UNIT 2`,
+          title: `Introduction to SQL`,
+          desc: `This unit introduces students to SQL, a programming language used for accessing databases. They learn the basics of SQL, including its purpose, types of databases, and concepts of DBMS and RDBMS. Students gain practical skills in creating and managing databases and tables, including inserting records and altering table structures. They also explore SQL statements for selecting columns, updating data, applying constraints, and sorting values. Throughout the unit, students develop a solid foundation in SQL fundamentals for working with databases.`,
+          bgColor: `light-blue-ii`,
+          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890767/techstudio/GIFS/sql-file-format-extension_1_gastvl.gif`,
+          tagAttr: [
+            {
+              bgColor: `white`,
+              img: `devicon:mysql-wordmark`,
+              text: `SQL`,
+            },
+          ],
+        },
+        {
+          id: 3,
+          classname: `C`,
+          caption: `UNIT 3`,
+          title: `Introduction to Power BI`,
+          desc: `Students will learn how to pre-process and transform data(data cleaning) before creating visually appealing and interactive visualization and dashboards by utilizing business intelligence. As a data analyst/scientist you can convey insights effectively and predict business trends communicating your findings to those who will make better decisions. The role of a data analyst/scientist has become increasingly important as businesses have become more data-driven. They help businesses make sense of the vast amount of data that they collect.`,
+          bgColor: `white`,
+          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890843/techstudio/GIFS/python_1_twmy8k.gif`,
+          tagAttr: [
+            {
+              bgColor: `blue`,
+              img: `logos:microsoft-power-bi`,
+              text: `Power Bi`,
+            },
+          ],
+        },
+        {
+          id: 4,
+          classname: `D`,
+          caption: `UNIT 4`,
+          title: `Python Basics`,
+          desc: `Students delve into Python programming, acquiring a strong foundation in this widely-used language for data analysis. They learn to install Anaconda, explore in-built functions, work with different data types, manipulate strings, use variables and operators, implement loops, and import modules for enhanced functionality. Practical exercises empower students to write Python code proficiently, analyze large datasets, and create visual representations of data.`,
+          bgColor: `blue`,
+          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890694/techstudio/GIFS/python-programming-language_1_xfwdqf.gif`,
+          tagAttr: [
+            {
+              bgColor: `white`,
+              img: `logos:python`,
+              text: `Python`,
+            },
+          ],
+        },
+        {
+          id: 5,
+          classname: `E`,
+          caption: `UNIT 5`,
+          title: `Python NumPy`,
+          desc: `Students delve into NumPy, a vital Python library for numerical data analysis and scientific computing. They gain hands-on experience by importing the library and utilizing array functions. Through practical exercises, they learn to create one-dimensional and two-dimensional arrays, enabling efficient manipulation and analysis of complex numerical data. By mastering NumPy, students acquire essential skills for advanced data analysis, modeling, and scientific computations in Python.`,
+          bgColor: `white`,
+          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890880/techstudio/GIFS/python_2_eajrei.gif`,
+          tagAttr: [
+            {
+              bgColor: `blue`,
+              img: `logos:python`,
+              text: `Python`,
+            },
+            {
+              bgColor: `blue`,
+              img: `logos:numpy`,
+              text: `Numpy`,
+            },
+          ],
+        },
+        {
+          id: 6,
+          classname: `F`,
+          caption: `UNIT 6`,
+          title: `Python Pandas`,
+          desc: `In this unit, students delve into Pandas, a powerful Python library for data manipulation and analysis. They learn to convert sequences and dictionaries into DataFrame tables using the .DataFrame function. Students gain practical skills in importing files and converting them into DataFrames. They explore various DataFrame operations such as retrieving index and columns, using head and tail methods, accessing specific columns, counting values, summing columns vertically and horizontally, locating values in cells or positions, extracting rows based on conditions, creating columns based on conditions, and utilizing the groupby function.`,
+          bgColor: `light-blue-ii`,
+          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890880/techstudio/GIFS/python_2_eajrei.gif`,
+          tagAttr: [
+            {
+              bgColor: `blue`,
+              img: `logos:python`,
+              text: `Python`,
+            },
+            {
+              bgColor: `white`,
+              img: `logos:pandas-icon`,
+              text: `Pandas`,
+            },
+          ],
+        },
+        {
+          id: 7,
+          classname: `G`,
+          caption: `UNIT 7`,
+          title: `Python Plotly`,
+          desc: `Students delve into Plotly and Plotly Express, Python libraries renowned for interactive data visualization. They acquire practical skills in creating a variety of charts, including bar charts for categorical comparisons, line charts for trend analysis, area charts for cumulative data, pie charts for proportions, and donut charts with a center hole. By mastering Plotly, students unlock the ability to design captivating and interactive visualizations that effectively convey data insights.`,
+          bgColor: `light-blue-ii`,
+          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890805/techstudio/GIFS/python_udovi6.gif`,
+          tagAttr: [
+            {
+              bgColor: `blue`,
+              img: `logos:python`,
+              text: `Python`,
+            },
+            {
+              bgColor: `blue`,
+              img: `devicon:plotly`,
+              text: `Plotly`,
+            },
+          ],
+        },
+        {
+          id: 8,
+          classname: `H`,
+          caption: `UNIT 8`,
+          title: `Machine Learning Basic`,
+          desc: `Machine learning (ML) is the subset of artificial intelligence (AI) that focuses on building systems that learn—or improve performance—based on the data they consume, computers to learn and make predictions or decisions without being explicitly programmed. Artificial intelligence is a broad term that refers to systems or machines that mimic human intelligence. Machine learning and AI are often discussed together, and the terms are sometimes used interchangeably, but they don’t mean the same thing. An important distinction is that although all machine learning is AI, not all AI is machine learning.`,
+          bgColor: `blue`,
+          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699891030/techstudio/GIFS/brain-chip_ozdvqu.gif`,
+          tagAttr: [
+            {
+              bgColor: `white`,
+              img: `carbon:machine-learning-model`,
+              text: `ML Model`,
+            },
+          ],
+        },
+        {
+          id: 9,
+          classname: `I`,
+          caption: `UNIT 9`,
+          title: `Capstone Project`,
+          desc: `In this capstone project, students leverage their proficiency in Excel, Power BI, SQL, Python, and Machine Learning to analyze complex datasets, develop data-driven insights, create interactive visualizations, design and implement predictive models, and present their findings, culminating in a comprehensive demonstration of their data science expertise and problem-solving abilities. The key components are: Data collection, Data cleaning, Data summarization, Data interpretation, Data  presentation.`,
+          bgColor: `white`,
+          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890564/techstudio/GIFS/Frame_1000002483_ww93xt.gif`,
+          tagAttr: [
+            {
+              bgColor: `blue`,
+              img: `carbon:machine-learning-model`,
+              text: `ML Model`,
+            },
+          ],
+        },
+      ],
+    },
+
+    duration: {
+      online: {
+        time: `N/A`,
+        date: `N/A`,
+        price: `0`,
+      },
+      weekday: {
+        time: `12`,
+        date: `August 7, 2023`,
+        price: `250000`,
+      },
+      weekend: {
+        time: `12`,
+        date: `August 5, 2023`,
+        price: `250000`,
+      },
+
+      span: {
+        weekday: `Mon - wed (10am - 5pm)`,
+        weekend: `Sat - Sun (10am - 5pm)`,
+      },
+    },
+  },
   // mobileDevelopment: {
   //   hero: {
   //     title: `Mobile Development (IOS & Android)`,
@@ -947,37 +1164,37 @@ In object-oriented JavaScript, students will learn how to create objects, define
   //     list: [
   //       {
   //         id: 1,
-  // classname: `A`,
+  //         classname: `A`,
   //         title: `Fundamentals`,
   //         desc: `The first weeks of this bootcamp is to help you appreciate the fundamentals of mobile app development using Dart and Flutter. You’ll be comfortable writing pure Dart codes. You’ll also be introduced to Object Oriented Programming (OOP) in Dart to encapsulate both data and functionality. You’ll create, access, and modify objects to have a strong foundation for OOP.`,
   //       },
   //       {
   //         id: 2,
-  // classname: `A`,
+  //         classname: `A`,
   //         title: `Version Control`,
   //         desc: `You’ll learn to use the Git version control system, collaborate with other team members and push your projects to GitHub using Git`,
   //       },
   //       {
   //         id: 3,
-  // classname: `A`,
+  //         classname: `A`,
   //         title: `Introduction to Flutter`,
   //         desc: `After mastering the fundamentals of Dart, the focus shifts towards Flutter. You’ll learn about widgets and its importance to creating hybrid mobile applications. You’ll learn when different types of widgets and when to use them. You’ll be introduced to design concepts and common design patterns across different mobile devices.`,
   //       },
   //       {
   //         id: 4,
-  // classname: `A`,
+  //         classname: `A`,
   //         title: `Routing and Navigation`,
   //         desc: `You’ll learn what routing is and why it’s one of the core concepts of mobile application development. You’ll learn how to navigate from one page to the other, how to use named routes and using push and pop methods.`,
   //       },
   //       {
   //         id: 5,
-  // classname: `A`,
+  //         classname: `A`,
   //         title: `FireBase Integration`,
   //         desc: `Modern mobile applications need querying real-time data for interactivity. You’ll spend considerable time learning Flutter integration with FireBase. You’ll be exposed to querying the database to perform the CRUD functions - Create, Read, Update and Delete resources.`,
   //       },
   //       {
   //         id: 6,
-  // classname: `A`,
+  //         classname: `A`,
   //         title: `Production Deployment`,
   //         desc: `You’ll be taught how to deploy your production ready mobile app to the Android and iOS app stores to be accessed by everyone in the mobile community.`,
   //       },
