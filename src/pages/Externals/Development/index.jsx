@@ -79,17 +79,9 @@ const Development = ({ content, job, query, name, courseID }) => {
           <BannerII>
             <div className='ms-lg-40 text-white py-xl-0 px-5 px-lg-0'>
               <span>Want to start a career as a {job} ?</span>
-              <h3 className='mt-7 fw-bold text-white'>
-                Get started with TechStudio
-              </h3>
+              <h3 className='mt-7 fw-bold text-white'>Get started with TechStudio</h3>
               <div className='w-50'>
-                <Button
-                  linkHref='/student/register'
-                  linkText='Register Now'
-                  solidBtn
-                  navBtn
-                  width={`14`}
-                />
+                <Button linkHref='/student/register' linkText='Register Now' solidBtn navBtn width={`14`} />
               </div>
             </div>
           </BannerII>
