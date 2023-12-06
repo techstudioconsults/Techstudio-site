@@ -29,14 +29,14 @@ const SpreadsheetModal = () => {
   const onSubmit = async (data) => {
     setLoading(true)
     try {
-      const response = await axios.post('https://api.staging.techstudioacademy.com/api/v1/dashboard/spreadsheet', data, credentials)
-      console.log(response)
+      const response = await axios.post('https://api.techstudioacademy.com/api/v1/dashboard/spreadsheet', data, credentials)
+      // console.log(response)
       if (response.status === 201) {
         setLoading(false)
         setSuccessMessage(response?.data?.message)
       }
     } catch (error) {
-      console.log(error)
+      // console.log(error)
       setLoading(false)
       setErrorMessage(error?.response?.data?.message)
       toast.show()

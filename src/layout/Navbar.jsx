@@ -7,7 +7,7 @@ import { Icon } from '@iconify/react'
 import PropTypes from 'prop-types'
 
 import { Button } from '../components'
-import DiscountBanner from '../components/global/banners/DiscountBanner'
+// import DiscountBanner from '../components/global/banners/DiscountBanner'
 import { selectExternalCourses } from '../pages/Externals/api/externalSlice'
 
 import style from './layout.module.scss'
@@ -79,6 +79,8 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
         return `/course/data-science`
       case `frontend engineering`:
         return `/course/frontend`
+      case `cyber security`:
+        return `/course/cyber-security`
       default:
         return `/`
     }
