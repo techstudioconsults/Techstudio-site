@@ -77,7 +77,7 @@ const Development = ({ content, job, query, name, courseID }) => {
       <section className='my-lg-32 my-sm-3'>
         <Container>
           <BannerII>
-            <div className='ms-lg-40 text-white py-xl-0 px-5 px-lg-0'>
+            <div className='ms-lg-40 text-white py-xl-0 px-5 py-5 px-lg-0'>
               <span>Want to start a career as a {job} ?</span>
               <h3 className='mt-7 fw-bold text-white'>Get started with TechStudio</h3>
               <div className='w-50'>
