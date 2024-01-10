@@ -11,42 +11,21 @@ import style from './stepper.module.scss'
 const ShortStepper = ({ lists, isCourses }) => {
   const listsDisplay = lists.map((list) => {
     return (
-      <Gsap
-        key={list.id}
-        animationFuncion={() => SCALE_ANIMATION(list.classname)}
-      >
+      <Gsap key={list.id} animationFuncion={() => SCALE_ANIMATION(list.classname)}>
         <section
           style={{ background: list.id % 2 === 0 ? list.bgColor : `null` }}
-          className={[
-            list.id % 2 === 0 ? `bg-${list.bgColor} ${style.section}` : null,
-
-            list.bgColor === `blue` ? `text-white` : `text-blue`,
-          ].join(' ')}
+          className={[list.id % 2 === 0 ? `bg-${list.bgColor} ${style.section}` : null, list.bgColor === `blue` ? `text-white` : `text-blue`].join(' ')}
         >
           <Container paddingBlock={0}>
-            <div
-              className={[
-                style.step,
-                list.id % 2 === 0 ? style.completed : null,
-              ].join(' ')}
-            >
+            <div className={[style.step, list.id % 2 === 0 ? style.completed : null].join(' ')}>
               <div className={style.vStepper}>
                 <div className={`${style.circle} ${list.classname}`}></div>
                 <div className={style.line}></div>
               </div>
 
-              <div
-                className={[
-                  style.content,
-                  isCourses ? style.contentFlex : null,
-                ].join(' ')}
-              >
+              <div className={[style.content, isCourses ? style.contentFlex : null].join(' ')}>
                 <div className={style.bgwrapper}>
-                  <p
-                    className={`${style.caption} small-text fw-bold text-primary ${list.classname}`}
-                  >
-                    {list.caption}
-                  </p>
+                  <p className={`${style.caption} small-text fw-bold text-primary ${list.classname}`}>{list.caption}</p>
                   <h3
                     className={`${style.title}   ${list.classname}`}
                     style={{
@@ -57,39 +36,19 @@ const ShortStepper = ({ lists, isCourses }) => {
                     {list.title}
                   </h3>
                   <div className={style.textMobile}>
-                    <img
-                      className={`${list.classname}`}
-                      src={list.img}
-                      alt='pic'
-                    />
+                    <img className={`${list.classname}`} src={list.img} alt='pic' />
                   </div>
-                  <p
-                    className={`mt-2 mb-10 lh-lg small-text ${list.classname}`}
-                  >
-                    {list.desc}
-                  </p>
+                  <p className={`mt-2 mb-10 lh-lg small-text ${list.classname}`}>{list.desc}</p>
 
                   <div className={`d-flex flex-colum flex-wrap gap-2 gap-lg-5`}>
                     {list?.tagAttr?.map((tag, index) => {
-                      return (
-                        <TagBox
-                          classname={list.classname}
-                          key={index}
-                          color={tag?.bgColor}
-                          img={tag?.img}
-                          text={tag?.text}
-                        />
-                      )
+                      return <TagBox classname={list.classname} key={index} color={tag?.bgColor} img={tag?.img} text={tag?.text} />
                     })}
                   </div>
                 </div>
 
                 <div className={style.text}>
-                  <img
-                    className={`${list.classname}`}
-                    src={list.img}
-                    alt='pic'
-                  />
+                  <img className={`${list.classname}`} src={list.img} alt='pic' />
                 </div>
               </div>
             </div>
