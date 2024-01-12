@@ -15,7 +15,7 @@ import AdminUserListDisplay from './pages/Dashboard/Admin/users/userCourseTab/Us
 import { DEVELOPMENT_CONTENT } from './pages/Externals/Development/content'
 import JobRequirementModal from './pages/Externals/Employers/jobRequirement/JobRequirementModal'
 // COMPONENTS
-import { Accounts, AdminClassTab, ChangePassword, Payment } from './components'
+import { Accounts, AdminClassTab, ChangePassword, Loading, Payment } from './components'
 import { DashboardLayout } from './layout'
 
 const HomePage = lazy(() => import('./pages/Externals/Home'))
@@ -32,9 +32,7 @@ const Development = lazy(() => import('./pages/Externals/Development'))
 
 import { useEffect } from 'react'
 import { useCallback } from 'react'
-
 import packageJson from '../package.json'
-
 import SpinnerComponent from './components/global/skeletonLoader/SpinnerComponent'
 // import { RecentTask } from './pages/Dashboard/Teacher/components/recentTask/RecentTask'
 import TutorClassTab from './pages/Dashboard/Teacher/components/tab/classTab/TutorClassTab'
@@ -69,10 +67,17 @@ import {
   TeacherClassView,
   TeacherDashboard,
 } from './pages'
+import CyberSecurity from './pages/Externals/SingleCourse/CyberSecurity'
+import FrontendEngineering from './pages/Externals/SingleCourse/FrontendEngineering'
+import DataScience from './pages/Externals/SingleCourse/DataScience'
+import FullStackDevelopment from './pages/Externals/SingleCourse/FullStackDevelopment'
+import UiUxDevelopment from './pages/Externals/SingleCourse/UiUxDevelopment'
+// import FrontendEngineering from './pages/Externals/Development/SingleCourse/FrontendEngineering'
 
 const App = () => {
   const [getUpcomingCourses, { isLoading }] = useGetUpcomingCoursesMutation()
   const upcomingCourses = useSelector(selectExternalCourses)
+  // console.log(upcomingCourses);
   const fetchUpcomingCourses = useCallback(async () => {
     await getUpcomingCourses().unwrap()
   }, [getUpcomingCourses])
@@ -182,6 +187,16 @@ const App = () => {
     )
   })
 
+
+  const filterCourse = (upcomingCourses, title) => {
+    return upcomingCourses.filter((course) => course.title.toLowerCase().includes(title))
+  }
+
+  const courseData = filterCourse(upcomingCourses, 'frontend engineering')
+  console.log(courseData)
+
+
+
   return (
     <Suspense
       fallback={
@@ -220,6 +235,12 @@ const App = () => {
         <Route path='/blog' element={<Blog />} />
         <Route path='/blog/:id' element={<SingleBlogPage />} />
         <Route path='/contact' element={<ContactUs />} />
+        <Route path='/course/frontend' element={<FrontendEngineering />} />
+        <Route path='/course/cyber-security' element={<CyberSecurity />} />
+        <Route path='/course/data-science' element={<DataScience />} />
+        <Route path='/course/fullstack' element={<FullStackDevelopment />} />
+        <Route path='/course/product-design' element={<UiUxDevelopment />} />
+
         {displayUpcomingCoursesDetails}
         {/* protected Routes */}
         {/* <Route element={<PersistLogin />}> */}
