@@ -8,18 +8,24 @@ import { selectExternalCourses } from '../../../pages/Externals/api/externalSlic
 import Button from '../Button'
 
 const CourseBanner = ({ name, duration }) => {
-  const upcomingCourses = useSelector(selectExternalCourses)
+  console.log(duration.weekday.date);
+  const weekday = duration.weekday.date
+  const weekend = duration.weekend.date
+console.log(weekday, weekend);
+  // const upcomingCourses = useSelector(selectExternalCourses)
   const banner = useRef()
 
-  const courseDuration = upcomingCourses.filter((course) => {
-    return course.title === name
-  })
-  // console.log(duration);
+  // const courseDuration = upcomingCourses.filter((course) => {
+  //   return course.title === name
+  // })
+  // console.log(courseDuration);
 
-  const convertDateToReadable = (date) => {
-    let dateSet = new Date(date).toUTCString().split(' ')
-    return `${dateSet[2]} ${dateSet[1]}, ${dateSet[3]}`
-  }
+  // const convertDateToReadable = (date) => {
+  //   let dateSet = new Date(date).toUTCString().split(' ')
+  //   return `${dateSet[2]} ${dateSet[1]}, ${dateSet[3]}`
+  // }
+
+  // console.log(convertDateToReadable(weekday));
 
   return (
     <IntersectionObserver
@@ -41,8 +47,7 @@ const CourseBanner = ({ name, duration }) => {
               <h2 className='m-0 text-primary'>
                 {!duration.weekend.date
                   ? `N/A`
-                  : `${convertDateToReadable(duration.weekend.date
-                    )}`}
+                  : `${weekend}`}
               </h2>
               <p className='m-0 text-dark small-text fw-bold'>
                 Weekend Class, Online Class: {duration?.span?.weekend}{' '}
@@ -52,8 +57,7 @@ const CourseBanner = ({ name, duration }) => {
               <h2 className='m-0 text-primary'>
               {!duration.weekday.date
                   ? `N/A`
-                  : `${convertDateToReadable(duration.weekday.date
-                    )}`}
+                  : `${weekday}`}
               </h2>
               <p className='m-0 text-dark small-text fw-bold'>
                 Weekday Class: {duration?.span?.weekday}{' '}
