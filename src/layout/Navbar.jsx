@@ -86,13 +86,13 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
     }
   }
 
-  const dynamicDropdown = upcomingCourses.map((course) => {
-    return (
-      <Link key={course.id} className='dropdown-item fs-sm fw-semibold py-2 text-dark' to={getCourseRoute(course.title)}>
-        {course.title}
-      </Link>
-    )
-  })
+  // const dynamicDropdown = upcomingCourses.map((course) => {
+  //   return (
+  //     <Link key={course.id} className='dropdown-item fs-sm fw-semibold py-2 text-dark' to={getCourseRoute(course.title)}>
+  //       {course.title}
+  //     </Link>
+  //   )
+  // })
   return (
     <nav
       ref={navEl}
@@ -141,7 +141,23 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
                 Courses
                 <Icon icon={`mdi:chevron-down`} className='ms-2 fs-sm fw-semibold' />
               </div>
-              <ul className='dropdown-menu mt-8 text-dark'>{dynamicDropdown}</ul>
+              <ul className='dropdown-menu mt-8 text-dark'>
+                <Link className='dropdown-item fs-sm fw-semibold py-2 text-dark' to='/course/product-design'>
+                  Product Design UI/UX
+                </Link>
+                <Link className='dropdown-item fs-sm fw-semibold py-2 text-dark' to='/course/fullstack'>
+                  Fullstack Development
+                </Link>
+                <Link className='dropdown-item fs-sm fw-semibold py-2 text-dark' to='/course/data-science'>
+                  Data Science
+                </Link>
+                <Link className='dropdown-item fs-sm fw-semibold py-2 text-dark' to='/course/frontend'>
+                  Frontend Engineering
+                </Link>
+                <Link className='dropdown-item fs-sm fw-semibold py-2 text-dark' to='/course/cyber-security'>
+                  Cyber Security
+                </Link>
+              </ul>
             </div>
             {/* <Link
               className={[

@@ -61,6 +61,7 @@ const CyberSecurity = () => {
       // const res = await axios.get(`${baseUrl}/external/faq?search=${query}`)
       const res = await axios.get(`${baseUrl}/external/faq`)
       dispatch({ type: `app/setFAQ`, payload: res.data.data })
+      console.log(res);
       // setLoading(false)
     } catch (err) {
       console.log(err)
