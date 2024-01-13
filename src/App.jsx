@@ -188,12 +188,12 @@ const App = () => {
   })
 
 
-  const filterCourse = (upcomingCourses, title) => {
-    return upcomingCourses.filter((course) => course.title.toLowerCase().includes(title))
-  }
+  // const filterCourse = (upcomingCourses, title) => {
+  //   return upcomingCourses.filter((course) => course.title.toLowerCase().includes(title))
+  // }
 
-  const courseData = filterCourse(upcomingCourses, 'frontend engineering')
-  console.log(courseData)
+  // const courseData = filterCourse(upcomingCourses, 'frontend engineering')
+  // // console.log(courseData)
 
 
 

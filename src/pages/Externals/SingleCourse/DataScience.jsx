@@ -24,21 +24,21 @@ const DataScience = () => {
       return upcomingCourse.filter((course) => course.title.toLowerCase().includes(title))
     }
     const datascience = filterCourse(upcomingCourse, 'data science')
-    console.log(datascience)
+    // console.log(datascience)
     const [courseData] = datascience
   //   const name = courseData.title
-    console.log(courseData)
+    // console.log(courseData)
     const {
       sectionFour: { articleOne, header, body },
     } = HOME_CONTENT
   
     // const { hero, sectionTwo, sectionFour, duration } = DEVELOPMENT_CONTENT
-    console.log(DEVELOPMENT_CONTENT.datascience)
+    // console.log(DEVELOPMENT_CONTENT.datascience)
   
     const courseDetails = DEVELOPMENT_CONTENT.datascience
-    console.log(courseDetails)
+    // console.log(courseDetails)
     const { hero, sectionTwo, sectionFour, duration } = courseDetails
-    console.log(sectionTwo);
+    // console.log(sectionTwo);
   
     const style = useMemo(() => {
       const baseStyle = {

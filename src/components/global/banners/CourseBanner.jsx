@@ -14,7 +14,7 @@ const CourseBanner = ({ name, duration }) => {
   const courseDuration = upcomingCourses.filter((course) => {
     return course.title === name
   })
-  console.log(duration);
+  // console.log(duration);
 
   const convertDateToReadable = (date) => {
     let dateSet = new Date(date).toUTCString().split(' ')

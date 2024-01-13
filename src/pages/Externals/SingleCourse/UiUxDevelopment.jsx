@@ -24,21 +24,21 @@ const UiUxDevelopment = () => {
       return upcomingCourse.filter((course) => course.title.toLowerCase().includes(title))
     }
     const productDesign = filterCourse(upcomingCourse, 'product design ui/ux')
-    console.log(productDesign)
+    // console.log(productDesign)
     const [courseData] = productDesign
   //   const name = courseData.title
-    console.log(courseData)
+    // console.log(courseData)
     const {
       sectionFour: { articleOne, header, body },
     } = HOME_CONTENT
   
     
-    console.log(DEVELOPMENT_CONTENT.UIUXDevelopment)
+    // console.log(DEVELOPMENT_CONTENT.UIUXDevelopment)
   
     const courseDetails = DEVELOPMENT_CONTENT.UIUXDevelopment
-    console.log(courseDetails)
+    // console.log(courseDetails)
     const { hero, sectionTwo, sectionFour, duration } = courseDetails
-    console.log(sectionTwo);
+    // console.log(sectionTwo);
   
     const style = useMemo(() => {
       const baseStyle = {

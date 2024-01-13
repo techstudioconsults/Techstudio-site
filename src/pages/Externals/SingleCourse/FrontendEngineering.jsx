@@ -24,21 +24,21 @@ const FrontendEngineering = () => {
     return upcomingCourse.filter((course) => course.title.toLowerCase().includes(title))
   }
   const frontend = filterCourse(upcomingCourse, 'frontend engineering')
-  console.log(frontend)
+  // console.log(frontend)
   const [courseData] = frontend
 //   const name = courseData.title
-  console.log(courseData)
+  // console.log(courseData)
   const {
     sectionFour: { articleOne, header, body },
   } = HOME_CONTENT
 
   // const { hero, sectionTwo, sectionFour, duration } = DEVELOPMENT_CONTENT
-  console.log(DEVELOPMENT_CONTENT.cyberSecurity)
+  // console.log(DEVELOPMENT_CONTENT.cyberSecurity)
 
   const courseDetails = DEVELOPMENT_CONTENT.frontendDevelopment
-  console.log(courseDetails)
+  // console.log(courseDetails)
   const { hero, sectionTwo, sectionFour, duration } = courseDetails
-  console.log(sectionTwo);
+  // console.log(sectionTwo);
 
   const style = useMemo(() => {
     const baseStyle = {

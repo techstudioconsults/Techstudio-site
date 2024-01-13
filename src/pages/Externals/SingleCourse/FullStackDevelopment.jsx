@@ -24,21 +24,21 @@ const FullStackDevelopment = () => {
       return upcomingCourse.filter((course) => course.title.toLowerCase().includes(title))
     }
     const fullstack = filterCourse(upcomingCourse, 'fullstack development')
-    console.log(fullstack)
+    // console.log(fullstack)
     const [courseData] = fullstack
   //   const name = courseData.title
-    console.log(courseData)
+    // console.log(courseData)
     const {
       sectionFour: { articleOne, header, body },
     } = HOME_CONTENT
   
     // const { hero, sectionTwo, sectionFour, duration } = DEVELOPMENT_CONTENT
-    console.log(DEVELOPMENT_CONTENT.fullStackDevelopment)
+    // console.log(DEVELOPMENT_CONTENT.fullStackDevelopment)
   
     const courseDetails = DEVELOPMENT_CONTENT.fullStackDevelopment
-    console.log(courseDetails)
+    // console.log(courseDetails)
     const { hero, sectionTwo, sectionFour, duration } = courseDetails
-    console.log(sectionTwo);
+    // console.log(sectionTwo);
   
     const style = useMemo(() => {
       const baseStyle = {
