@@ -14,6 +14,7 @@ const CourseBanner = ({ name, duration }) => {
   const courseDuration = upcomingCourses.filter((course) => {
     return course.title === name
   })
+  // console.log(duration);
 
   const convertDateToReadable = (date) => {
     let dateSet = new Date(date).toUTCString().split(' ')
@@ -38,10 +39,9 @@ const CourseBanner = ({ name, duration }) => {
           <section className='d-flex flex-column flex-md-row justify-content-between align-items-center gap-5'>
             <div>
               <h2 className='m-0 text-primary'>
-                {!courseDuration[0]?.classes?.weekend?.[0]?.startDate
+                {!duration.weekend.date
                   ? `N/A`
-                  : `${convertDateToReadable(
-                      courseDuration[0]?.classes?.weekend?.[0]?.startDate
+                  : `${convertDateToReadable(duration.weekend.date
                     )}`}
               </h2>
               <p className='m-0 text-dark small-text fw-bold'>
@@ -50,10 +50,9 @@ const CourseBanner = ({ name, duration }) => {
             </div>
             <div>
               <h2 className='m-0 text-primary'>
-                {!courseDuration[0]?.classes?.weekday?.[0]?.startDate
+              {!duration.weekday.date
                   ? `N/A`
-                  : `${convertDateToReadable(
-                      courseDuration[0]?.classes?.weekday?.[0]?.startDate
+                  : `${convertDateToReadable(duration.weekday.date
                     )}`}
               </h2>
               <p className='m-0 text-dark small-text fw-bold'>

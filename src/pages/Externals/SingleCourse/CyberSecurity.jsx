@@ -1,27 +1,44 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import PropTypes from 'prop-types'
-
+import { selectExternalCourses } from '../api/externalSlice'
+import { HOME_CONTENT } from '../Home/content'
 import { BannerII, Button } from '../../../components'
 import CourseBanner from '../../../components/global/banners/CourseBanner'
 import { Container, ExternalLayout, Navbar } from '../../../layout'
-import SectionTwo from '../Faqs/sections/sectionTwo'
-import { HOME_CONTENT } from '../Home/content'
 import SectionFour from '../Home/sections/sectionFour'
-
-import CourseHero from './course/courseHero'
-import CourseSectionFour from './course/sectionFour/CourseSectionFour'
-import CourseSectionTwo from './course/sectionTwo/CourseSectionTwo'
+import CourseHero from '../Development/course/courseHero'
+import SectionTwo from '../Faqs/sections/sectionTwo'
+import CourseSectionFour from '../Development/course/sectionFour/CourseSectionFour'
+import CourseSectionTwo from '../Development/course/sectionTwo/CourseSectionTwo'
+import { DEVELOPMENT_CONTENT } from '../Development/content'
 
 const baseUrl = import.meta.env.VITE_BASE_URL
-
-const Development = ({ content, job, query, name, courseID }) => {
+const CyberSecurity = () => {
   const dispatch = useDispatch()
-  const { hero, sectionTwo, sectionFour, duration } = content
+  const upcomingCourse = useSelector(selectExternalCourses)
+
+  const filterCourse = (upcomingCourse, title) => {
+    return upcomingCourse.filter((course) => course.title.toLowerCase().includes(title))
+  }
+  const cyberSecurity = filterCourse(upcomingCourse, 'cyber security')
+  // console.log(cyberSecurity)
+  const [courseData] = cyberSecurity
+  const name = 'cyber-Security Expert'
+  // console.log(courseData)
+
   const {
     sectionFour: { articleOne, header, body },
   } = HOME_CONTENT
+
+  // const { hero, sectionTwo, sectionFour, duration } = DEVELOPMENT_CONTENT
+  // console.log(DEVELOPMENT_CONTENT.cyberSecurity)
+
+  const courseDetails = DEVELOPMENT_CONTENT.cyberSecurity
+  const { hero, sectionTwo, sectionFour, duration } = courseDetails
+
+  // console.log(sectionTwo);
 
   const style = useMemo(() => {
     const baseStyle = {
@@ -35,7 +52,6 @@ const Development = ({ content, job, query, name, courseID }) => {
       baseStyle.transform = `static`
       baseStyle.width = `90%`
     }
-
     return baseStyle
   }, [])
 
@@ -52,12 +68,13 @@ const Development = ({ content, job, query, name, courseID }) => {
 
   useEffect(() => {
     getFAQ()
-  }, [getFAQ])
+    }, [getFAQ])
+    
 
   return (
     <ExternalLayout>
-      <Navbar bg={`transparent`} keepColor />
-      <CourseHero content={hero} courseName={name} courseID={courseID} />
+        <Navbar bg={`transparent`} keepColor />
+      <CourseHero content={hero} courseName={cyberSecurity.title} courseID={cyberSecurity.id} />
       <section style={style} className='m-auto mt-10 mt-lg-0'>
         <CourseBanner name={name} duration={duration} />
       </section>
@@ -77,8 +94,8 @@ const Development = ({ content, job, query, name, courseID }) => {
       <section className='my-lg-32 my-sm-3'>
         <Container>
           <BannerII>
-            <div className='ms-lg-40 text-white py-xl-0 px-5 py-5 px-lg-0'>
-              <span>Want to start a career as a {job} ?</span>
+            <div className='ms-lg-40 text-white py-5  py-xl-0 px-5 px-lg-0'>
+              <span>Want to start a career as a {name} ?</span>
               <h3 className='mt-7 fw-bold text-white'>Get started with TechStudio</h3>
               <div className='w-50'>
                 <Button linkHref='/student/register' linkText='Register Now' solidBtn navBtn width={`14`} />
@@ -87,13 +104,10 @@ const Development = ({ content, job, query, name, courseID }) => {
           </BannerII>
         </Container>
       </section>
+
+
     </ExternalLayout>
   )
 }
 
-Development.propTypes = {
-  content: PropTypes.object.isRequired,
-  job: PropTypes.string,
-}
-
-export default Development
+export default CyberSecurity
