@@ -7,6 +7,7 @@ import { Container } from '../../../../../layout'
 import style from './courseSectiontwo.module.scss'
 
 const CourseSectionTwo = ({ content }) => {
+  // console.log(content);
   const { header, cards } = content
   const cardsDisplay = cards.map((card, index) => {
     return <CourseCard key={index} card={card} />
