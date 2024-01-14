@@ -32,7 +32,9 @@ const Development = lazy(() => import('./pages/Externals/Development'))
 
 import { useEffect } from 'react'
 import { useCallback } from 'react'
+
 import packageJson from '../package.json'
+
 import SpinnerComponent from './components/global/skeletonLoader/SpinnerComponent'
 // import { RecentTask } from './pages/Dashboard/Teacher/components/recentTask/RecentTask'
 import TutorClassTab from './pages/Dashboard/Teacher/components/tab/classTab/TutorClassTab'
@@ -41,6 +43,11 @@ import TutorResourceTab from './pages/Dashboard/Teacher/components/tab/ResourceT
 import SubmissionListView from './pages/Dashboard/Teacher/tasks/SubmissionListView'
 import { useGetUpcomingCoursesMutation } from './pages/Externals/api/externalApi'
 import { selectExternalCourses } from './pages/Externals/api/externalSlice'
+import CyberSecurity from './pages/Externals/SingleCourse/CyberSecurity'
+import DataScience from './pages/Externals/SingleCourse/DataScience'
+import FrontendEngineering from './pages/Externals/SingleCourse/FrontendEngineering'
+import FullStackDevelopment from './pages/Externals/SingleCourse/FullStackDevelopment'
+import UiUxDevelopment from './pages/Externals/SingleCourse/UiUxDevelopment'
 import {
   AdminCourseView,
   AdminDashboard,
@@ -67,11 +74,6 @@ import {
   TeacherClassView,
   TeacherDashboard,
 } from './pages'
-import CyberSecurity from './pages/Externals/SingleCourse/CyberSecurity'
-import FrontendEngineering from './pages/Externals/SingleCourse/FrontendEngineering'
-import DataScience from './pages/Externals/SingleCourse/DataScience'
-import FullStackDevelopment from './pages/Externals/SingleCourse/FullStackDevelopment'
-import UiUxDevelopment from './pages/Externals/SingleCourse/UiUxDevelopment'
 // import FrontendEngineering from './pages/Externals/Development/SingleCourse/FrontendEngineering'
 
 const App = () => {
@@ -187,15 +189,12 @@ const App = () => {
     )
   })
 
-
   // const filterCourse = (upcomingCourses, title) => {
   //   return upcomingCourses.filter((course) => course.title.toLowerCase().includes(title))
   // }
 
   // const courseData = filterCourse(upcomingCourses, 'frontend engineering')
   // // console.log(courseData)
-
-
 
   return (
     <Suspense
