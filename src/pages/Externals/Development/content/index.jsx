@@ -239,12 +239,12 @@ export const DEVELOPMENT_CONTENT = {
       },
       weekday: {
         time: `12`,
-        date: `T/A`,
+        date: `February 3, 2024`,
         price: `250000`,
       },
       weekend: {
         time: `12`,
-        date: `T/A`,
+        date: `February 5, 2024`,
         price: `250000`,
       },
       span: {
@@ -402,12 +402,12 @@ export const DEVELOPMENT_CONTENT = {
       },
       weekday: {
         time: `12`,
-        date: `August 7, 2023`,
+        date: `February 3, 2024`,
         price: `250000`,
       },
       weekend: {
         time: `12`,
-        date: `August 5, 2023`,
+        date: `February 5, 2024`,
         price: `250000`,
       },
       span: {
@@ -677,17 +677,17 @@ In object-oriented JavaScript, students will learn how to create objects, define
     duration: {
       online: {
         time: `16`,
-        date: `August 7, 2023`,
+        date: `February 5, 2024`,
         price: `200000`,
       },
       weekday: {
         time: `24`,
-        date: `August 7, 2023`,
+        date: `February 3, 2024`,
         price: `500000`,
       },
       weekend: {
         time: `16`,
-        date: `August 5, 2023`,
+        date: `February 5, 2024`,
         price: `300000`,
       },
       span: {
@@ -898,12 +898,12 @@ In object-oriented JavaScript, students will learn how to create objects, define
       },
       weekday: {
         time: `12`,
-        date: `August 7, 2023`,
+        date: `February 3, 2024`,
         price: `250000`,
       },
       weekend: {
         time: `12`,
-        date: `August 5, 2023`,
+        date: `February 5, 2024`,
         price: `250000`,
       },
 
@@ -1103,12 +1103,12 @@ In object-oriented JavaScript, students will learn how to create objects, define
       },
       weekday: {
         time: `12`,
-        date: `August 7, 2023`,
+        date: `February 3, 2024`,
         price: `250000`,
       },
       weekend: {
         time: `12`,
-        date: `August 5, 2023`,
+        date: `February 5, 2024`,
         price: `250000`,
       },
 
