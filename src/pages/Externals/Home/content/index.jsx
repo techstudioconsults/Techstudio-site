@@ -97,14 +97,6 @@ technologies for learning.`,
         description: ` You’ll learn all you need to know to become a Frontend Developer and build interesting portfolios while learning the fundamentals of HTML, CSS, JavaScript and React. `,
         path: `/course/frontend`,
       },
-
-      {
-        image: `https://res.cloudinary.com/doejcrfso/image/upload/v1704899500/Group_1000002405_qewtgz.png`,
-        // imageLow: frontend,
-        title: `Cyber Security`,
-        description: ` You will learn the best practices of securing networks, systems and data. We will help you get hands-on experience with essential cybersecurity tools and technologies.`,
-        path: `/course/cyber-security`,
-      },
     ],
   },
 
