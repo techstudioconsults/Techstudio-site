@@ -26,6 +26,10 @@ const DataScience = () => {
     const datascience = filterCourse(upcomingCourse, 'data science')
     // console.log(datascience)
     const [courseData] = datascience
+
+    const courseID = courseData.id
+    const courseName = courseData.title
+
   //   const name = courseData.title
     // console.log(courseData)
     const {
@@ -74,7 +78,7 @@ const DataScience = () => {
   return (
     <ExternalLayout>
     <Navbar bg={`transparent`} keepColor />
-  <CourseHero content={hero} courseName={datascience.title} courseID={datascience.id} />
+  <CourseHero content={hero} courseName={courseName} courseID={courseID} />
   <section style={style} className='m-auto mt-10 mt-lg-0'>
     <CourseBanner name={datascience.title} duration={duration} />
   </section>

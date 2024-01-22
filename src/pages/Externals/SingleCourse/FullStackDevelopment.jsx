@@ -26,7 +26,13 @@ const FullStackDevelopment = () => {
     const fullstack = filterCourse(upcomingCourse, 'fullstack development')
     // console.log(fullstack)
     const [courseData] = fullstack
-  //   const name = courseData.title
+
+
+    // console.log(courseData.id);
+    const courseID = courseData.id
+    const courseName = courseData.title
+    // const courseName = [0].title
+    // const courseID = fullstack[0].id
     // console.log(courseData)
     const {
       sectionFour: { articleOne, header, body },
@@ -74,7 +80,7 @@ const FullStackDevelopment = () => {
   return (
     <ExternalLayout>
     <Navbar bg={`transparent`} keepColor />
-  <CourseHero content={hero} courseName={fullstack.title} courseID={fullstack.id} />
+  <CourseHero content={hero} courseName={courseName} courseID={courseID} />
   <section style={style} className='m-auto mt-10 mt-lg-0'>
     <CourseBanner name={fullstack.title} duration={duration} />
   </section>
