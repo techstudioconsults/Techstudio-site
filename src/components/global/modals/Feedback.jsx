@@ -4,32 +4,15 @@ import PropTypes from 'prop-types'
 
 const Feedback = ({ content }) => {
   return (
-    <div
-      className='modal fade'
-      id='feedback'
-      tabIndex='-1'
-      aria-labelledby='feedback'
-    >
+    <div className='modal fade' id='feedback' tabIndex='-1' aria-labelledby='feedback'>
       <div className='modal-dialog modal-dialog-centered modal-fullscreen-md-down modal-lg px-lg-20'>
         <div className='modal-content'>
           <div className='modal-header d-flex justify-content-end'>
-            <Icon
-              icon={`material-symbols:close`}
-              width={`1.5rem`}
-              data-bs-dismiss='modal'
-              aria-label='Close'
-            />
+            <Icon icon={`material-symbols:close`} width={`1.5rem`} data-bs-dismiss='modal' aria-label='Close' />
           </div>
-          <div
-            className={[
-              'modal-body d-flex flex-column align-items-center text-center py-20',
-            ].join(' ')}
-          >
+          <div className={['modal-body d-flex flex-column align-items-center text-center py-20'].join(' ')}>
             <div>
-              <img
-                src={`https://res.cloudinary.com/dkszgtapy/image/upload/v1686218520/techstudio-web-app/assets/images/feedback_gt11fy.webp`}
-                alt='feedback'
-              />
+              <img src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699878977/techstudio/images/feedback_gt11fy_qnndsw.webp`} alt='feedback' />
             </div>
             <div className=''>
               <h4 className='fw-bold text-blue pt-5'>{content.title}</h4>
