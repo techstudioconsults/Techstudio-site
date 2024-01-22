@@ -26,6 +26,10 @@ const CyberSecurity = () => {
   // console.log(cyberSecurity)
   const [courseData] = cyberSecurity
   const name = 'cyber-Security Expert'
+
+  const courseID = courseData.id
+    const courseName = courseData.title
+
   // console.log(courseData)
 
   const {
@@ -74,7 +78,7 @@ const CyberSecurity = () => {
   return (
     <ExternalLayout>
         <Navbar bg={`transparent`} keepColor />
-      <CourseHero content={hero} courseName={cyberSecurity.title} courseID={cyberSecurity.id} />
+      <CourseHero content={hero} courseName={courseName} courseID={courseID} />
       <section style={style} className='m-auto mt-10 mt-lg-0'>
         <CourseBanner name={name} duration={duration} />
       </section>
