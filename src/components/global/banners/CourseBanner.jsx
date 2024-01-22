@@ -8,7 +8,7 @@ import { selectExternalCourses } from '../../../pages/Externals/api/externalSlic
 import Button from '../Button'
 
 const CourseBanner = ({ name, duration }) => {
-  console.log(duration.weekday.date);
+  console.log(duration.weekday.date)
   const weekday = duration.weekday.date
   const weekend = duration.weekend.date
   console.log(weekday, weekend)
@@ -28,9 +28,7 @@ const CourseBanner = ({ name, duration }) => {
   // console.log(convertDateToReadable(weekday));
 
   return (
-    <IntersectionObserver
-      animationFuncion={() => COURSE_BANNER_ANIMATION(banner)}
-    >
+    <IntersectionObserver animationFuncion={() => COURSE_BANNER_ANIMATION(banner)}>
       <section ref={banner}>
         <section
           style={{
