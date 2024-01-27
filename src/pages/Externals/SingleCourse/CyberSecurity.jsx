@@ -2,17 +2,18 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import PropTypes from 'prop-types'
-import { selectExternalCourses } from '../api/externalSlice'
-import { HOME_CONTENT } from '../Home/content'
+
 import { BannerII, Button } from '../../../components'
 import CourseBanner from '../../../components/global/banners/CourseBanner'
 import { Container, ExternalLayout, Navbar } from '../../../layout'
-import SectionFour from '../Home/sections/sectionFour'
+import { selectExternalCourses } from '../api/externalSlice'
+import { DEVELOPMENT_CONTENT } from '../Development/content'
 import CourseHero from '../Development/course/courseHero'
-import SectionTwo from '../Faqs/sections/sectionTwo'
 import CourseSectionFour from '../Development/course/sectionFour/CourseSectionFour'
 import CourseSectionTwo from '../Development/course/sectionTwo/CourseSectionTwo'
-import { DEVELOPMENT_CONTENT } from '../Development/content'
+import SectionTwo from '../Faqs/sections/sectionTwo'
+import { HOME_CONTENT } from '../Home/content'
+import SectionFour from '../Home/sections/sectionFour'
 
 const baseUrl = import.meta.env.VITE_BASE_URL
 const CyberSecurity = () => {
