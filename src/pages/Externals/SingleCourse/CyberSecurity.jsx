@@ -20,15 +20,15 @@ const CyberSecurity = () => {
   const upcomingCourse = useSelector(selectExternalCourses)
 
   const filterCourse = (upcomingCourse, title) => {
-    return upcomingCourse.filter((course) => course.title.toLowerCase().includes(title))
+    return upcomingCourse?.filter((course) => course.title.toLowerCase().includes(title))
   }
   const cyberSecurity = filterCourse(upcomingCourse, 'cyber security')
   // console.log(cyberSecurity)
   const [courseData] = cyberSecurity
   const name = 'cyber-Security Expert'
 
-  const courseID = courseData.id
-    const courseName = courseData.title
+  const courseID = courseData?.id
+  const courseName = courseData?.title
 
   // console.log(courseData)
 
@@ -72,12 +72,11 @@ const CyberSecurity = () => {
 
   useEffect(() => {
     getFAQ()
-    }, [getFAQ])
-    
+  }, [getFAQ])
 
   return (
     <ExternalLayout>
-        <Navbar bg={`transparent`} keepColor />
+      <Navbar bg={`transparent`} keepColor />
       <CourseHero content={hero} courseName={courseName} courseID={courseID} />
       <section style={style} className='m-auto mt-10 mt-lg-0'>
         <CourseBanner name={name} duration={duration} />
@@ -108,8 +107,6 @@ const CyberSecurity = () => {
           </BannerII>
         </Container>
       </section>
-
-
     </ExternalLayout>
   )
 }

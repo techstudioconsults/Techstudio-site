@@ -21,14 +21,14 @@ const DataScience = () => {
   const upcomingCourse = useSelector(selectExternalCourses)
 
   const filterCourse = (upcomingCourse, title) => {
-    return upcomingCourse.filter((course) => course.title.toLowerCase().includes(title))
+    return upcomingCourse?.filter((course) => course.title.toLowerCase().includes(title))
   }
   const datascience = filterCourse(upcomingCourse, 'data science')
   // console.log(datascience)
   const [courseData] = datascience
 
-  const courseID = courseData.id
-  const courseName = courseData.title
+  const courseID = courseData?.id
+  const courseName = courseData?.title
 
   //   const name = courseData.title
   // console.log(courseData)
