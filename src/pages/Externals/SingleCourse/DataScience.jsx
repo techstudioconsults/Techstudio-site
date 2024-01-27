@@ -17,98 +17,98 @@ import { DEVELOPMENT_CONTENT } from '../Development/content'
 const baseUrl = import.meta.env.VITE_BASE_URL
 
 const DataScience = () => {
-    const dispatch = useDispatch()
-    const upcomingCourse = useSelector(selectExternalCourses)
-  
-    const filterCourse = (upcomingCourse, title) => {
-      return upcomingCourse.filter((course) => course.title.toLowerCase().includes(title))
-    }
-    const datascience = filterCourse(upcomingCourse, 'data science')
-    // console.log(datascience)
-    const [courseData] = datascience
+  const dispatch = useDispatch()
+  const upcomingCourse = useSelector(selectExternalCourses)
+
+  const filterCourse = (upcomingCourse, title) => {
+    return upcomingCourse?.filter((course) => course.title.toLowerCase().includes(title))
+  }
+  const datascience = filterCourse(upcomingCourse, 'data science')
+  // console.log(datascience)
+  const [courseData] = datascience
+
+  const courseID = courseData?.id
+  const courseName = courseData?.title
+
   //   const name = courseData.title
-    // console.log(courseData)
-    const {
-      sectionFour: { articleOne, header, body },
-    } = HOME_CONTENT
-  
-    // const { hero, sectionTwo, sectionFour, duration } = DEVELOPMENT_CONTENT
-    // console.log(DEVELOPMENT_CONTENT.datascience)
-  
-    const courseDetails = DEVELOPMENT_CONTENT.datascience
-    // console.log(courseDetails)
-    const { hero, sectionTwo, sectionFour, duration } = courseDetails
-    // console.log(sectionTwo);
-  
-    const style = useMemo(() => {
-      const baseStyle = {
-        borderRadius: `8.33846px`,
-        transform: `translateY(-50%)`,
-        position: `relative`,
-        maxWidth: `1080px`,
-      }
-  
-      if (window.innerWidth <= 767) {
-        baseStyle.transform = `static`
-        baseStyle.width = `90%`
-      }
-      return baseStyle
-    }, [])
-  
-        
-        const getFAQ = useCallback(async () => {
-          try {
-            // const res = await axios.get(`${baseUrl}/external/faq?search=${query}`)
-            const res = await axios.get(`${baseUrl}/external/faq`)
-            dispatch({ type: `app/setFAQ`, payload: res.data.data })
-            // setLoading(false)
-          } catch (err) {
-            console.log(err)
-          }
-        }, [dispatch])
-  
-    useEffect(() => {
-      getFAQ()
-      }, [getFAQ])
-  
+  // console.log(courseData)
+  const {
+    sectionFour: { articleOne, header, body },
+  } = HOME_CONTENT
+
+  // const { hero, sectionTwo, sectionFour, duration } = DEVELOPMENT_CONTENT
+  // console.log(DEVELOPMENT_CONTENT.datascience)
+
+  const courseDetails = DEVELOPMENT_CONTENT.datascience
+  // console.log(courseDetails)
+  const { hero, sectionTwo, sectionFour, duration } = courseDetails
+  // console.log(sectionTwo);
+
+  const style = useMemo(() => {
+    const baseStyle = {
+      borderRadius: `8.33846px`,
+      transform: `translateY(-50%)`,
+      position: `relative`,
+      maxWidth: `1080px`,
+    }
+
+    if (window.innerWidth <= 767) {
+      baseStyle.transform = `static`
+      baseStyle.width = `90%`
+    }
+    return baseStyle
+  }, [])
+
+  const getFAQ = useCallback(async () => {
+    try {
+      // const res = await axios.get(`${baseUrl}/external/faq?search=${query}`)
+      const res = await axios.get(`${baseUrl}/external/faq`)
+      dispatch({ type: `app/setFAQ`, payload: res.data.data })
+      // setLoading(false)
+    } catch (err) {
+      console.log(err)
+    }
+  }, [dispatch])
+
+  useEffect(() => {
+    getFAQ()
+  }, [getFAQ])
+
   return (
     <ExternalLayout>
-    <Navbar bg={`transparent`} keepColor />
-  <CourseHero content={hero} courseName={datascience.title} courseID={datascience.id} />
-  <section style={style} className='m-auto mt-10 mt-lg-0'>
-    <CourseBanner name={datascience.title} duration={duration} />
-  </section>
-  <CourseSectionTwo content={sectionTwo} />
-  <CourseSectionFour content={sectionFour} />
-  <SectionFour isDevelopmentView content={{ articleOne, header, body }} />
+      <Navbar bg={`transparent`} keepColor />
+      <CourseHero content={hero} courseName={courseName} courseID={courseID} />
+      <section style={style} className='m-auto mt-10 mt-lg-0'>
+        <CourseBanner name={datascience.title} duration={duration} />
+      </section>
+      <CourseSectionTwo content={sectionTwo} />
+      <CourseSectionFour content={sectionFour} />
+      <SectionFour isDevelopmentView content={{ articleOne, header, body }} />
 
-  <section>
-    <Container>
-      <h3 className='text-center'>
-        {/* {hero.title} */}
-        FAQs
-      </h3>
-      <SectionTwo />
-    </Container>
-  </section>
-  <section className='my-lg-32 my-sm-3'>
-    <Container>
-      <BannerII>
-        <div className='ms-lg-40 text-white py-5 py-xl-0 px-5 px-lg-0'>
-          <span>Want to start a career as a Fullstack Data Scientist?</span>
-          <h3 className='mt-7 fw-bold text-white'>Get started with TechStudio</h3>
-          <div className='w-50'>
-            <Button linkHref='/student/register' linkText='Register Now' solidBtn navBtn width={`14`} />
-          </div>
-        </div>
-      </BannerII>
-    </Container>
-  </section>
-
-
-</ExternalLayout>
+      <section>
+        <Container>
+          <h3 className='text-center'>
+            {/* {hero.title} */}
+            FAQs
+          </h3>
+          <SectionTwo />
+        </Container>
+      </section>
+      <section className='my-lg-32 my-sm-3'>
+        <Container>
+          <BannerII>
+            <div className='ms-lg-40 text-white py-5 py-xl-0 px-5 px-lg-0'>
+              <span>Want to start a career as a Fullstack Data Scientist?</span>
+              <h3 className='mt-7 fw-bold text-white'>Get started with TechStudio</h3>
+              <div className='w-50'>
+                <Button linkHref='/student/register' linkText='Register Now' solidBtn navBtn width={`14`} />
+              </div>
+            </div>
+          </BannerII>
+        </Container>
+      </section>
+    </ExternalLayout>
   )
 }
-
 
 export default DataScience

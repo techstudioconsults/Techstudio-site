@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
-import PropTypes from 'prop-types'
 
 import { BannerII, Button } from '../../../components'
 import CourseBanner from '../../../components/global/banners/CourseBanner'
@@ -22,11 +21,15 @@ const UiUxDevelopment = () => {
   const upcomingCourse = useSelector(selectExternalCourses)
 
   const filterCourse = (upcomingCourse, title) => {
-    return upcomingCourse.filter((course) => course.title.toLowerCase().includes(title))
+    return upcomingCourse?.filter((course) => course.title.toLowerCase().includes(title))
   }
   const productDesign = filterCourse(upcomingCourse, 'product design ui/ux')
   // console.log(productDesign)
   const [courseData] = productDesign
+
+  const courseID = courseData?.id
+  const courseName = courseData?.title
+  // const courseId = productDesign[0].id
   //   const name = courseData.title
   // console.log(courseData)
   const {
@@ -73,7 +76,7 @@ const UiUxDevelopment = () => {
   return (
     <ExternalLayout>
       <Navbar bg={`transparent`} keepColor />
-      <CourseHero content={hero} courseName={productDesign.title} courseID={productDesign.id} />
+      <CourseHero content={hero} courseName={courseName} courseID={courseID} />
       <section style={style} className='m-auto mt-10 mt-lg-0'>
         <CourseBanner name={productDesign.title} duration={duration} />
       </section>

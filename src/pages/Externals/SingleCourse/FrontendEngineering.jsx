@@ -22,11 +22,14 @@ const FrontendEngineering = () => {
   const upcomingCourse = useSelector(selectExternalCourses)
 
   const filterCourse = (upcomingCourse, title) => {
-    return upcomingCourse.filter((course) => course.title.toLowerCase().includes(title))
+    return upcomingCourse?.filter((course) => course.title.toLowerCase().includes(title))
   }
   const frontend = filterCourse(upcomingCourse, 'frontend engineering')
   // console.log(frontend)
   const [courseData] = frontend
+
+  const courseID = courseData?.id
+  const courseName = courseData?.title
   //   const name = courseData.title
   // console.log(courseData)
   const {
@@ -74,7 +77,7 @@ const FrontendEngineering = () => {
   return (
     <ExternalLayout>
       <Navbar bg={`transparent`} keepColor />
-      <CourseHero content={hero} courseName={frontend.title} courseID={frontend.id} />
+      <CourseHero content={hero} courseName={courseName} courseID={courseID} />
       <section style={style} className='m-auto mt-10 mt-lg-0'>
         <CourseBanner name={frontend.title} duration={duration} />
       </section>
