@@ -1,6 +1,4 @@
 import { useRef } from 'react'
-import ipad1 from '@assets/images/ipad-1.png'
-import ipad2 from '@assets/images/ipad-2.png'
 import PropTypes from 'prop-types'
 
 import Stepper from '../../../../../components/global/steppers/Stepper'
