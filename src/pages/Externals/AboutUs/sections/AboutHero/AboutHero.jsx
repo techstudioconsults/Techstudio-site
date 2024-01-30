@@ -1,5 +1,4 @@
 import React from 'react'
-import dayo from '@assets/images/dayo.png'
 import PropTypes from 'prop-types'
 
 import { genericAnimation } from '../../../../../gsap'
