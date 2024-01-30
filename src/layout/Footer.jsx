@@ -12,7 +12,7 @@ const Footer = () => {
             <div className='col-12 col-lg-3 mb-3'>
               <div>
                 <Link className='d-flex gap-3 text-white justify-content-start' to='/'>
-                  <img src={logoWhite} alt='logo' />
+                  <img src={`https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/logo-white.png`} alt='logo' />
                 </Link>
               </div>
               <ul className='nav flex-column fs-sm mt-5 gap-1 align-items-start'>

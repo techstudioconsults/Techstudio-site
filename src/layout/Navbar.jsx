@@ -106,7 +106,15 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
         <Link className='navbar-brand' to='/'>
           <div className='d-flex align-items-center gap-2'>
             <div className={style.navImgContainer}>
-              <img className={['logo', style.responsiveLogo].join(' ')} src={color ? logoBlack : logoWhite} alt='logo' />
+              <img
+                className={['logo', style.responsiveLogo].join(' ')}
+                src={
+                  color
+                    ? `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/logo-black.png`
+                    : `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/logo-white.png`
+                }
+                alt='logo'
+              />
             </div>
           </div>
         </Link>

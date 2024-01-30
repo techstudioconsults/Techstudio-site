@@ -25,7 +25,7 @@ const AboutHero = ({ content }) => {
             <p className={`${style.description} hero`}>{description3}</p>
           </section>
           <section className={style.aboutHeroImg}>
-            <img src={dayo} alt='hero-mg' className='img-fluid' />
+            <img src={`https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/dayo.png`} alt='hero-mg' className='img-fluid' />
           </section>
         </header>
       </Gsap>

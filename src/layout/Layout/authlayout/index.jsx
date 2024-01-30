@@ -15,8 +15,9 @@ const index = ({ children }) => {
       </Link>
       <div className={`${style.imgContainer}`}>
         <img
-          // src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879329/techstudio/images/IMG_9425_lelq4u_vbf8de.webp`}
-          src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699878967/techstudio/images/authImg_uy00im_gqve3c.webp`}
+          // src={`https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/IMG_9424_ffooid_upwkdx.png`}
+          // src={`https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/IMG_9425_lelq4u_vbf8de.png`}
+          src={`https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/authImg_uy00im_gqve3c.webp`}
           alt='auth-img'
           className='cc-img-fluid'
         />

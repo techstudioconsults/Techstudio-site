@@ -1,4 +1,7 @@
 // this data would also be used in the intro page.
+import tag1 from '@assets/icons/numberOne_iorpb9_sbfndr.webp'
+import tag3 from '@assets/icons/numberThree_ludnkx_ml62k7.webp'
+import tag2 from '@assets/icons/numberTwo_tjclgg_aiqtvs.webp'
 
 export const DEVELOPMENT_CONTENT = {
   frontendDevelopment: {
@@ -6,7 +9,7 @@ export const DEVELOPMENT_CONTENT = {
       title: `Frontend Engineering Immersive`,
       subTitle: `Let’s help you become a professional frontend web developer. You’ll learn all you need to know to become a Frontend Developer and build interesting portfolios while learning the fundamentals of HTML, CSS, JavaScript and React.`,
       // img: frontendImg,
-      img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1686218833/techstudio-web-app/assets/images/Group_1000002400_ocntit_pqduyw.png`,
+      img: null,
     },
 
     sectionTwo: {
@@ -15,15 +18,15 @@ export const DEVELOPMENT_CONTENT = {
       },
       cards: [
         {
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879049/techstudio/images/numberOne_iorpb9_sbfndr.webp`,
+          img: tag1,
           text: `We teach the important skills required to jumpstart your career as a web developer. With 5 straight weeks of web training, you learn to think and build like frontend developers.`,
         },
         {
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879050/techstudio/images/numberTwo_tjclgg_aiqtvs.webp`,
+          img: tag2,
           text: `You move from understanding web basics to launching Single Page Applications (SPAs). You’ll be taught to build smart SPAs using vanilla JavaScript that interacts with user inputs.`,
         },
         {
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879049/techstudio/images/numberThree_ludnkx_ml62k7.webp`,
+          img: tag3,
           text: `And finally, you’ll learn the fundamentals of working as a team; collaborate with other group members of the class to build, change, maintain, and secure an application. Track your team development Process using Version Control Systems.`,
         },
       ],
@@ -41,7 +44,7 @@ export const DEVELOPMENT_CONTENT = {
           desc: `This unit provides a solid foundation in web development, covering both HTML and CSS. Students will learn how to create well-structured HTML documents using tags, elements, and attributes. They will also explore CSS syntax and style rules to customize the appearance of web pages. Topics include text styling, backgrounds, borders, and images. Additionally, students will discover CSS layout techniques, such as floats and CSS grid, to create different page layouts. They will also explore Bootstrap, utilizing its pre-built components and responsive grid system for attractive and mobile-friendly layouts. Practical exercises reinforce learning.`,
           caption: `UNIT 1`,
           bgColor: null,
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890657/techstudio/GIFS/writing-code_iyd7mr.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/writing-code.gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -67,7 +70,7 @@ export const DEVELOPMENT_CONTENT = {
           desc: `Throughout the course of this unit, students will embark on a journey into the fundamentals of JavaScript, unlocking the potential to create engaging and interactive web experiences. By delving into the core concepts and syntax of JavaScript, students will gain a comprehensive understanding of how to leverage this powerful programming language to build dynamic and responsive web pages. They will explore topics such as variables, data types, conditional statements, loops, functions, arrays, objects, and DOM manipulation.`,
           caption: `UNIT 2`,
           bgColor: `light-blue-ii`,
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890712/techstudio/GIFS/js-file-document_mby9zc.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/js-file-document.gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -89,7 +92,7 @@ export const DEVELOPMENT_CONTENT = {
           In object-oriented JavaScript, students will learn how to create objects, define their properties and methods, and establish relationships between objects through inheritance. They will explore concepts such as encapsulation, where data and methods are bundled together within objects to control access and ensure data integrity.`,
           caption: `UNIT 3`,
           bgColor: `white`,
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890620/techstudio/GIFS/js-javascript_vcbxgh.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/js-javascript.gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -110,7 +113,7 @@ export const DEVELOPMENT_CONTENT = {
           desc: `The Document Object Model (DOM) is an API (Application Programming Interface) that allows you to interact with HTML and XML documents programmatically. It is primarily associated with JavaScript, as JavaScript is the most commonly used programming language for web development and has built-in support for the DOM.`,
           caption: `UNIT 4`,
           bgColor: `blue`,
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890601/techstudio/GIFS/javascript-programming-language_uqvzya.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/javascript-programming-language.gif`,
           tagAttr: [
             {
               bgColor: `white`,
@@ -136,7 +139,7 @@ export const DEVELOPMENT_CONTENT = {
           desc: `React has gained immense popularity as a JavaScript library for creating robust and interactive user interfaces. Its core philosophy revolves around a component-based architecture, empowering developers to build reusable UI components that encapsulate specific functionality. By breaking down the user interface into modular components, React enables code reusability, enhances maintainability, and facilitates collaborative development.`,
           caption: `UNIT 5`,
           bgColor: `white`,
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890730/techstudio/GIFS/react-js_gl2fjt.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/react-js.gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -266,15 +269,15 @@ export const DEVELOPMENT_CONTENT = {
       },
       cards: [
         {
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879049/techstudio/images/numberOne_iorpb9_sbfndr.webp`,
+          img: tag1,
           text: `We teach the important skills required to jumpstart your career as a product designer. With 12 straight weeks of training, you learn to think, build and solve complex UI/UX challenges.`,
         },
         {
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879050/techstudio/images/numberTwo_tjclgg_aiqtvs.webp`,
+          img: tag2,
           text: `We move from understanding the core principles of effective design to applying tactics like wireframing, low and high-fidelity prototyping, usability testing and user interface design to build a portfolio of intuitive digital products. `,
         },
         {
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879049/techstudio/images/numberThree_ludnkx_ml62k7.webp`,
+          img: tag3,
           text: `You’ll learn the fundamentals of working as a team; sharpen your communication skills and collaborate with web development teams to build, change, maintain and successfully execute cross-functional UI/UX projects.`,
         },
       ],
@@ -292,7 +295,7 @@ export const DEVELOPMENT_CONTENT = {
           title: `Introduction To Product Design`,
           desc: `Unit 1 provides students with a comprehensive introduction to product design. It acquaints them with the fundamental principles, elements, and tools necessary for successful design. The unit emphasizes the primary purpose of product design, which is to create innovative solutions that cater to user needs and evoke emotions. Through engaging lectures and interactive discussions, students gain a deep understanding of the impact that well-designed products can have on society and individuals.`,
           bgColor: `red`,
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699891086/techstudio/GIFS/man-placing-ui-ux-design-elements-on-application_om3dvv.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/man-placing-ui-ux-design-elements-on-application.gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -308,7 +311,7 @@ export const DEVELOPMENT_CONTENT = {
           title: `User Interface / Visual Design`,
           desc: `Unit 2 focuses on User Interface (UI) and Visual Design, aiming to create engaging digital experiences. Students learn to create low-fidelity wireframes, convert them to high-fidelity wireframes, design mobile/web app interfaces, and develop responsive web designs. This unit equips students with the skills to visualize and refine design concepts, create user-friendly interfaces, and adapt designs to different devices. By mastering UI and Visual Design principles and techniques, students are prepared to craft captivating digital experiences that seamlessly blend aesthetics and functionality. Additionally, they gain proficiency in using Auto Layouts, constraints, and resizing frames for design`,
           bgColor: `light-blue-ii`,
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699891068/techstudio/GIFS/male-mobile-application-designer-working-on-design-project_majtdj.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/male-mobile-application-designer-working-on-design-project.gif`,
           tagAttr: [
             {
               bgColor: `white`,
@@ -334,7 +337,7 @@ export const DEVELOPMENT_CONTENT = {
           title: `Interaction Design: Breathing Life into Visual Experiences`,
           desc: `Unit 3 explores Interaction Design, emphasizing the addition of interactivity and animation to visual designs. Students learn to animate components or elements, prototype design pages, create interactive components, and test interactions using Figma. This unit equips students with the skills to bring their designs to life through motion and interactivity, enhancing user engagement and creating seamless user experiences.`,
           bgColor: `primary`,
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890936/techstudio/GIFS/man-working-on-app-ui_ufv7uj.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/man-working-on-app-ui.gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -351,7 +354,7 @@ export const DEVELOPMENT_CONTENT = {
           desc: `Unit 4 focuses on User Experience (UX), encompassing the design Process, user research, collaboration, wireframing, and usability testing. Students gain an understanding of Design Thinking as a design Process, conduct user research to gather valuable feedback for creating user personas and journey maps. They collaborate and brainstorm to generate ideas, employing techniques like Information Architecture and user flows. Students then translate these ideas into tangible wireframes. Lastly, they conduct rigorous usability tests on the final design to ensure a seamless user experience before delivering the project.
 `,
           bgColor: `blue`,
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699891049/techstudio/GIFS/male-designer-creating-a-mobile-ui-design_pxkqem.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/male-designer-creating-a-mobile-ui-design.gif`,
           tagAttr: [
             {
               bgColor: `white`,
@@ -372,7 +375,7 @@ export const DEVELOPMENT_CONTENT = {
           title: `Capstone Project: Bringing Ideas to Life`,
           desc: `This Unit is dedicated to the Capstone Project, where students apply their acquired knowledge and skills to create a comprehensive design solution. The unit encompasses creating case studies to articulate the problem statement and provide an overview of the product. Following the design thinking stages, students iterate on their prototype, incorporating feedback and refining their design. Rigorous testing ensures the effectiveness and usability of the prototype. Finally, students showcase their work through a compelling pitch or presentation, demonstrating their understanding of the project's objectives, Process, and outcomes. This unit allows students to showcase their creativity, problem-solving abilities, and presentation skills, culminating in a tangible representation of their product design journey.`,
           bgColor: `white`,
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699891086/techstudio/GIFS/man-placing-ui-ux-design-elements-on-application_om3dvv.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/man-placing-ui-ux-design-elements-on-application.gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -429,15 +432,15 @@ export const DEVELOPMENT_CONTENT = {
       },
       cards: [
         {
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879049/techstudio/images/numberOne_iorpb9_sbfndr.webp`,
+          img: tag1,
           text: `In 24 weeks, you’ll be a professional Fullstack developer, able to build real-time interactive and dynamic applications. We teach Fullstack JavaScript because growing in popularity every day and it’s here to stay.`,
         },
         {
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879050/techstudio/images/numberTwo_tjclgg_aiqtvs.webp`,
+          img: tag2,
           text: `You’ll get your hands dirty by building real life websites,APIs, and data-driven apps to gain confidence and sharpen yours skills. You’ll also collaborate with classmates on a range of projects to add to your portfolio.`,
         },
         {
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879049/techstudio/images/numberThree_ludnkx_ml62k7.webp`,
+          img: tag3,
           text: `You graduate with a valued portfolio required to launch your career. All our students receive career guidance and mentorship with the support of our career counselors through every step of their job search.`,
         },
       ],
@@ -455,7 +458,7 @@ export const DEVELOPMENT_CONTENT = {
           title: `Introduction To HTML And CSS`,
           desc: `This unit provides a solid foundation in web development, covering both HTML and CSS. Students will learn how to create well-structured HTML documents using tags, elements, and attributes. They will also explore CSS syntax and style rules to customize the appearance of web pages. Topics include text styling, backgrounds, borders, and images. Additionally, students will discover CSS layout techniques, such as floats and CSS grid, to create different page layouts. They will also explore Bootstrap, utilizing its pre-built components and responsive grid system for attractive and mobile-friendly layouts. Practical exercises reinforce learning.`,
           bgColor: `red`,
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890657/techstudio/GIFS/writing-code_iyd7mr.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/writing-code.gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -481,7 +484,7 @@ export const DEVELOPMENT_CONTENT = {
           title: `Java Script Basic`,
           desc: `Throughout the course of this unit, students will embark on a journey into the fundamentals of JavaScript, unlocking the potential to create engaging and interactive web experiences. By delving into the core concepts and syntax of JavaScript, students will gain a comprehensive understanding of how to leverage this powerful programming language to build dynamic and responsive web pages. They will explore topics such as variables, data types, conditional statements, loops, functions, arrays, objects, and DOM manipulation.`,
           bgColor: `light-blue-ii`,
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890601/techstudio/GIFS/javascript-programming-language_uqvzya.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/javascript-programming-language.gif`,
           tagAttr: [
             {
               bgColor: `white`,
@@ -503,7 +506,7 @@ export const DEVELOPMENT_CONTENT = {
           desc: `Object-oriented JavaScript is a programming paradigm that focuses on organizing code into objects, which encapsulate data and methods. It provides a way to create reusable and modular code, making it easier to manage and maintain complex applications.
 In object-oriented JavaScript, students will learn how to create objects, define their properties and methods, and establish relationships between objects through inheritance. They will explore concepts such as encapsulation, where data and methods are bundled together within objects to control access and ensure data integrity.`,
           bgColor: `primary`,
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890620/techstudio/GIFS/js-javascript_vcbxgh.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/js-javascript.gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -524,7 +527,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `The DOM`,
           desc: `Unit 4 dives into the exploration of the Document Object Model (DOM), an essential API for interacting programmatically with HTML and XML documents. The unit focuses on the DOM's association with JavaScript, the widely used programming language for web development, known for its built-in support for the DOM. Students learn how to leverage the DOM to manipulate and interact with web content dynamically.`,
           bgColor: `blue`,
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890712/techstudio/GIFS/js-file-document_mby9zc.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/js-file-document.gif`,
           tagAttr: [
             {
               bgColor: `white`,
@@ -551,7 +554,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           desc: `Unit 5 focuses on the popular JavaScript library, React, known for its ability to create powerful and interactive user interfaces. React has gained immense popularity due to its component-based architecture, which allows developers to build reusable UI components that encapsulate specific functionalities. By breaking down the user interface into modular components, React promotes code reusability, improves maintainability, and facilitates collaborative development.`,
           bgColor: `white`,
           className: `react-img`,
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890730/techstudio/GIFS/react-js_gl2fjt.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/react-js.gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -572,7 +575,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Version Control`,
           desc: `This Unit of the curriculum explores the importance of version control systems, with a particular focus on Git. Version control systems like Git play a crucial role in managing code changes over time. They provide a structured framework for tracking modifications, maintaining a comprehensive history of changes, and facilitating collaborative development by enabling multiple developers to work on the same codebase simultaneously.`,
           bgColor: `light-blue-ii`,
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890638/techstudio/GIFS/git_treare.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/git.gif`,
           tagAttr: [
             {
               bgColor: `white`,
@@ -603,7 +606,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Node JS`,
           desc: `Node JS is a backend or server-side framework that uses JavaScript code outside a web browser. Server-side JavaScript is becoming more prevalent in the industry, with web frameworks such as Node.js and Express making it simple to create and deploy complex, data-driven web applications. This course will prepare you to use such frameworks and show you how to integrate them with NoSQL databases such as MongoDB.`,
           bgColor: `white`,
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890786/techstudio/GIFS/node_enthxm.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/node.gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -709,15 +712,15 @@ In object-oriented JavaScript, students will learn how to create objects, define
       },
       cards: [
         {
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879049/techstudio/images/numberOne_iorpb9_sbfndr.webp`,
+          img: tag1,
           text: `You will learn the skills needed to skyrocket your career as a data analyst/scientist. You'll have 12 straight weeks of training to predict trends and generate informed predictive models.`,
         },
         {
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879050/techstudio/images/numberTwo_tjclgg_aiqtvs.webp`,
+          img: tag2,
           text: `You’ll learn the fundamentals of the Python programming language and it’s usage in analysing complex data. You’ll build and refine machine learning models to predict patterns from data sets and complete hands-on exercises to reinforce the newly learned skills.`,
         },
         {
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879049/techstudio/images/numberThree_ludnkx_ml62k7.webp`,
+          img: tag3,
           text: `You’ll learn the fundamentals of being a true data analyst; you work with a team, sharpen your communication skills and collaborate with members through real-world projects.`,
         },
       ],
@@ -735,7 +738,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Introduction to Microsoft Excel - Objectives`,
           desc: `In this unit, Students learn Microsoft Excel fundamentals, including installation, workbook creation, environment navigation, and the importance of Excel. They explore formulas, functions (arithmetic, text, logical, date), data organization (sorting, filtering, validation), analysis (conditional formatting, Power Query, Power Pivot), and pivot table creation. Practical skills for data management and analysis are gained. Throughout the unit, students gain practical skills in using Microsoft Excel for data management, analysis, and reporting..`,
           bgColor: `white`,
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890749/techstudio/GIFS/microsoft-excel_1_yx9is8.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/microsoft-excel%20(1).gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -751,7 +754,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Introduction to SQL`,
           desc: `This unit introduces students to SQL, a programming language used for accessing databases. They learn the basics of SQL, including its purpose, types of databases, and concepts of DBMS and RDBMS. Students gain practical skills in creating and managing databases and tables, including inserting records and altering table structures. They also explore SQL statements for selecting columns, updating data, applying constraints, and sorting values. Throughout the unit, students develop a solid foundation in SQL fundamentals for working with databases.`,
           bgColor: `light-blue-ii`,
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890767/techstudio/GIFS/sql-file-format-extension_1_gastvl.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/sql-file-format-extension%20(1).gif`,
           tagAttr: [
             {
               bgColor: `white`,
@@ -767,7 +770,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Introduction to Power BI`,
           desc: `Students will learn how to pre-process and transform data(data cleaning) before creating visually appealing and interactive visualization and dashboards by utilizing business intelligence. As a data analyst/scientist you can convey insights effectively and predict business trends communicating your findings to those who will make better decisions. The role of a data analyst/scientist has become increasingly important as businesses have become more data-driven. They help businesses make sense of the vast amount of data that they collect.`,
           bgColor: `white`,
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890843/techstudio/GIFS/python_1_twmy8k.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/python%20(1).gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -783,7 +786,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Python Basics`,
           desc: `Students delve into Python programming, acquiring a strong foundation in this widely-used language for data analysis. They learn to install Anaconda, explore in-built functions, work with different data types, manipulate strings, use variables and operators, implement loops, and import modules for enhanced functionality. Practical exercises empower students to write Python code proficiently, analyze large datasets, and create visual representations of data.`,
           bgColor: `blue`,
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890694/techstudio/GIFS/python-programming-language_1_xfwdqf.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/python-programming-language%20(1).gif`,
           tagAttr: [
             {
               bgColor: `white`,
@@ -799,7 +802,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Python NumPy`,
           desc: `Students delve into NumPy, a vital Python library for numerical data analysis and scientific computing. They gain hands-on experience by importing the library and utilizing array functions. Through practical exercises, they learn to create one-dimensional and two-dimensional arrays, enabling efficient manipulation and analysis of complex numerical data. By mastering NumPy, students acquire essential skills for advanced data analysis, modeling, and scientific computations in Python.`,
           bgColor: `white`,
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890880/techstudio/GIFS/python_2_eajrei.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/python%20(2).gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -820,7 +823,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Python Pandas`,
           desc: `In this unit, students delve into Pandas, a powerful Python library for data manipulation and analysis. They learn to convert sequences and dictionaries into DataFrame tables using the .DataFrame function. Students gain practical skills in importing files and converting them into DataFrames. They explore various DataFrame operations such as retrieving index and columns, using head and tail methods, accessing specific columns, counting values, summing columns vertically and horizontally, locating values in cells or positions, extracting rows based on conditions, creating columns based on conditions, and utilizing the groupby function.`,
           bgColor: `light-blue-ii`,
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890880/techstudio/GIFS/python_2_eajrei.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/python%20(2).gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -841,7 +844,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Python Plotly`,
           desc: `Students delve into Plotly and Plotly Express, Python libraries renowned for interactive data visualization. They acquire practical skills in creating a variety of charts, including bar charts for categorical comparisons, line charts for trend analysis, area charts for cumulative data, pie charts for proportions, and donut charts with a center hole. By mastering Plotly, students unlock the ability to design captivating and interactive visualizations that effectively convey data insights.`,
           bgColor: `light-blue-ii`,
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890805/techstudio/GIFS/python_udovi6.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/python.gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -862,7 +865,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Machine Learning Basic`,
           desc: `Machine learning (ML) is the subset of artificial intelligence (AI) that focuses on building systems that learn—or improve performance—based on the data they consume, computers to learn and make predictions or decisions without being explicitly programmed. Artificial intelligence is a broad term that refers to systems or machines that mimic human intelligence. Machine learning and AI are often discussed together, and the terms are sometimes used interchangeably, but they don’t mean the same thing. An important distinction is that although all machine learning is AI, not all AI is machine learning.`,
           bgColor: `blue`,
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699891030/techstudio/GIFS/brain-chip_ozdvqu.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/brain-chip.gif`,
           tagAttr: [
             {
               bgColor: `white`,
@@ -926,15 +929,15 @@ In object-oriented JavaScript, students will learn how to create objects, define
       },
       cards: [
         {
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879049/techstudio/images/numberOne_iorpb9_sbfndr.webp`,
+          img: tag1,
           text: `You'll explore the realm of digital threats and defense mechanisms. Starting with foundational cybersecurity knowledge, you'll cover essential terminology, concepts, and practices vital for securing digital systems. `,
         },
         {
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879050/techstudio/images/numberTwo_tjclgg_aiqtvs.webp`,
+          img: tag2,
           text: `Progressing further, you'll tackle risk management, mastering techniques to identify and mitigate vulnerabilities across diverse organizational settings. `,
         },
         {
-          img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879049/techstudio/images/numberThree_ludnkx_ml62k7.webp`,
+          img: tag3,
           text: `You will learn about the complex structure of security measures, covering network reinforcement, encryption methods, access control, and system strengthening for creating resilient information systems.`,
         },
       ],
@@ -953,7 +956,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           desc: `
           In this unit, students will learn about the fundamentals of cybersecurity, including the CIA triad, the necessity of cybersecurity, data types and states, the ramifications of security breaches, real-world breach examples, hands-on security breach laboratories, various threats, attack types, vulnerabilities, risk assessment, and insights into potential careers in the cybersecurity field`,
           bgColor: `white`,
-          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1704796221/Cybersecurity_1_wu3cm5.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/Cybersecurity%20(1).gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -970,7 +973,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           desc: `
           In this unit, students will delve into networking essentials, covering topics such as network structures, devices, OSI and TCP/IP models, network topologies, subnetting, routing, wireless network vulnerabilities, core network security principles, troubleshooting techniques, and a practical demonstration on setting up a network.`,
           bgColor: `light-blue-ii`,
-          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1704796397/Network_Security_gk8yxf.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/Network%20Security.gif`,
           tagAttr: [
             {
               bgColor: `white`,
@@ -986,7 +989,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Social Engineering`,
           desc: `In this unit, students will explore social engineering comprehensively, encompassing its definition, purpose, common goals, scenarios, psychological principles involved, various attack types, human-based threats, and effective defense strategies against social engineering exploits.`,
           bgColor: `white`,
-          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1704796178/Cybersecurity_3_v5fqix.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/Cybersecurity%20(3).gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -1002,7 +1005,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Access Controls and Biometric`,
           desc: `In this unit, students will delve into the realm of access control and biometric security, covering topics such as definitions, significance, authorization, authentication, identification verification during enrollment, various access control models and lists, an introduction to biometrics, modalities of biometric systems, challenges in biometric security, and real-world case studies illustrating these concepts in action.`,
           bgColor: `blue`,
-          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1704796241/Cybersecurity_4_yhnmsd.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/Cybersecurity%20(4).gif`,
           tagAttr: [
             {
               bgColor: `white`,
@@ -1018,7 +1021,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Operating System Security`,
           desc: `In this unit, students will explore Operating Systems (OS) comprehensively, covering key aspects such as its definition, purpose, components, file system architecture, interfaces (CLI vs. GUI), different OS types (Mobile, Server), an introduction to Virtualization focusing on Virtual Machines, detailed insights into Windows and Linux OS, access controls within OS, and strategies for OS hardening to enhance system security`,
           bgColor: `white`,
-          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1704796401/Cybersecurity_Issue_1_xcdgg3.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/Cybersecurity%20Issue%20(1).gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -1040,7 +1043,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           desc: `
           In this unit, students will gain comprehensive knowledge about cryptography, encompassing its definition, historical context, the differentiation between symmetric and asymmetric encryption, the role of hash functions, understanding digital signatures, and the importance of key management within cryptographic systems.`,
           bgColor: `light-blue-ii`,
-          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1704796337/Cybersecurity_n1wrt1.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/Cybersecurity.gif`,
           tagAttr: [
             {
               bgColor: `blue`,
@@ -1061,7 +1064,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           title: `Security policies and Procedures`,
           desc: `In this unit, students will delve into essential aspects of cybersecurity incident management, encompassing incident response protocols, disaster recovery strategies, business continuity planning, and understanding regulatory compliance frameworks governing cybersecurity.`,
           bgColor: `light-blue-ii`,
-          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1704796182/Cybersecurity_Issue_nxx2l2.gif`,
+          img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/Cybersecurity%20Issue.gif`,
           tagAttr: [
             {
               bgColor: `blue`,

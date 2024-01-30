@@ -29,8 +29,8 @@ export const HOME_CONTENT = {
     },
     cards: [
       {
-        image: learningEnvironment,
-        imageLow: learningEnvironment,
+        image: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/learning-enviroment.webp`,
+        imageLow: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/learning-enviroment.webp`,
         title: `Great learning Environment`,
         description: `We provide you with the best learning facility you can lay
         your eyes on. All our classes are conducive, en-suite and
@@ -38,14 +38,14 @@ export const HOME_CONTENT = {
 technologies for learning.`,
       },
       {
-        image: expirencedTutors,
-        imageLow: expirencedTutors,
+        image: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/expirenced-tutors.webp`,
+        imageLow: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/expirenced-tutors.webp`,
         title: `Experienced Tutor`,
         description: `Our tutors are highly skilled professionals that are chosen based on industry experience and teaching ability. Our support team provides students with guidance and tips on building a top-notch portfolio that woos employers.`,
       },
       {
-        image: careerSupport,
-        imageLow: careerSupport,
+        image: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/career-support.webp`,
+        imageLow: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/career-support.webp`,
         title: `Career Support`,
         description: `We offer you the best support - either while you’re
         learning or after you’ve graduated. Our support team
@@ -64,22 +64,22 @@ technologies for learning.`,
     //carosel
     cards: [
       {
-        image: productDesign,
-        imageLow: productDesign,
+        image: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/product-design.png`,
+        imageLow: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/product-design.png`,
         title: `Product Design (UI/UX)`,
         description: `Learn to design and deliver digital products that serve clients' needs and solve users' problems. Understand the fundamentals and tools of design like problem definition, user research, prototyping, and more.`,
         path: `/course/product-design`,
       },
       {
-        image: fullstack,
-        imageLow: fullstack,
+        image: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/fullstack.png`,
+        imageLow: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/fullstack.png`,
         title: `Fullstack Development`,
         description: `We teach the important skills required to jumpstart your career as a web developer. With 24 intense weeks of on-campus training, you learn to think and build like software developers. `,
         path: `/course/fullstack`,
       },
       {
-        image: dataScience,
-        imageLow: dataScience,
+        image: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/data-science.svg`,
+        imageLow: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/data-science.svg`,
         title: `Data Science`,
         description: `Learn to build predictive models, understand data visualisation and pattern recognition. You'll learn to use leading methods to wrangle large data sets to forecast trends, generate information and strategy. `,
         path: '/course/data-science',
@@ -91,16 +91,16 @@ technologies for learning.`,
       //   path: `/course/mobile`,
       // },
       {
-        image: frontend,
-        imageLow: frontend,
+        image: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/frontend.png`,
+        imageLow: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/frontend.png`,
         title: `Frontend Engineering`,
         description: ` You’ll learn all you need to know to become a Frontend Developer and build interesting portfolios while learning the fundamentals of HTML, CSS, JavaScript and React. `,
         path: `/course/frontend`,
       },
 
       {
-        image: `https://res.cloudinary.com/doejcrfso/image/upload/v1704899500/Group_1000002405_qewtgz.png`,
-        // imageLow: frontend,
+        image: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/cyber-security.png`,
+        imageLow: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/cyber-security.png`,
         title: `Cyber Security`,
         description: ` You will learn the best practices of securing networks, systems and data. We will help you get hands-on experience with essential cybersecurity tools and technologies.`,
         path: `/course/cyber-security`,
@@ -194,8 +194,8 @@ Would you like to talk to a Tech expert over any tech related issue? We have pro
 
     upcomingClasses: [
       {
-        image: classSection,
-        imageLow: classSection,
+        image: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/class-section.png`,
+        imageLow: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/class-section.png`,
         title: `Javascript Fullstack Web Development`,
         description: `With 24 intense weeks of on-campus training, you will learn to think and build like software developers. You move from understanding programming fundamentals to launching full-stack web apps. You do all these while learning to solve everyday problems with constructive, well-written programs`,
         location: `Physical & Online`,
@@ -203,8 +203,8 @@ Would you like to talk to a Tech expert over any tech related issue? We have pro
         duration: `24 Weeks`,
       },
       {
-        image: classSection,
-        imageLow: classSection,
+        image: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/class-section.png`,
+        imageLow: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/class-section.png`,
         title: `Product Design & UI/UX Immersive`,
         description: `In this program, you will learn to design and deliver digital products that serve clients' needs and solve users' problems. You will understand the fundamental techniques and tools of design like problem definition, user research, prototyping, testing, and more.`,
         location: `Physical`,
@@ -212,8 +212,8 @@ Would you like to talk to a Tech expert over any tech related issue? We have pro
         duration: `12 Weeks`,
       },
       {
-        image: classSection,
-        imageLow: classSection,
+        image: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/class-section.png`,
+        imageLow: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/class-section.png`,
         title: `Data Science & Analysis`,
         description: `In this program, you will learn to build predictive models, understand data visualisation and pattern recognition. You'll learn to use leading methods to wrangle large data sets to forecast trends, generate information and inform strategy.`,
         location: `Physical`,

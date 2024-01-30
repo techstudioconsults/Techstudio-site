@@ -28,17 +28,9 @@ const index = () => {
           <BannerII>
             <div className='ms-10 ms-lg-40 text-white py-20 py-xl-0 '>
               <span>Want to start a career in Tech ?</span>
-              <h3 className='mt-3 mb-10 fw-bold text-white'>
-                Get started with TechStudio
-              </h3>
+              <h3 className='mt-3 mb-10 fw-bold text-white'>Get started with TechStudio</h3>
               <div className='w-50'>
-                <Button
-                  linkHref='/our-courses'
-                  linkText='Explore Courses'
-                  solidBtn
-                  navBtn
-                  width={`14`}
-                />
+                <Button linkHref='/our-courses' linkText='Explore Courses' solidBtn navBtn width={`14`} />
               </div>
             </div>
           </BannerII>

@@ -1,10 +1,3 @@
-import staff1 from '@assets/staff/staff1.png'
-import staff2 from '@assets/staff/staff2.png'
-import staff3 from '@assets/staff/staff3.png'
-import staff4 from '@assets/staff/staff4.png'
-import staff5 from '@assets/staff/staff5.png'
-import staff6 from '@assets/staff/staff6.png'
-
 export const ABOUT_CONTENT = {
   hero: {
     caption: `KNOW US MORE`,
@@ -18,19 +11,19 @@ export const ABOUT_CONTENT = {
     images: [
       {
         id: 1,
-        src: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879364/techstudio/images/IMG_9419_w7p2l6_phistp.webp`,
+        src: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/IMG_9419_w7p2l6_phistp.png`,
       },
       {
         id: 2,
-        src: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879046/techstudio/images/IMG_9435_infhuu_icl0ga.webp`,
+        src: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/IMG_9435_infhuu_icl0ga.png`,
       },
       {
         id: 3,
-        src: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879329/techstudio/images/IMG_9424_ffooid_upwkdx.webp`,
+        src: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/IMG_9424_ffooid_upwkdx.png`,
       },
       {
         id: 4,
-        src: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879344/techstudio/images/IMG_9417_hbjuu8_cowzb4.webp`,
+        src: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/IMG_9417_hbjuu8_cowzb4.png`,
       },
     ],
   },
@@ -82,32 +75,32 @@ export const ABOUT_CONTENT = {
 
     cards: [
       {
-        img: staff1,
+        img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/staff/staff1.png`,
         name: `Wasiu Yusuf`,
         job: `COO`,
       },
       {
-        img: staff2,
+        img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/staff/staff2.png`,
         name: `Tosin Sanya`,
-        job: `HR/ Admin Lead`,
+        job: `HR / Admin Lead`,
       },
       {
-        img: staff3,
+        img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/staff/staff3.png`,
         name: `Hafeez Kekere-Ekun`,
         job: `Product Lead`,
       },
+      // {
+      //   img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/staff/staff4.png,
+      //   name: `Hussein Oyelaja`,
+      //   job: `Marketing Lead`,
+      // },
       {
-        img: staff4,
-        name: `Hussein Oyelaja`,
-        job: `Marketing Lead`,
-      },
-      {
-        img: staff5,
+        img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/staff/staff5.png`,
         name: `Adebusola Adebowale`,
         job: `Sales & Marketing`,
       },
       {
-        img: staff6,
+        img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/staff/staff6.png`,
         name: `Patrick Blessing`,
         job: `Sales & Marketing`,
       },

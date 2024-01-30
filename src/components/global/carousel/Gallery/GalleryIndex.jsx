@@ -54,8 +54,7 @@ const GalleryIndex = () => {
                     alt='card-img'
                     data-sizes='auto'
                     className={`${style.GalleryImg} lazyload`}
-                    src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879345/techstudio/images/IMG_9412_mil4co_trbvdc.webp`}
-                    data-src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879345/techstudio/images/IMG_9412_mil4co_trbvdc.webp`}
+                    src={`https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/IMG_9412_mil4co_trbvdc.png`}
                   />
                 </SwiperSlide>
                 <SwiperSlide className={style.slider}>
@@ -63,8 +62,7 @@ const GalleryIndex = () => {
                     alt='card-img'
                     data-sizes='auto'
                     className={`${style.GalleryImg} lazyload`}
-                    src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879068/techstudio/images/Rectangle_14_ttyodm_fgxexu.png`}
-                    data-src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879068/techstudio/images/Rectangle_14_ttyodm_fgxexu.png`}
+                    src={`https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/Rectangle_14_ttyodm_fgxexu.png`}
                   />
                 </SwiperSlide>
                 <SwiperSlide className={style.slider}>
@@ -72,8 +70,7 @@ const GalleryIndex = () => {
                     alt='card-img'
                     data-sizes='auto'
                     className={`${style.GalleryImg} lazyload`}
-                    src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879051/techstudio/images/IMG_9436_wcn8mn_x0dqal.webp`}
-                    data-src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879051/techstudio/images/IMG_9436_wcn8mn_x0dqal.webp`}
+                    src={`https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/IMG_9436_wcn8mn_x0dqal.png`}
                   />
                 </SwiperSlide>
                 <SwiperSlide className={style.slider}>
@@ -81,8 +78,7 @@ const GalleryIndex = () => {
                     alt='card-img'
                     data-sizes='auto'
                     className={`${style.GalleryImg} lazyload`}
-                    src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879073/techstudio/images/Rectangle_15_qd4r71_y37idd.png`}
-                    data-src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879073/techstudio/images/Rectangle_15_qd4r71_y37idd.png`}
+                    src={`https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/Rectangle_15_qd4r71_y37idd.png`}
                   />
                 </SwiperSlide>
                 <SwiperSlide className={style.slider}>
@@ -90,8 +86,7 @@ const GalleryIndex = () => {
                     alt='card-img'
                     data-sizes='auto'
                     className={`${style.GalleryImg} lazyload`}
-                    src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879364/techstudio/images/IMG_9419_w7p2l6_phistp.webp`}
-                    data-src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879364/techstudio/images/IMG_9419_w7p2l6_phistp.webp`}
+                    src={`https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/IMG_9419_w7p2l6_phistp.png`}
                   />
                 </SwiperSlide>
                 <SwiperSlide className={style.slider}>
@@ -99,8 +94,7 @@ const GalleryIndex = () => {
                     alt='card-img'
                     data-sizes='auto'
                     className={`${style.GalleryImg} lazyload`}
-                    src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879318/techstudio/images/IMG_9423_oyny7o_aufi1n.webp`}
-                    data-src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879318/techstudio/images/IMG_9423_oyny7o_aufi1n.webp`}
+                    src={`https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/IMG_9423_oyny7o_aufi1n.png`}
                   />
                 </SwiperSlide>
                 <SwiperSlide className={style.slider}>
@@ -108,8 +102,7 @@ const GalleryIndex = () => {
                     alt='card-img'
                     data-sizes='auto'
                     className={`${style.GalleryImg} lazyload`}
-                    src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879342/techstudio/images/IMG_9418_f8hbk7_wuinco.webp`}
-                    data-src={`https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879342/techstudio/images/IMG_9418_f8hbk7_wuinco.webp`}
+                    src={`https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/IMG_9418_f8hbk7_wuinco.png`}
                   />
                 </SwiperSlide>
                 <SwiperSlide className={style.slider}>
