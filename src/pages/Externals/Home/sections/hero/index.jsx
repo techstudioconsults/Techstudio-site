@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import heroImage from '@assets/images/home-hero-img.png'
 import Button from '@components/global/Button'
 import Gsap from '@hooks/Gsap'
 // import heroImg from '../../../../../assets/images/heroImg.webp'
