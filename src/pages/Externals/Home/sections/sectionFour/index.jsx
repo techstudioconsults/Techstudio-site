@@ -1,8 +1,5 @@
 import { useRef } from 'react'
 import Marquee from 'react-fast-marquee'
-import box from '@assets/images/box.svg'
-import edges from '@assets/images/edges.svg'
-import smilingLady from '@assets/images/smiling-lady.webp'
 import PropTypes from 'prop-types'
 import { SwiperSlide } from 'swiper/react'
 
