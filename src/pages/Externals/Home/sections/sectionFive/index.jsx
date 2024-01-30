@@ -1,6 +1,4 @@
 import { useRef } from 'react'
-import ipad1 from '@assets/images/ipad-1.png'
-import ipad2 from '@assets/images/ipad-2.png'
 import PropTypes from 'prop-types'
 
 import Stepper from '../../../../../components/global/steppers/Stepper'
@@ -24,8 +22,18 @@ const SectionFive = ({ content }) => {
               <Stepper lists={lists} />
             </div>
             <div ref={sectionFive} className={style.sectionFiveImg}>
-              <img alt='logo' data-sizes='auto' src={ipad1} className={`lazyload img-fluid ${style.img1} img1`} />
-              <img alt='logo' data-sizes='auto' src={ipad2} className={`lazyload img-fluid ${style.img2} img2`} />
+              <img
+                alt='logo'
+                data-sizes='auto'
+                src={`https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/ipad-1.png`}
+                className={`lazyload img-fluid ${style.img1} img1`}
+              />
+              <img
+                alt='logo'
+                data-sizes='auto'
+                src={`https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/ipad-2.png`}
+                className={`lazyload img-fluid ${style.img2} img2`}
+              />
             </div>
           </section>
         </Container>

@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import heroImage from '@assets/images/home-hero-img.png'
 import Button from '@components/global/Button'
 import Gsap from '@hooks/Gsap'
 // import heroImg from '../../../../../assets/images/heroImg.webp'
@@ -79,7 +78,12 @@ const Hero = ({ content }) => {
               }}
               className={style.heroImg}
             >
-              <img alt='logo' data-sizes='auto' src={heroImage} className='lazyload' />
+              <img
+                alt='logo'
+                data-sizes='auto'
+                src={`https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/home-hero-img.png`}
+                className='lazyload'
+              />
             </div>
           </section>
         </Gsap>

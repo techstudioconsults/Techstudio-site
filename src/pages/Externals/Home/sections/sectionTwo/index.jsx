@@ -14,10 +14,7 @@ const SectionTwo = ({ content }) => {
 
   const cardsDisplay = cards.map((card) => {
     return (
-      <Gsap
-        key={card.title}
-        animationFuncion={() => genericAnimation(`sectionTwo`)}
-      >
+      <Gsap key={card.title} animationFuncion={() => genericAnimation(`sectionTwo`)}>
         <SectionTwoCard cardDetails={card} />
       </Gsap>
     )
@@ -29,15 +26,9 @@ const SectionTwo = ({ content }) => {
         <p className={`${style.headerTitle} sectionTwo`}>{header.title}</p>
         <div className={style.descriptionContainer}>
           <h2 className={`${style.title} sectionTwo`}>{header.title2}</h2>
-          <p className={`${style.headerDescription} sectionTwo`}>
-            {header.description}.
-          </p>
+          <p className={`${style.headerDescription} sectionTwo`}>{header.description}.</p>
           <div className='text-center'>
-            <Link
-              style={{ textDecoration: `underline` }}
-              className='d-inline sectionTwo'
-              to={`/about-us`}
-            >
+            <Link style={{ textDecoration: `underline` }} className='d-inline sectionTwo' to={`/about-us`}>
               Read More
             </Link>
           </div>

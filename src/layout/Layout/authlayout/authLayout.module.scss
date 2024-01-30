@@ -35,6 +35,10 @@
     @include breakpoint-up('lg') {
       display: initial;
       height: 100%;
+
+      img {
+        filter:brightness(50%);
+      }
     }
   }
 

@@ -12,10 +12,7 @@ const AboutSection3 = ({ content }) => {
   const { header, cards } = content
   const cardsDisplay = cards.map((card) => {
     return (
-      <Gsap
-        key={card.title}
-        animationFuncion={() => genericAnimation(`sectionThree`)}
-      >
+      <Gsap key={card.title} animationFuncion={() => genericAnimation(`sectionThree`)}>
         <AboutSectionThreeCard isAbout content={card} />
       </Gsap>
     )

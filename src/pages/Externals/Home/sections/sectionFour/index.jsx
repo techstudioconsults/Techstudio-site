@@ -1,8 +1,5 @@
 import { useRef } from 'react'
 import Marquee from 'react-fast-marquee'
-import box from '@assets/images/box.svg'
-import edges from '@assets/images/edges.svg'
-import smilingLady from '@assets/images/smiling-lady.webp'
 import PropTypes from 'prop-types'
 import { SwiperSlide } from 'swiper/react'
 
@@ -113,9 +110,24 @@ const SectionFour = ({ content, isDevelopmentView }) => {
           <Gsap animationFuncion={TAKE_A_COURSE_ANIMATION}>
             <div hidden={isDevelopmentView} className={style.sectionFourWrapper}>
               <div ref={sectionFour} className={style.sectionFourImg}>
-                <img alt='card-img' data-sizes='auto' className={`lazyload ${style.angle} angle`} src={edges} />
-                <img alt='card-img' data-sizes='auto' className={`lazyload ${style.img} img`} src={smilingLady} />
-                <img alt='card-img' data-sizes='auto' className={`lazyload ${style.box} box`} src={box} />
+                <img
+                  alt='card-img'
+                  data-sizes='auto'
+                  className={`lazyload ${style.angle} angle`}
+                  src={`https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/edges.svg`}
+                />
+                <img
+                  alt='card-img'
+                  data-sizes='auto'
+                  className={`lazyload ${style.img} img`}
+                  src={`https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/smiling-lady.webp`}
+                />
+                <img
+                  alt='card-img'
+                  data-sizes='auto'
+                  className={`lazyload ${style.box} box`}
+                  src={`https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/box.svg`}
+                />
               </div>
               <div className={style.sectionFourTextGroup}>
                 <Gsap animationFuncion={() => genericAnimation(`sectionFourText`)}>
