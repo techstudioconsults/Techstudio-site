@@ -7,7 +7,7 @@ import { Icon } from '@iconify/react'
 import PropTypes from 'prop-types'
 
 import { Button } from '../components'
-// import DiscountBanner from '../components/global/banners/DiscountBanner'
+import DiscountBanner from '../components/global/banners/DiscountBanner'
 import { selectExternalCourses } from '../pages/Externals/api/externalSlice'
 
 import style from './layout.module.scss'
@@ -101,7 +101,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
         backgroundColor: bg,
       }}
     >
-      {/* <DiscountBanner /> */}
+      {/*<DiscountBanner />*/}
       <div className={`${navStyle}`}>
         <Link className='navbar-brand' to='/'>
           <div className='d-flex align-items-center gap-2'>
