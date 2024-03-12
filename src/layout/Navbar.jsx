@@ -15,6 +15,9 @@ import style from './layout.module.scss'
 const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
   const upcomingCourses = useSelector(selectExternalCourses)
   const [color, setColor] = useState(setTextColorBlack)
+
+  // console.log(setTextColorBlack); 
+
   // const courses = useSelector(selectCoursesExternal)
   const navEl = useRef()
 

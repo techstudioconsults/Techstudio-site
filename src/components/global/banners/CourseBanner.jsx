@@ -8,10 +8,10 @@ import { selectExternalCourses } from '../../../pages/Externals/api/externalSlic
 import Button from '../Button'
 
 const CourseBanner = ({ name, duration }) => {
-  console.log(duration.weekday.date)
+  // console.log(duration.weekday.date)
   const weekday = duration.weekday.date
   const weekend = duration.weekend.date
-  console.log(weekday, weekend)
+  // console.log(weekday, weekend)
   // const upcomingCourses = useSelector(selectExternalCourses)
   const banner = useRef()
 
