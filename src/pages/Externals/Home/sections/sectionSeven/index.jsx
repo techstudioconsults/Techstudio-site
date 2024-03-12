@@ -14,12 +14,14 @@ import style from './sectionSeven.module.scss'
 
 const SectionSeven = ({ data }) => {
   const upcomingCourses = useSelector(selectExternalCourses)
+  // console.log(upcomingCourses)
   const [index, setIndex] = useState(0)
   const [classes, setClasses] = useState([])
   const carousel = useRef()
   const [dataImage, setDataImage] = useState(data[index])
   // const { image, date, duration, location, title, description } = data[index]
   const upcomingClass = classes[index]
+  
 
   const convertDateToReadable = (date) => {
     let dateSet = new Date(date).toUTCString().split(' ')
@@ -39,6 +41,7 @@ const SectionSeven = ({ data }) => {
 
   const getUpcomingClasses = useCallback(async () => {
     setClasses(upcomingCourses)
+    console.log(upcomingCourses);
   }, [upcomingCourses])
 
   useEffect(() => {
@@ -61,6 +64,23 @@ const SectionSeven = ({ data }) => {
     [classes.length, data, index]
   )
 
+  // const checkpage = useCallback(
+  //   (page) => {
+  //     if (page < 0) {
+  //       return classes.length - 1;
+  //     }
+  //     if (page > classes.length - 1) {
+  //       return 0;
+  //     }
+  //     if (page > data.length - 1) {
+  //       setDataImage(data[page]); // Use 'page' instead of 'index'
+  //     }
+  //     return page;
+  //   },
+  //   [classes.length, data]
+  // );
+  
+
   const handlePreviousBtn = () => {
     setIndex((prevState) => {
       return checkpage(prevState - 1)
@@ -77,7 +97,9 @@ const SectionSeven = ({ data }) => {
       <Gsap animationFuncion={() => genericAnimation(`classes`)}>
         <section ref={carousel} className={`${style.carousel} d-flex flex-column flex-lg-row gap-20 gap-lg-40 mt-lg-20`}>
           <article className={style.quoteContainer}>
-            <img src={dataImage.image} alt='img' className='cc-img-fluid' />
+            {/* the cybersecurity image breaks the code */}
+            {/* <img src={dataImage.image} alt='img' className='cc-img-fluid' /> */}
+            <img src='https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/class-section.png' alt='img' className='cc-img-fluid' />
           </article>
 
           <section className={`${style.text} d-flex flex-column justify-content-between`}>

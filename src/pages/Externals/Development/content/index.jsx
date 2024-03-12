@@ -242,12 +242,12 @@ export const DEVELOPMENT_CONTENT = {
 			},
 			weekend:{
 				time:`12`,
-				date:`March 11, 2024`,
+				date:`April 15, 2024`,
 				price:`250000`,
 			},
 			weekday:{
 				time:`12`,
-				date:`March 9, 2024`,
+				date:`April 13, 2024`,
 				price:`250000`,
 			},
 			span:{
@@ -405,12 +405,12 @@ export const DEVELOPMENT_CONTENT = {
 			},
 			weekend:{
 				time:`12`,
-				date:`March 11, 2024`,
+				date:`April 15, 2024`,
 				price:`250000`,
 			},
 			weekday:{
 				time:`12`,
-				date:`March 9, 2024`,
+				date:`April 13, 2024`,
 				price:`250000`,
 			},
 			span:{
@@ -685,12 +685,12 @@ In object-oriented JavaScript, students will learn how to create objects, define
 			},
 			weekend:{
 				time:`24`,
-				date:`March 11, 2024`,
+				date:`April 15, 2024`,
 				price:`500000`,
 			},
 			weekday:{
 				time:`16`,
-				date:`March 9, 2024`,
+				date:`April 13, 2024`,
 				price:`300000`,
 			},
 			span:{
@@ -901,12 +901,12 @@ In object-oriented JavaScript, students will learn how to create objects, define
 			},
 			weekend:{
 				time:`12`,
-				date:`March 11, 2024`,
+				date:`April 15, 2024`,
 				price:`250000`,
 			},
 			weekday:{
 				time:`12`,
-				date:`March 9, 2024`,
+				date:`April 13, 2024`,
 				price:`250000`,
 			},
 
@@ -1106,12 +1106,12 @@ In object-oriented JavaScript, students will learn how to create objects, define
 			},
 			weekend:{
 				time:`12`,
-				date:`March 11, 2024`,
+				date:`April 17, 2024`,
 				price:`250000`,
 			},
 			weekday:{
 				time:`12`,
-				date:`March 9, 2024`,
+				date:`April 13, 2024`,
 				price:`250000`,
 			},
 
