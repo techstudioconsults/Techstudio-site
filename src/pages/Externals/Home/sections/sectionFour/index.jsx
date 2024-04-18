@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import Marquee from 'react-fast-marquee'
 import PropTypes from 'prop-types'
 import { SwiperSlide } from 'swiper/react'
-
+import { useLocation } from 'react-router-dom'
 import { Profile, TestimonialBanner } from '../../../../../components'
 import Button from '../../../../../components/global/Button'
 import GalleryIndex from '../../../../../components/global/carousel/Gallery/GalleryIndex'
@@ -13,6 +13,8 @@ import { Container } from '../../../../../layout'
 import style from './sectionFour.module.scss'
 
 const SectionFour = ({ content, isDevelopmentView }) => {
+  const {pathname} = useLocation()
+  const uniqueCourse = pathname == '/course/instagram-marketing' ? 'd-none' : 'd-block'
   const sectionFour = useRef() // create a ref for the root level element (for scoping)
   const { articleOne, header, body } = content
 
@@ -29,10 +31,10 @@ const SectionFour = ({ content, isDevelopmentView }) => {
 
   return (
     <Gsap animationFuncion={() => genericAnimation(`sectionFour`)}>
-      <section className={`${style.sectionFour} pb-0 bg-white`}>
-        <Container>
+      <section className={`${style.sectionFour}  pb-0 bg-white`}>
+        <Container className={`${uniqueCourse}`}>
           <section className='sectionFour'>
-            <section className='d-flex flex-column align-items-center justify-content-between flex-lg-row my-5'>
+            <section className={` ${uniqueCourse} d-flex flex-column align-items-center justify-content-between flex-lg-row my-5`}>
               <div className={`text-center text-lg-start`}>
                 <p className={`text-primary fw-semibold`}>{articleOne.title}</p>
                 <h2 className={`text-blue fw-semibold`}>{articleOne.topic}</h2>
@@ -42,7 +44,7 @@ const SectionFour = ({ content, isDevelopmentView }) => {
           </section>
         </Container>
 
-        <div className={`container-fluid text-center mb-lg-20 ${style.gradientOverlay}`}>
+        <div className={` ${uniqueCourse} container-fluid text-center mb-lg-20 ${style.gradientOverlay}`}>
           <Marquee speed={50}>
             <div className={`d-flex align-items-center justify-content-center justify-content-lg-between gap-24 ${style.brandScale}`}>
               <img
@@ -97,11 +99,10 @@ const SectionFour = ({ content, isDevelopmentView }) => {
             </div>
           </Marquee>
         </div>
-
-        <div hidden={!isDevelopmentView}>
+       
+        <div className={``} hidden={!isDevelopmentView}>
           <GalleryIndex />
         </div>
-
         <Container>
           <section className='mt-lg-20 '>
             <TestimonialBanner title={body.title}>{testimonials}</TestimonialBanner>

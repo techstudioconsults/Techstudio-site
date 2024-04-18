@@ -70,7 +70,7 @@ const CourseHero = ({ content, courseName, courseID }) => {
         <Container paddingBlock={0}>
           <section className={style.heroWrapper}>
             <div className={style.heroText}>
-              <h1 className={`${style.title} hero`}>{title}</h1>
+              <h1 className={`${style.title} hero `}>{title}</h1>
               <p className={`${style.description} hero`}>{subTitle}</p>
 
               <div className='mt-10 d-flex justify-content-center justify-content-xl-start mb-10 mb-lg-0 hero'>

@@ -62,6 +62,11 @@ const Footer = () => {
                     Cyber Security
                   </Link>
                 </li>
+                <li className='nav-item mb-0'>
+                  <Link className='text-white cc-link-hover small-text' to='/course/cyber-security'>
+                    Advanced IG Marketing
+                  </Link>
+                </li>
               </ul>
             </div>
 
