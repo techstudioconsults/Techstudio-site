@@ -80,6 +80,7 @@ const Hero = ({ content }) => {
             >
               <img
                 alt='logo'
+                loading='lazy'
                 data-sizes='auto'
                 src={`https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/home-hero-img.png`}
                 className='lazyload'
