@@ -11,13 +11,7 @@ import axios from 'axios'
 import * as bootstrap from 'bootstrap/dist/js/bootstrap'
 import * as yup from 'yup'
 
-import {
-  AvatarDropdown,
-  CancelModal,
-  Portal,
-  SaveSuccess,
-  ToastComponent,
-} from '../../../../../components'
+import { AvatarDropdown, CancelModal, Portal, SaveSuccess, ToastComponent } from '../../../../../components'
 import useToast from '../../../../../hooks/useToast'
 import { selectCurrentToken } from '../../../../Auth/api/authSlice'
 import { useGetTutorsMutation } from '../api/coursesApiSlice'
@@ -66,7 +60,11 @@ const durationSelectInput = {
 }
 
 const durationInWeeks = [
-  { value: '10', label: '10 week' },
+  { value: '2', label: '2 weeks' },
+  { value: '4', label: '4 weeks' },
+  { value: '6', label: '6 weeks' },
+  { value: '8', label: '8 weeks' },
+  { value: '10', label: '10 weeks' },
   { value: '12', label: '12 weeks' },
   { value: '16', label: '16 weeks' },
   { value: '24', label: '24 weeks' },
@@ -78,18 +76,9 @@ const schema = yup.object().shape({
   onlineClass: yup.object().required('duration is required'),
   weekdayClass: yup.object().required('duration is required'),
   weekendClass: yup.object().required('duration is required'),
-  onlineTutors: yup
-    .array()
-    .min(1, 'Please select at least one tutor')
-    .required('at least one tutor is required'),
-  weekdayTutors: yup
-    .array()
-    .min(1, 'Please select at least one tutor')
-    .required('at least one tutor is required'),
-  weekendTutors: yup
-    .array()
-    .min(1, 'Please select at least one tutor')
-    .required('at least one tutor is required'),
+  onlineTutors: yup.array().min(1, 'Please select at least one tutor').required('at least one tutor is required'),
+  weekdayTutors: yup.array().min(1, 'Please select at least one tutor').required('at least one tutor is required'),
+  weekendTutors: yup.array().min(1, 'Please select at least one tutor').required('at least one tutor is required'),
 })
 
 const CreateCourse = () => {
@@ -196,8 +185,7 @@ const CreateCourse = () => {
     formData.append(`description`, data.description)
 
     Object.keys(duration).forEach((key) => {
-      if (typeof duration[key] !== 'object')
-        formData.append(`duration[${key}]`, duration[key])
+      if (typeof duration[key] !== 'object') formData.append(`duration[${key}]`, duration[key])
       else formData.append(key, JSON.stringify(duration[key]))
     })
 
@@ -211,9 +199,7 @@ const CreateCourse = () => {
     })
 
     try {
-      let modal = bootstrap.Modal.getOrCreateInstance(
-        document.getElementById('save-success')
-      )
+      let modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('save-success'))
 
       const res = await axios.post(`${baseUrl}/courses`, formData, credentials)
       if (res.status === 201) {
@@ -231,9 +217,7 @@ const CreateCourse = () => {
 
   const handleCancelAction = (event) => {
     event.stopPropagation()
-    let modal = bootstrap.Modal.getOrCreateInstance(
-      document.getElementById('cancel-modal')
-    )
+    let modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('cancel-modal'))
     modal.show()
   }
 
@@ -254,28 +238,17 @@ const CreateCourse = () => {
       <div className={style.dashboardDisplay}>
         <div className={style.header}>
           <h4 className={[style.title, `mb-0`].join(' ')}>Create Courses</h4>
-          <p className={style.subTitle}>
-            Fill in the fields below to create a new course.
-          </p>
+          <p className={style.subTitle}>Fill in the fields below to create a new course.</p>
         </div>
         <div className='my-10'>
           <form onSubmit={handleSubmit(onSubmit)} encType='multipart/form-data'>
             {/* title */}
             <div className='mb-8 d-flex align-items-center '>
-              <label
-                htmlFor='title'
-                className={`col-form-label fs-lg ${style.labels}`}
-              >
+              <label htmlFor='title' className={`col-form-label fs-lg ${style.labels}`}>
                 Course
               </label>
               <div className={style.inputs}>
-                <input
-                  placeholder='course title'
-                  type='text'
-                  className='form-control form-control-lg'
-                  id='title'
-                  {...register('title')}
-                />
+                <input placeholder='course title' type='text' className='form-control form-control-lg' id='title' {...register('title')} />
                 <ErrorMessage
                   errors={errors}
                   name='title'
@@ -293,10 +266,7 @@ const CreateCourse = () => {
             </div>
             {/* about course */}
             <div className='mb-8 d-flex'>
-              <label
-                htmlFor='description'
-                className={`col-form-label fs-lg ${style.labels}`}
-              >
+              <label htmlFor='description' className={`col-form-label fs-lg ${style.labels}`}>
                 About Course
               </label>
               <div className={style.inputs}>
@@ -331,12 +301,7 @@ const CreateCourse = () => {
               >
                 Duration
               </p>
-              <div
-                className={
-                  (style.inputs,
-                  `d-flex align-items-center justify-content-between gap-8`)
-                }
-              >
+              <div className={(style.inputs, `d-flex align-items-center justify-content-between gap-8`)}>
                 {/* online */}
                 <div>
                   <label className='mb-3' htmlFor='online'>
@@ -347,14 +312,7 @@ const CreateCourse = () => {
                     rules={{ required: true }}
                     control={control}
                     render={({ field }) => {
-                      return (
-                        <Select
-                          isClearable
-                          styles={durationSelectInput}
-                          options={durationInWeeks}
-                          {...field}
-                        />
-                      )
+                      return <Select isClearable styles={durationSelectInput} options={durationInWeeks} {...field} />
                     }}
                   />
                   <ErrorMessage
@@ -381,14 +339,7 @@ const CreateCourse = () => {
                     control={control}
                     rules={{ required: true }}
                     render={({ field }) => {
-                      return (
-                        <Select
-                          styles={durationSelectInput}
-                          name='weekdayClass'
-                          options={durationInWeeks}
-                          {...field}
-                        />
-                      )
+                      return <Select styles={durationSelectInput} name='weekdayClass' options={durationInWeeks} {...field} />
                     }}
                   />
                   <ErrorMessage
@@ -415,14 +366,7 @@ const CreateCourse = () => {
                     rules={{ required: true }}
                     control={control}
                     render={({ field }) => {
-                      return (
-                        <Select
-                          styles={durationSelectInput}
-                          name='weekendClass'
-                          options={durationInWeeks}
-                          {...field}
-                        />
-                      )
+                      return <Select styles={durationSelectInput} name='weekendClass' options={durationInWeeks} {...field} />
                     }}
                   />
                   <ErrorMessage
@@ -443,10 +387,7 @@ const CreateCourse = () => {
             </div>
             {/* tutors */}
             <div className='mb-8 d-flex'>
-              <label
-                htmlFor='title'
-                className={`col-form-label fs-lg ${style.labels}`}
-              >
+              <label htmlFor='title' className={`col-form-label fs-lg ${style.labels}`}>
                 Tutors
               </label>
               <div className={style.inputs}>
@@ -560,41 +501,21 @@ const CreateCourse = () => {
             {/* file chooser */}
             <section>
               <div className='d-flex gap-20 '>
-                <label
-                  htmlFor='title'
-                  className={`col-form-label fs-lg ${style.labels}`}
-                >
+                <label htmlFor='title' className={`col-form-label fs-lg ${style.labels}`}>
                   Resources
                 </label>
-                <div
-                  className={
-                    (style.inputs,
-                    `d-flex align-items-center w-100 border border-1 p-5 rounded-2`)
-                  }
-                >
+                <div className={(style.inputs, `d-flex align-items-center w-100 border border-1 p-5 rounded-2`)}>
                   <input type='file' multiple {...register('files')} />
                 </div>
               </div>
             </section>
             {/* CTA */}
             <div className='d-flex gap-10 justify-content-end my-8'>
-              <button
-                disabled={isLoading}
-                type='submit'
-                className='btn btn-primary w-25'
-              >
-                <div
-                  hidden={!isLoading}
-                  className='spinner-border spinner-border-sm me-5 text-white'
-                  role='status'
-                />
+              <button disabled={isLoading} type='submit' className='btn btn-primary w-25'>
+                <div hidden={!isLoading} className='spinner-border spinner-border-sm me-5 text-white' role='status' />
                 {isLoading ? `Please wait...` : `Save Course`}
               </button>
-              <button
-                type='button'
-                onClick={handleCancelAction}
-                className='btn btn-outline-danger w-25 dont-delete-btn'
-              >
+              <button type='button' onClick={handleCancelAction} className='btn btn-outline-danger w-25 dont-delete-btn'>
                 Cancel
               </button>
             </div>
