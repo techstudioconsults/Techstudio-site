@@ -16,7 +16,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
   const upcomingCourses = useSelector(selectExternalCourses)
   const [color, setColor] = useState(setTextColorBlack)
 
-  // console.log(setTextColorBlack); 
+  // console.log(setTextColorBlack);
 
   // const courses = useSelector(selectCoursesExternal)
   const navEl = useRef()
@@ -84,6 +84,8 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
         return `/course/frontend`
       case `cyber security`:
         return `/course/cyber-security`
+      case `instagram marketing`:
+        return `/course/instagram-marketing`
       default:
         return `/`
     }
@@ -167,6 +169,9 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
                 </Link>
                 <Link className='dropdown-item fs-sm fw-semibold py-2 text-dark' to='/course/cyber-security'>
                   Cyber Security
+                </Link>
+                <Link className='dropdown-item fs-sm fw-semibold py-2 text-dark' to='/course/instagram-marketing'>
+                  Advance IG Marketing
                 </Link>
               </ul>
             </div>

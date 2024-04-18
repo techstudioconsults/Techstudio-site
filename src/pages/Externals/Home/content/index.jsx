@@ -7,6 +7,8 @@ import rilwan from '@assets/images/rilwan.jpg'
 import stutern from '@assets/images/stutern.png'
 import ubabank from '@assets/images/uba.png'
 
+import interSwitch from '../../../../assets/images/interSwitch_png.png'
+
 export const HOME_CONTENT = {
   hero: {
     title: [`Unlock Your Tech Potential With Us Today`],
@@ -97,6 +99,13 @@ technologies for learning.`,
         description: ` You will learn the best practices of securing networks, systems and data. We will help you get hands-on experience with essential cybersecurity tools and technologies.`,
         path: `/course/cyber-security`,
       },
+      {
+        image: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/product-design.png`,
+        imageLow: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/product-design.png`,
+        title: `Advanced IG Marketing`,
+        description: ` You will learn the best practices of securing networks, systems and data. We will help you get hands-on experience with essential cybersecurity tools and technologies.`,
+        path: `/course/instagram-marketing`,
+      },
     ],
   },
 
@@ -105,7 +114,7 @@ technologies for learning.`,
       title: `LIFE AFTER TRAINING`,
       topic: `Where Our Graduates Work`,
       description: `Our talented graduates flourish in leading companies across the globe, making significant contributions to both their personal growth and the organizations they serve. They work in industries ranging from Information technology to Telecommunication, and more.`,
-      companies: [ubabank, accessbank, pwc, btc, stutern],
+      companies: [ubabank, accessbank, pwc, btc, stutern, interSwitch],
     },
 
     body: {

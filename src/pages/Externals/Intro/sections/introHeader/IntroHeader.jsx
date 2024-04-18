@@ -26,7 +26,7 @@ const IntroHeader = ({ courses }) => {
         key={course.id}
         onClick={handleClick}
         id={course.id}
-        className={[style.courseBtn, `tag small-text`, courseID === course.id ? style.active : null].join(' ')}
+        className={[style.courseBtn, `tag small-text `, courseID === course.id ? style.active : null].join(' ')}
       >
         {course.title}
       </button>

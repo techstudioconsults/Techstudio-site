@@ -916,6 +916,125 @@ In object-oriented JavaScript, students will learn how to create objects, define
       },
     },
   },
+  instagramMarketing: {
+    hero: {
+      title: `Advanced Instagram Marketing for Content Creators & Entrepreneurs `,
+      subTitle: `Say Goodbye to IG marketing that brings you no customer. Tech Studio Academy is offering an exclusive two-week Advanced Instagram Marketing course that will increase your revenue!`,
+      img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687070589/techstudio-web-app/assets/images/Group_1000002401_tpwtbe.png`,
+    },
+
+    sectionFour: {
+      header: {
+        title: `What you will learn`,
+      },
+      list: [
+        {
+          id: 1,
+          classname: `A`,
+          caption: `UNIT 1`,
+          title: `Why Instagram?`,
+          desc: `IG marketing has successfully bagged us over 3,000 students since we started running Techstudio Academy. We love to believe we have hacked the process of getting customers on that lovely Zuckerberg app and we are ready to share that process with you.`,
+          bgColor: `white`,
+          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713455748/IG%20Marketing%20gifs/Instagram_hm19hx.gif`,
+        },
+        {
+          id: 2,
+          classname: `B`,
+          caption: `UNIT 2`,
+          title: `Creating Compelling Offers`,
+          desc: `If you are already wasting a lot of money on marketing without getting significant sales, it is likely you are yet to understand how to craft offers. When you learn how to create irresistible offers, you won’t have an issue trying to sell your product.`,
+          bgColor: `light-blue-ii`,
+          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713455949/IG%20Marketing%20gifs/Offers_Chest_c038sf.gif`,
+        },
+        {
+          id: 3,
+          classname: `C`,
+          caption: `UNIT 3`,
+          title: `Branding`,
+          desc: `When you land on Techstudio's Instagram page, don’t you love what you see? Branding allows your prospective customers to love your business even before buying from you. You will always be their first choice and they will go on to tell their friends and colleagues about your business.`,
+          bgColor: `white`,
+          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713456308/IG%20Marketing%20gifs/Branding_1_te993b.gif`,
+        },
+        {
+          id: 4,
+          classname: `D`,
+          caption: `UNIT 4`,
+          title: `Marketing`,
+          desc: `The era of boring product/service marketing ended a long time ago. You will be left with little or no interested customers if you do not present your product in a way that will ‘WOOOOOOWWW’ your audience.`,
+          bgColor: `white`,
+          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713456181/IG%20Marketing%20gifs/MArketing_ng0p4c.gif`,
+        },
+        {
+          id: 5,
+          classname: `E`,
+          caption: `UNIT 5`,
+          title: `Ads Conversion`,
+          desc: `Have you ever run an ad and nobody even asked for what you are selling. In this module, we will be showing you how to target the right people with your IG ads.`,
+          bgColor: `light-blue-ii`,
+          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713455753/IG%20Marketing%20gifs/Ads_aeeiti.gif`,
+        },
+        {
+          id: 6,
+          classname: `F`,
+          caption: `UNIT 6`,
+          title: `Prospecting and Sales`,
+          desc: `After people make enquiries, what are the things you do to ensure that they eventually pay for your product/service? This is where we share our STRATEGIC PROSPECTING FORMULA.`,
+          bgColor: `light-blue-ii`,
+          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713455613/IG%20Marketing%20gifs/Prospect_ggnaup.gif`,
+        },
+        {
+          id: 7,
+          classname: `G`,
+          caption: `UNIT 7`,
+          title: `After Sales`,
+          desc: `One of the mistakes many entrepreneurs make is not caring if their customers were satisfied or not. If you want your business to last very long, you have to learn how to ensure your customers have an amazing experience. They won’t stop talking about you.`,
+          bgColor: `light-blue-ii`,
+          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713456203/IG%20Marketing%20gifs/After_sales_koqilf.gif`,
+        },
+        {
+          id: 7,
+          classname: `G`,
+          caption: `UNIT 8`,
+          title: `Content Creation and Planning`,
+          desc: `If you always get worried about what content to post on your social media, we are here to free you from your worries. There are strategies you can use so you never run out of content.`,
+          bgColor: `light-blue-ii`,
+          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713455605/IG%20Marketing%20gifs/Content_Creation_1_xrq4hd.gif`,
+        },
+        // {
+        //   id: 8,
+        //   classname: `G`,
+        //   caption: `UNIT 8`,
+        //   title: `Content Creation and Planning`,
+        //   desc: `If you always get worried about what content to post on your social media, we are here to free you from your worries. There are strategies you can use so you never run out of content.`,
+        //   bgColor: `light-blue-ii`,
+        //   img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/python.gif`,
+        // },
+      ],
+    },
+
+    duration: {
+      online: {
+        time: `N/A`,
+        date: `N/A`,
+        price: `0`,
+      },
+      weekend: {
+        time: `12`,
+        date: `April 28, 2024`,
+        price: `250000`,
+      },
+      weekday: {
+        time: `N/A`,
+        date: `N/A`,
+        price: `N/A`,
+      },
+
+      span: {
+        weekday: `Mon - wed (10am - 5pm)`,
+        weekend: `Sat - Sun (10am - 5pm)`,
+      },
+    },
+  },
   cyberSecurity: {
     hero: {
       title: `Introduction to Cyber Security `,

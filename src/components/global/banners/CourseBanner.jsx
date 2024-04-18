@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { Icon } from '@iconify/react'
+import { useLocation } from 'react-router-dom'
 
 import { COURSE_BANNER_ANIMATION } from '../../../gsap'
 import IntersectionObserver from '../../../hooks/Gsap'
@@ -8,6 +9,8 @@ import { selectExternalCourses } from '../../../pages/Externals/api/externalSlic
 import Button from '../Button'
 
 const CourseBanner = ({ name, duration }) => {
+  const { pathname } = useLocation()
+  const uniqueCourse = pathname == '/course/instagram-marketing' ? 'd-none' : 'd-block'
   // console.log(duration.weekday.date)
   const weekday = duration.weekday.date
   const weekend = duration.weekend.date
@@ -42,12 +45,12 @@ const CourseBanner = ({ name, duration }) => {
           </p>
           <section className='d-flex flex-column flex-md-row justify-content-between align-items-center gap-5'>
             <div>
-              <h2 className='m-0 text-primary'>{!duration.weekend.date ? `N/A` : `${weekday}`}</h2>
-              <p className='m-0 text-dark small-text fw-bold'>Weekend Class, Online Class: {duration?.span?.weekend} </p>
-            </div>
-            <div>
               <h2 className='m-0 text-primary'>{!duration.weekend.date ? `N/A` : `${weekend}`}</h2>
               <p className='m-0 text-dark small-text fw-bold'>Weekday Class: {duration?.span?.weekday} </p>
+            </div>
+            <div className={`${uniqueCourse}`}>
+              <h2 className='m-0 text-primary'>{!duration.weekend.date ? `N/A` : `${weekday}`}</h2>
+              <p className='m-0 text-dark small-text fw-bold'>Weekend Class, Online Class: {duration?.span?.weekend} </p>
             </div>
             <div className=''>
               <Button linkHref='/student/register' linkText='Register Now' solidBtn navBtn width={`10`} />
