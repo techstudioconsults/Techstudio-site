@@ -31,10 +31,10 @@ const SectionFour = ({ content, isDevelopmentView }) => {
 
   return (
     <Gsap animationFuncion={() => genericAnimation(`sectionFour`)}>
-      <section className={`${style.sectionFour} ${uniqueCourse} pb-0 bg-white`}>
-        <Container>
+      <section className={`${style.sectionFour}  pb-0 bg-white`}>
+        <Container className={`${uniqueCourse}`}>
           <section className='sectionFour'>
-            <section className='d-flex flex-column align-items-center justify-content-between flex-lg-row my-5'>
+            <section className={` ${uniqueCourse} d-flex flex-column align-items-center justify-content-between flex-lg-row my-5`}>
               <div className={`text-center text-lg-start`}>
                 <p className={`text-primary fw-semibold`}>{articleOne.title}</p>
                 <h2 className={`text-blue fw-semibold`}>{articleOne.topic}</h2>
@@ -100,7 +100,7 @@ const SectionFour = ({ content, isDevelopmentView }) => {
           </Marquee>
         </div>
        
-        <div className={`${uniqueCourse}`} hidden={!isDevelopmentView}>
+        <div className={``} hidden={!isDevelopmentView}>
           <GalleryIndex />
         </div>
         <Container>

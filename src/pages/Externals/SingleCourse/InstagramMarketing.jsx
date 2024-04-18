@@ -26,7 +26,7 @@ const InstagramMarketing = () => {
   const instagramMarketing = filterCourse(upcomingCourse, 'instagram marketing')
   // console.log(cyberSecurity)
   const [courseData] = instagramMarketing
-  const name = 'Instagram marketing Expert'
+  const name = 'Instagram marketing'
 
   const courseID = courseData?.id
   const courseName = courseData?.title
@@ -37,7 +37,7 @@ const InstagramMarketing = () => {
     sectionFour: { articleOne, header, body },
   } = HOME_CONTENT
 
-  // const { hero, sectionTwo, sectionFour, duration } = DEVELOPMENT_CONTENT
+//   const { hero, sectionTwo, sectionFour, duration } = DEVELOPMENT_CONTENT
   // console.log(DEVELOPMENT_CONTENT.cyberSecurity)
 
   const courseDetails = DEVELOPMENT_CONTENT.instagramMarketing
@@ -82,8 +82,20 @@ const InstagramMarketing = () => {
       <section style={style} className='m-auto mt-10 mt-lg-0'>
         <CourseBanner name={name} duration={duration} />
       </section>
+      {/* <CourseSectionTwo content={sectionTwo} /> */}
       <CourseSectionFour content={sectionFour} />
       <SectionFour isDevelopmentView content={{ articleOne, header, body }} />
+
+      {/* <section>
+        <Container>
+          <h3 className='text-center'> */}
+            {/* {hero.title} */}
+            
+          {/* </h3>
+        //   <SectionTwo />
+        </Container>
+      </section> */}
+
       <section className='my-lg-32 my-sm-3'>
         <Container>
           <BannerII>

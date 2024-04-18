@@ -87,7 +87,7 @@ const UiUxDevelopment = () => {
       <section>
         <Container>
           <h3 className='text-center'>
-            {/* {hero.title} */}
+            {hero.title}
             FAQs
           </h3>
           <SectionTwo />

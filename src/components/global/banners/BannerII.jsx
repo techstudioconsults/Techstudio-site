@@ -11,7 +11,7 @@ const BannerII = ({ children }) => {
     height: `16.938rem`,
   }
   const { pathname } = useLocation()
-  const uniqueCourse = pathname === '/course/instagram-marketing' ? 'pt-10' : 'pt-0'
+  const uniqueCourse = pathname === '/course/instagram-marketing' ? 'pt-24' : 'pt-0'
 
   return (
     <div className={`${uniqueCourse}`}>

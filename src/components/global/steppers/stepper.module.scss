@@ -96,6 +96,8 @@
 
   }
 
+  
+
   .contentFlex {
     @include flex_column;
 
@@ -110,6 +112,8 @@
     // gap: fn.rem(30);
     @include breakpoint-up('lg') {
       @include flex;
+      align-items: center;
+      gap: 3.5rem;
       // align-items: center;
     }
 
