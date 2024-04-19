@@ -39,8 +39,11 @@ const IntroCard = ({ course }) => {
         return `/course/frontend`
       case `cyber security`:
         return `/course/cyber-security`
+      // case `instagram Marketing`:
+      //   return `/course/instagram-marketing`
+      // the default here is meant to be /
       default:
-        return `/`
+        return `/course/instagram-marketing`
     }
   }
 
