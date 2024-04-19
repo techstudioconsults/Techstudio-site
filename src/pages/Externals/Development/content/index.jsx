@@ -1300,7 +1300,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
       },
       weekend: {
         time: `12`,
-        date: `April 28, 2024`,
+        date: `April 29, 2024`,
         price: `250000`,
       },
       weekday: {
