@@ -31,7 +31,7 @@ const FrontendEngineering = () => {
   const courseID = courseData?.id
   const courseName = courseData?.title
   //   const name = courseData.title
-  // console.log(courseData)
+  console.log(courseData)
   const {
     sectionFour: { articleOne, header, body },
   } = HOME_CONTENT
