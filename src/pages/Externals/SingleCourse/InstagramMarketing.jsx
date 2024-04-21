@@ -23,6 +23,7 @@ const InstagramMarketing = () => {
   const filterCourse = (upcomingCourse, title) => {
     return upcomingCourse?.filter((course) => course.title.toLowerCase().includes(title))
   }
+  
   const instagramMarketing = filterCourse(upcomingCourse, 'instagram marketing')
   // console.log(cyberSecurity)
   const [courseData] = instagramMarketing

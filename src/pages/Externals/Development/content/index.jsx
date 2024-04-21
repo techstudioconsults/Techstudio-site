@@ -1132,89 +1132,6 @@ In object-oriented JavaScript, students will learn how to create objects, define
       header: {
         title: `What you will learn`,
       },
-      // list: [
-      //   {
-      //     id: 1,
-      //     classname: `A`,
-      //     title: `Introduction To HTML And CSS`,
-      //     desc: `This unit provides a solid foundation in web development, covering both HTML and CSS. Students will learn how to create well-structured HTML documents using tags, elements, and attributes. They will also explore CSS syntax and style rules to customize the appearance of web pages. Topics include text styling, backgrounds, borders, and images. Additionally, students will discover CSS layout techniques, such as floats and CSS grid, to create different page layouts. They will also explore Bootstrap, utilizing its pre-built components and responsive grid system for attractive and mobile-friendly layouts. Practical exercises reinforce learning.`,
-      //     caption: `UNIT 1`,
-      //     bgColor: null,
-      //     img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/writing-code.gif`,
-         
-      //   },
-      //   {
-      //     id: 2,
-      //     classname: `B`,
-      //     title: `JavaScript Basic`,
-      //     desc: `Throughout the course of this unit, students will embark on a journey into the fundamentals of JavaScript, unlocking the potential to create engaging and interactive web experiences. By delving into the core concepts and syntax of JavaScript, students will gain a comprehensive understanding of how to leverage this powerful programming language to build dynamic and responsive web pages. They will explore topics such as variables, data types, conditional statements, loops, functions, arrays, objects, and DOM manipulation.`,
-      //     caption: `UNIT 2`,
-      //     bgColor: `light-blue-ii`,
-      //     img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/js-file-document.gif`,
-          
-      //   },
-      //   {
-      //     id: 3,
-      //     classname: `C`,
-      //     title: `Object-Oriented JavaScript`,
-      //     desc: `Object-oriented JavaScript is a programming paradigm that focuses on organizing code into objects, which encapsulate data and methods. It provides a way to create reusable and modular code, making it easier to manage and maintain complex applications.
-      //     In object-oriented JavaScript, students will learn how to create objects, define their properties and methods, and establish relationships between objects through inheritance. They will explore concepts such as encapsulation, where data and methods are bundled together within objects to control access and ensure data integrity.`,
-      //     caption: `UNIT 3`,
-      //     bgColor: `white`,
-      //     img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/js-javascript.gif`,
-         
-      //   },
-      //   {
-      //     id: 4,
-      //     classname: `D`,
-      //     title: `The DOM`,
-      //     desc: `The Document Object Model (DOM) is an API (Application Programming Interface) that allows you to interact with HTML and XML documents programmatically. It is primarily associated with JavaScript, as JavaScript is the most commonly used programming language for web development and has built-in support for the DOM.`,
-      //     caption: `UNIT 4`,
-      //     bgColor: `blue`,
-      //     img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/javascript-programming-language.gif`,
-          
-      //   },
-      //   {
-      //     id: 5,
-      //     classname: `E`,
-      //     title: `The REACT Library`,
-      //     desc: `React has gained immense popularity as a JavaScript library for creating robust and interactive user interfaces. Its core philosophy revolves around a component-based architecture, empowering developers to build reusable UI components that encapsulate specific functionality. By breaking down the user interface into modular components, React enables code reusability, enhances maintainability, and facilitates collaborative development.`,
-      //     caption: `UNIT 5`,
-      //     bgColor: `white`,
-      //     img: `https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/react-js.gif`,
-         
-      //   },
-      //   {
-      //     id: 6,
-      //     classname: `F`,
-      //     title: `Next JS`,
-      //     desc: `Next js is built on React. It elevates web development with efficient rendering and routing, offering server-side rendering and automatic code splitting for optimal performance. By extending React's component-based approach to pages, it simplifies dynamic routing. With server-side rendering, pages are pre-rendered on the server, boosting speed and SEO. Empowering developers with data fetching and routing control, Next js enables seamless creation of high-performance web applications.`,
-      //     caption: `UNIT 6`,
-      //     bgColor: `light-blue-ii`,
-      //     img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890898/techstudio/GIFS/coding_c5w12z.gif`,
-         
-      //   },
-      //   {
-      //     id: 7,
-      //     classname: `G`,
-      //     title: `Version Control and Deployment`,
-      //     desc: `Version control systems like Git play a crucial role in managing code changes over time. They provide a structured way to track modifications, maintain a history of changes, and enable multiple developers to work on the same codebase simultaneously. With version control, developers can create branches to work on different features or bug fixes independently`,
-      //     caption: `UNIT 7`,
-      //     bgColor: `light-blue-ii`,
-      //     img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699890638/techstudio/GIFS/git_treare.gif `,
-         
-      //   },
-      //   {
-      //     id: 8,
-      //     classname: `H`,
-      //     title: `Capstone Project`,
-      //     desc: `In this unit, the project enables you to demonstrate multiple skills you have learned to develop a real life project. Students apply their Frontend Engineering skills to create a web application that is dynamic and real life worthy from choosing your library, creating folder structure, coding, testing, deployment, user experience enhancement, and a final presentation, showcasing their comprehensive understanding and abilities in frontend engineering.`,
-      //     caption: `UNIT 8`,
-      //     bgColor: `blue`,
-      //     img: `https://res.cloudinary.com/kingsleysolomon/image/upload/v1699879053/techstudio/images/Market_launch_j1iogl_pa6fcd.gif`,
-        
-      //   },
-      // ],
       list: [
         {
           id: 1,
@@ -1222,7 +1139,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           caption: `UNIT 1`,
           title: `Why Instagram?`,
           desc: `IG marketing has successfully bagged us over 3,000 students since we started running Techstudio Academy. We love to believe we have hacked the process of getting customers on that lovely Zuckerberg app and we are ready to share that process with you.`,
-          bgColor: `white`,
+          bgColor: `null`,
           img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713455748/IG%20Marketing%20gifs/Instagram_hm19hx.gif`,
         },
         {
@@ -1240,26 +1157,27 @@ In object-oriented JavaScript, students will learn how to create objects, define
           caption: `UNIT 3`,
           title: `Branding`,
           desc: `When you land on Techstudio's Instagram page, don’t you love what you see? Branding allows your prospective customers to love your business even before buying from you. You will always be their first choice and they will go on to tell their friends and colleagues about your business.`,
-          bgColor: `light-blue-li`,
+          bgColor: `white`,
           img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713456308/IG%20Marketing%20gifs/Branding_1_te993b.gif`,
         },
         {
           id: 4,
           classname: `D`,
           caption: `UNIT 4`,
-          title: `Marketing`,
-          desc: `The era of boring product/service marketing ended a long time ago. You will be left with little or no interested customers if you do not present your product in a way that will ‘WOOOOOOWWW’ your audience.`,
-          bgColor: `white`,
-          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713456181/IG%20Marketing%20gifs/MArketing_ng0p4c.gif`,
+          title: `Marketing Ads Conversion`,
+          desc: `Have you ever run an ad and nobody even asked for what you are selling. In this module, we will be showing you how to target the right people with your IG ads.`,
+          bgColor: `blue`,
+          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713455753/IG%20Marketing%20gifs/Ads_aeeiti.gif`,
         },
         {
           id: 5,
           classname: `E`,
           caption: `UNIT 5`,
-          title: `Ads Conversion`,
-          desc: `Have you ever run an ad and nobody even asked for what you are selling. In this module, we will be showing you how to target the right people with your IG ads.`,
-          bgColor: `light-blue-ii`,
-          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713455753/IG%20Marketing%20gifs/Ads_aeeiti.gif`,
+          title: `Marketing`,
+          desc: `The era of boring product/service marketing ended a long time ago. You will be left with little or no interested customers if you do not present your product in a way that will ‘WOOOOOOWWW’ your audience.`,
+          bgColor: `white`,
+          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713456181/IG%20Marketing%20gifs/MArketing_ng0p4c.gif`,
+          
         },
         {
           id: 6,
