@@ -1164,7 +1164,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
           id: 4,
           classname: `D`,
           caption: `UNIT 4`,
-          title: `Marketing Ads Conversion`,
+          title: `Ads Conversion`,
           desc: `Have you ever run an ad and nobody even asked for what you are selling. In this module, we will be showing you how to target the right people with your IG ads.`,
           bgColor: `blue`,
           img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713455753/IG%20Marketing%20gifs/Ads_aeeiti.gif`,
