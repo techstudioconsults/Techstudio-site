@@ -23,8 +23,8 @@ const InstagramMarketing = () => {
   const filterCourse = (upcomingCourse, title) => {
     return upcomingCourse?.filter((course) => course.title.toLowerCase().includes(title))
   }
-  
-  const instagramMarketing = filterCourse(upcomingCourse, 'instagram marketing')
+  // const instagramMarketing = filterCourse(upcomingCourse, 'instagram marketing')
+  const instagramMarketing = filterCourse(upcomingCourse, 'advanced ig marketing')
   // console.log(cyberSecurity)
   const [courseData] = instagramMarketing
   const name = 'Instagram marketing'
@@ -32,13 +32,13 @@ const InstagramMarketing = () => {
   const courseID = courseData?.id
   const courseName = courseData?.title
 
-  // console.log(courseData)
+  console.log(courseData)
 
   const {
     sectionFour: { articleOne, header, body },
   } = HOME_CONTENT
 
-//   const { hero, sectionTwo, sectionFour, duration } = DEVELOPMENT_CONTENT
+  //   const { hero, sectionTwo, sectionFour, duration } = DEVELOPMENT_CONTENT
   // console.log(DEVELOPMENT_CONTENT.cyberSecurity)
 
   const courseDetails = DEVELOPMENT_CONTENT.instagramMarketing
@@ -90,9 +90,9 @@ const InstagramMarketing = () => {
       {/* <section>
         <Container>
           <h3 className='text-center'> */}
-            {/* {hero.title} */}
-            
-          {/* </h3>
+      {/* {hero.title} */}
+
+      {/* </h3>
         //   <SectionTwo />
         </Container>
       </section> */}
