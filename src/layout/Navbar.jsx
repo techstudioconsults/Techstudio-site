@@ -170,8 +170,8 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
                 <Link className='dropdown-item fs-sm fw-semibold py-2 text-dark' to='/course/cyber-security'>
                   Cyber Security
                 </Link>
-                <Link className='dropdown-item fs-sm fw-semibold py-2 text-dark' to='/course/instagram-marketing'>
-                  Advance IG Marketing
+                <Link className='dropdown-item fs-sm fw-semibold py-2 text-dark' to='/course/digital-marketing'>
+                  Digital Marketing Immersive
                 </Link>
               </ul>
             </div>

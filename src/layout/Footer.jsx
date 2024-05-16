@@ -63,8 +63,8 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className='nav-item mb-0'>
-                  <Link className='text-white cc-link-hover small-text' to='/course/instagram-marketing'>
-                    Advanced IG Marketing
+                  <Link className='text-white cc-link-hover small-text' to='/course/digital-marketing'>
+                    Digital Marketing
                   </Link>
                 </li>
               </ul>
