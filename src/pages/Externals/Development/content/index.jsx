@@ -240,14 +240,14 @@ export const DEVELOPMENT_CONTENT = {
         date: `N/A`,
         price: `0`,
       },
-      weekday: {
-        time: `12`,
-        date: `May 11, 2024`,
-        price: `250000`,
-      },
       weekend: {
         time: `12`,
-        date: `May 13, 2024`,
+        date: `June 15, 2024`,
+        price: `250000`,
+      },
+      weekday: {
+        time: `12`,
+        date: `June 17, 2024`,
         price: `250000`,
       },
       span: {
@@ -403,14 +403,14 @@ export const DEVELOPMENT_CONTENT = {
         date: `N/A`,
         price: `0`,
       },
-      weekday: {
-        time: `12`,
-        date: `May 11, 2024`,
-        price: `250000`,
-      },
       weekend: {
         time: `12`,
-        date: `May 13, 2024`,
+        date: `June 17, 2024`,
+        price: `250000`,
+      },
+      weekday: {
+        time: `12`,
+        date: `June 15, 2024`,
         price: `250000`,
       },
       span: {
@@ -683,14 +683,14 @@ In object-oriented JavaScript, students will learn how to create objects, define
         date: `February 5, 2024`,
         price: `200000`,
       },
-      weekday: {
+      weekend: {
         time: `24`,
-        date: `May 11, 2024`,
+        date: `June 17, 2024`,
         price: `500000`,
       },
-      weekend: {
+      weekday: {
         time: `16`,
-        date: `May 13, 2024`,
+        date: `June 15, 2024`,
         price: `300000`,
       },
       span: {
@@ -899,14 +899,14 @@ In object-oriented JavaScript, students will learn how to create objects, define
         date: `N/A`,
         price: `0`,
       },
-      weekday: {
-        time: `12`,
-        date: `May 11, 2024`,
-        price: `250000`,
-      },
       weekend: {
         time: `12`,
-        date: `May 13, 2024`,
+        date: `June 17, 2024`,
+        price: `250000`,
+      },
+      weekday: {
+        time: `12`,
+        date: `June 15, 2024`,
         price: `250000`,
       },
 
@@ -1106,12 +1106,12 @@ In object-oriented JavaScript, students will learn how to create objects, define
       },
       weekday: {
         time: `12`,
-        date: `May 11, 2024`,
+        date: `June 15, 2024`,
         price: `250000`,
       },
       weekend: {
         time: `12`,
-        date: `May 13, 2024`,
+        date: `June 17, 2024`,
         price: `250000`,
       },
 
@@ -1218,12 +1218,12 @@ In object-oriented JavaScript, students will learn how to create objects, define
       },
       weekend: {
         time: `12`,
-        date: `April 29, 2024`,
+        date: `June 17, 2024`,
         price: `250000`,
       },
       weekday: {
-        time: `N/A`,
-        date: `N/A`,
+        time: `12`,
+        date: ` June 15 2024`,
         price: `N/A`,
       },
 
