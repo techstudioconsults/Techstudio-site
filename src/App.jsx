@@ -74,7 +74,8 @@ import {
   TeacherClassView,
   TeacherDashboard,
 } from './pages'
-import InstagramMarketing from './pages/Externals/SingleCourse/InstagramMarketing'
+// import InstagramMarketing from './pages/Externals/SingleCourse/DigitalMarketing'
+import DigitalMarketing from './pages/Externals/SingleCourse/DigitalMarketing'
 // import FrontendEngineering from './pages/Externals/Development/SingleCourse/FrontendEngineering'
 
 const App = () => {
@@ -110,7 +111,7 @@ const App = () => {
     localStorage.setItem('version', packageJson.version)
   }, [])
 
-  const { fullStackDevelopment, datascience, UIUXDevelopment, frontendDevelopment, cyberSecurity, instagramMarketing } = DEVELOPMENT_CONTENT
+  const { fullStackDevelopment, datascience, UIUXDevelopment, frontendDevelopment, cyberSecurity, digitalMarketing } = DEVELOPMENT_CONTENT
 
   const classes = useSelector(selectClasses)
   const lessons = useSelector(selectLessons)
@@ -154,12 +155,12 @@ const App = () => {
           courseName: course.title,
           courseID: course.id,
         }
-      case `instagram marketing`:
+      case `digital marketing`:
         return {
-          content: instagramMarketing,
-          path: `/course/instagram-marketing`,
-          job: `Instagram Marketing Expert`,
-          query: `instagram marketing`,
+          content: digitalMarketing,
+          path: `/course/digital-marketing`,
+          job: `Digital Marketing Expert`,
+          query: `digital marketing`,
           courseName: course.title,
           courseID: course.id,
         }
@@ -246,7 +247,7 @@ const App = () => {
         <Route path='/blog/:id' element={<SingleBlogPage />} />
         <Route path='/contact' element={<ContactUs />} />
         <Route path='/course/frontend' element={<FrontendEngineering />} />
-        <Route path='/course/instagram-marketing' element={<InstagramMarketing />} />
+        <Route path='/course/digital-marketing' element={<DigitalMarketing />} />
         <Route path='/course/cyber-security' element={<CyberSecurity />} />
         <Route path='/course/data-science' element={<DataScience />} />
         <Route path='/course/fullstack' element={<FullStackDevelopment />} />

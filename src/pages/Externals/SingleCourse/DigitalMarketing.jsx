@@ -16,7 +16,7 @@ import { HOME_CONTENT } from '../Home/content'
 import SectionFour from '../Home/sections/sectionFour'
 
 const baseUrl = import.meta.env.VITE_BASE_URL
-const InstagramMarketing = () => {
+const DigitalMarketing = () => {
   const dispatch = useDispatch()
   const upcomingCourse = useSelector(selectExternalCourses)
 
@@ -24,9 +24,9 @@ const InstagramMarketing = () => {
     return upcomingCourse?.filter((course) => course.title.toLowerCase().includes(title))
   }
   // const instagramMarketing = filterCourse(upcomingCourse, 'instagram marketing')
-  const instagramMarketing = filterCourse(upcomingCourse, 'advanced ig marketing')
+  const digitalMarketing = filterCourse(upcomingCourse, 'digital marketing ')
   // console.log(cyberSecurity)
-  const [courseData] = instagramMarketing
+  const [courseData] = digitalMarketing
   const name = 'Instagram marketing'
 
   const courseID = courseData?.id
@@ -41,7 +41,7 @@ const InstagramMarketing = () => {
   //   const { hero, sectionTwo, sectionFour, duration } = DEVELOPMENT_CONTENT
   // console.log(DEVELOPMENT_CONTENT.cyberSecurity)
 
-  const courseDetails = DEVELOPMENT_CONTENT.instagramMarketing
+  const courseDetails = DEVELOPMENT_CONTENT.digitalMarketing
   const { hero, sectionTwo, sectionFour, duration } = courseDetails
 
   // console.log(sectionTwo);
@@ -114,4 +114,4 @@ const InstagramMarketing = () => {
   )
 }
 
-export default InstagramMarketing
+export default DigitalMarketing

@@ -240,14 +240,14 @@ export const DEVELOPMENT_CONTENT = {
         date: `N/A`,
         price: `0`,
       },
-      weekday: {
-        time: `12`,
-        date: `May 11, 2024`,
-        price: `250000`,
-      },
       weekend: {
         time: `12`,
-        date: `May 13, 2024`,
+        date: `June 15, 2024`,
+        price: `250000`,
+      },
+      weekday: {
+        time: `12`,
+        date: `June 17, 2024`,
         price: `250000`,
       },
       span: {
@@ -403,14 +403,14 @@ export const DEVELOPMENT_CONTENT = {
         date: `N/A`,
         price: `0`,
       },
-      weekday: {
-        time: `12`,
-        date: `May 11, 2024`,
-        price: `250000`,
-      },
       weekend: {
         time: `12`,
-        date: `May 13, 2024`,
+        date: `June 17, 2024`,
+        price: `250000`,
+      },
+      weekday: {
+        time: `12`,
+        date: `June 15, 2024`,
         price: `250000`,
       },
       span: {
@@ -683,14 +683,14 @@ In object-oriented JavaScript, students will learn how to create objects, define
         date: `February 5, 2024`,
         price: `200000`,
       },
-      weekday: {
+      weekend: {
         time: `24`,
-        date: `May 11, 2024`,
+        date: `June 17, 2024`,
         price: `500000`,
       },
-      weekend: {
+      weekday: {
         time: `16`,
-        date: `May 13, 2024`,
+        date: `June 15, 2024`,
         price: `300000`,
       },
       span: {
@@ -899,14 +899,14 @@ In object-oriented JavaScript, students will learn how to create objects, define
         date: `N/A`,
         price: `0`,
       },
-      weekday: {
-        time: `12`,
-        date: `May 11, 2024`,
-        price: `250000`,
-      },
       weekend: {
         time: `12`,
-        date: `May 13, 2024`,
+        date: `June 17, 2024`,
+        price: `250000`,
+      },
+      weekday: {
+        time: `12`,
+        date: `June 15, 2024`,
         price: `250000`,
       },
 
@@ -922,7 +922,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
       subTitle: `The significance of cybersecurity in today's increasingly digital environment cannot be emphasized. This extensive course provides an overview of the basic ideas, approaches, and methods needed to protect networks, information systems, and digital assets.`,
       img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687070589/techstudio-web-app/assets/images/Group_1000002401_tpwtbe.png`,
     },
-    
+
     sectionTwo: {
       header: {
         title: `Our Process`,
@@ -1106,12 +1106,12 @@ In object-oriented JavaScript, students will learn how to create objects, define
       },
       weekday: {
         time: `12`,
-        date: `May 11, 2024`,
+        date: `June 15, 2024`,
         price: `250000`,
       },
       weekend: {
         time: `12`,
-        date: `May 13, 2024`,
+        date: `June 17, 2024`,
         price: `250000`,
       },
 
@@ -1121,7 +1121,7 @@ In object-oriented JavaScript, students will learn how to create objects, define
       },
     },
   },
-  instagramMarketing: {
+  digitalMarketing: {
     hero: {
       title: `Advanced Instagram Marketing for Content Creators & Entrepreneurs `,
       subTitle: `Say Goodbye to IG marketing that brings you no customer. Tech Studio Academy is offering an exclusive two-week Advanced Instagram Marketing course that will increase your revenue!`,
@@ -1177,7 +1177,6 @@ In object-oriented JavaScript, students will learn how to create objects, define
           desc: `The era of boring product/service marketing ended a long time ago. You will be left with little or no interested customers if you do not present your product in a way that will ‘WOOOOOOWWW’ your audience.`,
           bgColor: `white`,
           img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713456181/IG%20Marketing%20gifs/MArketing_ng0p4c.gif`,
-          
         },
         {
           id: 6,
@@ -1207,7 +1206,6 @@ In object-oriented JavaScript, students will learn how to create objects, define
           img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713455605/IG%20Marketing%20gifs/Content_Creation_1_xrq4hd.gif`,
         },
       ],
-      
     },
 
     duration: {
@@ -1218,12 +1216,12 @@ In object-oriented JavaScript, students will learn how to create objects, define
       },
       weekend: {
         time: `12`,
-        date: `April 29, 2024`,
+        date: `June 17, 2024`,
         price: `250000`,
       },
       weekday: {
-        time: `N/A`,
-        date: `N/A`,
+        time: `12`,
+        date: ` June 15 2024`,
         price: `N/A`,
       },
 
