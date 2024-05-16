@@ -18,6 +18,10 @@ import SectionFour from '../Home/sections/sectionFour'
 const baseUrl = import.meta.env.VITE_BASE_URL
 
 const DataScience = () => {
+  const [weekday, setWeeekday] = useState('')
+  const [weekend, setWeeekend] = useState('')
+  const [formattedStartDate, setFormattedStartDate] = useState('')
+  const [formattedPriorDate, setFormattedPriorDate] = useState('')
   const dispatch = useDispatch()
   const upcomingCourse = useSelector(selectExternalCourses)
 
@@ -31,14 +35,47 @@ const DataScience = () => {
   const courseID = courseData?.id
   const courseName = courseData?.title
 
-  //   const name = courseData.title
+  // Function to convert date to a readable format
+  const formatDate = (date) => {
+    if (!date) return '' // Handle null or undefined case
+    const options = { day: 'numeric', month: 'short', year: 'numeric' }
+    return new Date(date).toLocaleDateString('en-US', options)
+  }
+
+  // Function to get two days prior to the given date for weekend class
+  const getTwoDaysPrior = (startDate) => {
+    if (!startDate) return null // Handle null or undefined case
+    const newDate = new Date(startDate)
+    newDate.setDate(newDate.getDate() - 2)
+    return newDate
+  }
+
+  useEffect(() => {
+    // Get the start date
+    const startDate = courseData?.startDate
+
+    // Convert start date to readable format
+    const formattedStartDate = formatDate(startDate)
+    setFormattedStartDate(formattedStartDate)
+
+    // Get two days prior to the start date
+    const priorDate = getTwoDaysPrior(startDate)
+    const formattedPriorDate = formatDate(priorDate)
+    setFormattedPriorDate(formattedPriorDate)
+  }, [courseData?.startDate])
+  // Run only when courseData?.startDate changes
+
+  // Update weekday and weekend
+  useEffect(() => {
+    setWeeekday(formattedStartDate)
+    setWeeekend(formattedPriorDate)
+  }, [formattedStartDate, formattedPriorDate])
+
+  // console.log(weekday, weekend)
   // console.log(courseData)
   const {
     sectionFour: { articleOne, header, body },
   } = HOME_CONTENT
-
-  // const { hero, sectionTwo, sectionFour, duration } = DEVELOPMENT_CONTENT
-  // console.log(DEVELOPMENT_CONTENT.datascience)
 
   const courseDetails = DEVELOPMENT_CONTENT.datascience
   // console.log(courseDetails)
@@ -80,7 +117,7 @@ const DataScience = () => {
       <Navbar bg={`transparent`} keepColor />
       <CourseHero content={hero} courseName={courseName} courseID={courseID} />
       <section style={style} className='m-auto mt-10 mt-lg-0'>
-        <CourseBanner name={datascience.title} duration={duration} />
+        <CourseBanner name={datascience.title} duration={duration} weekday={weekday} weekend={weekend} />
       </section>
       <CourseSectionTwo content={sectionTwo} />
       <CourseSectionFour content={sectionFour} />

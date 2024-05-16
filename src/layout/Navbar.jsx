@@ -72,24 +72,24 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
   //   return styleNavbar
   // }, [])
 
-  const getCourseRoute = (title) => {
-    switch (title?.toLowerCase()) {
-      case `product design ui/ux`:
-        return `/course/product-design`
-      case `fullstack development`:
-        return `/course/fullstack`
-      case `data science`:
-        return `/course/data-science`
-      case `frontend engineering`:
-        return `/course/frontend`
-      case `cyber security`:
-        return `/course/cyber-security`
-      case `instagram marketing`:
-        return `/course/instagram-marketing`
-      default:
-        return `/`
-    }
-  }
+  // const getCourseRoute = (title) => {
+  //   switch (title?.toLowerCase()) {
+  //     case `product design ui/ux`:
+  //       return `/course/product-design`
+  //     case `fullstack development`:
+  //       return `/course/fullstack`
+  //     case `data science`:
+  //       return `/course/data-science`
+  //     case `frontend engineering`:
+  //       return `/course/frontend`
+  //     case `cyber security`:
+  //       return `/course/cyber-security`
+  //     case `digital marketing`:
+  //       return `/course/digital-marketing`
+  //     default:
+  //       return `/`
+  //   }
+  // }
 
   // const dynamicDropdown = upcomingCourses.map((course) => {
   //   return (
@@ -171,7 +171,7 @@ const Navbar = ({ bg, keepColor, setTextColorBlack, isEmployersRoute }) => {
                   Cyber Security
                 </Link>
                 <Link className='dropdown-item fs-sm fw-semibold py-2 text-dark' to='/course/digital-marketing'>
-                  Digital Marketing Immersive
+                  Digital Marketing
                 </Link>
               </ul>
             </div>
