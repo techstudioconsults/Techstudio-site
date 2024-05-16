@@ -1123,8 +1123,9 @@ In object-oriented JavaScript, students will learn how to create objects, define
   },
   digitalMarketing: {
     hero: {
-      title: `Advanced Instagram Marketing for Content Creators & Entrepreneurs `,
-      subTitle: `Say Goodbye to IG marketing that brings you no customer. Tech Studio Academy is offering an exclusive two-week Advanced Instagram Marketing course that will increase your revenue!`,
+      title: `Digital Marketing Immersive `,
+      subTitle: `In this immersive program, you'll uncover the secrets behind crafting magnetic branding, mastering the art of ad creation, how to create compelling offers and ignite your creativity in content development.
+      Whether you're a savvy entrepreneur hungry for business growth or a content creator eager to make your mark, this course is to help you hit your sales target consistently.`,
       img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687070589/techstudio-web-app/assets/images/Group_1000002401_tpwtbe.png`,
     },
 
@@ -1303,3 +1304,8 @@ In object-oriented JavaScript, students will learn how to create objects, define
   //   },
   // },
 }
+
+
+
+
+// In this immersive program, you'll uncover the secrets behind crafting magnetic branding, mastering the art of ad creation, how to create compelling offers and ignite your creativity in content development, Whether you're a savvy entrepreneur hungry for business growth or a content creator eager to make your mark, this course is to help you hit your sales target consistently.

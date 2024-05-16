@@ -33,6 +33,7 @@ const DigitalMarketing = () => {
   const courseName = courseData?.title
 
   console.log(courseData)
+  console.log(courseData.description)
 
   const {
     sectionFour: { articleOne, header, body },
