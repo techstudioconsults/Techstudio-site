@@ -17,23 +17,60 @@ import SectionFour from '../Home/sections/sectionFour'
 
 const baseUrl = import.meta.env.VITE_BASE_URL
 const DigitalMarketing = () => {
+  const [weekday, setWeeekday] = useState('')
+  const [weekend, setWeeekend] = useState('')
+  const [formattedStartDate, setFormattedStartDate] = useState('')
+  const [formattedPriorDate, setFormattedPriorDate] = useState('')
   const dispatch = useDispatch()
   const upcomingCourse = useSelector(selectExternalCourses)
 
   const filterCourse = (upcomingCourse, title) => {
     return upcomingCourse?.filter((course) => course.title.toLowerCase().includes(title))
   }
-  // const instagramMarketing = filterCourse(upcomingCourse, 'instagram marketing')
   const digitalMarketing = filterCourse(upcomingCourse, 'digital marketing ')
-  // console.log(cyberSecurity)
+
   const [courseData] = digitalMarketing
-  const name = 'Instagram marketing'
+  const name = 'digital marketing'
 
   const courseID = courseData?.id
   const courseName = courseData?.title
 
-  console.log(courseData)
-  console.log(courseData.description)
+  // Function to convert date to a readable format
+  const formatDate = (date) => {
+    if (!date) return '' // Handle null or undefined case
+    const options = { day: 'numeric', month: 'short', year: 'numeric' }
+    return new Date(date).toLocaleDateString('en-US', options)
+  }
+
+  // Function to get two days prior to the given date for weekend class
+  const getTwoDaysPrior = (startDate) => {
+    if (!startDate) return null // Handle null or undefined case
+    const newDate = new Date(startDate)
+    newDate.setDate(newDate.getDate() - 2)
+    return newDate
+  }
+
+  useEffect(() => {
+    // Get the start date
+    const startDate = courseData?.startDate
+
+    // Convert start date to readable format
+    const formattedStartDate = formatDate(startDate)
+    setFormattedStartDate(formattedStartDate)
+
+    // Get two days prior to the start date
+    const priorDate = getTwoDaysPrior(startDate)
+    const formattedPriorDate = formatDate(priorDate)
+    setFormattedPriorDate(formattedPriorDate)
+  }, [courseData?.startDate]) // Run only when courseData?.startDate changes
+
+  // Update weekday and weekend accordingly
+  useEffect(() => {
+    setWeeekday(formattedStartDate)
+    setWeeekend(formattedPriorDate)
+  }, [formattedStartDate, formattedPriorDate])
+
+  console.log(weekday, weekend)
 
   const {
     sectionFour: { articleOne, header, body },
@@ -82,7 +119,7 @@ const DigitalMarketing = () => {
       <Navbar bg={`transparent`} keepColor />
       <CourseHero content={hero} courseName={courseName} courseID={courseID} />
       <section style={style} className='m-auto mt-10 mt-lg-0'>
-        <CourseBanner name={name} duration={duration} />
+        <CourseBanner name={name} duration={duration} weekday={weekday} weekend={weekend} />
       </section>
       {/* <CourseSectionTwo content={sectionTwo} /> */}
       <CourseSectionFour content={sectionFour} />
