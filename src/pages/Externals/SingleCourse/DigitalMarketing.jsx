@@ -121,25 +121,23 @@ const DigitalMarketing = () => {
       <section style={style} className='m-auto mt-10 mt-lg-0'>
         <CourseBanner name={name} duration={duration} weekday={weekday} weekend={weekend} />
       </section>
-      {/* <CourseSectionTwo content={sectionTwo} /> */}
+      <CourseSectionTwo content={sectionTwo} />
       <CourseSectionFour content={sectionFour} />
       <SectionFour isDevelopmentView content={{ articleOne, header, body }} />
-
-      {/* <section>
+      <section>
         <Container>
-          <h3 className='text-center'> */}
-      {/* {hero.title} */}
-
-      {/* </h3>
-        //   <SectionTwo />
+          <h3 className='text-center'>
+            {/* {hero.title} */}
+            FAQs
+          </h3>
+          <SectionTwo />
         </Container>
-      </section> */}
-
+      </section>
       <section className='my-lg-32 my-sm-3'>
         <Container>
           <BannerII>
-            <div className='ms-lg-40 text-white py-5  py-xl-0 px-5 px-lg-0'>
-              <span>Want to start a career as a {name} ?</span>
+            <div className='ms-lg-40 text-white py-5 py-xl-0 px-5 px-lg-0'>
+              <span>Want to start a career as Digital Marketer?</span>
               <h3 className='mt-7 fw-bold text-white'>Get started with TechStudio</h3>
               <div className='w-50'>
                 <Button linkHref='/student/register' linkText='Register Now' solidBtn navBtn width={`14`} />
