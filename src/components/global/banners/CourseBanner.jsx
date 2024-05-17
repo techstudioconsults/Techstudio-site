@@ -9,7 +9,7 @@ import { selectExternalCourses } from '../../../pages/Externals/api/externalSlic
 import Button from '../Button'
 
 const CourseBanner = ({ name, duration, weekday, weekend }) => {
-  // const { pathname } = useLocation()
+  const { pathname } = useLocation()
   const banner = useRef()
   console.log(weekday, weekend)
   // const convertDateToReadable = (date) => {
@@ -18,6 +18,8 @@ const CourseBanner = ({ name, duration, weekday, weekend }) => {
   // }
 
   // console.log(convertDateToReadable(weekday));
+
+  const removeWeekend = pathname == '/course/digital-marketing' ? 'd-none ' : ' d-block'
 
   return (
     <IntersectionObserver animationFuncion={() => COURSE_BANNER_ANIMATION(banner)}>
@@ -37,7 +39,7 @@ const CourseBanner = ({ name, duration, weekday, weekend }) => {
               <h2 className='m-0 text-primary'>{!weekend ? `N/A` : `${weekday}`}</h2>
               <p className='m-0 text-dark small-text fw-bold'>Weekday Class: {weekday} </p>
             </div>
-            <div>
+            <div className={`${removeWeekend}`}>
               <h2 className='m-0 text-primary'>{!weekday ? `N/A` : `${weekend}`}</h2>
               <p className='m-0 text-dark small-text fw-bold'>Weekend Class, Online Class: {weekend} </p>
             </div>
