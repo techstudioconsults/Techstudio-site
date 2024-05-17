@@ -103,8 +103,8 @@ technologies for learning.`,
         image: `https://res.cloudinary.com/doejcrfso/image/upload/v1713466711/IG%20Marketing%20gifs/igm_jxsem6.png`,
         imageLow: `https://res.cloudinary.com/doejcrfso/image/upload/v1713466711/IG%20Marketing%20gifs/igm_jxsem6.png`,
         title: `Digital Marketing `,
-        description: ` Let’s equip you with practical, hands-on expertise that will help you become a highly sought-after marketing professional.
-        From mastering the fundamentals of digital marketing to delving deep into advanced strategies, our experienced instructors will guide you through every step of the journey.
+        description: ` 
+        Our experienced instructors will guide you through the journey of becoming a sought-after marketing professional, covering digital marketing fundamentals and advanced strategies.
         `,
         path: `/course/digital-marketing`,
       },
