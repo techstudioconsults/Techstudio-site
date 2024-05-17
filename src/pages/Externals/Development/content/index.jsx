@@ -1124,9 +1124,31 @@ In object-oriented JavaScript, students will learn how to create objects, define
   digitalMarketing: {
     hero: {
       title: `Digital Marketing Immersive `,
-      subTitle: `In this immersive program, you'll uncover the secrets behind crafting magnetic branding, mastering the art of ad creation, how to create compelling offers and ignite your creativity in content development.
-      Whether you're a savvy entrepreneur hungry for business growth or a content creator eager to make your mark, this course is to help you hit your sales target consistently.`,
+      subTitle: `Let’s equip you with practical, hands-on expertise that will help you become a highly sought-after marketing professional.
+      From mastering the fundamentals of digital marketing to delving deep into advanced strategies, our experienced instructors will guide you through every step of the journey.
+      `,
       img: `https://res.cloudinary.com/dkszgtapy/image/upload/v1687070589/techstudio-web-app/assets/images/Group_1000002401_tpwtbe.png`,
+    },
+
+    sectionTwo: {
+      header: {
+        title: `Our Process`,
+      },
+      cards: [
+        {
+          img: tag1,
+          text: `We understand that every student is unique, with different learning styles and goals. That's why we tailor our approach to ensure that each participant receives a personalized learning experience. Whether you're a complete beginner or an experienced professional, our instructors will work closely with you to identify your strengths, address your weaknesses, and help you achieve your objectives.
+          `,
+        },
+        {
+          img: tag2,
+          text: `We believe in learning by doing. That's why our digital marketing course is designed to be highly interactive and hands-on. From day one, you'll be actively engaged in practical exercises, real-world simulations, and collaborative projects that mirror the challenges you'll face in the field.`,
+        },
+        {
+          img: tag3,
+          text: `Our curriculum is carefully crafted to align with the latest industry trends, best practices, and emerging technologies in digital marketing. Whether you're interested in SEO, social media marketing, content creation, or email automation, you'll find relevant and up-to-date content that equips you with the skills and knowledge to excel in your career.  `,
+        },
+      ],
     },
 
     sectionFour: {
@@ -1138,74 +1160,110 @@ In object-oriented JavaScript, students will learn how to create objects, define
           id: 1,
           classname: `A`,
           caption: `UNIT 1`,
-          title: `Why Instagram?`,
-          desc: `IG marketing has successfully bagged us over 3,000 students since we started running Techstudio Academy. We love to believe we have hacked the process of getting customers on that lovely Zuckerberg app and we are ready to share that process with you.`,
+          title: `Introduction to Digital Marketing`,
+          desc: `Gain a comprehensive understanding of the digital marketing landscape, including key concepts, terminology, and trends shaping the industry.
+          We will explore the various digital marketing channels available, from content creation and social media marketing to email marketing and beyond. You will learn how to develop a digital marketing strategy that aligns with business objectives and target audience preferences for maximum impact and results.
+          `,
           bgColor: `null`,
-          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713455748/IG%20Marketing%20gifs/Instagram_hm19hx.gif`,
+          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713456181/IG%20Marketing%20gifs/MArketing_ng0p4c.gif`,
         },
         {
           id: 2,
           classname: `B`,
           caption: `UNIT 2`,
-          title: `Creating Compelling Offers`,
-          desc: `If you are already wasting a lot of money on marketing without getting significant sales, it is likely you are yet to understand how to craft offers. When you learn how to create irresistible offers, you won’t have an issue trying to sell your product.`,
+          title: `Content Marketing`,
+          desc: `Dive deep into the art and science of content creation, distribution, and optimization to attract, engage, and convert your target audience. Master the principles of storytelling, audience segmentation, and content amplification to create compelling and resonant content across diverse platforms and formats. You’ll be exposed to advanced content marketing techniques, such as influencer collaboration, user-generated content campaigns, and content repurposing strategies to maximize reach and ROI.
+          `,
           bgColor: `light-blue-ii`,
-          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713455949/IG%20Marketing%20gifs/Offers_Chest_c038sf.gif`,
+          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713455605/IG%20Marketing%20gifs/Content_Creation_1_xrq4hd.gif`,
         },
         {
           id: 3,
           classname: `C`,
           caption: `UNIT 3`,
-          title: `Branding`,
-          desc: `When you land on Techstudio's Instagram page, don’t you love what you see? Branding allows your prospective customers to love your business even before buying from you. You will always be their first choice and they will go on to tell their friends and colleagues about your business.`,
+          title: `Social Media Marketing`,
+          desc: `Develop a comprehensive understanding of social media platforms, algorithms, and best practices to effectively leverage them for brand building, engagement, and lead generation. Learn how to develop and execute a social media marketing strategy tailored to your business goals, target audience demographics, and industry vertical. Also, we will explore advanced social media marketing tactics, including influencer partnerships, community management, and paid advertising campaigns, to drive measurable results and ROI.
+          `,
           bgColor: `white`,
-          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713456308/IG%20Marketing%20gifs/Branding_1_te993b.gif`,
+          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713456203/IG%20Marketing%20gifs/After_sales_koqilf.gif`,
+          // img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713455949/IG%20Marketing%20gifs/Offers_Chest_c038sf.gif`,
         },
         {
           id: 4,
           classname: `D`,
           caption: `UNIT 4`,
-          title: `Ads Conversion`,
-          desc: `Have you ever run an ad and nobody even asked for what you are selling. In this module, we will be showing you how to target the right people with your IG ads.`,
+          title: `Instagram marketing`,
+          desc: `Deep dive into Instagram's unique features, tools, and algorithms to optimize your presence and engagement on the platform. Master the art of storytelling through visual content, leveraging Instagram's photo and video formats to capture attention and foster authentic connections with your audience.
+          You will discover advanced Instagram marketing strategies, such as hashtag optimization, Instagram Stories, IGTV, and influencer collaborations, to elevate your brand's visibility and impact on the platform. 
+          `,
           bgColor: `blue`,
-          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713455753/IG%20Marketing%20gifs/Ads_aeeiti.gif`,
+          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713455748/IG%20Marketing%20gifs/Instagram_hm19hx.gif`,
         },
         {
           id: 5,
           classname: `E`,
           caption: `UNIT 5`,
-          title: `Marketing`,
-          desc: `The era of boring product/service marketing ended a long time ago. You will be left with little or no interested customers if you do not present your product in a way that will ‘WOOOOOOWWW’ your audience.`,
+          title: `Ads Conversion`,
+          desc: `You will learn how to design and implement high-converting ad campaigns across various digital channels, including search engines, social media platforms, and display networks. Explore the fundamentals of ad targeting, bidding strategies, ad copywriting, and creative optimization to maximize ad performance and ROI. We will dive into analytics and conversion tracking to measure the effectiveness of your ad campaigns, identify areas for improvement, and optimize your conversion funnel for better results.
+          `,
           bgColor: `white`,
-          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713456181/IG%20Marketing%20gifs/MArketing_ng0p4c.gif`,
+          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713455753/IG%20Marketing%20gifs/Ads_aeeiti.gif`,
         },
         {
           id: 6,
           classname: `F`,
           caption: `UNIT 6`,
-          title: `Prospecting and Sales`,
-          desc: `After people make enquiries, what are the things you do to ensure that they eventually pay for your product/service? This is where we share our STRATEGIC PROSPECTING FORMULA.`,
+          title: `Branding`,
+          desc: `Understand the principles of branding, brand identity, and brand positioning, and how they influence consumer perceptions, preferences, and loyalty. You will learn how to develop a strong brand strategy that encompasses brand purpose, values, voice, and visual identity to differentiate your brand and create meaningful connections with your target audience. Also, we will be exploring case studies of successful brands and branding campaigns to glean insights into effective brand-building strategies and apply them to your own brand development efforts.
+          `,
           bgColor: `light-blue-ii`,
-          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713455613/IG%20Marketing%20gifs/Prospect_ggnaup.gif`,
+          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713456308/IG%20Marketing%20gifs/Branding_1_te993b.gif`,
         },
         {
           id: 7,
           classname: `G`,
           caption: `UNIT 7`,
-          title: `After Sales`,
-          desc: `One of the mistakes many entrepreneurs make is not caring if their customers were satisfied or not. If you want your business to last very long, you have to learn how to ensure your customers have an amazing experience. They won’t stop talking about you.`,
+          title: `Prospecting and sales`,
+          desc: `Master the art of prospecting, lead generation, and customer acquisition through targeted outreach, relationship building, and persuasive communication techniques. Learn how to identify and qualify leads, overcome objections, and close sales effectively through consultative selling and relationship-based approaches. Explore the principles of sales psychology, negotiation tactics, and objection handling to increase your sales conversion rates and drive revenue growth for your business.`,
           bgColor: `light-blue-ii`,
-          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713456203/IG%20Marketing%20gifs/After_sales_koqilf.gif`,
+          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713455613/IG%20Marketing%20gifs/Prospect_ggnaup.gif`,
         },
         {
           id: 8,
           classname: `H`,
           caption: `UNIT 8`,
-          title: `Content Creation and Planning`,
-          desc: `If you always get worried about what content to post on your social media, we are here to free you from your worries. There are strategies you can use so you never run out of content.`,
+          title: `After Sales`,
+          desc: `Understand the importance of customer retention and loyalty in sustaining long-term business success and profitability. Learn how to deliver exceptional post-purchase experiences, including onboarding, customer support, and ongoing engagement, to nurture customer relationships and drive repeat business. Explore strategies for upselling, cross-selling, and customer advocacy to maximize lifetime customer value and turn satisfied customers into brand ambassadors and advocates.
+          `,
           bgColor: `blue`,
-          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713455605/IG%20Marketing%20gifs/Content_Creation_1_xrq4hd.gif`,
+          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713456203/IG%20Marketing%20gifs/After_sales_koqilf.gif`,
         },
+        {
+          id: 9,
+          classname: `I`,
+          caption: `UNIT 9`,
+          title: `Email Marketing
+          `,
+          desc: `Master the fundamentals of email marketing, including list building, segmentation, email design, and deliverability best practices, to drive engagement and conversions.
+          Learn how to create personalized and targeted email campaigns that resonate with your audience's needs, preferences, and interests, and drive them to take action.
+          Explore the power of email automation and lifecycle marketing to streamline your email marketing efforts, increase efficiency, and deliver relevant content at every stage of the customer journey.
+          `,
+          bgColor: `white`,
+          img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713455753/IG%20Marketing%20gifs/Ads_aeeiti.gif`,
+        },
+        // {
+        //   id: 9,
+        //   classname: `I`,
+        //   caption: `UNIT 9`,
+        //   title: `Email Marketing`,
+        //   desc: `Master the fundamentals of email marketing, including list building, segmentation, email design, and deliverability best practices, to drive engagement and conversions.
+        //   Learn how to create personalized and targeted email campaigns that resonate with your audience's needs, preferences, and interests, and drive them to take action.
+        //   Explore the power of email automation and lifecycle marketing to streamline your email marketing efforts, increase efficiency, and deliver relevant content at every stage of the customer journey.
+
+        //   `,
+        //   bgColor: `blue`,
+        //   img: `https://res.cloudinary.com/doejcrfso/image/upload/v1713455605/IG%20Marketing%20gifs/Content_Creation_1_xrq4hd.gif`,
+        // },
       ],
     },
 
@@ -1304,8 +1362,5 @@ In object-oriented JavaScript, students will learn how to create objects, define
   //   },
   // },
 }
-
-
-
 
 // In this immersive program, you'll uncover the secrets behind crafting magnetic branding, mastering the art of ad creation, how to create compelling offers and ignite your creativity in content development, Whether you're a savvy entrepreneur hungry for business growth or a content creator eager to make your mark, this course is to help you hit your sales target consistently.
