@@ -1,9 +1,46 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import logoWhite from '@assets/images/logo-white.png'
 import { Icon } from '@iconify/react'
 
+import { useNewsLetterMutation } from '../pages/Auth/api/authApiSlice'
+
 const Footer = () => {
+  const [newsLetter, { isLoading }] = useNewsLetterMutation()
+  const [subscribed, setSubscribed] = useState(false)
+  const [errorMessage, setErrorMessage] = useState(null)
+  const {
+    register,
+    reset,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
+
+  const onSubmit = async (data) => {
+    console.log('Subscription email:', data.email)
+    try {
+      const res = await newsLetter(data).unwrap()
+      console.log(res)
+      reset()
+      if (res.success) {
+        setErrorMessage(null)
+        setSubscribed(true)
+      }
+    } catch (error) {
+      console.log(error)
+      setErrorMessage(error.data.message)
+    }
+    // console.log('Subscription button clicked!')
+  }
+
+  // changes color after subscription
+  const showSuccess = subscribed ? 'successColor' : 'bg-white'
+  const chnageBtnBg = subscribed ? 'successColor' : 'bg-primary'
+  const subscriptionBtnText = subscribed ? 'Subscribed' : 'Subscribe'
+  const placeHolderText = subscribed ? ' ' : 'Email Address'
+  const chnageHover = subscribed ? 'subscribedBg' : 'bg-primary'
+
   return (
     <div className='bg-blue z-index-999 mt-md-20'>
       <div className='container'>
@@ -119,25 +156,33 @@ const Footer = () => {
             </div>
 
             <div className='col-12 col-lg-4 text-white fw-bolder'>
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
                   <h5 className='fs-md pb-2_5 text-white'>Subscribe to our newsletter</h5>
                 </div>
 
-                <div className='input-group mb-3 bg-white rounded-3 p-1'>
+                <div className={`input-group mb-3 ${showSuccess} rounded-3 p-1`}>
                   <input
-                    disabled
                     type='email'
+                    disabled={subscribed}
+                    {...register('email', {
+                      required: 'Email is required',
+                      pattern: {
+                        value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                        message: 'Please enter a valid email address',
+                      },
+                    })}
                     className='form-control py-2 fs-xs border-0 text-dark'
-                    placeholder='Email Address'
+                    placeholder={placeHolderText}
                     aria-label='Email Address'
                     aria-describedby='button-addon2'
                   />
-                  <button disabled className='btn btn-primary fs-xs' type='button' id='button-addon2'>
-                    Subscribe
-                    <i className=''></i>
+                  <button className={` ${chnageBtnBg} ${chnageHover} btn btn-primary fs-xs`} type='submit' id='button-addon2'>
+                    {isLoading ? `Please wait...` : `${subscriptionBtnText}`}
                   </button>
                 </div>
+                {errorMessage && <p className='text-danger small-text'>{errorMessage}</p>}
+                {errors.email && !subscribed && <p className='text-danger small-text'>{errors.email.message}</p>}
               </form>
             </div>
           </div>
