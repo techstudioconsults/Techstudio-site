@@ -80,7 +80,6 @@ export const usersApiSlice = apiSlice.injectEndpoints({
         }
       },
     }),
-
     downloadAllTutors: builder.mutation({
       query: () => ({
         url: `/users/tutors/download`,
@@ -95,6 +94,13 @@ export const usersApiSlice = apiSlice.injectEndpoints({
         }
       },
     }),
+    newsLetter: builder.mutation({
+      query: (credentials) => ({
+        url: '/external/newsletter',
+        method: 'POST',
+        body: { ...credentials },
+      }),
+    }),
   }),
 })
 
@@ -104,4 +110,5 @@ export const {
   useGetTutorsByCourseIDMutation,
   useGetStudentsByCourseIDMutation,
   useDownloadAllTutorsMutation,
+  useNewsLetterMutation,
 } = usersApiSlice

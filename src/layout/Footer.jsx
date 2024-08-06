@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import logoWhite from '@assets/images/logo-white.png'
 import { Icon } from '@iconify/react'
 
-import { useNewsLetterMutation } from '../pages/Auth/api/authApiSlice'
+import { useNewsLetterMutation } from '../pages/Dashboard/Admin/users/api/usersApiSlice'
 
 const Footer = () => {
   const [newsLetter, { isLoading }] = useNewsLetterMutation()
@@ -18,17 +18,17 @@ const Footer = () => {
   } = useForm()
 
   const onSubmit = async (data) => {
-    console.log('Subscription email:', data.email)
+    // console.log('Subscription email:', data.email)
     try {
       const res = await newsLetter(data).unwrap()
-      console.log(res)
+      // console.log(res)
       reset()
       if (res.success) {
         setErrorMessage(null)
         setSubscribed(true)
       }
     } catch (error) {
-      console.log(error)
+      // console.log(error)
       setErrorMessage(error.data.message)
     }
     // console.log('Subscription button clicked!')

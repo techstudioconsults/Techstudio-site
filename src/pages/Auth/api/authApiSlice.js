@@ -64,13 +64,6 @@ export const authApiSlice = apiSlice.injectEndpoints({
         body: { ...credentials },
       }),
     }),
-    newsLetter: builder.mutation({
-      query: (credentials) => ({
-        url: '/external/newsletter',
-        method: 'POST',
-        body: { ...credentials },
-      }),
-    }),
     forgotPassword: builder.mutation({
       query: (credentials) => ({
         url: '/auth/forgot-password',
@@ -144,7 +137,6 @@ export const {
   useRefreshMutation,
   useContactUsMutation,
   useForgotPasswordMutation,
-  useNewsLetterMutation,
   useSetNewPasswordMutation,
   useGetOTPMutation,
   useVerifyOTPMutation,
