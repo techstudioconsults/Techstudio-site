@@ -156,34 +156,6 @@ const Footer = () => {
             </div>
 
             <div className='col-12 col-lg-4 text-white fw-bolder'>
-              {/* <form onSubmit={handleSubmit(onSubmit)}>
-                <div>
-                  <h5 className='fs-md pb-2_5 text-white'>Subscribe to our newsletter</h5>
-                </div>
-
-                <div className='input-group mb-3 bg-white rounded-3 p-1'>
-                  <input
-                    type='email'
-                    {...register('email', {
-                      required: 'Email is required',
-                      pattern: {
-                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                        message: 'Please enter a valid email address',
-                      },
-                    })}
-                    // disabled
-                    className='form-control py-2 fs-xs border-0 text-dark'
-                    placeholder='Email Address'
-                    aria-label='Email Address'
-                    aria-describedby='button-addon2'
-                  />
-                  <button className='btn btn-primary fs-xs' type='button' id='button-addon2'>
-                    Subscribe
-                    <i className=''></i>
-                  </button>
-                </div>
-              </form> */}
-
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
                   <h5 className='fs-md pb-2_5 text-white'>Subscribe to our newsletter</h5>
